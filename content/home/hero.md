@@ -40,5 +40,4 @@ hero_media = "testwidgetimage.png"
 
 **Making Your Wildest Statistical Dreams Come True**
 
-Build **Anything** with Widgets
 
