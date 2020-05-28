@@ -28,4 +28,8 @@
   url = "assignments/"
   weight = 5
 
-
+[[lectures]]:
+  - name: Overview
+    weight: 1
+  - name: Content
+    weight: 2
