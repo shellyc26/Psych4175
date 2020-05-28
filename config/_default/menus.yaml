@@ -1,0 +1,34 @@
+main:
+  - name: Syllabus
+    url: /syllabus/
+    weight: 1
+  - name: Schedule
+    url: /schedule/
+    weight: 2
+  - name: Lectures
+    url: /lectures/
+    weight: 3
+  - name: Practice
+    url: /practice/
+    weight: 4
+  - name: Assignments
+    url: /assignments/
+    weight: 5
+
+lectures:
+  - name: Overview
+    weight: 1
+  - name: Course content
+    weight: 2
+practice:
+  - name: Overview
+    weight: 1
+  - name: Practice Sets
+    weight: 2
+assignment:
+  - name: Overview
+    weight: 1
+  - name: Projects
+    weight: 2
+  - name: Exercises
+    weight: 3
