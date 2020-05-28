@@ -16,3 +16,16 @@ output:
 # Here are some slides
 
 `r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Test Tab Name", "1", TRUE,
+)
+
+slide_tabs(sections, "/slides/testslides.html")
+```
+
