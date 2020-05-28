@@ -1,0 +1,18 @@
+---
+title: "Test Slides"
+author: "Shelly Cooper"
+date: "5/28/2020"
+menu:
+  content:
+    parent: Course content
+    weight: 1
+type: docs
+slides: "testslides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+# Here are some slides
+
+`r blogdown::shortcode("slide-buttons")`
