@@ -4,7 +4,7 @@ author: "Shelly Cooper"
 date: "5/28/2020"
 menu:
   content:
-    parent: Course content
+    parent: Lectures
     weight: 1
 type: docs
 slides: "testslides"
