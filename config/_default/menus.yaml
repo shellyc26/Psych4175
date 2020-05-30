@@ -18,7 +18,7 @@ main:
 lectures:
   - name: Overview
     weight: 1
-  - name: Course content
+  - name: Content
     weight: 2
 practice:
   - name: Overview

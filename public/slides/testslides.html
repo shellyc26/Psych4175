@@ -4,6 +4,7 @@
     <title>Introducing R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Coopsie" />
+    <meta name="date" content="2020-05-29" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -13,6 +14,7 @@ class: center, middle, inverse, title-slide
 
 # Introducing R
 ### Coopsie
+### 2020-05-29
 
 ---
 
@@ -94,7 +96,11 @@ summary(lm(Sepal.Length ~ Species, data = iris))
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

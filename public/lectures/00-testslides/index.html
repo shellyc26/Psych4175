@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en-us" >
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
 
@@ -27,8 +30,9 @@
   
     
   
-  <meta name="description" content="  Here are some slides   Here are some slides  View all slides in new window  Download PDF of all slides
-Test Tab Name        ">
+  <meta name="description" content="  Videos Slides   Videos Eventually, a YouTube playlist will go here.
+ Slides  View all slides in new window  Download PDF of all slides
+Tab 1        ">
 
   
   <link rel="alternate" hreflang="en-us" href="/lectures/00-testslides/">
@@ -43,6 +47,9 @@ Test Tab Name        ">
   
 
   
+  
+  
+  <script src="/js/mathjax-config.js"></script>
   
 
   
@@ -69,8 +76,6 @@ Test Tab Name        ">
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
     
 
     
@@ -174,9 +179,9 @@ Test Tab Name        ">
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -236,8 +241,9 @@ Test Tab Name        ">
   <meta property="og:site_name" content="Applied Statistical Analysis with R">
   <meta property="og:url" content="/lectures/00-testslides/">
   <meta property="og:title" content="Test Slides | Applied Statistical Analysis with R">
-  <meta property="og:description" content="  Here are some slides   Here are some slides  View all slides in new window  Download PDF of all slides
-Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="og:description" content="  Videos Slides   Videos Eventually, a YouTube playlist will go here.
+ Slides  View all slides in new window  Download PDF of all slides
+Tab 1        "><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
@@ -264,9 +270,12 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
 
-  <aside class="search-results" id="search">
+<body id="top" data-spy="scroll" data-offset="70"
+    data-target="#TableOfContents"
+    >
+
+    <aside class="search-results" id="search">
   <div class="container">
     <section class="search-header">
 
@@ -281,8 +290,7 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 
       <div id="search-box">
         
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
         
       </div>
 
@@ -298,7 +306,7 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 </aside>
 
 
-  
+    
 
 
 
@@ -454,10 +462,6 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 
     <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
       
-      <li class="nav-item">
-        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-      </li>
-      
 
       
 
@@ -469,12 +473,12 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 </nav>
 
 
-  
+    
 
 <div class="container-fluid docs">
-  <div class="row flex-xl-nowrap">
-    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
-      
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
 
 
 
@@ -493,8 +497,6 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
   </button>
 
   
-  <input name="q" type="search" class="form-control" placeholder="Search..." autocomplete="off">
-  
 </form>
 
 <nav class="collapse docs-links" id="docs-nav">
@@ -505,16 +507,24 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
   
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" >Overview</a>
+    <a class="docs-toc-link" href="/lectures/">Overview</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/lectures/">Lectures and videos</a>
+      </li>
+      
+    </ul>
+    
 
   </div>
   
   <div class="docs-toc-item">
-    <a class="docs-toc-link" href="/lectures/00-testslides/">Course content</a>
+    <a class="docs-toc-link" href="/lectures/00-testslides/">Content</a>
     <ul class="nav docs-sidenav">
       
       <li class="active">
-        <a href="/lectures/00-testslides/">0: Test</a>
+        <a href="/lectures/00-testslides/">0: Test Slides</a>
       </li>
       
     </ul>
@@ -525,38 +535,53 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
   
 </nav>
 
-    </div>
+        </div>
 
-    
+        
 
-    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
 
-      <article class="article">
+            <article class="article">
 
-        <div class="docs-article-container">
-          <h1>Test Slides</h1>
+                <div class="docs-article-container">
+                    <h1>Test Slides</h1>
 
-          <div class="article-style">
-            
+                    
+
+                    
+                    <div class="due-date p-2 mb-3 bg-content text-white">
+                        Content for Thursday, September 24, 2020
+                    </div>
+                    
+
+                    
+
+                    <div class="article-style">
+                        
 
 <div id="TOC">
 <ul>
-<li><a href="#here-are-some-slides">Here are some slides</a></li>
+<li><a href="#videos">Videos</a></li>
+<li><a href="#slides">Slides</a></li>
 </ul>
 </div>
 
-<div id="here-are-some-slides" class="section level1">
-<h1>Here are some slides</h1>
+<div id="videos" class="section level2">
+<h2>Videos</h2>
+<p>Eventually, a YouTube playlist will go here.</p>
+</div>
+<div id="slides" class="section level2">
+<h2>Slides</h2>
 
 <p><a class="btn btn-primary btn-lg" target="_blank" href="/slides/testslides.html"><i class="fas fa-external-link-alt"></i> View all slides in new window</a> <a class="btn btn-primary btn-lg" target="_blank" href="/slides/testslides.pdf" role="button"><i class="far fa-file-pdf"></i> Download PDF of all slides</a></p>
 
 <ul class="nav nav-tabs" id="slide-tabs" role="tablist">
 <li class="nav-item">
-<a class="nav-link active" id="test-tab-name-tab" data-toggle="tab" href="#test-tab-name" role="tab" aria-controls="test-tab-name" aria-selected="true">Test Tab Name</a>
+<a class="nav-link active" id="tab-1-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Tab 1</a>
 </li>
 </ul>
 <div id="slide-tabs" class="tab-content">
-<div id="test-tab-name" class="tab-pane fade show active" role="tabpanel" aria-labelledby="test-tab-name-tab">
+<div id="tab-1" class="tab-pane fade show active" role="tabpanel" aria-labelledby="tab-1-tab">
 <div class="embed-responsive embed-responsive-16by9">
 <iframe class="embed-responsive-item" src="/slides/testslides.html#1">
 </iframe>
@@ -565,52 +590,28 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 </div>
 </div>
 
-          </div>
+                    </div>
 
-          
-
-
-
-          
-          <div class="article-widget">
-            
-<div class="post-nav">
-  
-  
-</div>
-
-          </div>
-          
-        </div>
-
-        <div class="body-footer">
-          <p>Last updated on Jan 1, 0001</p>
-
-          
+                    
 
 
 
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on Jan 1, 0001</p>
+
+                    
 
 
-  
-  
+                    
 
-<p class="edit-page">
-  <a href="https://github.com/gcushen/hugo-academic/edit/master/content/lectures/00-testslides.html">
-    <i class="fas fa-pen pr-2"></i>Edit this page
-  </a>
-</p>
+                </div>
 
+            </article>
 
-
-
-          
-
-        </div>
-
-      </article>
-
-      <footer class="site-footer">
+            <footer class="site-footer">
   
   <p class="powered-by">
     
@@ -645,12 +646,11 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 </footer>
 
 
-    </main>
-  </div>
+        </main>
+    </div>
 </div>
 
-
-      
+        
 
     
     
@@ -674,8 +674,6 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 
     
     
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
-    
 
     
     
@@ -688,22 +686,6 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
     
 
     
-    
-    
-    
-    
-    
-    <script>
-      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
-      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks"
-        };
-    </script>
-    
 
     
     
@@ -714,24 +696,8 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
     
 
     
-    
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
-        </div>
-      </div>
-      </div>
-    </script>
-    
 
     
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
     
 
     
@@ -752,12 +718,10 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
     
     
     
-      
     
     
     
-    
-    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+    <script src="/js/academic.min.6f7ce8be710290b8c431bbc97f405d15.js"></script>
 
     
 
@@ -766,10 +730,10 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 
 
 
-  
-  
+    
+    
 
-  
+    
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -796,4 +760,5 @@ Test Tab Name        "><meta property="og:image" content="/images/icon_hu0b7a4cb
 </div>
 
 </body>
+
 </html>

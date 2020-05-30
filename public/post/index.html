@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en-us" >
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
 
 <head>
 
@@ -43,6 +46,9 @@
 
   
   
+  
+  <script src="/js/mathjax-config.js"></script>
+  
 
   
   
@@ -68,8 +74,6 @@
       
     
 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
     
 
     
@@ -173,9 +177,9 @@
 
       
       
-        
-      
 
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
       
     
       
@@ -261,9 +265,12 @@
 
 </head>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
 
-  <aside class="search-results" id="search">
+<body id="top" data-spy="scroll" data-offset="70"
+    data-target="#TableOfContents"
+    >
+
+    <aside class="search-results" id="search">
   <div class="container">
     <section class="search-header">
 
@@ -278,8 +285,7 @@
 
       <div id="search-box">
         
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
         
       </div>
 
@@ -295,7 +301,7 @@
 </aside>
 
 
-  
+    
 
 
 
@@ -451,10 +457,6 @@
 
     <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
       
-      <li class="nav-item">
-        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-      </li>
-      
 
       
 
@@ -466,7 +468,7 @@
 </nav>
 
 
-  
+    
 
 
 
@@ -559,11 +561,6 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
 
   
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
 
   
   
@@ -641,7 +638,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
     
 
   
-  <span><a href="/author/nelson-bighetti/">Nelson Bighetti</a></span>
+  <span>Nelson Bighetti</span>
   </div>
   
   
@@ -660,11 +657,6 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
   
 
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    2 min read
-  </span>
   
 
   
@@ -743,7 +735,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
     
 
   
-  <span><a href="/author/nelson-bighetti/">Nelson Bighetti</a></span>, <span><a href="/author/%E5%90%B3%E6%81%A9%E9%81%94/">吳恩達</a></span>
+  <span>Nelson Bighetti</span>, <span>吳恩達</span>
   </div>
   
   
@@ -762,11 +754,6 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
   
 
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    3 min read
-  </span>
   
 
   
@@ -857,11 +844,6 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   
 
   
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
 
   
   
@@ -896,7 +878,7 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
 </div>
 
-      
+        
 
     
     
@@ -920,8 +902,6 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
     
     
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
-    
 
     
     
@@ -934,45 +914,13 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
     
 
     
-    
-    
-    
-    
-    
-    <script>
-      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
-      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks"
-        };
-    </script>
-    
 
     
     
 
     
-    
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
-        </div>
-      </div>
-      </div>
-    </script>
-    
 
     
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
     
 
     
@@ -993,12 +941,10 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
     
     
     
-      
     
     
     
-    
-    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+    <script src="/js/academic.min.6f7ce8be710290b8c431bbc97f405d15.js"></script>
 
     
 
@@ -1007,10 +953,10 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 
 
 
-  
-  
-  <div class="container">
-    <footer class="site-footer">
+    
+    
+    <div class="container">
+        <footer class="site-footer">
   
   <p class="powered-by">
     
@@ -1052,10 +998,10 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
   </p>
 </footer>
 
-  </div>
-  
+    </div>
+    
 
-  
+    
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -1082,4 +1028,5 @@ Highlight your code snippets, take notes on math classes, and draw diagrams from
 </div>
 
 </body>
+
 </html>

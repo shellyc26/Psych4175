@@ -3,6 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/lectures/</loc>
+  </url>
+  
+  <url>
     <loc>/talk/example/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url>
@@ -169,10 +173,6 @@
   
   <url>
     <loc>/lectures/00-testslides/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/</loc>
   </url>
   
 </urlset>

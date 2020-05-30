@@ -1,19 +1,24 @@
 ---
 title: "Test Slides"
-linktitle: "0: Test"
+linktitle: "0: Test Slides"
 date: "5/28/2020"
-type: docs
+read_date: "2020-09-24"
 menu:
   lectures:
-    parent: Course content
+    parent: Content
     weight: 1
+type: docs
 slides: "testslides"
 output:
   blogdown::html_page:
     toc: true
 ---
 
-# Here are some slides
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
 
 `r blogdown::shortcode("slide-buttons")`
 
@@ -23,7 +28,7 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Test Tab Name", "1", TRUE,
+  "Tab 1", "1", TRUE,
 )
 
 slide_tabs(sections, "/slides/testslides.html")
