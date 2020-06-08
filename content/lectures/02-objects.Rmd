@@ -1,0 +1,42 @@
+---
+title: "Objects"
+linktitle: "2: Objects"
+date: "5/28/2020"
+read_date: "2020-09-24"
+menu:
+  lectures:
+    parent: Content
+    weight: 1
+type: docs
+slides: "02-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Objects", "5", TRUE,
+  "Assignment", "assignment", FALSE,
+  "Practice 1", "practice1", FALSE,
+  "Practice 2", "practice2", FALSE,
+  "Vectors", "vector", FALSE,
+  "Practice 3", "practice3", FALSE,
+  "Object Classes", "classes", FALSE
+)
+
+slide_tabs(sections, "/slides/02-slides.html")
+```
+
