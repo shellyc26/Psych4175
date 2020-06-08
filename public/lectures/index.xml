@@ -52,5 +52,99 @@
 </description>
     </item>
     
+    <item>
+      <title>Objects</title>
+      <link>/lectures/02-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/02-lecture/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/02-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/02-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;objects-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#objects&#34; role=&#34;tab&#34; aria-controls=&#34;objects&#34; aria-selected=&#34;true&#34;&gt;Objects&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;assignment-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#assignment&#34; role=&#34;tab&#34; aria-controls=&#34;assignment&#34; aria-selected=&#34;false&#34;&gt;Assignment&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;practice-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-1&#34; role=&#34;tab&#34; aria-controls=&#34;practice-1&#34; aria-selected=&#34;false&#34;&gt;Practice 1&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;practice-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-2&#34; role=&#34;tab&#34; aria-controls=&#34;practice-2&#34; aria-selected=&#34;false&#34;&gt;Practice 2&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;vectors-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#vectors&#34; role=&#34;tab&#34; aria-controls=&#34;vectors&#34; aria-selected=&#34;false&#34;&gt;Vectors&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;practice-3-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-3&#34; role=&#34;tab&#34; aria-controls=&#34;practice-3&#34; aria-selected=&#34;false&#34;&gt;Practice 3&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;object-classes-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#object-classes&#34; role=&#34;tab&#34; aria-controls=&#34;object-classes&#34; aria-selected=&#34;false&#34;&gt;Object Classes&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;objects&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;objects-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#5&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;assignment&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;assignment-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#assignment&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice-1&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-1-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#practice1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice-2&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-2-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#practice2&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vectors&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;vectors-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#vector&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;practice-3&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-3-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#practice3&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;object-classes&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;object-classes-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#classes&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
