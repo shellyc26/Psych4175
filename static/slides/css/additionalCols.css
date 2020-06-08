@@ -1,0 +1,246 @@
+/* 
+Custom CSS for making slides fit the color palette
+*/
+
+
+/* 
+Slides with title bars at the top
+*/
+.title {
+  padding-top: 0em;
+  border-top: 110px solid #777777;
+}
+
+.title h1 {
+  margin-top: -85px;
+  margin-bottom: 50px;
+}
+
+.title-1 {
+  border-top-color: #eb4d4b;
+}
+
+.title-2 {
+  border-top-color: #4834d4;
+}
+
+.title-3 {
+  border-top-color: #be2edd;
+}
+
+.title-4 {
+  border-top-color: #f0932b;
+}
+
+.title-5 {
+  border-top-color: #6ab04c;
+}
+
+.title-6 {
+  border-top-color: #f9ca24;
+}
+
+.title-7 {
+  border-top-color: #22a6b3;
+}
+
+.title-inv-1 {
+  border-top-color: #ff7979;
+}
+
+.title-inv-2 {
+  border-top-color: #686de0;
+}
+
+.title-inv-3 {
+  border-top-color: #e056fd;
+}
+
+.title-inv-4 {
+  border-top-color: #ffbe76;
+}
+
+.title-inv-5 {
+  border-top-color: #badc58;
+}
+
+.title-inv-6 {
+  border-top-color: #f6e58d;
+}
+
+.title-inv-7 {
+  border-top-color: #7ed6df;
+}
+
+/*
+General color classes
+*/
+.color-1 {
+  color: #eb4d4b;
+}
+
+.color-2 {
+  color: #4834d4;
+}
+
+.color-3 {
+  color: #be2edd;
+}
+
+.color-4 {
+  color: #f0932b;
+}
+
+.color-5 {
+  color: #6ab04c;
+}
+
+.color-6 {
+  color: #f9ca24;
+}
+
+.color-7 {
+  color: #22a6b3;
+}
+
+.color-light-1 {
+  color: #ff7979;
+}
+
+.color-light-2 {
+  color: #686de0;
+}
+
+.color-light-3 {
+  color: #e056fd;
+}
+
+.color-light-4 {
+  color: #ffbe76;
+}
+
+.color-light-5 {
+  color: #badc58;
+}
+
+.color-light-6 {
+  color: #f6e58d;
+}
+
+.color-light-7 {
+  color: #7ed6df;
+}
+
+/* 
+Coloring and inverse coloring in title bars and content boxes
+*/
+.box-1,
+.section-title-1 {
+  background-color: #eb4d4b;
+}
+
+.box-2,
+.section-title-2 {
+  background-color: #4834d4;
+}
+
+.box-3,
+.section-title-3 {
+  background-color: #be2edd;
+}
+
+.box-4,
+.section-title-4 {
+  background-color: #f0932b;
+}
+
+.box-5,
+.section-title-5 {
+  background-color: #6ab04c;
+}
+
+.box-6,
+.section-title-6 {
+  background-color: #f9ca24;
+}
+
+.box-7,
+.section-title-7 {
+  background-color: #22a6b3;
+}
+
+.box-inv-1 {
+  background-color: #ff7979;
+}
+
+.box-inv-2 {
+  background-color: #686de0;
+}
+
+.box-inv-3 {
+  background-color: #e056fd;
+}
+
+.box-inv-4 {
+  background-color: #ffbe76;
+}
+
+.box-inv-5 {
+  background-color: #badc58;
+}
+
+.box-inv-6 {
+  background-color: #f6e58d;
+}
+
+.box-inv-7 {
+  background-color: #7ed6df;
+}
+
+.box-inv-1,
+.title-inv-1 h1 {
+  color: #eb4d4b;
+}
+
+.box-inv-2,
+.title-inv-2 h1 {
+  color: #4834d4;
+}
+
+.box-inv-3,
+.title-inv-3 h1 {
+  color: #be2edd;
+}
+
+.box-inv-4,
+.title-inv-4 h1 {
+  color: #f0932b;
+}
+
+.box-inv-5,
+.title-inv-5 h1 {
+  color: #6ab04c;
+}
+
+.box-inv-6,
+.title-inv-6 h1 {
+  color: #f9ca24;
+}
+
+.box-inv-7,
+.title-inv-7 h1 {
+  color: #22a6b3;
+}
+
+.box-7, .box-6, .box-5, .box-4, .box-3, .box-2, .box-1, .title-7 h1, .title-6 h1, .title-5 h1, .title-4 h1, .title-3 h1, .title-2 h1, .title-1 h1, .section-title h1 {
+  color: #FFFFFF;
+}
+
+.box-7, .box-inv-7, .box-6, .box-inv-6, .box-5, .box-inv-5, .box-4, .box-inv-4, .box-3, .box-inv-3, .box-2, .box-inv-2, .box-1, .box-inv-1 {
+  margin: 0em auto;
+  overflow: hidden;
+  padding: 0.1em 0.4em;
+  font-weight: 600;
+  display: table;
+  text-align: center;
+}

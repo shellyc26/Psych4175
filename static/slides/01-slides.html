@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Objects &amp; Classes</title>
+    <meta charset="utf-8" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Objects &amp; Classes
+## Part 1
+
+---
+
+
+
+
+
+
+
+
+# Plan for today
+
+- What is an **object**?
+
+--
+
+- **Assignment**
+
+--
+
+- More than 1 thing with **vectors**
+
+--
+
+- Object **classes**
+
+---
+
+# What do we *want*?
+
+We *want* our data to look something like this...
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mass &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 77.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 75.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Darth Vader &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 202 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 136.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 49.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alderaan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 77.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Stewjon &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 112.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 80.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 78.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# What do we *want*?
+
+What R sees...
+
+
+```
+## # A tibble: 10 x 6
+##    name           height  mass gender homeworld species       
+##    &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;fct&gt;         
+##  1 Luke Skywalker    172  77   male   Tatooine  Human         
+##  2 C-3PO             167  75   &lt;NA&gt;   Tatooine  Droid         
+##  3 R2-D2              96  32   &lt;NA&gt;   Naboo     Droid         
+##  4 Darth Vader       202 136   male   Tatooine  Human         
+##  5 Leia Organa       150  49   female Alderaan  Human         
+##  6 Obi-Wan Kenobi    182  77   male   Stewjon   Human         
+##  7 Chewbacca         228 112   male   Kashyyyk  Wookiee       
+##  8 Han Solo          180  80   male   Corellia  Human         
+##  9 Yoda               66  17   male   &lt;NA&gt;      Yoda's species
+## 10 Boba Fett         183  78.2 male   Kamino    Human
+```
+
+---
+name: objects
+
+# How do we get there? 
+
+### Objects
+
+- A basic concept in (statistical) programming is called an **object**
+
+- An **object** allows you to store a value or a thing:
+
+---
+
+# An object can be...
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; mass &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Darth Vader &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 202 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;136&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alderaan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Stewjon &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 112 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 78.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# An object can be...
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; mass &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Darth Vader &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 202 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 136 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alderaan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Stewjon &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 112 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 78.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# An object can be...
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; mass &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Darth Vader &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 202 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 136 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alderaan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Stewjon &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 112 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 78.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# An object can be...
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; mass &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Luke Skywalker &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 172 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; C-3PO &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 75 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; R2-D2 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 96 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Naboo &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Darth Vader &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 202 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 136 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Leia Organa &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 150 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Alderaan &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Obi-Wan Kenobi &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 182 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Stewjon &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Chewbacca &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 228 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 112 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Kashyyyk &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Wookiee &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Han Solo &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 180 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Corellia &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Yoda &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Yoda's species &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Boba Fett &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 183 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 78.2 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Kamino &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+### &lt;span style="color: #be2edd;"&gt;Important&lt;/span&gt;:
+
+- Objects have *names*
+- We are going to refer to objects by their *names*
+- Since they have names, we can **store** objects and use them later
+
+---
+name: assignment
+
+# Storing data in objects
+
+If you want to use an object later on (you do!), you have to name it.
+
+This is called **assignment** or **assigning** a name to an object
+
+In takes the form of:
+
+
+```r
+nameOfMyObject &lt;- objectToStore
+```
+
+---
+class: inverse, middle, center
+name: practice1
+
+# Go do Practice #1
+
+When you have finished, come back here.
+
+---
+
+# What's the point of storing objects?
+
+Remembering things sucks! Let R hold on to all the stuff you don't want to remember or write down right away. 
+
+Let's do an example with a series of math equations:
+`$$y = 17*8$$`
+`$$z = \frac{y}{3}$$`
+How do we solve this?:
+
+1. Solve for `\(y\)`, which is `\(136\)`. Either remember `\(136\)` or write the number down.
+2. Plug it in in the second equation, so that you have `\(136\)` divided by `\(3\)`. 
+
+---
+
+#Let's do this with R code!
+
+Let's do an example with a series of math equations:
+`$$y = 17*8$$`
+`$$z = \frac{y}{3}$$`
+
+With code:
+
+```r
+y &lt;- 17*8 # first, solve for y 
+z &lt;- y/3 # now, solve for z 
+```
+
+--
+
+We didn't even need to know that `17*8` is `136`. We stored the value of `136` as an object with the name `y`.
+
+--
+
+Then, we could tell R to simply use the name `y` anytime we wanted to refer to the number `136` 
+
+---
+# Who cares?
+
+Remembering a single number seems a little ridiculous. But remember, an object in R can really be anything. Some objects you definitely might want to store for later:
+
+- A data set like `empire`
+- A correlation coefficient
+- The output of a linear regression model
+- `\(p\)`-values and other statistics
+- The mean of a variable, so you can subtract the mean from every individual's score
+- and lots, lots more!
+---
+
+class: center
+
+## If you do not assign a name to an object, R will not remember it!
+
+Example:
+
+
+
+```r
+17*8
+```
+
+```
+## [1] 136
+```
+
+```r
+y/3
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'y' not found
+```
+
+--
+&lt;br&gt;
+&lt;br&gt;
+
+#### The error message `object 'y' not found` is very common!
+R cannot perform the operation because you never told it to remember `17*8`
+---
+
+class: inverse, middle, center
+name: practice2
+
+# Go do Practice #2
+
+When you have finished, come back here.
+
+---
+name: vector
+
+# One type of object: **Vectors**
+
+A group of objects is called a **vector**
+
+**Vectors** are *ONE-DIMENSIONAL*. You can think of this as either a row...
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; mass &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Darth Vader &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 202 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 136 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alderaan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Stewjon &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 112 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 78.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# One type of object: **Vectors**
+
+A group of objects is called a **vector**
+
+**Vectors** are *ONE-DIMENSIONAL*. You can think of this as either a row...
+... or a column
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; mass &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 75 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Darth Vader &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 202 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 136 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alderaan &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Stewjon &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 112 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 80 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; 78.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Making Vectors
+In your R code, you will type `c()` in order to create a vector
+
+The `c` stands for *"combine"* or *"concatenate"*
+
+Some examples:
+
+```r
+subjectID &lt;- c("Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5")
+passedStats &lt;- c(TRUE, FALSE, FALSE, TRUE, TRUE)
+favoriteNumbers &lt;- c(7, 3, 6, 10, 100)
+countries &lt;- c(0, 3, 10, 1, 8)
+```
+
+---
+
+# Vectors
+Because these items are grouped together, you can do something to them all at once!
+
+Let's say these 5 people all went on a trip together, and they visited 2 countries. We can add `2` to the entire vector, rather than each individual number:
+
+
+```r
+countries + 2
+```
+
+```
+## [1]  2  5 12  3 10
+```
+
+---
+
+class: inverse, middle, center
+name: practice3
+
+# Go do Practice #3
+
+When you have finished, come back here.
+
+---
+
+name: classes
+# Basic object classes
+
+Objects can be of a different `class`. You can think of it more as *what type of information is stored in the object?*. Some of the options are:
+
+- **Numeric:** Decimals (3.141593)
+
+- **Integer:** Natural numbers (0,1,2, etc.)
+
+- **Character:** Text or string characters:
+
+    - Always inside quotation marks
+    - **Factors** (or categories)
+- **Logical:** True or False:
+
+    - No quotations
+    - 2 possible values: `TRUE` or `FALSE`
+    
+- **Missing Value:** `NA`
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
