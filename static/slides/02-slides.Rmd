@@ -339,4 +339,3 @@ Objects can be of a different `class`. You can think of it more as *what type of
     
 - **Missing Value:** `NA`
 
----
