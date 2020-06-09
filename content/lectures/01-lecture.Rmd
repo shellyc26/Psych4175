@@ -1,0 +1,38 @@
+---
+title: "RStudio"
+linktitle: "1: RStudio"
+date: "6/8/2020"
+read_date: "2020-09-24"
+menu:
+  lectures:
+    parent: Content
+    weight: 2
+type: docs
+slides: "01-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "About R", "1", TRUE,
+  "RStudio Tour", "rstudio", FALSE,
+  "Practice 1", "practice", FALSE
+)
+
+slide_tabs(sections, "/slides/01-slides.html")
+```
+

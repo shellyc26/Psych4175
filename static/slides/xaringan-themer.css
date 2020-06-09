@@ -43,19 +43,19 @@
 
   /* Colors */
   --text-color: #272822;
-  --header-color: #4834d4;
+  --header-color: #eb4d4b;
   --background-color: #FFFFFF;
-  --link-color: #4834d4;
-  --text-bold-color: #4834d4;
+  --link-color: #eb4d4b;
+  --text-bold-color: #eb4d4b;
   --code-highlight-color: rgba(255,255,0,0.5);
   --inverse-text-color: #FFFFFF;
-  --inverse-background-color: #4834d4;
+  --inverse-background-color: #eb4d4b;
   --inverse-header-color: #FFFFFF;
-  --title-slide-background-color: #4834d4;
+  --title-slide-background-color: #eb4d4b;
   --title-slide-text-color: #FFFFFF;
-  --header-background-color: #4834d4;
+  --header-background-color: #eb4d4b;
   --header-background-text-color: #FFFFFF;
-  --base: #4834d4;
+  --base: #eb4d4b;
   --white: #FFFFFF;
   --black: #272822;
 }
@@ -98,10 +98,10 @@ h1, h2, h3 {
 }
 .remark-inline-code {
   font-size: var(--code-inline-font-size);
-  color: #4834d4;
+  color: #eb4d4b;
 }
 .remark-slide-number {
-  color: #4834d4;
+  color: #eb4d4b;
   opacity: 1;
   font-size: 0.9em;
 }
@@ -143,10 +143,10 @@ a, a > code {
   float: left;
 }
 .left-column h2, .left-column h3 {
-  color: #4834d499;
+  color: #eb4d4b99;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
-  color: #4834d4;
+  color: #eb4d4b;
 }
 .right-column {
   width: 75%;
@@ -168,7 +168,7 @@ img, video, iframe {
   max-width: 100%;
 }
 blockquote {
-  border-left: solid 5px #4834d480;
+  border-left: solid 5px #eb4d4b80;
   padding-left: 1em;
 }
 .remark-slide table {
@@ -183,7 +183,7 @@ th, td {
   padding: 5px;
 }
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
-  background: #DAD6F6;
+  background: #FBDBDB;
 }
 table.dataTable tbody {
   background-color: var(--background-color);
@@ -193,7 +193,7 @@ table.dataTable.display tbody tr.odd {
   background-color: var(--background-color);
 }
 table.dataTable.display tbody tr.even {
-  background-color: #DAD6F6;
+  background-color: #FBDBDB;
 }
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.5);

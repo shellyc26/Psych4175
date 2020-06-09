@@ -1,0 +1,119 @@
+---
+title: "Getting Oriented"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = F,
+                      message = F,
+                      fit.retina = 3,
+                      fig.align = "center")
+
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(base_color = "#eb4d4b")
+```
+
+# Plan for today
+
+- Why R? 
+- Getting oriented with R & RStudio
+- Randome helpful tidbits to know beofre you get going
+
+---
+name: why
+
+# Why R?
+- It's FREE!
+- It's open source
+- It's excellent at statistics and data visualization
+- It's flexible
+- And also, it's **free**
+
+---
+
+# What is R?
+
+**R** is a programming language
+
+**RStudio** is a program that makes it easy to actually use R
+
+---
+
+# In this class...
+
+.pull-left[
+
+<img src="01-slides_files/figure-html/aRR.png", width = "100%">
+
+]
+
+.pull-right[
+
+- Ask questions
+- **Make mistakes!**
+- When in doubt, *Google*
+
+]
+
+---
+
+name: rstudio
+class: inverse, middle, center
+
+# Getting Familiar with RStudio
+
+---
+
+# RStudio
+
+- Open RStudio in a new window on your computer
+- Watch this Video & play with RStudio in parallel
+
+---
+
+# Running Code
+Step 1:
+
+- If you want to run **one line**, click anywhere in that line of code so that your cursor is there
+- If you want to run **multiple lines**, highlight all of the lines of code you want to run
+
+Step 2:
+
+- Click "Run" at top right of script
+- Hit `command` + `return` (for Mac) or `ctrl` + `enter` (for PC)
+
+---
+
+# Comment. Your. Code.
+
+**#**
+- You can use the hashtag/pound symbol to add comments/notes to yourself -- **R knows that this is a note**
+
+- It is *strongly* recommended that you make notes to yourself along the way!
+
+---
+name: practice
+class: inverse, middle, center
+
+# Go to Practice 1
+After you have finished, continue on to the next video
