@@ -141,7 +141,7 @@ kable(empire, format = "html", escape = F) %>%
 
 ---
 
-### <span style="color: #be2edd;">Important</span>:
+# Important:
 
 - Objects have *names*
 - We are going to refer to objects by their *names*
@@ -297,6 +297,13 @@ countries <- c(0, 3, 10, 1, 8)
 
 ```
 
+```{r vec3b, echo = F}
+subjectID 
+passedStats 
+favoriteNumbers 
+countries 
+
+```
 ---
 
 # Vectors
@@ -320,22 +327,120 @@ When you have finished, come back here.
 ---
 
 name: classes
-# Basic object classes
+# Basic data classes
 
 Objects can be of a different `class`. You can think of it more as *what type of information is stored in the object?*. Some of the options are:
 
 - **Numeric:** Decimals (3.141593)
 
+--
+
 - **Integer:** Natural numbers (0,1,2, etc.)
+
+--
 
 - **Character:** Text or string characters:
 
     - Always inside quotation marks
     - **Factors** (or categories)
+--
+
 - **Logical:** True or False:
 
     - No quotations
     - 2 possible values: `TRUE` or `FALSE`
-    
+--
+
 - **Missing Value:** `NA`
 
+---
+
+# Basic data classes
+To check what data class your object is, you can type **`class()`**.
+
+```{r classEx}
+class(subjectID)
+class(passedStats)
+class(countries)
+class(empire$species)
+```
+
+---
+
+# Pro Tip \#1: Special Values
+RStudio will change the color of the words you type so that as you code, you can quickly see what you're dealing with.
+
+---
+
+# Pro Tip \#1: Special Values
+
+**Character objects** are red (or green), and use quotation marks:
+```{r}
+subjectID <- c("Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5")
+```
+--
+
+**Numeric objects** are green (or blue) and do *NOT* use quotation marks:
+```{r}
+favoriteNumbers <- c(7, 3, 6, 10, 100)
+```
+--
+
+**Exception #1: `NA`**, without quotation marks, is recognized as "missing" by R. 
+```{r}
+animals <- c("cow", "dog", NA, "chicken")
+```
+--
+
+**Exception #2: `TRUE` and `FALSE`** does *not* require quotation marks. Must be either ALL CAPS or just the first letter capitalized (`T` or `F`).
+```{r, eval = FALSE}
+variable <- c(T, FALSE, F, TRUE) # this line is correct #<<
+variable <- c(t, false, f, true) # this line is incorrect
+```
+
+---
+
+# Back to data classes
+
+When you combine objects, the new object will have the class of the **least specific** object. For example:
+
+```{r cex}
+numbers <- c(5, 6, 7, "eight", 9)
+class(numbers)
+```
+
+All numbers could theoretially be wrapped in quotes and considered text. But there is no way for the computer to understand that the character string "eight" actually refers to 8. So the `character` class is less specific than the `numeric` class. 
+
+---
+
+# Pro Tip \#2: Naming objects
+- An object name can *never __start__* with a number, like `3myObject <- 7`
+
+- You can include underscores `_` and periods `.` in object names, like `my_object <- "hi"` or `correlation.2 <- .57` 
+
+- RStudio allows for tab-complete. Start typing in an object name, and it should appear! Once you see it, either hit tab or enter on your keyboard, and it will fill in the object name for you
+    - This means you should name your objects with clear, meaningful names!
+    - It does not matter how long the name is
+
+- Use capitalization to your benefit, like camel case `r emo::ji("camel")` `myObject` or `patientsVsControls`
+
+- Names should be human & computer readable
+
+---
+
+# Recap
+1. **Objects** are things, with names -- use the names!
+
+2. Single values, or a group of values like **vectors**
+
+3. The stuff within objects can belong to different data types or **data classes**
+
+4. A lot of the error messages you'll get will relate to these!
+
+5. Next up will be accessing our objects!
+
+<center>
+
+<img src="02-slides_files/figure-html/fakeprogrammer.png", width = "35%">
+
+</center>
