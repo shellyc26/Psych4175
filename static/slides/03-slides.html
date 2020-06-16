@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Getting Oriented</title>
+    <title>Indexing</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Getting Oriented
+# Indexing
+## Part 1
 
 ---
 
@@ -18,90 +20,193 @@ class: center, middle, inverse, title-slide
 
 
 
-# Plan for today
 
-- Why R? 
-- Getting oriented with R &amp; RStudio
-- Random helpful tidbits to know before you get going
 
----
-name: why
+# Last time was .color-light-3[objects]
 
-# Why R?
-- It's FREE!
-- It's open source
-- It's excellent at statistics and data visualization
-- It's flexible
-- And also, it's **free**
+- **.color-light-3[Objects]** are the **.color-light-3[nouns]** of programming languages
 
----
+--
 
-# What is R?
-
-**R** is a programming language
-
-**RStudio** is a program that makes it easy to actually use R
+- **.color-light-3[Objects]** store something
+  - value
+  - character string
+  - **.color-light-4[vector]** of values or characters
+  - entire data frame
+  - model
+  - etc...
 
 ---
+# So what? 
+- Making an .color-light-3[object] is only useful if you can use it later on
+--
 
-# In this class...
+- We need to be able to access our .color-light-3[objects]
+--
 
-.pull-left[
-
-&lt;img src="01-slides_files/figure-html/aRR.png", width = "100%"&gt;
-
-]
-
-.pull-right[
-
-- Ask questions
-- **Make mistakes!**
-- When in doubt, *Google*
-
-]
+- And we need to be able to access bits and pieces of our .color-light-3[objects]
+  - Example: what if you only want one or a few of the objects in a **.color-light-4[vector]**? 
 
 ---
 
-name: rstudio
+name: indexing
+
+# Indexing
+
+#### **Indexing** is how we access items within a .color-light-4[vector].
+--
+
+To index a **.color-light-4[vector]**, we're going to use square brackets `[ ]`
+---
+# An example
+
+Let's make a **.color-light-4[vector]** of *some* my favorite TV `comedies`:
+
+```r
+comedies &lt;- c("Parks and Rec", "Broad City", "I'm Sorry", "Avenue 5",
+              "Bored to Death", "The Office", "Silicon Valley", "30 Rock",
+              "Big Mouth", "Futurama")
+```
+
+--
+If you want to look at *all* the objects contained in the vector, all you need is your vector name
+
+```r
+comedies
+```
+
+```
+##  [1] "Parks and Rec"  "Broad City"     "I'm Sorry"      "Avenue 5"      
+##  [5] "Bored to Death" "The Office"     "Silicon Valley" "30 Rock"       
+##  [9] "Big Mouth"      "Futurama"
+```
+--
+
+But, if I only want to know the 6th TV show in this `comedies` vector I would type:
+
+```r
+comedies[6]
+```
+
+```
+## [1] "The Office"
+```
+
+---
+
+# Indexing
+
+An **index** is the *position* of an element in a .color-light-4[vector]
+
+--
+
+In `R`, indexing starts at 1. That is, the first element of a vector is located at position 1. 
+
+--
+
+The basic syntax is to take the name of the .color-light-4[vector] and directly next to in, in square brackets, put the position you want to get. 
+
+  - Something like `objectName[position number]`
+
+---
+name: indexingVectors
+
+# Indexing Vectors
+
+
+```r
+comedies &lt;- c("Parks and Rec", "Broad City", "I'm Sorry", "Avenue 5",
+              "Bored to Death", "The Office", "Silicon Valley", "30 Rock",
+              "Big Mouth", "Futurama")
+```
+
+To select objects that are sequential (in a row):
+
+  - `comedies[3:5]`
+  - You can think of `:` as *"through"*
+    - `[3:5]` = "three *through* five"
+--
+
+
+```r
+comedies[3:5]
+```
+
+```
+## [1] "I'm Sorry"      "Avenue 5"       "Bored to Death"
+```
+
+---
+
+# Indexing Vectores
+
+To select objects that are *not* in a row:
+  
+
+```r
+comedies[c(1,7,10)]
+```
+
+```
+## [1] "Parks and Rec"  "Silicon Valley" "Futurama"
+```
+--
+
+Note that you need to wrap the position numbers inside of `c()`. What you're doing is making a mini-vector of position numbers! Vectors on vectors!
+---
+
+# Indexing Vectors
+Since you can make these mini-vectors, you can go crazy and combine sequential and non-sequential objects. 
+  - Example:
+  
+
+```r
+comedies[c(1:4, 9)]
+```
+
+```
+## [1] "Parks and Rec" "Broad City"    "I'm Sorry"     "Avenue 5"     
+## [5] "Big Mouth"
+```
+
+This reads as *"give me the elements that correspond to positions 1,2,3,4 (1 through 4), and 9"*
+
+---
+name: impact
+
+# A more serious example
+Let's say we have a vector that contains body mass indices (BMIs) for 20 participants in your study. A healthy BMI is between 18.5-24.9, and anything above 30 is considered "obese". You inspect your vector called `bmi`.
+
+
+```
+##  [1] 30.9 20.3 29.7 23.6 34.5 25.8 34.4 26.0 33.4 33.4 34.5 23.8 34.1 31.8 26.0
+## [16] 85.2 94.5 77.3 58.6 90.7
+```
+
+--
+
+The last 5 numbers are WAY off the scale! You recently implemented a new survey tool to collect the data, and only those 5 participants used the new method. You realize there's probably something wrong with the data collection!
+
+You'll need those **index** positions in order to remove those 5 participants. 
+
+
+```r
+bmi[16:20]
+```
+
+```
+## [1] 85.2 94.5 77.3 58.6 90.7
+```
+
+(We will talk more about removing participants in the coming weeks!)
+
+---
+
 class: inverse, middle, center
+name: practice1
 
-# Getting Familiar with RStudio
-
----
-
-# RStudio
-
-- Open RStudio in a new window on your computer
-- Watch this Video &amp; play with RStudio in parallel
-
----
-
-# Running Code
-Step 1:
-
-- If you want to run **one line**, click anywhere in that line of code so that your cursor is there
-- If you want to run **multiple lines**, highlight all of the lines of code you want to run
-
-Step 2:
-
-- Click "Run" at top right of script
-- Hit `command` + `return` (for Mac) or `ctrl` + `enter` (for PC)
-
----
-
-# Comment. Your. Code.
-
-# **`#`**
-- You can use the hashtag/pound symbol to add comments/notes to yourself -- **R knows that this is a note**
-
-- It is *strongly* recommended that you make notes to yourself along the way!
-
----
-name: practice
-class: inverse, middle, center
-
-# Go to Practice 1
-After you have finished, continue on to the next video
+# Go do Practice #1
+When you are finished, go on to the next video
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

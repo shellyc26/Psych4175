@@ -32,10 +32,10 @@
   
   <meta name="description" content="  Videos Slides   Videos Eventually, a YouTube playlist will go here.
  Slides  View all slides in new window  Download PDF of all slides
-About R  RStudio Tour  Practice 1              ">
+Recap  Index  Indexing for Vectors  Importance  Practice                    ">
 
   
-  <link rel="alternate" hreflang="en-us" href="/lectures/01-lecture/">
+  <link rel="alternate" hreflang="en-us" href="/lectures/03-lecture/">
 
   
 
@@ -223,7 +223,7 @@ About R  RStudio Tour  Practice 1              ">
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/lectures/01-lecture/">
+  <link rel="canonical" href="/lectures/03-lecture/">
 
   
   
@@ -239,11 +239,11 @@ About R  RStudio Tour  Practice 1              ">
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Applied Statistical Analysis with R">
-  <meta property="og:url" content="/lectures/01-lecture/">
-  <meta property="og:title" content="RStudio | Applied Statistical Analysis with R">
+  <meta property="og:url" content="/lectures/03-lecture/">
+  <meta property="og:title" content="Indexing | Applied Statistical Analysis with R">
   <meta property="og:description" content="  Videos Slides   Videos Eventually, a YouTube playlist will go here.
  Slides  View all slides in new window  Download PDF of all slides
-About R  RStudio Tour  Practice 1              "><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+Recap  Index  Indexing for Vectors  Importance  Practice                    "><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
   
     
@@ -266,7 +266,7 @@ About R  RStudio Tour  Practice 1              "><meta property="og:image" conte
 
 
 
-  <title>RStudio | Applied Statistical Analysis with R</title>
+  <title>Indexing | Applied Statistical Analysis with R</title>
 
 </head>
 
@@ -527,7 +527,7 @@ About R  RStudio Tour  Practice 1              "><meta property="og:image" conte
         <a href="/lectures/00-testslides/">0: Test Slides</a>
       </li>
       
-      <li class="active">
+      <li >
         <a href="/lectures/01-lecture/">1: RStudio</a>
       </li>
       
@@ -535,7 +535,7 @@ About R  RStudio Tour  Practice 1              "><meta property="og:image" conte
         <a href="/lectures/02-lecture/">2: Objects</a>
       </li>
       
-      <li >
+      <li class="active">
         <a href="/lectures/03-lecture/">3: Indexing</a>
       </li>
       
@@ -560,7 +560,7 @@ About R  RStudio Tour  Practice 1              "><meta property="og:image" conte
             <article class="article">
 
                 <div class="docs-article-container">
-                    <h1>RStudio</h1>
+                    <h1>Indexing</h1>
 
                     
 
@@ -589,35 +589,53 @@ About R  RStudio Tour  Practice 1              "><meta property="og:image" conte
 <div id="slides" class="section level2">
 <h2>Slides</h2>
 
-<p><a class="btn btn-primary btn-lg" target="_blank" href="/slides/01-slides.html"><i class="fas fa-external-link-alt"></i> View all slides in new window</a> <a class="btn btn-primary btn-lg" target="_blank" href="/slides/01-slides.pdf" role="button"><i class="far fa-file-pdf"></i> Download PDF of all slides</a></p>
+<p><a class="btn btn-primary btn-lg" target="_blank" href="/slides/03-slides.html"><i class="fas fa-external-link-alt"></i> View all slides in new window</a> <a class="btn btn-primary btn-lg" target="_blank" href="/slides/03-slides.pdf" role="button"><i class="far fa-file-pdf"></i> Download PDF of all slides</a></p>
 
 <ul class="nav nav-tabs" id="slide-tabs" role="tablist">
 <li class="nav-item">
-<a class="nav-link active" id="about-r-tab" data-toggle="tab" href="#about-r" role="tab" aria-controls="about-r" aria-selected="true">About R</a>
+<a class="nav-link active" id="recap-tab" data-toggle="tab" href="#recap" role="tab" aria-controls="recap" aria-selected="true">Recap</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="rstudio-tour-tab" data-toggle="tab" href="#rstudio-tour" role="tab" aria-controls="rstudio-tour" aria-selected="false">RStudio Tour</a>
+<a class="nav-link" id="index-tab" data-toggle="tab" href="#index" role="tab" aria-controls="index" aria-selected="false">Index</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="practice-1-tab" data-toggle="tab" href="#practice-1" role="tab" aria-controls="practice-1" aria-selected="false">Practice 1</a>
+<a class="nav-link" id="indexing-for-vectors-tab" data-toggle="tab" href="#indexing-for-vectors" role="tab" aria-controls="indexing-for-vectors" aria-selected="false">Indexing for Vectors</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="importance-tab" data-toggle="tab" href="#importance" role="tab" aria-controls="importance" aria-selected="false">Importance</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="practice-tab" data-toggle="tab" href="#practice" role="tab" aria-controls="practice" aria-selected="false">Practice</a>
 </li>
 </ul>
 <div id="slide-tabs" class="tab-content">
-<div id="about-r" class="tab-pane fade show active" role="tabpanel" aria-labelledby="about-r-tab">
+<div id="recap" class="tab-pane fade show active" role="tabpanel" aria-labelledby="recap-tab">
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/01-slides.html#1">
+<iframe class="embed-responsive-item" src="/slides/03-slides.html#1">
 </iframe>
 </div>
 </div>
-<div id="rstudio-tour" class="tab-pane fade" role="tabpanel" aria-labelledby="rstudio-tour-tab">
+<div id="index" class="tab-pane fade" role="tabpanel" aria-labelledby="index-tab">
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/01-slides.html#rstudio">
+<iframe class="embed-responsive-item" src="/slides/03-slides.html#indexing">
 </iframe>
 </div>
 </div>
-<div id="practice-1" class="tab-pane fade" role="tabpanel" aria-labelledby="practice-1-tab">
+<div id="indexing-for-vectors" class="tab-pane fade" role="tabpanel" aria-labelledby="indexing-for-vectors-tab">
 <div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="/slides/01-slides.html#practice">
+<iframe class="embed-responsive-item" src="/slides/03-slides.html#indexingVectors">
+</iframe>
+</div>
+</div>
+<div id="importance" class="tab-pane fade" role="tabpanel" aria-labelledby="importance-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/03-slides.html#impact">
+</iframe>
+</div>
+</div>
+<div id="practice" class="tab-pane fade" role="tabpanel" aria-labelledby="practice-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/03-slides.html#practice1">
 </iframe>
 </div>
 </div>
