@@ -1,5 +1,5 @@
 ---
-title: "Objects"
+title: "Objects & Indexing"
 subtitle: "Part 2"
 output:
   xaringan::moon_reader:
@@ -45,14 +45,330 @@ empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8:10)]
 empire$species <- factor(empire$species)
 
 ```
-
-# Recap of objects & classes
-
----
+name: recap
 
 # Plan for today
 
-- More sophisticated objects
+- Recap of **objects** & **classes**
 
-  - Focus will be on data.frames
-  - Will mention some other types (lists, matrices, tibble)
+- More sophisticated objects
+    - **data.frames**
+    - briefly mention others (lists, matrices, tibble)
+
+---
+
+# Objects
+
+- Objects are the nouns of programming languages
+
+- They have names and they store something
+  - single value or text string (character)
+  - vector of objects
+  - **data.frames**
+  - **models**
+  - *and more*
+  
+---
+
+# Classes
+Objects can be of a different **classes**. *What type of information is stored in the object?* Some of the options are:
+--
+
+- **Numeric:** Decimals (3.141593)
+--
+
+- **Integer:** Natural numbers (0,1,2, etc.)
+--
+
+- **Character:** Text or string characters:
+  - Always inside quotation marks
+  - **Factors** (or categories)
+--
+
+- **Logical:** True or False:
+  - No quotations
+  - 2 possible values: `TRUE` or `FALSE`
+    - or `T`/`F`...
+    - but NOT `True`/`False`/`t`/`f`
+--
+- **Missing Value:** `NA`
+
+---
+name: df
+
+# Data.frames
+Another object class is a **data.frame**. You can think of this as an Excel sheet. `empire` is an example of a data.frame. When you view it in `R`, it looks like this:
+
+<center>
+
+<img src="04-slides_files/figure-html/starwarsDataset.png">
+
+</center>
+---
+# Data.frames
+Typically, this is what we want our data to look like. In `empire`, we have 6 column vectors. But they are *NOT* stored as 6 separate objects -- they are combined because they are all related to one another. 
+--
+
+
+
+
+.box-inv-4.large[Data.frames are 2-dimensional]
+--
+
+
+
+- Rows & columns
+- Prettier spreadsheet 
+
+---
+# Data.frames
+Every **row** has **6** pieces of data that are associated with one another...
+```{r, echo=F}
+kable(empire, format = "html", escape = F) %>%
+  row_spec(row = 4, background = c("#FFFF00"))
+```
+---
+# Data.frames
+Every **column** has **10** observations...
+
+```{r, echo=F}
+kable(empire, format = "html", escape = F) %>%
+  column_spec(3, background = c("#FFFF00"))
+```
+---
+class: inverse, middle, center
+name: practice1
+
+# Go do Practice #1
+When you are finished, come back here
+
+---
+name: indexing
+
+# Indexing Data.frames
+Data.frames can be indexed just like vectors.
+--
+
+
+
+
+.box-inv-4.medium[Except: Data.frames have 2 dimensions!]
+---
+# Indexing Data.frames
+`data.frame[rows, columns]`
+
+--
+
+What *should* we get if we typed `empire[1:6,5]`?
+--
+
+```{r, echo=F}
+empire$homeworld[1:6] <- cell_spec(empire$homeworld[1:6], "html", background = c("#FFFF00"))
+
+kable(empire, format = "html", escape = F)
+```
+---
+# Indexing Data.frames
+`data.frame[rows, columns]`
+
+What *do* we get if we type `empire[1:6,5]`?
+
+```{r, echo=FALSE}
+empire <- starwars
+
+empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8:10)]
+empire$species <- factor(empire$species)
+empire = as.data.frame(empire)
+```
+
+```{r}
+empire[1:6,5]
+```
+---
+
+# Indexing Data.frames
+If you want **all** of something, leave it blank. 
+--
+
+
+*All* the rows of column 2
+
+```{r}
+empire[,2]
+```
+--
+
+*All* the columns of row 5
+
+```{r}
+empire[5,]
+```
+---
+name: finding
+
+# Finding Your Data
+Sometimes it's easy enough to remember the row index or column index that you want. But often, we forget!
+
+One of the benefits of a data.frame is that you can access a column by using the column name. 
+
+.large[`data.frame$column.name`]
+---
+# Finding Your Data
+
+```{r}
+empire$height
+```
+--
+
+- *Note the tab-complete!*
+---
+class: inverse, middle, center
+name: practice2
+
+# Go do Practice #2
+When you are finished, come back here
+
+---
+
+# Other object types
+- Matrix
+- Tibble
+- List
+---
+name: matrix
+
+# Matrix
+- Very similar to data.frame
+- No column names
+- No real reason to use matrices
+- Can convert to data.frame easily
+--
+
+```{r, error=TRUE}
+# Make a matrix
+
+testMatrix <- matrix(data =  1:12, nrow = 4, ncol = 3)
+testMatrix
+
+# Try to access "V1"
+testMatrix$V1
+```
+---
+# Matrix
+
+```{r}
+# Convert to data.frame
+
+testDataFrame <- as.data.frame(testMatrix)
+testDataFrame
+
+# Now try to access column 2 using the "V2" heading
+testDataFrame$V2
+```
+---
+name: tibble
+
+# Tibble
+
+- Even more similar to a data.frame than matrices are!
+- It works particularly well with a suite of packages called the `tidyverse`
+- If you use `class()` on a tibble, it might show up as `tbl_df`
+- At this point, for our purposes, there is not notable difference between a tibble and data.frame. 
+
+---
+name: list
+
+# List
+
+- Contain elements of different types (e.g., numbers, strings, vectors, data.frames, matrices, and more)
+- If you store a statistical model as an object, it will likely be in a list format
+  - Besides dealing with models, we will (for the most part) not be dealing with lists
+  - But they can be SUPER useful
+    - Ex: You have 2 large data.frames that have the same variables, but data were collected on different groups (e.g., patients vs. controls). You want to perform the same actions on both datasets. You can store these as a list, and run the same analysis on each, rather than copying/pasting code.
+---
+
+# Indexing Lists
+
+- For the most part, you can index lists the same way you would a vector
+- *(For these examples, let's only look at the first 3 rows of `empire`)*
+
+```{r}
+exampleList <- list("hello", empire[1:3,], c(2:12))
+
+# To get the first element (the word "hello")
+exampleList[1]
+
+```
+---
+# Indexing Lists
+
+- For the most part, you can index lists the same way you would a vector
+- *(For these examples, let's only look at the first 3 rows of `empire`)*
+```{r}
+exampleList <- list("hello", empire[1:3,], c(2:12))
+
+# To get the second element (the `empire` data.frame)
+exampleList[2]
+
+```
+---
+
+# Indexing Lists
+
+- For the most part, you can index lists the same way you would a vector
+- *(For these examples, let's only look at the first 3 rows of `empire`)*
+```{r}
+exampleList <- list("hello", empire[1:3,], c(2:12))
+
+# To get the third element (the vector of numbers 2 through 12)
+exampleList[3]
+
+```
+---
+
+# Indexing Lists
+
+- **BUT!** Lists have the equivalent of an empty book page that says "Chapter 2" before getting to the actual chapter. 
+- In order to open the chapter, we use double brackets `[[ ]]`
+```{r, error = TRUE}
+# Single brackets
+exampleList[2]
+
+# Single brackets doesn't get you "in"
+exampleList[2]$mass
+
+```
+---
+# Indexing Lists
+
+- **BUT!** Lists have the equivalent of an empty book page that says "Chapter 2" before getting to the actual chapter. 
+- In order to open the chapter, we use double brackets `[[ ]]`
+```{r, error = TRUE}
+# Single brackets
+exampleList[2]
+
+# Double brackets
+exampleList[[2]]
+
+```
+---
+
+# Indexing Lists
+
+- **BUT!** Lists have the equivalent of an empty book page that says "Chapter 2" before getting to the actual chapter. 
+- In order to open the chapter, we use double brackets `[[ ]]`
+```{r, error = TRUE}
+# Double brackets
+exampleList[[2]]
+
+# Double brackets gets you "in"
+exampleList[[2]]$mass
+```
+---
+
+class: inverse, middle, center
+name: practice3
+
+# Go do Practice #3
+When you are finished, go on to the next video
+

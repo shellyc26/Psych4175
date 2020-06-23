@@ -2,6 +2,34 @@
 Custom CSS for making slides fit the color palette
 */
 
+.huge {
+  font-size: 2.2em;
+}
+
+.large {
+  font-size: 1.7em;
+}
+
+.normal {
+  font-size: 1em;
+}
+
+.medium {
+  font-size: 1.4em;
+}
+
+.SMALL {
+  /* CURSE YOU LATEX */
+  font-size: 0.9em;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.tiny {
+  font-size: 0.5em;
+}
 
 /* 
 Slides with title bars at the top
@@ -182,7 +210,8 @@ Coloring and inverse coloring in title bars and content boxes
 }
 
 .box-inv-4 {
-  background-color: #ffbe76;
+  background-color: #ffbe76; /* fallback color */
+  background-color: rgba(255, 190, 118, 0.6);
 }
 
 .box-inv-5 {

@@ -1,14 +1,14 @@
 ---
-title: "Objects Part 2"
-linktitle: "4: Objects Pt. 2"
+title: "Acting On Variables"
+linktitle: "5: Functions"
 date: "6/16/2020"
 read_date: "2020-09-24"
 menu:
   lectures:
     parent: Content
-    weight: 5
+    weight: 6
 type: docs
-slides: "04-slides"
+slides: "05-slides"
 output:
   blogdown::html_page:
     toc: true
@@ -29,16 +29,8 @@ source(here::here("R", "slide_tabs.R"))
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
   "Recap", "1", TRUE,
-  "Data.frame", "df", FALSE,
-  "Practice 1", "practice1", FALSE,
-  "Indexing DF", "indexing", FALSE,
-  "Finding Data", "finding", FALSE,
-  "Practice 2", "practice2", FALSE,
-  "Matrices", "matrix", FALSE,
-  "Tibbles", "tibble", FALSE,
-  "Lists", "list", FALSE,
-  "Practice 3", "practice3", FALSE
+  "Mini Quiz", "miniquiz", FALSE
 )
 
-slide_tabs(sections, "/slides/04-slides.html")
+slide_tabs(sections, "/slides/05-slides.html")
 ```
