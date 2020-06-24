@@ -1,6 +1,6 @@
 ---
 title: "Acting On Variables"
-linktitle: "5: Functions"
+linktitle: "5: Functions + Help"
 date: "6/16/2020"
 read_date: "2020-09-24"
 menu:
@@ -29,7 +29,13 @@ source(here::here("R", "slide_tabs.R"))
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
   "Recap", "1", TRUE,
-  "Mini Quiz", "miniquiz", FALSE
+  "Mini Quiz", "miniquiz", FALSE,
+  "Operators", "operator", FALSE,
+  "Logical Operators", "logoperator", FALSE,
+  "Functions", "functions", FALSE,
+  "Practice1", "practice1", FALSE,
+  "Help Pages", "help", FALSE,
+  "Practice 2", "practice2", FALSE
 )
 
 slide_tabs(sections, "/slides/05-slides.html")

@@ -198,15 +198,18 @@ Coloring and inverse coloring in title bars and content boxes
 }
 
 .box-inv-1 {
-  background-color: #ff7979;
+  background-color: #ff7979; /* fallback color */
+  background-color: rgba(255, 121, 121, 0.6);
 }
 
 .box-inv-2 {
-  background-color: #686de0;
+  background-color: #686de0; /* fallback color */
+  background-color: rgba(104, 109, 224, 0.6);
 }
 
 .box-inv-3 {
-  background-color: #e056fd;
+  background-color: #e056fd; /* fallback color */
+  background-color: rgba(224, 86, 253, 0.6);
 }
 
 .box-inv-4 {
@@ -215,15 +218,18 @@ Coloring and inverse coloring in title bars and content boxes
 }
 
 .box-inv-5 {
-  background-color: #badc58;
+  background-color: #badc58; /* fallback color */
+  background-color: rgba(186, 220, 88, 0.6);
 }
 
 .box-inv-6 {
-  background-color: #f6e58d;
+  background-color: #f6e58d; /* fallback color */
+  background-color: rgba(246, 229, 141, 0.6);
 }
 
 .box-inv-7 {
-  background-color: #7ed6df;
+  background-color: #7ed6df; /* fallback color */
+  background-color: rgba(126, 214, 223, 0.6);
 }
 
 .box-inv-1,

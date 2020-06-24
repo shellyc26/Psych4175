@@ -54,6 +54,8 @@ name: recap
     - **operators**
     - **functions**
 
+- Getting help when we need it
+
 ---
 name: miniquiz
 class: inverse, middle, center
@@ -290,23 +292,95 @@ round(5.86921, 3)
 round(3, 5.86921)
 ```
 ---
+class: inverse, middle, center
+name: practice1
+
+# Go do Practice #1
+When you are finished, come back here
+---
 # Great, but how do I know what the arguments are for a function?
 Two ways:
   1. In RStudio, press the **tab** key to see the names of arguments and descriptions. (*note, this might not work in the online practice assignments, but it should definitely work when running RStudio locally*)
 
 <center>
 
-<img src="05-slides_files/figure-html/tabcomplete.png", width = "100%">
+<img src="05-slides_files/figure-html/tabcomplete.png", width = "90%">
+
+</center>
+--
+  2. Look in the R Documentation
+---
+name: help
+# Looking at the documentation for help
+
+.pull-left[
+Go to the `help` tab
+
+<img src="05-slides_files/figure-html/help1.png", width = "100%">
+
+]
+--
+.pull-right[
+Or type `?round` into the console
+
+<img src="05-slides_files/figure-html/help2.png", width = "100%">
+]
+---
+# Breakdown of help documentation
+Try `typing code` to look up the R documentation for the correlation function, which is called `cor`. 
+
+This will be the example we use. 
+---
+<center>
+
+<img src="05-slides_files/figure-html/help3.png", width = "100%">
 
 </center>
 ---
-# Great, but how do I know what the arguments are for a function?
-Two ways:
-  2. Look in the R Documentation
-    - This is what we'll talk about in the next video, so stay tuned
+<center>
+
+<img src="05-slides_files/figure-html/help4.png", width = "65%">
+
+</center>
+--
+<center>
+
+<img src="05-slides_files/figure-html/help5.png", width = "90%">
+
+</center>
+--
+<center>
+
+<img src="05-slides_files/figure-html/help6.png", width = "50%">
+
+</center>
+--
+<center>
+
+<img src="05-slides_files/figure-html/help7.png", width = "90%">
+
+</center>
+---
+<center>
+
+<img src="05-slides_files/figure-html/help8.png", width = "90%">
+
+</center>
+--
+<center>
+
+<img src="05-slides_files/figure-html/help9.png", width = "70%">
+
+</center>
+--
+<center>
+
+<img src="05-slides_files/figure-html/help10.png", width = "65%">
+
+</center>
 ---
 class: inverse, middle, center
-name: practice1
+name: practice2
 
-# Go do Practice #1
+# Go do Practice #2
 When you are finished, go on to the next video
