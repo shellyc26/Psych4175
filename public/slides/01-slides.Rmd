@@ -3,7 +3,7 @@ title: "Getting Oriented"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: xaringan-themer.css
+    css: ["xaringan-themer-red.css", "css/additionalCols.css"]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -30,7 +30,8 @@ knitr::knit_hooks$set(source = function(x, options) {
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
-style_mono_accent(base_color = "#eb4d4b")
+style_mono_accent(base_color = "#eb4d4b",
+                  outfile = "xaringan-themer-red.css")
 ```
 
 # Plan for today

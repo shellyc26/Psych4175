@@ -3,24 +3,25 @@
 
 // Plasma colors + the palette from above
 $colors-dark: (
-    #eb4d4b,  /* Carmine Pink */
-    #4834d4,  /* Blurple */
-    #be2edd,  /* Steel Pink */
-    #f0932b,  /* Quince Jelly */
-    #6ab04c,   /* Pure Apple */
-    #f9ca24,  /* Turbo */
-    #22a6b3   /* Greenland Green */
+    #eb4d4b,  /* 1 Carmine Pink red */
+    #f0932b,  /* 2 Quince Jelly orange */
+    #f9ca24,  /* 3 Turbo yellow */
+    #6ab04c,  /* 4 Pure Apple green */
+    #22a6b3,   /* 5 Greenland Green teal */
+    #4834d4,  /* 6 Blurple blue */
+    #be2edd,  /* 7 Steel Pink purple */
 );
 
 $colors-light: (
-    #ff7979,  /* Pink Glamour */
-    #686de0,  /* Exodus Fruit */
-    #e056fd,  /* Heliotrope */
-    #ffbe76,  /* Spiced Nectarine */
-    #badc58,  /* June Bud */
-    #f6e58d,  /* Beekeeper */
-    #7ed6df   /* Middle Blue */
+    #ff7979,  /* 1 Pink Glamour red */
+    #ffbe76,  /* 2 Spiced Nectarine orange */
+    #f6e58d,  /* 3 Beekeeper yellow */
+    #badc58,  /* 4 June Bud green */
+    #7ed6df,   /* 5 Middle Blue teal */
+    #686de0,  /* 6 Exodus Fruit blue */
+    #e056fd,  /* 7 Heliotrope purple */
 );
+
 
 h1, h2 {
     font-weight: 700;
@@ -159,7 +160,7 @@ td.mid-table-header {
 }
 
 .bg-content {
-    background-color: nth($colors-dark, 5);
+    background-color: nth($colors-dark, 4);
 }
 
 .bg-assignment {

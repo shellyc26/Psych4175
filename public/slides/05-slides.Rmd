@@ -3,7 +3,7 @@ title: "Acting On Variables"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["xaringan-themer.css", "css/additionalCols.css"]
+    css: ["xaringan-themer-teal.css", "css/additionalCols.css"]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -30,7 +30,8 @@ knitr::knit_hooks$set(source = function(x, options) {
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
-style_mono_accent(base_color = "#6ab04c")
+style_mono_accent(base_color = "#22a6b3",
+                  outfile = "xaringan-themer-teal.css")
 ```
 
 ```{r starwarsData, include=FALSE, warning=FALSE}
@@ -378,6 +379,34 @@ This will be the example we use.
 <img src="05-slides_files/figure-html/help10.png", width = "65%">
 
 </center>
+---
+# All together
+**Logical operators** evaluate `TRUE` or `FALSE`
+  - In `data$gender == "female"` the `==` is the **logical operator**
+  - However, `gender == "female"` doesn't work! R doesn't know where to look!
+
+--
+
+**Indexing** allows you to get a subset of your data
+  - For a 2-dimensional data.frame, `data[rows, columns]`
+  - If you want *all* the rows, `data[ ,columns]` (& vice versa)
+
+--
+
+**COMBINING THESE** is powerful!
+  - `data[data$gender == "female", ]` is correct!
+
+--
+  - `data[gender == "female"]` is *incorrect*! Can you find the 2 reasons why?
+  
+--
+
+
+
+
+
+.center.small[*Note: we will go through other ways of doing this; but understanding the _logic_ is really, really important!*]
+
 ---
 class: inverse, middle, center
 name: practice2

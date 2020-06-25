@@ -18,13 +18,25 @@ main:
 lectures:
   - name: Overview
     weight: 1
-  - name: Content
+  - name: The Basics
     weight: 2
+  - name: Tidyverse
+    weight: 3
+  - name: Reproducibility
+    weight: 4
+  - name: Data Viz
+    weight: 5
 practice:
   - name: Overview
     weight: 1
-  - name: Practice Sets
+  - name: The Basics
     weight: 2
+  - name: Tidyverse
+    weight: 3
+  - name: Reproducibility
+    weight: 4
+  - name: Data Viz
+    weight: 5
 assignment:
   - name: Overview
     weight: 1

@@ -3,7 +3,7 @@
   <head>
     <title>Acting On Variables</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="xaringan-themer-teal.css" type="text/css" />
     <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
   </head>
   <body>
@@ -418,6 +418,34 @@ This will be the example we use.
 &lt;img src="05-slides_files/figure-html/help10.png", width = "65%"&gt;
 
 &lt;/center&gt;
+---
+# All together
+**Logical operators** evaluate `TRUE` or `FALSE`
+  - In `data$gender == "female"` the `==` is the **logical operator**
+  - However, `gender == "female"` doesn't work! R doesn't know where to look!
+
+--
+
+**Indexing** allows you to get a subset of your data
+  - For a 2-dimensional data.frame, `data[rows, columns]`
+  - If you want *all* the rows, `data[ ,columns]` (&amp; vice versa)
+
+--
+
+**COMBINING THESE** is powerful!
+  - `data[data$gender == "female", ]` is correct!
+
+--
+  - `data[gender == "female"]` is *incorrect*! Can you find the 2 reasons why?
+  
+--
+
+
+
+
+
+.center.small[*Note: we will go through other ways of doing this; but understanding the _logic_ is really, really important!*]
+
 ---
 class: inverse, middle, center
 name: practice2

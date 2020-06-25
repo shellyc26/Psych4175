@@ -1,6 +1,25 @@
 /* 
-Custom CSS for making slides fit the color palette
+Custom CSS for making slides fit the color palette. Reminder of palette:
+dark colors
+  1  #eb4d4b,   Carmine Pink red
+  2  #f0932b,   Quince Jelly orange
+  3  #f9ca24,   Turbo yellow
+  4  #6ab04c,   Pure Apple green
+  5  #22a6b3    Greenland Green teal
+  2  #4834d4,   Blurple blue
+  3  #be2edd,   Steel Pink purple
+
+light colors
+  1  #ff7979,   Pink Glamour red
+  2  #ffbe76,   Spiced Nectarine orange
+  3  #f6e58d,   Beekeeper yellow
+  4  #badc58,   June Bud green
+  5  #7ed6df    Middle Blue teal
+  2  #686de0,   Exodus Fruit blue
+  3  #e056fd,   Heliotrope purple
+
 */
+
 
 .huge {
   font-size: 2.2em;
@@ -48,27 +67,27 @@ Slides with title bars at the top
   border-top-color: #eb4d4b;
 }
 
-.title-2 {
+.title-6 {
   border-top-color: #4834d4;
 }
 
-.title-3 {
+.title-7 {
   border-top-color: #be2edd;
 }
 
-.title-4 {
+.title-2 {
   border-top-color: #f0932b;
 }
 
-.title-5 {
+.title-4 {
   border-top-color: #6ab04c;
 }
 
-.title-6 {
+.title-3 {
   border-top-color: #f9ca24;
 }
 
-.title-7 {
+.title-5 {
   border-top-color: #22a6b3;
 }
 
@@ -76,27 +95,27 @@ Slides with title bars at the top
   border-top-color: #ff7979;
 }
 
-.title-inv-2 {
+.title-inv-6 {
   border-top-color: #686de0;
 }
 
-.title-inv-3 {
+.title-inv-7 {
   border-top-color: #e056fd;
 }
 
-.title-inv-4 {
+.title-inv-2 {
   border-top-color: #ffbe76;
 }
 
-.title-inv-5 {
+.title-inv-4 {
   border-top-color: #badc58;
 }
 
-.title-inv-6 {
+.title-inv-3 {
   border-top-color: #f6e58d;
 }
 
-.title-inv-7 {
+.title-inv-5 {
   border-top-color: #7ed6df;
 }
 
@@ -107,27 +126,27 @@ General color classes
   color: #eb4d4b;
 }
 
-.color-2 {
+.color-6 {
   color: #4834d4;
 }
 
-.color-3 {
+.color-7 {
   color: #be2edd;
 }
 
-.color-4 {
+.color-2 {
   color: #f0932b;
 }
 
-.color-5 {
+.color-4 {
   color: #6ab04c;
 }
 
-.color-6 {
+.color-3 {
   color: #f9ca24;
 }
 
-.color-7 {
+.color-5 {
   color: #22a6b3;
 }
 
@@ -135,27 +154,27 @@ General color classes
   color: #ff7979;
 }
 
-.color-light-2 {
+.color-light-6 {
   color: #686de0;
 }
 
-.color-light-3 {
+.color-light-7 {
   color: #e056fd;
 }
 
-.color-light-4 {
+.color-light-2 {
   color: #ffbe76;
 }
 
-.color-light-5 {
+.color-light-4 {
   color: #badc58;
 }
 
-.color-light-6 {
+.color-light-3 {
   color: #f6e58d;
 }
 
-.color-light-7 {
+.color-light-5 {
   color: #7ed6df;
 }
 
@@ -167,33 +186,33 @@ Coloring and inverse coloring in title bars and content boxes
   background-color: #eb4d4b;
 }
 
-.box-2,
-.section-title-2 {
-  background-color: #4834d4;
-}
-
-.box-3,
-.section-title-3 {
-  background-color: #be2edd;
-}
-
-.box-4,
-.section-title-4 {
-  background-color: #f0932b;
-}
-
-.box-5,
-.section-title-5 {
-  background-color: #6ab04c;
-}
-
 .box-6,
 .section-title-6 {
-  background-color: #f9ca24;
+  background-color: #4834d4;
 }
 
 .box-7,
 .section-title-7 {
+  background-color: #be2edd;
+}
+
+.box-2,
+.section-title-2 {
+  background-color: #f0932b;
+}
+
+.box-4,
+.section-title-4 {
+  background-color: #6ab04c;
+}
+
+.box-3,
+.section-title-3 {
+  background-color: #f9ca24;
+}
+
+.box-5,
+.section-title-5 {
   background-color: #22a6b3;
 }
 
@@ -202,32 +221,32 @@ Coloring and inverse coloring in title bars and content boxes
   background-color: rgba(255, 121, 121, 0.6);
 }
 
-.box-inv-2 {
+.box-inv-6 {
   background-color: #686de0; /* fallback color */
   background-color: rgba(104, 109, 224, 0.6);
 }
 
-.box-inv-3 {
+.box-inv-7 {
   background-color: #e056fd; /* fallback color */
   background-color: rgba(224, 86, 253, 0.6);
 }
 
-.box-inv-4 {
+.box-inv-2 {
   background-color: #ffbe76; /* fallback color */
   background-color: rgba(255, 190, 118, 0.6);
 }
 
-.box-inv-5 {
+.box-inv-4 {
   background-color: #badc58; /* fallback color */
   background-color: rgba(186, 220, 88, 0.6);
 }
 
-.box-inv-6 {
+.box-inv-3 {
   background-color: #f6e58d; /* fallback color */
   background-color: rgba(246, 229, 141, 0.6);
 }
 
-.box-inv-7 {
+.box-inv-5 {
   background-color: #7ed6df; /* fallback color */
   background-color: rgba(126, 214, 223, 0.6);
 }
@@ -237,33 +256,33 @@ Coloring and inverse coloring in title bars and content boxes
   color: #eb4d4b;
 }
 
-.box-inv-2,
-.title-inv-2 h1 {
-  color: #4834d4;
-}
-
-.box-inv-3,
-.title-inv-3 h1 {
-  color: #be2edd;
-}
-
-.box-inv-4,
-.title-inv-4 h1 {
-  color: #f0932b;
-}
-
-.box-inv-5,
-.title-inv-5 h1 {
-  color: #6ab04c;
-}
-
 .box-inv-6,
 .title-inv-6 h1 {
-  color: #f9ca24;
+  color: #4834d4;
 }
 
 .box-inv-7,
 .title-inv-7 h1 {
+  color: #be2edd;
+}
+
+.box-inv-2,
+.title-inv-2 h1 {
+  color: #f0932b;
+}
+
+.box-inv-4,
+.title-inv-4 h1 {
+  color: #6ab04c;
+}
+
+.box-inv-3,
+.title-inv-3 h1 {
+  color: #f9ca24;
+}
+
+.box-inv-5,
+.title-inv-5 h1 {
   color: #22a6b3;
 }
 
@@ -279,3 +298,4 @@ Coloring and inverse coloring in title bars and content boxes
   display: table;
   text-align: center;
 }
+

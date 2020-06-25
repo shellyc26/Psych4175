@@ -4,7 +4,7 @@ subtitle: "Part 1"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: xaringan-themer.css
+    css: ["xaringan-themer-orange.css", "css/additionalCols.css"]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -31,7 +31,8 @@ knitr::knit_hooks$set(source = function(x, options) {
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
-style_mono_accent(base_color = "#4834d4")
+style_mono_accent(base_color = "#f0932b",
+                  outfile = "xaringan-themer-orange.css")
 ```
 
 ```{r starwarsData, include=FALSE, warning=FALSE}
