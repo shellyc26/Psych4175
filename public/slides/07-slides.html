@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Loading Files</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-purple.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Loading Files
+
+---
+
+
+
+
+
+
+
+name: recap
+
+# Recap
+.box-inv-7.small.left[**Packages** are a collection of functions and data sets]
+  1. You **install** the package once; must be connected to the internet
+  2. You **load** the package every time you use it; do not need to be connected to the internet
+  
+--
+
+.box-inv-7.small.left[How do you find the function you need? How do you now what package it's in?] 
+- **G-o-o-g-l-e!**
+- "structural equation modeling in R"
+
+--
+
+.box-inv-7.small.left[How do you know how to use the function? What are the function's **arguments**?]
+- Help documentation in R
+- `? function.name`
+
+--
+
+.box-inv-7.medium[Today we will talk about how to get your data files into R]
+---
+name: directories
+# Directories
+Your computer is made up of a series of folders
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="07-slides_files/figure-html/d1.png", width = "100%"&gt;
+---
+# File paths
+These are the instructions that tell the computer where to find your file. What series of folders does the computer need to look to find your stuff?
+
+`/Users/Coop/Box Sync/S55-5962_RSkillLab_Spring2020`
+
+&lt;img src="07-slides_files/figure-html/d2.png", width = "100%"&gt;
+---
+# File paths
+In order to get the actual file, include the name in the file path
+
+`/Users/Coop/Box Sync/S55-5962_RSkillLab_Spring2020/day1.pptx`
+
+&lt;img src="07-slides_files/figure-html/d3.png", width = "100%"&gt;
+---
+# R is lazy!
+
+### Working Directory
+  - Where `R` is going to *look for* files
+  - Where `R` is going to *save* files
+---
+
+# Working directory
+How do you know your working directory?
+  - `getwd()` 
+  
+How do you change your working directory?
+  - `setwd("/your/path/goes/here")`
+  - Note the quotes!
+  - *HINT: press tab within the quotes and see what happens!*
+
+---
+name: rproject
+
+# An Alternative: RProjects
+Getting and setting your working directory can be a pain in the $%^
+  - What happens if you reorganize your computer and you want to move the files? 
+  
+--
+
+`RProjects` provides a nice alternative with several added benefits
+
+  1. It syncs to Github. Excellent for version control and open science!
+  2. Your project is it's own contained ecosystem. If you move it on your computer, it doesn't matter. No need to get/set your working directory. 
+  3. Easy to look for files within that project (rather than the entire computer)
+  4. *(If you work with things that require randomly doing something--like generate a random dataset--RProjects makes it easier)*
+
+---
+class: inverse, middle, center
+
+# Demo of making a RProject &amp; using Github
+---
+# Resources for setting up Github
+
+---
+name: files
+
+# .R files
+- text files
+- contain the code that you've written 
+- (equivalent to syntax files in SPSS)
+- Also called **scripts**
+  
+--
+
+Why use them?
+- Keep track of what functions you use
+- Save only the commands/functions/progress that is useful
+- Make notes to yourself!
+  - `# Updated code for R class!`
+  - `# reliability estimates for depression scale`
+  - `# scatter plot for BMI predicting diabetes diagnosis`
+- Share your analyses with collaborators and readers
+---
+
+# Other file types
+- `.R` (script)
+- `.RProject` -- not where you would write any form of code
+- `.Rmd` -- aka "RMarkdown" or "RNotebook"; will talk about for reproducibility!
+- Your data!
+
+---
+name: opening
+
+# Your data
+Original data files
+  - Most of the time, these will either be `.csv` or `.txt`, depending on how you collect the data
+
+These are *NOT* altered by `R`! *(different from SPSS)*
+
+If your data is not one of these two formats, don't worry! `R` can do a lot of stuff!
+
+We will work with `.csv` to keep things simple. 
+---
+# Loading .csv files
+
+&lt;img src="07-slides_files/figure-html/i1.png", width = "100%"&gt;
+---
+# Loading .csv files
+
+&lt;img src="07-slides_files/figure-html/i2.png", width = "100%"&gt;
+---
+# Loading .csv files
+
+&lt;img src="07-slides_files/figure-html/import.png", width = "100%"&gt;
+---
+# Loading .csv files
+
+The following line of code will appear in your console:
+
+`midus &lt;- read.csv("~/Desktop/rSkillLab/midus.csv")`
+
+.box-inv-7.large[I STRONGLY recommend copying/pasting this line of code into your script (.R) file!]
+---
+
+# Typical workflow in R
+1. Open a script (new or existing)
+
+2. Prepare to run analyses:
+  - Set your working directory (if not using RProject)
+  - Load your data
+  - Load any packages you might want to use in the analyses
+  
+3. Write code/run analyses
+
+4. Save your script!
+  - Make sure that this includes the code to open your `.csv` from your **Dropbox/Box/Github** etc.
+  - Again, note: `R` does't change the original data file!
+---
+
+# Typical format of .R file
+
+&lt;img src="07-slides_files/figure-html/samplescript.png", width = "100%"&gt;
+
+---
+class: inverse, middle, center
+name: practice1
+
+# Go do Practice #1
+When you are finished, go on to the next video
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

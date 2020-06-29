@@ -6,8 +6,8 @@ dark colors
   3  #f9ca24,   Turbo yellow
   4  #6ab04c,   Pure Apple green
   5  #22a6b3    Greenland Green teal
-  2  #4834d4,   Blurple blue
-  3  #be2edd,   Steel Pink purple
+  6  #4834d4,   Blurple blue
+  7  #be2edd,   Steel Pink purple
 
 light colors
   1  #ff7979,   Pink Glamour red
@@ -15,8 +15,8 @@ light colors
   3  #f6e58d,   Beekeeper yellow
   4  #badc58,   June Bud green
   5  #7ed6df    Middle Blue teal
-  2  #686de0,   Exodus Fruit blue
-  3  #e056fd,   Heliotrope purple
+  6  #686de0,   Exodus Fruit blue
+  7  #e056fd,   Heliotrope purple
 
 */
 
@@ -218,37 +218,37 @@ Coloring and inverse coloring in title bars and content boxes
 
 .box-inv-1 {
   background-color: #ff7979; /* fallback color */
-  background-color: rgba(255, 121, 121, 0.6);
+  background-color: rgba(255, 121, 121, 0.2);
 }
 
 .box-inv-6 {
   background-color: #686de0; /* fallback color */
-  background-color: rgba(104, 109, 224, 0.6);
+  background-color: rgba(104, 109, 224, 0.2);
 }
 
 .box-inv-7 {
   background-color: #e056fd; /* fallback color */
-  background-color: rgba(224, 86, 253, 0.6);
+  background-color: rgba(224, 86, 253, 0.2);
 }
 
 .box-inv-2 {
   background-color: #ffbe76; /* fallback color */
-  background-color: rgba(255, 190, 118, 0.6);
+  background-color: rgba(255, 190, 118, 0.2);
 }
 
 .box-inv-4 {
   background-color: #badc58; /* fallback color */
-  background-color: rgba(186, 220, 88, 0.6);
+  background-color: rgba(186, 220, 88, 0.2);
 }
 
 .box-inv-3 {
   background-color: #f6e58d; /* fallback color */
-  background-color: rgba(246, 229, 141, 0.6);
+  background-color: rgba(246, 229, 141, 0.2);
 }
 
 .box-inv-5 {
   background-color: #7ed6df; /* fallback color */
-  background-color: rgba(126, 214, 223, 0.6);
+  background-color: rgba(126, 214, 223, 0.2);
 }
 
 .box-inv-1,

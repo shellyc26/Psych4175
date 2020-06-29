@@ -1,0 +1,40 @@
+---
+title: "Loading Files"
+linktitle: "7: Loading Files"
+date: "6/16/2020"
+read_date: "2020-09-24"
+menu:
+  lectures:
+    parent: The Basics
+    weight: 8
+type: docs
+slides: "07-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Directories", "directories", FALSE,
+  "RProject", "rproject", FALSE,
+  "File Types", "files", FALSE,
+  "Loading Data", "opening", FALSE,
+  "Practice 1", "practice1", FALSE
+)
+
+slide_tabs(sections, "/slides/07-slides.html")
+```
