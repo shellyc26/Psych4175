@@ -1,0 +1,44 @@
+---
+title: "Review & Random"
+linktitle: "8: R & R"
+date: "6/16/2020"
+read_date: "2020-09-24"
+menu:
+  lectures:
+    parent: The Basics
+    weight: 9
+type: docs
+slides: "08-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "MIDUS", "midus", FALSE,
+  "Exercise 1", "ex1", FALSE,
+  "Indexing", "index", FALSE,
+  "Logical Operators", "logic", FALSE,
+  "Subsetting", "subset", FALSE,
+  "Exercise 2", "e2", FALSE,
+  "Nesting", "nest", FALSE,
+  "Exercise 3", "e3", FALSE,
+  "Tidbits", "rand", FALSE
+)
+
+slide_tabs(sections, "/slides/08-slides.html")
+```

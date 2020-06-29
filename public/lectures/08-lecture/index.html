@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en-us" 
+      xmlns:og="http://ogp.me/ns#" 
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Nelson Bighetti">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="  Videos Slides   Videos Eventually, a YouTube playlist will go here.
+ Slides  View all slides in new window  Download PDF of all slides
+Recap  MIDUS  Exercise 1  Indexing  Logical Operators  Subsetting  Exercise 2  Nesting  Exercise 3  Tidbits                                   ">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/lectures/08-lecture/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="#6ab04c">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/lectures/08-lecture/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="og:site_name" content="Applied Statistical Analysis with R">
+  <meta property="og:url" content="/lectures/08-lecture/">
+  <meta property="og:title" content="Review &amp; Random | Applied Statistical Analysis with R">
+  <meta property="og:description" content="  Videos Slides   Videos Eventually, a YouTube playlist will go here.
+ Slides  View all slides in new window  Download PDF of all slides
+Recap  MIDUS  Exercise 1  Indexing  Logical Operators  Subsetting  Exercise 2  Nesting  Exercise 3  Tidbits                                   "><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
+  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="en-us">
+  
+    
+    
+  
+
+  
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Review &amp; Random | Applied Statistical Analysis with R</title>
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70"
+    data-target="#TableOfContents"
+    >
+
+    <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+    
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Applied Statistical Analysis with R</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Applied Statistical Analysis with R</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/syllabus/"><span>Syllabus</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/schedule/"><span>Schedule</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link  active" href="/lectures/"><span>Lectures</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/practice/"><span>Practice</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/assignments/"><span>Assignments</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+    
+
+<div class="container-fluid docs">
+    <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+            
+
+
+
+
+
+  
+    
+  
+
+
+
+
+<form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+
+  
+  
+  
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/lectures/">Overview</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/lectures/">Lectures and videos</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/lectures/00-testslides/">The Basics</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/lectures/00-testslides/">0: Setup with R</a>
+      </li>
+      
+      <li >
+        <a href="/lectures/01-lecture/">1: RStudio</a>
+      </li>
+      
+      <li >
+        <a href="/lectures/02-lecture/">2: Objects</a>
+      </li>
+      
+      <li >
+        <a href="/lectures/03-lecture/">3: Indexing</a>
+      </li>
+      
+      <li >
+        <a href="/lectures/04-lecture/">4: Objects Pt. 2</a>
+      </li>
+      
+      <li >
+        <a href="/lectures/05-lecture/">5: Functions &#43; Help</a>
+      </li>
+      
+      <li >
+        <a href="/lectures/06-lecture/">6: Packages</a>
+      </li>
+      
+      <li >
+        <a href="/lectures/07-lecture/">7: Loading Files</a>
+      </li>
+      
+      <li class="active">
+        <a href="/lectures/08-lecture/">8: R &amp; R</a>
+      </li>
+      
+      <li >
+        <a href="/lectures/09-lecture/">9: Stats &amp; Plot</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" href="/lectures/100-lecture/">Tidyverse</a>
+    <ul class="nav docs-sidenav">
+      
+      <li >
+        <a href="/lectures/100-lecture/">TEST</a>
+      </li>
+      
+    </ul>
+    
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" >Reproducibility</a>
+
+  </div>
+  
+  <div class="docs-toc-item">
+    <a class="docs-toc-link" >Data Viz</a>
+
+  </div>
+  
+  
+</nav>
+
+        </div>
+
+        
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+            <article class="article">
+
+                <div class="docs-article-container">
+                    <h1>Review &amp; Random</h1>
+
+                    
+
+                    
+                    <div class="due-date p-2 mb-3 bg-content text-white">
+                        Content for Thursday, September 24, 2020
+                    </div>
+                    
+
+                    
+
+                    <div class="article-style">
+                        
+
+<div id="TOC">
+<ul>
+<li><a href="#videos">Videos</a></li>
+<li><a href="#slides">Slides</a></li>
+</ul>
+</div>
+
+<div id="videos" class="section level2">
+<h2>Videos</h2>
+<p>Eventually, a YouTube playlist will go here.</p>
+</div>
+<div id="slides" class="section level2">
+<h2>Slides</h2>
+
+<p><a class="btn btn-primary btn-lg" target="_blank" href="/slides/08-slides.html"><i class="fas fa-external-link-alt"></i> View all slides in new window</a> <a class="btn btn-primary btn-lg" target="_blank" href="/slides/08-slides.pdf" role="button"><i class="far fa-file-pdf"></i> Download PDF of all slides</a></p>
+
+<ul class="nav nav-tabs" id="slide-tabs" role="tablist">
+<li class="nav-item">
+<a class="nav-link active" id="recap-tab" data-toggle="tab" href="#recap" role="tab" aria-controls="recap" aria-selected="true">Recap</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="midus-tab" data-toggle="tab" href="#midus" role="tab" aria-controls="midus" aria-selected="false">MIDUS</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="exercise-1-tab" data-toggle="tab" href="#exercise-1" role="tab" aria-controls="exercise-1" aria-selected="false">Exercise 1</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="indexing-tab" data-toggle="tab" href="#indexing" role="tab" aria-controls="indexing" aria-selected="false">Indexing</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="logical-operators-tab" data-toggle="tab" href="#logical-operators" role="tab" aria-controls="logical-operators" aria-selected="false">Logical Operators</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="subsetting-tab" data-toggle="tab" href="#subsetting" role="tab" aria-controls="subsetting" aria-selected="false">Subsetting</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="exercise-2-tab" data-toggle="tab" href="#exercise-2" role="tab" aria-controls="exercise-2" aria-selected="false">Exercise 2</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="nesting-tab" data-toggle="tab" href="#nesting" role="tab" aria-controls="nesting" aria-selected="false">Nesting</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="exercise-3-tab" data-toggle="tab" href="#exercise-3" role="tab" aria-controls="exercise-3" aria-selected="false">Exercise 3</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="tidbits-tab" data-toggle="tab" href="#tidbits" role="tab" aria-controls="tidbits" aria-selected="false">Tidbits</a>
+</li>
+</ul>
+<div id="slide-tabs" class="tab-content">
+<div id="recap" class="tab-pane fade show active" role="tabpanel" aria-labelledby="recap-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#1">
+</iframe>
+</div>
+</div>
+<div id="midus" class="tab-pane fade" role="tabpanel" aria-labelledby="midus-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#midus">
+</iframe>
+</div>
+</div>
+<div id="exercise-1" class="tab-pane fade" role="tabpanel" aria-labelledby="exercise-1-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#ex1">
+</iframe>
+</div>
+</div>
+<div id="indexing" class="tab-pane fade" role="tabpanel" aria-labelledby="indexing-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#index">
+</iframe>
+</div>
+</div>
+<div id="logical-operators" class="tab-pane fade" role="tabpanel" aria-labelledby="logical-operators-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#logic">
+</iframe>
+</div>
+</div>
+<div id="subsetting" class="tab-pane fade" role="tabpanel" aria-labelledby="subsetting-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#subset">
+</iframe>
+</div>
+</div>
+<div id="exercise-2" class="tab-pane fade" role="tabpanel" aria-labelledby="exercise-2-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#e2">
+</iframe>
+</div>
+</div>
+<div id="nesting" class="tab-pane fade" role="tabpanel" aria-labelledby="nesting-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#nest">
+</iframe>
+</div>
+</div>
+<div id="exercise-3" class="tab-pane fade" role="tabpanel" aria-labelledby="exercise-3-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#e3">
+</iframe>
+</div>
+</div>
+<div id="tidbits" class="tab-pane fade" role="tabpanel" aria-labelledby="tidbits-tab">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="/slides/08-slides.html#rand">
+</iframe>
+</div>
+</div>
+</div>
+</div>
+
+                    </div>
+
+                    
+
+
+
+                    
+                </div>
+
+                <div class="body-footer">
+                    <p>Last updated on Jan 1, 0001</p>
+
+                    
+
+
+                    
+
+                </div>
+
+            </article>
+
+            <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+  </p>
+</footer>
+
+
+        </main>
+    </div>
+</div>
+
+        
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js" integrity="sha256-pB/deHc9CGfFpJRjC43imB29Rse8tak+5eXqntO94ck=" crossorigin="anonymous"></script>
+    <script>
+      anchors.add();
+    </script>
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.6f7ce8be710290b8c431bbc97f405d15.js"></script>
+
+    
+
+
+
+
+
+
+    
+    
+
+    
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
