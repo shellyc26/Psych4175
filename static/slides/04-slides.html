@@ -106,7 +106,7 @@ Every **row** has **6** pieces of data that are associated with one another...
    &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; mass &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
   &lt;/tr&gt;
@@ -124,7 +124,7 @@ Every **row** has **6** pieces of data that are associated with one another...
    &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 75.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
   &lt;/tr&gt;
@@ -132,7 +132,7 @@ Every **row** has **6** pieces of data that are associated with one another...
    &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 32.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
   &lt;/tr&gt;
@@ -204,7 +204,7 @@ Every **column** has **10** observations...
    &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; mass &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
   &lt;/tr&gt;
@@ -222,7 +222,7 @@ Every **column** has **10** observations...
    &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
    &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 75.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
   &lt;/tr&gt;
@@ -230,7 +230,7 @@ Every **column** has **10** observations...
    &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
    &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 32.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
   &lt;/tr&gt;
@@ -325,7 +325,7 @@ What *should* we get if we typed `empire[1:6,5]`?
    &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; mass &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; gender &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
   &lt;/tr&gt;
@@ -343,7 +343,7 @@ What *should* we get if we typed `empire[1:6,5]`?
    &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 75.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;Tatooine&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
   &lt;/tr&gt;
@@ -351,7 +351,7 @@ What *should* we get if we typed `empire[1:6,5]`?
    &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
    &lt;td style="text-align:right;"&gt; 32.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;Naboo&lt;/span&gt; &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
   &lt;/tr&gt;
@@ -456,7 +456,7 @@ empire[5,]
 ```
 
 ```
-##          name height mass gender homeworld species
+##          name height mass    sex homeworld species
 ## 5 Leia Organa    150   49 female  Alderaan   Human
 ```
 ---
@@ -610,10 +610,10 @@ exampleList[2]
 
 ```
 ## [[1]]
-##             name height mass gender homeworld species
-## 1 Luke Skywalker    172   77   male  Tatooine   Human
-## 2          C-3PO    167   75   &lt;NA&gt;  Tatooine   Droid
-## 3          R2-D2     96   32   &lt;NA&gt;     Naboo   Droid
+##             name height mass  sex homeworld species
+## 1 Luke Skywalker    172   77 male  Tatooine   Human
+## 2          C-3PO    167   75 none  Tatooine   Droid
+## 3          R2-D2     96   32 none     Naboo   Droid
 ```
 ---
 
@@ -647,10 +647,10 @@ exampleList[2]
 
 ```
 ## [[1]]
-##             name height mass gender homeworld species
-## 1 Luke Skywalker    172   77   male  Tatooine   Human
-## 2          C-3PO    167   75   &lt;NA&gt;  Tatooine   Droid
-## 3          R2-D2     96   32   &lt;NA&gt;     Naboo   Droid
+##             name height mass  sex homeworld species
+## 1 Luke Skywalker    172   77 male  Tatooine   Human
+## 2          C-3PO    167   75 none  Tatooine   Droid
+## 3          R2-D2     96   32 none     Naboo   Droid
 ```
 
 ```r
@@ -674,10 +674,10 @@ exampleList[2]
 
 ```
 ## [[1]]
-##             name height mass gender homeworld species
-## 1 Luke Skywalker    172   77   male  Tatooine   Human
-## 2          C-3PO    167   75   &lt;NA&gt;  Tatooine   Droid
-## 3          R2-D2     96   32   &lt;NA&gt;     Naboo   Droid
+##             name height mass  sex homeworld species
+## 1 Luke Skywalker    172   77 male  Tatooine   Human
+## 2          C-3PO    167   75 none  Tatooine   Droid
+## 3          R2-D2     96   32 none     Naboo   Droid
 ```
 
 ```r
@@ -686,10 +686,10 @@ exampleList[[2]]
 ```
 
 ```
-##             name height mass gender homeworld species
-## 1 Luke Skywalker    172   77   male  Tatooine   Human
-## 2          C-3PO    167   75   &lt;NA&gt;  Tatooine   Droid
-## 3          R2-D2     96   32   &lt;NA&gt;     Naboo   Droid
+##             name height mass  sex homeworld species
+## 1 Luke Skywalker    172   77 male  Tatooine   Human
+## 2          C-3PO    167   75 none  Tatooine   Droid
+## 3          R2-D2     96   32 none     Naboo   Droid
 ```
 ---
 
@@ -704,10 +704,10 @@ exampleList[[2]]
 ```
 
 ```
-##             name height mass gender homeworld species
-## 1 Luke Skywalker    172   77   male  Tatooine   Human
-## 2          C-3PO    167   75   &lt;NA&gt;  Tatooine   Droid
-## 3          R2-D2     96   32   &lt;NA&gt;     Naboo   Droid
+##             name height mass  sex homeworld species
+## 1 Luke Skywalker    172   77 male  Tatooine   Human
+## 2          C-3PO    167   75 none  Tatooine   Droid
+## 3          R2-D2     96   32 none     Naboo   Droid
 ```
 
 ```r

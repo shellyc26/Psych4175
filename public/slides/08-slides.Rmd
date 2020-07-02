@@ -41,7 +41,7 @@ library(kableExtra)
 
 empire <- starwars
 
-empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8:10)]
+empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8, 10, 11)]
 empire$species <- factor(empire$species)
 
 ```
@@ -355,14 +355,17 @@ colnames(midus) <- gsub(pattern = "_",
 ```
 ---
 # Naming Conventions
+.pull-left[
 ##### Camel Case `r emo::ji("camel")`
 - camelCase
 - `meanAgeControls`
 
-###### Pascal Case
+##### Pascal Case
 - Similar to camelCase, but first letter is also capitalized
 - `MeanAgeControls`
+]
 
+.pull-right[
 ##### Dot Case
 - `mean.age.controls`
 - I personally don't like this because if you decide to save an object, the periods can get in the way of the file path and make it confusing (ex: `mean.age.controls.csv`)
@@ -370,5 +373,25 @@ colnames(midus) <- gsub(pattern = "_",
 ##### File Names
 - Underscores and hypens OK. 
 - DO NOT USE SPECIAL CHARACTERS, INCLUDING SPACES!!!!!
+]
+---
+# Habits
+Get into good coding habits **now**, so you don't hate yourself *later*!
 
+Pro tip: 
+  - Write code that you can understand now
+  - Write code that you can understand 6 months from now
+  - Write code that someone else can understand 6 months from now
 
+What does this mean? 
+  - **COMMENT YOUR CODE**
+  - Use consistent naming conventions
+  - Use descriptive object names (who cares if they're long when you have tab-complete)
+  - Organize your files
+  - Think *computer & human readable*
+  - Cloud-based storage
+  - Version control
+---
+class: middle, center, inverse
+
+# See next video for remaining tips within RStudio

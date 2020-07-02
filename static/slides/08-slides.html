@@ -230,10 +230,10 @@ subset(x = empire, subset = (mass &gt; 100))
 
 ```
 ## # A tibble: 2 x 6
-##   name        height  mass gender homeworld species
-##   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;fct&gt;  
-## 1 Darth Vader    202   136 male   Tatooine  Human  
-## 2 Chewbacca      228   112 male   Kashyyyk  Wookiee
+##   name        height  mass sex   homeworld species
+##   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;fct&gt;  
+## 1 Darth Vader    202   136 male  Tatooine  Human  
+## 2 Chewbacca      228   112 male  Kashyyyk  Wookiee
 ```
 --
 .tiny[Notes:
@@ -406,14 +406,17 @@ colnames(midus) &lt;- gsub(pattern = "_",
 ```
 ---
 # Naming Conventions
+.pull-left[
 ##### Camel Case 🐫
 - camelCase
 - `meanAgeControls`
 
-###### Pascal Case
+##### Pascal Case
 - Similar to camelCase, but first letter is also capitalized
 - `MeanAgeControls`
+]
 
+.pull-right[
 ##### Dot Case
 - `mean.age.controls`
 - I personally don't like this because if you decide to save an object, the periods can get in the way of the file path and make it confusing (ex: `mean.age.controls.csv`)
@@ -421,6 +424,28 @@ colnames(midus) &lt;- gsub(pattern = "_",
 ##### File Names
 - Underscores and hypens OK. 
 - DO NOT USE SPECIAL CHARACTERS, INCLUDING SPACES!!!!!
+]
+---
+# Habits
+Get into good coding habits **now**, so you don't hate yourself *later*!
+
+Pro tip: 
+  - Write code that you can understand now
+  - Write code that you can understand 6 months from now
+  - Write code that someone else can understand 6 months from now
+
+What does this mean? 
+  - **COMMENT YOUR CODE**
+  - Use consistent naming conventions
+  - Use descriptive object names (who cares if they're long when you have tab-complete)
+  - Organize your files
+  - Think *computer &amp; human readable*
+  - Cloud-based storage
+  - Version control
+---
+class: middle, center, inverse
+
+# See next video for remaining tips within RStudio
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
