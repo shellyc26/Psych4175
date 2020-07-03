@@ -8,10 +8,6 @@ type: docs
 weight: 1
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ach class session has an interactive lesson that you will work through ***after*** doing the readings and watching the lecture. These lessons are a central part of the class—they will teach you how to use **ggplot2** and other packages in the **tidyverse** to create beautiful and truthful visualizations with R.
 
 Interactive code sections look like this. Make changes in the text box and click on the green "Run Code" button to see the results. Sometimes there will be a button with a hint or solution.
