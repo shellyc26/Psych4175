@@ -1,0 +1,68 @@
+---
+title: "Practice Set: Indexing"
+linktitle: "3: Indexing"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  practice:
+    parent: The Basics
+    weight: 3
+type: docs
+weight: 3
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#indexing-recap">Indexing Recap</a></li>
+</ul>
+</div>
+
+<div id="indexing-recap" class="section level2">
+<h2>Indexing Recap</h2>
+<p>In the <a href="/practice/02-practice">previous practice set</a>, you created the following 4 vectors:</p>
+<pre class="r"><code>ids &lt;- c(&quot;ID1&quot;, &quot;ID2&quot;, &quot;ID3&quot;, &quot;ID4&quot;, &quot;ID5&quot;) # character
+state &lt;- c(&quot;Missouri&quot;, &quot;Iowa&quot;, &quot;Missouri&quot;, &quot;Idaho&quot;, &quot;Maine&quot;) # character/factor
+smoker &lt;- c(TRUE, FALSE, FALSE, TRUE, FALSE) # logical
+age &lt;- c(20, 18, 32, 25, 25) # numeric</code></pre>
+<p>You can do something to <em>all</em> elements of the vector:</p>
+<pre class="r"><code># add 10 years to everyone&#39;s age
+age &lt;- age + 10
+age</code></pre>
+<pre><code>## [1] 30 28 42 35 35</code></pre>
+<p>If you have 2 vectors, these can be combined in a number of ways!</p>
+<p>Let’s try to add the number <code>2</code> to the first person’s age, <code>4</code>, to the second person’s age etc.</p>
+<pre class="r"><code>numbers &lt;- c(2, 4, 6, 8, 10)
+
+age + numbers</code></pre>
+<pre><code>## [1] 32 32 48 43 45</code></pre>
+<p>You can also append one vector on to the next. Notice that to do this, we use <code>c()</code>. We’re <code>concatenating</code> or <code>combining</code> the two vectors.</p>
+<pre class="r"><code>newVector &lt;- c(age, numbers)
+newVector</code></pre>
+<pre><code>##  [1] 30 28 42 35 35  2  4  6  8 10</code></pre>
+<p>If you have 2 vectors, but they are not the same length, R will recycle the shorter vector.</p>
+<pre class="r"><code>shortVector &lt;- c(1000, 2000)
+
+newVector + shortVector</code></pre>
+<pre><code>##  [1] 1030 2028 1042 2035 1035 2002 1004 2006 1008 2010</code></pre>
+<p>If the longer vector is not a multiple of the shorter vector, the process still works but you’ll also get a warning message (notice how it still works, though):</p>
+<pre class="r"><code>age + shortVector</code></pre>
+<pre><code>## Warning in age + shortVector: longer object length is not a multiple of shorter
+## object length</code></pre>
+<pre><code>## [1] 1030 2028 1042 2035 1035</code></pre>
+<div class="puzzle">
+<p><strong>You try!</strong> The following exercises are a modified version of the <code>sat.act</code> dataset (but broken up into vectors). The SAT &amp; ACT are both standardized college admissions tests in the United States. The ACT technically has 4 parts, but only the overall score is reported here. The SAT is broken up into verbal and quantitative categories:</p>
+<ul>
+<li><code>age</code> in years</li>
+<li><code>act</code> contains scores from the ACT tests; range 1-36, norm ~20</li>
+<li><code>satv</code> contains the Verbal scores from the SAT; range 200-800, avg ~500</li>
+<li><code>satq</code> contains the quantitative scores from the SAT; range 200-800, avg ~500</li>
+</ul>
+<p>Follow the directions above each code chunk!</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/03-learnr-app1/" id="learnr-03-app1" %}}
+</div>

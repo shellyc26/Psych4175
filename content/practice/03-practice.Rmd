@@ -1,0 +1,91 @@
+---
+title: "Practice Set: Indexing"
+linktitle: "3: Indexing"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  practice:
+    parent: The Basics
+    weight: 3
+type: docs
+weight: 3
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+## Indexing Recap
+
+In the [previous practice set](/practice/02-practice), you created the following 4 vectors:   
+
+```{r}
+ids <- c("ID1", "ID2", "ID3", "ID4", "ID5") # character
+state <- c("Missouri", "Iowa", "Missouri", "Idaho", "Maine") # character/factor
+smoker <- c(TRUE, FALSE, FALSE, TRUE, FALSE) # logical
+age <- c(20, 18, 32, 25, 25) # numeric
+```
+
+You can do something to *all* elements of the vector:
+
+```{r}
+# add 10 years to everyone's age
+age <- age + 10
+age
+```
+
+If you have 2 vectors, these can be combined in a number of ways!
+
+Let's try to add the number `2` to the first person's age, `4`, to the second person's age etc.
+```{r}
+numbers <- c(2, 4, 6, 8, 10)
+
+age + numbers
+```
+
+You can also append one vector on to the next. Notice that to do this, we use `c()`. We're `concatenating` or `combining` the two vectors.  
+```{r}
+newVector <- c(age, numbers)
+newVector
+```
+
+If you have 2 vectors, but they are not the same length, R will recycle the shorter vector.
+```{r}
+shortVector <- c(1000, 2000)
+
+newVector + shortVector
+```
+
+If the longer vector is not a multiple of the shorter vector, the process still works but you'll also get a warning message (notice how it still works, though):
+
+```{r, error=FALSE}
+age + shortVector
+```
+
+:::puzzle
+**You try!** The following exercises are a modified version of the `sat.act` dataset (but broken up into vectors). The SAT & ACT are both standardized college admissions tests in the United States. The ACT technically has 4 parts, but only the overall score is reported here. The SAT is broken up into verbal and quantitative categories:
+
+  - `age` in years
+  - `act` contains scores from the ACT tests; range 1-36, norm ~20
+  - `satv` contains the Verbal scores from the SAT; range 200-800, avg ~500
+  - `satq` contains the quantitative scores from the SAT; range 200-800, avg ~500
+
+Follow the directions above each code chunk!
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/03-learnr-app1/",
+                    id = "learnr-03-app1")
+
+```
+
+
+

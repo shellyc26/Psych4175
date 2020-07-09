@@ -36,8 +36,8 @@ Now that you're oriented to RStudio, it's time to write and execute some code. T
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/learnr_app1/",
-                    id = "learnr-02-starwars")
+                    url = "https://shelly-cooper.shinyapps.io/02-learnr-app1/",
+                    id = "learnr-02-app1")
 
 ```
 
@@ -80,8 +80,8 @@ The thing you want to actually store for later goes on the RIGHT (blue).
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/objectsPart1_app2/",
-                    id = "learnr-02-objects")
+                    url = "https://shelly-cooper.shinyapps.io/02-learnr-app2/",
+                    id = "learnr-02-app2")
 
 ```
 
@@ -106,8 +106,8 @@ In your research, most of the time, you don't necessarily want to print out ever
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/objectsPt1_quiz1_app3/",
-                    id = "learnr-02-objectsQuiz1")
+                    url = "https://shelly-cooper.shinyapps.io/02-learnr-quiz1/",
+                    id = "learnr-02-quiz1")
 
 ```
 
@@ -147,8 +147,8 @@ In this scenario, we did an "overwrite" of our original `chickens` and `cows` ob
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/objectsPt1_quiz2_app4/",
-                    id = "learnr-02-objectsQuiz2")
+                    url = "https://shelly-cooper.shinyapps.io/02-learnr-quiz2/",
+                    id = "learnr-02-quiz2")
 
 ```
 
@@ -191,8 +191,8 @@ Here, each row can be considered it's own vector, and each column can be conside
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/vectors_app5/",
-                    id = "learnr-02-vectors")
+                    url = "https://shelly-cooper.shinyapps.io/02-learnr-app3/",
+                    id = "learnr-02-app3")
 
 ```
 
