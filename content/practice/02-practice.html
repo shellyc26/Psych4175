@@ -19,7 +19,9 @@ shiny: true
 <div id="TOC">
 <ul>
 <li><a href="#visualizing-star-wars">Visualizing Star Wars</a></li>
-<li><a href="#practice-with-objects">Practice with Objects</a></li>
+<li><a href="#practice-with-objects">Practice with Objects</a><ul>
+<li><a href="#the-whole-point-of-making-an-object-is-that-you-can-do-things-with-them">The whole point of making an object is that you can do things with them!</a></li>
+</ul></li>
 <li><a href="#practice-with-vectors">Practice with Vectors</a></li>
 </ul>
 </div>
@@ -45,7 +47,7 @@ shiny: true
 <li>They are the <em>nouns</em> of programming languages; they are typically what we are acting <em>on</em></li>
 <li>We give an object a name; this is called <strong>assignment</strong>, and it takes the form of:</li>
 </ul>
-<pre><code class='language-r'><code><span style='background-color:yellow'>nameOfMyObject</span> <span style='background-color:red'><-</span> <span style='background-color:cornflowerblue'>objectToStore</span></code></code></pre>
+<pre><code class='language-r'><code><span style='background-color:#fffe95'>nameOfMyObject</span> <span style='background-color:#ff7e82'><-</span> <span style='background-color:#81d4fa'>objectToStore</span></code></code></pre>
 <p>The thing on the LEFT (yellow) is the name you want to give your object.</p>
 <p>Then the arrow (pink); first <code>&lt;</code>, then <code>-</code> with no space in between.</p>
 <p>The thing you want to actually store for later goes on the RIGHT (blue).</p>
@@ -56,10 +58,55 @@ shiny: true
 <p><strong>Note:</strong></p>
 <ul>
 <li>Make sure you hit “Run Code” <em>before</em> “Submit Answer”</li>
-<li>If you get a message that’s something like “Last value is invisible”, you can totally 100% ignore it</li>
+<li>If you get a message that’s something like “Last value is invisible”, you can ignore it</li>
 </ul>
 </div>
 {{% learnr url="https://shelly-cooper.shinyapps.io/objectsPart1_app2/" id="learnr-02-objects" %}}
+<div id="things-to-note" class="section level4">
+<h4>Things to note:</h4>
+<ol style="list-style-type: decimal">
+<li><p>If you were to run this line of code from within RStudio, you would see the word <code>continents</code> in the Environment pane (upper right side). This is an easy way for you to glance over and see if your object is actually stored.</p></li>
+<li><p>Notice that nothing printed out when you ran the code above. That code simply says <em>“store the number <code>7</code> in an object called <code>continents</code>”</em>. No where does it say <em>&quot;show me what is stored in the <code>continents</code> object</em>. To do that, you simply need to type it out again, like this:</p></li>
+</ol>
+<pre class="r"><code>continents &lt;- 7
+continents</code></pre>
+<pre><code>## [1] 7</code></pre>
+<p>☝️ The second line prints out <code>continents</code>, so the number <code>7</code> appears.</p>
+<p>In your research, most of the time, you don’t necessarily want to print out every object. But it’s very helpful for things like homework assignments or showing your collaborators an answer/value.</p>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/objectsPt1_quiz1_app3/" id="learnr-02-objectsQuiz1" %}}
+</div>
+<div id="the-whole-point-of-making-an-object-is-that-you-can-do-things-with-them" class="section level3">
+<h3>The whole point of making an object is that you can do things with them!</h3>
+<p>For example:</p>
+<pre class="r"><code># I have 5 chickens
+chickens &lt;- 5
+
+# I have 4 cows
+cows &lt;- 4
+
+# How many animals do I have in total?
+chickens + cows</code></pre>
+<pre><code>## [1] 9</code></pre>
+<p>You can also update your objects!</p>
+<pre class="r"><code># I sold 3 chickens
+chickens &lt;- chickens - 3
+
+# I bought 8 cows
+cows &lt;- cows + 8
+
+# What is my new total number of animals?
+# Still the same line of code from before!
+chickens + cows</code></pre>
+<pre><code>## [1] 14</code></pre>
+<p>In this scenario, we did an “overwrite” of our original <code>chickens</code> and <code>cows</code> objects. We could have stored those as new objects. Something like: <code>chickens_new &lt;- chickens - 3</code>. You will need to decide whether it makes sense to overwrite an object or to create a new one. Base it on what you’re trying to accomplish.</p>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/objectsPt1_quiz2_app4/" id="learnr-02-objectsQuiz2" %}}
+</div>
 </div>
 <div id="practice-with-vectors" class="section level2">
 <h2>Practice with Vectors</h2>
@@ -128,11 +175,11 @@ shiny: true
 <li>Then, check the <code>class()</code> of each of your newly created vectors.</li>
 </ol>
 </div>
-{{% learnr url="https://shelly-cooper.shinyapps.io/vectors_app3/" id="learnr-03-vectors" %}}
+{{% learnr url="https://shelly-cooper.shinyapps.io/vectors_app5/" id="learnr-02-vectors" %}}
 <div id="remember-star-wars" class="section level4">
 <h4>Remember Star Wars?</h4>
 <p>You’ve already made a factor! You turned <code>species</code> into a factor. The result is that in our graph, we have discrete categories for the different types of Star Wars characters!</p>
 <pre><code class='language-r'><code>empire <- starwars<br><br>empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8, 10, 11)]<br><span style='background-color:yellow'>empire$species <- factor(empire$species)</span><br><br>ggplot(data = empire, aes(x = mass, y = height)) +<br>&nbsp;&nbsp;geom_point(aes(size = mass,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='background-color:#ffff7f'>color = species</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha = .5) +<br>&nbsp;&nbsp;labs(title = "Star Wars Characters",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subtitle = "by size",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = "Weight (kg)",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = "Height (cm)") +<br>&nbsp;&nbsp;scale_size(guide = "none")</code></code></pre>
-<p><img src="/practice/02-practice_files/figure-html/unnamed-chunk-6-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/practice/02-practice_files/figure-html/unnamed-chunk-11-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>

@@ -43,7 +43,9 @@
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#visualizing-star-wars&#34;&gt;Visualizing Star Wars&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#practice-with-objects&#34;&gt;Practice with Objects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#practice-with-objects&#34;&gt;Practice with Objects&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#the-whole-point-of-making-an-object-is-that-you-can-do-things-with-them&#34;&gt;The whole point of making an object is that you can do things with them!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#practice-with-vectors&#34;&gt;Practice with Vectors&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -70,7 +72,7 @@
 &lt;li&gt;They are the &lt;em&gt;nouns&lt;/em&gt; of programming languages; they are typically what we are acting &lt;em&gt;on&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;We give an object a name; this is called &lt;strong&gt;assignment&lt;/strong&gt;, and it takes the form of:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:yellow&#39;&gt;nameOfMyObject&lt;/span&gt; &lt;span style=&#39;background-color:red&#39;&gt;&lt;-&lt;/span&gt; &lt;span style=&#39;background-color:cornflowerblue&#39;&gt;objectToStore&lt;/span&gt;&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#fffe95&#39;&gt;nameOfMyObject&lt;/span&gt; &lt;span style=&#39;background-color:#ff7e82&#39;&gt;&lt;-&lt;/span&gt; &lt;span style=&#39;background-color:#81d4fa&#39;&gt;objectToStore&lt;/span&gt;&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The thing on the LEFT (yellow) is the name you want to give your object.&lt;/p&gt;
 &lt;p&gt;Then the arrow (pink); first &lt;code&gt;&amp;lt;&lt;/code&gt;, then &lt;code&gt;-&lt;/code&gt; with no space in between.&lt;/p&gt;
 &lt;p&gt;The thing you want to actually store for later goes on the RIGHT (blue).&lt;/p&gt;
@@ -81,11 +83,58 @@
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Make sure you hit “Run Code” &lt;em&gt;before&lt;/em&gt; “Submit Answer”&lt;/li&gt;
-&lt;li&gt;If you get a message that’s something like “Last value is invisible”, you can totally 100% ignore it&lt;/li&gt;
+&lt;li&gt;If you get a message that’s something like “Last value is invisible”, you can ignore it&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-02-objects&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/objectsPart1_app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-02-objects&#34;)&#39;&gt;&lt;/iframe&gt;
 
+&lt;div id=&#34;things-to-note&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Things to note:&lt;/h4&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;If you were to run this line of code from within RStudio, you would see the word &lt;code&gt;continents&lt;/code&gt; in the Environment pane (upper right side). This is an easy way for you to glance over and see if your object is actually stored.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Notice that nothing printed out when you ran the code above. That code simply says &lt;em&gt;“store the number &lt;code&gt;7&lt;/code&gt; in an object called &lt;code&gt;continents&lt;/code&gt;”&lt;/em&gt;. No where does it say &lt;em&gt;&amp;quot;show me what is stored in the &lt;code&gt;continents&lt;/code&gt; object&lt;/em&gt;. To do that, you simply need to type it out again, like this:&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;continents &amp;lt;- 7
+continents&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;☝️ The second line prints out &lt;code&gt;continents&lt;/code&gt;, so the number &lt;code&gt;7&lt;/code&gt; appears.&lt;/p&gt;
+&lt;p&gt;In your research, most of the time, you don’t necessarily want to print out every object. But it’s very helpful for things like homework assignments or showing your collaborators an answer/value.&lt;/p&gt;
+&lt;div class=&#34;quiz&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-02-objectsQuiz1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/objectsPt1_quiz1_app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-02-objectsQuiz1&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;the-whole-point-of-making-an-object-is-that-you-can-do-things-with-them&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The whole point of making an object is that you can do things with them!&lt;/h3&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# I have 5 chickens
+chickens &amp;lt;- 5
+
+# I have 4 cows
+cows &amp;lt;- 4
+
+# How many animals do I have in total?
+chickens + cows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 9&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can also update your objects!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# I sold 3 chickens
+chickens &amp;lt;- chickens - 3
+
+# I bought 8 cows
+cows &amp;lt;- cows + 8
+
+# What is my new total number of animals?
+# Still the same line of code from before!
+chickens + cows&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 14&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this scenario, we did an “overwrite” of our original &lt;code&gt;chickens&lt;/code&gt; and &lt;code&gt;cows&lt;/code&gt; objects. We could have stored those as new objects. Something like: &lt;code&gt;chickens_new &amp;lt;- chickens - 3&lt;/code&gt;. You will need to decide whether it makes sense to overwrite an object or to create a new one. Base it on what you’re trying to accomplish.&lt;/p&gt;
+&lt;div class=&#34;quiz&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-02-objectsQuiz2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/objectsPt1_quiz2_app4/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-02-objectsQuiz2&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;practice-with-vectors&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Practice with Vectors&lt;/h2&gt;
@@ -154,13 +203,13 @@
 &lt;li&gt;Then, check the &lt;code&gt;class()&lt;/code&gt; of each of your newly created vectors.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-03-vectors&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/vectors_app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-03-vectors&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-02-vectors&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/vectors_app5/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-02-vectors&#34;)&#39;&gt;&lt;/iframe&gt;
 
 &lt;div id=&#34;remember-star-wars&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Remember Star Wars?&lt;/h4&gt;
 &lt;p&gt;You’ve already made a factor! You turned &lt;code&gt;species&lt;/code&gt; into a factor. The result is that in our graph, we have discrete categories for the different types of Star Wars characters!&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;empire &lt;- starwars&lt;br&gt;&lt;br&gt;empire &lt;- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8, 10, 11)]&lt;br&gt;&lt;span style=&#39;background-color:yellow&#39;&gt;empire$species &lt;- factor(empire$species)&lt;/span&gt;&lt;br&gt;&lt;br&gt;ggplot(data = empire, aes(x = mass, y = height)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(aes(size = mass,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&#39;background-color:#ffff7f&#39;&gt;color = species&lt;/span&gt;),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;alpha = .5) +&lt;br&gt;&amp;nbsp;&amp;nbsp;labs(title = &#34;Star Wars Characters&#34;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;subtitle = &#34;by size&#34;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x = &#34;Weight (kg)&#34;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y = &#34;Height (cm)&#34;) +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_size(guide = &#34;none&#34;)&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/practice/02-practice_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/02-practice_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

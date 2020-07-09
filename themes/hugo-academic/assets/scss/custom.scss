@@ -189,6 +189,7 @@ td.mid-table-header {
 div.note,
 div.fyi,
 div.puzzle,
+div.quiz,
 div.warning {
     position: relative;
     padding: 1em 1em 1em 100px;
@@ -199,9 +200,11 @@ div.warning {
 div.note:before,
 div.fyi:before,
 div.puzzle:before,
+div.quiz:before,
 div.warning:before {
     position: absolute;
-//    font-family: "FontAwesome";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     font-size: 70px;
     top: 0;
     opacity: 0.5;
@@ -213,9 +216,10 @@ div.note {
     border: dotted 4px nth($colors-dark, 7);
 }
 
+// fa-sticky-note
 div.note:before {
-    content: "\f0eb";
-    left: 30px;
+    content: '\f249';
+    left: 20px;
 }
 
 div.fyi {
@@ -224,8 +228,9 @@ div.fyi {
     border: dotted 4px nth($colors-dark, 6);
 }
 
+// fa-info-circle
 div.fyi:before {
-    content: "\f05a";
+    content: '\f05a';
     left: 20px;
 }
 
@@ -235,18 +240,33 @@ div.puzzle {
     border: dotted 4px nth($colors-dark, 5);
 }
 
+// fa-puzzle-piece
 div.puzzle:before {
-    content: "\f12e";
+    content: '\f12e';
+    left: 20px;
+}
+
+div.quiz {
+    color: nth($colors-dark, 3);
+    background-color: rgba(nth($colors-light, 3), 0.2);
+    border: dashed 4px nth($colors-dark, 3);
+    font-size: 32px;
+}
+
+// fa-question-circle
+div.quiz:before {
+    content: '\f059';
     left: 20px;
 }
 
 div.warning {
     color: #FFFFFF;
     background-color: nth($colors-dark, 1);
-    border: dotted 4px #FFFFFF;
+    border: dashed 4px #FFFFFF;
 }
 
+// fa-exclamation-triangle
 div.warning:before {
-    content: "\f071";
+    content: '\f071';
     left: 14px;
 }

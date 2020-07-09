@@ -54,9 +54,9 @@ nameOfMyObject <- objectToStore
 
 ```{r decorate-obj-form, echo=FALSE}
 decorate("obj-form", eval=FALSE) %>% 
-  flair("nameOfMyObject", background = "yellow") %>% 
-  flair("<-", background = "red") %>% 
-  flair("objectToStore", background = "cornflowerblue") %>% 
+  flair("nameOfMyObject", background = "#fffe95") %>% 
+  flair("<-", background = "#ff7e82") %>% 
+  flair("objectToStore", background = "#81d4fa") %>% 
   knit_print.with_flair()
 ```
 
@@ -74,7 +74,7 @@ The thing you want to actually store for later goes on the RIGHT (blue).
 **Note:**
 
   - Make sure you hit "Run Code" *before* "Submit Answer"
-  - If you get a message that's something like "Last value is invisible", you can totally 100% ignore it
+  - If you get a message that's something like "Last value is invisible", you can ignore it
 :::
 
 ```{r, echo=FALSE}
@@ -82,6 +82,73 @@ The thing you want to actually store for later goes on the RIGHT (blue).
 blogdown::shortcode("learnr",
                     url = "https://shelly-cooper.shinyapps.io/objectsPart1_app2/",
                     id = "learnr-02-objects")
+
+```
+
+#### Things to note:
+1. If you were to run this line of code from within RStudio, you would see the word `continents` in the Environment pane (upper right side). This is an easy way for you to glance over and see if your object is actually stored. 
+
+2. Notice that nothing printed out when you ran the code above. That code simply says *"store the number `7` in an object called `continents`"*. No where does it say *"show me what is stored in the `continents` object*. To do that, you simply need to type it out again, like this:
+
+```{r}
+continents <- 7
+continents
+```
+
+`r emo::ji("index_pointing_up")` The second line prints out `continents`, so the number `7` appears. 
+
+In your research, most of the time, you don't necessarily want to print out every object. But it's very helpful for things like homework assignments or showing your collaborators an answer/value. 
+
+:::quiz
+**Quick Quiz**
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/objectsPt1_quiz1_app3/",
+                    id = "learnr-02-objectsQuiz1")
+
+```
+
+### The whole point of making an object is that you can do things with them!
+
+For example:
+```{r}
+# I have 5 chickens
+chickens <- 5
+
+# I have 4 cows
+cows <- 4
+
+# How many animals do I have in total?
+chickens + cows
+```
+
+You can also update your objects!
+
+```{r, echo=TRUE}
+# I sold 3 chickens
+chickens <- chickens - 3
+
+# I bought 8 cows
+cows <- cows + 8
+
+# What is my new total number of animals?
+# Still the same line of code from before!
+chickens + cows
+```
+
+In this scenario, we did an "overwrite" of our original `chickens` and `cows` objects. We could have stored those as new objects. Something like: `chickens_new <- chickens - 3`. You will need to decide whether it makes sense to overwrite an object or to create a new one. Base it on what you're trying to accomplish. 
+
+:::quiz
+**Quick Quiz**
+:::
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/objectsPt1_quiz2_app4/",
+                    id = "learnr-02-objectsQuiz2")
 
 ```
 
@@ -124,8 +191,8 @@ Here, each row can be considered it's own vector, and each column can be conside
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/vectors_app3/",
-                    id = "learnr-03-vectors")
+                    url = "https://shelly-cooper.shinyapps.io/vectors_app5/",
+                    id = "learnr-02-vectors")
 
 ```
 
@@ -156,4 +223,5 @@ decorate("empire-code") %>%
   flair("color = species") %>% 
   knit_print.with_flair()
 ```
+
 
