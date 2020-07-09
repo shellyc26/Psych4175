@@ -1,0 +1,159 @@
+---
+title: "Practice Set: Objects"
+linktitle: "2: Objects"
+output:
+  blogdown::html_page:
+    toc: true
+menu:
+  practice:
+    parent: The Basics
+    weight: 2
+type: docs
+weight: 2
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+## Visualizing Star Wars
+
+Now that you're oriented to RStudio, it's time to write and execute some code. The following uses a data set about Star Wars characters (yay!). This is the same dataset as the [Objects lecture](/lectures/02-lecture)
+
+:::puzzle
+**You try:**
+
+  1. Read through the lines of code. You probably won't understand anything, but that's OK!
+  2. Click "Run Code" 
+  3. Watch what happens!
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/learnr_app1/",
+                    id = "learnr-02-starwars")
+
+```
+
+Over the course of this basic training, we'll cover all the elements in this code block that produced this graph. It's 100% OK if it looks like complete gibberish to you right now!
+
+## Practice with Objects
+- **Objects** allow you to store things (values, models, entire datasets etc.)
+- They are the *nouns* of programming languages; they are typically what we are acting *on*
+- We give an object a name; this is called **assignment**, and it takes the form of:
+
+```{r obj-form, eval=FALSE, include=FALSE}
+nameOfMyObject <- objectToStore
+```
+
+```{r decorate-obj-form, echo=FALSE}
+decorate("obj-form", eval=FALSE) %>% 
+  flair("nameOfMyObject", background = "yellow") %>% 
+  flair("<-", background = "red") %>% 
+  flair("objectToStore", background = "cornflowerblue") %>% 
+  knit_print.with_flair()
+```
+
+The thing on the LEFT (yellow) is the name you want to give your object.
+
+Then the arrow (pink); first `<`, then `-` with no space in between.
+
+The thing you want to actually store for later goes on the RIGHT (blue). 
+
+:::puzzle
+**You try!** Create an object called `continents` that stores the number `7`
+:::
+
+:::note
+**Note:**
+
+  - Make sure you hit "Run Code" *before* "Submit Answer"
+  - If you get a message that's something like "Last value is invisible", you can totally 100% ignore it
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/objectsPart1_app2/",
+                    id = "learnr-02-objects")
+
+```
+
+## Practice with Vectors
+A **vector** is a group of objects that's 1-dimensional:
+
+  - It can be a row, a column, or just stand alone 
+  - To make a vector, you can *combine* or *concatenate* objects together using `c()`
+  - Each object (vector or otherwise) has a specific data class. this can be things like numeric, character, factors, logical etc.
+
+Check out this table:
+
+```{r, echo=FALSE}
+ids <- c("ID1", "ID2", "ID3", "ID4", "ID5")
+state <- c("Missouri", "Iowa", "Missouri", "Idaho", "Maine")
+smoker <- c(TRUE, FALSE, FALSE, TRUE, FALSE)
+age <- c(20, 18, 32, 25, 25)
+
+testdf = data.frame(ID = ids,
+                    State = state,
+                    Smoker = smoker,
+                    Age = age)
+
+kable(testdf)
+```
+
+Here, each row can be considered it's own vector, and each column can be considered it's own vector. 
+
+:::puzzle
+**You try:**
+
+  1. First, create 4 vectors for each of these columns. Make sure they contain the same exact values as what you see in this table! Assign each vector to the following corresponding name:
+   - `ids`
+   - `state`
+   - `smoker`
+   - `age`
+  2. Then, check the `class()` of each of your newly created vectors.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/vectors_app3/",
+                    id = "learnr-03-vectors")
+
+```
+
+#### Remember Star Wars?
+You've already made a factor! You turned `species` into a factor. The result is that in our graph, we have discrete categories for the different types of Star Wars characters!
+
+```{r empire-code, include=FALSE}
+empire <- starwars
+
+empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8, 10, 11)]
+empire$species <- factor(empire$species)
+
+ggplot(data = empire, aes(x = mass, y = height)) +
+  geom_point(aes(size = mass,
+                 color = species),
+             alpha = .5) +
+  labs(title = "Star Wars Characters",
+       subtitle = "by size",
+       x = "Weight (kg)",
+       y = "Height (cm)") +
+  scale_size(guide = "none")
+```
+
+```{r decorate-empire-code, echo=FALSE}
+decorate("empire-code") %>% 
+  flair("empire$species <- factor(empire$species)",
+        background = "yellow") %>% 
+  flair("color = species") %>% 
+  knit_print.with_flair()
+```
+

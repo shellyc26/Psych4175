@@ -1,0 +1,121 @@
+
+<div id="TOC">
+<ul>
+<li><a href="#visualizing-star-wars">Visualizing Star Wars</a></li>
+<li><a href="#practice-with-objects">Practice with Objects</a></li>
+<li><a href="#practice-with-vectors">Practice with Vectors</a></li>
+</ul>
+</div>
+
+<div id="visualizing-star-wars" class="section level2">
+<h2>Visualizing Star Wars</h2>
+<p>Now that you’re oriented to RStudio, it’s time to write and execute some code. The following uses a data set about Star Wars characters (yay!). This is the same dataset as the <a href="/lectures/02-lecture">Objects lecture</a></p>
+<div class="puzzle">
+<p><strong>You try:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Read through the lines of code. You probably won’t understand anything, but that’s OK!</li>
+<li>Click “Run Code”</li>
+<li>Watch what happens!</li>
+</ol>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/learnr_app1/" id="learnr-02-starwars" %}}
+<p>Over the course of this basic training, we’ll cover all the elements in this code block that produced this graph. It’s 100% OK if it looks like complete gibberish to you right now!</p>
+</div>
+<div id="practice-with-objects" class="section level2">
+<h2>Practice with Objects</h2>
+<ul>
+<li><strong>Objects</strong> allow you to store things (values, models, entire datasets etc.)</li>
+<li>They are the <em>nouns</em> of programming languages; they are typically what we are acting <em>on</em></li>
+<li>We give an object a name; this is called <strong>assignment</strong>, and it takes the form of:</li>
+</ul>
+<pre><code class='language-r'><code><span style='background-color:yellow'>nameOfMyObject</span> <span style='background-color:red'><-</span> <span style='background-color:cornflowerblue'>objectToStore</span></code></code></pre>
+<p>The thing on the LEFT (yellow) is the name you want to give your object.</p>
+<p>Then the arrow (pink); first <code>&lt;</code>, then <code>-</code> with no space in between.</p>
+<p>The thing you want to actually store for later goes on the RIGHT (blue).</p>
+<div class="puzzle">
+<p><strong>You try!</strong> Create an object called <code>continents</code> that stores the number <code>7</code></p>
+</div>
+<div class="note">
+<p><strong>Note:</strong></p>
+<ul>
+<li>Make sure you hit “Run Code” <em>before</em> “Submit Answer”</li>
+<li>If you get a message that’s something like “Last value is invisible”, you can totally 100% ignore it</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/objectsPart1_app2/" id="learnr-02-objects" %}}
+</div>
+<div id="practice-with-vectors" class="section level2">
+<h2>Practice with Vectors</h2>
+<p>A <strong>vector</strong> is a group of objects that’s 1-dimensional:</p>
+<ul>
+<li>It can be a row, a column, or just stand alone</li>
+<li>To make a vector, you can <em>combine</em> or <em>concatenate</em> objects together using <code>c()</code></li>
+<li>Each object (vector or otherwise) has a specific data class. this can be things like numeric, character, factors, logical etc.</li>
+</ul>
+<p>Check out this table:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ID</th>
+<th align="left">State</th>
+<th align="left">Smoker</th>
+<th align="right">Age</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ID1</td>
+<td align="left">Missouri</td>
+<td align="left">TRUE</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">ID2</td>
+<td align="left">Iowa</td>
+<td align="left">FALSE</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">ID3</td>
+<td align="left">Missouri</td>
+<td align="left">FALSE</td>
+<td align="right">32</td>
+</tr>
+<tr class="even">
+<td align="left">ID4</td>
+<td align="left">Idaho</td>
+<td align="left">TRUE</td>
+<td align="right">25</td>
+</tr>
+<tr class="odd">
+<td align="left">ID5</td>
+<td align="left">Maine</td>
+<td align="left">FALSE</td>
+<td align="right">25</td>
+</tr>
+</tbody>
+</table>
+<p>Here, each row can be considered it’s own vector, and each column can be considered it’s own vector.</p>
+<div class="puzzle">
+<p><strong>You try:</strong></p>
+<ol style="list-style-type: decimal">
+<li>First, create 4 vectors for each of these columns. Make sure they contain the same exact values as what you see in this table! Assign each vector to the following corresponding name:</li>
+</ol>
+<ul>
+<li><code>ids</code></li>
+<li><code>state</code></li>
+<li><code>smoker</code></li>
+<li><code>age</code></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Then, check the <code>class()</code> of each of your newly created vectors.</li>
+</ol>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/vectors_app3/" id="learnr-03-vectors" %}}
+<div id="remember-star-wars" class="section level4">
+<h4>Remember Star Wars?</h4>
+<p>You’ve already made a factor! You turned <code>species</code> into a factor. The result is that in our graph, we have discrete categories for the different types of Star Wars characters!</p>
+<pre><code class='language-r'><code>empire <- starwars<br><br>empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8, 10, 11)]<br><span style='background-color:yellow'>empire$species <- factor(empire$species)</span><br><br>ggplot(data = empire, aes(x = mass, y = height)) +<br>&nbsp;&nbsp;geom_point(aes(size = mass,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='background-color:#ffff7f'>color = species</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha = .5) +<br>&nbsp;&nbsp;labs(title = "Star Wars Characters",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subtitle = "by size",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = "Weight (kg)",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = "Height (cm)") +<br>&nbsp;&nbsp;scale_size(guide = "none")</code></code></pre>
+<p><img src="02-practice_files/figure-html/unnamed-chunk-6-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+</div>

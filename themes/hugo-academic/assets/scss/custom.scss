@@ -208,9 +208,9 @@ div.warning:before {
 }
 
 div.note {
-    color: nth($colors-dark, 1);
-    background-color: nth($colors-light, 1);
-    border: dotted 4px nth($colors-dark, 1);
+    color: nth($colors-dark, 7);
+    background-color: rgba(nth($colors-light, 7), 0.2);
+    border: dotted 4px nth($colors-dark, 7);
 }
 
 div.note:before {
@@ -219,9 +219,9 @@ div.note:before {
 }
 
 div.fyi {
-    color: nth($colors-dark, 3);
-    background-color: nth($colors-light, 3);
-    border: dotted 4px nth($colors-dark, 3);
+    color: nth($colors-dark, 6);
+    background-color: rgba(nth($colors-light, 6), 0.2);
+    border: dotted 4px nth($colors-dark, 6);
 }
 
 div.fyi:before {
@@ -230,9 +230,9 @@ div.fyi:before {
 }
 
 div.puzzle {
-    color: nth($colors-dark, 4);
-    background-color: nth($colors-light, 4);
-    border: dotted 4px nth($colors-dark, 4);
+    color: nth($colors-dark, 5);
+    background-color: rgba(nth($colors-light, 5), 0.2);
+    border: dotted 4px nth($colors-dark, 5);
 }
 
 div.puzzle:before {
@@ -242,7 +242,7 @@ div.puzzle:before {
 
 div.warning {
     color: #FFFFFF;
-    background-color: nth($colors-dark, 6);
+    background-color: nth($colors-dark, 1);
     border: dotted 4px #FFFFFF;
 }
 
