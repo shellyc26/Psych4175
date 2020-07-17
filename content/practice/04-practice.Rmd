@@ -1,0 +1,207 @@
+---
+title: "Practice Set: Objects Revisited"
+linktitle: "4: Objects Pt. 2"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 4
+type: docs
+weight: 4
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+## Data.frames
+A **data.frame** is basically a spreadsheet. It's 2-dimensional (rows & columns). Remember our `starwars` dataset? 
+
+```{r, echo=FALSE}
+empire <- starwars
+
+empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8, 10, 11)]
+empire$species <- factor(empire$species)
+
+kable(empire)
+```
+
+Each row has `6` pieces of information and each column has `10` observations. 
+
+<span class='medium'>**Let's make our own data.frame!**</span> 
+
+:::note
+For the most part, you will be importing your data from somewhere else. We'll cover how to import data shortly in [topic #7](/lectures/07-lecture) of "The Basics".
+:::
+
+Making a data.frame has the following formatting (or syntax):
+
+```{r df-code, eval=FALSE, include=FALSE}
+newDf <- data.frame(vector1,
+                    vector2,
+                    vector3)
+```
+
+```{r decorate-df-code, echo=FALSE}
+decorate("df-code", eval = FALSE) %>% 
+  flair("newDf",
+        background = "#686DE07D") %>% 
+  flair("data.frame",
+        background = "#ff79797D") %>%
+  flair_rx("vector",
+        background = "#FFFF007D") %>% 
+  knit_print.with_flair()
+```
+
+`r emo::ji("index_pointing_up")` Here we have:
+
+1. What we want to name our data.frame: `newDf` in <span class='color-light-6'>blue</span>
+2. The actual words `data.frame` in <span class='color=light-1'>red</span>
+3. The vectors we want included in <font style="color:#FFFF00">yellow</font>
+
+In order to effectively create a new data.frame from multiple vectors, each vector should have the same number of items! If it doesn't, R will ususally fill it in with the missing variable class `NA`.
+
+Remember these variables?
+
+```{r}
+ids <- c("ID1", "ID2", "ID3", "ID4", "ID5") # character
+state <- c("Missouri", "Iowa", "Missouri", "Idaho", "Maine") # character/factor
+smoker <- c(TRUE, FALSE, FALSE, TRUE, FALSE) # logical
+age <- c(20, 18, 32, 25, 25) # numeric
+```
+
+Let's turn them into a data.frame. 
+
+```{r dem-code, include=FALSE}
+demographics <- data.frame(ids,
+                           state,
+                           smoker,
+                           age)
+```
+
+```{r decorate-dem-code, echo=FALSE}
+decorate("dem-code") %>% 
+  flair("demographics",
+        background = "#686DE07D") %>% 
+  flair("data.frame",
+        background = "#ff79797D") %>%
+  flair("ids",
+        background = "#FFFF007D") %>% 
+  flair("state",
+        background = "#FFFF007D") %>%
+  flair("smoker",
+        background = "#FFFF007D") %>%
+  flair("age",
+        background = "#FFFF007D") %>%
+  knit_print.with_flair()
+```
+
+Now that it's a data.frame called `demographics`, it looks like this:
+```{r, echo=FALSE}
+kable(demographics)
+```
+
+If you're creating a new data.frame from vectors, you can easily adjust the column names. 
+
+```{r}
+demographics <- data.frame(SubjectID = ids,
+                           Location = state,
+                           SmokerTF = smoker,
+                           SubjectAge = age)
+```
+
+```{r, echo=FALSE}
+kable(demographics)
+```
+
+:::puzzle
+**You try!** Make a data.frame from the following SAT/ACT variables we've been working with. Call the entire data.frame `scores`. Include the following variables and make sure they have the following as their column names:
+
+- Age
+- SAT_Verbal
+- SAT_Quant
+- SAT_Total
+- SAT_Scaled
+- ACT
+- Avg_Scores
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/04-learnr-app1/",
+                    id = "learnr-04-app1")
+
+```
+
+## Indexing Data.frames
+In our [last practice](/practice/03-practice) session, we went over indexing a 1-dimensional vector. For data.frames, the process is very similar, but now we have to account for 2 dimensions!
+
+```{r index-code, eval=FALSE, include=FALSE}
+data[ROWS, COLUMNS]
+```
+
+```{r decorate-index-code, echo=FALSE}
+decorate("index-code", eval=FALSE) %>% 
+  flair("data", background = "#686DE07D") %>% 
+  flair("ROWS", background = "#ff79797D") %>% 
+  flair("COLUMNS", background = "#badc587d") %>% 
+  flair("[", background = "#FFFF007D") %>% 
+  flair("]", background = "#FFFF007D")
+```
+
+Let's take a look back at `demographics`
+```{r, echo=FALSE}
+kable(demographics)
+```
+
+What if I wanted the 4th row, 3rd column? 
+```{r}
+demographics[4,3]
+```
+
+How about the location of subjects 1 through 3?
+```{r}
+demographics[1:3, 2]
+```
+
+If you want **all** of either rows or columns, just leave it blank. But don't forget the comma!
+
+```{r}
+# all the columns for row 2
+demographics[2,]
+
+# all the rows of column 4
+demographics[,4]
+```
+
+Earlier, I asked you to run the line `head(scores)`. Using `head()` is just a shortcut for `scores[1:6,]` -- rows 1 through 6 for all columns. 
+
+#### What if you don't know the column number? 
+Use the `$` sign! This is really, really, REALLY helpful! Plus, autocomplete is magical. 
+
+```{r}
+demographics$Location
+```
+
+:::puzzle
+**You try!** Let's practice using the `empire` dataset. (If you've forgotten what it looks like, scroll to the top of this page) Follow the directions above each code chunk!
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/04-learnr-app2/",
+                    id = "learnr-04-app2")
+
+```

@@ -54,17 +54,17 @@ nameOfMyObject <- objectToStore
 
 ```{r decorate-obj-form, echo=FALSE}
 decorate("obj-form", eval=FALSE) %>% 
-  flair("nameOfMyObject", background = "#fffe95") %>% 
-  flair("<-", background = "#ff7e82") %>% 
-  flair("objectToStore", background = "#81d4fa") %>% 
+  flair("nameOfMyObject", background = "#FFFF007D") %>% 
+  flair("<-", background = "#ff79797d") %>% 
+  flair("objectToStore", background = "#686DE07D") %>% 
   knit_print.with_flair()
 ```
 
-The thing on the LEFT (yellow) is the name you want to give your object.
+The thing on the <font style="color:#FFFF00;background-color:#d3d3d37d">LEFT</font> is the name you want to give your object.
 
-Then the arrow (pink); first `<`, then `-` with no space in between.
+Then the <font style="color:#ff7979">arrow</font>; first `<` (less than sign), then `-` (hyphen/dash) with no space in between.
 
-The thing you want to actually store for later goes on the RIGHT (blue). 
+The thing you want to actually store for later goes on the <font style="color:#686DE0">RIGHT</font>. 
 
 :::puzzle
 **You try!** Create an object called `continents` that stores the number `7`

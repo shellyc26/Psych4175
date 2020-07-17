@@ -1,0 +1,597 @@
+---
+title: "Practice Set: Objects Revisited"
+linktitle: "4: Objects Pt. 2"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 4
+type: docs
+weight: 4
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#data.frames">Data.frames</a></li>
+<li><a href="#indexing-data.frames">Indexing Data.frames</a></li>
+</ul>
+</div>
+
+<div id="data.frames" class="section level2">
+<h2>Data.frames</h2>
+<p>A <strong>data.frame</strong> is basically a spreadsheet. It’s 2-dimensional (rows &amp; columns). Remember our <code>starwars</code> dataset?</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+name
+</th>
+<th style="text-align:right;">
+height
+</th>
+<th style="text-align:right;">
+mass
+</th>
+<th style="text-align:left;">
+sex
+</th>
+<th style="text-align:left;">
+homeworld
+</th>
+<th style="text-align:left;">
+species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Luke Skywalker
+</td>
+<td style="text-align:right;">
+172
+</td>
+<td style="text-align:right;">
+77.0
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+Tatooine
+</td>
+<td style="text-align:left;">
+Human
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C-3PO
+</td>
+<td style="text-align:right;">
+167
+</td>
+<td style="text-align:right;">
+75.0
+</td>
+<td style="text-align:left;">
+none
+</td>
+<td style="text-align:left;">
+Tatooine
+</td>
+<td style="text-align:left;">
+Droid
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2-D2
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+32.0
+</td>
+<td style="text-align:left;">
+none
+</td>
+<td style="text-align:left;">
+Naboo
+</td>
+<td style="text-align:left;">
+Droid
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Darth Vader
+</td>
+<td style="text-align:right;">
+202
+</td>
+<td style="text-align:right;">
+136.0
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+Tatooine
+</td>
+<td style="text-align:left;">
+Human
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leia Organa
+</td>
+<td style="text-align:right;">
+150
+</td>
+<td style="text-align:right;">
+49.0
+</td>
+<td style="text-align:left;">
+female
+</td>
+<td style="text-align:left;">
+Alderaan
+</td>
+<td style="text-align:left;">
+Human
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Obi-Wan Kenobi
+</td>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:right;">
+77.0
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+Stewjon
+</td>
+<td style="text-align:left;">
+Human
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chewbacca
+</td>
+<td style="text-align:right;">
+228
+</td>
+<td style="text-align:right;">
+112.0
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+Kashyyyk
+</td>
+<td style="text-align:left;">
+Wookiee
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Han Solo
+</td>
+<td style="text-align:right;">
+180
+</td>
+<td style="text-align:right;">
+80.0
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+Corellia
+</td>
+<td style="text-align:left;">
+Human
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Yoda
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+17.0
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Yoda’s species
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Boba Fett
+</td>
+<td style="text-align:right;">
+183
+</td>
+<td style="text-align:right;">
+78.2
+</td>
+<td style="text-align:left;">
+male
+</td>
+<td style="text-align:left;">
+Kamino
+</td>
+<td style="text-align:left;">
+Human
+</td>
+</tr>
+</tbody>
+</table>
+<p>Each row has <code>6</code> pieces of information and each column has <code>10</code> observations.</p>
+<p><span class="medium"><strong>Let’s make our own data.frame!</strong></span></p>
+<div class="note">
+<p>For the most part, you will be importing your data from somewhere else. We’ll cover how to import data shortly in <a href="/lectures/07-lecture">topic #7</a> of “The Basics”.</p>
+</div>
+<p>Making a data.frame has the following formatting (or syntax):</p>
+<pre><code class='language-r'><code><span style='background-color:#686DE07D'>newDf</span> <- <span style='background-color:#ff79797D'>data.frame</span>(<span style='background-color:#FFFF007D'>vector</span>1,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='background-color:#FFFF007D'>vector</span>2,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='background-color:#FFFF007D'>vector</span>3)</code></code></pre>
+<p>☝️ Here we have:</p>
+<ol style="list-style-type: decimal">
+<li>What we want to name our data.frame: <code>newDf</code> in <span class="color-light-6">blue</span></li>
+<li>The actual words <code>data.frame</code> in <span class="color=light-1">red</span></li>
+<li>The vectors we want included in <font style="color:#FFFF00">yellow</font></li>
+</ol>
+<p>In order to effectively create a new data.frame from multiple vectors, each vector should have the same number of items! If it doesn’t, R will ususally fill it in with the missing variable class <code>NA</code>.</p>
+<p>Remember these variables?</p>
+<pre class="r"><code>ids &lt;- c(&quot;ID1&quot;, &quot;ID2&quot;, &quot;ID3&quot;, &quot;ID4&quot;, &quot;ID5&quot;) # character
+state &lt;- c(&quot;Missouri&quot;, &quot;Iowa&quot;, &quot;Missouri&quot;, &quot;Idaho&quot;, &quot;Maine&quot;) # character/factor
+smoker &lt;- c(TRUE, FALSE, FALSE, TRUE, FALSE) # logical
+age &lt;- c(20, 18, 32, 25, 25) # numeric</code></pre>
+<p>Let’s turn them into a data.frame.</p>
+<pre><code class='language-r'><code><span style='background-color:#686DE07D'>demographics</span> <- <span style='background-color:#ff79797D'>data.frame</span>(<span style='background-color:#FFFF007D'>ids</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='background-color:#FFFF007D'>state</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='background-color:#FFFF007D'>smoker</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='background-color:#FFFF007D'>age</span>)</code></code></pre>
+Now that it’s a data.frame called <code>demographics</code>, it looks like this:
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+ids
+</th>
+<th style="text-align:left;">
+state
+</th>
+<th style="text-align:left;">
+smoker
+</th>
+<th style="text-align:right;">
+age
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ID1
+</td>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID2
+</td>
+<td style="text-align:left;">
+Iowa
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID3
+</td>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID4
+</td>
+<td style="text-align:left;">
+Idaho
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID5
+</td>
+<td style="text-align:left;">
+Maine
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+</tbody>
+</table>
+<p>If you’re creating a new data.frame from vectors, you can easily adjust the column names.</p>
+<pre class="r"><code>demographics &lt;- data.frame(SubjectID = ids,
+                           Location = state,
+                           SmokerTF = smoker,
+                           SubjectAge = age)</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+SubjectID
+</th>
+<th style="text-align:left;">
+Location
+</th>
+<th style="text-align:left;">
+SmokerTF
+</th>
+<th style="text-align:right;">
+SubjectAge
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ID1
+</td>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID2
+</td>
+<td style="text-align:left;">
+Iowa
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID3
+</td>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID4
+</td>
+<td style="text-align:left;">
+Idaho
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID5
+</td>
+<td style="text-align:left;">
+Maine
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+</tbody>
+</table>
+<div class="puzzle">
+<p><strong>You try!</strong> Make a data.frame from the following SAT/ACT variables we’ve been working with. Call the entire data.frame <code>scores</code>. Include the following variables and make sure they have the following as their column names:</p>
+<ul>
+<li>Age</li>
+<li>SAT_Verbal</li>
+<li>SAT_Quant</li>
+<li>SAT_Total</li>
+<li>SAT_Scaled</li>
+<li>ACT</li>
+<li>Avg_Scores</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/04-learnr-app1/" id="learnr-04-app1" %}}
+</div>
+<div id="indexing-data.frames" class="section level2">
+<h2>Indexing Data.frames</h2>
+<p>In our <a href="/practice/03-practice">last practice</a> session, we went over indexing a 1-dimensional vector. For data.frames, the process is very similar, but now we have to account for 2 dimensions!</p>
+Let’s take a look back at <code>demographics</code>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+SubjectID
+</th>
+<th style="text-align:left;">
+Location
+</th>
+<th style="text-align:left;">
+SmokerTF
+</th>
+<th style="text-align:right;">
+SubjectAge
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ID1
+</td>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID2
+</td>
+<td style="text-align:left;">
+Iowa
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID3
+</td>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID4
+</td>
+<td style="text-align:left;">
+Idaho
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID5
+</td>
+<td style="text-align:left;">
+Maine
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+</tbody>
+</table>
+<p>What if I wanted the 4th row, 3rd column?</p>
+<pre class="r"><code>demographics[4,3]</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>How about the location of subjects 1 through 3?</p>
+<pre class="r"><code>demographics[1:3, 2]</code></pre>
+<pre><code>## [1] &quot;Missouri&quot; &quot;Iowa&quot;     &quot;Missouri&quot;</code></pre>
+<p>If you want <strong>all</strong> of either rows or columns, just leave it blank. But don’t forget the comma!</p>
+<pre class="r"><code># all the columns for row 2
+demographics[2,]</code></pre>
+<pre><code>##   SubjectID Location SmokerTF SubjectAge
+## 2       ID2     Iowa    FALSE         18</code></pre>
+<pre class="r"><code># all the rows of column 4
+demographics[,4]</code></pre>
+<pre><code>## [1] 20 18 32 25 25</code></pre>
+<p>Earlier, I asked you to run the line <code>head(scores)</code>. Using <code>head()</code> is just a shortcut for <code>scores[1:6,]</code> – rows 1 through 6 for all columns.</p>
+<div id="what-if-you-dont-know-the-column-number" class="section level4">
+<h4>What if you don’t know the column number?</h4>
+<p>Use the <code>$</code> sign! This is really, really, REALLY helpful! Plus, autocomplete is magical.</p>
+<pre class="r"><code>demographics$Location</code></pre>
+<pre><code>## [1] &quot;Missouri&quot; &quot;Iowa&quot;     &quot;Missouri&quot; &quot;Idaho&quot;    &quot;Maine&quot;</code></pre>
+<div class="puzzle">
+<p><strong>You try!</strong> Let’s practice using the <code>empire</code> dataset. (If you’ve forgotten what it looks like, scroll to the top of this page) Follow the directions above each code chunk!</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/04-learnr-app2/" id="learnr-04-app2" %}}
+</div>
+</div>

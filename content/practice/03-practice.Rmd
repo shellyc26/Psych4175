@@ -4,6 +4,7 @@ linktitle: "3: Indexing"
 output:
   blogdown::html_page:
     toc: true
+    css: "/slides/css/additionalCols.css"
 menu:
   practice:
     parent: The Basics
@@ -14,6 +15,7 @@ editor_options:
   chunk_output_type: console
 shiny: true
 ---
+
 ```{r setup, warning = FALSE, message = FALSE, include=FALSE}
 library(tidyverse)
 library(flair)
@@ -21,9 +23,9 @@ library(knitr)
 knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
 ```
 
-## Indexing Recap
+## Vectors Recap
 
-In the [previous practice set](/practice/02-practice), you created the following 4 vectors:   
+Before diving into **indexing**, let's make sure we're `r emo::ji("100")` good with **vectors**. In the [previous practice set](/practice/02-practice), you created the following 4 vectors:   
 
 ```{r}
 ids <- c("ID1", "ID2", "ID3", "ID4", "ID5") # character
@@ -87,5 +89,119 @@ blogdown::shortcode("learnr",
 
 ```
 
+## Indexing
 
+Nice work! Let's move on to practicing **indexing**, specifically with 1-dimensional vectors. 
 
+Think of the <span class='color-1'>**index**</span> as an <span class='color-light-1'>*address*</span>, and your entire <span class='color-6'>**vector**</span> as a <span class='color-light-6'>*street*</span>. Where on the street is the particular object you're looking for? We want to use that object's address to find it. To do so, we use the following format:
+
+```{r indexing-code, eval=FALSE, include=FALSE}
+VECTOR[index]
+```
+
+```{r decorate-indexing-code, echo=FALSE}
+decorate("indexing-code", eval = FALSE) %>% 
+  flair("VECTOR",
+        background = "#686DE07D") %>% 
+  flair("index",
+        background = "#ff79797D") %>%
+  flair("[",
+        background = "#FFFF007D") %>% 
+  flair("]", background = "#FFFF007D") %>% 
+  knit_print.with_flair()
+```
+
+For example, if I wanted to get the 4th item in the `state` vector, it would look something like this:
+
+```{r indexing-code2, include=FALSE}
+state[4]
+```
+
+```{r decorate-indexing-code2, echo=FALSE}
+decorate("indexing-code2") %>% 
+  flair("state",
+        background = "#686DE07D") %>% 
+  flair("4",
+        background = "#ff79797D") %>%
+  flair("[",
+        background = "#FFFF007D") %>% 
+  flair("]", background = "#FFFF007D") %>% 
+  knit_print.with_flair()
+```
+
+To check out more than 1 index:
+
+- If the indices you want are **in a row**: 
+  - Use the colon `:` to get items # *through* #
+  - Ex: `3:5` reads as *"items 3 through 5"*
+  
+- If they are **NOT in a row**:
+  - Make a mini vector with `c()`
+  - Ex: `c(1, 4, 18)` reads as *"items 1, 4, and 18"*
+
+:::puzzle
+**You try!** Practice indexing on the same `sat.act` variables from above, including the variables you created! Follow the directions above each code chunk.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/03-learnr-app2/",
+                    id = "learnr-03-app2")
+
+```
+
+##### A Demonstration
+Let's say we wanted to find the `act` scores of everyone that was over the age of 35. The line of code below finds out who is over 35 years old, and stores it as it's own vector called `older`. Let's take a look:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(psych)
+sat.act <- sat.act[1:100,]
+age <- sat.act$age
+act <- sat.act$ACT
+satV <- sat.act$SATV
+satQ <- sat.act$SATQ
+rm(sat.act)
+
+satTotal <- satV + satQ
+scaledSat <- satTotal * .0225
+avgTestScores <- (scaledSat + act) / 2
+```
+
+```{r}
+# find people over 35 yrs old
+older <- which(age > 35)
+older
+```
+
+Look at the numbers that printed out. They are not the actual ages! We know this because we asked for people over 35 years old, and there are lots of numbers under 35 here. Our vector `older` now contains the **indices** of people over the age of 35! 
+
+The first item in `older`...
+```{r}
+older[1]
+```
+
+...corresponds to an index in the `age` vector of someone over the age of 35. Let's look at the first 15 people in the `age` vector. 
+```{r}
+age[1:15]
+```
+
+Notice that the first person over 35 is the 10th person. They are 40 years old. That is why the first number in `older` is "10". It's not the actual age of 40...it's the "address" of the 40 year old within the `age` vector; it's the index!
+
+We can use this to our advantage! We wanted to find the `act` scores of everyone over 35 yrs old. Now that we have our `older` vector, we don't need to manually type out the indices!
+```{r}
+actOldScores <- act[older]
+actOldScores
+```
+
+To verify, we said that the 1st person over the age of 35 was at index #10. Let's look at the `act` score for index #10
+
+```{r}
+act[10]
+```
+
+That number (which happens to be 35!) matches the very first number in the `actOldScores` vector. Our code worked! `actOldScores` represents all the `act` scores of people over the age of 35. 
+
+:::fyi
+**FYI:** `R` is kind of weird in that it starts indexing at 1. You should know that most other programming languages begin indexing at 0. `R` and `MATLAB` are the only languages I'm aware of that begin at 1. Normally, the first element in the vector has an index of 0. If you plan on also using other programming languages, like python `r emo::ji("snake")`, then this is something to be aware of.
+:::

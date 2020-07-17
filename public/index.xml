@@ -13,27 +13,6 @@
     </image>
     
     <item>
-      <title>test practice</title>
-      <link>/practice/00-practice/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/practice/00-practice/</guid>
-      <description>
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#testing-testing-123&#34;&gt;TESTING TESTING 123&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;div id=&#34;testing-testing-123&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;TESTING TESTING 123&lt;/h1&gt;
-&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-00-practice-0&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/learnr_app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-00-practice-0&#34;)&#39;&gt;&lt;/iframe&gt;
-
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Practice Set: Objects</title>
       <link>/practice/02-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -72,10 +51,10 @@
 &lt;li&gt;They are the &lt;em&gt;nouns&lt;/em&gt; of programming languages; they are typically what we are acting &lt;em&gt;on&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;We give an object a name; this is called &lt;strong&gt;assignment&lt;/strong&gt;, and it takes the form of:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#fffe95&#39;&gt;nameOfMyObject&lt;/span&gt; &lt;span style=&#39;background-color:#ff7e82&#39;&gt;&lt;-&lt;/span&gt; &lt;span style=&#39;background-color:#81d4fa&#39;&gt;objectToStore&lt;/span&gt;&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The thing on the LEFT (yellow) is the name you want to give your object.&lt;/p&gt;
-&lt;p&gt;Then the arrow (pink); first &lt;code&gt;&amp;lt;&lt;/code&gt;, then &lt;code&gt;-&lt;/code&gt; with no space in between.&lt;/p&gt;
-&lt;p&gt;The thing you want to actually store for later goes on the RIGHT (blue).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;nameOfMyObject&lt;/span&gt; &lt;span style=&#39;background-color:#ff79797d&#39;&gt;&lt;-&lt;/span&gt; &lt;span style=&#39;background-color:#686DE07D&#39;&gt;objectToStore&lt;/span&gt;&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The thing on the &lt;font style=&#34;color:#FFFF00;background-color:#d3d3d37d&#34;&gt;LEFT&lt;/font&gt; is the name you want to give your object.&lt;/p&gt;
+&lt;p&gt;Then the &lt;font style=&#34;color:#ff7979&#34;&gt;arrow&lt;/font&gt;; first &lt;code&gt;&amp;lt;&lt;/code&gt; (less than sign), then &lt;code&gt;-&lt;/code&gt; (hyphen/dash) with no space in between.&lt;/p&gt;
+&lt;p&gt;The thing you want to actually store for later goes on the &lt;font style=&#34;color:#686DE0&#34;&gt;RIGHT&lt;/font&gt;.&lt;/p&gt;
 &lt;div class=&#34;puzzle&#34;&gt;
 &lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Create an object called &lt;code&gt;continents&lt;/code&gt; that stores the number &lt;code&gt;7&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -221,16 +200,18 @@ chickens + cows&lt;/code&gt;&lt;/pre&gt;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/practice/03-practice/</guid>
       <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#indexing-recap&#34;&gt;Indexing Recap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#vectors-recap&#34;&gt;Vectors Recap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#indexing&#34;&gt;Indexing&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;div id=&#34;indexing-recap&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Indexing Recap&lt;/h2&gt;
-&lt;p&gt;In the &lt;a href=&#34;/practice/02-practice&#34;&gt;previous practice set&lt;/a&gt;, you created the following 4 vectors:&lt;/p&gt;
+&lt;div id=&#34;vectors-recap&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Vectors Recap&lt;/h2&gt;
+&lt;p&gt;Before diving into &lt;strong&gt;indexing&lt;/strong&gt;, let’s make sure we’re 💯 good with &lt;strong&gt;vectors&lt;/strong&gt;. In the &lt;a href=&#34;/practice/02-practice&#34;&gt;previous practice set&lt;/a&gt;, you created the following 4 vectors:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ids &amp;lt;- c(&amp;quot;ID1&amp;quot;, &amp;quot;ID2&amp;quot;, &amp;quot;ID3&amp;quot;, &amp;quot;ID4&amp;quot;, &amp;quot;ID5&amp;quot;) # character
 state &amp;lt;- c(&amp;quot;Missouri&amp;quot;, &amp;quot;Iowa&amp;quot;, &amp;quot;Missouri&amp;quot;, &amp;quot;Idaho&amp;quot;, &amp;quot;Maine&amp;quot;) # character/factor
 smoker &amp;lt;- c(TRUE, FALSE, FALSE, TRUE, FALSE) # logical
@@ -272,6 +253,652 @@ newVector + shortVector&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-03-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/03-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-03-app1&#34;)&#39;&gt;&lt;/iframe&gt;
 
+&lt;/div&gt;
+&lt;div id=&#34;indexing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Indexing&lt;/h2&gt;
+&lt;p&gt;Nice work! Let’s move on to practicing &lt;strong&gt;indexing&lt;/strong&gt;, specifically with 1-dimensional vectors.&lt;/p&gt;
+&lt;p&gt;Think of the &lt;span class=&#34;color-1&#34;&gt;&lt;strong&gt;index&lt;/strong&gt;&lt;/span&gt; as an &lt;span class=&#34;color-light-1&#34;&gt;&lt;em&gt;address&lt;/em&gt;&lt;/span&gt;, and your entire &lt;span class=&#34;color-6&#34;&gt;&lt;strong&gt;vector&lt;/strong&gt;&lt;/span&gt; as a &lt;span class=&#34;color-light-6&#34;&gt;&lt;em&gt;street&lt;/em&gt;&lt;/span&gt;. Where on the street is the particular object you’re looking for? We want to use that object’s address to find it. To do so, we use the following format:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#686DE07D&#39;&gt;VECTOR&lt;/span&gt;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;[&lt;/span&gt;&lt;span style=&#39;background-color:#ff79797D&#39;&gt;index&lt;/span&gt;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For example, if I wanted to get the 4th item in the &lt;code&gt;state&lt;/code&gt; vector, it would look something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#686DE07D&#39;&gt;state&lt;/span&gt;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;[&lt;/span&gt;&lt;span style=&#39;background-color:#ff79797D&#39;&gt;4&lt;/span&gt;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;
+## [1] &amp;quot;Idaho&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To check out more than 1 index:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If the indices you want are &lt;strong&gt;in a row&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Use the colon &lt;code&gt;:&lt;/code&gt; to get items # &lt;em&gt;through&lt;/em&gt; #&lt;/li&gt;
+&lt;li&gt;Ex: &lt;code&gt;3:5&lt;/code&gt; reads as &lt;em&gt;“items 3 through 5”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;If they are &lt;strong&gt;NOT in a row&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Make a mini vector with &lt;code&gt;c()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ex: &lt;code&gt;c(1, 4, 18)&lt;/code&gt; reads as &lt;em&gt;“items 1, 4, and 18”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Practice indexing on the same &lt;code&gt;sat.act&lt;/code&gt; variables from above, including the variables you created! Follow the directions above each code chunk.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-03-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/03-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-03-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;div id=&#34;a-demonstration&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;A Demonstration&lt;/h5&gt;
+&lt;p&gt;Let’s say we wanted to find the &lt;code&gt;act&lt;/code&gt; scores of everyone that was over the age of 35. The line of code below finds out who is over 35 years old, and stores it as it’s own vector called &lt;code&gt;older&lt;/code&gt;. Let’s take a look:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# find people over 35 yrs old
+older &amp;lt;- which(age &amp;gt; 35)
+older&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 10 14 20 21 24 28 35 37 38 43 45 61 62 74 80 81 85 87 90 98&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Look at the numbers that printed out. They are not the actual ages! We know this because we asked for people over 35 years old, and there are lots of numbers under 35 here. Our vector &lt;code&gt;older&lt;/code&gt; now contains the &lt;strong&gt;indices&lt;/strong&gt; of people over the age of 35!&lt;/p&gt;
+&lt;p&gt;The first item in &lt;code&gt;older&lt;/code&gt;…&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;older[1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…corresponds to an index in the &lt;code&gt;age&lt;/code&gt; vector of someone over the age of 35. Let’s look at the first 15 people in the &lt;code&gt;age&lt;/code&gt; vector.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;age[1:15]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 19 23 20 27 33 26 30 19 23 40 23 34 32 41 20&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that the first person over 35 is the 10th person. They are 40 years old. That is why the first number in &lt;code&gt;older&lt;/code&gt; is “10”. It’s not the actual age of 40…it’s the “address” of the 40 year old within the &lt;code&gt;age&lt;/code&gt; vector; it’s the index!&lt;/p&gt;
+&lt;p&gt;We can use this to our advantage! We wanted to find the &lt;code&gt;act&lt;/code&gt; scores of everyone over 35 yrs old. Now that we have our &lt;code&gt;older&lt;/code&gt; vector, we don’t need to manually type out the indices!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;actOldScores &amp;lt;- act[older]
+actOldScores&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] 35 35 32 28 30 21 33 28 24 30 36 34 32 32 21 26 28 24 30 33&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To verify, we said that the 1st person over the age of 35 was at index #10. Let’s look at the &lt;code&gt;act&lt;/code&gt; score for index #10&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;act[10]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 35&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That number (which happens to be 35!) matches the very first number in the &lt;code&gt;actOldScores&lt;/code&gt; vector. Our code worked! &lt;code&gt;actOldScores&lt;/code&gt; represents all the &lt;code&gt;act&lt;/code&gt; scores of people over the age of 35.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; &lt;code&gt;R&lt;/code&gt; is kind of weird in that it starts indexing at 1. You should know that most other programming languages begin indexing at 0. &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;MATLAB&lt;/code&gt; are the only languages I’m aware of that begin at 1. Normally, the first element in the vector has an index of 0. If you plan on also using other programming languages, like python 🐍, then this is something to be aware of.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Objects Revisited</title>
+      <link>/practice/04-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/04-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#data.frames&#34;&gt;Data.frames&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#indexing-data.frames&#34;&gt;Indexing Data.frames&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;data.frames&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data.frames&lt;/h2&gt;
+&lt;p&gt;A &lt;strong&gt;data.frame&lt;/strong&gt; is basically a spreadsheet. It’s 2-dimensional (rows &amp;amp; columns). Remember our &lt;code&gt;starwars&lt;/code&gt; dataset?&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+name
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+height
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+mass
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+sex
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+homeworld
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+species
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Luke Skywalker
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+172
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+77.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Tatooine
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Human
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+C-3PO
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+167
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+75.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+none
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Tatooine
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Droid
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+R2-D2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+96
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+32.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+none
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Naboo
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Droid
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Darth Vader
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+202
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+136.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Tatooine
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Human
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Leia Organa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+150
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+49.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+female
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Alderaan
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Human
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Obi-Wan Kenobi
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+182
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+77.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Stewjon
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Human
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Chewbacca
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+228
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+112.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Kashyyyk
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Wookiee
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Han Solo
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+180
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+80.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Corellia
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Human
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Yoda
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+66
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+17.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+NA
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Yoda’s species
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Boba Fett
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+183
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+78.2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Kamino
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Human
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Each row has &lt;code&gt;6&lt;/code&gt; pieces of information and each column has &lt;code&gt;10&lt;/code&gt; observations.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;&lt;strong&gt;Let’s make our own data.frame!&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;For the most part, you will be importing your data from somewhere else. We’ll cover how to import data shortly in &lt;a href=&#34;/lectures/07-lecture&#34;&gt;topic #7&lt;/a&gt; of “The Basics”.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Making a data.frame has the following formatting (or syntax):&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#686DE07D&#39;&gt;newDf&lt;/span&gt; &lt;- &lt;span style=&#39;background-color:#ff79797D&#39;&gt;data.frame&lt;/span&gt;(&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;vector&lt;/span&gt;1,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;vector&lt;/span&gt;2,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;vector&lt;/span&gt;3)&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;☝️ Here we have:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;What we want to name our data.frame: &lt;code&gt;newDf&lt;/code&gt; in &lt;span class=&#34;color-light-6&#34;&gt;blue&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;The actual words &lt;code&gt;data.frame&lt;/code&gt; in &lt;span class=&#34;color=light-1&#34;&gt;red&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;The vectors we want included in &lt;font style=&#34;color:#FFFF00&#34;&gt;yellow&lt;/font&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In order to effectively create a new data.frame from multiple vectors, each vector should have the same number of items! If it doesn’t, R will ususally fill it in with the missing variable class &lt;code&gt;NA&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Remember these variables?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ids &amp;lt;- c(&amp;quot;ID1&amp;quot;, &amp;quot;ID2&amp;quot;, &amp;quot;ID3&amp;quot;, &amp;quot;ID4&amp;quot;, &amp;quot;ID5&amp;quot;) # character
+state &amp;lt;- c(&amp;quot;Missouri&amp;quot;, &amp;quot;Iowa&amp;quot;, &amp;quot;Missouri&amp;quot;, &amp;quot;Idaho&amp;quot;, &amp;quot;Maine&amp;quot;) # character/factor
+smoker &amp;lt;- c(TRUE, FALSE, FALSE, TRUE, FALSE) # logical
+age &amp;lt;- c(20, 18, 32, 25, 25) # numeric&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s turn them into a data.frame.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#686DE07D&#39;&gt;demographics&lt;/span&gt; &lt;- &lt;span style=&#39;background-color:#ff79797D&#39;&gt;data.frame&lt;/span&gt;(&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;ids&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;state&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;smoker&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;age&lt;/span&gt;)&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+Now that it’s a data.frame called &lt;code&gt;demographics&lt;/code&gt;, it looks like this:
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+ids
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+state
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+smoker
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+age
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Iowa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+32
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Idaho
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Maine
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;If you’re creating a new data.frame from vectors, you can easily adjust the column names.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics &amp;lt;- data.frame(SubjectID = ids,
+                           Location = state,
+                           SmokerTF = smoker,
+                           SubjectAge = age)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+SubjectID
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Location
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+SmokerTF
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+SubjectAge
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Iowa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+32
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Idaho
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Maine
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Make a data.frame from the following SAT/ACT variables we’ve been working with. Call the entire data.frame &lt;code&gt;scores&lt;/code&gt;. Include the following variables and make sure they have the following as their column names:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Age&lt;/li&gt;
+&lt;li&gt;SAT_Verbal&lt;/li&gt;
+&lt;li&gt;SAT_Quant&lt;/li&gt;
+&lt;li&gt;SAT_Total&lt;/li&gt;
+&lt;li&gt;SAT_Scaled&lt;/li&gt;
+&lt;li&gt;ACT&lt;/li&gt;
+&lt;li&gt;Avg_Scores&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-04-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/04-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-04-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;indexing-data.frames&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Indexing Data.frames&lt;/h2&gt;
+&lt;p&gt;In our &lt;a href=&#34;/practice/03-practice&#34;&gt;last practice&lt;/a&gt; session, we went over indexing a 1-dimensional vector. For data.frames, the process is very similar, but now we have to account for 2 dimensions!&lt;/p&gt;
+Let’s take a look back at &lt;code&gt;demographics&lt;/code&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+SubjectID
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Location
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+SmokerTF
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+SubjectAge
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Iowa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+32
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Idaho
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Maine
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;What if I wanted the 4th row, 3rd column?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics[4,3]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;How about the location of subjects 1 through 3?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics[1:3, 2]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Missouri&amp;quot; &amp;quot;Iowa&amp;quot;     &amp;quot;Missouri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you want &lt;strong&gt;all&lt;/strong&gt; of either rows or columns, just leave it blank. But don’t forget the comma!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# all the columns for row 2
+demographics[2,]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   SubjectID Location SmokerTF SubjectAge
+## 2       ID2     Iowa    FALSE         18&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# all the rows of column 4
+demographics[,4]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 20 18 32 25 25&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Earlier, I asked you to run the line &lt;code&gt;head(scores)&lt;/code&gt;. Using &lt;code&gt;head()&lt;/code&gt; is just a shortcut for &lt;code&gt;scores[1:6,]&lt;/code&gt; – rows 1 through 6 for all columns.&lt;/p&gt;
+&lt;div id=&#34;what-if-you-dont-know-the-column-number&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;What if you don’t know the column number?&lt;/h4&gt;
+&lt;p&gt;Use the &lt;code&gt;$&lt;/code&gt; sign! This is really, really, REALLY helpful! Plus, autocomplete is magical.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$Location&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Missouri&amp;quot; &amp;quot;Iowa&amp;quot;     &amp;quot;Missouri&amp;quot; &amp;quot;Idaho&amp;quot;    &amp;quot;Maine&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Let’s practice using the &lt;code&gt;empire&lt;/code&gt; dataset. (If you’ve forgotten what it looks like, scroll to the top of this page) Follow the directions above each code chunk!&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-04-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/04-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-04-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>

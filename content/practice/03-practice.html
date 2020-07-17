@@ -4,6 +4,7 @@ linktitle: "3: Indexing"
 output:
   blogdown::html_page:
     toc: true
+    css: "/slides/css/additionalCols.css"
 menu:
   practice:
     parent: The Basics
@@ -15,16 +16,18 @@ editor_options:
 shiny: true
 ---
 
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 <div id="TOC">
 <ul>
-<li><a href="#indexing-recap">Indexing Recap</a></li>
+<li><a href="#vectors-recap">Vectors Recap</a></li>
+<li><a href="#indexing">Indexing</a></li>
 </ul>
 </div>
 
-<div id="indexing-recap" class="section level2">
-<h2>Indexing Recap</h2>
-<p>In the <a href="/practice/02-practice">previous practice set</a>, you created the following 4 vectors:</p>
+<div id="vectors-recap" class="section level2">
+<h2>Vectors Recap</h2>
+<p>Before diving into <strong>indexing</strong>, let’s make sure we’re 💯 good with <strong>vectors</strong>. In the <a href="/practice/02-practice">previous practice set</a>, you created the following 4 vectors:</p>
 <pre class="r"><code>ids &lt;- c(&quot;ID1&quot;, &quot;ID2&quot;, &quot;ID3&quot;, &quot;ID4&quot;, &quot;ID5&quot;) # character
 state &lt;- c(&quot;Missouri&quot;, &quot;Iowa&quot;, &quot;Missouri&quot;, &quot;Idaho&quot;, &quot;Maine&quot;) # character/factor
 smoker &lt;- c(TRUE, FALSE, FALSE, TRUE, FALSE) # logical
@@ -65,4 +68,59 @@ newVector + shortVector</code></pre>
 <p>Follow the directions above each code chunk!</p>
 </div>
 {{% learnr url="https://shelly-cooper.shinyapps.io/03-learnr-app1/" id="learnr-03-app1" %}}
+</div>
+<div id="indexing" class="section level2">
+<h2>Indexing</h2>
+<p>Nice work! Let’s move on to practicing <strong>indexing</strong>, specifically with 1-dimensional vectors.</p>
+<p>Think of the <span class="color-1"><strong>index</strong></span> as an <span class="color-light-1"><em>address</em></span>, and your entire <span class="color-6"><strong>vector</strong></span> as a <span class="color-light-6"><em>street</em></span>. Where on the street is the particular object you’re looking for? We want to use that object’s address to find it. To do so, we use the following format:</p>
+<pre><code class='language-r'><code><span style='background-color:#686DE07D'>VECTOR</span><span style='background-color:#FFFF007D'>[</span><span style='background-color:#ff79797D'>index</span><span style='background-color:#FFFF007D'>]</span></code></code></pre>
+<p>For example, if I wanted to get the 4th item in the <code>state</code> vector, it would look something like this:</p>
+<pre><code class='language-r'><code><span style='background-color:#686DE07D'>state</span><span style='background-color:#FFFF007D'>[</span><span style='background-color:#ff79797D'>4</span><span style='background-color:#FFFF007D'>]</span></code></code></pre>
+<pre><code>
+## [1] &quot;Idaho&quot;
+</code></pre>
+<p>To check out more than 1 index:</p>
+<ul>
+<li>If the indices you want are <strong>in a row</strong>:
+<ul>
+<li>Use the colon <code>:</code> to get items # <em>through</em> #</li>
+<li>Ex: <code>3:5</code> reads as <em>“items 3 through 5”</em></li>
+</ul></li>
+<li>If they are <strong>NOT in a row</strong>:
+<ul>
+<li>Make a mini vector with <code>c()</code></li>
+<li>Ex: <code>c(1, 4, 18)</code> reads as <em>“items 1, 4, and 18”</em></li>
+</ul></li>
+</ul>
+<div class="puzzle">
+<p><strong>You try!</strong> Practice indexing on the same <code>sat.act</code> variables from above, including the variables you created! Follow the directions above each code chunk.</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/03-learnr-app2/" id="learnr-03-app2" %}}
+<div id="a-demonstration" class="section level5">
+<h5>A Demonstration</h5>
+<p>Let’s say we wanted to find the <code>act</code> scores of everyone that was over the age of 35. The line of code below finds out who is over 35 years old, and stores it as it’s own vector called <code>older</code>. Let’s take a look:</p>
+<pre class="r"><code># find people over 35 yrs old
+older &lt;- which(age &gt; 35)
+older</code></pre>
+<pre><code>##  [1] 10 14 20 21 24 28 35 37 38 43 45 61 62 74 80 81 85 87 90 98</code></pre>
+<p>Look at the numbers that printed out. They are not the actual ages! We know this because we asked for people over 35 years old, and there are lots of numbers under 35 here. Our vector <code>older</code> now contains the <strong>indices</strong> of people over the age of 35!</p>
+<p>The first item in <code>older</code>…</p>
+<pre class="r"><code>older[1]</code></pre>
+<pre><code>## [1] 10</code></pre>
+<p>…corresponds to an index in the <code>age</code> vector of someone over the age of 35. Let’s look at the first 15 people in the <code>age</code> vector.</p>
+<pre class="r"><code>age[1:15]</code></pre>
+<pre><code>##  [1] 19 23 20 27 33 26 30 19 23 40 23 34 32 41 20</code></pre>
+<p>Notice that the first person over 35 is the 10th person. They are 40 years old. That is why the first number in <code>older</code> is “10”. It’s not the actual age of 40…it’s the “address” of the 40 year old within the <code>age</code> vector; it’s the index!</p>
+<p>We can use this to our advantage! We wanted to find the <code>act</code> scores of everyone over 35 yrs old. Now that we have our <code>older</code> vector, we don’t need to manually type out the indices!</p>
+<pre class="r"><code>actOldScores &lt;- act[older]
+actOldScores</code></pre>
+<pre><code>##  [1] 35 35 32 28 30 21 33 28 24 30 36 34 32 32 21 26 28 24 30 33</code></pre>
+<p>To verify, we said that the 1st person over the age of 35 was at index #10. Let’s look at the <code>act</code> score for index #10</p>
+<pre class="r"><code>act[10]</code></pre>
+<pre><code>## [1] 35</code></pre>
+<p>That number (which happens to be 35!) matches the very first number in the <code>actOldScores</code> vector. Our code worked! <code>actOldScores</code> represents all the <code>act</code> scores of people over the age of 35.</p>
+<div class="fyi">
+<p><strong>FYI:</strong> <code>R</code> is kind of weird in that it starts indexing at 1. You should know that most other programming languages begin indexing at 0. <code>R</code> and <code>MATLAB</code> are the only languages I’m aware of that begin at 1. Normally, the first element in the vector has an index of 0. If you plan on also using other programming languages, like python 🐍, then this is something to be aware of.</p>
+</div>
+</div>
 </div>
