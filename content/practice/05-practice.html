@@ -1,0 +1,369 @@
+---
+title: "Practice Set: Functions"
+linktitle: "5: Functions"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 5
+type: docs
+weight: 5
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#logical-operators">Logical Operators</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#help-pages">Help Pages</a></li>
+<li><a href="#examples-of-a-few-functioins">Examples of a few functioins</a></li>
+</ul>
+</div>
+
+<div id="logical-operators" class="section level2">
+<h2>Logical Operators</h2>
+<p>Logical operators are crucial for understanding any programming language, not just R. Effective use of logic allows you to perform really complex computations with ease. The more comfortable you feel in using these, the better.</p>
+<p>For the time being, let’s start simple. Check out the <a href="/lectures/08-lecture">R&amp;R slides</a> for more complicated logical operator statements.</p>
+<p>What are the operators?</p>
+<ul>
+<li><code>==</code> equality</li>
+<li><code>!=</code> inequality (<code>!</code> is read as <code>not</code>)</li>
+<li><code>&gt;</code> greater than</li>
+<li><code>&gt;=</code> greater than or equal to</li>
+<li><code>&lt;</code> less than</li>
+<li><code>&lt;=</code> less than or equal to</li>
+</ul>
+<p><span class="medium"><strong>Logical operators test whether a statement is <code>TRUE</code> or <code>FALSE</code></strong>.</span></p>
+Let’s revisit our <code>demographics</code> data.frame
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+SubjectID
+</th>
+<th style="text-align:left;">
+Location
+</th>
+<th style="text-align:left;">
+SmokerTF
+</th>
+<th style="text-align:right;">
+SubjectAge
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ID1
+</td>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID2
+</td>
+<td style="text-align:left;">
+Iowa
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID3
+</td>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID4
+</td>
+<td style="text-align:left;">
+Idaho
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID5
+</td>
+<td style="text-align:left;">
+Maine
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+</tbody>
+</table>
+<p><code>TRUE</code> or <code>FALSE</code>: Is anyone from the state of <em>Missouri</em>? To answer this with code, we could do:</p>
+<pre class="r"><code>demographics$Location == &quot;Missouri&quot;</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE FALSE FALSE</code></pre>
+<p>The result is a vector of <code>TRUE</code> and <code>FALSE</code> – one for each item in <code>demographics$Location</code>. The 1st and 3rd elements are <code>TRUE</code>, so those people are from “Missouri”. The others are no.</p>
+<p><span class="medium">Spelling, capitalization, and quotation marks count!</span></p>
+<p>These things (and missing/extra parentheses) account for at least 75% of all your errors! 🙀 If you’re evaluating a number, you do NOT need quotation marks. If it’s a character string, you do. For example:</p>
+<pre class="r"><code># no quotes around the character string
+demographics$Location == Missouri</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;Missouri&#39; not found</code></pre>
+<pre class="r"><code># capitalization
+demographics$Location == &quot;missouri&quot;</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>☝️ Note that this doesn’t throw and error, but everything is returned as <code>FALSE</code>. But we know that’s not true…</p>
+<pre class="r"><code># spelling
+demographics$Location == &quot;Missour-uh&quot;</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>Same as the capitalization thing.</p>
+<div class="warning">
+<p>Be careful with <code>=</code> vs <code>==</code>!</p>
+<ul>
+<li><code>==</code> is a logical operator</li>
+<li><code>=</code> is for assignment. It’s the same thing as <code>&lt;-</code></li>
+</ul>
+<p>Look at the example below.</p>
+</div>
+<p>Logical operator usage…</p>
+<pre class="r"><code># Is each element in the SubjectID column equal to the character
+# string &quot;ID4&quot;?
+demographics$SubjectID == &quot;ID4&quot;</code></pre>
+<pre><code>## [1] FALSE FALSE FALSE  TRUE FALSE</code></pre>
+<p>Assignment usage…</p>
+<pre class="r"><code># Make each element in the SubjectID column equal to the character
+# string &quot;ID4&quot;
+demographics$SubjectID = &quot;ID4&quot;
+
+# now view the column
+demographics$SubjectID</code></pre>
+<pre><code>## [1] &quot;ID4&quot; &quot;ID4&quot; &quot;ID4&quot; &quot;ID4&quot; &quot;ID4&quot;</code></pre>
+<p>Now that we’ve gone through this demo, let’s change the <code>SubjectID</code> column back to what it’s supposed to look like.</p>
+<pre class="r"><code>demographics$SubjectID &lt;- ids
+
+# view the column to double check
+demographics$SubjectID</code></pre>
+<pre><code>## [1] &quot;ID1&quot; &quot;ID2&quot; &quot;ID3&quot; &quot;ID4&quot; &quot;ID5&quot;</code></pre>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/05-learnr-quiz1/" id="learnr-05-quiz1" %}}
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<p>Functions are the heart and soul of <code>R</code>, and are especially powerful. They are the <strong>verbs</strong> of a programming language because the act on the objects. Each function has:</p>
+<ol style="list-style-type: decimal">
+<li><em><strong>Name</strong></em> that is unique</li>
+<li><em><strong>Arguments</strong></em> - What is the verb acting on? How should the function behave?</li>
+<li><em><strong>Output</strong></em> or the result of the function (can be anything!) that can be stored to another object</li>
+</ol>
+<p>You’ve already seen some functions in action! You just didn’t know it, yet!</p>
+<p><code>c()</code> is the combine/concatenate function:</p>
+<ul>
+<li>It’s name is <code>c</code>
+<ul>
+<li>It’s input is whatever you’re trying to combine</li>
+<li>It’s output is the vector that has the elements combined</li>
+</ul></li>
+</ul>
+<p><code>data.frame()</code> is the function for making a data.frame:</p>
+<ul>
+<li>It’s name is <code>data.frame</code></li>
+<li>It’s input is a series of vectors that all have the same length</li>
+<li>It’s output is a nicely formatted data.frame</li>
+</ul>
+<p><code>class()</code> is the function for finding out the class of an object:</p>
+<ul>
+<li>It’s name is <code>class</code></li>
+<li>It’s input is the object you are examining</li>
+<li>It’s output is a character telling you what class the object is</li>
+</ul>
+<p>Most functions use more arguments than what we’ve seen above. And those arguments have names.</p>
+<p><span class="medium">Use the argument names!</span></p>
+<p>Autocomplete will help so it’s not so tedious. See the <a href="/lectures/05-lecture">lecture slides</a> for the example with the <code>round()</code> function. When you have multiple arguments, you separate them with a comma <code>function(argument 1 = something, argument 2 = something else)</code>.</p>
+<div class="puzzle">
+<p><strong>You try!</strong> Follow the directions for each chunk below to create different sequences of numbers.</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/05-learnr-app1/" id="learnr-05-app1" %}}
+</div>
+<div id="help-pages" class="section level2">
+<h2>Help Pages</h2>
+<p>One of the biggest mistakes I see new coders make is that they pull up the help pages, but don’t actually read them. <strong>TAKE THE TIME TO READ THEM!</strong> There is a lot of really, really helpful information in there. And they are all organized the same way. See the <a href="/lectures/05-lecture">lecture slides</a> for a breakdown of the Help pages.</p>
+<p>You can always look at help by typing <code>?functionName</code>. For example, <code>?cbind</code> will bring up the help documentation for the function <code>cbind()</code>.</p>
+<div class="puzzle">
+<p><strong>You try!</strong> Follow the directions below each block to ultimately create a plot of standardized variables from our <code>empire</code> dataset. Note that this exercise is intentionally a bit harder than previous exercises – that’s because you’re getting better!</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/05-learnr-app2/" id="learnr-05-app2" %}}
+<div class="fyi">
+<p><strong>FYI:</strong> In this exercise, we made a very basic scatter plot. But it’s not very pretty. We will talk <em>a lot</em> about making really pretty plots. You can check out the very basics in the <a href="/lectures/09-lecture">Stats &amp; Plot</a> section, and then we’ll go into a lot more detail when we get to the Data Visualization section.</p>
+</div>
+<p>Congratulations! You’re making great progress and are well on your way to being a bad@$% programmer!</p>
+<center>
+<p><img src="../encouragementFigs/figure-html/you-did-good-job-meme.jpg" width = "100%"></p>
+</center>
+</div>
+<div id="examples-of-a-few-functioins" class="section level2">
+<h2>Examples of a few functioins</h2>
+<p>In the corresponding lecture, I listed a couple functions that you might use quite frequently. Below are examples of how to use these functions. Note that you do not need to go through all of them at this time. However, I would encourage you to come back and take a look at some point.</p>
+<div id="length-nrow-ncol" class="section level4">
+<h4><code>length()</code>, <code>nrow()</code>, <code>ncol()</code></h4>
+<ul>
+<li><code>length()</code> is the same as getting the last element’s index position</li>
+<li><code>nrow()</code> and <code>ncol()</code> tell you how many rows and columns there are in a data.frame, respectively</li>
+</ul>
+<pre class="r"><code>length(demographics$SubjectID)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>nrow(demographics)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>ncol(demographics)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p>Note that these don’t work properly for <em>any</em> object</p>
+<pre class="r"><code># length on a 2-d object just gives the 2nd dimension (columns)
+# lots of people get this confused and think it should return the
+# number of rows!
+length(demographics)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code># nrow and ncol of a 1-d vector don&#39;t make sense...
+# there is no such thing as columns or rows in a vector
+nrow(demographics$SubjectID)</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>ncol(demographics$SubjectID)</code></pre>
+<pre><code>## NULL</code></pre>
+</div>
+<div id="factor-and-as.factor" class="section level4">
+<h4><code>factor()</code> and <code>as.factor()</code></h4>
+<p>Both of these convert a character vector into a factor. Factors are a special case of character where there is inherent meaning/grouping. Categorical variables.</p>
+<p><em>(Note: For the life of me, I can’t figure out the difference between <code>factor()</code> and <code>as.factor()</code> 🤷‍♀ so you can think of them as interchangable.)</em></p>
+<pre class="r"><code># Our &#39;Location&#39; variable consists of states. We might want
+# to think of this as a categorical variable, where each state
+# is a meaingfully different category from the next state.
+
+# Don&#39;t forget to re-assign the variable so that it stores your new
+# factor!
+demographics$Location &lt;- factor(demographics$Location)
+demographics$Location</code></pre>
+<pre><code>## [1] Missouri Iowa     Missouri Idaho    Maine   
+## Levels: Idaho Iowa Maine Missouri</code></pre>
+<pre class="r"><code># To double check, use the `class()` function
+class(demographics$Location)</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<p>The LEVELS of a factor are all the different categories. Here, we have 4 states. <code>R</code> will always put these in alphabetical order unless you tell it otherwise (hint: you can change this by modifying one of the arguments).</p>
+</div>
+<div id="table-for-quick-counts" class="section level4">
+<h4><code>table()</code> for quick counts</h4>
+<p>Especially good for factors &amp; logicals!</p>
+<pre class="r"><code># how many states are in each category?
+table(demographics$Location)</code></pre>
+<pre><code>## 
+##    Idaho     Iowa    Maine Missouri 
+##        1        1        1        2</code></pre>
+<pre class="r"><code># states x smoker table
+table(demographics$Location, demographics$SmokerTF)</code></pre>
+<pre><code>##           
+##            FALSE TRUE
+##   Idaho        0    1
+##   Iowa         1    0
+##   Maine        1    0
+##   Missouri     1    1</code></pre>
+</div>
+<div id="cbind-and-rbind-for-adding-columns-and-rows-respectively" class="section level4">
+<h4><code>cbind()</code> and <code>rbind()</code> for adding columns and rows, respectively</h4>
+<p>These are for if you have a vector that you want to add to a data.frame. You should make sure there’s the same number of items – which changes depending on if you’re adding a row or a column!</p>
+<p>Let’s add a column consisting of survey scores, on a scale of 1 to 10. Then we’ll add a row.</p>
+<pre class="r"><code># first, let&#39;s add a column for surveys. there are currently
+# 5 rows/observations, so we&#39;ll want 5 elements in this vector
+survey &lt;- c(6, 4, 10, 2, 8)
+
+# now use cbind() to add it to your data.frame
+# the 1st argument is the data.frame
+# the 2nd argument is the thing you want to add to it
+# (you&#39;re combining BOTH things)
+
+# note that we re-assign the entire data.frame
+demographics &lt;- cbind(demographics, survey)
+
+# print it out to view
+demographics</code></pre>
+<pre><code>##   SubjectID Location SmokerTF SubjectAge survey
+## 1       ID1 Missouri     TRUE         20      6
+## 2       ID2     Iowa    FALSE         18      4
+## 3       ID3 Missouri    FALSE         32     10
+## 4       ID4    Idaho     TRUE         25      2
+## 5       ID5    Maine    FALSE         25      8</code></pre>
+<pre class="r"><code>############
+
+# now let&#39;s add a row. there are 5 columns, so we need to add an
+# element that will match up with each column
+newParticipant &lt;- c(&quot;ID6&quot;, &quot;Iowa&quot;, FALSE, 28, 5)
+
+# now use rbind() to bind by rows
+# the 1st argument is the data.frame
+# the 2nd argument is the row you want to add to it. This makes it the LAST row
+# (if you switched the order, it would become the FIRST row)
+demographics &lt;- rbind(demographics, newParticipant)
+
+# print it out to view
+demographics</code></pre>
+<pre><code>##   SubjectID Location SmokerTF SubjectAge survey
+## 1       ID1 Missouri     TRUE         20      6
+## 2       ID2     Iowa    FALSE         18      4
+## 3       ID3 Missouri    FALSE         32     10
+## 4       ID4    Idaho     TRUE         25      2
+## 5       ID5    Maine    FALSE         25      8
+## 6       ID6     Iowa    FALSE         28      5</code></pre>
+<p>There is 1 slight issue with <code>rbind()</code>. Vectors will always take on the least specific class So <code>newParticipant</code> is considered a character vector because all of it’s elements could be thought of as characters, but not everything could be considered numeric or logical. This means that when we added it to the <code>demographics</code> data.frame, it made any column that wasn’t already a character into characters!</p>
+<pre class="r"><code>class(demographics$SubjectID)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>class(demographics$Location) # factors are special characters</code></pre>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
+<pre class="r"><code>class(demographics$SmokerTF)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>class(demographics$SubjectAge)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>class(demographics$survey)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>However, the last 3 columns should <strong>NOT</strong> be characters. I change them back below. See if you can figure out what each function does.</p>
+<pre class="r"><code>demographics$SmokerTF &lt;- as.logical(demographics$SmokerTF)
+class(demographics$SmokerTF)</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre class="r"><code>demographics$SubjectAge &lt;- as.numeric(demographics$SubjectAge)
+class(demographics$SubjectAge)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>demographics$survey &lt;- as.numeric(demographics$survey)
+class(demographics$survey)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>(Ok for real this time…The End)</p>
+</div>
+</div>

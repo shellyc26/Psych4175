@@ -1,0 +1,321 @@
+---
+title: "Practice Set: Functions"
+linktitle: "5: Functions"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 5
+type: docs
+weight: 5
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+## Logical Operators
+Logical operators are crucial for understanding any programming language, not just R. Effective use of logic allows you to perform really complex computations with ease. The more comfortable you feel in using these, the better. 
+
+For the time being, let's start simple. Check out the [R&R slides](/lectures/08-lecture) for more complicated logical operator statements. 
+
+What are the operators?
+
+  - `==` equality
+  - `!=` inequality (`!` is read as `not`)
+  - `>` greater than
+  - `>=` greater than or equal to
+  - `<` less than
+  - `<=` less than or equal to
+
+<span class='medium'>**Logical operators test whether a statement is `TRUE` or `FALSE`**.</span>
+
+Let's revisit our `demographics` data.frame
+```{r, echo=FALSE}
+ids <- c("ID1", "ID2", "ID3", "ID4", "ID5") # character
+state <- c("Missouri", "Iowa", "Missouri", "Idaho", "Maine") # character/factor
+smoker <- c(TRUE, FALSE, FALSE, TRUE, FALSE) # logical
+age <- c(20, 18, 32, 25, 25) # numeric
+
+demographics <- data.frame(SubjectID = ids,
+                           Location = state,
+                           SmokerTF = smoker,
+                           SubjectAge = age)
+
+kable(demographics)
+```
+
+`TRUE` or `FALSE`: Is anyone from the state of *Missouri*? To answer this with code, we could do:
+```{r}
+demographics$Location == "Missouri"
+```
+
+The result is a vector of `TRUE` and `FALSE` -- one for each item in `demographics$Location`. The 1st and 3rd elements are `TRUE`, so those people are from "Missouri". The others are no. 
+
+<span class='medium'>Spelling, capitalization, and quotation marks count!</span>
+
+These things (and missing/extra parentheses) account for at least 75% of all your errors! `r emo::ji("scream_cat")` If you're evaluating a number, you do NOT need quotation marks. If it's a character string, you do. For example:
+```{r, error=TRUE}
+# no quotes around the character string
+demographics$Location == Missouri
+```
+
+```{r, error=TRUE}
+# capitalization
+demographics$Location == "missouri"
+```
+`r emo::ji("index_pointing_up")` Note that this doesn't throw and error, but everything is returned as `FALSE`. But we know that's not true...
+
+```{r, error=TRUE}
+# spelling
+demographics$Location == "Missour-uh"
+```
+
+Same as the capitalization thing.
+
+:::warning
+Be careful with `=` vs `==`!
+
+  - `==` is a logical operator
+  - `=` is for assignment. It's the same thing as `<-`
+
+Look at the example below. 
+:::
+
+Logical operator usage...
+```{r}
+# Is each element in the SubjectID column equal to the character
+# string "ID4"?
+demographics$SubjectID == "ID4"
+```
+
+Assignment usage...
+```{r}
+# Make each element in the SubjectID column equal to the character
+# string "ID4"
+demographics$SubjectID = "ID4"
+
+# now view the column
+demographics$SubjectID
+```
+
+Now that we've gone through this demo, let's change the `SubjectID` column back to what it's supposed to look like.
+```{r}
+demographics$SubjectID <- ids
+
+# view the column to double check
+demographics$SubjectID
+```
+
+:::quiz
+**Quick Quiz**
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/05-learnr-quiz1/",
+                    id = "learnr-05-quiz1")
+
+```
+
+## Functions
+Functions are the heart and soul of `R`, and are especially powerful. They are the **verbs** of a programming language because the act on the objects. Each function has:
+
+1. _**Name**_ that is unique
+2. _**Arguments**_ - What is the verb acting on? How should the function behave?
+3. _**Output**_ or the result of the function (can be anything!) that can be stored to another object
+
+You've already seen some functions in action! You just didn't know it, yet!
+
+`c()` is the combine/concatenate function:
+
+  - It's name is `c` 
+  - It's input is whatever you're trying to combine
+  - It's output is the vector that has the elements combined
+  
+`data.frame()` is the function for making a data.frame:
+
+ - It's name is `data.frame`
+ - It's input is a series of vectors that all have the same length
+ - It's output is a nicely formatted data.frame
+ 
+`class()` is the function for finding out the class of an object:
+
+ - It's name is `class`
+ - It's input is the object you are examining
+ - It's output is a character telling you what class the object is
+
+Most functions use more arguments than what we've seen above. And those arguments have names. 
+
+<span class='medium'>Use the argument names!</span>
+
+Autocomplete will help so it's not so tedious. See the [lecture slides](/lectures/05-lecture) for the example with the `round()` function. When you have multiple arguments, you separate them with a comma `function(argument 1 = something, argument 2 = something else)`. 
+
+:::puzzle
+**You try!** Follow the directions for each chunk below to create different sequences of numbers.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/05-learnr-app1/",
+                    id = "learnr-05-app1")
+
+```
+
+## Help Pages
+One of the biggest mistakes I see new coders make is that they pull up the help pages, but don't actually read them. **TAKE THE TIME TO READ THEM!** There is a lot of really, really helpful information in there. And they are all organized the same way. See the [lecture slides](/lectures/05-lecture) for a breakdown of the Help pages. 
+
+You can always look at help by typing `?functionName`. For example, `?cbind` will bring up the help documentation for the function `cbind()`.
+
+:::puzzle
+**You try!** Follow the directions below each block to ultimately create a plot of standardized variables from our `empire` dataset. Note that this exercise is intentionally a bit harder than previous exercises -- that's because you're getting better!
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/05-learnr-app2/",
+                    id = "learnr-05-app2")
+
+```
+
+:::fyi
+**FYI:** In this exercise, we made a very basic scatter plot. But it's not very pretty. We will talk *a lot* about making really pretty plots. You can check out the very basics in the [Stats & Plot](/lectures/09-lecture) section, and then we'll go into a lot more detail when we get to the Data Visualization section. 
+:::
+
+Congratulations! You're making great progress and are well on your way to being a bad@$% programmer!
+
+<center>
+
+<img src="../encouragementFigs/figure-html/you-did-good-job-meme.jpg" width = "100%">
+
+</center>
+
+## Examples of a few functioins
+In the corresponding lecture, I listed a couple functions that you might use quite frequently. Below are examples of how to use these functions. Note that you do not need to go through all of them at this time. However, I would encourage you to come back and take a look at some point. 
+
+#### `length()`, `nrow()`, `ncol()`
+
+- `length()` is the same as getting the last element's index position
+- `nrow()` and `ncol()` tell you how many rows and columns there are in a data.frame, respectively
+```{r}
+length(demographics$SubjectID)
+
+nrow(demographics)
+
+ncol(demographics)
+```
+
+Note that these don't work properly for *any* object
+```{r, error=TRUE}
+# length on a 2-d object just gives the 2nd dimension (columns)
+# lots of people get this confused and think it should return the
+# number of rows!
+length(demographics)
+
+# nrow and ncol of a 1-d vector don't make sense...
+# there is no such thing as columns or rows in a vector
+nrow(demographics$SubjectID)
+ncol(demographics$SubjectID)
+```
+
+#### `factor()` and `as.factor()`
+Both of these convert a character vector into a factor. Factors are a special case of character where there is inherent meaning/grouping. Categorical variables.
+
+*(Note: For the life of me, I can't figure out the difference between `factor()` and `as.factor()` `r emo::ji("woman_shrugging")` so you can think of them as interchangable.)*
+```{r}
+# Our 'Location' variable consists of states. We might want
+# to think of this as a categorical variable, where each state
+# is a meaingfully different category from the next state.
+
+# Don't forget to re-assign the variable so that it stores your new
+# factor!
+demographics$Location <- factor(demographics$Location)
+demographics$Location
+
+# To double check, use the `class()` function
+class(demographics$Location)
+```
+
+The LEVELS of a factor are all the different categories. Here, we have 4 states. `R` will always put these in alphabetical order unless you tell it otherwise (hint: you can change this by modifying one of the arguments).  
+
+#### `table()` for quick counts
+Especially good for factors & logicals!
+```{r}
+# how many states are in each category?
+table(demographics$Location)
+
+# states x smoker table
+table(demographics$Location, demographics$SmokerTF)
+```
+
+#### `cbind()` and `rbind()` for adding columns and rows, respectively
+These are for if you have a vector that you want to add to a data.frame. You should make sure there's the same number of items -- which changes depending on if you're adding a row or a column!
+
+Let's add a column consisting of survey scores, on a scale of 1 to 10. Then we'll add a row. 
+```{r}
+# first, let's add a column for surveys. there are currently
+# 5 rows/observations, so we'll want 5 elements in this vector
+survey <- c(6, 4, 10, 2, 8)
+
+# now use cbind() to add it to your data.frame
+# the 1st argument is the data.frame
+# the 2nd argument is the thing you want to add to it
+# (you're combining BOTH things)
+
+# note that we re-assign the entire data.frame
+demographics <- cbind(demographics, survey)
+
+# print it out to view
+demographics
+
+############
+
+# now let's add a row. there are 5 columns, so we need to add an
+# element that will match up with each column
+newParticipant <- c("ID6", "Iowa", FALSE, 28, 5)
+
+# now use rbind() to bind by rows
+# the 1st argument is the data.frame
+# the 2nd argument is the row you want to add to it. This makes it the LAST row
+# (if you switched the order, it would become the FIRST row)
+demographics <- rbind(demographics, newParticipant)
+
+# print it out to view
+demographics
+```
+
+There is 1 slight issue with `rbind()`. Vectors will always take on the least specific class So `newParticipant` is considered a character vector because all of it's elements could be thought of as characters, but not everything could be considered numeric or logical. This means that when we added it to the `demographics` data.frame, it made any column that wasn't already a character into characters!
+```{r}
+class(demographics$SubjectID)
+class(demographics$Location) # factors are special characters
+class(demographics$SmokerTF)
+class(demographics$SubjectAge)
+class(demographics$survey)
+```
+
+However, the last 3 columns should **NOT** be characters. I change them back below. See if you can figure out what each function does. 
+```{r}
+demographics$SmokerTF <- as.logical(demographics$SmokerTF)
+class(demographics$SmokerTF)
+
+demographics$SubjectAge <- as.numeric(demographics$SubjectAge)
+class(demographics$SubjectAge)
+
+demographics$survey <- as.numeric(demographics$survey)
+class(demographics$survey)
+```
+
+(Ok for real this time...The End)

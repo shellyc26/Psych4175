@@ -887,7 +887,7 @@ demographics[2,]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# all the rows of column 4
 demographics[,4]&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## [1] 20 18 32 25 25&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Earlier, I asked you to run the line &lt;code&gt;head(scores)&lt;/code&gt;. Using &lt;code&gt;head()&lt;/code&gt; is just a shortcut for &lt;code&gt;scores[1:6,]&lt;/code&gt; – rows 1 through 6 for all columns.&lt;/p&gt;
+&lt;p&gt;Earlier in this practice, I asked you to run the line &lt;code&gt;head(scores)&lt;/code&gt;. Using &lt;code&gt;head()&lt;/code&gt; is just a shortcut for &lt;code&gt;scores[1:6,]&lt;/code&gt;! &lt;code&gt;head(scores)&lt;/code&gt; is a nice way to very quickly view a data.frame (especially really big data.frames!)&lt;/p&gt;
 &lt;div id=&#34;what-if-you-dont-know-the-column-number&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;What if you don’t know the column number?&lt;/h4&gt;
 &lt;p&gt;Use the &lt;code&gt;$&lt;/code&gt; sign! This is really, really, REALLY helpful! Plus, autocomplete is magical.&lt;/p&gt;
@@ -898,6 +898,369 @@ demographics[,4]&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-04-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/04-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-04-app2&#34;)&#39;&gt;&lt;/iframe&gt;
 
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Functions</title>
+      <link>/practice/05-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/05-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#logical-operators&#34;&gt;Logical Operators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#functions&#34;&gt;Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#help-pages&#34;&gt;Help Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#examples-of-a-few-functioins&#34;&gt;Examples of a few functioins&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;logical-operators&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Logical Operators&lt;/h2&gt;
+&lt;p&gt;Logical operators are crucial for understanding any programming language, not just R. Effective use of logic allows you to perform really complex computations with ease. The more comfortable you feel in using these, the better.&lt;/p&gt;
+&lt;p&gt;For the time being, let’s start simple. Check out the &lt;a href=&#34;/lectures/08-lecture&#34;&gt;R&amp;amp;R slides&lt;/a&gt; for more complicated logical operator statements.&lt;/p&gt;
+&lt;p&gt;What are the operators?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;==&lt;/code&gt; equality&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!=&lt;/code&gt; inequality (&lt;code&gt;!&lt;/code&gt; is read as &lt;code&gt;not&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; greater than&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;gt;=&lt;/code&gt; greater than or equal to&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;&lt;/code&gt; less than&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;=&lt;/code&gt; less than or equal to&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;&lt;strong&gt;Logical operators test whether a statement is &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;&lt;/strong&gt;.&lt;/span&gt;&lt;/p&gt;
+Let’s revisit our &lt;code&gt;demographics&lt;/code&gt; data.frame
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+SubjectID
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Location
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+SmokerTF
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+SubjectAge
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Iowa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+32
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Idaho
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Maine
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;: Is anyone from the state of &lt;em&gt;Missouri&lt;/em&gt;? To answer this with code, we could do:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$Location == &amp;quot;Missouri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  TRUE FALSE  TRUE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The result is a vector of &lt;code&gt;TRUE&lt;/code&gt; and &lt;code&gt;FALSE&lt;/code&gt; – one for each item in &lt;code&gt;demographics$Location&lt;/code&gt;. The 1st and 3rd elements are &lt;code&gt;TRUE&lt;/code&gt;, so those people are from “Missouri”. The others are no.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;Spelling, capitalization, and quotation marks count!&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;These things (and missing/extra parentheses) account for at least 75% of all your errors! 🙀 If you’re evaluating a number, you do NOT need quotation marks. If it’s a character string, you do. For example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# no quotes around the character string
+demographics$Location == Missouri&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): object &amp;#39;Missouri&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# capitalization
+demographics$Location == &amp;quot;missouri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;☝️ Note that this doesn’t throw and error, but everything is returned as &lt;code&gt;FALSE&lt;/code&gt;. But we know that’s not true…&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# spelling
+demographics$Location == &amp;quot;Missour-uh&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Same as the capitalization thing.&lt;/p&gt;
+&lt;div class=&#34;warning&#34;&gt;
+&lt;p&gt;Be careful with &lt;code&gt;=&lt;/code&gt; vs &lt;code&gt;==&lt;/code&gt;!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;==&lt;/code&gt; is a logical operator&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;=&lt;/code&gt; is for assignment. It’s the same thing as &lt;code&gt;&amp;lt;-&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Look at the example below.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Logical operator usage…&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Is each element in the SubjectID column equal to the character
+# string &amp;quot;ID4&amp;quot;?
+demographics$SubjectID == &amp;quot;ID4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE  TRUE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Assignment usage…&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Make each element in the SubjectID column equal to the character
+# string &amp;quot;ID4&amp;quot;
+demographics$SubjectID = &amp;quot;ID4&amp;quot;
+
+# now view the column
+demographics$SubjectID&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we’ve gone through this demo, let’s change the &lt;code&gt;SubjectID&lt;/code&gt; column back to what it’s supposed to look like.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SubjectID &amp;lt;- ids
+
+# view the column to double check
+demographics$SubjectID&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ID1&amp;quot; &amp;quot;ID2&amp;quot; &amp;quot;ID3&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID5&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;quiz&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-quiz1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-quiz1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-quiz1&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Functions&lt;/h2&gt;
+&lt;p&gt;Functions are the heart and soul of &lt;code&gt;R&lt;/code&gt;, and are especially powerful. They are the &lt;strong&gt;verbs&lt;/strong&gt; of a programming language because the act on the objects. Each function has:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/em&gt; that is unique&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Arguments&lt;/strong&gt;&lt;/em&gt; - What is the verb acting on? How should the function behave?&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/em&gt; or the result of the function (can be anything!) that can be stored to another object&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You’ve already seen some functions in action! You just didn’t know it, yet!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;c()&lt;/code&gt; is the combine/concatenate function:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s name is &lt;code&gt;c&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s input is whatever you’re trying to combine&lt;/li&gt;
+&lt;li&gt;It’s output is the vector that has the elements combined&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;data.frame()&lt;/code&gt; is the function for making a data.frame:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s name is &lt;code&gt;data.frame&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;It’s input is a series of vectors that all have the same length&lt;/li&gt;
+&lt;li&gt;It’s output is a nicely formatted data.frame&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;class()&lt;/code&gt; is the function for finding out the class of an object:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s name is &lt;code&gt;class&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;It’s input is the object you are examining&lt;/li&gt;
+&lt;li&gt;It’s output is a character telling you what class the object is&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Most functions use more arguments than what we’ve seen above. And those arguments have names.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;Use the argument names!&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Autocomplete will help so it’s not so tedious. See the &lt;a href=&#34;/lectures/05-lecture&#34;&gt;lecture slides&lt;/a&gt; for the example with the &lt;code&gt;round()&lt;/code&gt; function. When you have multiple arguments, you separate them with a comma &lt;code&gt;function(argument 1 = something, argument 2 = something else)&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Follow the directions for each chunk below to create different sequences of numbers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;help-pages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Help Pages&lt;/h2&gt;
+&lt;p&gt;One of the biggest mistakes I see new coders make is that they pull up the help pages, but don’t actually read them. &lt;strong&gt;TAKE THE TIME TO READ THEM!&lt;/strong&gt; There is a lot of really, really helpful information in there. And they are all organized the same way. See the &lt;a href=&#34;/lectures/05-lecture&#34;&gt;lecture slides&lt;/a&gt; for a breakdown of the Help pages.&lt;/p&gt;
+&lt;p&gt;You can always look at help by typing &lt;code&gt;?functionName&lt;/code&gt;. For example, &lt;code&gt;?cbind&lt;/code&gt; will bring up the help documentation for the function &lt;code&gt;cbind()&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Follow the directions below each block to ultimately create a plot of standardized variables from our &lt;code&gt;empire&lt;/code&gt; dataset. Note that this exercise is intentionally a bit harder than previous exercises – that’s because you’re getting better!&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; In this exercise, we made a very basic scatter plot. But it’s not very pretty. We will talk &lt;em&gt;a lot&lt;/em&gt; about making really pretty plots. You can check out the very basics in the &lt;a href=&#34;/lectures/09-lecture&#34;&gt;Stats &amp;amp; Plot&lt;/a&gt; section, and then we’ll go into a lot more detail when we get to the Data Visualization section.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Congratulations! You’re making great progress and are well on your way to being a bad@$% programmer!&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/you-did-good-job-meme.jpg&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;examples-of-a-few-functioins&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Examples of a few functioins&lt;/h2&gt;
+&lt;p&gt;In the corresponding lecture, I listed a couple functions that you might use quite frequently. Below are examples of how to use these functions. Note that you do not need to go through all of them at this time. However, I would encourage you to come back and take a look at some point.&lt;/p&gt;
+&lt;div id=&#34;length-nrow-ncol&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;code&gt;length()&lt;/code&gt;, &lt;code&gt;nrow()&lt;/code&gt;, &lt;code&gt;ncol()&lt;/code&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt; is the same as getting the last element’s index position&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nrow()&lt;/code&gt; and &lt;code&gt;ncol()&lt;/code&gt; tell you how many rows and columns there are in a data.frame, respectively&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nrow(demographics)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ncol(demographics)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that these don’t work properly for &lt;em&gt;any&lt;/em&gt; object&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# length on a 2-d object just gives the 2nd dimension (columns)
+# lots of people get this confused and think it should return the
+# number of rows!
+length(demographics)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# nrow and ncol of a 1-d vector don&amp;#39;t make sense...
+# there is no such thing as columns or rows in a vector
+nrow(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ncol(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;factor-and-as.factor&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;code&gt;factor()&lt;/code&gt; and &lt;code&gt;as.factor()&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;Both of these convert a character vector into a factor. Factors are a special case of character where there is inherent meaning/grouping. Categorical variables.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(Note: For the life of me, I can’t figure out the difference between &lt;code&gt;factor()&lt;/code&gt; and &lt;code&gt;as.factor()&lt;/code&gt; 🤷‍♀ so you can think of them as interchangable.)&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Our &amp;#39;Location&amp;#39; variable consists of states. We might want
+# to think of this as a categorical variable, where each state
+# is a meaingfully different category from the next state.
+
+# Don&amp;#39;t forget to re-assign the variable so that it stores your new
+# factor!
+demographics$Location &amp;lt;- factor(demographics$Location)
+demographics$Location&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] Missouri Iowa     Missouri Idaho    Maine   
+## Levels: Idaho Iowa Maine Missouri&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# To double check, use the `class()` function
+class(demographics$Location)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The LEVELS of a factor are all the different categories. Here, we have 4 states. &lt;code&gt;R&lt;/code&gt; will always put these in alphabetical order unless you tell it otherwise (hint: you can change this by modifying one of the arguments).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;table-for-quick-counts&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;code&gt;table()&lt;/code&gt; for quick counts&lt;/h4&gt;
+&lt;p&gt;Especially good for factors &amp;amp; logicals!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# how many states are in each category?
+table(demographics$Location)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##    Idaho     Iowa    Maine Missouri 
+##        1        1        1        2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# states x smoker table
+table(demographics$Location, demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           
+##            FALSE TRUE
+##   Idaho        0    1
+##   Iowa         1    0
+##   Maine        1    0
+##   Missouri     1    1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cbind-and-rbind-for-adding-columns-and-rows-respectively&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;code&gt;cbind()&lt;/code&gt; and &lt;code&gt;rbind()&lt;/code&gt; for adding columns and rows, respectively&lt;/h4&gt;
+&lt;p&gt;These are for if you have a vector that you want to add to a data.frame. You should make sure there’s the same number of items – which changes depending on if you’re adding a row or a column!&lt;/p&gt;
+&lt;p&gt;Let’s add a column consisting of survey scores, on a scale of 1 to 10. Then we’ll add a row.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# first, let&amp;#39;s add a column for surveys. there are currently
+# 5 rows/observations, so we&amp;#39;ll want 5 elements in this vector
+survey &amp;lt;- c(6, 4, 10, 2, 8)
+
+# now use cbind() to add it to your data.frame
+# the 1st argument is the data.frame
+# the 2nd argument is the thing you want to add to it
+# (you&amp;#39;re combining BOTH things)
+
+# note that we re-assign the entire data.frame
+demographics &amp;lt;- cbind(demographics, survey)
+
+# print it out to view
+demographics&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   SubjectID Location SmokerTF SubjectAge survey
+## 1       ID1 Missouri     TRUE         20      6
+## 2       ID2     Iowa    FALSE         18      4
+## 3       ID3 Missouri    FALSE         32     10
+## 4       ID4    Idaho     TRUE         25      2
+## 5       ID5    Maine    FALSE         25      8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;############
+
+# now let&amp;#39;s add a row. there are 5 columns, so we need to add an
+# element that will match up with each column
+newParticipant &amp;lt;- c(&amp;quot;ID6&amp;quot;, &amp;quot;Iowa&amp;quot;, FALSE, 28, 5)
+
+# now use rbind() to bind by rows
+# the 1st argument is the data.frame
+# the 2nd argument is the row you want to add to it. This makes it the LAST row
+# (if you switched the order, it would become the FIRST row)
+demographics &amp;lt;- rbind(demographics, newParticipant)
+
+# print it out to view
+demographics&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   SubjectID Location SmokerTF SubjectAge survey
+## 1       ID1 Missouri     TRUE         20      6
+## 2       ID2     Iowa    FALSE         18      4
+## 3       ID3 Missouri    FALSE         32     10
+## 4       ID4    Idaho     TRUE         25      2
+## 5       ID5    Maine    FALSE         25      8
+## 6       ID6     Iowa    FALSE         28      5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There is 1 slight issue with &lt;code&gt;rbind()&lt;/code&gt;. Vectors will always take on the least specific class So &lt;code&gt;newParticipant&lt;/code&gt; is considered a character vector because all of it’s elements could be thought of as characters, but not everything could be considered numeric or logical. This means that when we added it to the &lt;code&gt;demographics&lt;/code&gt; data.frame, it made any column that wasn’t already a character into characters!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$Location) # factors are special characters&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SubjectAge)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$survey)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, the last 3 columns should &lt;strong&gt;NOT&lt;/strong&gt; be characters. I change them back below. See if you can figure out what each function does.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SmokerTF &amp;lt;- as.logical(demographics$SmokerTF)
+class(demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;logical&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SubjectAge &amp;lt;- as.numeric(demographics$SubjectAge)
+class(demographics$SubjectAge)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$survey &amp;lt;- as.numeric(demographics$survey)
+class(demographics$survey)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(Ok for real this time…The End)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
