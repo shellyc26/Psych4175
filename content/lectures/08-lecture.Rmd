@@ -18,6 +18,10 @@ output:
 
 Eventually, a YouTube playlist will go here. 
 
+## Data
+For the embedded exercises, please use the `midus.csv` dataset. 
+[<i class="fas fa-file-csv"></i> `midus.csv`](/practice/07-practice/data/midus.csv)
+
 ## Slides
 
 `r blogdown::shortcode("slide-buttons")`
@@ -30,14 +34,14 @@ sections <- tibble::tribble(
   ~name, ~slide, ~active,
   "Recap", "1", TRUE,
   "MIDUS", "midus", FALSE,
-  "Exercise 1", "ex1", FALSE,
+  "Exercise 1", "e1", FALSE,
   "Indexing", "index", FALSE,
   "Logical Operators", "logic", FALSE,
   "Subsetting", "subset", FALSE,
-  "Exercise 2", "e2", FALSE,
   "Nesting", "nest", FALSE,
-  "Exercise 3", "e3", FALSE,
-  "Tidbits", "rand", FALSE
+  "Exercise 2", "e2", FALSE,
+  "Tidbits", "rand", FALSE,
+  "Answers", "answers", FALSE
 )
 
 slide_tabs(sections, "/slides/08-slides.html")

@@ -1267,6 +1267,300 @@ class(demographics$survey)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Practice Set: Packages</title>
+      <link>/practice/06-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/06-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#packages&#34;&gt;Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#miscellaneous&#34;&gt;Miscellaneous&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;quiz&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-06-quiz1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/06-learnr-quiz1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-06-quiz1&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;div id=&#34;packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Packages&lt;/h2&gt;
+&lt;p&gt;When you first open &lt;code&gt;R&lt;/code&gt;, there are already lots of functions availble for you to use. However, the are &lt;em&gt;WAY&lt;/em&gt; more functions out there in the world! They are stored in &lt;strong&gt;packages&lt;/strong&gt;, and are free/easy to download and use at your convenience.&lt;/p&gt;
+&lt;p&gt;This is a huge part of what makes &lt;code&gt;R&lt;/code&gt; awesome. Anyone from around the world (including you!) can write their own custom function. And if you think &lt;em&gt;“hey, other people might want to use this cool function”&lt;/em&gt; you can publish it in a package.&lt;/p&gt;
+&lt;p&gt;Packages also often contain datasets that are great to work with. At the very bottom of a function’s &lt;code&gt;?help&lt;/code&gt; page, there are Examples of how to use that function. Often, these examples use datasets that come from the same package the function comes from.&lt;/p&gt;
+&lt;p&gt;There are 2 steps to getting/using functions/datasets in a package:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Install the package
+&lt;ul&gt;
+&lt;li&gt;You need to be connected to the internet&lt;/li&gt;
+&lt;li&gt;You need to know the exact name of the package&lt;/li&gt;
+&lt;li&gt;You only do this ONCE (equivalent of installing Microsoft Word on your computer)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Load the package in your &lt;code&gt;R&lt;/code&gt; session
+&lt;ul&gt;
+&lt;li&gt;You do NOT need to be connected to the internet&lt;/li&gt;
+&lt;li&gt;You need to know the exact name of the pacakge&lt;/li&gt;
+&lt;li&gt;You need to do this every time you open &lt;code&gt;R&lt;/code&gt; and want to use the function/dataset&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For installing and loading packages, you can either do this a) via code or b) via the RStudio interface in the Packages tab on the lower right hand portion of the screen (see corresponding lecture video for more). &lt;em&gt;In my opinion…&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It is totally OK to use the RStudio interface to &lt;em&gt;install&lt;/em&gt; packages since you only do this once.&lt;/li&gt;
+&lt;li&gt;However, I &lt;strong&gt;strongly&lt;/strong&gt; suggest using code for &lt;em&gt;loading&lt;/em&gt; packages. The reason is that you often write some code, save the file, and come back to it later. If you use functions from certain packages in that file, then you need to remember which packages you used – easier said than done! So it’s easier to write the code and keep it in that same file (usually at the top) so that you always have all the packages you need for a given script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;installing-packages-with-code&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Installing packages with code&lt;/h4&gt;
+&lt;p&gt;To install a package, we use the &lt;code&gt;install.packages()&lt;/code&gt; function&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#686DE07D&#39;&gt;install.packages&lt;/span&gt;(&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;&#34;&lt;/span&gt;&lt;span style=&#39;background-color:#ff79797D&#39;&gt;packageName&lt;/span&gt;&lt;span style=&#39;background-color:#FFFF007D&#39;&gt;&#34;&lt;/span&gt;)&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;☝️ Here we have:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The function &lt;span class=&#34;color-light-6&#34;&gt;&lt;code&gt;install.packages&lt;/code&gt; in blue&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;font style=&#34;color:#FFFF00; background:#f8f8f8&#34;&gt;Quotation marks&lt;/font&gt; around the package name&lt;/li&gt;
+&lt;li&gt;The &lt;span class=&#34;color=color-light-1&#34;&gt;package’s name&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loading-packages-with-code&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Loading packages with code&lt;/h4&gt;
+&lt;p&gt;To load a package, we use the &lt;code&gt;library()&lt;/code&gt; function&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#686DE07D&#39;&gt;library&lt;/span&gt;(&lt;span style=&#39;background-color:#ff79797D&#39;&gt;packageName&lt;/span&gt;)&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;☝️ Here we have:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The function &lt;span class=&#34;color-light-6&#34;&gt;&lt;code&gt;library&lt;/code&gt; in blue&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;span class=&#34;color=color-light-1&#34;&gt;package’s name&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Note how there are NO quotation marks when loading a package!&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;miscellaneous&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Miscellaneous&lt;/h2&gt;
+&lt;p&gt;Before you practice installing and loading packages, there are a couple random tidbits you should know about.&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;Some packages come pre-installed with &lt;code&gt;R&lt;/code&gt; (you can look at your Packages tab and see that stuff is already there!). This is referred to as &lt;code&gt;base R&lt;/code&gt;. You do not need to load any special packages to use their functions. For example, the &lt;code&gt;c()&lt;/code&gt; function is part of &lt;code&gt;base R&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;Do NOT re-install a package you already have. &lt;code&gt;R&lt;/code&gt; doesn’t like it, and can sometimes get confused. Always check your Packages tab first to see if you have the package.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;When you install a package, you often see a lot of stuff happening in your console, and it’s often in red font. So it looks like &lt;code&gt;R&lt;/code&gt; is yelling at you. But it’s OK, &lt;code&gt;R&lt;/code&gt; is not yelling at you – so don’t sweat it. Most of the time, it’s loading dependencies (other packages that the current one you are trying to install &lt;em&gt;depends&lt;/em&gt; on).&lt;/p&gt;
+&lt;p&gt;Similarly, when you load a package, sometimes messages are printed out along with it. Usually these are just helpful little tidbits, but the package still loads successfully.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;One of those little messages that might print out is something like:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(psych)
+library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+## Attaching package: &amp;#39;ggplot2&amp;#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## The following objects are masked from &amp;#39;package:psych&amp;#39;:
+## 
+##     %+%, alpha&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Last time, we learned that functions have a unique name. This is true for all functions within a package! But every so often, there is 1 name that corresponds to functions from 2 different packages. In this example, there is a function called &lt;code&gt;alpha()&lt;/code&gt; in the &lt;code&gt;psych&lt;/code&gt; package &lt;em&gt;AND&lt;/em&gt; a function called &lt;code&gt;alpha()&lt;/code&gt; in the &lt;code&gt;ggplot2&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;R&lt;/code&gt; will use the function from whichever package you loaded MOST RECENTLY. So here, the &lt;code&gt;alpha()&lt;/code&gt; from &lt;code&gt;psych&lt;/code&gt; is &lt;em&gt;“masked”&lt;/em&gt; or hidden by &lt;code&gt;alpha()&lt;/code&gt; from &lt;code&gt;ggplot2&lt;/code&gt;. That is, the &lt;code&gt;ggplot2&lt;/code&gt; version of &lt;code&gt;alpha()&lt;/code&gt; will be the default.&lt;/p&gt;
+&lt;p&gt;You can still use &lt;code&gt;alpha()&lt;/code&gt; from the &lt;code&gt;psych&lt;/code&gt; package though! You just need to add a double colon, like this: &lt;code&gt;psych::alpha()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The way this manifests is you write some code, and it doesn’t work. And you get an error that is like &lt;code&gt;function expects a data.frame&lt;/code&gt; when in reality, the function you are thinking of should actually have a single number as an input. That error, that it’s expecting something you’re not giving, can be a clue that &lt;code&gt;R&lt;/code&gt; is calling the wrong function.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;When you install a package, you sometimes will get a message in the console that is something like &lt;code&gt;There are binary versions available but the source versions are later. Do you want to install from sources the package which needs compliation? y/n&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If this happens, go ahead and type &lt;code&gt;y&lt;/code&gt; in your console (for Yes). This will get you the latest version of the package, but it might take slightly longer to install (not too much longer!).&lt;/p&gt;
+&lt;p&gt;WINDOWS USERS: you might want to consider installing a package called &lt;code&gt;rtools40&lt;/code&gt; (see &lt;a href=&#34;https://cran.r-project.org/bin/windows/Rtools/&#34;&gt;here&lt;/a&gt;) to help with installing these “source” versions. Although I wouldn’t worry much about it unless it comes up.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;Keep your software up to date on your computer! Life will be so much easier for you. I know people tend to avoid this because they’re scared of losing stuff. But you should be saving everything of importance to a cloud-based service (Box, Dropbox, Github, OSF etc.). So even if your desktop is wiped clean, it shouldn’t matter. Act as though your computer could get stolen at any moment. You certainly wouldn’t want to lose your entire thesis or all of your work files because someone stole your stuff… Save appropriately!&lt;/p&gt;
+&lt;p&gt;Some suggestions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Update your operating system when it prompts you (within a reasonable timeframe)&lt;/li&gt;
+&lt;li&gt;Right after updating your operating system is a good time to check if &lt;code&gt;R&lt;/code&gt; needs to update. &lt;em&gt;Note, this is &lt;code&gt;R&lt;/code&gt;…not &lt;code&gt;RStudio&lt;/code&gt;&lt;/em&gt;. If you haven’t updated your operating system in a while, I would check if &lt;code&gt;R&lt;/code&gt; needs an update about every 6 months.&lt;/li&gt;
+&lt;li&gt;Right after you update &lt;code&gt;R&lt;/code&gt;, &lt;em&gt;then&lt;/em&gt; I suggest checking for updates on &lt;code&gt;RStudio&lt;/code&gt;. If you haven’t updated &lt;code&gt;R&lt;/code&gt; for a while, then I would check if &lt;code&gt;RStudio&lt;/code&gt; needs an update about every 6 months. Sometimes, I find that I need to re-install all of my packages after an &lt;code&gt;RStudio&lt;/code&gt; update. But not always. It’s kind of annoying, but frankly it doesn’t take that long to get everything back up to speed.&lt;/li&gt;
+&lt;li&gt;Right after you update &lt;code&gt;RStudio&lt;/code&gt;, I would check if any of your packages need to be updated. Go to the Packages tab and click Update. I personally do chunks of ~5-10 packages at a time, just to make sure they all update properly. I do this after updating &lt;code&gt;RStudio&lt;/code&gt;. It will sometimes ask you to restart &lt;code&gt;RStudio&lt;/code&gt; before updating your packages – that’s OK, go ahead and restart. I usually only update my packages immediately after updating &lt;code&gt;RStudio&lt;/code&gt;, but it doesn’t hurt to check every so often.&lt;br /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Open up &lt;code&gt;RStudio&lt;/code&gt; &lt;em&gt;on your computer&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Step 1: Go to your Packages tab. Check to see if you have the following packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tidyverse&lt;/code&gt; &lt;em&gt;we will talk about this at length after finishing The Basics&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;psych&lt;/code&gt; &lt;em&gt;great for many statistics used in psychology and social sciences&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;broom&lt;/code&gt; &lt;em&gt;great for making the output of statistical models into organized data.frames&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RColorBrewer&lt;/code&gt; &lt;em&gt;we will use this to make color palettes when we do data visualization&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ggpubr&lt;/code&gt; &lt;em&gt;we will use this to make multi-panel figures when we do data visualization&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;knitr&lt;/code&gt; &lt;em&gt;we will use this to generate reports when we do reproducibility&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kableExtra&lt;/code&gt; &lt;em&gt;we will use this to make pretty tables in our reports when we do reproducibility&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Step 2: For any of these packages listed that you DO NOT HAVE in your Packages tab, &lt;em&gt;install them&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Step 3: Open a new script and &lt;em&gt;load all of these packages&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Remember, you might get some messages about what’s installed or what’s “masked” (see notes above). But contact me/send screenshots if you have other errors like “package cannot be loaded”. Hopefully it should work seamlessly!&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;With packages at your fingertips, you now have most of the tools you need to be and R programmer! The next few sections help refine and practice these skills. Keep it up!&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/morememes.png&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Loading/Importing Files</title>
+      <link>/practice/07-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/07-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#directories&#34;&gt;Directories&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#organize-your-filesprojects&#34;&gt;Organize your files/projects!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#importing-data&#34;&gt;Importing Data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This time we’ll talk about several little things, but all relate to importing your own data files. Most of us are not creating data.frames from scratch every time. Instead, our data is collected elsewhere, and stored as a file that a colleague shares with you, you download from the internet, etc.&lt;/p&gt;
+&lt;div id=&#34;directories&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Directories&lt;/h2&gt;
+&lt;p&gt;Your computer is just a series of folders. Folders are also known as directories. &lt;code&gt;R&lt;/code&gt; will only look and save things to your working directory. To find your current working directory, you can type &lt;code&gt;getwd()&lt;/code&gt; in your console. To change your working directory to somewhere else, you can use &lt;code&gt;setwd(&amp;quot;/file/path/goes/here&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Fun Fact: The &lt;code&gt;~&lt;/code&gt; sign helps shorten some of the really long file paths. Try &lt;code&gt;setwd(&amp;quot;~/rest/of/file/path&amp;quot;)&lt;/code&gt;. It usually points to the User’s directory. For instance, on my computer, it is set to &lt;code&gt;/Users/Coop&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;organize-your-filesprojects&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Organize your files/projects!&lt;/h3&gt;
+&lt;p&gt;Whether you use &lt;code&gt;RProjects&lt;/code&gt; (&lt;a href=&#34;/lectures/07-lecture&#34;&gt;see 7: Loading files slides&lt;/a&gt; for more) or not, you should have some sort of structure to your projects. You’ll need to play around with what’s right for you. Generally speaking, a good idea is something like this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Project Name &lt;em&gt;(top level directory)&lt;/em&gt;
+&lt;ul&gt;
+&lt;li&gt;Data &lt;em&gt;(sub-directory of Project Name)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Code &lt;em&gt;(sub-directory)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Results &lt;em&gt;(sub-directory)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can be even more organized and thorough, depending on your project. But those above are a good starting point. Here’s an example of the directory structure of one of my projects. I’ve changed the names to be meaningful here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Project Name
+&lt;ul&gt;
+&lt;li&gt;data
+&lt;ul&gt;
+&lt;li&gt;data from source 1&lt;/li&gt;
+&lt;li&gt;data from source 2&lt;/li&gt;
+&lt;li&gt;data from source 3&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;code
+&lt;ul&gt;
+&lt;li&gt;preprocessing code&lt;/li&gt;
+&lt;li&gt;postprocessing code&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;results
+&lt;ul&gt;
+&lt;li&gt;figures&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;manuscripts&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Again, things will change based on your specific projects. But keeping things organized and using directories to your advantage will help you in the long run!&lt;/p&gt;
+&lt;div class=&#34;warning&#34;&gt;
+&lt;p&gt;&lt;strong&gt;WARNING:&lt;/strong&gt; You &lt;em&gt;need&lt;/em&gt; to save your files to the cloud. Absolutely do not save anything of importance to a Desktop or any old place on your computer. Box, Dropbox, Github, Open Science Framework, or any internal tool your school/company uses is fine. Always assume that your computer could get stolen tomrorow. You would be &lt;em&gt;devastated&lt;/em&gt; if all of your work was suddenly gone.&lt;/p&gt;
+&lt;p&gt;Ok, I’ll get off the soapbox now…&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;importing-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Importing Data&lt;/h2&gt;
+&lt;p&gt;For a lot of us, our data will be stored as either &lt;code&gt;.csv&lt;/code&gt; or &lt;code&gt;.txt&lt;/code&gt; files. &lt;code&gt;R&lt;/code&gt; can handle many types of files but we’ll just practice with &lt;code&gt;.csv&lt;/code&gt;. (For more on importing other types, ask your old friend Google)&lt;/p&gt;
+&lt;p&gt;You can use the &lt;code&gt;RStudio&lt;/code&gt; interface to import your file (see the &lt;a href=&#34;/lectures/07-lecture&#34;&gt;slides &amp;amp; corresponding videos&lt;/a&gt; for how to do this). In fact, doing that once is a good idea to make sure it looks the way you want it to. However, once you finish, there will be a line of code that has printed to your console. COPY THIS LINE OF CODE and put it into your script file. That way, next time you open your script, you do not need to use the &lt;code&gt;RStudio&lt;/code&gt; interface to re-import. You simply run that line of code, and BAM! You’re good to go.&lt;/p&gt;
+&lt;div id=&#34;to-read-in-a-.csv&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;To read in a &lt;code&gt;.csv&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;The function for reading in a &lt;code&gt;.csv&lt;/code&gt; file is &lt;code&gt;read.csv()&lt;/code&gt; and the input is the file path.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;to-read-in-a-.txt&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;To read in a &lt;code&gt;.txt&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;The function for reading in a &lt;code&gt;.txt&lt;/code&gt; file is &lt;code&gt;read.delim()&lt;/code&gt; and the input is the file path.&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; &lt;code&gt;R&lt;/code&gt; recently updated. Previously, when you imported a dataset, it would try to automatically convert character variables into factor variables. This created a lot of problems for a lot of people. As of version 4.0, &lt;code&gt;R&lt;/code&gt; doesn’t do that anymore.&lt;/p&gt;
+&lt;p&gt;You should all be using an updated version of &lt;code&gt;R&lt;/code&gt; so hopefully this won’t matter. But just in case, what you can do is add the argument &lt;code&gt;stringsAsFactors = FALSE&lt;/code&gt; to the &lt;code&gt;read.csv()&lt;/code&gt; or &lt;code&gt;read.delim()&lt;/code&gt; functions, after the file paths.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; In the lectures, I used the &lt;code&gt;midus&lt;/code&gt; dataset. Now it’s your turn to import it locally (in &lt;code&gt;RStudio&lt;/code&gt; on your computer).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Step 1: Create a folder/directory on your desktop specific for this workshop.&lt;/li&gt;
+&lt;li&gt;Step 2: Download the &lt;code&gt;midus.csv&lt;/code&gt; dataset from below. Save it to this new directory.&lt;/li&gt;
+&lt;li&gt;Step 3: Go into &lt;code&gt;RStudio&lt;/code&gt; and open a new script file.&lt;/li&gt;
+&lt;li&gt;Step 4: In your script file set your working directory (&lt;code&gt;setwd()&lt;/code&gt;) to your newly created directory.&lt;/li&gt;
+&lt;li&gt;Step 5: Use either code or the &lt;code&gt;RStudio&lt;/code&gt; interface to import your data. If you use the &lt;code&gt;RStudio&lt;/code&gt; interface, make sure you copy the function/file path it spits out into the console, and paste that into your script file. If you use code for importing, type/run that line from your script file (not your console).&lt;/li&gt;
+&lt;li&gt;Step 6: Save that script file. Next time you open &lt;code&gt;R&lt;/code&gt;, you won’t need to use the Import button or type any new code!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-dataset&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;The dataset&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/practice/07-practice/data/midus.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;midus.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Bonus:&lt;/strong&gt; &lt;em&gt;(not required&lt;/em&gt;) If you are in a directory, but you want to go further down within that directory, you do not need to keep doing &lt;code&gt;setwd()&lt;/code&gt;. Remember, your working directory is where &lt;code&gt;R&lt;/code&gt; will look. So for example, let’s say you have this file structure:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Project Name
+&lt;ul&gt;
+&lt;li&gt;data
+&lt;ul&gt;
+&lt;li&gt;data from source 1&lt;/li&gt;
+&lt;li&gt;data from source 2&lt;/li&gt;
+&lt;li&gt;data from source 3&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;code
+&lt;ul&gt;
+&lt;li&gt;preprocessing code&lt;/li&gt;
+&lt;li&gt;postprocessing code&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;results
+&lt;ul&gt;
+&lt;li&gt;figures&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;manuscripts&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If your current working directory is &lt;code&gt;code&lt;/code&gt;, but the file you need is in the &lt;code&gt;preprocessing code&lt;/code&gt; directory, you do NOT need to re-set your working directory. Instead, modify your file path like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;newData &amp;lt;- read.csv(&amp;quot;preprocessing code/file.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or let’s say the file you need is in &lt;code&gt;figures&lt;/code&gt;, but your working directory is &lt;code&gt;Project Name&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;newData &amp;lt;- read.csv(&amp;quot;results/figures/file.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can keep hitting the TAB button until you find the folder you’re looking for!&lt;/p&gt;
+&lt;p&gt;If you want to go up one directory level, you can use &lt;code&gt;..&lt;/code&gt; in the file path. For instance, let’s say your current working directory is &lt;code&gt;figures&lt;/code&gt;, but you want the &lt;code&gt;Project Name&lt;/code&gt; directory. This requires going up 2 levels (from &lt;code&gt;figures&lt;/code&gt; to &lt;code&gt;results&lt;/code&gt;, and then from &lt;code&gt;results&lt;/code&gt; to &lt;code&gt;Project Name&lt;/code&gt;). You can use &lt;code&gt;..&lt;/code&gt; to indicate 1 level. For example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# from figures to Project Name:
+setwd(&amp;quot;../../Project Name&amp;quot;)
+
+# from data source 3 to preprocessing code
+newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that it doesn’t matter what function you’re using. You can always go up and down directory levels!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Review &amp; Random</title>
+      <link>/practice/08-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/08-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#break-ish&#34;&gt;Break! (ish)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;break-ish&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Break! (ish)&lt;/h2&gt;
+&lt;p&gt;The corresponding lecture has several exercises already built in. Please complete those exercises, and move on to the last bit of The Basics workshop!&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/treat.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Example Talk</title>
       <link>/talk/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
@@ -2465,6 +2759,7 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data&#34;&gt;Data&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -2472,6 +2767,11 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
 &lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;For the embedded exercises, please use the &lt;code&gt;midus.csv&lt;/code&gt; dataset.
+&lt;a href=&#34;/practice/07-practice/data/midus.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;midus.csv&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -2498,16 +2798,16 @@ Figure 1: A fancy pie chart.
 &lt;a class=&#34;nav-link&#34; id=&#34;subsetting-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#subsetting&#34; role=&#34;tab&#34; aria-controls=&#34;subsetting&#34; aria-selected=&#34;false&#34;&gt;Subsetting&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;exercise-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#exercise-2&#34; role=&#34;tab&#34; aria-controls=&#34;exercise-2&#34; aria-selected=&#34;false&#34;&gt;Exercise 2&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;nesting-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#nesting&#34; role=&#34;tab&#34; aria-controls=&#34;nesting&#34; aria-selected=&#34;false&#34;&gt;Nesting&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;exercise-3-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#exercise-3&#34; role=&#34;tab&#34; aria-controls=&#34;exercise-3&#34; aria-selected=&#34;false&#34;&gt;Exercise 3&lt;/a&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;exercise-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#exercise-2&#34; role=&#34;tab&#34; aria-controls=&#34;exercise-2&#34; aria-selected=&#34;false&#34;&gt;Exercise 2&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;tidbits-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tidbits&#34; role=&#34;tab&#34; aria-controls=&#34;tidbits&#34; aria-selected=&#34;false&#34;&gt;Tidbits&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;answers-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#answers&#34; role=&#34;tab&#34; aria-controls=&#34;answers&#34; aria-selected=&#34;false&#34;&gt;Answers&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
@@ -2525,7 +2825,7 @@ Figure 1: A fancy pie chart.
 &lt;/div&gt;
 &lt;div id=&#34;exercise-1&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;exercise-1-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/08-slides.html#ex1&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/08-slides.html#e1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2547,27 +2847,27 @@ Figure 1: A fancy pie chart.
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;exercise-2&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;exercise-2-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/08-slides.html#e2&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;div id=&#34;nesting&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;nesting-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/08-slides.html#nest&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;exercise-3&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;exercise-3-tab&#34;&gt;
+&lt;div id=&#34;exercise-2&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;exercise-2-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/08-slides.html#e3&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/08-slides.html#e2&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;tidbits&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;tidbits-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/08-slides.html#rand&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;answers&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;answers-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/08-slides.html#answers&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;

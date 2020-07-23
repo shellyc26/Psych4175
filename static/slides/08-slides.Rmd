@@ -69,7 +69,7 @@ name: midus
 
 # MIDUS
 
-For this portion, we will use the `midus.csv` dataset (you can find it ______).
+For this portion, we will use the `midus.csv` dataset.
   - Please download this file and save it somewhere you can easily find it. 
 
 You should do the exercises in this tutorial *locally* (on your own computer).
@@ -100,14 +100,28 @@ name: e1
   
 3. `Get` your `w`orking `d`irectory
 
-4. If you haven't already, download `midus.csv` from ___. Drag and drop the file into a directory that you want to continue using for this class. 
+4. If you haven't already, download `midus.csv` from above. Drag and drop the file into a directory that you want to continue using for this class. 
 
 5. Import `midus.csv` into R. You can keep the name **midus**. 
 
 6. Make sure that the import code ends up in your SCRIPT (`.R`) file.
 
 7. **Save** your new `.R` script file in the same working directory as `midus.csv`. You can name the script whatever you want. 
-name: index
+
+---
+# Exercise 1...continued!
+
+8. Check the classes of your variables. Below is a list of each variable and the class they *should* be. Change the class of any that don't match what you see. 
+
+  - `ID` should be a factor
+  - `sex` should be a factor
+  - `age` should be an integer
+  - `BMI` should be numeric
+  - `physical_health_self` & `mental_health_self` should be integers
+  - `self_esteem`, `life_satisfaction`, and `hostility` should all be numeric
+  - `heart_self` and `heart_father` should be factors
+
+9. Save your script again. What happens to the text on the tab in RStudio? 
 ---
 # Cleaning your global environment
 Sometimes, your Global Environment (top right) can fill up with stuff that you don't need anymore. You can clean this!
@@ -116,7 +130,7 @@ A) Delete EVERYTHING using the broom icon (next to the Import Dataset tab)
 
 B) Switch to GRID view, check boxes of individual objects you DON'T want, then press the broom icon. .small[*Be sure to switch back to LIST view when finished*]
 ---
-# Exercise 1...continued!
+# Exercise 1...continued again!
 Now...
 
 Clear your global environment, select your entire script file, and RUN it!
@@ -221,6 +235,7 @@ Is this true? **OR** Is this true?
 # Could also be something like:
 # (A == B | C != D)
 ```
+
 ---
 name: subset
 
@@ -246,10 +261,6 @@ Check the `R` documentation!
   `?subset`
 
 When in doubt, you can always search the "Help" tab or the internet
----
-name: e2
-
-# Exercise 2
 ---
 name: nest
 
@@ -287,9 +298,9 @@ midus <- midus[-c(1:10),]
 midus <- subset(x = midus, subset = ID != "10175")
 ```
 ---
-name: e3
+name: e2
 
-# Exercise 3
+# Exercise 2
 
 Use nested functions to create a `subset` of the `midus` data.frame which contains only participants who have `self_esteem` scores above the `mean`.
 
@@ -311,17 +322,12 @@ name: rand
 ---
 
 # Dimensions
-Sometimes it's useful to better understand the dimensions of your data.frame. Comes up in regards to error messages!
+Sometimes it's useful to better understand the dimensions of your data.frame. Comes up in regards to error messages! *For more, details on this, see the "Examples of a few functions" section at the end of the 5: Functions practice set.* 
 
 ```{r}
-dim(empire)
-dim(empire)[1] # for rows
-dim(empire)[2] # for columns
-
-nrow(empire)
-ncol(empire)
-
-length(empire$mass) # use `length()` for 1-d vectors
+dim(empire) # for both dimensions
+nrow(empire) # for rows
+ncol(empire) # for columns
 ```
 ---
 
@@ -395,3 +401,40 @@ What does this mean?
 class: middle, center, inverse
 
 # See next video for remaining tips within RStudio
+
+---
+name: answers
+
+# Answers for Exercise 1
+
+Your `R` script should look something like this:
+
+```{r, eval=FALSE}
+library(psych)
+library(dplyr)
+library(ggplot2)
+
+getwd()
+
+# set your working directory to the folder you need...if not there already
+# setwd("folder/with/midus.csv")
+
+midus <- read.csv("folder/midus.csv")
+
+# change 4 character variables into factors
+# see the practice for 5: Functions for more on how to do this!
+midus$ID <- factor(midus$ID)
+midus$sex <- factor(midus$sex)
+midus$heart_self <- factor(midus$heart_self)
+midus$heart_father <- factor(midus$heart_father)
+```
+---
+# Answers for Exercise 2
+Your code should look something like this:
+
+```{r, eval=FALSE}
+midusMini <- subset(x = midus,
+                    subset = self_esteem > mean(self_esteem, na.rm = TRUE))
+```
+
+To look up the arguments of the `mean()` function, use `?mean`. Many functions have an argument called `na.rm` or similar to it that asks if you want the function to remove missing variables. Here, we're saying, *"yes, please remove missing variables before calculating the mean"*

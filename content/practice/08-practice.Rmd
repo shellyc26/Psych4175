@@ -1,0 +1,33 @@
+---
+title: "Practice Set: Review & Random"
+linktitle: "8: R & R"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 8
+type: docs
+weight: 8
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+## Break! (ish)
+The corresponding lecture has exercises already built in. Please complete those exercises, and move on to the last bit of The Basics workshop!
+
+<center>
+
+<img src="../encouragementFigs/figure-html/treat.gif" width = "75%">
+
+</center>

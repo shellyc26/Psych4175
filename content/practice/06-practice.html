@@ -1,0 +1,143 @@
+---
+title: "Practice Set: Packages"
+linktitle: "6: Packages"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 6
+type: docs
+weight: 6
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#miscellaneous">Miscellaneous</a></li>
+</ul>
+</div>
+
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/06-learnr-quiz1/" id="learnr-06-quiz1" %}}
+<div id="packages" class="section level2">
+<h2>Packages</h2>
+<p>When you first open <code>R</code>, there are already lots of functions availble for you to use. However, the are <em>WAY</em> more functions out there in the world! They are stored in <strong>packages</strong>, and are free/easy to download and use at your convenience.</p>
+<p>This is a huge part of what makes <code>R</code> awesome. Anyone from around the world (including you!) can write their own custom function. And if you think <em>“hey, other people might want to use this cool function”</em> you can publish it in a package.</p>
+<p>Packages also often contain datasets that are great to work with. At the very bottom of a function’s <code>?help</code> page, there are Examples of how to use that function. Often, these examples use datasets that come from the same package the function comes from.</p>
+<p>There are 2 steps to getting/using functions/datasets in a package:</p>
+<ol style="list-style-type: decimal">
+<li>Install the package
+<ul>
+<li>You need to be connected to the internet</li>
+<li>You need to know the exact name of the package</li>
+<li>You only do this ONCE (equivalent of installing Microsoft Word on your computer)</li>
+</ul></li>
+<li>Load the package in your <code>R</code> session
+<ul>
+<li>You do NOT need to be connected to the internet</li>
+<li>You need to know the exact name of the pacakge</li>
+<li>You need to do this every time you open <code>R</code> and want to use the function/dataset</li>
+</ul></li>
+</ol>
+<p>For installing and loading packages, you can either do this a) via code or b) via the RStudio interface in the Packages tab on the lower right hand portion of the screen (see corresponding lecture video for more). <em>In my opinion…</em></p>
+<ul>
+<li>It is totally OK to use the RStudio interface to <em>install</em> packages since you only do this once.</li>
+<li>However, I <strong>strongly</strong> suggest using code for <em>loading</em> packages. The reason is that you often write some code, save the file, and come back to it later. If you use functions from certain packages in that file, then you need to remember which packages you used – easier said than done! So it’s easier to write the code and keep it in that same file (usually at the top) so that you always have all the packages you need for a given script.</li>
+</ul>
+<div id="installing-packages-with-code" class="section level4">
+<h4>Installing packages with code</h4>
+<p>To install a package, we use the <code>install.packages()</code> function</p>
+<pre><code class='language-r'><code><span style='background-color:#686DE07D'>install.packages</span>(<span style='background-color:#FFFF007D'>"</span><span style='background-color:#ff79797D'>packageName</span><span style='background-color:#FFFF007D'>"</span>)</code></code></pre>
+<p>☝️ Here we have:</p>
+<ol style="list-style-type: decimal">
+<li>The function <span class="color-light-6"><code>install.packages</code> in blue</span></li>
+<li><font style="color:#FFFF00; background:#f8f8f8">Quotation marks</font> around the package name</li>
+<li>The <span class="color=color-light-1">package’s name</span></li>
+</ol>
+</div>
+<div id="loading-packages-with-code" class="section level4">
+<h4>Loading packages with code</h4>
+<p>To load a package, we use the <code>library()</code> function</p>
+<pre><code class='language-r'><code><span style='background-color:#686DE07D'>library</span>(<span style='background-color:#ff79797D'>packageName</span>)</code></code></pre>
+<p>☝️ Here we have:</p>
+<ol style="list-style-type: decimal">
+<li>The function <span class="color-light-6"><code>library</code> in blue</span></li>
+<li>The <span class="color=color-light-1">package’s name</span></li>
+</ol>
+<p><em>Note how there are NO quotation marks when loading a package!</em></p>
+</div>
+</div>
+<div id="miscellaneous" class="section level2">
+<h2>Miscellaneous</h2>
+<p>Before you practice installing and loading packages, there are a couple random tidbits you should know about.</p>
+<div class="note">
+<p>Some packages come pre-installed with <code>R</code> (you can look at your Packages tab and see that stuff is already there!). This is referred to as <code>base R</code>. You do not need to load any special packages to use their functions. For example, the <code>c()</code> function is part of <code>base R</code>.</p>
+</div>
+<div class="note">
+<p>Do NOT re-install a package you already have. <code>R</code> doesn’t like it, and can sometimes get confused. Always check your Packages tab first to see if you have the package.</p>
+</div>
+<div class="note">
+<p>When you install a package, you often see a lot of stuff happening in your console, and it’s often in red font. So it looks like <code>R</code> is yelling at you. But it’s OK, <code>R</code> is not yelling at you – so don’t sweat it. Most of the time, it’s loading dependencies (other packages that the current one you are trying to install <em>depends</em> on).</p>
+<p>Similarly, when you load a package, sometimes messages are printed out along with it. Usually these are just helpful little tidbits, but the package still loads successfully.</p>
+</div>
+<div class="note">
+<p>One of those little messages that might print out is something like:</p>
+<pre class="r"><code>library(psych)
+library(ggplot2)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;ggplot2&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:psych&#39;:
+## 
+##     %+%, alpha</code></pre>
+<p>Last time, we learned that functions have a unique name. This is true for all functions within a package! But every so often, there is 1 name that corresponds to functions from 2 different packages. In this example, there is a function called <code>alpha()</code> in the <code>psych</code> package <em>AND</em> a function called <code>alpha()</code> in the <code>ggplot2</code> package.</p>
+<p><code>R</code> will use the function from whichever package you loaded MOST RECENTLY. So here, the <code>alpha()</code> from <code>psych</code> is <em>“masked”</em> or hidden by <code>alpha()</code> from <code>ggplot2</code>. That is, the <code>ggplot2</code> version of <code>alpha()</code> will be the default.</p>
+<p>You can still use <code>alpha()</code> from the <code>psych</code> package though! You just need to add a double colon, like this: <code>psych::alpha()</code>.</p>
+<p>The way this manifests is you write some code, and it doesn’t work. And you get an error that is like <code>function expects a data.frame</code> when in reality, the function you are thinking of should actually have a single number as an input. That error, that it’s expecting something you’re not giving, can be a clue that <code>R</code> is calling the wrong function.</p>
+</div>
+<div class="note">
+<p>When you install a package, you sometimes will get a message in the console that is something like <code>There are binary versions available but the source versions are later. Do you want to install from sources the package which needs compliation? y/n</code>.</p>
+<p>If this happens, go ahead and type <code>y</code> in your console (for Yes). This will get you the latest version of the package, but it might take slightly longer to install (not too much longer!).</p>
+<p>WINDOWS USERS: you might want to consider installing a package called <code>rtools40</code> (see <a href="https://cran.r-project.org/bin/windows/Rtools/">here</a>) to help with installing these “source” versions. Although I wouldn’t worry much about it unless it comes up.</p>
+</div>
+<div class="note">
+<p>Keep your software up to date on your computer! Life will be so much easier for you. I know people tend to avoid this because they’re scared of losing stuff. But you should be saving everything of importance to a cloud-based service (Box, Dropbox, Github, OSF etc.). So even if your desktop is wiped clean, it shouldn’t matter. Act as though your computer could get stolen at any moment. You certainly wouldn’t want to lose your entire thesis or all of your work files because someone stole your stuff… Save appropriately!</p>
+<p>Some suggestions:</p>
+<ul>
+<li>Update your operating system when it prompts you (within a reasonable timeframe)</li>
+<li>Right after updating your operating system is a good time to check if <code>R</code> needs to update. <em>Note, this is <code>R</code>…not <code>RStudio</code></em>. If you haven’t updated your operating system in a while, I would check if <code>R</code> needs an update about every 6 months.</li>
+<li>Right after you update <code>R</code>, <em>then</em> I suggest checking for updates on <code>RStudio</code>. If you haven’t updated <code>R</code> for a while, then I would check if <code>RStudio</code> needs an update about every 6 months. Sometimes, I find that I need to re-install all of my packages after an <code>RStudio</code> update. But not always. It’s kind of annoying, but frankly it doesn’t take that long to get everything back up to speed.</li>
+<li>Right after you update <code>RStudio</code>, I would check if any of your packages need to be updated. Go to the Packages tab and click Update. I personally do chunks of ~5-10 packages at a time, just to make sure they all update properly. I do this after updating <code>RStudio</code>. It will sometimes ask you to restart <code>RStudio</code> before updating your packages – that’s OK, go ahead and restart. I usually only update my packages immediately after updating <code>RStudio</code>, but it doesn’t hurt to check every so often.<br />
+</li>
+</ul>
+</div>
+<div class="puzzle">
+<p><strong>You try!</strong> Open up <code>RStudio</code> <em>on your computer</em>.</p>
+<p>Step 1: Go to your Packages tab. Check to see if you have the following packages:</p>
+<ul>
+<li><code>tidyverse</code> <em>we will talk about this at length after finishing The Basics</em></li>
+<li><code>psych</code> <em>great for many statistics used in psychology and social sciences</em></li>
+<li><code>broom</code> <em>great for making the output of statistical models into organized data.frames</em></li>
+<li><code>RColorBrewer</code> <em>we will use this to make color palettes when we do data visualization</em></li>
+<li><code>ggpubr</code> <em>we will use this to make multi-panel figures when we do data visualization</em></li>
+<li><code>knitr</code> <em>we will use this to generate reports when we do reproducibility</em></li>
+<li><code>kableExtra</code> <em>we will use this to make pretty tables in our reports when we do reproducibility</em></li>
+</ul>
+<p>Step 2: For any of these packages listed that you DO NOT HAVE in your Packages tab, <em>install them</em>.</p>
+<p>Step 3: Open a new script and <em>load all of these packages</em>.</p>
+<p>Remember, you might get some messages about what’s installed or what’s “masked” (see notes above). But contact me/send screenshots if you have other errors like “package cannot be loaded”. Hopefully it should work seamlessly!</p>
+</div>
+<p>With packages at your fingertips, you now have most of the tools you need to be and R programmer! The next few sections help refine and practice these skills. Keep it up!</p>
+<center>
+<p><img src="../encouragementFigs/figure-html/morememes.png" width = "75%"></p>
+</center>
+</div>

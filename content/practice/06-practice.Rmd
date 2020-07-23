@@ -1,0 +1,189 @@
+---
+title: "Practice Set: Packages"
+linktitle: "6: Packages"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 6
+type: docs
+weight: 6
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+:::quiz
+**Quick Quiz**
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/06-learnr-quiz1/",
+                    id = "learnr-06-quiz1")
+
+```
+
+## Packages
+When you first open `R`, there are already lots of functions availble for you to use. However, the are *WAY* more functions out there in the world! They are stored in **packages**, and are free/easy to download and use at your convenience. 
+
+This is a huge part of what makes `R` awesome. Anyone from around the world (including you!) can write their own custom function. And if you think *"hey, other people might want to use this cool function"* you can publish it in a package. 
+
+Packages also often contain datasets that are great to work with. At the very bottom of a function's `?help` page, there are Examples of how to use that function. Often, these examples use datasets that come from the same package the function comes from. 
+
+There are 2 steps to getting/using functions/datasets in a package:
+
+1. Install the package
+    - You need to be connected to the internet
+    - You need to know the exact name of the package
+    - You only do this ONCE (equivalent of installing Microsoft Word on your computer)
+2. Load the package in your `R` session
+    - You do NOT need to be connected to the internet
+    - You need to know the exact name of the pacakge
+    - You need to do this every time you open `R` and want to use the function/dataset
+  
+For installing and loading packages, you can either do this a) via code or b) via the RStudio interface in the Packages tab on the lower right hand portion of the screen (see corresponding lecture video for more). *In my opinion...*
+
+ - It is totally OK to use the RStudio interface to *install* packages since you only do this once.
+ - However, I **strongly** suggest using code for *loading* packages. The reason is that you often write some code, save the file, and come back to it later. If you use functions from certain packages in that file, then you need to remember which packages you used -- easier said than done! So it's easier to write the code and keep it in that same file (usually at the top) so that you always have all the packages you need for a given script. 
+ 
+#### Installing packages with code
+To install a package, we use the `install.packages()` function
+```{r install-code, eval=FALSE, include=FALSE}
+install.packages("packageName")
+```
+
+```{r decorate-install-code, echo=FALSE}
+decorate("install-code", eval = FALSE) %>% 
+  flair("install.packages",
+        background = "#686DE07D") %>% 
+  flair('"',
+        background = "#FFFF007D") %>% 
+  flair("packageName",
+        background = "#ff79797D") %>% 
+  knit_print.with_flair()
+```
+
+`r emo::ji("index_pointing_up")` Here we have:
+
+1. The function <span class='color-light-6'>`install.packages` in blue</span>
+2. <font style="color:#FFFF00; background:#f8f8f8">Quotation marks</font> around the package name
+3. The <span class='color=color-light-1'>package's name</span>
+
+#### Loading packages with code
+To load a package, we use the `library()` function
+```{r load-code, eval=FALSE, include=FALSE}
+library(packageName)
+```
+
+```{r decorate-load-code, echo=FALSE}
+decorate("load-code", eval = FALSE) %>% 
+  flair("library",
+        background = "#686DE07D") %>% 
+  flair("packageName",
+        background = "#ff79797D") %>% 
+  knit_print.with_flair()
+```
+
+`r emo::ji("index_pointing_up")` Here we have:
+
+1. The function <span class='color-light-6'>`library` in blue</span>
+2. The <span class='color=color-light-1'>package's name</span>
+
+*Note how there are NO quotation marks when loading a package!*
+
+## Miscellaneous
+Before you practice installing and loading packages, there are a couple random tidbits you should know about. 
+
+:::note
+Some packages come pre-installed with `R` (you can look at your Packages tab and see that stuff is already there!). This is referred to as `base R`. You do not need to load any special packages to use their functions. For example, the `c()` function is part of `base R`.
+:::
+
+:::note
+Do NOT re-install a package you already have. `R` doesn't like it, and can sometimes get confused. Always check your Packages tab first to see if you have the package.
+:::
+
+:::note
+When you install a package, you often see a lot of stuff happening in your console, and it's often in red font. So it looks like `R` is yelling at you. But it's OK, `R` is not yelling at you -- so don't sweat it. Most of the time, it's loading dependencies (other packages that the current one you are trying to install *depends* on). 
+
+Similarly, when you load a package, sometimes messages are printed out along with it. Usually these are just helpful little tidbits, but the package still loads successfully.
+:::
+
+:::note
+One of those little messages that might print out is something like:
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+detach("package:tidyverse", unload = TRUE)
+detach("package:ggplot2", unload = TRUE)
+```
+
+```{r, error=TRUE}
+library(psych)
+library(ggplot2)
+```
+
+Last time, we learned that functions have a unique name. This is true for all functions within a package! But every so often, there is 1 name that corresponds to functions from 2 different packages. In this example, there is a function called `alpha()` in the `psych` package *AND* a function called `alpha()` in the `ggplot2` package.
+
+`R` will use the function from whichever package you loaded MOST RECENTLY. So here, the `alpha()` from `psych` is *"masked"* or hidden by `alpha()` from `ggplot2`. That is, the `ggplot2` version of `alpha()` will be the default.
+
+You can still use `alpha()` from the `psych` package though! You just need to add a double colon, like this: `psych::alpha()`.
+
+The way this manifests is you write some code, and it doesn't work. And you get an error that is like `function expects a data.frame` when in reality, the function you are thinking of should actually have a single number as an input. That error, that it's expecting something you're not giving, can be a clue that `R` is calling the wrong function.
+:::
+
+:::note
+When you install a package, you sometimes will get a message in the console that is something like `There are binary versions available but the source versions are later. Do you want to install from sources the package which needs compliation? y/n`.
+
+If this happens, go ahead and type `y` in your console (for Yes). This will get you the latest version of the package, but it might take slightly longer to install (not too much longer!).
+
+WINDOWS USERS: you might want to consider installing a package called `rtools40` (see [here](https://cran.r-project.org/bin/windows/Rtools/)) to help with installing these "source" versions. Although I wouldn't worry much about it unless it comes up.
+:::
+
+:::note
+Keep your software up to date on your computer! Life will be so much easier for you. I know people tend to avoid this because they're scared of losing stuff. But you should be saving everything of importance to a cloud-based service (Box, Dropbox, Github, OSF etc.). So even if your desktop is wiped clean, it shouldn't matter. Act as though your computer could get stolen at any moment. You certainly wouldn't want to lose your entire thesis or all of your work files because someone stole your stuff... Save appropriately!
+
+Some suggestions:
+
+  - Update your operating system when it prompts you (within a reasonable timeframe)
+  - Right after updating your operating system is a good time to check if `R` needs to update. *Note, this is `R`...not `RStudio`*. If you haven't updated your operating system in a while, I would check if `R` needs an update about every 6 months.
+  - Right after you update `R`, *then* I suggest checking for updates on `RStudio`. If you haven't updated `R` for a while, then I would check if `RStudio` needs an update about every 6 months. Sometimes, I find that I need to re-install all of my packages after an `RStudio` update. But not always. It's kind of annoying, but frankly it doesn't take that long to get everything back up to speed. 
+  - Right after you update `RStudio`, I would check if any of your packages need to be updated. Go to the Packages tab and click Update. I personally do chunks of ~5-10 packages at a time, just to make sure they all update properly. I do this after updating `RStudio`. It will sometimes ask you to restart `RStudio` before updating your packages -- that's OK, go ahead and restart. I usually only update my packages immediately after updating `RStudio`, but it doesn't hurt to check every so often.    
+:::
+
+:::puzzle
+**You try!** Open up `RStudio` *on your computer*.
+
+Step 1: Go to your Packages tab. Check to see if you have the following packages:
+
+  - `tidyverse` *we will talk about this at length after finishing The Basics*
+  - `psych` *great for many statistics used in psychology and social sciences*
+  - `broom` *great for making the output of statistical models into organized data.frames*
+  - `RColorBrewer` *we will use this to make color palettes when we do data visualization*
+  - `ggpubr` *we will use this to make multi-panel figures when we do data visualization*
+  - `knitr` *we will use this to generate reports when we do reproducibility*
+  - `kableExtra` *we will use this to make pretty tables in our reports when we do reproducibility*
+
+Step 2: For any of these packages listed that you DO NOT HAVE in your Packages tab, *install them*. 
+
+Step 3: Open a new script and *load all of these packages*.
+
+Remember, you might get some messages about what's installed or what's "masked" (see notes above). But contact me/send screenshots if you have other errors like "package cannot be loaded". Hopefully it should work seamlessly!
+:::
+
+With packages at your fingertips, you now have most of the tools you need to be and R programmer! The next few sections help refine and practice these skills. Keep it up!
+
+<center>
+
+<img src="../encouragementFigs/figure-html/morememes.png" width = "75%">
+
+</center>
