@@ -282,24 +282,6 @@ ggplot(data = midus, aes(x = sex, y = hostility)) +
 
 ```
 ---
-name: e2
-
-# You try!
-
-Is there a difference in life satisfaction between people who have had heart problems compared to people who have not had heart problems?
-
-.box-inv-2.medium[
-Statistic: T-test
-<br>
-Plot: boxplot
-]
-
-BONUS:
-- Look at the help page for `t.test()`. How do you run a one-tailed t-test? Run it! Does your answer change?
-- How could you `fill` the boxplots so that males and females are shown in different colors? 
-- Look at the help page for `labs()` and see if you can give your plot a title and different x- & y-axes labels. 
-
----
 name: cor
 
 # Correlations
@@ -337,22 +319,6 @@ esteemVsLifeSat
 ggplot(data = midus, aes(x = self_esteem, y = life_satisfaction)) +
   geom_point()
 ```
----
-name: e3
-# You try!
-**Does `age` correlate with `BMI`?**
-
-.box-inv-2.medium[
-Statistic: Correlation
-<br>
-Plot: scatter plot
-]
-
-
-BONUS:
-- set the `size` of all points to 1.5
-- change the x- & y-axes labels and add a title and subtitle
-- make the shape of the points different based on if they've ever been diagnosed with a heart issue or not
 ---
 name: anova
 
@@ -442,79 +408,6 @@ ggplot(data = meansData, aes(x = sex, y = meanBMI)) +
 ```
 
 ---
-name: e4
-
-# You try!
-
-Below is some code that trichotomizes `age` into the following groups:
-- 28-40 -- "young"
-- 40-60 -- "middle"
-- 60-84 -- "old"
-
-Copy (& run) the following code into your script so you can do the next exercise:
-```{r}
-midus$age_category <- cut(x = midus$age,
-                          breaks = c(28, 40, 60, 84),
-                          labels = c("young", "middle", "old"),
-                          include.lowest = TRUE)
-```
-
-**NOW**, is there a main effect of `age_category`, a main effect of `heart_self`, and is there a `age_category x heart_self` interaction on `BMI`?
-
-.box-inv-2.medium[
-Statistic: 3x2 ANOVA
-<br>
-Plot: bar plot
-]
----
-
-# Fill in the missing bits of this code
-
-```{r, eval=FALSE}
-youngYesHeart <- subset(midus, age_category == "young" & heart_self == "Yes")
-youngYesHeartMean <- mean(youngYesHeart$BMI)
-
-youngNoHeart <- subset(midus, age_category == "young" & heart_self == "")
-youngNoHeartMean <- mean(youngNoHeart$BMI)
-
-middleYesHeart <- subset(midus, age_category == "" & heart_self == "Yes")
-middleYesHeartMean <- mean()
-
-middleNoHeart <- subset(midus, age_category == "" & heart_self == "No")
-middleNoHeartMean <- mean(BMI)
-
-oldYesHeart <- subset(midus, age_category == "" & heart_self == "")
-oldYesHeartMean <- mean()
-
-oldNoHeart <- subset(midus, age_category == "" & heart_self == "")
-oldNoHeartMean <- mean()
-```
----
-# Data prep for bar plot
-
-Now that you've filled in (& run!) the previous code, turn all of that into a data.frame you can use. .small[*(remember, we're going to cover a __MUCH__ easier way of doing this when we talk about `tidyverse`)*]
-
-```{r, eval=FALSE}
-meansData <- data.frame(age_category = c("young", "young", "middle", "middle",
-                                         "old", "old"),
-                        heart_self = c("Yes", "No", "Yes", "No", "Yes", "No"),
-                        meanBMI = c(youngYesHeartMean,
-                                    youngNoHeartMean,
-                                    middleYesHeartMean,
-                                    middleNoHeartMean,
-                                    oldYesHeartMean,
-                                    oldNoHeartMean))
-
-```
-
----
-# You try!
-Finally, make your bar plot using the new data.frame we just made!
-
-<center>
-<img src="09-slides_files/figure-html/doit.gif", width = "50%">
-</center>
----
 name: reg
 
 # Regression
@@ -580,7 +473,7 @@ ggplot(predictedVals, aes(x = x, y = predicted, group = group)) +
 
 --
 
-- If you want the relationship betwen X1 and Y, *after controlling for* X2, you can make a scatter plot with the model's **fitted* values. 
+- If you want the relationship betwen X1 and Y, *after controlling for* X2, you can make a scatter plot with the model's *fitted* values. 
 
 --
 
@@ -588,18 +481,13 @@ ggplot(predictedVals, aes(x = x, y = predicted, group = group)) +
 
 --
 
-- If you want the $R^2$, $F$-statistic etc., assign the `summary(model)` object to your global environment.
+- If you want to be able to extract the $R^2$, $F$-statistic etc., assign the `summary(model)` object to your global environment.
 
 --
 
 - Check out the `broom` package to format your regression outputs into a nice data.frame. 
 ---
-name: e5
 
-# You try!
-
-[MAKE UP AN EXERCISE HERE]
----
 name: resources
 # R Resources
 

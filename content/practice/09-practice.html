@@ -1,0 +1,196 @@
+---
+title: "Practice Set: Statistics & Plotting"
+linktitle: "9: Stats & Plot"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 9
+type: docs
+weight: 9
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#plotting-with-ggplot2">Plotting with <code>ggplot2</code></a></li>
+<li><a href="#statistics">Statistics</a></li>
+</ul>
+</div>
+
+<div class="note">
+<p><strong>Note:</strong> It will be really helpful for you to have the <a href="/lectures/09-lecture">9: Stats &amp; Plot slides</a> pulled up in a different tab while you complete this practice set. You’ll likely need to refer to it.</p>
+</div>
+<div class="puzzle">
+<p><strong>Setup:</strong> We will be using the same <code>midus.csv</code> dataset for this practice. You have 2 choices…</p>
+<ol style="list-style-type: decimal">
+<li><p>If you want to practice on this website in the code chunks below, please do the following:
+- Load the package <code>ggplot2</code>
+- (You do not need to import the dataset – I have done that for you so that you can access it through this website)
+- Make sure the variables <code>sex</code>, <code>heart_self</code>, and <code>heart_father</code> are treated as <code>factor()</code> variables.
+- Use the same <code>na.omit()</code> function from the <a href="/lectures/08-lecture">8: R&amp;R slides</a> to remove all <code>NA</code> variables.
+- Look at the first 6 rows of the <code>midus</code> data.frame by using the <code>head()</code> function.</p></li>
+<li>If you want to practice locally (actually opening up <code>RStudio</code> on your computer), please do the following:
+- Either create a new script or open an existing script. Your choice.
+- Import the data file. You should already have this downloaded, but just in case, here it is again. Make sure the code you use to import the file winds up in your script!
+<ul>
+<li><a href="/practice/07-practice/data/midus.csv"><i class="fas fa-file-csv"></i> <code>midus.csv</code></a>
+<ul>
+<li>Load the package <code>ggplot2</code></li>
+<li>Make sure the variables <code>sex</code>, <code>heart_self</code>, and <code>heart_father</code> are treated as <code>factor()</code> variables.</li>
+<li>Use the same <code>na.omit()</code> function from the <a href="/lectures/08-lecture">8: R&amp;R slides</a> to remove all <code>NA</code> variables.</li>
+<li>Look at the first 6 rows of the <code>midus</code> data.frame by using the <code>head()</code> function.</li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app1/" id="learnr-09-app1" %}}
+<div id="plotting-with-ggplot2" class="section level2">
+<h2>Plotting with <code>ggplot2</code></h2>
+<p>You can make plots with <code>base R</code> (we’ve done this once already!). But they’re kinda ugly. Actually, they’re really ugly. So we’re going to use a package called <code>ggplot2</code> to make prety plots. This practice set will go through the very basics of how to use <code>ggplot2</code>. For more control over your plots, check out the Data Viz section.</p>
+<p><code>gg</code> stands for the “grammar of graphics”. It’s syntax (or code format) is the same as what we’ve already been doing using functions and objects. However, like the lovable ogre Shrek, <code>ggplot2</code> has layers. Each layer corresponds to one aspect of the plot.</p>
+<p>The basic layout of <code>ggplot2</code> is:</p>
+<pre><code class='language-r'><code><span style='background-color:#ff79797D'>ggplot</span>(<span style='background-color:#686DE07D'>things that impact the entire plot</span>) <span style='background-color:#FFFF007D'>+</span><br>&nbsp;&nbsp;<span style='background-color:#ff79797D'>geom_something</span>(<span style='background-color:#686DE07D'>things that impact just the something</span>)</code></code></pre>
+<p>☝️ Here we have:</p>
+<ul>
+<li>2 different <span class="color-light-1">FUNCTIONS</span>:
+<ul>
+<li><code>ggplot</code> is the function for the first layer.</li>
+<li><code>geom_something</code> is the function for the second layer, where the <code>something</code> is replaced with a plot type. For example, <code>geom_point</code> is a scatter plot and <code>geom_histogram</code> is a histogram.</li>
+</ul></li>
+<li>Each of these functions takes <span class="color-light-6">ARGUMENTS</span>:
+<ul>
+<li>The arguments control what you want the plot to look like.</li>
+<li>Many arguments are actually <em>aesthetics</em> and wrapped within <code>aes()</code>.
+<ul>
+<li>If your argument depends on the data, it’s wrapped in an <code>aes()</code></li>
+<li>If your argument does not depend on the data, it does not need to be in an <code>aes()</code></li>
+</ul></li>
+<li>In the first layer (within <code>ggplot</code>), this will contain things that impact the whole plot. Like your x- and y- axes and what data you’re actually plotting.</li>
+<li>In the second layer (within <code>geom_something</code>), this will contain things that impact only that layer. If you have a histogram, how wide should the bins be? What color should the bars be? Etc.</li>
+</ul></li>
+<li>Each layer is separated by a <code>+</code> sign. This tells R <em>“hey wait, I’m not done yet”</em>.
+<ul>
+<li>It should ALWAYS go at the very end of each line…<em>never</em> at the beginning of a new line.</li>
+<li>You do not need one on the very last line of your plot code (here, there’s not one after <code>geom_something</code>) because after the last line, you’re ready for R to run your code.</li>
+</ul></li>
+</ul>
+<div id="example-on-aestheticsarguments-from-the-slides" class="section level4">
+<h4>Example on aesthetics/arguments from the slides</h4>
+<p>No arguments or aesthetics into <code>geom_point</code> layer (the default):</p>
+<pre class="r"><code>ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point()</code></pre>
+<p><img src="/practice/09-practice_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Argument in <code>geom_point</code> layer. But it is NOT dependent on the data. “Make all the points corn flower blue”. Note that the color is within quotes.</p>
+<pre class="r"><code>ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point(color = &quot;cornflowerblue&quot;)</code></pre>
+<p><img src="/practice/09-practice_files/figure-html/unnamed-chunk-4-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Argument in <code>geom_point</code> layer. But it IS dependent on the data. “Make the points different color based on the <code>sex</code> factor variable”. Since it’s dependent on the data, we wrap it within an <code>aes()</code>. Note that <code>sex</code> is not in quotes.</p>
+<pre class="r"><code>ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point(aes(color = sex))</code></pre>
+<p><img src="/practice/09-practice_files/figure-html/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="statistics" class="section level2">
+<h2>Statistics</h2>
+<p><a href="/lectures/09-lecture">The corresponding slides</a> go through a variety of basic statistical tests. They are:</p>
+<ul>
+<li><code>t.test()</code></li>
+<li><code>cor()</code> and <code>cor.test()</code></li>
+<li><code>aov</code></li>
+<li><code>lm</code></li>
+</ul>
+<p>Use the slides as a guide to complete the following exercises using stats and plotting.</p>
+<div id="t-test" class="section level4">
+<h4><span class="math inline">\(t\)</span>-test</h4>
+<div class="puzzle">
+<p><strong>You try!</strong> Is there a difference in life satisfaction between people who have had heart problems compared to people who have not had heart problems?</p>
+<ul>
+<li>Statistic: <span class="math inline">\(t\)</span>-test</li>
+<li>Plot: Boxplot</li>
+</ul>
+<p>Bonus:</p>
+<ul>
+<li>Look at the help page for <code>t.test()</code>. How do you run a one-tailed <span class="math inline">\(t\)</span>-test? Run it! Does your answer change?</li>
+<li>How could you <code>fill</code> the boxplots so that males and females are shown in different colors?</li>
+<li>Look at the help page for <code>labs()</code> and see if you can give your plot a title and different x- &amp; y-axes labels.</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app2/" id="learnr-09-app2" %}}
+</div>
+<div id="correlation" class="section level4">
+<h4>Correlation</h4>
+<div class="puzzle">
+<p><strong>You try!</strong> Does age correlate with BMI?</p>
+<ul>
+<li>Statistic: Correlation</li>
+<li>Plot: Scatter plot</li>
+</ul>
+<p>Bonus:</p>
+<ul>
+<li>Set the <code>size</code> of all points to be 1.5</li>
+<li>Change the x- &amp; y-axes labels and add a title and subtitle</li>
+<li>Make the shape of the points different based on if they’ve ever been diagnosed with a heart issue or not</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app3/" id="learnr-09-app3" %}}
+</div>
+<div id="anova" class="section level4">
+<h4>ANOVA</h4>
+<div class="puzzle">
+<p><strong>You try!</strong> Is there a main effect of <code>age_category</code>, a main effect of <code>heart_self</code>, and is there a <code>age_category x heart_self</code> interaction on <code>BMI</code>?</p>
+<ul>
+<li>Statistic: 3x2 ANOVA</li>
+<li>Plot: Bar plot</li>
+</ul>
+</div>
+<div id="setup-for-analysis" class="section level5">
+<h5>Setup for analysis</h5>
+<p>As of now, we don’t have an <code>age_category</code> variable. The code below trichotomizes <code>age</code> into the following groups:</p>
+<ul>
+<li>28-40 years old = “young”</li>
+<li>41-60 years old = “middle”</li>
+<li>60-84 years old = “old”</li>
+</ul>
+<p>Additionally, bar plots can kind of suck. The height of each bar should be the <em>mean</em> of the dependent variable for each group. After the trichotomizing code, I have written several lines of code to help you get all the data you need. Whenever you see an empty set of quotation marks <code>&quot;&quot;</code>, you need to fill in the blanks (HINT: read the variable names!).</p>
+<p>Finally, at the very bottom of the chunk, we make a data.frame based on everything from the middle chunk. You do NOT need to change this part of the code. But do try to understand what it’s doing!</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app4/" id="learnr-09-app4" %}}
+</div>
+<div id="now-run-the-analysis" class="section level5">
+<h5>Now, run the analysis</h5>
+<p>Now that you’ve done the hard work of making your categorical variable and your data.frame of means for the plot, go ahead and write/run code for the ANOVA and bar plot!</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app5/" id="learnr-09-app5" %}}
+<p><em>(Again, we will learn how to do this analysis prep in a MUCH easier way when we talk about the tidyverse)</em></p>
+</div>
+</div>
+<div id="regression" class="section level4">
+<h4>Regression</h4>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<ol style="list-style-type: decimal">
+<li>Does self-reported physical health predict self-reported mental health?</li>
+<li>Do self-reported physical health and self-reported heart problems predict self-reported mental health (without an interaction)?</li>
+<li>Same as above but now including a self-reported physical health and self-reported heart problems interaction.</li>
+</ol>
+<ul>
+<li>Statistic: Simple &amp; Multiple Regression</li>
+<li>Plot: Scatter plot</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app6/" id="learnr-09-app6" %}}
+</div>
+<div id="congratulations" class="section level4">
+<h4>CONGRATULATIONS!</h4>
+<p>You have now finished The Basics portion of this bootcamp, workshop, class…whatever you want to call this. You’re basically ready to go work at Google &amp; Facebook etc. See you at the next section where we’ll learn how to clean and prep our data.</p>
+<center>
+<p><img src="../encouragementFigs/figure-html/highfive.gif" width = "75%"></p>
+</center>
+</div>
+</div>

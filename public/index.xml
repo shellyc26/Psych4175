@@ -190,6 +190,13 @@ chickens + cows&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;empire &lt;- starwars&lt;br&gt;&lt;br&gt;empire &lt;- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8, 10, 11)]&lt;br&gt;&lt;span style=&#39;background-color:yellow&#39;&gt;empire$species &lt;- factor(empire$species)&lt;/span&gt;&lt;br&gt;&lt;br&gt;ggplot(data = empire, aes(x = mass, y = height)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(aes(size = mass,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style=&#39;background-color:#ffff7f&#39;&gt;color = species&lt;/span&gt;),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;alpha = .5) +&lt;br&gt;&amp;nbsp;&amp;nbsp;labs(title = &#34;Star Wars Characters&#34;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;subtitle = &#34;by size&#34;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x = &#34;Weight (kg)&#34;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y = &#34;Height (cm)&#34;) +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_size(guide = &#34;none&#34;)&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/practice/02-practice_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;you-are-a&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;You are a ⭐&lt;/h4&gt;
+&lt;p&gt;Learning to code can be really intimidating. But you’re doing great! Keep it up!&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/youre-amazing.jpg&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -308,6 +315,14 @@ actOldScores&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&#34;fyi&#34;&gt;
 &lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; &lt;code&gt;R&lt;/code&gt; is kind of weird in that it starts indexing at 1. You should know that most other programming languages begin indexing at 0. &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;MATLAB&lt;/code&gt; are the only languages I’m aware of that begin at 1. Normally, the first element in the vector has an index of 0. If you plan on also using other programming languages, like python 🐍, then this is something to be aware of.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;keep-up-the-great-work&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Keep up the great work!&lt;/h4&gt;
+&lt;p&gt;Sometimes, it feels like you’re just kind of guessing until you get it right. Coding is kind of like a sport. It takes some time and practice to become good. But by completing this practice set and continuing with this bootcamp, you’re on the right track!&lt;/p&gt;
+&lt;p&gt;If you feel lost at any point, please reach out!&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/noideareallywell.gif&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -898,6 +913,12 @@ demographics[,4]&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-04-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/04-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-04-app2&#34;)&#39;&gt;&lt;/iframe&gt;
 
+&lt;/div&gt;
+&lt;div id=&#34;youre-chugging-along-and-doing-wonderfully&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;You’re chugging along and doing wonderfully!&lt;/h4&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/ted.gif&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -1531,6 +1552,9 @@ setwd(&amp;quot;../../Project Name&amp;quot;)
 newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Notice that it doesn’t matter what function you’re using. You can always go up and down directory levels!&lt;/p&gt;
 &lt;/div&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/yas.gif&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -1552,10 +1576,203 @@ newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/c
 
 &lt;div id=&#34;break-ish&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Break! (ish)&lt;/h2&gt;
-&lt;p&gt;The corresponding lecture has several exercises already built in. Please complete those exercises, and move on to the last bit of The Basics workshop!&lt;/p&gt;
+&lt;p&gt;The corresponding lecture has exercises already built in. Please complete those exercises, and move on to the last bit of The Basics workshop!&lt;/p&gt;
 &lt;center&gt;
 &lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/treat.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
 &lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Statistics &amp; Plotting</title>
+      <link>/practice/09-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/09-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#plotting-with-ggplot2&#34;&gt;Plotting with &lt;code&gt;ggplot2&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#statistics&#34;&gt;Statistics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; It will be really helpful for you to have the &lt;a href=&#34;/lectures/09-lecture&#34;&gt;9: Stats &amp;amp; Plot slides&lt;/a&gt; pulled up in a different tab while you complete this practice set. You’ll likely need to refer to it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Setup:&lt;/strong&gt; We will be using the same &lt;code&gt;midus.csv&lt;/code&gt; dataset for this practice. You have 2 choices…&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;If you want to practice on this website in the code chunks below, please do the following:
+- Load the package &lt;code&gt;ggplot2&lt;/code&gt;
+- (You do not need to import the dataset – I have done that for you so that you can access it through this website)
+- Make sure the variables &lt;code&gt;sex&lt;/code&gt;, &lt;code&gt;heart_self&lt;/code&gt;, and &lt;code&gt;heart_father&lt;/code&gt; are treated as &lt;code&gt;factor()&lt;/code&gt; variables.
+- Use the same &lt;code&gt;na.omit()&lt;/code&gt; function from the &lt;a href=&#34;/lectures/08-lecture&#34;&gt;8: R&amp;amp;R slides&lt;/a&gt; to remove all &lt;code&gt;NA&lt;/code&gt; variables.
+- Look at the first 6 rows of the &lt;code&gt;midus&lt;/code&gt; data.frame by using the &lt;code&gt;head()&lt;/code&gt; function.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;If you want to practice locally (actually opening up &lt;code&gt;RStudio&lt;/code&gt; on your computer), please do the following:
+- Either create a new script or open an existing script. Your choice.
+- Import the data file. You should already have this downloaded, but just in case, here it is again. Make sure the code you use to import the file winds up in your script!
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/practice/07-practice/data/midus.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;midus.csv&lt;/code&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Load the package &lt;code&gt;ggplot2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Make sure the variables &lt;code&gt;sex&lt;/code&gt;, &lt;code&gt;heart_self&lt;/code&gt;, and &lt;code&gt;heart_father&lt;/code&gt; are treated as &lt;code&gt;factor()&lt;/code&gt; variables.&lt;/li&gt;
+&lt;li&gt;Use the same &lt;code&gt;na.omit()&lt;/code&gt; function from the &lt;a href=&#34;/lectures/08-lecture&#34;&gt;8: R&amp;amp;R slides&lt;/a&gt; to remove all &lt;code&gt;NA&lt;/code&gt; variables.&lt;/li&gt;
+&lt;li&gt;Look at the first 6 rows of the &lt;code&gt;midus&lt;/code&gt; data.frame by using the &lt;code&gt;head()&lt;/code&gt; function.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-09-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/09-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-09-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;div id=&#34;plotting-with-ggplot2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Plotting with &lt;code&gt;ggplot2&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;You can make plots with &lt;code&gt;base R&lt;/code&gt; (we’ve done this once already!). But they’re kinda ugly. Actually, they’re really ugly. So we’re going to use a package called &lt;code&gt;ggplot2&lt;/code&gt; to make prety plots. This practice set will go through the very basics of how to use &lt;code&gt;ggplot2&lt;/code&gt;. For more control over your plots, check out the Data Viz section.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gg&lt;/code&gt; stands for the “grammar of graphics”. It’s syntax (or code format) is the same as what we’ve already been doing using functions and objects. However, like the lovable ogre Shrek, &lt;code&gt;ggplot2&lt;/code&gt; has layers. Each layer corresponds to one aspect of the plot.&lt;/p&gt;
+&lt;p&gt;The basic layout of &lt;code&gt;ggplot2&lt;/code&gt; is:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#39;language-r&#39;&gt;&lt;code&gt;&lt;span style=&#39;background-color:#ff79797D&#39;&gt;ggplot&lt;/span&gt;(&lt;span style=&#39;background-color:#686DE07D&#39;&gt;things that impact the entire plot&lt;/span&gt;) &lt;span style=&#39;background-color:#FFFF007D&#39;&gt;+&lt;/span&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style=&#39;background-color:#ff79797D&#39;&gt;geom_something&lt;/span&gt;(&lt;span style=&#39;background-color:#686DE07D&#39;&gt;things that impact just the something&lt;/span&gt;)&lt;/code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;☝️ Here we have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2 different &lt;span class=&#34;color-light-1&#34;&gt;FUNCTIONS&lt;/span&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ggplot&lt;/code&gt; is the function for the first layer.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_something&lt;/code&gt; is the function for the second layer, where the &lt;code&gt;something&lt;/code&gt; is replaced with a plot type. For example, &lt;code&gt;geom_point&lt;/code&gt; is a scatter plot and &lt;code&gt;geom_histogram&lt;/code&gt; is a histogram.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Each of these functions takes &lt;span class=&#34;color-light-6&#34;&gt;ARGUMENTS&lt;/span&gt;:
+&lt;ul&gt;
+&lt;li&gt;The arguments control what you want the plot to look like.&lt;/li&gt;
+&lt;li&gt;Many arguments are actually &lt;em&gt;aesthetics&lt;/em&gt; and wrapped within &lt;code&gt;aes()&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;If your argument depends on the data, it’s wrapped in an &lt;code&gt;aes()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;If your argument does not depend on the data, it does not need to be in an &lt;code&gt;aes()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;In the first layer (within &lt;code&gt;ggplot&lt;/code&gt;), this will contain things that impact the whole plot. Like your x- and y- axes and what data you’re actually plotting.&lt;/li&gt;
+&lt;li&gt;In the second layer (within &lt;code&gt;geom_something&lt;/code&gt;), this will contain things that impact only that layer. If you have a histogram, how wide should the bins be? What color should the bars be? Etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Each layer is separated by a &lt;code&gt;+&lt;/code&gt; sign. This tells R &lt;em&gt;“hey wait, I’m not done yet”&lt;/em&gt;.
+&lt;ul&gt;
+&lt;li&gt;It should ALWAYS go at the very end of each line…&lt;em&gt;never&lt;/em&gt; at the beginning of a new line.&lt;/li&gt;
+&lt;li&gt;You do not need one on the very last line of your plot code (here, there’s not one after &lt;code&gt;geom_something&lt;/code&gt;) because after the last line, you’re ready for R to run your code.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;example-on-aestheticsarguments-from-the-slides&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Example on aesthetics/arguments from the slides&lt;/h4&gt;
+&lt;p&gt;No arguments or aesthetics into &lt;code&gt;geom_point&lt;/code&gt; layer (the default):&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/09-practice_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Argument in &lt;code&gt;geom_point&lt;/code&gt; layer. But it is NOT dependent on the data. “Make all the points corn flower blue”. Note that the color is within quotes.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point(color = &amp;quot;cornflowerblue&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/09-practice_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Argument in &lt;code&gt;geom_point&lt;/code&gt; layer. But it IS dependent on the data. “Make the points different color based on the &lt;code&gt;sex&lt;/code&gt; factor variable”. Since it’s dependent on the data, we wrap it within an &lt;code&gt;aes()&lt;/code&gt;. Note that &lt;code&gt;sex&lt;/code&gt; is not in quotes.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point(aes(color = sex))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/09-practice_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;statistics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Statistics&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;/lectures/09-lecture&#34;&gt;The corresponding slides&lt;/a&gt; go through a variety of basic statistical tests. They are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;t.test()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cor()&lt;/code&gt; and &lt;code&gt;cor.test()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;aov&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lm&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Use the slides as a guide to complete the following exercises using stats and plotting.&lt;/p&gt;
+&lt;div id=&#34;t-test&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;-test&lt;/h4&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Is there a difference in life satisfaction between people who have had heart problems compared to people who have not had heart problems?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Statistic: &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;-test&lt;/li&gt;
+&lt;li&gt;Plot: Boxplot&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bonus:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Look at the help page for &lt;code&gt;t.test()&lt;/code&gt;. How do you run a one-tailed &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;-test? Run it! Does your answer change?&lt;/li&gt;
+&lt;li&gt;How could you &lt;code&gt;fill&lt;/code&gt; the boxplots so that males and females are shown in different colors?&lt;/li&gt;
+&lt;li&gt;Look at the help page for &lt;code&gt;labs()&lt;/code&gt; and see if you can give your plot a title and different x- &amp;amp; y-axes labels.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-09-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/09-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-09-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;correlation&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Correlation&lt;/h4&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Does age correlate with BMI?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Statistic: Correlation&lt;/li&gt;
+&lt;li&gt;Plot: Scatter plot&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Bonus:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set the &lt;code&gt;size&lt;/code&gt; of all points to be 1.5&lt;/li&gt;
+&lt;li&gt;Change the x- &amp;amp; y-axes labels and add a title and subtitle&lt;/li&gt;
+&lt;li&gt;Make the shape of the points different based on if they’ve ever been diagnosed with a heart issue or not&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-09-app3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/09-learnr-app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-09-app3&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;anova&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;ANOVA&lt;/h4&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Is there a main effect of &lt;code&gt;age_category&lt;/code&gt;, a main effect of &lt;code&gt;heart_self&lt;/code&gt;, and is there a &lt;code&gt;age_category x heart_self&lt;/code&gt; interaction on &lt;code&gt;BMI&lt;/code&gt;?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Statistic: 3x2 ANOVA&lt;/li&gt;
+&lt;li&gt;Plot: Bar plot&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;setup-for-analysis&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Setup for analysis&lt;/h5&gt;
+&lt;p&gt;As of now, we don’t have an &lt;code&gt;age_category&lt;/code&gt; variable. The code below trichotomizes &lt;code&gt;age&lt;/code&gt; into the following groups:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;28-40 years old = “young”&lt;/li&gt;
+&lt;li&gt;41-60 years old = “middle”&lt;/li&gt;
+&lt;li&gt;60-84 years old = “old”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Additionally, bar plots can kind of suck. The height of each bar should be the &lt;em&gt;mean&lt;/em&gt; of the dependent variable for each group. After the trichotomizing code, I have written several lines of code to help you get all the data you need. Whenever you see an empty set of quotation marks &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;, you need to fill in the blanks (HINT: read the variable names!).&lt;/p&gt;
+&lt;p&gt;Finally, at the very bottom of the chunk, we make a data.frame based on everything from the middle chunk. You do NOT need to change this part of the code. But do try to understand what it’s doing!&lt;/p&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-09-app4&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/09-learnr-app4/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-09-app4&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;now-run-the-analysis&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Now, run the analysis&lt;/h5&gt;
+&lt;p&gt;Now that you’ve done the hard work of making your categorical variable and your data.frame of means for the plot, go ahead and write/run code for the ANOVA and bar plot!&lt;/p&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-09-app5&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/09-learnr-app5/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-09-app5&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;em&gt;(Again, we will learn how to do this analysis prep in a MUCH easier way when we talk about the tidyverse)&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regression&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Regression&lt;/h4&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Does self-reported physical health predict self-reported mental health?&lt;/li&gt;
+&lt;li&gt;Do self-reported physical health and self-reported heart problems predict self-reported mental health (without an interaction)?&lt;/li&gt;
+&lt;li&gt;Same as above but now including a self-reported physical health and self-reported heart problems interaction.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Statistic: Simple &amp;amp; Multiple Regression&lt;/li&gt;
+&lt;li&gt;Plot: Scatter plot&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-09-app6&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/09-learnr-app6/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-09-app6&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;congratulations&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;CONGRATULATIONS!&lt;/h4&gt;
+&lt;p&gt;You have now finished The Basics portion of this bootcamp, workshop, class…whatever you want to call this. You’re basically ready to go work at Google &amp;amp; Facebook etc. See you at the next section where we’ll learn how to clean and prep our data.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/highfive.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -2903,11 +3120,65 @@ Figure 1: A fancy pie chart.
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
 &lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;plotting-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#plotting&#34; role=&#34;tab&#34; aria-controls=&#34;plotting&#34; aria-selected=&#34;false&#34;&gt;Plotting&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;ttests-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#ttests&#34; role=&#34;tab&#34; aria-controls=&#34;ttests&#34; aria-selected=&#34;false&#34;&gt;t-tests&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;correlation-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#correlation&#34; role=&#34;tab&#34; aria-controls=&#34;correlation&#34; aria-selected=&#34;false&#34;&gt;Correlation&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;anova-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#anova&#34; role=&#34;tab&#34; aria-controls=&#34;anova&#34; aria-selected=&#34;false&#34;&gt;ANOVA&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;regression-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#regression&#34; role=&#34;tab&#34; aria-controls=&#34;regression&#34; aria-selected=&#34;false&#34;&gt;Regression&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;resources-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#resources&#34; role=&#34;tab&#34; aria-controls=&#34;resources&#34; aria-selected=&#34;false&#34;&gt;Resources&lt;/a&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
 &lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/09-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plotting&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;plotting-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/09-slides.html#plot&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ttests&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;ttests-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/09-slides.html#ttest&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlation&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;correlation-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/09-slides.html#cor&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;anova&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;anova-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/09-slides.html#anova&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regression&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;regression-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/09-slides.html#reg&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resources&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;resources-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/09-slides.html#resources&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;

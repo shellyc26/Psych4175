@@ -205,3 +205,14 @@ That number (which happens to be 35!) matches the very first number in the `actO
 :::fyi
 **FYI:** `R` is kind of weird in that it starts indexing at 1. You should know that most other programming languages begin indexing at 0. `R` and `MATLAB` are the only languages I'm aware of that begin at 1. Normally, the first element in the vector has an index of 0. If you plan on also using other programming languages, like python `r emo::ji("snake")`, then this is something to be aware of.
 :::
+
+#### Keep up the great work!
+Sometimes, it feels like you're just kind of guessing until you get it right. Coding is kind of like a sport. It takes some time and practice to become good. But by completing this practice set and continuing with this bootcamp, you're on the right track! 
+
+If you feel lost at any point, please reach out! 
+
+<center>
+
+<img src="../encouragementFigs/figure-html/noideareallywell.gif" width = "100%">
+
+</center>

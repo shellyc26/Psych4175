@@ -133,3 +133,9 @@ newFile <- read.csv("../code/preprocessing code")
 
 Notice that it doesn't matter what function you're using. You can always go up and down directory levels!
 :::
+
+<center>
+
+<img src="../encouragementFigs/figure-html/yas.gif" width = "100%">
+
+</center>

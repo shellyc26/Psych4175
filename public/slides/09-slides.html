@@ -280,24 +280,6 @@ ggplot(data = midus, aes(x = sex, y = hostility)) +
 
 &lt;img src="09-slides_files/figure-html/unnamed-chunk-8-1.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
 ---
-name: e2
-
-# You try!
-
-Is there a difference in life satisfaction between people who have had heart problems compared to people who have not had heart problems?
-
-.box-inv-2.medium[
-Statistic: T-test
-&lt;br&gt;
-Plot: boxplot
-]
-
-BONUS:
-- Look at the help page for `t.test()`. How do you run a one-tailed t-test? Run it! Does your answer change?
-- How could you `fill` the boxplots so that males and females are shown in different colors? 
-- Look at the help page for `labs()` and see if you can give your plot a title and different x- &amp; y-axes labels. 
-
----
 name: cor
 
 # Correlations
@@ -353,22 +335,6 @@ ggplot(data = midus, aes(x = self_esteem, y = life_satisfaction)) +
 ```
 
 &lt;img src="09-slides_files/figure-html/unnamed-chunk-10-1.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
----
-name: e3
-# You try!
-**Does `age` correlate with `BMI`?**
-
-.box-inv-2.medium[
-Statistic: Correlation
-&lt;br&gt;
-Plot: scatter plot
-]
-
-
-BONUS:
-- set the `size` of all points to 1.5
-- change the x- &amp; y-axes labels and add a title and subtitle
-- make the shape of the points different based on if they've ever been diagnosed with a heart issue or not
 ---
 name: anova
 
@@ -493,81 +459,6 @@ ggplot(data = meansData, aes(x = sex, y = meanBMI)) +
 &lt;img src="09-slides_files/figure-html/unnamed-chunk-15-1.png" width="40%" height="40%" style="display: block; margin: auto;" /&gt;
 
 ---
-name: e4
-
-# You try!
-
-Below is some code that trichotomizes `age` into the following groups:
-- 28-40 -- "young"
-- 40-60 -- "middle"
-- 60-84 -- "old"
-
-Copy (&amp; run) the following code into your script so you can do the next exercise:
-
-```r
-midus$age_category &lt;- cut(x = midus$age,
-                          breaks = c(28, 40, 60, 84),
-                          labels = c("young", "middle", "old"),
-                          include.lowest = TRUE)
-```
-
-**NOW**, is there a main effect of `age_category`, a main effect of `heart_self`, and is there a `age_category x heart_self` interaction on `BMI`?
-
-.box-inv-2.medium[
-Statistic: 3x2 ANOVA
-&lt;br&gt;
-Plot: bar plot
-]
----
-
-# Fill in the missing bits of this code
-
-
-```r
-youngYesHeart &lt;- subset(midus, age_category == "young" &amp; heart_self == "Yes")
-youngYesHeartMean &lt;- mean(youngYesHeart$BMI)
-
-youngNoHeart &lt;- subset(midus, age_category == "young" &amp; heart_self == "")
-youngNoHeartMean &lt;- mean(youngNoHeart$BMI)
-
-middleYesHeart &lt;- subset(midus, age_category == "" &amp; heart_self == "Yes")
-middleYesHeartMean &lt;- mean()
-
-middleNoHeart &lt;- subset(midus, age_category == "" &amp; heart_self == "No")
-middleNoHeartMean &lt;- mean(BMI)
-
-oldYesHeart &lt;- subset(midus, age_category == "" &amp; heart_self == "")
-oldYesHeartMean &lt;- mean()
-
-oldNoHeart &lt;- subset(midus, age_category == "" &amp; heart_self == "")
-oldNoHeartMean &lt;- mean()
-```
----
-# Data prep for bar plot
-
-Now that you've filled in (&amp; run!) the previous code, turn all of that into a data.frame you can use. .small[*(remember, we're going to cover a __MUCH__ easier way of doing this when we talk about `tidyverse`)*]
-
-
-```r
-meansData &lt;- data.frame(age_category = c("young", "young", "middle", "middle",
-                                         "old", "old"),
-                        heart_self = c("Yes", "No", "Yes", "No", "Yes", "No"),
-                        meanBMI = c(youngYesHeartMean,
-                                    youngNoHeartMean,
-                                    middleYesHeartMean,
-                                    middleNoHeartMean,
-                                    oldYesHeartMean,
-                                    oldNoHeartMean))
-```
-
----
-# You try!
-Finally, make your bar plot using the new data.frame we just made!
-
-&lt;center&gt;
-&lt;img src="09-slides_files/figure-html/doit.gif", width = "50%"&gt;
-&lt;/center&gt;
----
 name: reg
 
 # Regression
@@ -601,14 +492,14 @@ Plot: scatter plot with mean, +1SD, and -1SD of `hostility`
 
 Has a function called `ggpredict` that makes it very easy to visualize interactions of continuous variables. 
 
-&lt;img src="09-slides_files/figure-html/unnamed-chunk-19-1.png" width="55%" height="55%" style="display: block; margin: auto;" /&gt;
+&lt;img src="09-slides_files/figure-html/unnamed-chunk-16-1.png" width="55%" height="55%" style="display: block; margin: auto;" /&gt;
 ---
 # Things to note about regression
 - Assign your `lm()` object to your global environment. You can get coefficients, predicted values etc.
 
 --
 
-- If you want the relationship betwen X1 and Y, *after controlling for* X2, you can make a scatter plot with the model's **fitted* values. 
+- If you want the relationship betwen X1 and Y, *after controlling for* X2, you can make a scatter plot with the model's *fitted* values. 
 
 --
 
@@ -616,18 +507,13 @@ Has a function called `ggpredict` that makes it very easy to visualize interacti
 
 --
 
-- If you want the `\(R^2\)`, `\(F\)`-statistic etc., assign the `summary(model)` object to your global environment.
+- If you want to be able to extract the `\(R^2\)`, `\(F\)`-statistic etc., assign the `summary(model)` object to your global environment.
 
 --
 
 - Check out the `broom` package to format your regression outputs into a nice data.frame. 
 ---
-name: e5
 
-# You try!
-
-[MAKE UP AN EXERCISE HERE]
----
 name: resources
 # R Resources
 

@@ -224,4 +224,11 @@ decorate("empire-code") %>%
   knit_print.with_flair()
 ```
 
+#### You are a `r emo::ji("star")`
+Learning to code can be really intimidating. But you're doing great! Keep it up!
 
+<center>
+
+<img src="../encouragementFigs/figure-html/youre-amazing.jpg" width = "75%">
+
+</center>

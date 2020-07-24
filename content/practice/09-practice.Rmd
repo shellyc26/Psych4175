@@ -1,0 +1,253 @@
+---
+title: "Practice Set: Statistics & Plotting"
+linktitle: "9: Stats & Plot"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: The Basics
+    weight: 9
+type: docs
+weight: 9
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+:::note
+**Note:** It will be really helpful for you to have the [9: Stats & Plot slides](/lectures/09-lecture) pulled up in a different tab while you complete this practice set. You'll likely need to refer to it.
+:::
+
+:::puzzle
+**Setup:** We will be using the same `midus.csv` dataset for this practice. You have 2 choices...
+
+  1. If you want to practice on this website in the code chunks below, please do the following:
+    - Load the package `ggplot2`
+    - (You do not need to import the dataset -- I have done that for you so that you can access it through this website)
+    - Make sure the variables `sex`, `heart_self`, and `heart_father` are treated as `factor()` variables.
+    - Use the same `na.omit()` function from the [8: R&R slides](/lectures/08-lecture) to remove all `NA` variables. 
+    - Look at the first 6 rows of the `midus` data.frame by using the `head()` function. 
+    
+  2. If you want to practice locally (actually opening up `RStudio` on your computer), please do the following:
+    - Either create a new script or open an existing script. Your choice.
+    - Import the data file. You should already have this downloaded, but just in case, here it is again. Make sure the code you use to import the file winds up in your script!
+      - [<i class="fas fa-file-csv"></i> `midus.csv`](/practice/07-practice/data/midus.csv)
+    - Load the package `ggplot2`
+    - Make sure the variables `sex`, `heart_self`, and `heart_father` are treated as `factor()` variables.
+    - Use the same `na.omit()` function from the [8: R&R slides](/lectures/08-lecture) to remove all `NA` variables. 
+    - Look at the first 6 rows of the `midus` data.frame by using the `head()` function. 
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/09-learnr-app1/",
+                    id = "learnr-09-app1")
+
+```
+
+## Plotting with `ggplot2`
+You can make plots with `base R` (we've done this once already!). But they're kinda ugly. Actually, they're really ugly. So we're going to use a package called `ggplot2` to make prety plots. This practice set will go through the very basics of how to use `ggplot2`. For more control over your plots, check out the Data Viz section. 
+
+`gg` stands for the "grammar of graphics". It's syntax (or code format) is the same as what we've already been doing using functions and objects. However, like the lovable ogre Shrek, `ggplot2` has layers. Each layer corresponds to one aspect of the plot. 
+
+The basic layout of `ggplot2` is:
+```{r gg-code, eval=FALSE, include=FALSE}
+ggplot(things that impact the entire plot) +
+  geom_something(things that impact just the something)
+```
+
+```{r, decorate-gg-code, echo=FALSE}
+decorate("gg-code", eval=FALSE) %>% 
+  flair("ggplot", background = "#ff79797D") %>% 
+  flair("things that impact the entire plot", 
+        background = "#686DE07D") %>% 
+  flair("geom_something", background = "#ff79797D") %>% 
+  flair("things that impact just the something",
+        background = "#686DE07D") %>% 
+  flair("+", background = "#FFFF007D") %>% 
+  knit_print.with_flair()
+
+```
+
+`r emo::ji("index_pointing_up")` Here we have:
+
+  - 2 different <span class='color-light-1'>FUNCTIONS</span>:
+    - `ggplot` is the function for the first layer. 
+    - `geom_something` is the function for the second layer, where the `something` is replaced with a plot type. For example, `geom_point` is a scatter plot and `geom_histogram` is a histogram. 
+    
+  - Each of these functions takes <span class='color-light-6'>ARGUMENTS</span>:
+    - The arguments control what you want the plot to look like.
+    - Many arguments are actually *aesthetics* and wrapped within `aes()`.
+      - If your argument depends on the data, it's wrapped in an `aes()`
+      - If your argument does not depend on the data, it does not need to be in an `aes()`
+    - In the first layer (within `ggplot`), this will contain things that impact the whole plot. Like your x- and y- axes and what data you're actually plotting.
+    - In the second layer (within `geom_something`), this will contain things that impact only that layer. If you have a histogram, how wide should the bins be? What color should the bars be? Etc. 
+  
+  - Each layer is separated by a `+` sign. This tells R *"hey wait, I'm not done yet"*.
+    - It should ALWAYS go at the very end of each line...*never* at the beginning of a new line.
+    - You do not need one on the very last line of your plot code (here, there's not one after `geom_something`) because after the last line, you're ready for R to run your code. 
+
+#### Example on aesthetics/arguments from the slides
+
+```{r, echo=FALSE}
+midus <- read.csv("../../public/practice/07-practice/data/midus.csv")
+midus <- midus %>% 
+  mutate_at(vars(1, 2, 10, 11), list(factor)) %>% 
+  na.omit(.)
+```
+
+No arguments or aesthetics into `geom_point` layer (the default):
+```{r}
+ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point()
+```
+
+Argument in `geom_point` layer. But it is NOT dependent on the data. "Make all the points corn flower blue". Note that the color is within quotes. 
+```{r}
+ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point(color = "cornflowerblue")
+```
+
+Argument in `geom_point` layer. But it IS dependent on the data. "Make the points different color based on the `sex` factor variable". Since it's dependent on the data, we wrap it within an `aes()`. Note that `sex` is not in quotes.
+```{r}
+ggplot(data =  midus, aes(x = age, y = BMI)) +
+  geom_point(aes(color = sex))
+```
+
+## Statistics
+[The corresponding slides](/lectures/09-lecture) go through a variety of basic statistical tests. They are:
+
+  - `t.test()`
+  - `cor()` and `cor.test()`
+  - `aov`
+  - `lm`
+
+Use the slides as a guide to complete the following exercises using stats and plotting. 
+
+#### $t$-test
+
+:::puzzle
+**You try!** Is there a difference in life satisfaction between people who have had heart problems compared to people who have not had heart problems?
+
+  - Statistic: $t$-test
+  - Plot: Boxplot
+  
+Bonus:
+
+  - Look at the help page for `t.test()`. How do you run a one-tailed $t$-test? Run it! Does your answer change?
+  - How could you `fill` the boxplots so that males and females are shown in different colors?
+  - Look at the help page for `labs()` and see if you can give your plot a title and different x- & y-axes labels.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/09-learnr-app2/",
+                    id = "learnr-09-app2")
+
+```
+
+#### Correlation
+
+:::puzzle
+**You try!** Does age correlate with BMI?
+
+  - Statistic: Correlation
+  - Plot: Scatter plot
+  
+Bonus:
+
+  - Set the `size` of all points to be 1.5
+  - Change the x- & y-axes labels and add a title and subtitle
+  - Make the shape of the points different based on if they've ever been diagnosed with a heart issue or not
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/09-learnr-app3/",
+                    id = "learnr-09-app3")
+
+```
+
+#### ANOVA
+
+:::puzzle
+**You try!** Is there a main effect of `age_category`, a main effect of `heart_self`, and is there a `age_category x heart_self` interaction on `BMI`?
+
+  - Statistic: 3x2 ANOVA
+  - Plot: Bar plot
+:::
+
+##### Setup for analysis
+As of now, we don't have an `age_category` variable. The code below trichotomizes `age` into the following groups:
+
+  - 28-40 years old = "young"
+  - 41-60 years old = "middle"
+  - 60-84 years old = "old"
+
+Additionally, bar plots can kind of suck. The height of each bar should be the *mean* of the dependent variable for each group. After the trichotomizing code, I have written several lines of code to help you get all the data you need. Whenever you see an empty set of quotation marks `""`, you need to fill in the blanks (HINT: read the variable names!). 
+
+Finally, at the very bottom of the chunk, we make a data.frame based on everything from the middle chunk. You do NOT need to change this part of the code. But do try to understand what it's doing!
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/09-learnr-app4/",
+                    id = "learnr-09-app4")
+
+```
+
+##### Now, run the analysis
+Now that you've done the hard work of making your categorical variable and your data.frame of means for the plot, go ahead and write/run code for the ANOVA and bar plot!
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/09-learnr-app5/",
+                    id = "learnr-09-app5")
+
+```
+
+*(Again, we will learn how to do this analysis prep in a MUCH easier way when we talk about the tidyverse)*
+
+#### Regression
+
+:::puzzle
+**You try!** 
+
+1) Does self-reported physical health predict self-reported mental health? 
+2) Do self-reported physical health and self-reported heart problems predict self-reported mental health (without an interaction)?
+3) Same as above but now including a self-reported physical health and self-reported heart problems interaction. 
+
+  - Statistic: Simple & Multiple Regression
+  - Plot: Scatter plot
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/09-learnr-app6/",
+                    id = "learnr-09-app6")
+
+```
+
+#### CONGRATULATIONS!
+You have now finished The Basics portion of this bootcamp, workshop, class...whatever you want to call this. You're basically ready to go work at Google & Facebook etc. See you at the next section where we'll learn how to clean and prep our data. 
+
+<center>
+
+<img src="../encouragementFigs/figure-html/highfive.gif" width = "75%">
+
+</center>
+

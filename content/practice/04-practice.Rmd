@@ -205,3 +205,11 @@ blogdown::shortcode("learnr",
                     id = "learnr-04-app2")
 
 ```
+
+#### You're chugging along and doing wonderfully!
+
+<center>
+
+<img src="../encouragementFigs/figure-html/ted.gif" width = "100%">
+
+</center>
