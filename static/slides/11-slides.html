@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Dplyr</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-green.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Dplyr
+
+---
+
+
+
+
+
+
+# What is the `tidyverse`?
+
+.pull-left[
+&lt;img src="11-slides_files/figure-html/tidyverse.png", width = "100%"&gt;
+]
+
+.pull-right[
+&gt; "The `tidyverse` is an **opinionated** collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures."
+
+]
+---
+# Plan for today
+
+- Learn basic syntax for nearly all `tidyverse` packages
+- Introduce functions that come from the `dplyr` package
+  - `filter()`
+  - `select()`
+  - `mutate()`
+  - `summarize()`
+  - `group_by()`
+---
+
+# About the MIDUS dataset
+
+Variables available in this data file:
+  - **Demographic variables**: age, sex
+  - **Physical health variables**: self-rated physical health, heart problems, father had heart attack, BMI
+  - **Mental health variables**: self-rated meantal health, self-esteem, life satisfaction *(life overall, work, health, relationship with spouse/partner, relationship with children)*, hostility *(stress reactivity &amp; agression*)
+
+--
+
+Please load in `midus`, make sure:
+- Make sure the variables `sex`, `heart_self`, and `heart_father` are `factor()` variables (rather than characters)
+- Use the same `na.omit()` function to remove all `NA` values
+---
+name: syntax
+
+# Syntax &amp; Piping
+
+- All of the `tidyverse` packages use **piping** as a way to make code easier to read.
+
+- Think of it kind of like making a cohesive paragraph of code, rather than scribbling down a bunch of random lines. 
+
+- The format looks like this:
+
+
+```r
+originalData %&gt;% 
+  function1(someVariable) %&gt;% 
+  function2(someVariable) %&gt;% 
+  function3(someVariable)
+```
+
+---
+# Syntax &amp; Piping
+
+```r
+*originalData %&gt;%
+  function1(someVariable) %&gt;% 
+  function2(someVariable) %&gt;% 
+  function3(someVariable)
+```
+
+First thing that enters is your original data.frame. The end of the line has this `%&gt;%` symbol. This is called a **pipe**. 
+---
+# Syntax &amp; Piping
+
+```r
+originalData %&gt;% 
+* function1(someVariable) %&gt;%
+  function2(someVariable) %&gt;% 
+  function3(someVariable)
+```
+
+Next up is some function that is performed on a variable. This variable COMES FROM the `originalData` data.frame. Another way to think about it is that the function *inherits* the data.frame from above. That means you don't need to keep re-typing `originalData`.
+
+Again, the end of the line is followed by the `%&gt;%` pipe operator. 
+---
+# Syntax &amp; Piping
+
+```r
+originalData %&gt;% 
+  function1(someVariable) %&gt;% 
+* function2(someVariable) %&gt;%
+  function3(someVariable)
+```
+
+Same thing for the next function. However, instead of inheriting from `originalData`, function 2 will inherit *the output* of function 1! 
+
+Again, the end of the line is followed by the `%&gt;%` pipe operator. 
+
+---
+# Syntax &amp; Piping
+
+```r
+originalData %&gt;% 
+  function1(someVariable) %&gt;% 
+  function2(someVariable) %&gt;% 
+* function3(someVariable)
+```
+
+Finally, we get to function 3. It will inherit *the output* of function 2.
+
+Notice that there is no `%&gt;%` pipe operator at the end of this line. That's because this "paragraph" of code is now over.
+---
+# Syntax &amp; Piping
+- These `%&gt;%` pipes are used to perform **SEQUENTIAL** tasks!
+- You can read the `%&gt;%` as *and then...*
+
+&lt;center&gt;
+&lt;img src="11-slides_files/figure-html/pipetweet.png", width = "100%"&gt;
+&lt;/center&gt;
+
+--
+
+- Don't use `&lt;-` *inside* the piped function. Only at the very beginning if you want to store the output.
+- Keep `%&gt;%` and the *end* of each line! Not at the beginning. 
+- Shortcut for inserting pipe:
+  - &lt;kbd&gt;command&lt;/kbd&gt; + &lt;kbd&gt;shift&lt;/kbd&gt; + &lt;kbd&gt;m&lt;/kbd&gt; for Mac users 
+  - &lt;kbd&gt;control&lt;/kbd&gt; + &lt;kbd&gt;shift&lt;/kbd&gt; + &lt;kbd&gt;m&lt;/kbd&gt; for Windows users
+
+---
+name: filter
+
+# `filter()` Function
+To illustrate how this works, let's start with the `filter()` function. `filter()` is another way to subset your data.frame based on some condition. It is the `tidyverse` equivalent of `subset()`.
+
+
+
+Let's say we want to make a new data.frame that included only female participants...
+
+```r
+femaleMidus &lt;- midus %&gt;% 
+  filter(sex == "Female")
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; ID &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BMI &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; physical_health_self &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mental_health_self &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; self_esteem &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; life_satisfaction &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; hostility &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_self &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_father &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10011 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 52 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.991 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 53 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.121 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.375 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10023 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 78 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24.752 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10028 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 63 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24.049 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 42 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.875 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10030 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 27.342 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 37 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.750 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10038 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 57 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 39.598 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.125 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+# Spelling/capitalization etc. always count
+Let's say we want to make a new data.frame that included only female participants...
+
+```r
+femaleMidus &lt;- midus %&gt;% 
+  filter(sex == "female")
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; ID &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BMI &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; physical_health_self &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mental_health_self &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; self_esteem &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; life_satisfaction &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; hostility &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_self &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_father &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+
+# Now with multiple logical operators
+Let's say we want to make a new data.frame that included  male participants who have reported having some form of heart problem and are over the age of 50. 
+
+```r
+oldMenHeart &lt;- midus %&gt;% 
+  filter(sex == "Male" &amp; heart_self == "Yes" &amp; age &gt; 50)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; ID &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BMI &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; physical_health_self &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mental_health_self &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; self_esteem &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; life_satisfaction &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; hostility &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_self &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_father &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10039 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 53 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.872 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10067 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 62 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29.254 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 36 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.625 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10088 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29.289 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.250 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10131 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 71 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24.826 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 43 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10143 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 57 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.105 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.667 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 10173 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28.481 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Is `tidyverse` totally different from `base R`?
+
+**No!** You still have:
+  - objects
+  - assignment of objects
+  - functions
+  - functions that take in arguments
+  - logical operators like `==` and `&gt;`
+  - multiple logical operators like `&amp;` and `|`
+
+The only thing that's different is the inclusion of `%&gt;%` and the way you build your "code paragraphs". But all of the principles that we've learned thus far, still apply to everything in the `tidyverse`.
+---
+name: select
+
+# `select()` function
+This is another way to select variables. It can replace indexing, which is helpful when you are in these `tidyverse` code chunks (or paragraphs).
+
+This function can take in column indexes, variable names, or both!
+
+
+```r
+# first 3 columns only!
+firstThree &lt;- midus %&gt;% 
+  select(1:3)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; ID &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; age &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10001 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10002 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 69 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10011 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 52 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10015 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 53 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10018 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 49 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10019 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 51 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+# `select()` function
+
+
+```r
+# BMI, both heart_self and heart_father
+otherThree &lt;- midus %&gt;% 
+  select(BMI, 10:11)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BMI &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_self &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_father &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26.263 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24.077 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.991 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.121 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22.499 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29.987 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+
+# `select()` function
+To remove a variable, put a `-` (minus) sign in front of the variable you want to get rid of
+
+```r
+# Keep all variables EXCEPT sex &amp; physical_health_self
+removal &lt;- midus %&gt;% 
+  select(-sex, -5)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; age &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BMI &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; mental_health_self &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; self_esteem &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; life_satisfaction &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; hostility &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_self &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; heart_father &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10001 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26.263 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 42 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.750 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10002 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 69 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24.077 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.250 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10011 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 52 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25.991 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10015 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 53 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.121 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.375 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10018 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22.499 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10019 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 51 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 29.987 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.625 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; No &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+name: mutate
+
+# `mutate()` function
+`mutate()` is kind of tricky. On it's own, will simply add a new variable to the end of your data.frame based on something. 
+
+For example, if we wanted to get the square root of BMI...
+
+```r
+sqrtMidus &lt;- midus %&gt;% 
+  mutate(BMI_sqrt = sqrt(BMI))
+
+head(sqrtMidus)
+```
+
+```
+##      ID    sex age    BMI physical_health_self mental_health_self self_esteem
+## 1 10001   Male  61 26.263                    2                  4          42
+## 2 10002   Male  69 24.077                    5                  5          34
+## 3 10011 Female  52 25.991                    5                  4          41
+## 4 10015 Female  53 32.121                    3                  3          31
+## 5 10018   Male  49 22.499                    4                  4          41
+## 6 10019   Male  51 29.987                    4                  5          38
+##   life_satisfaction hostility heart_self heart_father BMI_sqrt
+## 1             7.750       5.5         No           No 5.124744
+## 2             8.250       6.0         No          Yes 4.906832
+## 3             7.000       5.5         No           No 5.098137
+## 4             7.375       6.0         No          Yes 5.667539
+## 5             8.500       6.0         No           No 4.743311
+## 6             7.625       4.5         No           No 5.476039
+```
+---
+# `mutate()` function
+BUT, you can add different endings (suffixes) to it
+  - `mutate_at()`
+  - `mutate_all()`
+  - `mutate_if()`
+
+I find `mutate_at()` to be the most useful, personally. It is especially nice for making sure the variables you need to be factors are actually factors!
+
+.small[Note: you can add suffixes `_at`, `_all`, and `_if` to many `tidyverse` functions! `mutate()` happens to be the one where I find this most useful, so I'm using it as an example.]
+---
+# `mutate()` function
+For example, to set up the `midus` data.frame, you were asked to make sure that `sex`, `heart_self`, and `heart_father` were all considered factors. Your code probably looked something like:
+
+
+```r
+midus$sex &lt;- factor(midus$sex)
+midus$heart_self &lt;- factor(midus$heart_self)
+midus$heart_father &lt;- factor(midus$heart_father)
+```
+--
+When instead, it could look something like this:
+
+```r
+midus &lt;- midus %&gt;% 
+  mutate_at(vars(2, 10, 11), list(factor))
+```
+
+- `vars(2, 10, 11)` says "OK, I'm going to mutate some variables. Which ones?" 
+- `list(factor)` says, "give me a list of functions you want me to apply to each of the variables you fed me"
+
+.tiny[Note: I have found that the help documentation for some of these functions has not updated accordingly. Search the internet and pay attention to your package version number.]
+---
+# THERE IS NO RIGHT WAY TO CODE!
+Whether you used this...
+
+```r
+midus$sex &lt;- factor(midus$sex)
+midus$heart_self &lt;- factor(midus$heart_self)
+midus$heart_father &lt;- factor(midus$heart_father)
+```
+
+...or this...
+
+
+```r
+midus &lt;- midus %&gt;% 
+  mutate_at(vars(2, 10, 11), list(factor))
+```
+
+....**doesn't matter at all!** The only things that count are:
+  - Were you able to do what you wanted to? 
+  - Can YOU read the code and know what it's doing?
+  - Can SOMEONE ELSE read the code and know what it's doing?
+  
+---
+
+# A `filter()` &amp; `mutate_at()` example
+
+Let's say we `filter()` so that we only have females in our data.set.
+
+
+```r
+femalesOnly &lt;- midus %&gt;% 
+  filter(sex == "Female")
+```
+
+In our new data.frame, the variable `sex` should only have 1 level for "Female". That is, all the "Male" participants have been removed. So as a factor, there should only be 1 category or 1 level. Let's check:
+
+```r
+levels(femalesOnly$sex)
+```
+
+```
+## [1] "Female" "Male"
+```
+
+Uh oh! That's not quite right.
+
+---
+
+# A `filter()` &amp; `mutate_at()` example
+
+Let's tell R to make `sex` into a factor again (kind of like re-populate the variable).
+
+
+```r
+femalesOnly &lt;- midus %&gt;% 
+  filter(sex == "Female") %&gt;% 
+  mutate_at(vars(sex), list(factor))
+
+# check the levels again
+levels(femalesOnly$sex)
+```
+
+```
+## [1] "Female"
+```
+
+Now we got it! You could have first done the `filter()` function, ended the code chunk/paragraph, and then typed:
+`femalesOnly$sex &lt;- factor(femalesOnly$sex)`. The downside to this is that it's nice to keep all your functions (verbs/actions) in one place, if you can.
+---
+name: summary
+
+# `summarize()` function
+
+This is great for summarizing your data *(shocking, I know 😮)*
+
+Remember that awfulness for making bar plots? This is how we can do it easily!
+
+
+```r
+midus %&gt;% 
+  summarize(meanAge = mean(age))
+```
+
+```
+##    meanAge
+## 1 56.09118
+```
+
+---
+# `summarize()` function
+You can go crazy with this!
+
+
+```r
+midus %&gt;% 
+  summarize(meanAge = mean(age), # mean
+            sdAge = sd(age), # standard deviation
+            varAge = var(age), # variance
+            medianAge = median(age)) # median
+```
+
+```
+##    meanAge    sdAge   varAge medianAge
+## 1 56.09118 12.30031 151.2976        55
+```
+
+.box-inv-4.small[Fun fact: the person that wrote much of the `tidyverse` packages is from New Zealand, where they use British spellings. Therefore, `summarise()` is the exact same thing as `summarize()`. Your tab-complete might fill in the British versions!]
+
+---
+name: group
+
+# `group_by()` function
+We can make `summarize()` even more powerful by adding the `group_by()` function. 
+
+You will NOT see anything directly change to your data.frame if you were to just run this factor. However, on the back end (behind the scenes), it tells R to do something *for each level of a categorical variable*. 
+
+If we want the mean age of those with and without heart problems:
+
+
+```r
+midus %&gt;% 
+  group_by(heart_self) %&gt;% 
+  summarize(meanAge = mean(age))
+```
+
+```
+## # A tibble: 2 x 2
+##   heart_self meanAge
+##   &lt;fct&gt;        &lt;dbl&gt;
+## 1 No            54.6
+## 2 Yes           63.0
+```
+---
+# `group_by()` function
+We can go crazy with this too!
+
+
+```r
+midus %&gt;% 
+  group_by(heart_self, sex) %&gt;% 
+  summarize(meanAge = mean(age),
+            sdAge = sd(age),
+            meanBMI = mean(BMI),
+            sdBMI = sd(BMI))
+```
+
+```
+## # A tibble: 4 x 6
+## # Groups:   heart_self [2]
+##   heart_self sex    meanAge sdAge meanBMI sdBMI
+##   &lt;fct&gt;      &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 No         Female    54.9  12.3    27.5  6.42
+## 2 No         Male      54.3  11.5    28.2  4.74
+## 3 Yes        Female    61.2  11.8    28.0  6.60
+## 4 Yes        Male      64.6  11.1    28.9  4.92
+```
+
+---
+name: rand
+
+# Pro Tips
+As you can see, the suite of `tidyverse` packages can be really, really helpful! Some things to keep in mind:
+  - You can put a non-tidyverse function into one of these code chunks (paragraphs)
+    - If you do this, you sometimes need to give the function an input argument. Use the `.` for this. 
+    - Ex: `midus %&gt;% na.omit(.)`
+  - You can have as many functions in each paragraph as you want. Just remember that everything is *sequential*!
+    - If the output of your paragraph isn't what you think it should be, go line by line until you find the problem. Do NOT include the `%&gt;%` when you run the line of code, though! R will wait for you to finish your sentence...
+---
+
+# Other useful `dplyr` functions
+
+  - `recode()` is great for recoding variables. I especially like this for when you have something like `1` and `2` reflecting categorical variables. Recode them into something more meaningful! This is often nested within a `mutate()` or `mutate_at()` function.
+  
+  - `rename()` for renaming columns
+  
+  - `arrange()` will order the rows of a data.frame by some column. 
+  
+  - `n_distinct()` finds the number of unique entries. For example, if you have "male" and "female", the result of `n_distinct()` should be 2, even if there are thousands of rows. Now let's say there's a spelling error in one of these rows (e.g., "feemale"), now the result of `n_distinct()` will be 3...that should let you know there's a problem. 
+  
+  - lots &amp; lots of others...
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

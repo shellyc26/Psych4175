@@ -49,20 +49,12 @@ name: recap
 
 # Plan for today
 
-- Mini "Quiz" on **objects**, **classes**, and **indexing**
-
 - Actions we perform on our objects
     - **operators**
     - **functions**
 
 - Getting help when we need it
 
----
-name: miniquiz
-class: inverse, middle, center
-
-# Go take your first mini quiz!
-When you're done, come back here
 ---
 name: operator
 
@@ -293,12 +285,7 @@ round(5.86921, 3)
 round(3, 5.86921)
 ```
 ---
-class: inverse, middle, center
-name: practice1
 
-# Go do Practice #1
-When you are finished, come back here
----
 # Great, but how do I know what the arguments are for a function?
 Two ways:
   1. In RStudio, press the **tab** key to see the names of arguments and descriptions. (*note, this might not work in the online practice assignments, but it should definitely work when running RStudio locally*)
@@ -406,10 +393,3 @@ This will be the example we use.
 
 
 .center.small[*Note: we will go through other ways of doing this; but understanding the _logic_ is really, really important!*]
-
----
-class: inverse, middle, center
-name: practice2
-
-# Go do Practice #2
-When you are finished, go on to the next video

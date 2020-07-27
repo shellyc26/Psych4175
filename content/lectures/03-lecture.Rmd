@@ -31,8 +31,7 @@ sections <- tibble::tribble(
   "Recap", "1", TRUE,
   "Index", "indexing", FALSE,
   "Indexing for Vectors", "indexingVectors", FALSE,
-  "Importance", "impact", FALSE,
-  "Practice", "practice1", FALSE
+  "Importance", "impact", FALSE
 )
 
 slide_tabs(sections, "/slides/03-slides.html")

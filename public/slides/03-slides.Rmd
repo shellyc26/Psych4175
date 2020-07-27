@@ -56,7 +56,7 @@ empire$species <- factor(empire$species)
 - **.color-light-3[Objects]** store something
   - value
   - character string
-  - **.color-light-4[vector]** of values or characters
+  - **.color-light-3[vector]** of values or characters
   - entire data frame
   - model
   - etc...
@@ -70,7 +70,7 @@ empire$species <- factor(empire$species)
 --
 
 - And we need to be able to access bits and pieces of our .color-light-3[objects]
-  - Example: what if you only want one or a few of the objects in a **.color-light-4[vector]**? 
+  - Example: what if you only want one or a few of the objects in a **.color-light-3[vector]**? 
 
 ---
 
@@ -78,14 +78,14 @@ name: indexing
 
 # Indexing
 
-#### **Indexing** is how we access items within a .color-light-4[vector].
+#### **Indexing** is how we access items within a .color-light-3[vector].
 --
 
-To index a **.color-light-4[vector]**, we're going to use square brackets `[ ]`
+To index a **.color-light-3[vector]**, we're going to use square brackets `[ ]`
 ---
 # An example
 
-Let's make a **.color-light-4[vector]** of *some* my favorite TV `comedies`:
+Let's make a **.color-light-3[vector]** of *some* my favorite TV `comedies`:
 ```{r comedies0}
 comedies <- c("Parks and Rec", "Broad City", "I'm Sorry", "Avenue 5",
               "Bored to Death", "The Office", "Silicon Valley", "30 Rock",
@@ -193,11 +193,4 @@ bmi[16:20]
 
 (We will talk more about removing participants in the coming weeks!)
 
----
-
-class: inverse, middle, center
-name: practice1
-
-# Go do Practice #1
-When you are finished, go on to the next video
   

@@ -1,14 +1,14 @@
 ---
-title: "TEST"
-linktitle: "TEST"
+title: "Dplyr Functions"
+linktitle: "11: Dplyr"
 date: "6/16/2020"
 read_date: "2020-09-24"
 menu:
   lectures:
     parent: Tidyverse
-    weight: 1
+    weight: 2
 type: docs
-slides: "06-slides"
+slides: "11-slides"
 output:
   blogdown::html_page:
     toc: true
@@ -28,8 +28,15 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Recap", "1", TRUE
+  "Recap", "1", TRUE,
+  "Syntax", "syntax", FALSE,
+  "Filter", "filter", FALSE,
+  "Select", "select", FALSE,
+  "Mutate", "mutate", FALSE,
+  "Summarize", "summary", FALSE,
+  "Group By", "group", FALSE,
+  "Extras", "rand", FALSE
 )
 
-slide_tabs(sections, "/slides/06-slides.html")
+slide_tabs(sections, "/slides/11-slides.html")
 ```

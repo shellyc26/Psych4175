@@ -101,7 +101,7 @@ Step 1:
 Step 2:
 
 - Click "Run" at top right of script
-- Hit `command` + `return` (for Mac) or `ctrl` + `enter` (for PC)
+- Hit <kbd>command</kbd> + <kbd>return</kbd> (for Mac) or <kbd>ctrl</kbd> + <kbd>enter</kbd> (for PC)
 
 ---
 
@@ -116,5 +116,5 @@ Step 2:
 name: practice
 class: inverse, middle, center
 
-# Go to Practice 1
-After you have finished, continue on to the next video
+# No Practice
+There is no practice set that accompanies this lecture/video sequence. Once you have a feel for RStudio (as described in this lecture), you may continue on to Lecture 2. 

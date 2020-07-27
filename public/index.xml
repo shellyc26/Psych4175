@@ -2350,10 +2350,10 @@ Figure 1: A fancy pie chart.
     </item>
     
     <item>
-      <title>Downloading R</title>
-      <link>/lectures/00-testslides/</link>
+      <title>Installing R &amp; RStudio</title>
+      <link>/lectures/00-lecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/lectures/00-testslides/</guid>
+      <guid>/lectures/00-lecture/</guid>
       <description>
 
 &lt;div id=&#34;TOC&#34;&gt;
@@ -2370,17 +2370,178 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
 
-&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/testslides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/testslides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/00-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/00-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link active&#34; id=&#34;tab-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tab-1&#34; role=&#34;tab&#34; aria-controls=&#34;tab-1&#34; aria-selected=&#34;true&#34;&gt;Tab 1&lt;/a&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;installation-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#installation&#34; role=&#34;tab&#34; aria-controls=&#34;installation&#34; aria-selected=&#34;true&#34;&gt;Installation&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
-&lt;div id=&#34;tab-1&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;tab-1-tab&#34;&gt;
+&lt;div id=&#34;installation&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;installation-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/testslides.html#1&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/00-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Welcome to the Tidyverse</title>
+      <link>/lectures/10-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/10-lecture/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/10-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/10-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;welcome-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#welcome&#34; role=&#34;tab&#34; aria-controls=&#34;welcome&#34; aria-selected=&#34;true&#34;&gt;Welcome&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;installation-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#installation&#34; role=&#34;tab&#34; aria-controls=&#34;installation&#34; aria-selected=&#34;false&#34;&gt;Installation&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;going-forward-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#going-forward&#34; role=&#34;tab&#34; aria-controls=&#34;going-forward&#34; aria-selected=&#34;false&#34;&gt;Going Forward&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;welcome&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;welcome-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/10-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installation&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;installation-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/10-slides.html#install&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;going-forward&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;going-forward-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/10-slides.html#fwd&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dplyr Functions</title>
+      <link>/lectures/11-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/11-lecture/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/11-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/11-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;syntax-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#syntax&#34; role=&#34;tab&#34; aria-controls=&#34;syntax&#34; aria-selected=&#34;false&#34;&gt;Syntax&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;filter-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#filter&#34; role=&#34;tab&#34; aria-controls=&#34;filter&#34; aria-selected=&#34;false&#34;&gt;Filter&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;select-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#select&#34; role=&#34;tab&#34; aria-controls=&#34;select&#34; aria-selected=&#34;false&#34;&gt;Select&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;mutate-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#mutate&#34; role=&#34;tab&#34; aria-controls=&#34;mutate&#34; aria-selected=&#34;false&#34;&gt;Mutate&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;summarize-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#summarize&#34; role=&#34;tab&#34; aria-controls=&#34;summarize&#34; aria-selected=&#34;false&#34;&gt;Summarize&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;group-by-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#group-by&#34; role=&#34;tab&#34; aria-controls=&#34;group-by&#34; aria-selected=&#34;false&#34;&gt;Group By&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;extras-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#extras&#34; role=&#34;tab&#34; aria-controls=&#34;extras&#34; aria-selected=&#34;false&#34;&gt;Extras&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/11-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;syntax&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;syntax-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/11-slides.html#syntax&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;filter&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;filter-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/11-slides.html#filter&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;select&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;select-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/11-slides.html#select&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mutate&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;mutate-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/11-slides.html#mutate&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summarize&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;summarize-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/11-slides.html#summary&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;group-by&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;group-by-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/11-slides.html#group&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extras&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;extras-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/11-slides.html#rand&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2419,9 +2580,6 @@ Figure 1: A fancy pie chart.
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;rstudio-tour-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#rstudio-tour&#34; role=&#34;tab&#34; aria-controls=&#34;rstudio-tour&#34; aria-selected=&#34;false&#34;&gt;RStudio Tour&lt;/a&gt;
 &lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-1&#34; role=&#34;tab&#34; aria-controls=&#34;practice-1&#34; aria-selected=&#34;false&#34;&gt;Practice 1&lt;/a&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
 &lt;div id=&#34;about-r&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;about-r-tab&#34;&gt;
@@ -2433,12 +2591,6 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;rstudio-tour&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;rstudio-tour-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/01-slides.html#rstudio&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;practice-1&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-1-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/01-slides.html#practice&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2478,16 +2630,7 @@ Figure 1: A fancy pie chart.
 &lt;a class=&#34;nav-link&#34; id=&#34;assignment-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#assignment&#34; role=&#34;tab&#34; aria-controls=&#34;assignment&#34; aria-selected=&#34;false&#34;&gt;Assignment&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-1&#34; role=&#34;tab&#34; aria-controls=&#34;practice-1&#34; aria-selected=&#34;false&#34;&gt;Practice 1&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-2&#34; role=&#34;tab&#34; aria-controls=&#34;practice-2&#34; aria-selected=&#34;false&#34;&gt;Practice 2&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;vectors-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#vectors&#34; role=&#34;tab&#34; aria-controls=&#34;vectors&#34; aria-selected=&#34;false&#34;&gt;Vectors&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-3-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-3&#34; role=&#34;tab&#34; aria-controls=&#34;practice-3&#34; aria-selected=&#34;false&#34;&gt;Practice 3&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;object-classes-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#object-classes&#34; role=&#34;tab&#34; aria-controls=&#34;object-classes&#34; aria-selected=&#34;false&#34;&gt;Object Classes&lt;/a&gt;
@@ -2506,27 +2649,9 @@ Figure 1: A fancy pie chart.
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;practice-1&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-1-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#practice1&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;practice-2&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-2-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#practice2&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;div id=&#34;vectors&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;vectors-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#vector&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;practice-3&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-3-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/02-slides.html#practice3&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2577,9 +2702,6 @@ Figure 1: A fancy pie chart.
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;importance-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#importance&#34; role=&#34;tab&#34; aria-controls=&#34;importance&#34; aria-selected=&#34;false&#34;&gt;Importance&lt;/a&gt;
 &lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice&#34; role=&#34;tab&#34; aria-controls=&#34;practice&#34; aria-selected=&#34;false&#34;&gt;Practice&lt;/a&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
 &lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
@@ -2603,12 +2725,6 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;importance&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;importance-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/03-slides.html#impact&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;practice&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/03-slides.html#practice1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2648,16 +2764,10 @@ Figure 1: A fancy pie chart.
 &lt;a class=&#34;nav-link&#34; id=&#34;dataframe-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#dataframe&#34; role=&#34;tab&#34; aria-controls=&#34;dataframe&#34; aria-selected=&#34;false&#34;&gt;Data.frame&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-1&#34; role=&#34;tab&#34; aria-controls=&#34;practice-1&#34; aria-selected=&#34;false&#34;&gt;Practice 1&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;indexing-df-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#indexing-df&#34; role=&#34;tab&#34; aria-controls=&#34;indexing-df&#34; aria-selected=&#34;false&#34;&gt;Indexing DF&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;finding-data-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#finding-data&#34; role=&#34;tab&#34; aria-controls=&#34;finding-data&#34; aria-selected=&#34;false&#34;&gt;Finding Data&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-2&#34; role=&#34;tab&#34; aria-controls=&#34;practice-2&#34; aria-selected=&#34;false&#34;&gt;Practice 2&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;matrices-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#matrices&#34; role=&#34;tab&#34; aria-controls=&#34;matrices&#34; aria-selected=&#34;false&#34;&gt;Matrices&lt;/a&gt;
@@ -2667,9 +2777,6 @@ Figure 1: A fancy pie chart.
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;lists-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#lists&#34; role=&#34;tab&#34; aria-controls=&#34;lists&#34; aria-selected=&#34;false&#34;&gt;Lists&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-3-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-3&#34; role=&#34;tab&#34; aria-controls=&#34;practice-3&#34; aria-selected=&#34;false&#34;&gt;Practice 3&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
@@ -2685,12 +2792,6 @@ Figure 1: A fancy pie chart.
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;practice-1&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-1-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/04-slides.html#practice1&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;div id=&#34;indexing-df&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;indexing-df-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/04-slides.html#indexing&#34;&gt;
@@ -2700,12 +2801,6 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;finding-data&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;finding-data-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/04-slides.html#finding&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;practice-2&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-2-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/04-slides.html#practice2&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2724,12 +2819,6 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;lists&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;lists-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/04-slides.html#list&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;practice-3&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-3-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/04-slides.html#practice3&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2766,9 +2855,6 @@ Figure 1: A fancy pie chart.
 &lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;mini-quiz-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#mini-quiz&#34; role=&#34;tab&#34; aria-controls=&#34;mini-quiz&#34; aria-selected=&#34;false&#34;&gt;Mini Quiz&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;operators-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#operators&#34; role=&#34;tab&#34; aria-controls=&#34;operators&#34; aria-selected=&#34;false&#34;&gt;Operators&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
@@ -2778,25 +2864,13 @@ Figure 1: A fancy pie chart.
 &lt;a class=&#34;nav-link&#34; id=&#34;functions-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#functions&#34; role=&#34;tab&#34; aria-controls=&#34;functions&#34; aria-selected=&#34;false&#34;&gt;Functions&lt;/a&gt;
 &lt;/li&gt;
 &lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice1&#34; role=&#34;tab&#34; aria-controls=&#34;practice1&#34; aria-selected=&#34;false&#34;&gt;Practice1&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;help-pages-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#help-pages&#34; role=&#34;tab&#34; aria-controls=&#34;help-pages&#34; aria-selected=&#34;false&#34;&gt;Help Pages&lt;/a&gt;
-&lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-2&#34; role=&#34;tab&#34; aria-controls=&#34;practice-2&#34; aria-selected=&#34;false&#34;&gt;Practice 2&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
 &lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/05-slides.html#1&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;mini-quiz&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;mini-quiz-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/05-slides.html#miniquiz&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2818,21 +2892,9 @@ Figure 1: A fancy pie chart.
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;practice1&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice1-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/05-slides.html#practice1&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;div id=&#34;help-pages&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;help-pages-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/05-slides.html#help&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;practice-2&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-2-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/05-slides.html#practice2&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2868,11 +2930,20 @@ Figure 1: A fancy pie chart.
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
 &lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;packages-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#packages&#34; role=&#34;tab&#34; aria-controls=&#34;packages&#34; aria-selected=&#34;false&#34;&gt;Packages&lt;/a&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
 &lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/06-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;packages&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;packages-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/06-slides.html#packages&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2920,9 +2991,6 @@ Figure 1: A fancy pie chart.
 &lt;li class=&#34;nav-item&#34;&gt;
 &lt;a class=&#34;nav-link&#34; id=&#34;loading-data-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#loading-data&#34; role=&#34;tab&#34; aria-controls=&#34;loading-data&#34; aria-selected=&#34;false&#34;&gt;Loading Data&lt;/a&gt;
 &lt;/li&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link&#34; id=&#34;practice-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#practice-1&#34; role=&#34;tab&#34; aria-controls=&#34;practice-1&#34; aria-selected=&#34;false&#34;&gt;Practice 1&lt;/a&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
 &lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
@@ -2952,12 +3020,6 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;loading-data&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;loading-data-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/07-slides.html#opening&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;practice-1&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;practice-1-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/07-slides.html#practice1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3179,46 +3241,6 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;resources&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;resources-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/09-slides.html#resources&#34;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>TEST</title>
-      <link>/lectures/100-lecture/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/lectures/100-lecture/</guid>
-      <description>
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Slides&lt;/h2&gt;
-
-&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/06-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/06-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
-&lt;li class=&#34;nav-item&#34;&gt;
-&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
-&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/06-slides.html#1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;

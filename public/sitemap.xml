@@ -208,7 +208,15 @@
   </url>
   
   <url>
-    <loc>/lectures/00-testslides/</loc>
+    <loc>/lectures/00-lecture/</loc>
+  </url>
+  
+  <url>
+    <loc>/lectures/10-lecture/</loc>
+  </url>
+  
+  <url>
+    <loc>/lectures/11-lecture/</loc>
   </url>
   
   <url>
@@ -245,10 +253,6 @@
   
   <url>
     <loc>/lectures/09-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/100-lecture/</loc>
   </url>
   
 </urlset>

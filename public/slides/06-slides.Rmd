@@ -222,10 +222,3 @@ Ways to find documentation:
 .medium[`??psych`] -- searches for this in all documentation (that you have installed and loaded)
 
 To find a package that does what you need: .large[Google]
----
-
-class: inverse, middle, center
-name: practice1
-
-# Go do Practice #1
-When you are finished, go on to the next video

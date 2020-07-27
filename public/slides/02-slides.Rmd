@@ -166,14 +166,6 @@ nameOfMyObject <- objectToStore
 ```
 
 ---
-class: inverse, middle, center
-name: practice1
-
-# Go do Practice #1
-
-When you have finished, come back here.
-
----
 
 # What's the point of storing objects?
 
@@ -244,15 +236,6 @@ y/3
 #### The error message `object 'y' not found` is very common!
 R cannot perform the operation because you never told it to remember `17*8`
 ---
-
-class: inverse, middle, center
-name: practice2
-
-# Go do Practice #2
-
-When you have finished, come back here.
-
----
 name: vector
 
 # One type of object: **Vectors**
@@ -317,16 +300,6 @@ countries + 2
 ```
 
 ---
-
-class: inverse, middle, center
-name: practice3
-
-# Go do Practice #3
-
-When you have finished, come back here.
-
----
-
 name: classes
 # Basic data classes
 

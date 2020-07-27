@@ -210,11 +210,5 @@ The following line of code will appear in your console:
 
 <img src="07-slides_files/figure-html/samplescript.png", width = "100%">
 
----
-class: inverse, middle, center
-name: practice1
-
-# Go do Practice #1
-When you are finished, go on to the next video
 
 

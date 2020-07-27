@@ -1,5 +1,5 @@
 ---
-title: Lectures and videos
+title: Lectures and Videos
 menu:
   lectures:
     parent: Overview
@@ -8,10 +8,26 @@ type: docs
 weight: 1
 ---
 
-Each class session has a set of required readings that you should complete ***before*** watching the lecture or working through the lesson. 
+These pages contain the lecture slides and videos, and are organized by topic. 
 
-Every class session also has a YouTube playlist of short recorded videos for each of the lecture sections. On each class session page you'll buttons for opening the presentation in a new tab or for downloading a PDF of the slides in case you want to print them or store them on your computer:
+First, you will see a YouTube playlist. Sometimes there will only be 1 video, other times there will be multiple short videos. **You are expected to watch these videos!**
+
+Below the YouTube playlist, you will find the lecture slides. The slides are embedded on each page. You can click in the slides and navigate through them with <kbd>←</kbd> and <kbd>→</kbd>. If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while viewing the slides you can see a list of slide-specific commands.
+
+You will also find these two buttons directly above the slides:
 
 <p style="text-align:center;"><span class="btn btn-primary btn-lg"><i class="fas fa-external-link-alt"></i> View all slides in new window</span> <span class="btn btn-primary btn-lg"><i class="far fa-file-pdf"></i> Download PDF of all slides</span></p>
 
-The slides are also embedded on each page. You can click in the slides and navigate through them with <kbd>←</kbd> and <kbd>→</kbd>. If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while viewing the slides you can see a list of slide-specific commands.
+They will allow you to open the slides in a new tab (to make them bigger) or to download a PDF copy of the slides (for printing or storing). I recommend using one of these features in order to make the slides larger and easier to see. But as I get older, my vision gets worse `r emo::ji("eyeglasses")` -- so do whatever works for you!
+
+Remember, here's the order of operations for this class:
+
+  - Watch the lecture videos
+  - While watching the videos, simultaneous follow along with the slides
+  - Complete that topic's corrsponding Practice set
+  - Complete an Assignment
+
+For more on what you should be doing during a particular week, please see the [Syllabus](/syllabus). 
+
+
+

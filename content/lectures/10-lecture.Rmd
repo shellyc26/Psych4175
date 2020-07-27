@@ -1,14 +1,14 @@
 ---
-title: "Downloading R"
-linktitle: "0: Setup with R"
-date: "5/28/2020"
+title: "Welcome to the Tidyverse"
+linktitle: "10: Intro to Tidyverse"
+date: "6/16/2020"
 read_date: "2020-09-24"
 menu:
   lectures:
-    parent: The Basics
+    parent: Tidyverse
     weight: 1
 type: docs
-slides: "testslides"
+slides: "10-slides"
 output:
   blogdown::html_page:
     toc: true
@@ -28,9 +28,10 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Tab 1", "1", TRUE,
+  "Welcome", "1", TRUE,
+  "Installation", "install", FALSE,
+  "Going Forward", "fwd", FALSE
 )
 
-slide_tabs(sections, "/slides/testslides.html")
+slide_tabs(sections, "/slides/10-slides.html")
 ```
-

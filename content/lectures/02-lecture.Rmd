@@ -30,10 +30,7 @@ sections <- tibble::tribble(
   ~name, ~slide, ~active,
   "Objects", "1", TRUE,
   "Assignment", "assignment", FALSE,
-  "Practice 1", "practice1", FALSE,
-  "Practice 2", "practice2", FALSE,
   "Vectors", "vector", FALSE,
-  "Practice 3", "practice3", FALSE,
   "Object Classes", "classes", FALSE
 )
 

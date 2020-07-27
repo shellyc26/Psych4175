@@ -137,13 +137,6 @@ kable(empire, format = "html", escape = F) %>%
   column_spec(3, background = c("#FFFF00"))
 ```
 ---
-class: inverse, middle, center
-name: practice1
-
-# Go do Practice #1
-When you are finished, come back here
-
----
 name: indexing
 
 # Indexing Data.frames
@@ -222,13 +215,6 @@ empire$height
 --
 
 - *Note the tab-complete!*
----
-class: inverse, middle, center
-name: practice2
-
-# Go do Practice #2
-When you are finished, come back here
-
 ---
 
 # Other object types
@@ -365,11 +351,5 @@ exampleList[[2]]
 # Double brackets gets you "in"
 exampleList[[2]]$mass
 ```
----
 
-class: inverse, middle, center
-name: practice3
-
-# Go do Practice #3
-When you are finished, go on to the next video
 

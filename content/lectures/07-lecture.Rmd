@@ -32,8 +32,7 @@ sections <- tibble::tribble(
   "Directories", "directories", FALSE,
   "RProject", "rproject", FALSE,
   "File Types", "files", FALSE,
-  "Loading Data", "opening", FALSE,
-  "Practice 1", "practice1", FALSE
+  "Loading Data", "opening", FALSE
 )
 
 slide_tabs(sections, "/slides/07-slides.html")
