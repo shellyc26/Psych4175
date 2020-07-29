@@ -1,0 +1,41 @@
+---
+title: "Tidyr Functions"
+linktitle: "12: Tidyr"
+date: "6/16/2020"
+read_date: "2020-09-24"
+menu:
+  lectures:
+    parent: Tidyverse
+    weight: 3
+type: docs
+slides: "12-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Long vs. Wide", "lw", FALSE,
+  "Pivot Wider", "pw", FALSE,
+  "Pivot Longer", "pl", FALSE,
+  "Separate", "sep", FALSE,
+  "Unite", "un", FALSE,
+  "Missing Data", "missing", FALSE
+)
+
+slide_tabs(sections, "/slides/12-slides.html")
+```

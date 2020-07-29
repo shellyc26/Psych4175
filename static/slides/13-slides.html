@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>The Reproducibility Crisis</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-blue.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# The Reproducibility Crisis
+
+---
+
+
+
+
+
+
+# The "Reproducibility Crisis"
+
+&lt;center&gt;
+&lt;img src="13-slides_files/figure-html/repro.png", width = "100%"&gt;
+&lt;/center&gt;
+
+
+*Note: It's not just Psychology! Neuroscience, Political Science, Public Health, etc... Nearly every scientific discipline has issues!*
+
+---
+# The "Reproducibility Crisis"
+
+How did the authors actually do their analyses?
+  - Did they transform their variables? If so, how?
+  - How did they handle missing data?
+  - Did they do what they said they were going to do in the Methods section of the paper?
+  
+Can we check that they did everything correctly? 
+  - We need to be able to *reproduce* their findings
+  - In order to reproduce a figure, you need the data and the code!
+    - Code needs to be in a format that **other humans** can read!
+
+---
+# Make Your Life Prettier
+
+- Format code and text so that it's easier to read
+  - Comments in a script are great, but it can get cumbersome
+- This is great for homework assignments, showing your research advisor or boss your findings, and publishing code along with your manuscripts!
+- Some examples: 
+
+&lt;center&gt;
+&lt;img src="13-slides_files/figure-html/ex.png", width = "100%"&gt;
+&lt;/center&gt;
+
+---
+# How do we do this?
+To make our code pretty and readable, we're going to use something called **Markdown**. It's a way to take plain text and convert it into a pretty, formatted document like HTML, PDF, or even MS Word. 
+
+  - Specifically, it's a way to write formatted text without writing full-blown HTML.
+  - It is not specific to `R`! Lots of things use Markdown! For example, the [.url[README files on Github like this one]](https://github.com/facebook/react) (scroll down to formatted text). Learning this will help even if you decide to leave academia. 
+  - **RMarkdown** is simply Markdown but within `R`. This will, obvs, be our focus.
+
+---
+# Why use RMarkdown?
+...but my script has lots of comments and it's fine, right? 
+
+NO!
+
+  - .R scripts are monotonous
+  - Make a professional document or report
+    - Headers
+    - Bullet lists
+    - **Clearly differentiate between text and code**
+    - Link to websites, insert pictures etc. 
+  - MUCH easier to read!
+  - MUCH easier to reproduce!
+
+---
+name: check
+
+# Before we begin
+You will need the following packages. I'm 95% sure that `R` automatically installs the first two packages when you install `R`. The third package you should have already intalled as part of one of the practice sets. However, please check your Packages tab now -- if you do not have any of these, please install them!
+
+  - `rmarkdown`
+  - `knitr`
+  - `kableExtra`
+
+---
+# Before we bgin
+When you go to `File &gt; New File &gt;` you will see options for RMarkdown &amp; RNotebook.
+
+We are going to work with RNotebook.
+
+  - Frankly, they are nearly identical, including having the same file extension (`.Rmd`), so it doesn't matter much tbh
+  - It's slightly easier to preview an RNotebook, so we'll stick to that.
+  - *I will use RMarkdown and RNotebook interchangably from here on out, because they are seriously that similar!*
+  - .small[Those of you coming from Python 🐍, this is the equivalent of a Jupyter notebook]
+
+---
+name: fwd
+
+# This section
+There are 2 sections (in addition to this one) spanning reproducibility with RMarkdown. 
+
+  1. The first will introduce you to the skeleton of a `.Rmd` document. This is a way to get familiar with the basics.
+  
+  2. The second will show you all the paramters you can change to make your document even prettier. This is to give you a taste of all of the flexibility available at your fingertips.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

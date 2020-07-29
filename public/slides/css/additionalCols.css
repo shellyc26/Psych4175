@@ -302,3 +302,10 @@ Coloring and inverse coloring in title bars and content boxes
   text-align: center;
 }
 
+.align-left{
+  text-align: left;
+}
+
+.no-padding{
+  padding-top: 0em;
+}

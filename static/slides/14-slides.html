@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>RMarkdown Basics</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-purple.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# RMarkdown Basics
+
+---
+
+
+
+
+
+
+# Recap
+- Reproducibility across all sciences is a **huge** issue!
+- We need to be able to reproduce scientific findings
+  - This means the data &amp; code from a given paper must be easy to access and **human readable**
+- When it comes to programming in `R`, using **RMarkdown** can help us make sure that other humans can understand our analyses
+
+&lt;center&gt;
+&lt;img src="14-slides_files/figure-html/toon.png", width = "60%"&gt;
+&lt;/center&gt;
+
+.tiny[Artwork by [Allison Horst](https://twitter.com/allison_horst)]
+---
+# Anatomy of RNotebook
+The anatomy of all `.Rmd` files (RNotebook or RMarkdown):
+
+.box-7.large.align-left[
+1\. Document Information
+]
+.box-7.large.align-left[
+2\. Formatted Text &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+]
+.box-7.large.align-left[
+3\. Code Chunks &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+]
+
+---
+# Anatomy of RNotebook
+The anatomy of all `.Rmd` files (RNotebook or RMarkdown):
+
+.box-inv-7.large.align-left[
+1\. Document Information
+]
+.box-7.large.align-left[
+2\. Formatted Text &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+]
+.box-7.large.align-left[
+3\. Code Chunks &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+]
+
+---
+name: di
+
+# Document Information
+
+.pull-left[
+- Title
+- Subtitle
+- Date
+- Author
+- Output type
+]
+
+.pull-right[
+&lt;img src="14-slides_files/figure-html/yaml.png", width = "100%"&gt;
+
+This is sometimes called a YAML header.
+]
+
+---
+# Document Information
+.pull-left[
+- Title
+- Subtitle
+- Date
+- Author
+- Output type
+]
+
+.pull-right[
+&lt;img src="14-slides_files/figure-html/yaml2.png", width = "100%"&gt;
+
+.box-inv-7[IMPORTANT: Do NOT change any of the tabs/indents in the YAML header. If you copy something from the internet, pay attention to this!]
+]
+
+---
+# Anatomy of RNotebook
+The anatomy of all `.Rmd` files (RNotebook or RMarkdown):
+
+.box-7.large.align-left[
+1\. Document Information
+]
+.box-inv-7.large.align-left[
+2\. Formatted Text &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+]
+.box-7.large.align-left[
+3\. Code Chunks &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+]
+---
+
+# Formatted Text
+You need to tell R how you want your text to be formatted:
+  - Headers
+  - Bolded text
+  - Italicized text
+  - Hyperlinks
+  - Bullet/numbered lists
+---
+name: head
+
+# Headers
+
+The number of `#` indicates what size and level your header should be.
+
+&lt;center&gt;
+&lt;img src="14-slides_files/figure-html/headers.png", width = "80%"&gt;
+&lt;/center&gt;
+---
+# Headers
+
+&lt;center&gt;
+&lt;img src="14-slides_files/figure-html/headcode.png", width = "100%"&gt;
+&lt;/center&gt;
+---
+# Headers
+
+&lt;center&gt;
+&lt;img src="14-slides_files/figure-html/headoutput.png", width = "100%"&gt;
+&lt;/center&gt;
+---
+name:bi
+
+# Bold &amp; Italics
+
+**Bold text**
+  - \*\*bold text \*\*
+  - \_\_bold text \_\_ (2 underscores)
+
+*Italicized text*
+  - \* italicized text \*
+  - \_ italicized text \_
+
+To **_combine_**, pick `*` for one and `_` for the other
+  - \*\*\_combine\_\*\*
+  - \_\*\*combine\*\*\_
+  - \*\_\_combine\_\_\*
+  - \_\_\*combine\*\_\_
+
+---
+name: links
+
+# Hyperlinks
+
+- The word(s) you want to be the link go inside square brackets `[ ]`
+
+- Immediately after, it's a pair of parentheses `( )` that contains the actual link. 
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;center&gt;
+.url.large[[Google]].large[(www.google.com) is my friend!]
+&lt;/center&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;center&gt;
+.large[[Google](www.google.com) is my friend!]
+&lt;/center&gt;
+---
+name: lists
+
+# Bullet Lists - Unordered
+
+- First line must end with a `:` (colon)
+- Must have an empty line
+- Must have a space after the bullet
+
+.pull-left[
+#### Unformatted
+`Brazilian States:`
+
+`- Rio Grande do Sul`  
+`- Parana`  
+`- Rio de Janeiro`
+]
+
+.pull-right[
+#### Formatted
+Brazilian States:
+
+- Rio Grande do Sul
+- Parana
+- Rio de Janeiro
+]
+
+
+.small[Bullets can be `-` (dashes), `+` (plus), or `*` (asterisk), but all come out looking like what you see here.]
+---
+# Bullet Lists - Ordered
+Same thing, but now with numbers
+
+.pull-left[
+#### Unformatted
+`Brazilian States:`
+
+`1. Rio Grande do Sul`  
+`2. Parana`  
+`3. Rio de Janeiro`
+]
+
+.pull-right[
+#### Formatted
+Brazilian States:
+
+1. Rio Grande do Sul
+2. Parana
+3. Rio de Janeiro
+]
+---
+# Bullet Lists - Nested
+You can have organized, nested lists. Go to the next line, and press **2 spaces**. Then put your new bullet symbol. 
+  - Do NOT press &lt;kbd&gt;tab&lt;/kbd&gt;. For whatever reason, R doesn't like it for Markdown.
+  - If you still are stuck, try 4 spaces -- that should work
+
+.pull-left[
+#### Unformatted
+&lt;img src="14-slides_files/figure-html/nest.png", width = "80%"&gt;
+]
+
+.pull-right[
+#### Formatted
+Brazilian States &amp; Capitals:
+
+1. Rio Grande do Sul
+    * Porto Alegre
+      - This is the best!
+2. Parana
+    * Curitiba
+3. Rio de Janeiro
+    * Rio de Janeiro
+]
+
+---
+# Anatomy of RNotebook
+The anatomy of all `.Rmd` files (RNotebook or RMarkdown):
+
+.box-7.large.align-left[
+1\. Document Information
+]
+.box-7.large.align-left[
+2\. Formatted Text &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+]
+.box-inv-7.large.align-left[
+3\. Code Chunks &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+]
+
+---
+name: code
+
+# Code Chunks
+- This is what makes RMarkdown so cool!
+- Type your code directly into a code chunk and work with it just like you would a `.R` script file
+- When you're done, click &lt;kbd&gt;knit&lt;/kbd&gt; at the top to generate your pretty report
+  - All code chunks will be executed (unless you say otherwise...see next lecture)
+---
+
+# Code Chunks
+
+&lt;center&gt;
+&lt;img src="14-slides_files/figure-html/chunk.png", width = "50%"&gt;
+&lt;/center&gt;
+
+Each code chunk:
+  - **Starts and ends** with three backticks
+    - if you don't have the ending 3, you're gonna have a bad time
+  - Has `{r}` at top next to the first 3 backticks
+  - Has gray background
+  - Looks like normal code
+  - Runs like normal code
+
+---
+
+# Making Code Chunks
+
+.pull-left[
+To make a code chunk:
+  - Use the `insert` button
+  - Manually type the backticks &amp; `{r}`
+  - Keyboard shortcuts
+    - PCs: &lt;kbd&gt;ctrl&lt;/kbd&gt; + &lt;kbd&gt;alt&lt;/kbd&gt; + &lt;kbd&gt;i&lt;/kbd&gt; 
+    - Macs: &lt;kbd&gt;cmd&lt;/kbd&gt; + &lt;kbd&gt;opt&lt;/kbd&gt; + &lt;kbd&gt;i&lt;/kbd&gt;
+]
+
+.pull-right[
+&lt;img src="14-slides_files/figure-html/insert.png", width = "50%"&gt;
+]
+---
+
+# A finished product
+&lt;center&gt;
+&lt;img src="14-slides_files/figure-html/ex.png", width = "100%"&gt;
+&lt;/center&gt;
+
+---
+# Code Chunks
+All code will run in a code chunk
+  - It's very literal!
+  - We can't see `midus` or `mean_age`
+    - These are stored as objects
+    - If you want to see them, you need to tell R to show them to you
+  - We needed to import `midus`
+    - If it was in your Environment *before* knitting the file AND you did *not* import your data, it would fail
+    - Whatever data you use, you need to import it!
+---
+name: tab
+
+# Viewing data.frames
+To help make data.frames readable for humans, use the `kable()` function
+  - comes from the `knitr` package, although surprisingly, you don't need to manually load this one
+---
+&lt;center&gt;
+&lt;img src="14-slides_files/figure-html/midus.png", width = "100%"&gt;
+&lt;/center&gt;
+---
+
+# Next up
+
+Chaning parameters in the YAML header and in code chunks to make the output just right. 
+&lt;center&gt;
+&lt;img src="14-slides_files/figure-html/silly.jpg", width = "35%"&gt;
+&lt;/center&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
