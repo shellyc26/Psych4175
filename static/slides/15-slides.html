@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>RMarkdown Flexibility</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-red.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# RMarkdown Flexibility
+
+---
+
+
+
+
+
+
+# Anatomy of .Rmd
+
+&lt;center&gt;
+.box-1.large.align-left[
+1\. Document Information 
+
+2\. Formatted Text
+
+3\. Code Chunks
+]
+&lt;/center&gt;
+
+---
+# Today
+All the different parameters you can add to your code chunks and document information (aka yaml header) for added flexibility.
+
+
+
+
+.medium[Absolutely, 100% do **NOT** memorize *any* of this!]
+
+---
+name: par
+
+# Parameter
+A parameter is the thing that goes within the curly brackets `{ }` at the top of a code chunk. Some useful ones we will cover:
+  - Programming languge (necessary)
+  - Name of chunk (strongly encouraged)
+  - Echo
+  - Include
+  - Eval
+  - Message/Warning
+  - Figure parameters
+
+---
+
+# What programming language?
+
+.pull-left[
+- Default is `R` (obviously)
+- But it can be different...
+]
+
+.pull-right[
+
+&lt;img src="15-slides_files/figure-html/lang.png", width = "70%"&gt;
+]
+
+---
+
+# Name of chunk
+
+.pull-left[
+- No comma (`,`) after the programming language parameter
+- Name your chunk something that you will remember and makes sense!
+  - Do **not** include spaces in the name
+  - Do **not** include special characters like `#`, `$`, `%`, etc. 
+    - Dashes (`-`) and underscores (`_`) are OK
+- Naming your chunk should help you navigate your document
+]
+
+--
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/name.png", width = "100%"&gt;
+]
+
+---
+# The `echo` parameter
+
+The `echo` parameter refers to if the code in the chunk should show up in your output document.
+  - If you want your code to appear, `echo = TRUE` (this is the default behavior)
+  - If you only the *OUTPUT* of the code to appear (not the code itself), set `echo = FALSE`
+
+
+All the code will be run and executed no matter what!
+---
+# `echo = TRUE`
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/codeechoT.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/outechoT.png", width = "100%"&gt;
+]
+---
+# `echo = FALSE`
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/codeechoF.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/outechoF.png", width = "100%"&gt;
+]
+
+---
+# The `include` parameter
+
+`include` is very similar to `echo` except *both* the code AND the output will not be shown. 
+  - All code will be run and executed!
+  
+At the top of each .Rmd, it is helpful to have a code chunk, usually called `setup`. It's a great place to:
+
+  - import your dataset (`read.csv`)
+  - load the necessary packages (`library()`)
+  - set options that will apply to the entire document (later slides)
+  - etc...
+    
+For the most part, the people you send this file to do not need to see any of the above 👆. So it's a good place to use `include = FALSE`. 
+
+---
+# The `include` parameter
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/codeincludeF.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/outincludeF.png", width = "100%"&gt;
+]
+---
+
+# The `eval` parameter
+- Should the code run at all?
+- Default is `TRUE`
+- This is sometimes nice when you're trying to teach a concept or explain how something works. 
+
+--
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/codeevalF.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/outevalF.png", width = "100%"&gt;
+]
+
+---
+
+# Messages &amp; Warnings
+- Sometimes functions will result in code that shows you *non-error* messages or warnings in the console. Examples: 
+    
+    - When you load a package `ggplot::alpha is masked by psych::alpha`
+    - `removed any NA`
+    
+- These are fine for personal use, but if you're sharing your codde, they don't need to see these things
+
+- The default behavior of RMarkdown is to show you the messages and warnings 
+
+- To change, add `message = FALSE` and `warnring = FALSE` parameters
+
+.small[Note, it's hard to tell the difference between messages and warnings, so I usually do both]
+
+---
+# `message = TRUE`
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/codemessageT.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/outmessageT.png", width = "100%"&gt;
+]
+
+---
+# `message = FALSE`
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/codemessageF.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/outmessageF.png", width = "100%"&gt;
+]
+
+---
+# Figures
+
+How big do you want your figures to be on the page? 
+  - can modify with `fig.width` &amp; `fig.height`
+  - default is 7x7 inches, but you might want to make that smaller if you want to see 2 next to each other
+
+How do you want your figures to be aligned on the page?
+  - right? left? lenter?
+  - can modify with `fig.align`
+  - default is to not make any adjustments at all
+
+---
+# Problem with Figures
+&lt;img src="15-slides_files/figure-html/fig1.png", width = "100%"&gt;
+
+---
+# Problem with Figures
+&lt;img src="15-slides_files/figure-html/fig2.png", width = "100%"&gt;
+
+---
+# Solution to Figures
+&lt;img src="15-slides_files/figure-html/fig3.png", width = "100%"&gt;
+
+---
+# Solution to Figures
+&lt;img src="15-slides_files/figure-html/fig4.png", width = "100%"&gt;
+
+---
+# Parameters
+- If you want to modify each individual code chunk, put the parameter within the curly brackets `{ }` (like we've been talking about)
+- If you want to apply that same parameter to the *entire* document:
+  - Have a setup chunk (this is good practice anyways)
+  - Inside the setup chunk, you'll write something like this:
+  
+  &lt;img src="15-slides_files/figure-html/pars.png", width = "100%"&gt;
+
+.small[You'll want to look it up for the exact parameter, but it usually starts with `knitr::opts_chunk`]
+
+---
+name: yaml
+
+# Other things
+  - Table of contents
+  - Code folding
+  - Inline code
+  - Equations
+  - Running code in RMarkdown
+  - Variables &amp; environment
+  - Output file types
+
+---
+# Table of Contents
+
+- The Table of Conents is based on Markdown headers (`#`)
+- You specify if you want one at all in the YAML header
+- It will show headers 1 (`#`) through 3 (`###`) by default
+- If you want to modify this, you can do so with `toc_depth`
+
+---
+# Table of Contents - default
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/tocin.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/tocout.png", width = "100%"&gt;
+]
+
+---
+# Table of Contents - `toc_depth: 5`
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/tocd5in.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/tocd5out.png", width = "100%"&gt;
+]
+
+---
+# Table of Contents - HTML Only!
+- If your output file is an HTML file, you can have the Table of Contents float down the side of your screen while you scroll!
+- Use `toc_float` in the YAML header
+
+--
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/tocfloatin.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/tocfloatout.png", width = "100%"&gt;
+]
+---
+# Code Folding - HTML Only!
+- Give the person you are sharing the document with the option of looking at your code
+- Add `code_folding: "hide"` to the YAML header
+--
+
+.pull-left[
+&lt;img src="15-slides_files/figure-html/cf1.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/cf2.png", width = "100%"&gt;
+]
+---
+# Code Folding - HTML Only!
+.pull-left[
+&lt;img src="15-slides_files/figure-html/cf3.png", width = "100%"&gt;
+]
+
+.pull-right[
+&lt;img src="15-slides_files/figure-html/cf4.png", width = "100%"&gt;
+]
+---
+# Inline Code
+- Sometimes you want to acknowledge that something is code in formatted text. Ex: I am formatted text, but `this` is `code`.
+- This is called "inline code"
+- Wrap the text within single backtics 
+
+
+--
+
+
+&lt;img src="15-slides_files/figure-html/inline1.png", width = "100%"&gt;
+&lt;img src="15-slides_files/figure-html/inline2.png", width = "100%"&gt;
+
+---
+# Inline Code
+- You can also run some `R` code the same way 
+- This is helpful when: 
+  - You stored a value that you'd like to share
+  - You want to show someting in a way your audience will like (e.g., rounding a number)
+- This is NOT great for lots of code! Meant to be a quick thing.
+
+--
+&lt;center&gt;
+&lt;img src="15-slides_files/figure-html/inlinein.png", width = "60%"&gt;
+&lt;img src="15-slides_files/figure-html/inlineout.png", width = "60%"&gt;
+&lt;/center&gt;
+---
+# Equations
+- LaTeX works well in RMarkdown. Really great for equations/matrices
+- For an equation, surround with `$`
+
+
+--
+
+
+
+&lt;img src="15-slides_files/figure-html/eq.png", width = "100%"&gt;
+
+
+
+- Equation of a line is `\(y = mx+b\)`
+- Greek letters are fun `\(\alpha\)`, `\(\beta\)`, `\(\omega\)`, 
+- If you want your equation to be centered on the page, use double `$$`
+
+$$ c^2 = a^2 + b^2$$
+---
+# Running Code
+- You can run code within a code chunk just like an .R script (go line by line or highlight lots of lines and hit &lt;kbd&gt;Run&lt;/kbd&gt;)
+- OR you can use the green arrow at the top right corner of the code chunk to run all lines within that chunk.
+
+&lt;img src="15-slides_files/figure-html/inlinein.png", width = "100%"&gt;
+
+---
+# Running Code
+- You can also use the other button to run all code chunks *above* the current chunk!
+- This is wonderful when you think you're working with the wrong variable, or you screw up your data.frame and want to get it back to how it was
+
+&lt;img src="15-slides_files/figure-html/inlinein.png", width = "100%"&gt;
+
+---
+# Reminder!
+You **need** to make sure that the variables/datasets you want to work with are imported or created within the .Rmd file!
+  - When a .Rmd file knits, it starts as though there is NOTHING in your Environment and NONE of the packages are loaded...like a brand new R session
+  - If you import your data through the GUI, and *don't* put that code into the .Rmd file, when you go to &lt;kbd&gt;knit&lt;/kbd&gt;, it won't find your file and it won't work properly
+  - The same is true if you make a variable in your Console, but forget to put that code into your .Rmd file
+
+---
+
+# Other file types
+- We've mainly been working with HTML files. Other options include Word and PDF .small[(and some more advanced things like slides -- all of the slides in this class were made with RMarkdown!)]
+
+--
+
+- Word Documents
+  - This works...OK-ish. The only weird thing is that it will say you can't edit the file after it knits. You need to save it as a new file in order to edit it. But it will usually prompt you to do so. 
+  - Also, formatting tables in Word is really annoying. 
+
+--
+
+- PDF Documents
+  - If you have a Mac, this should work seamlessly
+  - If you have a PC, you need to have LaTeX on your computer, which is usually installed with MiKTeX. See the Resources tab for how to do this -- it's very annoying. 
+  
+---
+
+# Don't forget about R's Cheatsheets!
+`Help &gt; Cheatsheets` or Google `RMarkdown cheatsheet`
+
+Also, there are cheatsheets for *a lot* of things, including `dplyr` and `ggplot2`. Again, never memorize anything!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

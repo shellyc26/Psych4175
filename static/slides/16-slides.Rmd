@@ -1,0 +1,398 @@
+---
+title: "Intro to Data Visualization"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["xaringan-themer-green.css", "css/additionalCols.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = F,
+                      message = F,
+                      fit.retina = 3,
+                      fig.align = "center")
+
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(base_color = "#6ab04c",
+                  outfile = "xaringan-themer-green.css")
+```
+
+```{r starwarsData, include=FALSE, warning=FALSE}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+empire <- starwars
+
+empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3,8,10,11)]
+empire$species <- factor(empire$species)
+
+```
+
+```{r midus, include=FALSE, warning=FALSE}
+midus <- read.csv(here::here("R", "midus.csv"))
+
+midus <- midus %>% 
+  mutate_at(vars(2, 10, 11), list(factor)) %>%
+  na.omit(.)
+```
+
+# This Section
+You can take an entire class on **data visualization**. Sadly, the guiding principles and theory of data visualization is beyond the scope of our current class.
+
+So what will you learn in this section?
+  1. (This lecture) Reminder of the basics of `ggplot2` & some new things
+  2. Changing the gestalt/look/feel/mood of your plot
+    - Color palettes
+    - Themes
+    - Manually changing very specific things
+  3. Breaking down and adding to plots
+    - Make a multi-panel figure from your data
+    - Combine separate plots into a single multi-panel figure
+    - Add things like lines, text etc. 
+  4. Going further
+    - Making scatterplots more readable
+    - Combine multiple types of plot into a single, informative figure
+
+---
+# What you'll need
+
+Please make sure the following packages are installed:
+  - `tidyverse` (this includes `dplyr` and `ggplot2`)
+  - `RColorBrewer`
+  - `ggpubr`
+  - if you like Wes Anderson movies (The Royal Tennenbaums, Life Aquatic, Isle of Dogs, Darjeeling Limited, Rushmore, The Grand Budapest Hotel, and more!), install the `wesanderson` package
+  
+  
+  
+.box-inv-4[**Remember:** do NOT memorize anything! You will always have these slides to refer back to, and Google is your friend. Looking things up is a good thing!]
+
+---
+name: recap
+
+# Recap of `ggplot2`
+
+<center>
+<img src="16-slides_files/figure-html/shrek.png", width = "100%">
+</center>
+
+---
+
+# Recap of `ggplot2`
+
+- The `gg` in `ggplot2` stands for *"the grammar of graphics"*
+- `ggplot2` has the following structure:
+
+
+```{r, eval=FALSE}
+ggplot(things that impact the entire plot) + 
+  geom_something(things that impact just the something)
+```
+
+---
+# Plotting with `ggplot2`
+
+`ggplot2` has the following structure:
+
+
+```{r, eval=FALSE}
+ggplot(things that impact the entire plot) + #<<
+  geom_something(things that impact just the something)
+```
+
+
+Things like:
+- data.frame used for plotting
+- defining your x & y axes
+
+---
+# Layer 1: `ggplot`
+What happens if you only input your data and what you want your x- and y-axes to be? 
+
+```{r, out.height='50%', out.width='50%'}
+ggplot(data = empire, aes(x = mass, y = height))
+```
+
+---
+# Layer 2: `geom_`
+
+`ggplot2` has the following structure:
+
+
+```{r, eval=FALSE}
+ggplot(things that impact the entire plot) + 
+  geom_something(things that impact just the something) #<<
+```
+
+
+`geom_` typically means **shape**. What shapes do you want to use to represent your data in the plot?
+- `geom_histogram` -- histogram
+- `geom_density` -- distributions
+- `geom_violin` -- distributions
+- `geom_point` -- scatter plot
+- `geom_col` -- bar plot
+
+These are **functions** that are searchable in the help pages!
+---
+name: aes
+
+# Plotting with `ggplot2`
+
+The functions `ggplot()` and `geom_()` can take on different **aesthetics** as an argument, using `aes()`. 
+
+**Aesthetics** are how you control what you want your plot to look like; how can you make it pretty? Examples:
+- Which variables are the `x-` and `y-` axes?
+- `color` (should you color the plot by some variable?)
+- `fill` (very similar to `color`, should you fill the plot in somehow; used for bar graphs and boxplots)
+- `shape` (do you want groups to have different shaped points?)
+- `size` (how big should plotted data be?)
+
+---
+# When to use aesthetics
+
+.pull-left[
+Let's say you want to change something about your plot...
+  - If the thing you want to change _**is based on the data**_, put it inside an aesthetics `aes()`
+  - If it is _**not based on the data**_, keep it outside the `aes()`
+  
+```{r eval=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point() #<<
+```
+]
+
+.pull-right[
+```{r, echo=FALSE}
+ggplot(data = empire, aes(x = mass, y = height)) +
+  geom_point() #<<
+```
+]
+---
+# When to use aesthetics
+
+.pull-left[
+Let's say you want to change something about your plot...
+  - If the thing you want to change _**is based on the data**_, put it inside an aesthetics `aes()`
+  - If it is _**not based on the data**_, keep it outside the `aes()`
+  
+```{r eval=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(color = "cornflowerblue") #<<
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(color = "cornflowerblue") #<<
+```
+]
+---
+# When to use aesthetics
+
+.pull-left[
+Let's say you want to change something about your plot...
+  - If the thing you want to change _**is based on the data**_, put it inside an aesthetics `aes()`
+  - If it is _**not based on the data**_, keep it outside the `aes()`
+  
+```{r eval=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(aes(color = species)) #<<
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(aes(color = species)) #<<
+```
+]
+---
+# Mix & Match 
+
+.pull-left[
+```{r eval=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(color = "purple",
+             aes(shape = species))
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(data = empire,
+       aes(x = mass, y = height)) +
+  geom_point(color = "purple", aes(shape = species))
+```
+]
+---
+# Layer 3: `labs`
+
+.pull-left[
+- Layers on layers on layers!
+- To add labels to your plot, add a new layer that uses the `labs()` function
+
+```{r eval=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(aes(color = species,
+                 shape = species)) +
+  labs(x = "Weight in kg", #<<
+       y = "Height in cm", #<<
+       title = "Size of Star Wars Characters") #<<
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(aes(color = species,
+                 shape = species)) +
+  labs(x = "Weight in kg", #<<
+       y = "Height in cm", #<<
+       title = "Size of Star Wars Characters") #<<
+```
+]
+
+---
+# Overlapping Points
+- `alpha = ` is an argument that controls transparency (1 = opaque, 0 = transparent)
+- (Note, let's make the points much larger so we can see this effect)
+
+.pull-left[
+```{r, eval=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(aes(color = species,
+                 shape = species),
+             alpha = .5, #<<
+             size = 5) + 
+  labs(x = "Weight in kg", 
+       y = "Height in cm", 
+       title = "Size of Star Wars Characters")
+```
+]
+
+.pull-right[
+```{r, echo=FALSE}
+ggplot(data = empire,
+       aes(x = mass,
+           y = height)) +
+  geom_point(aes(color = species,
+                 shape = species),
+             alpha = .5,
+             size = 5) + 
+  labs(x = "Weight in kg", 
+       y = "Height in cm", 
+       title = "Size of Star Wars Characters")
+```
+]
+
+---
+# Re-organizing Factors
+- In R, the levels of each factor are based on alphabetical order
+- This means when you go to plot, your factors will show up in the same order. 
+- For example:
+  - `geom_bar()` uses `count` as default for the y-axis
+  - That means, it gives you the same information as `table()`
+  
+```{r}
+table(empire$species)
+```
+
+---
+# Re-organizing Factors
+
+.pull-left[
+```{r eval = FALSE}
+ggplot(data = empire,
+       aes(x = species)) +
+  geom_bar(aes(fill = species))
+```
+]
+
+.pull-right[
+```{r echo = FALSE}
+ggplot(data = empire,
+       aes(x = species)) +
+  geom_bar(aes(fill = species))
+```
+]
+
+---
+# Re-organizing Factors
+Let's say we want the order (from left to right) to be Human, Yoda's species, Wookiee, Droid.
+  - To do this, we need to re-order the `species` factor like so:
+  
+```{r}
+empire$species <- factor(empire$species,
+                         levels = c("Human",
+                                    "Yoda's species",
+                                    "Wookiee",
+                                    "Droid"))
+```
+
+--
+Now, if we simply go the tables of counts again, it should match our new ordering:
+```{r}
+table(empire$species)
+```
+
+---
+# Re-organizing Factors
+
+.pull-left[
+```{r eval = FALSE}
+ggplot(data = empire,
+       aes(x = species)) +
+  geom_bar(aes(fill = species))
+```
+]
+
+.pull-right[
+```{r echo = FALSE}
+ggplot(data = empire,
+       aes(x = species)) +
+  geom_bar(aes(fill = species))
+```
+]
+
+---
+# Next time...
+- How to assign certain colors to certain factor levels (e.g., make "Droid" blue and "Yoda's species" maroon)
+- Color palettes
+- Themes
+- Changing the background of your plot

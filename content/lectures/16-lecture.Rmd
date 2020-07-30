@@ -1,0 +1,35 @@
+---
+title: "Intro to Data Visualization"
+linktitle: "16: Intro to Data Viz"
+date: "6/16/2020"
+read_date: "2020-09-24"
+menu:
+  lectures:
+    parent: Data Viz
+    weight: 1
+type: docs
+slides: "16-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE
+)
+
+slide_tabs(sections, "/slides/16-slides.html")
+```
