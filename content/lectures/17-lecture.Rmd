@@ -1,0 +1,42 @@
+---
+title: "Customize Your Plots"
+linktitle: "17: Customization"
+date: "6/16/2020"
+read_date: "2020-09-24"
+menu:
+  lectures:
+    parent: Data Viz
+    weight: 2
+type: docs
+slides: "17-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Color Palettes", "col", FALSE,
+  "Themes", "theme", FALSE,
+  "Shapes/Colors/Fills", "shcol", FALSE,
+  "Legend", "leg", FALSE,
+  "Scale", "coord", FALSE,
+  "Axis Labels", "txt", FALSE
+  
+)
+
+slide_tabs(sections, "/slides/17-slides.html")
+```

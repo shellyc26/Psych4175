@@ -1,0 +1,38 @@
+---
+title: "Multipanel Figures & Adding To Your Plot"
+linktitle: "18: MultiPanel & Additions"
+date: "6/16/2020"
+read_date: "2020-09-24"
+menu:
+  lectures:
+    parent: Data Viz
+    weight: 3
+type: docs
+slides: "18-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+Eventually, a YouTube playlist will go here. 
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Faceting", "fac", FALSE,
+  "Arranging", "arr", FALSE,
+  "Adding Stuff", "add", FALSE
+)
+
+slide_tabs(sections, "/slides/18-slides.html")
+```

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Multipanel Figures &amp; Adding To Your Plot</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-blue.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Multipanel Figures &amp; Adding To Your Plot
+
+---
+
+
+
+
+
+
+
+
+
+
+# Last Time
+So much customization!
+ - Color palettes
+ - Themes
+ - Manually changing things
+
+---
+# This time
+
+Multipanel Plots
+  - Faceting
+  - Combining separates into 1
+  
+Adding Stuff
+  - Lines
+  - Text
+
+---
+name: fac
+
+# Faceting
+
+Faceting lets you break up your plot into multiple sub-plots. There are two main types:
+ 1. `facet_grid`
+ 2. `facet_wrap`
+
+For both of these, we will read the tilde (`~`) as the word "by"...
+
+---
+
+# `facet_grid`
+
+This is especially great when you have multiple factors to separate your graph on. 
+
+Like the name implies, `facet_grid` is going to make a grid. Just like a matrix, the left is the rows and right is the columns (i.e., 2x3 matrix = 2 rows, 3 columns). You can put your factor on either side, but that will change the layout of your grid! For example:
+  - `~ age_category` is read as *"by age category"*, and is in the column position. There are 3 levels of the `age_category` factor. Therefore, the result of `~ age_category` is a 1x3 grid. 
+  - `age_category ~` is read as *"age category by"*. This doesn't work! You need something else to finish your "sentence". To indicate that you do not want to facet by any additional factor, use a period (`.`). So the correct syntax for faceting `age_category` in the *row* position is `age_category ~ .`. The result will be a 3x1 grid. 
+
+Let's see this in action...
+---
+
+# `facet_grid`
+
+.pull-left.pull-left-small[
+Facet **by** `age_category`
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = BMI,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) + 
+  labs(x = "Body Mass Index (BMI)",
+       y = "Life Satisfaction",
+       title = "Facet_Grid Example",
+       subtitle = "facet along columns") +
+* facet_grid(~ age_category)
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# `facet_grid`
+
+.pull-left.pull-left-small[
+Notice how the x-axis was the same for each of the 3 facets? What if we let them be specific to that particular facet?
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = BMI,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) + 
+  labs(x = "Body Mass Index (BMI)",
+       y = "Life Satisfaction",
+       title = "Facet_Grid Example",
+       subtitle = "facet along columns") +
+  facet_grid(~ age_category,
+*            scales = "free_x")
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# `facet_grid`
+
+.pull-left.pull-left-small[
+Facet `age_category` **by** .
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = BMI,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) + 
+  labs(x = "Body Mass Index (BMI)",
+       y = "Life Satisfaction",
+       title = "Facet_Grid Example",
+       subtitle = "facet along columns") +
+* facet_grid(age_category ~ .)
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Faceting based on 2 variables
+
+---
+# But first... Side track
+
+What happens when a categorical variable is treated continuously, and not as a factor?
+
+The following creates a new variable called `session` and is scored as 1 and 2. We will make sure to treat this as a numeric variable
+
+
+```r
+session &lt;- c(rep(c(1, 2), times = 935))
+midus["session"] &lt;- rep(session, times = 2)
+midus$session &lt;- as.numeric(midus$session)
+
+head(midus$session)
+```
+
+```
+## [1] 1 2 1 2 1 2
+```
+
+---
+# But first... Side track
+.pull-left.pull-left-small[
+If we plot this, check out the legend and colorings...
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = life_satisfaction)) +
+  geom_point(aes(color = session))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# But first... Side track
+If you are working with categorical variables, it is strongly recommended that you tell R to treat it as a factor -- don't skimp on this step!
+
+It is easier to keep categorical variables as words, rather than numeric codes. So instead of `1` and `2`, let's change the scores to be `session1` and `session2` for our new `session` variable. 
+
+
+```r
+midus$session &lt;- factor(midus$session,
+                        labels = c("session1", "session2"))
+class(midus$session)
+```
+
+```
+## [1] "factor"
+```
+
+---
+# But first... Side track
+.pull-left.pull-left-small[
+Much better!
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = life_satisfaction)) +
+  geom_point(aes(color = session))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Faceting based on 2 variables
+
+.pull-left.pull-left-small[
+Session x Age Category:
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) + 
+  labs(x = "Hostility",
+       y = "Life Satisfaction",
+       title = "Facet_Grid Example") +
+* facet_grid(session ~ age_category)
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Faceting based on 2 variables
+
+.pull-left.pull-left-small[
+Age Category x Session:
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) + 
+  labs(x = "Hostility",
+       y = "Life Satisfaction",
+       title = "Facet_Grid Example") +
+* facet_grid(age_category ~ session)
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# `facet_wrap`
+This basically creates a ribbon that will just continue on to the next row when ready. 
+
+This is useful for when you have categorical variables, but they don’t necessarily need to be in a grid or matrix format.
+
+For instance, if one of the `facet_grid` cells would be empty, you probably don’t want to show an empty plot (a plot with no points/shapes – you’d rather it be just blank space). 
+
+This does not follow the rows by columns syntax – it will always just go to the next row.
+
+---
+# `facet_wrap`
+
+.pull-left.pull-left-small[
+Since there are only 3 levels, by default it will look just like `facet_grid`
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) + 
+  labs(x = "Hostility",
+       y = "Life Satisfaction",
+       title = "Facet_Wrap Example") +
+* facet_wrap(~ age_category)
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# `facet_wrap`
+
+.pull-left.pull-left-small[
+But now, let's say there should only be 2 columns. What happens to our third subplot?
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) + 
+  labs(x = "Hostility",
+       y = "Life Satisfaction",
+       title = "Facet_Wrap Example") +
+* facet_wrap(~ age_category, ncol = 2)
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# `facet_wrap`
+
+.pull-left.pull-left-small[
+We can facet on 2 variables with `facet_wrap`, but now we're adding rather than making a true grid.
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) + 
+  labs(x = "Hostility",
+       y = "Life Satisfaction",
+       title = "Facet_Wrap Example") +
+* facet_wrap(~ age_category + session, ncol = 4)
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+name: arr
+
+# Arranging Multiple Plots
+Faceting is great because you're making the same plot but carved up based on some criteria. 
+
+Now let's say you have 3 completely independent plots (not subplots!) that you want to arrange into a cohesive figure. You're arranging a **grid of plots**. To do this, we will use the `ggarrange()` function from the `ggpubr` package. .tiny[If you do not already have this package installed, please do so now.]
+
+*Importantly*, you need to STORE these plots into your environment first (which means the plot won't immediately appear when you run the code). Then you can arrange the plots based on the names you assigned them. 
+
+---
+# Arranging Multiple Plots
+Let's first create our plots. If we want a single legend for every plot (e.g., the colors are the same for all plots), then make sure you have coded this accordingly. 
+
+
+```r
+library(ggpubr)
+
+# plot A - a scatter plot
+plotA &lt;- ggplot(data = midus, aes(x = hostility, y = life_satisfaction)) +
+  geom_point(aes(color = age_category)) +
+  theme_minimal() +
+  labs(title = "Scatter Plot")
+
+# plot B - histogram
+plotB &lt;- ggplot(data = midus, aes(x = life_satisfaction)) +
+  geom_histogram(binwidth = .1, aes(fill = age_category), alpha = .7) +
+  theme_minimal() +
+  labs(title = "Histogram")
+
+# plot C - violin plot
+plotC &lt;- ggplot(data = midus, aes(x = age_category, y = life_satisfaction)) +
+  geom_violin(aes(fill = age_category)) +
+  theme_minimal() +
+  labs(title = "Violin Plot")
+```
+
+---
+# Arranging Multiple Plots
+.pull-left.pull-left-small[
+Now that we created the 3 plots, let's arrange them with `ggarrange()`
+.code-small[
+
+```r
+ggarrange(plotA, plotB, plotC,
+          nrow = 2, ncol = 2, 
+          common.legend = TRUE,
+          labels = c("A", "B", "C"),
+          legend = "bottom")
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# Arranging Multiple Plots
+
+This looks fine, but it's kind of smushed.
+
+What you actually want to see is the bottom biolin plot taking up the entire 2 columns (e.g., spanning the entire width of this newly created plot).
+
+It would be even better if the violin plots had the distributions stacked vertically, rather than horizontally. 
+
+Let's do it!
+
+---
+
+# Arranging Multiple Plots
+To change the violin plot, all we need to do is flip the coordinates.
+.code-small[
+
+```r
+plotCNew &lt;- ggplot(data = midus, aes(x = age_category, y = life_satisfaction)) +
+  geom_violin(aes(fill = age_category)) +
+  theme_minimal() +
+  labs(title = "Violin Plot") +
+  coord_flip()
+
+plotCNew
+```
+
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-26-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Arranging Multiple Plots
+
+Ok, that looks good. 
+
+Now we are going to nest 2 `ggarrange()` functions:
+  - The 1st (inner most) `ggarrange` will combine plots A &amp; B into a single figure. Here, we want 1 row, 2 columns.
+  - The 2nd (outer most) `ggarrange` will take the one from above, and combine it with our newly created flipped violin plot. We will keep this as 1 column, and 2 rows. 
+    - This means that C has to take up the full width
+
+---
+# Arranging Multiple Plots
+
+.pull-left.pull-left-small[
+.code-small[
+
+```r
+ggarrange(ggarrange(plotA, plotB,
+                    ncol = 2,
+                    labels = c("A", "B"),
+                    legend = "none"),
+          plotCNew,
+          nrow = 2, 
+          common.legend = TRUE,
+          legend = "bottom",
+          labels = c("", "C"))
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-28-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Arranging Plots
+
+A final note about `ggarrange()`:
+
+ - It does not like it when either the `ncol = ` or `nrow = ` parameters are set to equal `1`. 
+ - If you want a plot with 1 column and 3 rows, do *NOT* specify `ncol = 1`. Instead, use `nrow = 3`. 
+
+---
+name: add
+
+# Adding Stuff
+
+- Lines
+- Text
+
+---
+# Horizontal and Vertical Lines
+- Use `geom_vline` or `geom_hline`
+- You'll need to specify an x or y intercept, respectively 
+  - This intercept is based on the actual scales on the graph!
+  
+---
+# Horizontal and Vertical Lines
+
+.pull-left.pull-left-small[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = BMI,
+           y = self_esteem)) +
+  geom_point(aes(color = age_category)) + 
+  labs(x = "Body Mass Index (BMI)",
+       y = "Self-Esteem",
+       title = "Vertical Mean Lines for BMI") +
+*   geom_vline(xintercept = mean(midus$BMI),
+*            color = "red")
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-30-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# By groups?
+What if we wanted to make a vertical line that reflects the mean of some variable *per level of a categorical variable*?
+
+We need to create a data.frame that contains the means for each level of the factor, store this information in an object, and then call that object from within the plot. 
+
+This is where `tidyverse` is extremely useful! 
+
+---
+# By groups
+
+
+```r
+meansHostility &lt;- midus %&gt;% 
+  group_by(age_category) %&gt;% 
+  summarize(xint = mean(hostility))
+
+meansHostility
+```
+
+```
+## # A tibble: 3 x 2
+##   age_category  xint
+##   &lt;fct&gt;        &lt;dbl&gt;
+## 1 young         6.26
+## 2 middle        5.90
+## 3 old           5.49
+```
+
+---
+# By groups
+.pull-left.pull-left-small[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = self_esteem)) +
+  geom_point(aes(color = age_category),
+             alpha = .3) +
+  labs(x = "Hostility",
+       y = "Self-Esteem",
+       title = "Vertical Lines for Mean Hostility",
+       subtitle = "Per Level of Age Category") +
+  theme_classic() +
+  scale_color_brewer(palette = "Dark2") +
+* geom_vline(data = meansHostility,
+*            aes(xintercept = xint,
+*                color = age_category,
+*                linetype = age_category))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-33-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Regression Lines
+
+For simple linear regression, you only need to add `geom_smooth`
+  - By default, it will add a Loess line -- usually kinda curvy
+  - For the most part, you'll want to specify that it's a linear model using the `method = "lm"` argument
+  
+For complex interactions from multiple regressions, check out the `ggpredict()` function from the `ggeffects` package (beyond our scope, sadly).
+  
+---
+# Regression Lines
+.pull-left[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = self_esteem)) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Regression Plot",
+       subtitle = "Simple Linear",
+       x = "Hostility",
+       y = "Self Esteem") +
+*   geom_smooth(method = "lm")
+```
+
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-34-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+.pull-right[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = hostility,
+           y = self_esteem)) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "Regression Plot",
+       subtitle = "Simple Linear",
+       x = "Hostility",
+       y = "Self Esteem") +
+*   geom_smooth(method = "lm", se = FALSE)
+```
+
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-35-1.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+---
+# Adding text
+Sometimes you might want to add something like an `\(R^2\)` value or a correlation coefficient or some sort of text to your plot, usually in a corner. We can do that!
+
+Let's use a very nerdy stats example. The coefficient of a simple linear regression of 2 standardized variables is equal to the correlation of those variables.
+
+---
+# Adding text
+.pull-left.pull-left-small[
+.code-small[
+
+```r
+# get correlation
+corCoef &lt;- round(x = cor(midus$self_esteem,
+                         midus$life_satisfaction),
+                 digits = 2)
+
+ggplot(data = midus,
+*      aes(x = scale(self_esteem),
+*          y = scale(life_satisfaction))) +
+  geom_point() +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              color = "red") +
+  theme_classic() +
+  labs(title = "Annotating Plots",
+       x = "Self-Esteem",
+       y = "Life Satisfaction") +
+* annotate(geom = "text",
+*          x = 1,
+*          y = -5,
+*          label = paste0("r = ", corCoef))
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="18-slides_files/figure-html/unnamed-chunk-37-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Next up...
+
+- Error bars
+- Jittering
+- Adding layers
+- Debugging plots
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

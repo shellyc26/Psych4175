@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Customize Your Plots</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-teal.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Customize Your Plots
+
+---
+
+
+
+
+
+
+
+
+
+
+# Last time
+- `ggplot` is built on **LAYERS**
+  - Layer 1: `ggplot(data =   , aes(x =   , y =  )) +`
+  - Layer 2: `geom_something(size =   , aes(color =   ))`
+  - Layer 3: `labs(x = "x-axis label", y = "y-axis lable")`
+  
+- `geom_` controls the shape of the data points
+  - `geom_density` for density plots
+  - `geom_point` for scatter plots
+  - `geom_bar` for bar plots, etc...
+
+- Aesthetics control something in that particular layer
+  - If it comes from the data, wrap it inside `aes()`
+  - If not, no need for the `aes()`
+  - Aesthetics we looked at: `size`, `color`, `fill`, `alpha`
+
+---
+# Today
+
+Customizing our plots
+  - Color palettes
+  - Themes
+  - Manually changing things in your plot
+
+---
+name: pal
+
+# Color Palettes
+These can be very useful:
+
+  - You have a TON of data and want to maximize the differences between colors
+  - You want your colors to scale from dark to light (or vice versa)
+  - You want to use colors that are colorblind friendly
+  - You're bored of the default `ggplot2` colors
+  
+--
+
+The most popular collection of palettes comes from a package called `RColorBrewer`. If you don't already have this installed, please do so now.
+
+---
+
+# `RColorBrewer` Palettes
+All of the color palettes available through `RColorBrewer` (and to view this yourself):
+
+
+```r
+library(RColorBrewer)
+display.brewer.all()
+```
+
+&lt;center&gt;
+&lt;img src="17-slides_files/figure-html/colpal.png", width = "100%"&gt;
+&lt;/center&gt;
+
+---
+# `RColorBrewer` Palettes
+You don't have to stare at all of these. See if they fit your specifications. For example:
+
+
+```r
+# find palettes with 10 colors that are color blind friendly
+display.brewer.all(n = 10, colorblindFriendly = TRUE)
+```
+
+&lt;center&gt;
+&lt;img src="17-slides_files/figure-html/colpal2.png", width = "100%"&gt;
+&lt;/center&gt;
+---
+
+# `RColorBrewer` Palettes
+Once you know the name of the palette you want to use, you add a **LAYER** with the info
+
+.pull-left.pull-left-small[
+.code-small[
+
+```r
+ggplot(data = empire,
+       aes(x = name,
+           y = mass)) +
+  geom_col(aes(fill = name)) +
+* scale_fill_brewer(palette = "PRGn")
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# `RColorBrewer` Palettes
+
+- The format is `scale_SOMETHING_brewer`
+- `SOMETHING` needs to match the aesthetic
+- We used `fill`, so it's `scale_fill_brewer`
+- If you used `color`, it would be `scale_color_brewer`
+
+---
+
+# Want more color palettes?
+There are seriously **_TONS_** of color palettes available to you. Some are great, and some are kind of ridiculous. Examples:
+  - Wes Anderson themed palettes (check it out [.url[here]](https://github.com/karthik/wesanderson#wes-anderson-palettes))
+  - The package `ggsci` contains color palettes for scientific journals &amp; sci-fi TV shows. See [.url[here]](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html#futurama).
+  - For a complete list, check out [.url[this Github repo]](https://github.com/EmilHvitfeldt/r-color-palettes).
+
+.pull-left[
+&lt;center&gt;
+&lt;img src="17-slides_files/figure-html/la.jpg", width = "40%"&gt;
+&lt;img src="17-slides_files/figure-html/rt.jpg", width = "40%"&gt;
+&lt;/center&gt;
+]
+
+.pul-right[
+&lt;center&gt;
+&lt;img src="17-slides_files/figure-html/fu.jpg", width = "20%"&gt;
+&lt;img src="17-slides_files/figure-html/rickmorty.jpg", width = "20%"&gt;
+&lt;/center&gt;
+]
+
+---
+
+# Non-`RColorBrewer` palettes
+
+.pull-left.pull-left-small[
+No matter what, you'll need to install the packages that contain the palettes
+.code-small[
+
+```r
+# This package includes color palettes
+# for scientific journals &amp; sci fi shows!
+install.packages("ggsci")
+library(ggsci)
+
+ggplot(data = empire,
+       aes(x = name,
+           y = mass)) +
+  geom_col(aes(fill = name)) +
+* scale_fill_futurama() +
+  labs(title = "Good News, Everyone!") 
+```
+]
+
+.small[Always check the help documentation if you don't know how to use it!]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+name: theme
+
+# Themes
+
+Themes change the *entire look* of your plot. Most of the themes you need are built into the main `ggplot2` package.
+
+If you want more themes, check out:
+  - the `ggthemes` package
+  - the `ggthemer` package
+  - My fav: to make plots in the style of XKCD comics, see [.url[here]](https://xkcd.r-forge.r-project.org/)
+  
+We will stick to the basic themes just so you can get a sense of things.
+
+---
+
+# Side Note
+
+Before we get going, let's create the same `age_category` variable that we made in the [09: Stats &amp; Plot Practice](/practice/09-practice)
+
+
+```r
+midus$age_category &lt;- cut(x = midus$age,
+                          breaks = c(28, 40, 60, 84),
+                          labels=c("young", "middle", "old"),
+                          include.lowest = TRUE)
+```
+
+---
+# Themes
+
+.pull-left.pull-left-small[
+### No specified theme 
+The default for `ggplot2` plots
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = heart_father,
+           y = life_satisfaction)) +
+  geom_violin(aes(fill = heart_father)) + 
+  labs(x = "Dad Heart Attack?",
+       y = "Life Satisfaction",
+       title = "No Set Theme")
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Themes
+
+.pull-left.pull-left-small[
+### Black &amp; White theme
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = heart_father,
+           y = life_satisfaction)) +
+  geom_violin(aes(fill = heart_father)) + 
+  labs(x = "Dad Heart Attack?",
+       y = "Life Satisfaction",
+       title = "Black &amp; White Theme") +
+* theme_bw()
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Themes
+
+.pull-left.pull-left-small[
+### Black &amp; White theme
+You can still modify the theme. For example, let's change the baseline font size to be much smaller
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = heart_father,
+           y = life_satisfaction)) +
+  geom_violin(aes(fill = heart_father)) + 
+  labs(x = "Dad Heart Attack?",
+       y = "Life Satisfaction",
+       title = "Black &amp; White Theme") +
+* theme_bw(base_size = 7)
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Themes
+
+.pull-left.pull-left-small[
+### Classic theme
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = heart_father,
+           y = life_satisfaction)) +
+  geom_violin(aes(fill = heart_father)) + 
+  labs(x = "Dad Heart Attack?",
+       y = "Life Satisfaction",
+       title = "Classic Theme") +
+* theme_classic()
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Themes
+
+.pull-left.pull-left-small[
+### Dark theme
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = heart_father,
+           y = life_satisfaction)) +
+  geom_violin(aes(fill = heart_father)) + 
+  labs(x = "Dad Heart Attack?",
+       y = "Life Satisfaction",
+       title = "Dark Theme") +
+* theme_dark()
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Themes
+
+.pull-left.pull-left-small[
+### Void theme
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = heart_father,
+           y = life_satisfaction)) +
+  geom_violin(aes(fill = heart_father)) + 
+  labs(x = "Dad Heart Attack?",
+       y = "Life Satisfaction",
+       title = "Void Theme") +
+* theme_void()
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# The Nitty Gritty of Themes
+What if you like a theme, but you still want to make changes? For example, you like the *black &amp; white* theme, but you still want to:
+  - get rid of major grid lines
+  - remove the title from your legend
+  - center the title
+  - make a black box around your legend, and fill it with the color gray
+
+--
+
+To do this, you first define your theme, then add another `theme()` layer that includes arguments with your specific changes. You pick an argument you want to change, set it equal to one of the following 4 options, and finally put your changes inside one of these 4 options. You can think of these as "wrappers":
+  - `element_text`
+  - `element_rect`
+  - `element_line`
+  - `element_blank`
+
+This gives us an **overwhelming** amount of flexibility. **GOOGLE IS YOUR FRIEND!**
+
+---
+
+# Nitty Gritty of Themes
+
+.pull-left[
+
+.code-small[
+
+```r
+# without changes
+ggplot(data = midus,
+       aes(x = heart_father,
+           y = life_satisfaction)) +
+  geom_violin(aes(fill = heart_father)) + 
+  labs(x = "Dad Heart Attack",
+       y = "Life Satisfaction",
+       title = "Black and White Theme") +
+  theme_bw()
+```
+
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-20-1.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+.pull-right[
+
+.code-small[
+
+```r
+# WITH changes
+ggplot(data = midus,
+       aes(x = heart_father,
+           y = life_satisfaction)) +
+  geom_violin(aes(fill = heart_father)) + 
+  labs(x = "Dad Heart Attack",
+       y = "Life Satisfaction",
+       title = "Black and White Theme") +
+  theme_bw() +
+* theme(panel.grid.major = element_line(color = NA),
+*       legend.title = element_blank(),
+*       plot.title = element_text(hjust = 0.5),
+*       legend.background = element_rect(color = "black",
+*                                        fill = "gray"))
+```
+
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-21-1.png" width="73%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+---
+name: man
+
+# Manually Changing Things
+
+As you can tell, there are __*many*__ ways to change aspects of `ggplot2` plots. Next up is a selection of changes that are fairly common. To find the exact values for something, use Google!
+  - "change shapes in ggplot2" -- good search
+  - "shapes plot R" -- bad search 
+
+The random assortment:
+  - Manually set the shape of points in a scatterplot
+  - Manually set the color/fill
+  - Grayscale
+  - Changing the location, title, and labels of the Legend
+  - Change scale of plot axes
+  - Change angle of text labels
+
+---
+name: shcol
+
+# Manually setting shapes, colors, and fills
+
+.pull-left[
+- Shapes take on certain numbers
+]
+
+.pull-right[
+&lt;center&gt;
+&lt;img src="17-slides_files/figure-html/shapes.png", width = "90%"&gt;
+&lt;/center&gt;
+]
+  
+- Colors &amp; fills
+  - Can take a name like `"cornflowerblue"` ([.url[see here for more preset colors]](http://sape.inf.usi.ch/quick-reference/ggplot2/colour)) 
+  - Can take a hex code
+    - 6 digit alphanumeric
+    - always leads with a `#`
+    - Hex code of cornflowerblue = #6495ed
+
+---
+
+# Manually setting shapes, colors, and fills
+
+.pull-left.pull-left-small[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) +
+  labs(x = "Self-Esteem",
+       y = "Life Satisfaction",
+       title = "Manually Setting Shapes") +
+* scale_shape_manual(values = c(9,10,11))
+```
+]
+
+The variable "age_category" has 3 levels: young, middle, old. So if you want to manually set the shapes for the 3 levels, you need to supply 3 values!
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Manually setting shapes, colors, and fills
+
+.pull-left.pull-left-small[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category)) +
+  labs(x = "Self-Esteem",
+       y = "Life Satisfaction",
+       title = "Manually Setting Shapes") +
+  scale_shape_manual(values = c(9,10,11)) +
+* scale_color_manual(values = c("seagreen4",
+*                               "darkorchid",
+*                               "#FF6700"))
+```
+]
+
+Same thing for colors! 
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Grayscale
+Many academic journals charge more money for color printing (which is dumb), so you might want everything to be on some form of grayscale. `0` = black, `1` = white.
+
+.pull-left.pull-left-small[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem,
+           y = life_satisfaction)) +
+  geom_boxplot(aes(fill = age_category)) +
+  labs(x = "Self-Esteem",
+       y = "Life Satisfaction",
+       title = "All Grey") +
+  theme_classic() +
+* scale_fill_grey(start = 0, end = 0.8,
+*                 labels = c("young",
+*                            "middle",
+*                            "old"))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-27-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+name: leg
+
+# Changing the legend
+.pull-left.pull-left-small[
+.small[
+The title of your legend will be the name of your variable. If you have something like `age_category`, that doesn't look as nice as a formatted title. You *can* change the variable name within your dataset. But that can often have unintended consequences.
+
+If all you're doing is changing the title of the legend, this is probably the simplest method:
+]
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category),
+             alpha = .5) +
+  labs(x = "Self-Esteem",
+       y = "Life Satisfaction",
+       title = "Legend Change",
+*      color = "Age (by group)",
+*      shape = "Age (by group)")
+```
+]
+]
+ 
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Changing the legend
+.pull-left.pull-left-small[
+If you want to change other aspects of the legend, like the location and the labels...
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category),
+             alpha = .5) +
+  labs(x = "Self-Esteem",
+       y = "Life Satisfaction",
+       title = "Legend Change Part 2") +
+* scale_color_discrete(name = "Age (by group)",
+*                      labels = c("YOUNG",
+*                                 "MID",
+*                                 "OLD")) +
+* theme(legend.position = "bottom")
+```
+]
+]
+ 
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-31-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Changing the legend
+.pull-left.pull-left-small[
+To get rid of a legend (which you often will do if you have 2 aesthetics mapped), set the appropriate `guide = FALSE`
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category),
+             alpha = .5) +
+  labs(x = "Self-Esteem",
+       y = "Life Satisfaction",
+       title = "Legend Change Part 2") +
+  scale_color_discrete(name = "Age (by group)", 
+                       labels = c("YOUNG",
+                                  "MID",
+                                  "OLD")) +
+  theme(legend.position = "bottom") +
+  scale_shape(guide = FALSE)
+```
+]
+]
+ 
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-33-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Changing the legend
+.pull-left.pull-left-small[
+Both legends gone...
+
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem,
+           y = life_satisfaction)) +
+  geom_point(aes(color = age_category,
+                 shape = age_category),
+             alpha = .5) +
+  labs(x = "Self-Esteem",
+       y = "Life Satisfaction",
+       title = "Legend Change Part 2") +
+  scale_color_discrete(guide = FALSE) +
+  scale_shape(guide = FALSE)
+```
+]
+]
+ 
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-35-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+name: coord
+
+# Changing the scales of axes
+You might want to adjust the scale of your axes to best reflect your data
+
+.pull-left[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem)) +
+  geom_density(aes(fill = heart_self),
+               alpha = .5) +
+  labs(x = "Self-Esteem",
+       y = "Density",
+       title = "Coord Change",
+       subtitle = "Default") +
+  theme_classic()
+```
+
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-36-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+.pull-right[
+.code-small[
+
+```r
+ggplot(data = midus,
+       aes(x = self_esteem)) +
+  geom_density(aes(fill = heart_self),
+               alpha = .5) +
+  labs(x = "Self-Esteem",
+       y = "Density",
+       title = "Coord Change",
+       subtitle = "Adjusted Coordinates") +
+  theme_classic() +
+  xlim(c(0, 80))
+```
+
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-37-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+]
+
+---
+name: txt
+
+# Axis labels
+Sometimes, you can get really cramped axis labels. There are different ways to deal with this. 
+
+2 key things to know is that you can adjust vertically and horizontally:
+  - `hjust` = horizontal justification. 0 = left-justified, 1 = right-justified, .5 = center-justified
+  - `vjust` = vertical justification. 0 = bottom, 1 = top, .5 = center
+
+BUT, if you change the angle on something, the horizontal/vertical thing gets really confusing. Just try both until you get what you want. 
+  
+.small[(Note: going to switch back to the `empire` data.frame for a better example)]
+
+---
+
+# Axis labels
+
+.pull-left.pull-left-small[
+Let's change only the **angle** of the labels...
+.code-small[
+
+```r
+ggplot(data = empire,
+       aes(x = name,
+           y = mass)) +
+  geom_col(aes(fill = name)) +
+  scale_fill_futurama(guide = FALSE) +
+  labs(title = "Good News, Everyone!",
+       subtitle = "Angle Only") +
+* theme(axis.text.x = element_text(angle = 90))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-39-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Axis labels
+
+.pull-left.pull-left-small[
+If you stare closely, you'll notice that the names don't line up with the tic marks! Even though this would normally be a horizontal alignment, you changed the angle of the text to 90...so we use the vertical alignment instead!
+.code-small[
+
+```r
+ggplot(data = empire,
+       aes(x = name,
+           y = mass)) +
+  geom_col(aes(fill = name)) +
+  scale_fill_futurama(guide = FALSE) +
+  labs(title = "Good News, Everyone!",
+       subtitle = "Angle &amp; Alignment") +
+  theme(axis.text.x = element_text(angle = 90,
+*                                  vjust = .5))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Axis labels
+
+.pull-left.pull-left-small[
+What if we want the last letter of every label to be right up against the tic mark? Normally, this would be vertical alignment. But since we're flipped, it's not horizontal alignment.
+.code-small[
+
+```r
+ggplot(data = empire,
+       aes(x = name,
+           y = mass)) +
+  geom_col(aes(fill = name)) +
+  scale_fill_futurama(guide = FALSE) +
+  labs(title = "Good News, Everyone!",
+       subtitle = "Angle &amp; Alignment") +
+  theme(axis.text.x = element_text(angle = 90,
+                                   vjust = .5,
+*                                  hjust = 1))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Axis labels
+
+.pull-left.pull-left-small[
+How about other angles? You just need to play around until you find one you like!
+.code-small[
+
+```r
+ggplot(data = empire,
+       aes(x = name,
+           y = mass)) +
+  geom_col(aes(fill = name)) +
+  scale_fill_futurama(guide = FALSE) +
+  labs(title = "Good News, Everyone!",
+       subtitle = "Angle &amp; Alignment") +
+* theme(axis.text.x = element_text(angle = 45,
+*                                  vjust = 1,
+*                                  hjust = 1))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Axis labels
+
+.pull-left.pull-left-small[
+As of the most recent version of `ggplot2` (v.3.3.0), you can now stagger the axis labels so they don't overlap!
+
+Without adjusting anything,  notice how some of the labels overlap
+.code-small[
+
+```r
+ggplot(data = empire,
+       aes(x = name,
+           y = mass)) +
+  geom_col(aes(fill = name)) +
+  scale_fill_futurama(guide = FALSE) +
+  labs(title = "Good News, Everyone!",
+       subtitle = "Overlapping Labels") 
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Axis labels
+
+.pull-left.pull-left-small[
+As of the most recent version of `ggplot2` (v.3.3.0), you can now stagger the axis labels so they don't overlap!
+
+With adjustment, we can fix that by "dodging" the labels!
+.code-small[
+
+```r
+ggplot(data = empire,
+       aes(x = name,
+           y = mass)) +
+  geom_col(aes(fill = name)) +
+  scale_fill_futurama(guide = FALSE) +
+  labs(title = "Good News, Everyone!",
+       subtitle = "Overlapping Labels") +
+* scale_x_discrete(guide = guide_axis(n.dodge = 2))
+```
+]
+]
+
+.pull-right.pull-right-large[
+&lt;img src="17-slides_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Next up...
+
+- Multipanel Figures
+- Adding things like best fit lines, text etc.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

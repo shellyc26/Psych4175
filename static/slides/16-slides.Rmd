@@ -167,11 +167,12 @@ The functions `ggplot()` and `geom_()` can take on different **aesthetics** as a
 ---
 # When to use aesthetics
 
-.pull-left[
+.pull-left.pull-left-small[
 Let's say you want to change something about your plot...
   - If the thing you want to change _**is based on the data**_, put it inside an aesthetics `aes()`
   - If it is _**not based on the data**_, keep it outside the `aes()`
-  
+
+.code-small[
 ```{r eval=FALSE}
 ggplot(data = empire,
        aes(x = mass,
@@ -179,8 +180,9 @@ ggplot(data = empire,
   geom_point() #<<
 ```
 ]
+]
 
-.pull-right[
+.pull-right.pull-right-large[
 ```{r, echo=FALSE}
 ggplot(data = empire, aes(x = mass, y = height)) +
   geom_point() #<<
@@ -189,11 +191,12 @@ ggplot(data = empire, aes(x = mass, y = height)) +
 ---
 # When to use aesthetics
 
-.pull-left[
+.pull-left.pull-left-small[
 Let's say you want to change something about your plot...
   - If the thing you want to change _**is based on the data**_, put it inside an aesthetics `aes()`
   - If it is _**not based on the data**_, keep it outside the `aes()`
-  
+
+.code-small[
 ```{r eval=FALSE}
 ggplot(data = empire,
        aes(x = mass,
@@ -201,8 +204,9 @@ ggplot(data = empire,
   geom_point(color = "cornflowerblue") #<<
 ```
 ]
+]
 
-.pull-right[
+.pull-right.pull-right-large[
 ```{r echo=FALSE}
 ggplot(data = empire,
        aes(x = mass,
@@ -213,11 +217,12 @@ ggplot(data = empire,
 ---
 # When to use aesthetics
 
-.pull-left[
+.pull-left.pull-left-small[
 Let's say you want to change something about your plot...
   - If the thing you want to change _**is based on the data**_, put it inside an aesthetics `aes()`
   - If it is _**not based on the data**_, keep it outside the `aes()`
-  
+
+.code-small[
 ```{r eval=FALSE}
 ggplot(data = empire,
        aes(x = mass,
@@ -225,8 +230,9 @@ ggplot(data = empire,
   geom_point(aes(color = species)) #<<
 ```
 ]
+]
 
-.pull-right[
+.pull-right.pull-right-large[
 ```{r echo=FALSE}
 ggplot(data = empire,
        aes(x = mass,
@@ -237,30 +243,37 @@ ggplot(data = empire,
 ---
 # Mix & Match 
 
-.pull-left[
+.pull-left.pull-left-small[
+
+.code-small[
 ```{r eval=FALSE}
 ggplot(data = empire,
        aes(x = mass,
            y = height)) +
-  geom_point(color = "purple",
-             aes(shape = species))
+  geom_point(color = "purple", #<<
+             aes(shape = species), #<<
+             size = 3) #<<
 ```
 ]
+]
 
-.pull-right[
+.pull-right.pull-right-large[
 ```{r echo=FALSE}
 ggplot(data = empire,
        aes(x = mass, y = height)) +
-  geom_point(color = "purple", aes(shape = species))
+  geom_point(color = "purple", aes(shape = species), size = 3)
 ```
 ]
 ---
+name: labs
+
 # Layer 3: `labs`
 
-.pull-left[
+.pull-left.pull-left-small[
 - Layers on layers on layers!
 - To add labels to your plot, add a new layer that uses the `labs()` function
 
+.code-small[
 ```{r eval=FALSE}
 ggplot(data = empire,
        aes(x = mass,
@@ -272,8 +285,9 @@ ggplot(data = empire,
        title = "Size of Star Wars Characters") #<<
 ```
 ]
+]
 
-.pull-right[
+.pull-right.pull-right-large[
 ```{r echo=FALSE}
 ggplot(data = empire,
        aes(x = mass,
@@ -287,41 +301,67 @@ ggplot(data = empire,
 ]
 
 ---
-# Overlapping Points
+# Overlapping Data
 - `alpha = ` is an argument that controls transparency (1 = opaque, 0 = transparent)
-- (Note, let's make the points much larger so we can see this effect)
+- *Without* setting the `alpha` parameter...
 
-.pull-left[
+.pull-left.pull-left-small[
+.code-small[
 ```{r, eval=FALSE}
 ggplot(data = empire,
-       aes(x = mass,
-           y = height)) +
-  geom_point(aes(color = species,
-                 shape = species),
-             alpha = .5, #<<
-             size = 5) + 
-  labs(x = "Weight in kg", 
-       y = "Height in cm", 
-       title = "Size of Star Wars Characters")
+       aes(x = height)) +
+  geom_density(aes(fill = sex)) + 
+  labs(x = "Height in cm", 
+       y = "Probability Density", 
+       title = "Height Distributions")
 ```
 ]
+]
 
-.pull-right[
-```{r, echo=FALSE}
+.pull-right.pull-right-large[
+```{r, echo=FALSE, out.width='90%'}
 ggplot(data = empire,
-       aes(x = mass,
-           y = height)) +
-  geom_point(aes(color = species,
-                 shape = species),
-             alpha = .5,
-             size = 5) + 
-  labs(x = "Weight in kg", 
-       y = "Height in cm", 
-       title = "Size of Star Wars Characters")
+       aes(x = height)) +
+  geom_density(aes(fill = sex)) + 
+  labs(x = "Height in cm", 
+       y = "Probability Density", 
+       title = "Height Distributions")
 ```
 ]
 
 ---
+# Overlapping Data
+- `alpha = ` is an argument that controls transparency (1 = opaque, 0 = transparent)
+- *With* setting the `alpha` parameter...
+
+.pull-left.pull-left-small[
+.code-small[
+```{r, eval=FALSE}
+ggplot(data = empire,
+       aes(x = height)) +
+  geom_density(aes(fill = sex),
+               alpha = .5) + #<< 
+  labs(x = "Height in cm", 
+       y = "Probability Density", 
+       title = "Height Distributions")
+```
+]
+]
+
+.pull-right.pull-right-large[
+```{r, echo=FALSE, out.width='90%'}
+ggplot(data = empire,
+       aes(x = height)) +
+  geom_density(aes(fill = sex),
+               alpha = .5) + 
+  labs(x = "Height in cm", 
+       y = "Probability Density", 
+       title = "Height Distributions")
+```
+]
+---
+name: facs
+
 # Re-organizing Factors
 - In R, the levels of each factor are based on alphabetical order
 - This means when you go to plot, your factors will show up in the same order. 
@@ -336,15 +376,17 @@ table(empire$species)
 ---
 # Re-organizing Factors
 
-.pull-left[
+.pull-left.pull-left-small[
+.code-small[
 ```{r eval = FALSE}
 ggplot(data = empire,
        aes(x = species)) +
   geom_bar(aes(fill = species))
 ```
 ]
+]
 
-.pull-right[
+.pull-right.pull-right-large[
 ```{r echo = FALSE}
 ggplot(data = empire,
        aes(x = species)) +
@@ -374,15 +416,17 @@ table(empire$species)
 ---
 # Re-organizing Factors
 
-.pull-left[
+.pull-left.pull-left-small[
+.code-small[
 ```{r eval = FALSE}
 ggplot(data = empire,
        aes(x = species)) +
   geom_bar(aes(fill = species))
 ```
 ]
+]
 
-.pull-right[
+.pull-right.pull-right-large[
 ```{r echo = FALSE}
 ggplot(data = empire,
        aes(x = species)) +
