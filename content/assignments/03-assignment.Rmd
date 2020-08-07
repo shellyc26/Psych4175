@@ -1,0 +1,133 @@
+---
+title: "Assignment 3"
+linktitle: "# 3"
+date: "6/16/2020"
+due_date: "2020-09-21"
+due_time: "9:00am"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 3
+type: docs
+weight: 3
+editor_options: 
+  chunk_output_type: console
+---
+
+## Testing Things
+The first part is going to be a test run to see if a particular type of document works with your computer. It should, but we're going to test it out here just in case. You do NOT need to submit the test file. 
+
+#### WARNING
+The following section requires the internet. Please make sure you have a stable connection before completing the exercise. __PLEASE tell me *as soon as possible* if any errors come up.__ This will be a large part of what we will be doing next week, so if it's not working, we need to get it worked out *__BEFORE__* you continue on to the Reproducibility section.
+
+**PLEASE READ ALL OF THE STEPS BELOW _BEFORE_ ACTUALLY TRYING IT**. Follow these steps:
+
+### Step 1
+**In your console** set your working directory somewhere. It doesn't really matter where, as long as you can easily find it.
+
+### Step 2
+Next, open a new R Notebook. You can do this via `File > New File > R Notebook` or by clicking the white paper with <font color='green'>green plus sign</font> from the top left corner (this is the same as opening a new R script) and choosing R Notebook. It should look something like this:
+
+<center>
+<img src="../miscfigs/figure-html/rm1.png" width = "70%">
+</center>
+
+### Step 3
+Next, find the button at the top that says `Preview` and click the arrow next to it. You should get a drop down menu. Select `Knit to HTML`. It should look like this:
+
+<center>
+<img src="../miscfigs/figure-html/rm2.png" width = "50%">
+
+<img src="../miscfigs/figure-html/rm3.png" width = "70%">
+</center>
+
+It will prompt you to save the file. That's OK! Give it a name like `testNotebook` or whatever you'd like.
+
+### Step 4
+Finally, you should see something that pops up, and it should look like this:
+
+<center>
+<img src="../miscfigs/figure-html/rm4.png" width = "70%">
+</center>
+    
+As long as the final thing shown above popped up, you're good! It's ok if you see a lot of scary stuff in the console after. But, if the thing above did *not* pop up, please take a screen shot of the scary console text! It will be easier for me to help you if I can see the message. Scary text that is actually OK might look like:
+
+<center>
+<img src="../miscfigs/figure-html/rm5.png" width = "70%">
+</center>
+
+## Actual Assignment
+
+### Introduction: Script Prep
+Open a new script file and complete this assignment (the same way you've been doing for previous assignments). 
+
+:::list
+Here's your to-do list:
+
+  - At the top of your script, read in your dataset, load in the `tidyverse` package, and make a comment that confirms that the above test run thing worked. 
+:::
+
+### Methods: Data Wrangling
+Let's practice with data wrangling. Everyone's data is different, so this might depend on what you're working with.
+
+:::list
+Here's your to-do list:
+
+  - Make a `tidyverse` code chunk that uses *at least __3__* `tidyverse` functions. Do whatever you think makes the most sense.
+:::
+
+Here's a list of some of the common `tidyverse` functions that you might want to use:
+
+  - `pivot_wider`
+  - `pivot_longer`
+  - `filter`
+  - `separate`
+  - `unite`
+  - `mutate`
+  - `select`
+  - `arrange`
+  - `rename`
+  - `recode`
+  - any of the `join` functions (see cheatsheet for more)
+
+### Results
+
+Let's make a plot with error bars!
+
+:::list
+Here's your to-do list:
+
+  - Make a smaller data.frame that contains all the information you would need to make a bar graph (including information for error bars of +/- 1 standard deviation) for *at least __two__* of your categorical variables.
+  
+  - Then, use the plotting code below and replace the missing values with your data so that you can actually make the bar graph!
+:::
+
+Here's a HINT:
+
+  - The hardest part of this is trying to imagine what it is that you need!
+  - You need a continuous variable that you can collapse into a value per level of each of your two categorical variables. Then you need to calculate everything needed for the error bars.
+
+Here's the plotting code that you can copy/replace your data with
+
+```{r, eval=FALSE}
+
+XXX-1: correct data.frame
+XXX-2: one of the two categorical variables
+XXX-3: the summarized continuous variable
+XXX-4: the second of the categorical variables
+XXX-5: the value of the lower edge of the error bar
+XXX-6: the value of the upper edge of the error bar
+
+ggplot(data = XXX-1, aes(x = XXX-2, y = XXX-3, fill = XXX-4)) +
+  geom_col(position = position_dodge(width=.9)) +
+  geom_errorbar(aes(ymin = XXX-5, ymax = XXX-6),
+                position = position_dodge(width=.9),
+                width = .2)
+
+```
+
+### Fantastic work!
+Don't forget to submit your code and data file to Canvas. 

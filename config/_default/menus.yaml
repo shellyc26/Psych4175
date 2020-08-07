@@ -42,5 +42,3 @@ assignment:
     weight: 1
   - name: Assignments
     weight: 2
-  - name: Exercises
-    weight: 3
