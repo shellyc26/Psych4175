@@ -37,7 +37,3 @@ If you do not have a dataset that meets these criteria, please email me ASAP and
 :::warning
 The struggle is real when it comes to code. You might not get something at first, but that's OK! Use Google! If after 2-3 hours, you're still stuck on something, then reach out to me and I'll be happy to help. But the struggle is where all the learning takes place!
 :::
-
-:::list
-test
-:::

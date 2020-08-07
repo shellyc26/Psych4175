@@ -19,104 +19,91 @@ editor_options:
   <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 
-<div id="importing-your-data-into-r" class="section level1">
-<h1>Importing Your Data into R</h1>
+<div id="importing-your-data-into-r" class="section level2">
+<h2>Importing Your Data into R</h2>
 <p>We will be covering this in detail next class, but for now, please do the following:</p>
-<div id="step-1.-know-where-your-data-is-saved" class="section level5">
-<h5>Step 1. Know where your data is saved!</h5>
+<div id="step-1.-know-where-your-data-is-saved" class="section level4">
+<h4>Step 1. Know where your data is saved!</h4>
 <p>This could be your Desktop, Box, Dropbox, etc. Just know where it is.</p>
 </div>
-<div id="step-2.-in-the-environment-tab-click-on-import-dataset" class="section level3">
-<h3>Step 2. In the Environment tab, click on <code>Import Dataset</code></h3>
+<div id="step-2.-in-the-environment-tab-click-on-import-dataset" class="section level4">
+<h4>Step 2. In the Environment tab, click on <code>Import Dataset</code></h4>
 <p>Choose <strong><code>From text (base)</code></strong></p>
-<div id="step-3.-select-the-file" class="section level5">
-<h5>Step 3. Select the file</h5>
+</div>
+<div id="step-3.-select-the-file" class="section level4">
+<h4>Step 3. Select the file</h4>
 <p>You should get a pop-up like this:</p>
 <center>
-<img src="../miscfigs/figure-html/popup.png" width = "80%">
+<img src="../miscfigs/figure-html/popup.png" width = "70%">
 </center>
 </div>
-<div id="step-4.-make-the-following-changes" class="section level5">
-<h5>Step 4. Make the following Changes:</h5>
+<div id="step-4.-make-the-following-changes" class="section level4">
+<h4>Step 4. Make the following Changes:</h4>
 <ul>
 <li>In the top left box, name your data something that makes sense. For example: <code>hw1Data</code> or <code>votes_by_district</code> or whatever. This name <em>cannot</em> start with a number (e.g., <code>1hwData</code> would not work).</li>
-<li>Last item on the left is a checkbox that says <code>Strings as factors</code>. Please **uncheck* that box.</li>
+<li>Last item on the left is a checkbox that says <code>Strings as factors</code>. Please <strong>uncheck</strong> that box.</li>
 </ul>
 </div>
-<div id="step-5.-click-import" class="section level5">
-<h5>Step 5. Click “Import”</h5>
+<div id="step-5.-click-import" class="section level4">
+<h4>Step 5. Click “Import”</h4>
 <p>Once your data looks ok in that bottom window, go ahead and click “Import”. You should now see your data.frame in the Environment tab. Email me ASAP if you are not able to get your data into R!</p>
-</div>
 </div>
 </div>
 <div id="assignment" class="section level1">
 <h1>Assignment</h1>
-<p>OK, now that you have your data in <code>R</code>, let’s go on to the actual assignment!
-### Introduction: Data Cleaning &amp; Management
-The following are important steps to take for any code you might run. You want to make sure things look the way they ought to look, and that you (and whoever is reading your code) knows what is happening. Please do the following:</p>
+<p>OK, now that you have your data in <code>R</code>, let’s go on to the actual assignment!</p>
+<div id="introduction-data-cleaning-management" class="section level3">
+<h3>Introduction: Data Cleaning &amp; Management</h3>
+<p>The following are important steps to take for any code you might run. You want to make sure things look the way they ought to look, and that you (and whoever is reading your code) knows what is happening.</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
 <ul>
-<li><p>In 1-2 sentences, please describe your dataset. No need for a ton of detail, just generally, what’s in it.</p></li>
-<li><p>Using code, find the object class of each column vector. Then find the object class of the entire data set. Do these make sense, or are there any that were unexpected? If they were unexpected, why?</p></li>
-<li>Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called <em>factors</em>? If they should be treated as categorical variables, please do so using the <code>factor()</code> function.
-<ul>
-<li><em>HINT: <code>new_column &lt;- factor(data$column)</code> makes a completely new object outside of the dataset. <code>data$new_column &lt;- factor(data$column)</code> makes a new column that lives within the existing dataset. <code>data$column &lt;- factor(data$column)</code> overwrites the original column.</em></li>
-</ul></li>
+<li><p>In 1-2 sentences, describe your dataset. No need for a ton of detail, just generally, what’s in it.</p></li>
+<li><p><em>Using code</em>, find the object class of each column vector. Then find the object class of the entire data set. Describe if these make sense, or are there any that were unexpected? If they were unexpected, why?</p></li>
+<li>Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called <em>factors</em>? If they should be treated as categorical variables, please do so using the <code>factor()</code> function.</li>
 </ul>
+</div>
+<p>Here’s a HINT for the last item:</p>
+<ul>
+<li><code>new_column &lt;- factor(data$column)</code> makes a completely new object outside of the dataset.</li>
+<li><code>data$new_column &lt;- factor(data$column)</code> makes a new column that lives within the existing dataset.</li>
+<li><code>data$column &lt;- factor(data$column)</code> overwrites the original column.</li>
+</ul>
+</div>
 <div id="results-summary-statistics-part-1" class="section level3">
 <h3>Results: Summary Statistics – Part 1</h3>
-<p>Get the following summary statistics:</p>
+<p>One of the first items in the “Results” section of an academic paper is to look at summary statistics of the variables of interest. Here’s your shot!</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
 <ul>
-<li>For two of your numeric/interger variables, get the mean, standard deviation, and range. If you don’t know the function for standard deviation, Google it! Once you know the name of the functions, look at the help pages! <em>HINT: Pay attention to missing data!</em></li>
-<li>For your categorical variable, get very quick counts of each level (e.g., how many observations are there in group 1 vs. group 2). <em>HINT: the easiest function to use for this was shown in the slides under “commonly used functions”</em></li>
+<li><p>For 2 of your numeric/integer variables, get the mean, standard deviation, and range. If you don’t know the function names, Google it!</p></li>
+<li>For your categorical variable, get very quick counts of each level (e.g., how many observations are there in group 1 vs. group 2).</li>
+</ul>
+</div>
+<p>Here are some HINTS:</p>
+<ul>
+<li>In your functions, pay attention to missing data!</li>
+<li>The easiest function to use for your second to-do item was shown in the slides under “commonly used functions”.</li>
 </ul>
 </div>
 <div id="results-summary-statistics-part-2" class="section level3">
 <h3>Results: Summary Statistics – Part 2</h3>
-<p>Now we are going to make smaller datasets that only contain items from each category of your categorical. For example, let’s say the factor “treatment_group” had 2 levels: <code>treatment</code> and <code>control</code>. I want you to make a new data.frame that is something like <code>data_treatment</code> and another new data.frame that is <code>data_controls</code>:</p>
+<p>Another thing we check in the Results section of a paper is whether our variables of interest might differ based on something we don’t want. For example, if all of our male participants were notably older than all of our female participants, it might screw up the interpretation of our results.</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
 <ul>
-<li>Do this via INDEXING and LOGICAL OPERATORS. <em>HINT: Logical operators result in TRUE or FALSE. You can use this within indexing so that anything that evaluates to TRUE will be either the rows or the columns that are kept.</em></li>
-<li>One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame – even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls).</li>
-<li>Now repeat the same summary statistics from Part 1 (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar?</li>
+<li><p>Make a smaller datasets that only contain items from each level of your categorical variable. For example, let’s say the factor “treatment_group” had 2 levels: <code>treatment</code> and <code>control</code>. Make a new data.frame that is something like <code>data_treatment</code> and another new data.frame that is <code>data_controls</code>. Do this via INDEXING and LOGICAL OPERATORS.</p></li>
+<li><p>One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame – even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls).</p></li>
+<li>Now repeat the same summary statistics from above (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar? What does that mean for your analysis?</li>
 </ul>
 </div>
-<div id="results-plot" class="section level3">
-<h3>Results: Plot</h3>
-<p>We will cover plotting in <em>a lot</em> more detail in the coming weeks. But for now, I will give you some code. Whenever you see <code>XXXXX</code>, you should replace that with something from your dataset. Please make these plots using your ORIGINAL larger data.frame – not the mini ones.</p>
-<pre class="r"><code># First, make a density plot to show the distribution of one
-# of your numeric variables. Your data is the data.frame, and your
-# x-variable is the name of the column you want a density plot of.
-
-ggplot(data = XXXXX, aes(x = XXXXX)) +
-  geom_density(fill = &quot;white&quot;, color = &quot;blue&quot;)
-
-# Now I changed the code slightly so that it will be filled based on
-# the categorical variable (that&#39;s the newest thing you need to add!).
-# (note the `alpha = .5` just makes it easier to see overlaps)
-
-ggplot(data = XXXXX, aes(x = XXXXX)) +
-  geom_density(aes(fill = XXXXX), alpha = .5)
-
-# Finally, let&#39;s do a simple scatter plot with 2 of your numeric
-# variables
-
-ggplot(data = XXXXX, aes(x = XXXXX, y = XXXXX)) +
-  geom_point(color = &quot;cornflowerblue&quot;) +
-  geom_smooth(method = &quot;lm&quot;, color = &quot;darkred&quot;)</code></pre>
-</div>
-<div id="results-statistical-tests" class="section level3">
-<h3>Results: Statistical Tests</h3>
-<p>Now that you have a sense of what your data look like, you can now run your statistical test of choice. I will give you a few options. I want you to pick 2 out of the following options to run (do <em>not</em> run the same test twice – I want you to run at least two <em>different</em> tests). This will depend on what works best for your dataset. Ideally, try to run these tests using the variables we just plotted and/or got summary stats on. <em>HINT: If you something like <code>formula</code> in the help documentation, it’s referring to <code>y ~ x</code> which means “y is predicted by x”. So <code>age ~ treatmentGroup</code> would mean “does being in a treatment group predict age?”. HINT2: For now, it might be easier to not store the result as a new object. We will talk about why in class.</em> Here are the options:</p>
+<p>Here is a HINT:</p>
 <ul>
-<li>t-test (if your categorical variable has 2 groups)</li>
-<li>non-parametric two sample test (akin to t-test); Wilcox Rank Sum test</li>
-<li>one-way ANOVA (if your factor has more than two groups)</li>
-<li>non-parametric one-way ANOVA; Kruskal-Wallis test</li>
-<li>correlation</li>
-<li>(BONUS: if you want to challenge yourself, you can try a linear regression)</li>
+<li>Logical operators result in <code>TRUE</code> or <code>FALSE</code>. You can use this within indexing so that anything that evaluates to <code>TRUE</code> will be either the rows or the columns that are kept.</li>
 </ul>
 </div>
-<div id="discussion-interpreation" class="section level3">
-<h3>Discussion: Interpreation</h3>
-<p>Think about the plots you made, and now think about the results of your statistical tests. Do they make sense together? Why or why not? Describe in 1-3 sentences.</p>
+<div id="congrats-youve-finished" class="section level3">
+<h3>Congrats, you’ve finished!</h3>
+<p>Submit both your code and your data file to Canvas.</p>
 </div>
 </div>
