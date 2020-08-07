@@ -1,0 +1,108 @@
+---
+title: "Assignment 1"
+linktitle: "# 1"
+date: "6/16/2020"
+read_date: "2020-08-31"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 1
+type: docs
+weight: 1
+editor_options: 
+  chunk_output_type: console
+---
+
+# Importing Your Data into R
+We will be covering this in detail next class, but for now, please do the following:
+
+##### Step 1. Know where your data is saved!
+This could be your Desktop, Box, Dropbox, etc. Just know where it is.
+
+### Step 2. In the Environment tab, click on `Import Dataset`
+Choose **`From text (base)`**
+
+##### Step 3. Select the file
+You should get a pop-up like this:
+
+<center>
+<img src="../miscfigs/figure-html/popup.png" width = "80%">
+</center>
+
+
+##### Step 4. Make the following Changes:
+
+- In the top left box, name your data something that makes sense. For example: `hw1Data` or `votes_by_district` or whatever. This name *cannot* start with a number (e.g., `1hwData` would not work). 
+- Last item on the left is a checkbox that says `Strings as factors`. Please **uncheck* that box. 
+
+##### Step 5. Click "Import"
+Once your data looks ok in that bottom window, go ahead and click "Import". You should now see your data.frame in the Environment tab. Email me ASAP if you are not able to get your data into R!
+
+# Assignment
+OK, now that you have your data in `R`, let's go on to the actual assignment! 
+### Introduction: Data Cleaning & Management
+The following are important steps to take for any code you might run. You want to make sure things look the way they ought to look, and that you (and whoever is reading your code) knows what is happening. Please do the following:
+
+  - In 1-2 sentences, please describe your dataset. No need for a ton of detail, just generally, what's in it.
+  
+  - Using code, find the object class of each column vector. Then find the object class of the entire data set. Do these make sense, or are there any that were unexpected? If they were unexpected, why?
+  
+  - Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called *factors*? If they should be treated as categorical variables, please do so using the `factor()` function.
+    - *HINT: `new_column <- factor(data$column)` makes a completely new object outside of the dataset. `data$new_column <- factor(data$column)` makes a new column that lives within the existing dataset. `data$column <- factor(data$column)` overwrites the original column.*
+
+### Results: Summary Statistics -- Part 1
+Get the following summary statistics: 
+
+- For two of your numeric/interger variables, get the mean, standard deviation, and range. If you don't know the function for standard deviation, Google it! Once you know the name of the functions, look at the help pages! *HINT: Pay attention to missing data!*
+- For your categorical variable, get very quick counts of each level (e.g., how many observations are there in group 1 vs. group 2). *HINT:  the easiest function to use for this was shown in the slides under "commonly used functions"*
+
+### Results: Summary Statistics -- Part 2
+Now we are going to make smaller datasets that only contain items from each category of your categorical. For example, let's say the factor "treatment_group" had 2 levels: `treatment` and `control`. I want you to make a new data.frame that is something like `data_treatment` and another new data.frame that is `data_controls`:
+
+- Do this via INDEXING and LOGICAL OPERATORS. *HINT: Logical operators result in TRUE or FALSE. You can use this within indexing so that anything that evaluates to TRUE will be either the rows or the columns that are kept.* 
+- One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame -- even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls). 
+- Now repeat the same summary statistics from Part 1 (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar?
+
+### Results: Plot 
+We will cover plotting in *a lot* more detail in the coming weeks. But for now, I will give you some code. Whenever you see `XXXXX`, you should replace that with something from your dataset. Please make these plots using your ORIGINAL larger data.frame --  not the mini ones.
+
+```{r, eval=FALSE}
+# First, make a density plot to show the distribution of one
+# of your numeric variables. Your data is the data.frame, and your
+# x-variable is the name of the column you want a density plot of.
+
+ggplot(data = XXXXX, aes(x = XXXXX)) +
+  geom_density(fill = "white", color = "blue")
+
+# Now I changed the code slightly so that it will be filled based on
+# the categorical variable (that's the newest thing you need to add!).
+# (note the `alpha = .5` just makes it easier to see overlaps)
+
+ggplot(data = XXXXX, aes(x = XXXXX)) +
+  geom_density(aes(fill = XXXXX), alpha = .5)
+
+# Finally, let's do a simple scatter plot with 2 of your numeric
+# variables
+
+ggplot(data = XXXXX, aes(x = XXXXX, y = XXXXX)) +
+  geom_point(color = "cornflowerblue") +
+  geom_smooth(method = "lm", color = "darkred")
+
+```
+
+### Results: Statistical Tests
+Now that you have a sense of what your data look like, you can now run your statistical test of choice. I will give you a few options. I want you to pick 2 out of the following options to run (do *not* run the same test twice -- I want you to run at least two *different* tests). This will depend on what works best for your dataset. Ideally, try to run these tests using the variables we just plotted and/or got summary stats on. *HINT: If you something like `formula` in the help documentation, it's referring to `y ~ x` which means "y is predicted by x". So `age ~ treatmentGroup` would mean "does being in a treatment group predict age?". HINT2: For now, it might be easier to not store the result as a new object. We will talk about why in class.* Here are the options:
+
+- t-test (if your categorical variable has 2 groups)
+- non-parametric two sample test (akin to t-test); Wilcox Rank Sum test
+- one-way ANOVA (if your factor has more than two groups)
+- non-parametric one-way ANOVA; Kruskal-Wallis test
+- correlation
+- (BONUS: if you want to challenge yourself, you can try a linear regression)
+
+### Discussion: Interpreation
+Think about the plots you made, and now think about the results of your statistical tests. Do they make sense together? Why or why not? Describe in 1-3 sentences. 
+

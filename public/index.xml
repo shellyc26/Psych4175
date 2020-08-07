@@ -13,6 +13,119 @@
     </image>
     
     <item>
+      <title>Assignment 1</title>
+      <link>/assignments/01-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/01-assignment/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;importing-your-data-into-r&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Importing Your Data into R&lt;/h1&gt;
+&lt;p&gt;We will be covering this in detail next class, but for now, please do the following:&lt;/p&gt;
+&lt;div id=&#34;step-1.-know-where-your-data-is-saved&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Step 1. Know where your data is saved!&lt;/h5&gt;
+&lt;p&gt;This could be your Desktop, Box, Dropbox, etc. Just know where it is.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2.-in-the-environment-tab-click-on-import-dataset&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 2. In the Environment tab, click on &lt;code&gt;Import Dataset&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Choose &lt;strong&gt;&lt;code&gt;From text (base)&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;step-3.-select-the-file&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Step 3. Select the file&lt;/h5&gt;
+&lt;p&gt;You should get a pop-up like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/popup.png&#34; width = &#34;80%&#34;&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4.-make-the-following-changes&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Step 4. Make the following Changes:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;In the top left box, name your data something that makes sense. For example: &lt;code&gt;hw1Data&lt;/code&gt; or &lt;code&gt;votes_by_district&lt;/code&gt; or whatever. This name &lt;em&gt;cannot&lt;/em&gt; start with a number (e.g., &lt;code&gt;1hwData&lt;/code&gt; would not work).&lt;/li&gt;
+&lt;li&gt;Last item on the left is a checkbox that says &lt;code&gt;Strings as factors&lt;/code&gt;. Please **uncheck* that box.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-5.-click-import&#34; class=&#34;section level5&#34;&gt;
+&lt;h5&gt;Step 5. Click “Import”&lt;/h5&gt;
+&lt;p&gt;Once your data looks ok in that bottom window, go ahead and click “Import”. You should now see your data.frame in the Environment tab. Email me ASAP if you are not able to get your data into R!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;assignment&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Assignment&lt;/h1&gt;
+&lt;p&gt;OK, now that you have your data in &lt;code&gt;R&lt;/code&gt;, let’s go on to the actual assignment!
+### Introduction: Data Cleaning &amp;amp; Management
+The following are important steps to take for any code you might run. You want to make sure things look the way they ought to look, and that you (and whoever is reading your code) knows what is happening. Please do the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;In 1-2 sentences, please describe your dataset. No need for a ton of detail, just generally, what’s in it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Using code, find the object class of each column vector. Then find the object class of the entire data set. Do these make sense, or are there any that were unexpected? If they were unexpected, why?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called &lt;em&gt;factors&lt;/em&gt;? If they should be treated as categorical variables, please do so using the &lt;code&gt;factor()&lt;/code&gt; function.
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;HINT: &lt;code&gt;new_column &amp;lt;- factor(data$column)&lt;/code&gt; makes a completely new object outside of the dataset. &lt;code&gt;data$new_column &amp;lt;- factor(data$column)&lt;/code&gt; makes a new column that lives within the existing dataset. &lt;code&gt;data$column &amp;lt;- factor(data$column)&lt;/code&gt; overwrites the original column.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;results-summary-statistics-part-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Summary Statistics – Part 1&lt;/h3&gt;
+&lt;p&gt;Get the following summary statistics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For two of your numeric/interger variables, get the mean, standard deviation, and range. If you don’t know the function for standard deviation, Google it! Once you know the name of the functions, look at the help pages! &lt;em&gt;HINT: Pay attention to missing data!&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;For your categorical variable, get very quick counts of each level (e.g., how many observations are there in group 1 vs. group 2). &lt;em&gt;HINT: the easiest function to use for this was shown in the slides under “commonly used functions”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-summary-statistics-part-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Summary Statistics – Part 2&lt;/h3&gt;
+&lt;p&gt;Now we are going to make smaller datasets that only contain items from each category of your categorical. For example, let’s say the factor “treatment_group” had 2 levels: &lt;code&gt;treatment&lt;/code&gt; and &lt;code&gt;control&lt;/code&gt;. I want you to make a new data.frame that is something like &lt;code&gt;data_treatment&lt;/code&gt; and another new data.frame that is &lt;code&gt;data_controls&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do this via INDEXING and LOGICAL OPERATORS. &lt;em&gt;HINT: Logical operators result in TRUE or FALSE. You can use this within indexing so that anything that evaluates to TRUE will be either the rows or the columns that are kept.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame – even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls).&lt;/li&gt;
+&lt;li&gt;Now repeat the same summary statistics from Part 1 (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Plot&lt;/h3&gt;
+&lt;p&gt;We will cover plotting in &lt;em&gt;a lot&lt;/em&gt; more detail in the coming weeks. But for now, I will give you some code. Whenever you see &lt;code&gt;XXXXX&lt;/code&gt;, you should replace that with something from your dataset. Please make these plots using your ORIGINAL larger data.frame – not the mini ones.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# First, make a density plot to show the distribution of one
+# of your numeric variables. Your data is the data.frame, and your
+# x-variable is the name of the column you want a density plot of.
+
+ggplot(data = XXXXX, aes(x = XXXXX)) +
+  geom_density(fill = &amp;quot;white&amp;quot;, color = &amp;quot;blue&amp;quot;)
+
+# Now I changed the code slightly so that it will be filled based on
+# the categorical variable (that&amp;#39;s the newest thing you need to add!).
+# (note the `alpha = .5` just makes it easier to see overlaps)
+
+ggplot(data = XXXXX, aes(x = XXXXX)) +
+  geom_density(aes(fill = XXXXX), alpha = .5)
+
+# Finally, let&amp;#39;s do a simple scatter plot with 2 of your numeric
+# variables
+
+ggplot(data = XXXXX, aes(x = XXXXX, y = XXXXX)) +
+  geom_point(color = &amp;quot;cornflowerblue&amp;quot;) +
+  geom_smooth(method = &amp;quot;lm&amp;quot;, color = &amp;quot;darkred&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-statistical-tests&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Statistical Tests&lt;/h3&gt;
+&lt;p&gt;Now that you have a sense of what your data look like, you can now run your statistical test of choice. I will give you a few options. I want you to pick 2 out of the following options to run (do &lt;em&gt;not&lt;/em&gt; run the same test twice – I want you to run at least two &lt;em&gt;different&lt;/em&gt; tests). This will depend on what works best for your dataset. Ideally, try to run these tests using the variables we just plotted and/or got summary stats on. &lt;em&gt;HINT: If you something like &lt;code&gt;formula&lt;/code&gt; in the help documentation, it’s referring to &lt;code&gt;y ~ x&lt;/code&gt; which means “y is predicted by x”. So &lt;code&gt;age ~ treatmentGroup&lt;/code&gt; would mean “does being in a treatment group predict age?”. HINT2: For now, it might be easier to not store the result as a new object. We will talk about why in class.&lt;/em&gt; Here are the options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;t-test (if your categorical variable has 2 groups)&lt;/li&gt;
+&lt;li&gt;non-parametric two sample test (akin to t-test); Wilcox Rank Sum test&lt;/li&gt;
+&lt;li&gt;one-way ANOVA (if your factor has more than two groups)&lt;/li&gt;
+&lt;li&gt;non-parametric one-way ANOVA; Kruskal-Wallis test&lt;/li&gt;
+&lt;li&gt;correlation&lt;/li&gt;
+&lt;li&gt;(BONUS: if you want to challenge yourself, you can try a linear regression)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;discussion-interpreation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Discussion: Interpreation&lt;/h3&gt;
+&lt;p&gt;Think about the plots you made, and now think about the results of your statistical tests. Do they make sense together? Why or why not? Describe in 1-3 sentences.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: Objects</title>
       <link>/practice/02-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -3074,6 +3187,46 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;adding-stuff&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;adding-stuff-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/18-slides.html#add&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Layers on Layers on Layers</title>
+      <link>/lectures/19-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/19-lecture/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/19-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/19-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/19-slides.html#1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;

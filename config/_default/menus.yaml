@@ -40,7 +40,7 @@ practice:
 assignment:
   - name: Overview
     weight: 1
-  - name: Projects
+  - name: Assignments
     weight: 2
   - name: Exercises
     weight: 3

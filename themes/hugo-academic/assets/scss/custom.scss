@@ -201,7 +201,8 @@ div.note:before,
 div.fyi:before,
 div.puzzle:before,
 div.quiz:before,
-div.warning:before {
+div.warning:before,
+div.list:before {
     position: absolute;
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
@@ -271,4 +272,16 @@ div.warning {
 div.warning:before {
     content: '\f071';
     left: 14px;
+}
+
+// fa-list
+div.list:before {
+    content: '\f03a';
+    left: 20px;
+}
+
+div.list {
+    color: nth($colors-dark, 4);
+    background-color: rgba(nth($colors-light, 4), 0.2);
+    border: dotted 4px nth($colors-dark, 4);
 }

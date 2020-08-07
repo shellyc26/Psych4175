@@ -1,0 +1,43 @@
+---
+title: About Assignments
+menu:
+  assignment:
+    parent: Overview
+    weight: 1
+type: docs
+weight: 1
+---
+
+Coding is a skill, and getting good at a skill requires practice! You have already practiced a bit in the [Practice sets](/practice). But the more you engage with R, the better you'll get.
+
+The assignments in this section are meant to give you even more practice. To earn full credit, you must complete all aspects of the assignment. That includes things like typing out any sentences if I ask you to explain something. 
+
+# Assignment Instructions
+
+### Submitting 
+
+You should complete the assignments on your local computer. You will upload **both** your code and dataset files directly to our [Canvas site](https://wustl.instructure.com/courses/53735) to be graded.
+
+For your code file, please name it `LastName_A#_Code.R`. For example, if I was turning in Assignment 1, it would be `Cooper_A1_Code.R`.
+
+Similarly, for your data file, please name it `LastName_Data.csv`. 
+
+### Dataset
+
+In a perfect world, you would use your own research dataset. However, in order for you to practice all the different elements we cover in the lectures, your dataset should have the following characteristics: 
+
+  - It should be in either a **.csv** or **.txt** file format. This is typical of most datasets. If it is *not* in either of these formats, and you don't know how to convert it, please email me ASAP. 
+  - It should contain rows and columns:
+    - There must be *at least* **20 observations (rows)**. If you have a very long dataset (several hundred or thousands of rows), you may shorten it for the purposes of these assignments.
+  - Ideally, the columns would be objects of different classes. Most importantly however is that there are **at least 3 columns** that would be considered **numeric or integer**. There should also be **1 or 2** columns that are **characters**. Of these, I would like at least **1 column** to be a categorical variable. 
+  - _**This must be de-identified!**_ It is fine for coded IDs to be included (e.g., SubjectID etc.). However, please no identifying information. This includes names, family structures, zip codes and more. If your dataset has any of these items and you don't know how to get rid of them, please email me ASAP!
+
+If you do not have a dataset that meets these criteria, please email me ASAP and I will supply you with one.
+
+:::warning
+The struggle is real when it comes to code. You might not get something at first, but that's OK! Use Google! If after 2-3 hours, you're still stuck on something, then reach out to me and I'll be happy to help. But the struggle is where all the learning takes place!
+:::
+
+:::list
+test
+:::
