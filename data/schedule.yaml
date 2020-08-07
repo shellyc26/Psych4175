@@ -1,0 +1,148 @@
+lectures:
+  - title: '<span class="fake-header-table">Module 1: Introduction & Basics</span>'
+    header: True
+
+  - title: 'Installation'
+    session: 0
+    date: "August 24"
+    lectures: "00-lecture"
+
+  - title: 'Tour of RStudio'
+    session: 1
+    date: "August 24"
+    lectures: "01-lecture"
+ 
+  - title: 'Objects'
+    session: 2
+    date: "August 24"
+    lectures: "02-lecture"
+    practice: "02-practice"
+    assignments: "01-assignment"
+    
+  - title: 'Indexing'
+    session: 3
+    date: "August 24"
+    lectures: "03-lecture"
+    practice: "03-practice"
+    assignments: "01-assignment"
+    
+  - title: 'Objects Part 2'
+    session: 4
+    date: "August 24"
+    lectures: "04-lecture"
+    practice: "04-practice"
+    assignments: "01-assignment"
+    
+  - title: 'Functions & Help'
+    session: 5
+    date: "August 24"
+    lectures: "05-lecture"
+    practice: "05-practice"
+    assignments: "01-assignment"
+
+  - title: '<span class="fake-header-table">Module 2: Continuation of Basics</span>'
+    header: True
+    
+  - title: 'Packages'
+    session: 6
+    date: "August 31"
+    lectures: "06-lecture"
+    practice: "06-practice"
+    assignments: "02-assignment"
+    
+  - title: 'Loading Files'
+    session: 7
+    date: "August 31"
+    lectures: "07-lecture"
+    practice: "07-practice"
+    assignments: "02-assignment"
+    
+  - title: 'Review and Random'
+    session: 8
+    date: "August 31"
+    lectures: "08-lecture"
+    practice: "08-practice"
+    assignments: "02-assignment"
+    
+  - title: 'Statistics and Intro to Plotting'
+    session: 9
+    date: "August 31"
+    lectures: "09-lecture"
+    practice: "09-practice"
+    assignments: "02-assignment"
+
+  - title: '<span class="fake-header-table">Module 3: Data Wrangling</span>'
+    header: True
+  
+  - title: 'Introduction to Tidyverse'
+    session: 10
+    date: "September 14"
+    lectures: "10-lecture"
+    practice: "10-practice"
+    assignments: "03-assignment"
+    
+  - title: 'Using Dplyr'
+    session: 11
+    date: "September 14"
+    lectures: "11-lecture"
+    practice: "11-practice"
+    assignments: "03-assignment"
+    
+  - title: 'Using Tidyr'
+    session: 12
+    date: "September 14"
+    lectures: "12-lecture"
+    practice: "12-practice"
+    assignments: "03-assignment"
+
+  - title: '<span class="fake-header-table">Module 4: Reproducibility</span>'
+    header: True
+  
+  - title: 'Introduction to RMarkdown'
+    session: 13
+    date: "September 21"
+    lectures: "13-lecture"
+    practice: "13-practice"
+    assignments: "04-assignment"
+    
+  - title: 'Markdown Anatomy'
+    session: 14
+    date: "September 21"
+    lectures: "14-lecture"
+    practice: "14-practice"
+    assignments: "04-assignment"
+    
+  - title: 'Endless Flexibility'
+    session: 15
+    date: "September 21"
+    lectures: "15-lecture"
+    practice: "15-practice"
+    assignments: "04-assignment"
+    
+  - title: '<span class="fake-header-table">Module 5: Data Visualization</span>'
+    header: True
+  
+  - title: 'Introduction to Data Visualization'
+    session: 16
+    date: "September 28"
+    lectures: "16-lecture"
+    practice: "16-practice"
+    
+  - title: 'Customizing Your Plots'
+    session: 17
+    date: "September 28"
+    lectures: "17-lecture"
+    practice: "17-practice"
+    
+  - title: 'Multipanel Figures'
+    session: 18
+    date: "September 28"
+    lectures: "18-lecture"
+    practice: "18-practice"
+    
+  - title: 'Layers on Layers on Layers'
+    session: 19
+    date: "September 28"
+    lectures: "19-lecture"
+    practice: "19-practice"
+    

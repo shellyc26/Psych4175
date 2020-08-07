@@ -1,0 +1,27 @@
+---
+title: "Schedule"
+slug: schedule
+---
+
+Here's your roadmap for this course!
+
+Each topic has 2 primary sections.
+
+- [**Lectures**](/lectures/) (<i class="fas fa-book-reader"></i>): This contains the lecture slides and video recordings of these lectures. You should watch the videos and follow along for each topic that is assigned per week. 
+- [**Practice**](/practice/) (<i class="fas fa-laptop-code"></i>): This page contains an interactive lesson that reinforces the principles that were discussed in the corresponding lecture. They also tend to go through more detail. Go through these *after* watching the lecture videos. 
+
+After you have watched the lectures and completed the practices for the week's assigned topics, you will complete an assignment.
+
+- [**Assignment**](/assignment/) (<i class="fas fa-pencil-ruler"></i>): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. **Assignments are due by 9:00am on the day they're listed.**
+
+:::note
+**tl;dr**: You should follow this general process each day:
+
+- Do everything on the Lectures (<i class="fas fa-book-reader"></i>) page
+- Work through the practice set (<i class="fas fa-laptop-code"></i>) page
+- Complete the assignment (<i class="fas fa-pencil-ruler"></i>)
+:::
+
+---
+
+`r blogdown::shortcode("schedule")`

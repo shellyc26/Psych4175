@@ -71,7 +71,7 @@ Adding Stuff
 ---
 # This time
 Miscellaneous & Remaining Details
-  - Error bars
+  - Bar plots & Error bars
   - Jittering
   - Adding layers
   - Debugging plots
@@ -82,3 +82,335 @@ Miscellaneous & Remaining Details
 <center>
 <img src="19-slides_files/figure-html/shrek.png", width = "100%">
 </center>
+
+---
+name: bp
+
+# Bar Plots & Error Bars
+- Usually bar plots reflect the *mean* of a group (or at least some summary statistic)
+- Just like vertical/horizontal lines, we'll need to transform our raw data into summary statistics
+- If you decide to work with summary stats, you have a few options:
+  - You can calculate the summaries within the `ggplot` code
+  - Calculate the summaries as their own data.frame, then call it from inside the `ggplot` function
+
+--
+
+  - I personally suggest the latter
+  
+---
+
+# Bar Plots & Error Bars
+- When it comes to error bars, you need to decide what your bars will reflect and calculate the appropriate statistic!
+  - 1 standard deviation
+  - 95% confidence intervals
+  - 1 standard error of the mean
+  
+--
+
+- For now, we'll stick to +/- 1 standard deviation
+
+---
+# Bar Plots & Error Bars
+
+Step 1: Summarize your data
+
+```{r}
+summaryStats <- midus %>%
+  group_by(age_category, sex) %>%
+  summarize(means = mean(physical_health_self),
+            sds = sd(physical_health_self)) %>%
+  mutate(sdLower = means - sds) %>%
+  mutate(sdUpper = means + sds)
+
+summaryStats
+```
+
+---
+# Bar Plots & Error Bars
+
+.pull-left.pull-left-small[
+Now we can plot
+
+.code-small[
+```{r, eval = FALSE}
+ggplot(data = summaryStats,
+       aes(x = age_category,
+           y = means,
+           fill = sex)) + #<<
+  geom_col(position = position_dodge(width=.9)) + #<<
+  geom_errorbar(aes(ymin = sdLower, #<<
+                    ymax = sdUpper), #<<
+                position = position_dodge(width=.9), #<<
+                width = .2) + #<<
+  theme_classic() +
+  scale_fill_brewer(palette = "Accent",
+                    labels = c("Mulheres",
+                               "Homens")) +
+  labs(title = "Error Bars",
+       x = "",
+       y = "Mean of Physical Health\n(self-reported)",
+       fill = "Gender")
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+```{r, echo = FALSE}
+ggplot(data = summaryStats,
+       aes(x = age_category,
+           y = means,
+           fill = sex)) + #<<
+  geom_col(position = position_dodge(width=.9)) + #<<
+  geom_errorbar(aes(ymin = sdLower, #<<
+                    ymax = sdUpper), #<<
+                position = position_dodge(width=.9), #<<
+                width = .2) + #<<
+  theme_classic() +
+  scale_fill_brewer(palette = "Accent",
+                    labels = c("Mulheres",
+                               "Homens")) +
+  labs(title = "Error Bars",
+       x = "",
+       y = "Mean of Physical Health\n(self-reported)",
+       fill = "Gender")
+```
+]
+
+---
+name: ji
+
+# Jittering
+
+.pull-left.pull-left-small[
+Why does this plot look so weird?
+  - (Hint, how many observations do we have in the `midus` data set?)
+
+.code-small[
+```{r, eval=FALSE}
+ggplot(data = midus,
+       aes(x = physical_health_self,
+           y = mental_health_self)) +
+  geom_point(aes(color = age_category)) +
+  theme_classic() +
+  scale_color_brewer(palette = "Set2") +
+  labs(x = "Physical Health\n(self-reported)",
+       y = "Mental Health\n(self-reported)",
+       title = "What's Wrong With This Graph?",
+       subtitle = "seriously, it's so bad")
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+```{r, echo=FALSE}
+ggplot(data = midus,
+       aes(x = physical_health_self,
+           y = mental_health_self)) +
+  geom_point(aes(color = age_category)) +
+  theme_classic() +
+  scale_color_brewer(palette = "Set2") +
+  labs(x = "Physical Health\n(self-reported)",
+       y = "Mental Health\n(self-reported)",
+       title = "What's Wrong With This Graph?",
+       subtitle = "seriously, it's so bad")
+```
+]
+
+---
+# Jittering
+
+The way we can get around this is with **jittering**
+
+  - A **jitter** is a slight irregular movement, variance, or unsteadiness
+  - Someone is jittery means someone is *shaky*, usually with nervousness
+
+--
+
+We can **jitter** the points on the x-axis to randomly shift them. This let's us see *all* of the points.
+
+  - We are adding in some random variance to make things more visible. 
+
+---
+# Jittering
+
+.pull-left.pull-left-small[
+.code-small[
+```{r, eval=FALSE}
+ggplot(data = midus,
+       aes(x = physical_health_self,
+           y = mental_health_self)) +
+  geom_jitter(aes(color = age_category), #<<
+              width = 1) + #<<
+  theme_classic() +
+  scale_color_brewer(palette = "Set2") +
+  labs(x = "Physical Health\n(self-reported)",
+       y = "Mental Health\n(self-reported)",
+       title = "Jittering",
+       subtitle = "Much better!")
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+```{r, echo=FALSE}
+ggplot(data = midus,
+       aes(x = physical_health_self,
+           y = mental_health_self)) +
+  geom_jitter(aes(color = age_category),
+              width = 1) +
+  theme_classic() +
+  scale_color_brewer(palette = "Set2") +
+  labs(x = "Physical Health\n(self-reported)",
+       y = "Mental Health\n(self-reported)",
+       title = "Jittering",
+       subtitle = "Much better!")
+```
+]
+
+---
+name: mg
+
+# Layers on Layers on Layers
+- By now you've hopefully realized that you can add as many layers as you'd like to your `ggplot`
+- This means you can use multiple shapes or `geom_`s from the same data on the same plot
+- Be careful!
+  - You are layering `geom`s *on top* of each other
+  - Order matters depending on what you're doing!
+
+---
+
+# Layers on Layers: Line Graph Example
+
+.pull-left.pull-left-small[
+.code-small[
+```{r eval=FALSE}
+ggplot(data = summaryStats,
+       aes(x = age_category,
+           y = means,
+           group = sex)) +
+  geom_point(aes(color = sex,
+                 shape = sex),
+             size = 8) +
+  geom_errorbar(aes(ymin = sdLower,
+                    ymax = sdUpper,
+                    color = sex),
+                width = .1,
+                linetype = "dashed") +
+  ylim(c(2,5)) +
+  geom_line(aes(color = sex)) +
+  theme_classic() +
+  labs(y = "Mean Physical Health",
+       x = "",
+       color = "",
+       shape = "",
+       title = "Line Graph")
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+```{r echo=FALSE}
+ggplot(data = summaryStats,
+       aes(x = age_category,
+           y = means,
+           group = sex)) +
+  geom_point(aes(color = sex,
+                 shape = sex),
+             size = 8) +
+  geom_errorbar(aes(ymin = sdLower,
+                    ymax = sdUpper,
+                    color = sex),
+                width = .1,
+                linetype = "dashed") +
+  ylim(c(2,5)) +
+  geom_line(aes(color = sex)) +
+  theme_classic() +
+  labs(y = "Mean Physical Health",
+       x = "",
+       color = "",
+       shape = "",
+       title = "Line Graph")
+```
+]
+
+---
+# Layers on Layers: Line Graph Example
+
+.pull-left.pull-left-small[
+Order switch
+.code-small[
+```{r eval=FALSE}
+ggplot(data = summaryStats,
+       aes(x = age_category,
+           y = means,
+           group = sex)) +
+  geom_errorbar(aes(ymin = sdLower,
+                    ymax = sdUpper,
+                    color = sex),
+                width = .1,
+                linetype = "dashed") +
+  ylim(c(2,5)) +
+  geom_line(aes(color = sex)) +
+  geom_point(aes(color = sex,
+                 shape = sex),
+             size = 8) +
+  theme_classic() +
+  labs(y = "Mean Physical Health",
+       x = "",
+       color = "",
+       shape = "",
+       title = "Line Graph")
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+```{r echo=FALSE}
+ggplot(data = summaryStats,
+       aes(x = age_category,
+           y = means,
+           group = sex)) +
+  geom_errorbar(aes(ymin = sdLower,
+                    ymax = sdUpper,
+                    color = sex),
+                width = .1,
+                linetype = "dashed") +
+  ylim(c(2,5)) +
+  geom_line(aes(color = sex)) +
+  geom_point(aes(color = sex,
+                 shape = sex),
+             size = 8) +
+  theme_classic() +
+  labs(y = "Mean Physical Health",
+       x = "",
+       color = "",
+       shape = "",
+       title = "Line Graph")
+```
+]
+
+---
+# Layers on Layers: Distributions Example
+
+.pull-left.pull-left-small[
+.code-small[
+```{r eval=FALSE}
+ggplot(data = midus,
+       aes(x = age_category,
+           y = physical_health_self)) +
+  geom_violin(aes(color = age_category),
+              fill = "white",
+              alpha = .3) +
+  geom_point(aes(color = age_category),
+             position = position_jitter(width = .1)) +
+  theme_classic() +
+  
+```
+
+]
+]
