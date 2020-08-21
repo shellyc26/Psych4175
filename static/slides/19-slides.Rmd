@@ -62,7 +62,7 @@ midus$age_category <- cut(x = midus$age,
 # Last Time
 Multipanel Plots
   - Faceting
-  - Combining separates into 1
+  - Combining separate plots into 1 cohesive figure
   
 Adding Stuff
   - Lines
@@ -74,7 +74,7 @@ Miscellaneous & Remaining Details
   - Bar plots & Error bars
   - Jittering
   - Adding layers
-  - Debugging plots
+  - Misc.
 
 ---
 # Layers on layers on layers
@@ -90,7 +90,9 @@ name: bp
 - Usually bar plots reflect the *mean* of a group (or at least some summary statistic)
 - Just like vertical/horizontal lines, we'll need to transform our raw data into summary statistics
 - If you decide to work with summary stats, you have a few options:
+
   - You can calculate the summaries within the `ggplot` code
+  
   - Calculate the summaries as their own data.frame, then call it from inside the `ggplot` function
 
 --
@@ -101,8 +103,11 @@ name: bp
 
 # Bar Plots & Error Bars
 - When it comes to error bars, you need to decide what your bars will reflect and calculate the appropriate statistic!
+
   - 1 standard deviation
+  
   - 95% confidence intervals
+  
   - 1 standard error of the mean
   
 --
@@ -402,15 +407,446 @@ ggplot(data = summaryStats,
 ```{r eval=FALSE}
 ggplot(data = midus,
        aes(x = age_category,
-           y = physical_health_self)) +
+           y = BMI)) +
   geom_violin(aes(color = age_category),
-              fill = "white",
-              alpha = .3) +
-  geom_point(aes(color = age_category),
-             position = position_jitter(width = .1)) +
+              fill = "white") +
+  geom_jitter(aes(color = age_category),
+             width = .2,
+             alpha = .3) +
   theme_classic() +
+  labs(title = "Distribution of BMI",
+       subtitle = "Per Age Category",
+       x = "",
+       color = "")
   
 ```
 
 ]
 ]
+
+.pull-right.pull-right-large[
+
+```{r echo=FALSE}
+ggplot(data = midus,
+       aes(x = age_category,
+           y = BMI)) +
+  geom_violin(aes(color = age_category),
+              fill = "white") +
+  geom_jitter(aes(color = age_category),
+             width = .2,
+             alpha = .3) +
+  theme_classic() +
+  labs(title = "Distribution of BMI",
+       subtitle = "Per Age Category",
+       x = "",
+       color = "")
+  
+```
+
+]
+
+---
+# Layers on Layers: Distributions Example
+
+.pull-left.pull-left-small[
+- When combining mutliple `geom`s, the order matters!
+- Look what happens when you switch `geom_violin` and `geom_point`:
+.code-small[
+```{r eval=FALSE}
+ggplot(data = midus,
+       aes(x = age_category,
+           y = BMI)) +
+  geom_jitter(aes(color = age_category),
+             width = .2,
+             alpha = .3) +
+  geom_violin(aes(color = age_category),
+              fill = "white") +
+  theme_classic() +
+  labs(title = "Distribution of BMI",
+       subtitle = "Per Age Category",
+       x = "",
+       color = "")
+  
+```
+
+]
+]
+
+.pull-right.pull-right-large[
+
+```{r echo=FALSE}
+ggplot(data = midus,
+       aes(x = age_category,
+           y = BMI)) +
+  geom_jitter(aes(color = age_category),
+             width = .2,
+             alpha = .3) +
+  geom_violin(aes(color = age_category),
+              fill = "white") +
+  theme_classic() +
+  labs(title = "Distribution of BMI",
+       subtitle = "Per Age Category",
+       x = "",
+       color = "")
+  
+```
+
+]
+
+---
+# Layers on Layers: Distributions Example
+
+.pull-left.pull-left-small[
+- Adding a 3rd `geom`
+- Not quite right...
+- .tiny[*This is a great example of jittering!*]
+.code-small[
+```{r eval=FALSE}
+ggplot(data = midus,
+       aes(x = age_category,
+           y = BMI)) +
+  geom_jitter(aes(color = age_category),
+             width = .2,
+             alpha = .7) +
+  geom_violin(aes(fill = age_category),
+              alpha = .3) +
+  geom_boxplot(fill = "white",
+               width = .2) +
+  theme_classic() +
+  labs(title = "Distribution of BMI",
+       subtitle = "Per Age Category",
+       x = "",
+       color = "")
+  
+```
+]
+]
+
+.pull-right.pull-right-large[
+
+```{r echo=FALSE}
+ggplot(data = midus,
+       aes(x = age_category,
+           y = BMI)) +
+  geom_jitter(aes(color = age_category),
+             width = .2,
+             alpha = .7) +
+  geom_violin(aes(fill = age_category),
+              alpha = .3) +
+  geom_boxplot(fill = "white",
+               width = .2) +
+  theme_classic() +
+  labs(title = "Distribution of BMI",
+       subtitle = "Per Age Category",
+       x = "",
+       color = "")
+  
+```
+
+]
+
+---
+# Layers on Layers: Distributions Example
+
+.pull-left.pull-left-small[
+- Where should I look to figure out *how* to fix this?
+.code-small[
+```{r eval=FALSE}
+ggplot(data = midus,
+       aes(x = age_category,
+           y = BMI)) +
+  geom_jitter(aes(color = age_category),
+             width = .2,
+             alpha = .7) +
+  geom_violin(aes(fill = age_category),
+              alpha = .3) +
+  geom_boxplot(fill = "white", 
+               width = .2, 
+               outlier.shape = NA) + 
+  theme_classic() +
+  labs(title = "Distribution of BMI",
+       subtitle = "Per Age Category",
+       x = "",
+       color = "",
+       fill = "")
+  
+```
+]
+]
+
+.pull-right.pull-right-large[
+
+```{r echo=FALSE}
+ggplot(data = midus,
+       aes(x = age_category,
+           y = BMI)) +
+  geom_jitter(aes(color = age_category),
+             width = .2,
+             alpha = .7) +
+  geom_violin(aes(fill = age_category),
+              alpha = .3) +
+  geom_boxplot(fill = "white",
+               width = .2,
+               outlier.shape = NA) + 
+  theme_classic() +
+  labs(title = "Distribution of BMI",
+       subtitle = "Per Age Category",
+       x = "",
+       color = "",
+       fill = "")
+  
+```
+
+]
+
+---
+name: misc
+
+# Last Remaining Thoughts
+
+- Idea of "addition" & "piping"
+- Exporting plots
+- Debugging
+- Fun!
+
+---
+
+# Idea of "addition"
+- When you use the `+` at the end of a line, you are literally telling `R` that you want to *add* something -- you're saying *"add another layer to the plot"*
+- As a result, you will see a lot of code, especially in the help documentation, that looks like this:
+
+.code-small[
+```{r, out.width='40%'}
+p <- ggplot(data = midus)
+p <- p + geom_point(aes(x = age, y = BMI, color = age_category))
+p <- p + labs(title = "Plotting by Addition")
+p
+```
+]
+---
+
+# Idea of "piping"
+- You can also "pipe" `ggplot2` code into `tidyverse` code
+- Notice that the pipe `%>%` changes into a `+` when you entire `ggplot2` code!
+
+.code-small[
+```{r, out.width='40%'}
+midus %>%
+  filter(age_category != "old") %>% 
+  group_by(age_category) %>% 
+  summarize(meanHostility = mean(hostility)) %>% #<<
+  ggplot(aes(x = age_category, y = meanHostility)) + #<<
+  geom_col(aes(fill = age_category))
+```
+]
+---
+
+# Exporting
+- So you've made a plot. Yay! Now you need to get it out of `R` and into a file format you can upload (.png, .tiff, .jpf, .pdf etc.)
+
+- Method 1: `ggsave()` function
+  - It should work most of the time
+  - Simplier, easier
+  - Not as much control
+
+- Method 2: Turn on/off the graphic device
+  - Better if you need something specific
+  - Specific resolution, compression etc.
+  - Slightly more annoying, but not by much
+  
+.box-inv-7.small[IMPORTANT: You must consider your working directory! Your plot will save to your working directory]
+
+---
+# Exporting
+
+.pull-left[
+.code-small[
+```{r, eval=FALSE}
+# Method 1: `ggsave()`
+ggsave(filename = "plotSaveTest.png", #<< 
+       width = 7,
+       height = 7,
+       units = "in")
+
+# Note: this uses the last plot you generated
+
+```
+]
+]
+
+--
+
+.pull-right[
+.code-small[
+```{r, eval=FALSE}
+# Method 2: graphic device
+# First, you call the device
+# Then you plot,
+# Then you turn the device off
+
+tiff(filename = "plotSave2.tiff", #<<
+     width = 7,
+     height = 7,
+     units = "in",
+     res = 300, #<<
+     compression = "lzw") #<<
+
+ggplot(data = data,
+       aes(x = x, y = y)) +
+  geom_point()
+
+dev.off() # Leave parentheses empty.
+```
+
+.tiny[If you get a pop-up that's like "quartz_off_screen" or something, that's OK.]
+]
+]
+
+---
+# Debugging
+If your code isn't working, and you really think that it should, you might be using a function that comes from a different package.
+  - Ex: `alpha` exists in both the `ggplot2` and `psych` packages
+  - If it gives you trouble, just specify the package like this `ggplot2::alpha`
+
+--
+
+If you still want to cry `r emo::ji("cry")` because your plot still isn't giving you what you want, try:
+  - Store the plot as an object
+  - Then look at its inner workings using `ggplot_build(plotObject)` where `plotObject` is the name of your plot
+
+--
+
+Finally, when looking around the internet for help, make sure that the version number is kind of close to the one you're working with (usually doesn't need to be exact). The `tidyverse` including `ggplot2` has been around for some time now, and they have gone through many iterations over the years.
+
+---
+# Fun!
+
+Want to look at pictures of cute puppies in RStudio?
+  - `pupR` package!
+
+.code-small[  
+```{r, out.width='50%'}
+# use this line of code to install the package
+# devtools::install_github("melissanjohnson/pupR")
+
+library(pupR)
+pupR()
+```
+]
+---
+# Fun!
+
+Want to look at pictures of cute puppies in RStudio?
+  - `pupR` package!
+
+.code-small[
+```{r, out.width='50%'}
+# use this line of code to install the package
+# devtools::install_github("melissanjohnson/pupR")
+
+library(pupR)
+pupR(dog_type = "basset")
+```
+]
+
+---
+# Fun!
+
+For those of you who get bored and like to procrastinate with remarkably dumb things, you can make your own [XKCD](https://xkcd.com/) plot in `R`!
+  - Use the `xkcd` package and the `extrafont` packages
+
+```{r, warning=FALSE, message=FALSE}
+library(xkcd)
+library(extrafont)
+```
+
+---
+# Fun!
+
+```{r, warning=FALSE}
+set.seed(1234) #this makes sure the random numbers generated will be the same
+
+df <- data.frame(vacc = rnorm(50, sd = .75), #make fake data
+                 autism = rnorm(50, sd = .55))
+
+
+xrange <- c(-2,2) # specific for xkcd
+yrange <- c(-2,2) # specific for xkcd
+
+ratioxy <- diff(xrange) / diff(yrange) # specific for xkcd
+
+mapping <- aes(x,  y,    # specific for xkcd
+               scale,
+               ratioxy,
+               angleofspine ,
+               anglerighthumerus,
+               anglelefthumerus,
+               anglerightradius,
+               angleleftradius,
+               anglerightleg,
+               angleleftleg,
+               angleofneck)
+```
+
+---
+# Fun!
+
+This code makes the little stick figure dude. You choose the angles of each line. You can use $\pi$ charts!
+
+```{r}
+dataman <- data.frame(x= 1.75, y=-.4,   # specific for xkcd
+                      scale = .5,
+                      ratioxy = 1,
+                      angleofspine =  -pi/2  ,
+                      anglerighthumerus = c((7*pi)/4),
+                      anglelefthumerus = c((5*pi)/4), # use the charts!!
+                      anglerightradius = c(pi/6),
+                      angleleftradius = c((5*pi)/6),
+                      angleleftleg = 3*pi/2  + pi / 12 ,
+                      anglerightleg = 3*pi/2  - pi / 12,
+                      angleofneck = runif(1, 3*pi/2-pi/10, 3*pi/2+pi/10))
+
+```
+
+---
+# Fun!
+Finally, something you know -- `ggplot`!
+
+```{r, eval=FALSE}
+ggplot(df, aes(x = vacc, y = autism, group = 1)) +
+  geom_point() +
+  geom_smooth(color = "red", method = "lm", se = FALSE) +
+  xkcdaxis(xrange, yrange) +
+  xkcdman(mapping, dataman) +
+  annotate("text", x=0, y = -1.75,
+           label = "The relationship between vaccines
+           and autism is as flat as the earth",
+           family="Humor Sans", size = 3) +
+  labs(y = "Autism",
+       x = "Vaccines",
+       title = "Which conspiracy theory\nshould you believe??") +
+  theme_xkcd() +
+  theme(text = element_text(family = "Humor Sans", size = 11))
+```
+
+---
+# Fun!
+And here's the actual plot
+
+```{r, echo=FALSE, out.width='60%'}
+ggplot(df, aes(x = vacc, y = autism, group = 1)) +
+  geom_point() +
+  geom_smooth(color = "red", method = "lm", se = FALSE) +
+  xkcdaxis(xrange, yrange) +
+  xkcdman(mapping, dataman) +
+  annotate("text", x=0, y = -1.75,
+           label = "The relationship between vaccines
+           and autism is as flat as the earth",
+           family="Humor Sans", size = 3) +
+  labs(y = "Autism",
+       x = "Vaccines",
+       title = "Which conspiracy theory\nshould you believe??") +
+  theme_xkcd() +
+  theme(text = element_text(family = "Humor Sans", size = 11))
+```
+
