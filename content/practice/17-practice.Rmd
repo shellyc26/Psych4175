@@ -1,0 +1,114 @@
+---
+title: "Practice Set: Customize Your Plots"
+linktitle: "17: Customization"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Data Viz
+    weight: 17
+type: docs
+weight: 17
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+```{r, echo=FALSE}
+midus <- read.csv("../../public/practice/07-practice/data/midus.csv")
+midus <- midus %>% 
+  mutate_at(vars(1, 2, 10, 11), list(factor)) %>% 
+  na.omit(.)
+
+midus$age_category <- cut(x = midus$age,
+                          breaks = c(28, 40, 60, 84),
+                          labels=c("young", "middle", "old"),
+                          include.lowest = TRUE)
+```
+
+#### Let's get going, shall we?
+
+:::puzzle
+**You try!** The code below is broken. Your job is to fix it!
+:::
+
+## Bubble Plots
+Bubble plots are a lot like scatter plots with an extra size dimension (See [here](https://en.wikipedia.org/wiki/Bubble_chart) for more). In `ggplot2`, it’s easy to make! All you have to do is put the size argument inside of aes().
+
+Check it out!
+
+```{r}
+ggplot(data = midus, aes(x = self_esteem, y = life_satisfaction)) +
+  geom_point(alpha = .5, aes(size = hostility)) +
+  labs(x = "Self-Esteem", y = "Life Satisfaction", title = "Bubble Plot")
+```
+
+Note that bubble plots are awesome if you work with spatial data (think of a map where a bubble might represent population density).
+
+## Color Palettes & Themes
+In the lecture slides, we talked about making your plot pretty with color palettes, especially with `RColorBrewer`. You can use the function `display.brewer.all()` function to find palettes that you like. It also has very helpful arguments to narrow down the palettes you might like.
+
+:::puzzle
+**You try!**
+
+  1. Look up the help documentation for `display.brewer.all()`
+    - Use this function to find a color palette that is good for 3 colors
+    - Include the argument `type = "qual"`
+    - Use an argument to make your color palette colorblind friendly
+    - Pick whichever palette you like, and use it in the code below (in the exercise boxes)
+  2. Change the overall theme to be more minimalist
+  3. You might find that some of the categories overlap. Make an adjustment so you can see each distribution more clearly.
+:::
+
+#### Look up the help documentation for `display.brewer.all()`
+Look for the different parameters listed in the box above. 
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app1/",
+                    id = "learnr-17-app1")
+
+```
+
+#### Now implement your color palette and theme changes
+Edit the code below to make the plot according to the specifications in the box above (a color palette, a theme, and an adjustment to make the overlapping categories easier to read). 
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app2/",
+                    id = "learnr-17-app2")
+
+```
+
+## The Ugliest Plot in the World
+
+:::puzzle
+**You try!**  The code below makes THE ugliest plot ever. Your job is to work backwards and turn this into a plot that is publication-ready (and not super ugly). Do so *without* deleting any whole layers. Just modify the existing code.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app3/",
+                    id = "learnr-17-app3")
+
+```
+
+#### You're doing GREAT!
+
+<center>
+
+<img src="../encouragementFigs/figure-html/liam.jpg" width = "75%">
+
+</center>

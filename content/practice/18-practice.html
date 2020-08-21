@@ -1,0 +1,379 @@
+---
+title: "Practice Set: Multipanel Figures & Adding To Your Plot"
+linktitle: "18: MultiPanel & Additions"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Data Viz
+    weight: 18
+type: docs
+weight: 18
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#review-of-midus">Review of <code>midus</code></a></li>
+<li><a href="#faceting">Faceting</a></li>
+<li><a href="#adding-lines">Adding Lines</a></li>
+</ul>
+</div>
+
+<div id="review-of-midus" class="section level2">
+<h2>Review of <code>midus</code></h2>
+<p>Let’s take a preview of <code>midus</code>, just to remember what we’ve got. Remember, we added a “session” variable. (Don’t forget to scroll all the way over!)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+ID
+</th>
+<th style="text-align:left;">
+sex
+</th>
+<th style="text-align:right;">
+age
+</th>
+<th style="text-align:right;">
+BMI
+</th>
+<th style="text-align:right;">
+physical_health_self
+</th>
+<th style="text-align:right;">
+mental_health_self
+</th>
+<th style="text-align:right;">
+self_esteem
+</th>
+<th style="text-align:right;">
+life_satisfaction
+</th>
+<th style="text-align:right;">
+hostility
+</th>
+<th style="text-align:left;">
+heart_self
+</th>
+<th style="text-align:left;">
+heart_father
+</th>
+<th style="text-align:left;">
+age_category
+</th>
+<th style="text-align:left;">
+session
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+10001
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+26.263
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+7.750
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+old
+</td>
+<td style="text-align:left;">
+session1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+10002
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+69
+</td>
+<td style="text-align:right;">
+24.077
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+8.250
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+old
+</td>
+<td style="text-align:left;">
+session2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:left;">
+10011
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+25.991
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+7.000
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+session1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+10015
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+32.121
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+7.375
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+Yes
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+session2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:left;">
+10018
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+22.499
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+8.500
+</td>
+<td style="text-align:right;">
+6.0
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+session1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:left;">
+10019
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+29.987
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+7.625
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+No
+</td>
+<td style="text-align:left;">
+middle
+</td>
+<td style="text-align:left;">
+session2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="faceting" class="section level2">
+<h2>Faceting</h2>
+<p>Faceting is an easy way to create sub-plots based on a categorical/factor variable. There are two main ways of faceting:
+- <code>facet_grid</code> will create a grid or matrix of sub-plots
+- <code>facet_wrap</code> will lay out each sub-plot kind of like a ribbon</p>
+<div class="puzzle">
+<p><strong>You try!</strong> Imagine each of the 3740 midus observations were randomly assigned to belong to one of two groups. Add to the code below to facet based on session and this new group variable. The result should include 4 subplots. Organize them such that they are in a 2x2 layout, with group 1 in the left column, group 2 in the right column, session1 in the first row, and session2 in the second row.</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/18-learnr-app1/" id="learnr-18-app1" %}}
+<div class="puzzle">
+<p><strong>You try!</strong> Now, use <code>facet_wrap</code> to get sub-plots reflecting all 3 factor variables (<code>age_category</code>, <code>group</code>, and <code>session</code>). How many sub-plots should you wind up with? Organize them such that there are 3 columns.</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/18-learnr-app2/" id="learnr-18-app2" %}}
+</div>
+<div id="adding-lines" class="section level2">
+<h2>Adding Lines</h2>
+<p>You can use <code>geom_vline</code> and <code>geom_hline</code> to make vertical and horizontal lines, respectively. You’ll need to specify a x- or y-intercept.</p>
+<p>Often, we want these lines to be based on summary statistics. This is where the <code>tidyverse</code> comes in very handy!</p>
+<div class="puzzle">
+<p><strong>You try!</strong> Change the code below to represent the mean of <code>self_esteem</code> per <code>age_category</code>.</p>
+<ul>
+<li>Plot these means as <em>horizontal</em> lines</li>
+<li>HINT: You do NOT need to change the <code>meansSelfEsteem</code> code, only the plotting code</li>
+<li>BONUS: How can you get rid of the legend that shows the line type?</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/18-learnr-app3/" id="learnr-18-app3" %}}
+<div id="almost-done" class="section level4">
+<h4>Almost done…</h4>
+<center>
+<p><img src="../encouragementFigs/figure-html/countdown.gif" width = "100%"></p>
+</center>
+</div>
+</div>

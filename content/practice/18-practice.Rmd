@@ -1,0 +1,108 @@
+---
+title: "Practice Set: Multipanel Figures & Adding To Your Plot"
+linktitle: "18: MultiPanel & Additions"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Data Viz
+    weight: 18
+type: docs
+weight: 18
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+```{r, echo=FALSE}
+midus <- read.csv("../../public/practice/07-practice/data/midus.csv")
+midus <- midus %>% 
+  mutate_at(vars(1, 2, 10, 11), list(factor)) %>% 
+  na.omit(.)
+
+midus$age_category <- cut(x = midus$age,
+                          breaks = c(28, 40, 60, 84),
+                          labels=c("young", "middle", "old"),
+                          include.lowest = TRUE)
+
+session <- c(rep(c(1, 2), times = 935))
+midus["session"] <- rep(session, times = 2)
+midus$session <- as.numeric(midus$session)
+midus$session <- factor(midus$session,
+                        labels = c("session1", "session2"))
+
+```
+
+## Review of `midus`
+Let's take a preview of `midus`, just to remember what we've got. Remember, we added a "session" variable. (Don't forget to scroll all the way over!)
+
+```{r, echo=FALSE}
+kable(head(midus))
+```
+
+## Faceting
+Faceting is an easy way to create sub-plots based on a categorical/factor variable. There are two main ways of faceting:
+  - `facet_grid` will create a grid or matrix of sub-plots
+  - `facet_wrap` will lay out each sub-plot kind of like a ribbon
+
+:::puzzle
+**You try!** Imagine each of the 3740 midus observations were randomly assigned to belong to one of two groups. Add to the code below to facet based on session and this new group variable. The result should include 4 subplots. Organize them such that they are in a 2x2 layout, with group 1 in the left column, group 2 in the right column, session1 in the first row, and session2 in the second row.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/18-learnr-app1/",
+                    id = "learnr-18-app1")
+
+```
+
+:::puzzle
+**You try!** Now, use `facet_wrap` to get sub-plots reflecting all 3 factor variables (`age_category`, `group`, and `session`). How many sub-plots should you wind up with? Organize them such that there are 3 columns.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/18-learnr-app2/",
+                    id = "learnr-18-app2")
+
+```
+
+## Adding Lines
+You can use `geom_vline` and `geom_hline` to make vertical and horizontal lines, respectively. You'll need to specify a x- or y-intercept. 
+
+Often, we want these lines to be based on summary statistics. This is where the `tidyverse` comes in very handy!
+
+:::puzzle
+**You try!** Change the code below to represent the mean of `self_esteem` per `age_category`.
+
+  - Plot these means as *horizontal* lines
+  - HINT: You do NOT need to change the `meansSelfEsteem` code, only the plotting code
+  - BONUS: How can you get rid of the legend that shows the line type?
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/18-learnr-app3/",
+                    id = "learnr-18-app3")
+
+```
+
+#### Almost done...
+
+<center>
+
+<img src="../encouragementFigs/figure-html/countdown.gif" width = "100%">
+
+</center>

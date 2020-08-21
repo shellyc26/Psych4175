@@ -1,0 +1,35 @@
+---
+title: "Practice Set: Layers on Layers on Layers"
+linktitle: "19: Layers"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Data Viz
+    weight: 19
+type: docs
+weight: 19
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+
+
+#### That's all, folks!
+Now that you've finished the Intro to R portion, you're ready to move on to bigger and better things. Feel free to access these materials at any time if you just want to refresh your memory. 
+
+<center>
+
+<img src="../encouragementFigs/figure-html/bye.gif" width = "75%">
+
+</center>

@@ -1,0 +1,83 @@
+---
+title: "Practice Set: Customize Your Plots"
+linktitle: "17: Customization"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Data Viz
+    weight: 17
+type: docs
+weight: 17
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#bubble-plots">Bubble Plots</a></li>
+<li><a href="#color-palettes-themes">Color Palettes &amp; Themes</a></li>
+<li><a href="#the-ugliest-plot-in-the-world">The Ugliest Plot in the World</a></li>
+</ul>
+</div>
+
+<div id="lets-get-going-shall-we" class="section level4">
+<h4>Let’s get going, shall we?</h4>
+<div class="puzzle">
+<p><strong>You try!</strong> The code below is broken. Your job is to fix it!</p>
+</div>
+</div>
+<div id="bubble-plots" class="section level2">
+<h2>Bubble Plots</h2>
+<p>Bubble plots are a lot like scatter plots with an extra size dimension (See <a href="https://en.wikipedia.org/wiki/Bubble_chart">here</a> for more). In <code>ggplot2</code>, it’s easy to make! All you have to do is put the size argument inside of aes().</p>
+<p>Check it out!</p>
+<pre class="r"><code>ggplot(data = midus, aes(x = self_esteem, y = life_satisfaction)) +
+  geom_point(alpha = .5, aes(size = hostility)) +
+  labs(x = &quot;Self-Esteem&quot;, y = &quot;Life Satisfaction&quot;, title = &quot;Bubble Plot&quot;)</code></pre>
+<p><img src="/practice/17-practice_files/figure-html/unnamed-chunk-2-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Note that bubble plots are awesome if you work with spatial data (think of a map where a bubble might represent population density).</p>
+</div>
+<div id="color-palettes-themes" class="section level2">
+<h2>Color Palettes &amp; Themes</h2>
+<p>In the lecture slides, we talked about making your plot pretty with color palettes, especially with <code>RColorBrewer</code>. You can use the function <code>display.brewer.all()</code> function to find palettes that you like. It also has very helpful arguments to narrow down the palettes you might like.</p>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<ol style="list-style-type: decimal">
+<li>Look up the help documentation for <code>display.brewer.all()</code>
+- Use this function to find a color palette that is good for 3 colors
+- Include the argument <code>type = &quot;qual&quot;</code>
+- Use an argument to make your color palette colorblind friendly
+- Pick whichever palette you like, and use it in the code below (in the exercise boxes)</li>
+<li>Change the overall theme to be more minimalist</li>
+<li>You might find that some of the categories overlap. Make an adjustment so you can see each distribution more clearly.</li>
+</ol>
+</div>
+<div id="look-up-the-help-documentation-for-display.brewer.all" class="section level4">
+<h4>Look up the help documentation for <code>display.brewer.all()</code></h4>
+<p>Look for the different parameters listed in the box above.</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/17-learnr-app1/" id="learnr-17-app1" %}}
+</div>
+<div id="now-implement-your-color-palette-and-theme-changes" class="section level4">
+<h4>Now implement your color palette and theme changes</h4>
+<p>Edit the code below to make the plot according to the specifications in the box above (a color palette, a theme, and an adjustment to make the overlapping categories easier to read).</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/17-learnr-app2/" id="learnr-17-app2" %}}
+</div>
+</div>
+<div id="the-ugliest-plot-in-the-world" class="section level2">
+<h2>The Ugliest Plot in the World</h2>
+<div class="puzzle">
+<p><strong>You try!</strong> The code below makes THE ugliest plot ever. Your job is to work backwards and turn this into a plot that is publication-ready (and not super ugly). Do so <em>without</em> deleting any whole layers. Just modify the existing code.</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/17-learnr-app3/" id="learnr-17-app3" %}}
+<div id="youre-doing-great" class="section level4">
+<h4>You’re doing GREAT!</h4>
+<center>
+<p><img src="../encouragementFigs/figure-html/liam.jpg" width = "75%"></p>
+</center>
+</div>
+</div>

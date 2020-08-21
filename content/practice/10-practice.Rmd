@@ -1,0 +1,32 @@
+---
+title: "Practice Set: Introduction to the Tidyverse"
+linktitle: "10: Intro to Tidyverse"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Tidyverse
+    weight: 10
+type: docs
+weight: 10
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+#### Relax, take a break
+
+<center>
+
+<img src="../encouragementFigs/figure-html/break.gif" width = "75%">
+
+</center>

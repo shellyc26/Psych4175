@@ -1,0 +1,53 @@
+---
+title: "Practice Set: Dplyr"
+linktitle: "11: Dplyr"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Tidyverse
+    weight: 11
+type: docs
+weight: 11
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+#### Get Out...(kinda, sorta, not really)
+
+Someone else has already made some great tutorials, so I'd like for you to complete those (no need to reinvent the wheel, right?). Please complete the two lessons linked in the **"You Try"** boxes below.
+
+  1. The first one focuses on some `dplyr` functions that we've gone over and introduces one that we did not go through. It starts with the functions individually, and it ends with incorporating the piping operator `%>%`.
+  
+  2. The second one looks at some more `dplyr` functions that we did cover. It should be excellent practice for you!
+  
+:::puzzle
+**You try!** Complete the following tutorials:
+
+  1. [Isolating data with dplyr](https://rstudio.cloud/learn/primers/2.2)
+  2. [Derive information with dplyr](https://rstudio.cloud/learn/primers/2.3)
+:::
+
+#### You are newly initiated!
+People on Reddit and Twitter like to debate `base R` vs. `tidyverse`. A lot. It comes up more often than you'd think. For realz.
+
+Now that you know *both* you can participate in these debates, if you want! The #rstats community is awesome, but whenever one of these debates comes up it gets...*special*. Honestly, it's not unlike the gif below...
+
+<center>
+
+<img src="../encouragementFigs/figure-html/battle.gif" width = "75%">
+
+</center>
+
+
+

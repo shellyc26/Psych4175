@@ -2155,6 +2155,651 @@ newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/c
     </item>
     
     <item>
+      <title>Practice Set: Introduction to the Tidyverse</title>
+      <link>/practice/10-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/10-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;relax-take-a-break&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Relax, take a break&lt;/h4&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/break.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Dplyr</title>
+      <link>/practice/11-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/11-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;get-outkinda-sorta-not-really&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Get Out…(kinda, sorta, not really)&lt;/h4&gt;
+&lt;p&gt;Someone else has already made some great tutorials, so I’d like for you to complete those (no need to reinvent the wheel, right?). Please complete the two lessons linked in the &lt;strong&gt;“You Try”&lt;/strong&gt; boxes below.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;The first one focuses on some &lt;code&gt;dplyr&lt;/code&gt; functions that we’ve gone over and introduces one that we did not go through. It starts with the functions individually, and it ends with incorporating the piping operator &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The second one looks at some more &lt;code&gt;dplyr&lt;/code&gt; functions that we did cover. It should be excellent practice for you!&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Complete the following tutorials:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.2&#34;&gt;Isolating data with dplyr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/2.3&#34;&gt;Derive information with dplyr&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;you-are-newly-initiated&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;You are newly initiated!&lt;/h4&gt;
+&lt;p&gt;People on Reddit and Twitter like to debate &lt;code&gt;base R&lt;/code&gt; vs. &lt;code&gt;tidyverse&lt;/code&gt;. A lot. It comes up more often than you’d think. For realz.&lt;/p&gt;
+&lt;p&gt;Now that you know &lt;em&gt;both&lt;/em&gt; you can participate in these debates, if you want! The #rstats community is awesome, but whenever one of these debates comes up it gets…&lt;em&gt;special&lt;/em&gt;. Honestly, it’s not unlike the gif below…&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/battle.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Tidyr</title>
+      <link>/practice/12-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/12-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;get-out-again&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Get Out, Again&lt;/h4&gt;
+&lt;p&gt;Like last time, someone else has already made some great tutorials, so please do those. Please complete the two lessons linked in the &lt;strong&gt;“You Try”&lt;/strong&gt; boxes below.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The first one introduces the concept of “tidy data” and will focus on going from long to wide format and vice versa.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;This tutorial will use the functions &lt;code&gt;spread()&lt;/code&gt; and &lt;code&gt;gather()&lt;/code&gt;. These are from an &lt;strong&gt;older&lt;/strong&gt; version of &lt;code&gt;R&lt;/code&gt;! They recently renamed these functions to &lt;code&gt;pivot_wider()&lt;/code&gt; and &lt;code&gt;pivot_longer&lt;/code&gt;. They do the same things and the concepts are the same. But the function names and argument names have changed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The second one focuses on separating and uniting columns.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Complete the following tutorials:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/4.1&#34;&gt;Reshape Date&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/4.2&#34;&gt;Separate and Unite Columns&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;If you think you will be taking multiple data.frames or data sets and combining them into one larger data.frame, then I suggest &lt;a href=&#34;https://rstudio.cloud/learn/primers/4.3&#34;&gt;this additional tutorial on joining data sets&lt;/a&gt;. It’s not required, but if this is something you’ll be doing a lot of, I suggest getting some practice doing it!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;youre-doing-great&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;You’re doing great!&lt;/h4&gt;
+&lt;p&gt;We all go in and out of productivity. It’s totally fine! Just be kind to yourself. And if you need to take a break, take one!&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/kermit.jpg&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Introduction to RMarkdown</title>
+      <link>/practice/13-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/13-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;watch-this-video&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Watch this video&lt;/h4&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;https://player.vimeo.com/video/178485416?color=428bca&#34; frameborder=&#34;0&#34; allow=&#34;autoplay; fullscreen&#34; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Rmd Anatomy</title>
+      <link>/practice/14-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/14-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;no-practice&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;No Practice&lt;/h4&gt;
+&lt;p&gt;Currently, there’s not a great way to do interactive tutorials for RMarkdown (hopefully soon!). So you can keep going to the Data Visualization section&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/woot.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Flexibility</title>
+      <link>/practice/15-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/15-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;no-practice&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;No Practice&lt;/h4&gt;
+&lt;p&gt;Currently, there’s not a great way to do interactive tutorials for RMarkdown (hopefully soon!). So you can keep going to the Data Visualization section&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/ali.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Intro to Data Visualization</title>
+      <link>/practice/16-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/16-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;singing-a-different-tune&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;🎶 Singing a different tune 🎶&lt;/h4&gt;
+&lt;p&gt;We have now gone through the basics of &lt;code&gt;ggplot2&lt;/code&gt; several times in several places. For some practice on the basics, see &lt;a href=&#34;/practice/09-practice&#34;&gt;Practice Set 9: Stats &amp;amp; Plot&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This time, I would like you to do a tutorial on making histograms in &lt;code&gt;ggplot2&lt;/code&gt;. We will not talk much about histograms specifically very much, so I want you to practice your &lt;code&gt;ggplot2&lt;/code&gt; skills while learning something new.&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Complete the following tutorial:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://rstudio.cloud/learn/primers/3.3&#34;&gt;Histograms&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/codecat.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Customize Your Plots</title>
+      <link>/practice/17-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/17-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#bubble-plots&#34;&gt;Bubble Plots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#color-palettes-themes&#34;&gt;Color Palettes &amp;amp; Themes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-ugliest-plot-in-the-world&#34;&gt;The Ugliest Plot in the World&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;lets-get-going-shall-we&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Let’s get going, shall we?&lt;/h4&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; The code below is broken. Your job is to fix it!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bubble-plots&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bubble Plots&lt;/h2&gt;
+&lt;p&gt;Bubble plots are a lot like scatter plots with an extra size dimension (See &lt;a href=&#34;https://en.wikipedia.org/wiki/Bubble_chart&#34;&gt;here&lt;/a&gt; for more). In &lt;code&gt;ggplot2&lt;/code&gt;, it’s easy to make! All you have to do is put the size argument inside of aes().&lt;/p&gt;
+&lt;p&gt;Check it out!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = midus, aes(x = self_esteem, y = life_satisfaction)) +
+  geom_point(alpha = .5, aes(size = hostility)) +
+  labs(x = &amp;quot;Self-Esteem&amp;quot;, y = &amp;quot;Life Satisfaction&amp;quot;, title = &amp;quot;Bubble Plot&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/17-practice_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Note that bubble plots are awesome if you work with spatial data (think of a map where a bubble might represent population density).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;color-palettes-themes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Color Palettes &amp;amp; Themes&lt;/h2&gt;
+&lt;p&gt;In the lecture slides, we talked about making your plot pretty with color palettes, especially with &lt;code&gt;RColorBrewer&lt;/code&gt;. You can use the function &lt;code&gt;display.brewer.all()&lt;/code&gt; function to find palettes that you like. It also has very helpful arguments to narrow down the palettes you might like.&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt;&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Look up the help documentation for &lt;code&gt;display.brewer.all()&lt;/code&gt;
+- Use this function to find a color palette that is good for 3 colors
+- Include the argument &lt;code&gt;type = &amp;quot;qual&amp;quot;&lt;/code&gt;
+- Use an argument to make your color palette colorblind friendly
+- Pick whichever palette you like, and use it in the code below (in the exercise boxes)&lt;/li&gt;
+&lt;li&gt;Change the overall theme to be more minimalist&lt;/li&gt;
+&lt;li&gt;You might find that some of the categories overlap. Make an adjustment so you can see each distribution more clearly.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;look-up-the-help-documentation-for-display.brewer.all&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Look up the help documentation for &lt;code&gt;display.brewer.all()&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;Look for the different parameters listed in the box above.&lt;/p&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;now-implement-your-color-palette-and-theme-changes&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Now implement your color palette and theme changes&lt;/h4&gt;
+&lt;p&gt;Edit the code below to make the plot according to the specifications in the box above (a color palette, a theme, and an adjustment to make the overlapping categories easier to read).&lt;/p&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-ugliest-plot-in-the-world&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The Ugliest Plot in the World&lt;/h2&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; The code below makes THE ugliest plot ever. Your job is to work backwards and turn this into a plot that is publication-ready (and not super ugly). Do so &lt;em&gt;without&lt;/em&gt; deleting any whole layers. Just modify the existing code.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app3&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;div id=&#34;youre-doing-great&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;You’re doing GREAT!&lt;/h4&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/liam.jpg&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Multipanel Figures &amp; Adding To Your Plot</title>
+      <link>/practice/18-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/18-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#review-of-midus&#34;&gt;Review of &lt;code&gt;midus&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#faceting&#34;&gt;Faceting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#adding-lines&#34;&gt;Adding Lines&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;review-of-midus&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Review of &lt;code&gt;midus&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Let’s take a preview of &lt;code&gt;midus&lt;/code&gt;, just to remember what we’ve got. Remember, we added a “session” variable. (Don’t forget to scroll all the way over!)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+ID
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+sex
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+age
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+BMI
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+physical_health_self
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+mental_health_self
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+self_esteem
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+life_satisfaction
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+hostility
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+heart_self
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+heart_father
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+age_category
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+session
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10001
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+61
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+26.263
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+42
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.750
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+old
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+session1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10002
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+69
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+24.077
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+34
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.250
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Yes
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+old
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+session2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+6
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10011
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Female
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+52
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25.991
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.000
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5.5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+middle
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+session1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+8
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10015
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Female
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+53
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+32.121
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+31
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.375
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Yes
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+middle
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+session2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10018
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+49
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+22.499
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+41
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+8.500
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+6.0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+middle
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+session1
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+11
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+10019
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Male
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+51
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+29.987
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+38
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+7.625
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4.5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+No
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+middle
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+session2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;faceting&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Faceting&lt;/h2&gt;
+&lt;p&gt;Faceting is an easy way to create sub-plots based on a categorical/factor variable. There are two main ways of faceting:
+- &lt;code&gt;facet_grid&lt;/code&gt; will create a grid or matrix of sub-plots
+- &lt;code&gt;facet_wrap&lt;/code&gt; will lay out each sub-plot kind of like a ribbon&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Imagine each of the 3740 midus observations were randomly assigned to belong to one of two groups. Add to the code below to facet based on session and this new group variable. The result should include 4 subplots. Organize them such that they are in a 2x2 layout, with group 1 in the left column, group 2 in the right column, session1 in the first row, and session2 in the second row.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-18-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/18-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-18-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Now, use &lt;code&gt;facet_wrap&lt;/code&gt; to get sub-plots reflecting all 3 factor variables (&lt;code&gt;age_category&lt;/code&gt;, &lt;code&gt;group&lt;/code&gt;, and &lt;code&gt;session&lt;/code&gt;). How many sub-plots should you wind up with? Organize them such that there are 3 columns.&lt;/p&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-18-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/18-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-18-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;adding-lines&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Adding Lines&lt;/h2&gt;
+&lt;p&gt;You can use &lt;code&gt;geom_vline&lt;/code&gt; and &lt;code&gt;geom_hline&lt;/code&gt; to make vertical and horizontal lines, respectively. You’ll need to specify a x- or y-intercept.&lt;/p&gt;
+&lt;p&gt;Often, we want these lines to be based on summary statistics. This is where the &lt;code&gt;tidyverse&lt;/code&gt; comes in very handy!&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Change the code below to represent the mean of &lt;code&gt;self_esteem&lt;/code&gt; per &lt;code&gt;age_category&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot these means as &lt;em&gt;horizontal&lt;/em&gt; lines&lt;/li&gt;
+&lt;li&gt;HINT: You do NOT need to change the &lt;code&gt;meansSelfEsteem&lt;/code&gt; code, only the plotting code&lt;/li&gt;
+&lt;li&gt;BONUS: How can you get rid of the legend that shows the line type?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-18-app3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/18-learnr-app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-18-app3&#34;)&#39;&gt;&lt;/iframe&gt;
+
+&lt;div id=&#34;almost-done&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Almost done…&lt;/h4&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/countdown.gif&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Layers on Layers on Layers</title>
+      <link>/practice/19-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/19-practice/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;thats-all-folks&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;That’s all, folks!&lt;/h4&gt;
+&lt;p&gt;Now that you’ve finished the Intro to R portion, you’re ready to move on to bigger and better things. Feel free to access these materials at any time if you just want to refresh your memory.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/bye.gif&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Example Talk</title>
       <link>/talk/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>

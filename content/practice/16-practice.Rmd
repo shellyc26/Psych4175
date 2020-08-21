@@ -1,0 +1,42 @@
+---
+title: "Practice Set: Intro to Data Visualization"
+linktitle: "16: Intro to Data Viz"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Data Viz
+    weight: 16
+type: docs
+weight: 16
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+
+#### `r emo::ji("notes")` Singing a different tune `r emo::ji("notes")`
+We have now gone through the basics of `ggplot2` several times in several places. For some practice on the basics, see [Practice Set 9: Stats & Plot](/practice/09-practice). 
+
+This time, I would like you to do a tutorial on making histograms in `ggplot2`. We will not talk much about histograms specifically very much, so I want you to practice your `ggplot2` skills while learning something new. 
+
+:::puzzle
+**You try!** Complete the following tutorial:
+
+  [Histograms](https://rstudio.cloud/learn/primers/3.3)
+:::
+
+<center>
+
+<img src="../encouragementFigs/figure-html/codecat.gif" width = "75%">
+
+</center>
