@@ -127,8 +127,6 @@ Getting and setting your working directory can be a pain in the $%^
 class: inverse, middle, center
 
 # Demo of making a RProject & using Github
----
-# Resources for setting up Github
 
 ---
 name: files
@@ -152,10 +150,9 @@ Why use them?
 ---
 
 # Other file types
-- `.R` (script)
 - `.RProject` -- not where you would write any form of code
 - `.Rmd` -- aka "RMarkdown" or "RNotebook"; will talk about for reproducibility!
-- Your data!
+- **Your data!**
 
 ---
 name: opening

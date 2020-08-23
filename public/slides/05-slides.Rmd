@@ -182,7 +182,7 @@ name: functions
 - To perform more complicated actions, we use **_functions_**
 
   - **functions** are commands that describe, manipulate, or analyze objects
-  - They are the **verbs** of programming languages
+  - Logical operators & functions are the **verbs** of programming languages
   - This is why we use `R`! No one wants to calculate a regression by hand...
 ---
 # Functions have 3 parts
@@ -199,7 +199,7 @@ log(10)
 **Arguments**
   - One argument is always specified -- the input; this is the object that the function acts on.
   - Other arguments control *how* the function acts. For example, do you want the natural log? Or log base 10?
-  - Each function has defaults for it's arguments. You should know where to find these and how to change them (we will talk about this in the next video).
+  - Each function has defaults for it's arguments. You should know where to find these and how to change them.
 ```{r}
 # The argument here is the input, or `10`
 log(10)
