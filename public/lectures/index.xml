@@ -28,7 +28,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/dDaa0BeLfBU&#34;&gt;Installing R &amp;amp; RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -68,7 +70,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/bGU7Kzhwooo&#34;&gt;Intro to Tidyverse&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -837,7 +841,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/9iiH1m2IaSk&#34;&gt;Getting Oriented with RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -886,7 +892,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/Qi_EXbcmVuM&#34;&gt;Objects Part 1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -953,7 +961,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/gclbk8P-ATE&#34;&gt;Indexing&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -1020,7 +1030,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/JWWsYjwgADI&#34;&gt;Objects &amp;amp; Indexing Part 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -1114,7 +1126,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/jT-Beo8PCWg&#34;&gt;Functions &amp;amp; Help&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -1190,7 +1204,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/GuAtQnGIyHc&#34;&gt;Packages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -1239,7 +1255,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/ca9a4M3EF-s&#34;&gt;Loading Files&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -1316,7 +1334,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/cH7_i6jRBhI&#34;&gt;Review &amp;amp; Random&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data&lt;/h2&gt;
@@ -1442,7 +1462,9 @@
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/na9Zk9OnRjM&#34;&gt;Stats &amp;amp; Plots&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;

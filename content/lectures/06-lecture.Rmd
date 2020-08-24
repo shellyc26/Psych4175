@@ -1,8 +1,6 @@
 ---
 title: "Packages"
 linktitle: "6: Packages"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: The Basics
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Packages](https://youtu.be/GuAtQnGIyHc)
 
 ## Slides
 

@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Installing R & RStudio](https://youtu.be/dDaa0BeLfBU)
 
 ## Slides
 
@@ -26,7 +26,7 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Installation", "1", TRUE,
+  "Installation", "1", TRUE
 )
 
 slide_tabs(sections, "/slides/00-slides.html")

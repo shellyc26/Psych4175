@@ -1,8 +1,6 @@
 ---
 title: "Indexing"
 linktitle: "3: Indexing"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: The Basics
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Indexing](https://youtu.be/gclbk8P-ATE)
 
 ## Slides
 

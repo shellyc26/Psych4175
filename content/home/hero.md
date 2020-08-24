@@ -8,7 +8,7 @@ weight = 10  # Order that this section will appear.
 title = "Applied Statistical Analysis with R"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "testwidgetimage.png"
+hero_media = "wustl.jpg"
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -20,8 +20,8 @@ hero_media = "testwidgetimage.png"
   # color = "navy"
   
   # Background gradient.
-  gradient_start = "#4834d4"
-  gradient_end = "#686de0"
+  gradient_start = "#6ab04c"
+  gradient_end = "#96c880"
   
   # Background image.
   # image = ""  # Name of image in `static/img/`.
@@ -38,6 +38,5 @@ hero_media = "testwidgetimage.png"
   label = "Psych 4175 • Fall 2020<br>Psychological & Brain Sciences<br>Washington University in St. Louis"
 +++
 
-**Making Your Wildest Statistical Dreams Come True**
 
 

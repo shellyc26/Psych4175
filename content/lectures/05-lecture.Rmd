@@ -1,8 +1,6 @@
 ---
 title: "Acting On Variables"
 linktitle: "5: Functions + Help"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: The Basics
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Functions & Help](https://youtu.be/jT-Beo8PCWg)
 
 ## Slides
 

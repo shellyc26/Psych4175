@@ -1,8 +1,6 @@
 ---
 title: "Welcome to the Tidyverse"
 linktitle: "10: Intro to Tidyverse"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: Tidyverse
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Intro to Tidyverse](https://youtu.be/bGU7Kzhwooo)
 
 ## Slides
 

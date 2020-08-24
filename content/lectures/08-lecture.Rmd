@@ -1,8 +1,6 @@
 ---
 title: "Review & Random"
 linktitle: "8: R & R"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: The Basics
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Review & Random](https://youtu.be/cH7_i6jRBhI)
 
 ## Data
 For the embedded exercises, please use the `midus.csv` dataset. 

@@ -1,8 +1,6 @@
 ---
 title: "Loading Files"
 linktitle: "7: Loading Files"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: The Basics
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Loading Files](https://youtu.be/ca9a4M3EF-s)
 
 ## Slides
 

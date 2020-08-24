@@ -1,8 +1,6 @@
 ---
 title: "Objects Part 2"
 linktitle: "4: Objects Pt. 2"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: The Basics
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Objects & Indexing Part 2](https://youtu.be/JWWsYjwgADI)
 
 ## Slides
 

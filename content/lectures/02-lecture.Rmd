@@ -1,8 +1,6 @@
 ---
 title: "Objects"
 linktitle: "2: Objects"
-date: "6/8/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: The Basics
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Objects Part 1](https://youtu.be/Qi_EXbcmVuM) 
 
 ## Slides
 
