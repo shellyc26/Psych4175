@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
-title = "Applied Statistical Analysis with R"
+title = "Skill Lab: Introduction to R"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 hero_media = "wustl.jpg"
@@ -35,7 +35,7 @@ hero_media = "wustl.jpg"
 
 # Note. An optional note to show underneath the links.
 [cta_note]
-  label = "Psych 4175 • Fall 2020<br>Psychological & Brain Sciences<br>Washington University in St. Louis"
+  label = "MPH 5926 • Fall 2020<br>Brown School<br>Washington University in St. Louis"
 +++
 
 
