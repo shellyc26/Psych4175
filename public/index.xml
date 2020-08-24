@@ -2351,6 +2351,8 @@ newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/c
 &lt;div class=&#34;puzzle&#34;&gt;
 &lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; The code below is broken. Your job is to fix it!&lt;/p&gt;
 &lt;/div&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+
 &lt;/div&gt;
 &lt;div id=&#34;bubble-plots&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Bubble Plots&lt;/h2&gt;
@@ -2359,7 +2361,7 @@ newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/c
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = midus, aes(x = self_esteem, y = life_satisfaction)) +
   geom_point(alpha = .5, aes(size = hostility)) +
   labs(x = &amp;quot;Self-Esteem&amp;quot;, y = &amp;quot;Life Satisfaction&amp;quot;, title = &amp;quot;Bubble Plot&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/practice/17-practice_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/17-practice_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Note that bubble plots are awesome if you work with spatial data (think of a map where a bubble might represent population density).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;color-palettes-themes&#34; class=&#34;section level2&#34;&gt;
@@ -2380,13 +2382,13 @@ newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/c
 &lt;div id=&#34;look-up-the-help-documentation-for-display.brewer.all&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Look up the help documentation for &lt;code&gt;display.brewer.all()&lt;/code&gt;&lt;/h4&gt;
 &lt;p&gt;Look for the different parameters listed in the box above.&lt;/p&gt;
-&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app2&#34;)&#39;&gt;&lt;/iframe&gt;
 
 &lt;/div&gt;
 &lt;div id=&#34;now-implement-your-color-palette-and-theme-changes&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Now implement your color palette and theme changes&lt;/h4&gt;
 &lt;p&gt;Edit the code below to make the plot according to the specifications in the box above (a color palette, a theme, and an adjustment to make the overlapping categories easier to read).&lt;/p&gt;
-&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app3&#34;)&#39;&gt;&lt;/iframe&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2395,7 +2397,7 @@ newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/c
 &lt;div class=&#34;puzzle&#34;&gt;
 &lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; The code below makes THE ugliest plot ever. Your job is to work backwards and turn this into a plot that is publication-ready (and not super ugly). Do so &lt;em&gt;without&lt;/em&gt; deleting any whole layers. Just modify the existing code.&lt;/p&gt;
 &lt;/div&gt;
-&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app3&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-17-app4&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/17-learnr-app4/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-17-app4&#34;)&#39;&gt;&lt;/iframe&gt;
 
 &lt;div id=&#34;youre-doing-great&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;You’re doing GREAT!&lt;/h4&gt;

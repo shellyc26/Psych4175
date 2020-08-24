@@ -41,6 +41,14 @@ midus$age_category <- cut(x = midus$age,
 **You try!** The code below is broken. Your job is to fix it!
 :::
 
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app1/",
+                    id = "learnr-17-app1")
+
+```
+
 ## Bubble Plots
 Bubble plots are a lot like scatter plots with an extra size dimension (See [here](https://en.wikipedia.org/wiki/Bubble_chart) for more). In `ggplot2`, it’s easy to make! All you have to do is put the size argument inside of aes().
 
@@ -75,8 +83,8 @@ Look for the different parameters listed in the box above.
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app1/",
-                    id = "learnr-17-app1")
+                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app2/",
+                    id = "learnr-17-app2")
 
 ```
 
@@ -86,8 +94,8 @@ Edit the code below to make the plot according to the specifications in the box 
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app2/",
-                    id = "learnr-17-app2")
+                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app3/",
+                    id = "learnr-17-app3")
 
 ```
 
@@ -100,8 +108,8 @@ blogdown::shortcode("learnr",
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app3/",
-                    id = "learnr-17-app3")
+                    url = "https://shelly-cooper.shinyapps.io/17-learnr-app4/",
+                    id = "learnr-17-app4")
 
 ```
 
