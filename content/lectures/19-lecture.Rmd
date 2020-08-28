@@ -1,8 +1,6 @@
 ---
 title: "Layers on Layers on Layers"
 linktitle: "19: Layers"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: Data Viz
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Layers on Layers on Layers](https://youtu.be/jeVg-KhLf68)
 
 ## Slides
 

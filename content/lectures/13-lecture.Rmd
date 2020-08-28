@@ -1,8 +1,6 @@
 ---
 title: "The Reproducibility Crisis"
 linktitle: "13: Intro to RMarkdown"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: Reproducibility
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Intro to RMarkdown](https://youtu.be/SNSWeYaZgXY)
 
 ## Slides
 

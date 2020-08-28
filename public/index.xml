@@ -3491,7 +3491,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/NZVLzPsIwyo&#34;&gt;DplyR Functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -3594,7 +3596,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/iPzj2yLqTtA&#34;&gt;TidyR&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -3688,7 +3692,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/SNSWeYaZgXY&#34;&gt;Intro to RMarkdown&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -3746,7 +3752,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/Mkmim6085kg&#34;&gt;Anatomy of RMarkdown&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -3840,7 +3848,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/HAglNKeHu2s&#34;&gt;Flexibility of RMarkdown&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -3898,7 +3908,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/ZslOPbEwX1c&#34;&gt;Intro to Data Visualization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -3965,7 +3977,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/Z4qtOjbe9Lg&#34;&gt;Customizing Your Plots&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -4059,7 +4073,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/UZfKAIFDnWo&#34;&gt;MultiPanel Plots &amp;amp; Adding Things&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
@@ -4126,7 +4142,9 @@ Figure 1: A fancy pie chart.
 
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
-&lt;p&gt;Eventually, a YouTube playlist will go here.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/jeVg-KhLf68&#34;&gt;Layers on Layers on Layers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Slides&lt;/h2&gt;
