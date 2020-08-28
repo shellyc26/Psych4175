@@ -1,8 +1,6 @@
 ---
 title: "Multipanel Figures & Adding To Your Plot"
 linktitle: "18: MultiPanel & Additions"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: Data Viz
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [MultiPanel Plots & Adding Things](https://youtu.be/UZfKAIFDnWo)
 
 ## Slides
 

@@ -1,8 +1,6 @@
 ---
 title: "Tidyr Functions"
 linktitle: "12: Tidyr"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: Tidyverse
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [TidyR](https://youtu.be/iPzj2yLqTtA)
 
 ## Slides
 

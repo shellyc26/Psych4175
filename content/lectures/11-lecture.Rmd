@@ -1,8 +1,6 @@
 ---
 title: "Dplyr Functions"
 linktitle: "11: Dplyr"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: Tidyverse
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [DplyR Functions](https://youtu.be/NZVLzPsIwyo)
 
 ## Slides
 

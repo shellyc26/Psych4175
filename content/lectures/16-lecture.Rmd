@@ -1,8 +1,6 @@
 ---
 title: "Intro to Data Visualization"
 linktitle: "16: Intro to Data Viz"
-date: "6/16/2020"
-read_date: "2020-09-24"
 menu:
   lectures:
     parent: Data Viz
@@ -16,7 +14,7 @@ output:
 
 ## Videos
 
-Eventually, a YouTube playlist will go here. 
+- [Intro to Data Visualization](https://youtu.be/ZslOPbEwX1c)
 
 ## Slides
 
