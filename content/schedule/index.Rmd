@@ -3,7 +3,7 @@ title: "Schedule"
 slug: schedule
 ---
 
-Here's your roadmap for this course!
+Here's your roadmap for the first 5 weeks of this course!
 
 Each topic has 2 primary sections.
 

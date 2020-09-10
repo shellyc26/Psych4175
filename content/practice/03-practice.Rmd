@@ -75,8 +75,8 @@ age + shortVector
 
   - `age` in years
   - `act` contains scores from the ACT tests; range 1-36, norm ~20
-  - `satv` contains the Verbal scores from the SAT; range 200-800, avg ~500
-  - `satq` contains the quantitative scores from the SAT; range 200-800, avg ~500
+  - `satV` contains the Verbal scores from the SAT; range 200-800, avg ~500
+  - `satQ` contains the quantitative scores from the SAT; range 200-800, avg ~500
 
 Follow the directions above each code chunk!
 :::
