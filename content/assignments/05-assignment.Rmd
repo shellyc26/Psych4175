@@ -1,0 +1,41 @@
+---
+title: "Assignment 5"
+linktitle: "# 5"
+date: "6/16/2020"
+due_date: "2020-10-20"
+due_time: "2:30pm"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 5
+type: docs
+weight: 5
+editor_options: 
+  chunk_output_type: console
+---
+
+## Instructions
+This assignment is all about making figures. It's going to be a bit free-form because when it comes to making figures, there are a *silly* number of options. Here are the conditions:
+
+- You must use the `ggplot` package and syntax. This should *not* be practice for `base R`. - Your choice of variables must make sense for the type of plot you are making. 
+- All figures must follow the basics of clear axis labels and titles! (*please* don't make me take points off for this...)
+- NO PIE CHARTS!
+
+## Visualizing data in different ways
+Pick 2 variables from your dataset. Make *3 __different__ figures* that show the relationship between these 2 variables. Your figures must include the following:
+
+  - A theme
+  - Make use of different colors (manually or with a color palette)
+  - You need to pick the best of the 3 figures **and explain why you think this is the case**
+  - After you've picked your favorite, add a 3rd variable to that plot (just to your favorite one). You can choose the dimension on which to add the 3rd variable (aka which aesthetic). Did adding the 3rd variable enhance this plot or does it detract? Explain why.
+  
+## Explanation vs. Clutter
+Make a plot that uses at least 3 `geom`s. Make it as beautiful, publication-ready as you can. Then explain whether the extra `geom`s help explain your data or if it just clutters everything up. 
+
+### Yahhoooooooo!
+We'll talk more about the theory of data viz later in the semester. But for now, you should feel comfortable plotting in the `ggplot` world. 
+
+Go ahead and submit your `.Rmd` and `.html` file to Canvas.

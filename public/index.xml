@@ -1302,6 +1302,46 @@ demographics[,4]&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Assignment 5</title>
+      <link>/assignments/05-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/05-assignment/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;instructions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Instructions&lt;/h2&gt;
+&lt;p&gt;This assignment is all about making figures. It’s going to be a bit free-form because when it comes to making figures, there are a &lt;em&gt;silly&lt;/em&gt; number of options. Here are the conditions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You must use the &lt;code&gt;ggplot&lt;/code&gt; package and syntax. This should &lt;em&gt;not&lt;/em&gt; be practice for &lt;code&gt;base R&lt;/code&gt;. - Your choice of variables must make sense for the type of plot you are making.&lt;/li&gt;
+&lt;li&gt;All figures must follow the basics of clear axis labels and titles! (&lt;em&gt;please&lt;/em&gt; don’t make me take points off for this…)&lt;/li&gt;
+&lt;li&gt;NO PIE CHARTS!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualizing-data-in-different-ways&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualizing data in different ways&lt;/h2&gt;
+&lt;p&gt;Pick 2 variables from your dataset. Make &lt;em&gt;3 &lt;strong&gt;different&lt;/strong&gt; figures&lt;/em&gt; that show the relationship between these 2 variables. Your figures must include the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A theme&lt;/li&gt;
+&lt;li&gt;Make use of different colors (manually or with a color palette)&lt;/li&gt;
+&lt;li&gt;You need to pick the best of the 3 figures &lt;strong&gt;and explain why you think this is the case&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;After you’ve picked your favorite, add a 3rd variable to that plot (just to your favorite one). You can choose the dimension on which to add the 3rd variable (aka which aesthetic). Did adding the 3rd variable enhance this plot or does it detract? Explain why.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;explanation-vs.clutter&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Explanation vs. Clutter&lt;/h2&gt;
+&lt;p&gt;Make a plot that uses at least 3 &lt;code&gt;geom&lt;/code&gt;s. Make it as beautiful, publication-ready as you can. Then explain whether the extra &lt;code&gt;geom&lt;/code&gt;s help explain your data or if it just clutters everything up.&lt;/p&gt;
+&lt;div id=&#34;yahhoooooooo&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Yahhoooooooo!&lt;/h3&gt;
+&lt;p&gt;We’ll talk more about the theory of data viz later in the semester. But for now, you should feel comfortable plotting in the &lt;code&gt;ggplot&lt;/code&gt; world.&lt;/p&gt;
+&lt;p&gt;Go ahead and submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: Functions</title>
       <link>/practice/05-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
