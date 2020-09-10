@@ -136,24 +136,28 @@ lectures:
     date: "Week 5"
     lectures: "16-lecture"
     practice: "16-practice"
+    assignments: "05-assignment"
     
   - title: 'Customizing Your Plots'
     session: 17
     date: "Week 5"
     lectures: "17-lecture"
     practice: "17-practice"
+    assignments: "05-assignment"
 
   - title: 'Multipanel Figures'
     session: 18
     date: "Week 5"
     lectures: "18-lecture"
     practice: "18-practice"
+    assignments: "05-assignment"
     
   - title: 'Layers on Layers on Layers'
     session: 19
     date: "Week 5"
     lectures: "19-lecture"
     practice: "19-practice"
+    assignments: "05-assignment"
     
   - title: '<span class="fake-header-table">Module 6: Statistics</span>'
     header: True
@@ -161,6 +165,7 @@ lectures:
   - title: 'Distributions'
     session: 20
     date: "Week 6"
+    quiz: "nnn"
     
   - title: 'Comparing Means'
     session: 21

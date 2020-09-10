@@ -12,13 +12,14 @@
             <td style="width:8%;text-align:center" class="mid-table-header">Lecture</td>
             <td style="width:8%;text-align:center" class="mid-table-header">Practice</td>
             <td style="width:8%;text-align:center" class="mid-table-header">Assignment</td>
+            <td style="width:8%;text-align:center" class="mid-table-header">Quiz</td>
 
             {{- else }}
 
             {{- if .lectures }}
             <td align="center" style="width:10%;text-align:center"><a
                     href="{{ .Site.baseurl }}/lectures/{{ .lectures }}/">
-                    <i class="fas fa-book-reader fa-lg"></i></a></td>
+                    <i title="Lecture for this topic" class="fas fa-book-reader fa-lg"></i></a></td>
             {{- else }}
             <td align="center" style="width:10%;text-align:center">
                 <font color="f1f1f1">
@@ -28,7 +29,7 @@
 
             {{- if .practice }}
             <td align="center" style="width:10%;text-align:center"><a href="{{ .Site.baseurl }}/practice/{{ .practice }}/">
-                    <i class="fas fa-laptop-code fa-lg"></i></a></td>
+                    <i title="Practice set for this lecture" class="fas fa-laptop-code fa-lg"></i></a></td>
             {{- else }}
             <td align="center" style="width:10%;text-align:center">
                 <font color="f1f1f1">
@@ -38,11 +39,21 @@
 
             {{- if .assignments }}
             <td align="center" style="width:10%;text-align:center"><a href="{{ .Site.baseurl }}/assignments/{{ .assignments }}/">
-                    <i class="fas fa-pencil-ruler fa-lg"></i></a></td>
+                    <i title="Assignment for this unit; due the following week" class="fas fa-pencil-ruler fa-lg"></i></a></td>
             {{- else }}
             <td align="center" style="width:10%;text-align:center">
                 <font color="f1f1f1">
                     <i class="fas fa-pencil-ruler fa-lg"></i></font>
+            </td>
+            {{- end }}
+            
+            {{- if .quiz }}
+            <td align="center" style="width:10%;text-align:center">
+                    <i title="Canvas QUIZ due on this date" class="fas fa-question-circle fa-lg"></i></a></td>
+            {{- else }}
+            <td align="center" style="width:10%;text-align:center">
+                <font color="f1f1f1">
+                    <i class="fas fa-question-circle fa-lg"></i></font>
             </td>
             {{- end }}
 
