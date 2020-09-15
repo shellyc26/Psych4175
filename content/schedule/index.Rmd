@@ -10,9 +10,9 @@ Here's your roadmap for this course!
 
 After you have watched the lectures and completed the practices for the week's assigned topics, you will complete an assignment.
 
-- [**Assignment**](/assignment/) (<i class="fas fa-pencil-ruler"></i>): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. **Assignments are due by 9:00am on the day they're listed.**
+- [**Assignment**](/assignment/) (<i class="fas fa-pencil-ruler"></i>): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. **Assignments are due by 2:30pm on the _following_ TUESDAY.** Ex: Assignment 1 covers the topic from Week 1, but is due on Tuesday 9/22 at 2:30pm.
 
-- [**Quizzes**] (<i class="fas fa-question-circle fa-lg"></i>): There are 4 quizzes total, and they will be administered on Canvas. **Quizzes are due by 9:00am on the day they're listed.**
+- **Quizzes** (<i class="fas fa-question-circle fa-lg"></i>): There are 4 quizzes total, and they will be administered on Canvas. **Quizzes are due by 2:30pm on the _following_ TUESDAY.** Ex: Quiz 1 covers the topic of "Distributions" from Week 6 (10/20 - 10/22), but is due on Tuesday 10/27. 
 
 :::note
 **tl;dr**: You should follow this general process each day:

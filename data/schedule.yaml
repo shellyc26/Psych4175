@@ -149,6 +149,7 @@ lectures:
   - title: 'Distributions'
     session: 20
     date: "Week 6: 10/20 - 10/22"
+    quiz: "nnn"
     
   - title: 'Comparing Means'
     session: 21
@@ -174,7 +175,6 @@ lectures:
   - title: 'Data Viz Theory II'
     session: 24
     date: "Week 10: 11/17 - 11/19"
-    quiz: "nnn"
     
   - title: '---CHECK-IN 5---'
     date: "11/24 2:30pm"
