@@ -2442,7 +2442,7 @@ newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/c
 &lt;div id=&#34;youre-doing-great&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;You’re doing GREAT!&lt;/h4&gt;
 &lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/liam.jpg&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/liam.jpeg&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
 &lt;/center&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4969,22 +4969,22 @@ Figure 1: A fancy pie chart.
       <description>
 
 
-&lt;p&gt;Here’s your roadmap for the first 5 weeks of this course!&lt;/p&gt;
-&lt;p&gt;Each topic has 2 primary sections.&lt;/p&gt;
+&lt;p&gt;Here’s your roadmap for this course!&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;/lectures/&#34;&gt;&lt;strong&gt;Lectures&lt;/strong&gt;&lt;/a&gt; (&lt;i class=&#34;fas fa-book-reader&#34;&gt;&lt;/i&gt;): This contains the lecture slides and video recordings of these lectures. You should watch the videos and follow along for each topic that is assigned per week.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;/practice/&#34;&gt;&lt;strong&gt;Practice&lt;/strong&gt;&lt;/a&gt; (&lt;i class=&#34;fas fa-laptop-code&#34;&gt;&lt;/i&gt;): This page contains an interactive lesson that reinforces the principles that were discussed in the corresponding lecture. They also tend to go through more detail. Go through these &lt;em&gt;after&lt;/em&gt; watching the lecture videos.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After you have watched the lectures and completed the practices for the week’s assigned topics, you will complete an assignment.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/assignment/&#34;&gt;&lt;strong&gt;Assignment&lt;/strong&gt;&lt;/a&gt; (&lt;i class=&#34;fas fa-pencil-ruler&#34;&gt;&lt;/i&gt;): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. &lt;strong&gt;Assignments are due by 9:00am on the day they’re listed.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;/assignment/&#34;&gt;&lt;strong&gt;Assignment&lt;/strong&gt;&lt;/a&gt; (&lt;i class=&#34;fas fa-pencil-ruler&#34;&gt;&lt;/i&gt;): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. &lt;strong&gt;Assignments are due by 9:00am on the day they’re listed.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;[&lt;strong&gt;Quizzes&lt;/strong&gt;] (&lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;): There are 4 quizzes total, and they will be administered on Canvas. &lt;strong&gt;Quizzes are due by 9:00am on the day they’re listed.&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;note&#34;&gt;
 &lt;p&gt;&lt;strong&gt;tl;dr&lt;/strong&gt;: You should follow this general process each day:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Do everything on the Lectures (&lt;i class=&#34;fas fa-book-reader&#34;&gt;&lt;/i&gt;) page&lt;/li&gt;
 &lt;li&gt;Work through the practice set (&lt;i class=&#34;fas fa-laptop-code&#34;&gt;&lt;/i&gt;) page&lt;/li&gt;
-&lt;li&gt;Complete the assignment (&lt;i class=&#34;fas fa-pencil-ruler&#34;&gt;&lt;/i&gt;)&lt;/li&gt;
+&lt;li&gt;Complete the assignment (&lt;i class=&#34;fas fa-pencil-ruler&#34;&gt;&lt;/i&gt;) or quiz (&lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;hr /&gt;
@@ -4992,7 +4992,16 @@ Figure 1: A fancy pie chart.
     &lt;tbody&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Module 1: Introduction &amp;amp; Basics&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Unit 1: Learning R&lt;/span&gt;&lt;/td&gt;
+
+            &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
+            &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
+            &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
+            &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 1: 9/15 - 9/17&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;strong&gt;The Basics Part 1&lt;/strong&gt;&lt;/td&gt;
 
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
@@ -5020,7 +5029,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 1&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Installation&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/00-lecture/&#34;&gt;
@@ -5039,7 +5048,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 1&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Tour of RStudio&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/01-lecture/&#34;&gt;
@@ -5058,7 +5067,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 1&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Objects&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/02-lecture/&#34;&gt;
@@ -5073,7 +5082,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 1&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Indexing&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/03-lecture/&#34;&gt;
@@ -5088,7 +5097,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 1&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Objects Part 2&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/04-lecture/&#34;&gt;
@@ -5103,7 +5112,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 1&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Functions &amp;amp; Help&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/05-lecture/&#34;&gt;
@@ -5118,8 +5127,8 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Module 2: Continuation of Basics&lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 2: 9/22 - 9/24&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;strong&gt;The Basics Part 2&lt;/strong&gt;&lt;/td&gt;
 
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
@@ -5127,7 +5136,7 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 2&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Packages&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/06-lecture/&#34;&gt;
@@ -5142,7 +5151,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 2&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Loading Files&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/07-lecture/&#34;&gt;
@@ -5157,7 +5166,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 2&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Review and Random&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/08-lecture/&#34;&gt;
@@ -5172,7 +5181,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 2&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Statistics and Intro to Plotting&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/09-lecture/&#34;&gt;
@@ -5187,8 +5196,8 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Module 3: Data Wrangling&lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 3: 9/29 - 10/1&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;strong&gt;Data Wrangling&lt;/strong&gt;&lt;/td&gt;
 
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
@@ -5216,7 +5225,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 3&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Introduction to Tidyverse&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/10-lecture/&#34;&gt;
@@ -5231,7 +5240,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 3&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Using Dplyr&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/11-lecture/&#34;&gt;
@@ -5246,7 +5255,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 3&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Using Tidyr&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/12-lecture/&#34;&gt;
@@ -5261,8 +5270,8 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Module 4: Reproducibility&lt;/span&gt;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 4: 10/6 - 10/8&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;strong&gt;Reproducibility&lt;/strong&gt;&lt;/td&gt;
 
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
@@ -5270,7 +5279,7 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 4&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Introduction to RMarkdown&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/13-lecture/&#34;&gt;
@@ -5285,28 +5294,15 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 4&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Markdown Anatomy&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/14-lecture/&#34;&gt;
                     &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/practice/14-practice/&#34;&gt;
-                    &lt;i title=&#34;Practice set for this lecture&#34; class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/assignments/04-assignment/&#34;&gt;
-                    &lt;i title=&#34;Assignment for this unit; due the following week&#34; class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 4&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Endless Flexibility&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;/lectures/15-lecture/&#34;&gt;
-                    &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/practice/15-practice/&#34;&gt;
-                    &lt;i title=&#34;Practice set for this lecture&#34; class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/assignments/04-assignment/&#34;&gt;
                     &lt;i title=&#34;Assignment for this unit; due the following week&#34; class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
@@ -5316,7 +5312,24 @@ Figure 1: A fancy pie chart.
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Module 5: Data Visualization&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Endless Flexibility&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;/lectures/15-lecture/&#34;&gt;
+                    &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/assignments/04-assignment/&#34;&gt;
+                    &lt;i title=&#34;Assignment for this unit; due the following week&#34; class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 5: 10/13 - 10/15&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;strong&gt;Data Visualization&lt;/strong&gt;&lt;/td&gt;
 
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
@@ -5344,7 +5357,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 5&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Introduction to Data Visualization&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/16-lecture/&#34;&gt;
@@ -5359,7 +5372,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 5&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Customizing Your Plots&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/17-lecture/&#34;&gt;
@@ -5374,7 +5387,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 5&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Multipanel Figures&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/18-lecture/&#34;&gt;
@@ -5389,13 +5402,15 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 5&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Layers on Layers on Layers&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/19-lecture/&#34;&gt;
                     &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/practice/19-practice/&#34;&gt;
-                    &lt;i title=&#34;Practice set for this lecture&#34; class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/assignments/05-assignment/&#34;&gt;
                     &lt;i title=&#34;Assignment for this unit; due the following week&#34; class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
@@ -5405,7 +5420,7 @@ Figure 1: A fancy pie chart.
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Module 6: Statistics&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Unit 2: Statistics&lt;/span&gt;&lt;/td&gt;
 
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
@@ -5413,8 +5428,28 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 6&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 6: 10/20 - 10/22&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Distributions&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 7: 10/27 - 10/29&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Comparing Means&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -5431,27 +5466,7 @@ Figure 1: A fancy pie chart.
                     &lt;i title=&#34;Canvas QUIZ due on this date&#34; class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 7&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Comparing Means&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 8&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 8: 11/3 - 11/5&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Regression&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5466,13 +5481,11 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+                    &lt;i title=&#34;Canvas QUIZ due on this date&#34; class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Module 7: Advanced Topics&lt;/span&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;span class=&#34;fake-header-table&#34;&gt;Unit 3: Advanced Topics&lt;/span&gt;&lt;/td&gt;
 
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
@@ -5500,7 +5513,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 9&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 9: 11/10 - 11/12&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Data Viz Theory I&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5515,12 +5528,10 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+                    &lt;i title=&#34;Canvas QUIZ due on this date&#34; class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 10&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 10: 11/17 - 11/19&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Data Viz Theory II&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5535,9 +5546,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+                    &lt;i title=&#34;Canvas QUIZ due on this date&#34; class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;11/24 2:30pm&lt;/td&gt;
@@ -5560,7 +5569,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 11&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 11: 11/24 - 11/26&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Check-in + Thanksgiving Break&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5580,7 +5589,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 12&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 12: 12/1 - 12/3&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Bootstrapping &amp;amp; For Loops&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5600,7 +5609,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 13&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 13: 12/8 - 12/10&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Writing Functions&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5640,7 +5649,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 14&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 14: 12/15 - 12/17&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Simulations? TBD&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;

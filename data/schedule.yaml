@@ -1,80 +1,76 @@
 lectures:
-  - title: '<span class="fake-header-table">Module 1: Introduction & Basics</span>'
+  - title: '<span class="fake-header-table">Unit 1: Learning R</span>'
     header: True
+    
+  - title: '**The Basics Part 1**'
+    header: True
+    date: "Week 1: 9/15 - 9/17"
     
   - title: '---CHECK-IN 1---'
     date: "9/15 2:30pm"
     
   - title: 'Installation'
     session: 0
-    date: "Week 1"
     lectures: "00-lecture"
 
   - title: 'Tour of RStudio'
     session: 1
-    date: "Week 1"
     lectures: "01-lecture"
  
   - title: 'Objects'
     session: 2
-    date: "Week 1"
     lectures: "02-lecture"
     practice: "02-practice"
     assignments: "01-assignment"
     
   - title: 'Indexing'
     session: 3
-    date: "Week 1"
     lectures: "03-lecture"
     practice: "03-practice"
     assignments: "01-assignment"
     
   - title: 'Objects Part 2'
     session: 4
-    date: "Week 1"
     lectures: "04-lecture"
     practice: "04-practice"
     assignments: "01-assignment"
     
   - title: 'Functions & Help'
     session: 5
-    date: "Week 1"
     lectures: "05-lecture"
     practice: "05-practice"
     assignments: "01-assignment"
 
-  - title: '<span class="fake-header-table">Module 2: Continuation of Basics</span>'
+  - title: '**The Basics Part 2**'
+    date: "Week 2: 9/22 - 9/24"
     header: True
     
   - title: 'Packages'
     session: 6
-    date: "Week 2"
     lectures: "06-lecture"
     practice: "06-practice"
     assignments: "02-assignment"
     
   - title: 'Loading Files'
     session: 7
-    date: "Week 2"
     lectures: "07-lecture"
     practice: "07-practice"
     assignments: "02-assignment"
     
   - title: 'Review and Random'
     session: 8
-    date: "Week 2"
     lectures: "08-lecture"
     practice: "08-practice"
     assignments: "02-assignment"
     
   - title: 'Statistics and Intro to Plotting'
     session: 9
-    date: "Week 2"
     lectures: "09-lecture"
     practice: "09-practice"
     assignments: "02-assignment"
-
-  - title: '<span class="fake-header-table">Module 3: Data Wrangling</span>'
+    
+  - title: '**Data Wrangling**'
+    date: "Week 3: 9/29 - 10/1"
     header: True
     
   - title: '---CHECK-IN 2---'
@@ -82,50 +78,43 @@ lectures:
     
   - title: 'Introduction to Tidyverse'
     session: 10
-    date: "Week 3"
     lectures: "10-lecture"
-    practice: "10-practice"
     assignments: "03-assignment"
     
   - title: 'Using Dplyr'
     session: 11
-    date: "Week 3"
     lectures: "11-lecture"
     practice: "11-practice"
     assignments: "03-assignment"
     
   - title: 'Using Tidyr'
     session: 12
-    date: "Week 3"
     lectures: "12-lecture"
     practice: "12-practice"
     assignments: "03-assignment"
 
-  - title: '<span class="fake-header-table">Module 4: Reproducibility</span>'
+  - title: '**Reproducibility**'
+    date: "Week 4: 10/6 - 10/8"
     header: True
   
   - title: 'Introduction to RMarkdown'
     session: 13
-    date: "Week 4"
     lectures: "13-lecture"
     practice: "13-practice"
     assignments: "04-assignment"
     
   - title: 'Markdown Anatomy'
     session: 14
-    date: "Week 4"
     lectures: "14-lecture"
-    practice: "14-practice"
     assignments: "04-assignment"
     
   - title: 'Endless Flexibility'
     session: 15
-    date: "Week 4"
     lectures: "15-lecture"
-    practice: "15-practice"
     assignments: "04-assignment"
     
-  - title: '<span class="fake-header-table">Module 5: Data Visualization</span>'
+  - title: '**Data Visualization**'
+    date: "Week 5: 10/13 - 10/15"
     header: True
     
   - title: '---CHECK-IN 3---'
@@ -133,49 +122,45 @@ lectures:
   
   - title: 'Introduction to Data Visualization'
     session: 16
-    date: "Week 5"
     lectures: "16-lecture"
     practice: "16-practice"
     assignments: "05-assignment"
     
   - title: 'Customizing Your Plots'
     session: 17
-    date: "Week 5"
     lectures: "17-lecture"
     practice: "17-practice"
     assignments: "05-assignment"
 
   - title: 'Multipanel Figures'
     session: 18
-    date: "Week 5"
     lectures: "18-lecture"
     practice: "18-practice"
     assignments: "05-assignment"
     
   - title: 'Layers on Layers on Layers'
     session: 19
-    date: "Week 5"
     lectures: "19-lecture"
-    practice: "19-practice"
     assignments: "05-assignment"
     
-  - title: '<span class="fake-header-table">Module 6: Statistics</span>'
+  - title: '<span class="fake-header-table">Unit 2: Statistics</span>'
     header: True
     
   - title: 'Distributions'
     session: 20
-    date: "Week 6"
-    quiz: "nnn"
+    date: "Week 6: 10/20 - 10/22"
     
   - title: 'Comparing Means'
     session: 21
-    date: "Week 7"
+    date: "Week 7: 10/27 - 10/29"
+    quiz: "nnn"
     
   - title: 'Regression'
     session: 22
-    date: "Week 8"
+    date: "Week 8: 11/3 - 11/5"
+    quiz: "nnn"
     
-  - title: '<span class="fake-header-table">Module 7: Advanced Topics</span>'
+  - title: '<span class="fake-header-table">Unit 3: Advanced Topics</span>'
     header: True
     
   - title: '---CHECK-IN 4---'
@@ -183,33 +168,35 @@ lectures:
     
   - title: 'Data Viz Theory I'
     session: 23
-    date: "Week 9"
+    date: "Week 9: 11/10 - 11/12"
+    quiz: "nnn"
     
   - title: 'Data Viz Theory II'
     session: 24
-    date: "Week 10"
+    date: "Week 10: 11/17 - 11/19"
+    quiz: "nnn"
     
   - title: '---CHECK-IN 5---'
     date: "11/24 2:30pm"
     
   - title: 'Check-in + Thanksgiving Break'
     session: 25
-    date: "Week 11"
+    date: "Week 11: 11/24 - 11/26"
     
   - title: 'Bootstrapping & For Loops'
     session: 26
-    date: "Week 12"
+    date: "Week 12: 12/1 - 12/3"
     
   - title: 'Writing Functions'
     session: 27
-    date: "Week 13"
+    date: "Week 13: 12/8 - 12/10"
     
   - title: '---CHECK-IN 6---'
     date: "12/15 2:30pm"
     
   - title: 'Simulations? TBD'
     session: 28
-    date: "Week 14"
+    date: "Week 14: 12/15 - 12/17"
     
   - title: 'Final Project'
     session: 29
