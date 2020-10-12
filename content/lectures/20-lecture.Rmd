@@ -1,0 +1,36 @@
+---
+title: "Descriptives - Redux"
+linktitle: "20: Descriptives"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 1
+type: docs
+slides: "20-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- Vid link here
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Next 5 Weeks", "1", TRUE,
+  "Central Tendency", "centTen", FALSE,
+  "Dispersion", "disp", FALSE,
+  "Bias", "bias", FALSE,
+  "Standardization", "zs", FALSE
+)
+slide_tabs(sections, "/slides/20-slides.html")
+```

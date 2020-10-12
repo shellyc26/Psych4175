@@ -26,6 +26,8 @@ lectures:
     weight: 4
   - name: Data Viz
     weight: 5
+  - name: Statistics
+    weight: 6
 practice:
   - name: Overview
     weight: 1
@@ -37,8 +39,12 @@ practice:
     weight: 4
   - name: Data Viz
     weight: 5
+  - name: Statistics
+    weight: 6
 assignment:
   - name: Overview
     weight: 1
   - name: Assignments
     weight: 2
+  - name: Quizzes
+    weight: 3
