@@ -146,18 +146,29 @@ lectures:
   - title: '<span class="fake-header-table">Unit 2: Statistics</span>'
     header: True
     
-  - title: 'Distributions'
+  - title: 'Descriptives'
     session: 20
+    lectures: "20-lecture"
     date: "Week 6: 10/20 - 10/22"
     quiz: "nnn"
     
-  - title: 'Comparing Means'
+  - title: 'Normal Distribution'
+    lectures: "21-lecture"
     session: 21
+    quiz: "nnn"
+    
+  - title: 'Sampling Distribution'
+    lectures: "22-lecture"
+    session: 22
+    quiz: "nnn"
+    
+  - title: 'Comparing Means'
+    session: 23
     date: "Week 7: 10/27 - 10/29"
     quiz: "nnn"
     
   - title: 'Regression'
-    session: 22
+    session: 24
     date: "Week 8: 11/3 - 11/5"
     quiz: "nnn"
     
@@ -168,36 +179,36 @@ lectures:
     date: "11/10 2:30pm"
     
   - title: 'Data Viz Theory I'
-    session: 23
+    session: 25
     date: "Week 9: 11/10 - 11/12"
     quiz: "nnn"
     
   - title: 'Data Viz Theory II'
-    session: 24
+    session: 26
     date: "Week 10: 11/17 - 11/19"
     
   - title: '---CHECK-IN 5---'
     date: "11/24 2:30pm"
     
   - title: 'Check-in + Thanksgiving Break'
-    session: 25
+    session: 27
     date: "Week 11: 11/24 - 11/26"
     
   - title: 'Bootstrapping & For Loops'
-    session: 26
+    session: 28
     date: "Week 12: 12/1 - 12/3"
     
   - title: 'Writing Functions'
-    session: 27
+    session: 29
     date: "Week 13: 12/8 - 12/10"
     
   - title: '---CHECK-IN 6---'
     date: "12/15 2:30pm"
     
   - title: 'Simulations? TBD'
-    session: 28
+    session: 30
     date: "Week 14: 12/15 - 12/17"
     
   - title: 'Final Project'
-    session: 29
+    session: 31
     date: "1/4 - 1/10"

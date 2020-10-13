@@ -1,0 +1,434 @@
+---
+title: "The Normal Distribution"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["xaringan-themer-orange.css", "css/additionalCols.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = F,
+                      message = F,
+                      fit.retina = 3,
+                      fig.align = "center")
+
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(base_color = "#f0932b",
+                  outfile = "xaringan-themer-orange")
+```
+
+```{r packagesAndData, include=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(knitr)
+colors = RColorBrewer::brewer.pal(4, "Set2")
+```
+
+# Recap
+Measures of Central Tendency
+  - Mean (average)
+  - Median (middle)
+  - Mode (most)
+
+--
+
+Measures of Dispersion
+  - Variance
+  - Standard deviation
+
+--
+
+Standardized Scores
+
+---
+name: norm
+
+# The Normal Distribution
+
+The **normal distribution**
+  - aka "bell curve" or "Gaussian distribution" 
+  - Two-parameter distribution defined by the mean (
+$\mu$
+) and standard deviation (
+$\sigma$
+) 
+
+---
+# The Normal Distribution
+
+.pull-left[
+
+The **probability density function** gives the height of the curve at a particular value for X. 
+
+Although these values communicate information about probability or likelihood, they are not probabilities.
+]
+
+.pull-right[
+```{r normal, echo = FALSE, fig.height = 6}
+ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+  stat_function(fun = function(x) dnorm(x)) +
+  scale_x_continuous("Variable X") +
+  scale_y_continuous("Density")+
+  ggtitle("The normal curve") +
+  theme(text = element_text(size = 20))
+```
+
+```{r ref.label = "normal", eval=F, echo=FALSE}
+
+```
+]
+
+---
+# Probability Density Functions
+
+You can take an entire semester long course on probability. Getting into the details is beyond the scope of this class, sadly. What you should know:
+
+- The total area under the curve of a proability density function is **1**
+- For a given continuous random variable, the probability of getting any single value is basically **0**
+
+
+---
+
+# Probability of a single value
+.pull-left[
+The area under the curve that lies between the mean (here 0) and a value of 1 is the probability of a score between 0 and 1.
+]
+
+.pull-right[
+```{r, echo = F}
+ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+  stat_function(fun = function(x) dnorm(x)) + 
+  stat_function(fun = function(x) dnorm(x) , 
+                xlim = c(0, 1),
+                geom = "area", fill = colors[1]) + 
+  geom_hline(aes(yintercept = 0))+
+  scale_x_continuous("Variable X") + scale_y_continuous("Density")+ggtitle("The normal curve") + theme(text = element_text(size =20))
+```
+]
+
+---
+# Probability of a single value
+
+.pull-left[
+As our interval shrinks closer and closer to 0, our area (probability) shrinks as well.
+
+It can get vanishingly close to 0—essentially a point rather than an area.
+
+The probability of that "point" is 0.
+]
+
+.pull-right[
+```{r, echo = F}
+ggplot(data.frame(x = seq(0, 1)), aes(x)) +
+  stat_function(fun = function(x) pnorm(x)-.5, color = "red") + 
+  geom_hline(aes(yintercept = 0), color = "red", linetype = "dashed")+
+  scale_x_continuous("Z") +
+  scale_y_continuous("Density", limits=c(0,.4)) +ggtitle("Area under the normal curve\nbetween Z and 0")+ theme(text = element_text(size = 20))
+
+```
+]
+---
+# Probability of a single value
+.pull-left[
+We can keep shrinking the distance between Z and 0, never reaching 0, and still calculate an area.
+
+It will be very, very small. 
+
+]
+
+.pull-right[
+```{r, echo = F}
+ggplot(data.frame(x = seq(0, .001, by =.00005)), aes(x)) +
+  stat_function(fun = function(x) pnorm(x)-.5, color = "red") + 
+  geom_hline(aes(yintercept = 0), color = "red", linetype = "dashed")+
+  scale_x_continuous("Z") +
+  scale_y_continuous("Density") +ggtitle("Area under the normal curve\nbetween Z and 0")+ theme(text = element_text(size = 20))
+
+```
+]
+
+---
+
+# Characteristics of the normal distribution
+
+* The mean and standard deviation are independent
+
+* The distribution is unimodal and symmetrical
+
+* For two normal distributions, the area under the curve between corresponding locations in standard deviation units is the same regardless of $\mu$ and $\sigma$ 
+
+---
+
+# Family of Normal Distributions
+
+```{r, echo = F}
+ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+  stat_function(fun = function(x) dnorm(x, mean = .5, sd = 2)) +
+  stat_function(fun = function(x) dnorm(x, mean = 2, sd = .2), color = "blue") +
+  stat_function(fun = function(x) dnorm(x, mean = -1.25, sd = 1), color = "red") +
+  scale_x_continuous("Variable X") +
+  scale_y_continuous("Density") +
+  ggtitle("Normal Curves")
+```
+
+---
+# Family of Normal Distributions
+
+All of these distributions are normal and have an equivalent area (proportion) that falls between a standard deviation below and above their respective means.
+
+```{r, echo = F, fig.width=10, fig.height = 5}
+p1 = ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+stat_function(fun = function(x) dnorm(x) , 
+                xlim = c(-1, 1),
+                geom = "area", fill = colors[1]) +
+  stat_function(fun = function(x) dnorm(x)) +
+  geom_hline(aes(yintercept = 0)) +
+  scale_x_continuous("Variable X") +
+  scale_y_continuous("Density")+
+  ggtitle("Area under the normal curve")
+
+p2 = ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+stat_function(fun = function(x) dnorm(x, sd = 1.5) , 
+                xlim = c(-1.5, 1.5),
+                geom = "area", fill = colors[1]) +
+  stat_function(fun = function(x) dnorm(x, sd = 1.5)) +
+  geom_hline(aes(yintercept = 0)) +
+  scale_x_continuous("Variable X") +
+  scale_y_continuous("Density")+
+  ggtitle("Area under the normal curve")
+
+p3 = ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+stat_function(fun = function(x) dnorm(x, sd = .5) , 
+                xlim = c(-.5, .5),
+                geom = "area", fill = colors[1]) +
+  stat_function(fun = function(x) dnorm(x, sd = .5)) +
+  geom_hline(aes(yintercept = 0)) +
+  scale_x_continuous("Variable X") +
+  scale_y_continuous("Density")+
+  ggtitle("Area under the normal curve")
+
+ggarrange(p1, p2, p3, ncol = 3)
+```
+
+---
+# Characteristics of the normal distribution
+
+- About 68.3% of the data will be within one standard deviation of the mean. 
+- About 95% of the data will be within two standard deviations of the mean.  
+- About 99.7% of the data will be within three standard deviations of the mean.
+
+In other words, nearly **all** of the data will fall within 3 standard deviations of the mean in a normal distribution.
+
+---
+name: stdnorm
+
+# Standard normal distribution
+
+A normal distribution with $\mu$=0 and $\sigma$=1 is called **standard normal**. It is one specific distribution that comes from the larger family of normal distributions.  
+
+Variables with quite different means and standard deviations can be standardized so that they can be compared in the same metric (standard deviation units). This allows statements such as "relative to the mean, I am more conscientious (e.g., $z=2$) than I am extraverted (e.g., $z=1$)."
+
+--
+
+All continuous distributions can be standardized, but if they are not normal to begin with, standardization will not make them so.  *Standardization does not alter distribution shape.*
+
+---
+
+# Standard normal distribution
+
+There is only one (1) standard normal distribution. 
+  
+**How is this useful?**
+  - Given any score, we can calculate the probability of getting a value greater than that $z$-score. *(Or less than that $z$-score.)*
+  
+  - Given any two $z$-scores, we can calculate the probability of getting a value between these scores. *(Or outside those $z$-scores)*
+  
+  - Given a probability $p$, we can identify the $z$-score at which the proportion of scores below *(or above)* $p$ falls. 
+  
+  - Given a probability $p$, we can identify the $z$-score at which the proportion of scores that fall above $-z$ and below $z$ is equal to $p$.
+  
+---
+# Standardized scores ($z$-scores)
+
+> Distance from the mean in standard deviation units
+
+
+$$ z = \frac{x_i - \bar{x}}{s} $$
+
+Properties of $z$-scores:
+
+- $\Large \mu_z = 0$
+- $\Large \sigma_z = 1$
+
+--
+
+- Compare across scales and units of measures
+- More easily identify extreme data
+
+---
+name: use
+
+# Using $z$-scores
+
+.pull-left[
+```{r echo=FALSE}
+starwars[1:6,1:2]
+```
+]
+
+--
+
+.pull-right[
+```{r}
+starwars %>% 
+  select(1:2) %>% 
+  mutate_at(2, ~round(x = scale(.), digits = 2)) %>% 
+  head(.) %>% 
+  print(.)
+```
+
+]
+
+---
+
+# Using $z$-scores
+Given any score, we can calculate the probability of getting a value greater than that $z$-score. *(Or less than that z-score.)*
+
+You can look up tables that give you the probability value that corresponds to any given $z$-score. Or, you can use `R` code. 
+
+--
+
+Luke Skywalker's height is $z$ = -.07
+
+```{r}
+pnorm(q = -.07, mean = 0, sd = 1)
+```
+
+---
+# $p$-values
+
+.pull-left[
+What does $p = .4721$ mean?
+  - The probability of obtaining a $z$-score less than -.07
+  - The area under the curve from -.07, moving left
+]
+
+.pull-right[
+```{r, echo = F}
+ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+  stat_function(fun = function(x) dnorm(x)) + 
+  stat_function(fun = function(x) dnorm(x) , 
+                xlim = c(-0.07, -4),
+                geom = "area", fill = colors[1]) + 
+  geom_hline(aes(yintercept = 0))+
+  scale_x_continuous("Variable X") + scale_y_continuous("Density")+ggtitle("The normal curve") + theme(text = element_text(size =20))
+```
+]
+
+---
+# $p$-values
+
+**A $p$-value is the probability of getting a particular test statistic or more extreme given the null hypothesis is true**
+
+--
+
+What is a $p$-value *NOT*:
+- $p$ is not the probability that H0 is true
+- $p$ is not the probability of a Type I error
+- $p$ is not the probability that the data are due to chance
+- $p$ is not the probability of making a wrong decision
+- the complement of $p$, which is (1-$p$), is not the probability that the alternative hypothesis is true 
+
+---
+# Using $z$-scores
+
+.pull-left[
+The probability of getting a $z$-score of -.07 or greater?
+
+```{r}
+1-pnorm(q = -.07, mean = 0, sd = 1)
+```
+]
+
+.pull-right[
+```{r, echo = F}
+ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+  stat_function(fun = function(x) dnorm(x)) + 
+  stat_function(fun = function(x) dnorm(x) , 
+                xlim = c(-0.07, 4),
+                geom = "area", fill = colors[1]) + 
+  geom_hline(aes(yintercept = 0))+
+  scale_x_continuous("Variable X") + scale_y_continuous("Density")+ggtitle("The normal curve") + theme(text = element_text(size =20))
+```
+]
+---
+# Using $z$-scores
+
+.pull-left[
+What about R2D2? ($z$-score of -2.25)
+  - Probability of getting a $z$-score of -2.25 or something even smaller
+  
+```{r}
+pnorm(q = -2.25, mean = 0, sd = 1)
+```
+]
+
+.pull-right[
+```{r, echo = F}
+ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+  stat_function(fun = function(x) dnorm(x)) + 
+  stat_function(fun = function(x) dnorm(x) , 
+                xlim = c(-2.25, -4),
+                geom = "area", fill = colors[1]) + 
+  geom_hline(aes(yintercept = 0))+
+  scale_x_continuous("Variable X") + scale_y_continuous("Density")+ggtitle("The normal curve") + theme(text = element_text(size =20))
+```
+]
+---
+# Using $z$-scores
+
+.pull-left[
+Probability of getting a $z$-score of -2.25 or something larger
+  
+```{r}
+1-pnorm(q = -2.25, mean = 0, sd = 1)
+```
+]
+
+.pull-right[
+```{r, echo = F}
+ggplot(data.frame(x = seq(-4, 4)), aes(x)) +
+  stat_function(fun = function(x) dnorm(x)) + 
+  stat_function(fun = function(x) dnorm(x) , 
+                xlim = c(-2.25, 4),
+                geom = "area", fill = colors[1]) + 
+  geom_hline(aes(yintercept = 0))+
+  scale_x_continuous("Variable X") + scale_y_continuous("Density")+ggtitle("The normal curve") + theme(text = element_text(size =20))
+```
+]
+
+---
+# Some $z$-scores of note
+
+- $z = 1.64$; most extreme 5% of the standard normal distribution (the very far tail)
+
+- $z = 1.96$; most extreme 2.5% of the standard normal distribution (used when splitting the difference of most positive and most negative extremes)
+
+

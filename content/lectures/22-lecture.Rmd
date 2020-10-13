@@ -1,0 +1,38 @@
+---
+title: "Sampling Distributions"
+linktitle: "22: Sampling"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 3
+type: docs
+slides: "22-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- Vid link here
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Sampling Distribution", "sampling", FALSE,
+  "Central Limit Theorem", "clt", FALSE,
+  "SEM", "sem", FALSE,
+  "Confidence Intervals", "ci", FALSE,
+  "t Distribution", "tdist", FALSE,
+  "Examples", "ex", FALSE
+)
+slide_tabs(sections, "/slides/22-slides.html")
+```

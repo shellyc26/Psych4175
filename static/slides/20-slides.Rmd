@@ -66,7 +66,7 @@ What you can expect:
 
 - Refresh your memory about stats. The content presented will hopefully go into slightly more depth (for certain topics) than what you covered in Psych Stats. But it shouldn't be new, per se.
 - Applying this theoretical knowledge to practical knowledge in `R`. You will be expected to know what the outputs mean (e.g., how to interpret them).
-- There will be an accompanying Practice Set for each lecture (hopefully...I'm trying!). In these, we will cover functions that are particularly useful when applying this theoretical knowledge.
+- As of now, there will not be any Practice Sets for this unit on statistics. I will update you if there are any changes on this front.
 - No HW assignments. Quizzes based on lecture content (10 questions max/quiz). Lecture content longer and denser...but no HW!!
 
 --

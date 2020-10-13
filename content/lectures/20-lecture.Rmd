@@ -16,6 +16,14 @@ output:
 
 - Vid link here
 
+## Data
+
+This lecture will use a world happiness dataset. If you want to play along, you can download it here:
+
+- [<i class="fas fa-file-csv"></i> `world_happiness_2015.csv`](/slides/20-slides_files/world_happiness_2015.csv)
+
+
+
 ## Slides
 
 `r blogdown::shortcode("slide-buttons")`

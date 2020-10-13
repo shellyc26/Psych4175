@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>The Normal Distribution</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-orange.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# The Normal Distribution
+
+---
+
+
+
+
+
+
+
+
+# Recap
+Measures of Central Tendency
+  - Mean (average)
+  - Median (middle)
+  - Mode (most)
+
+--
+
+Measures of Dispersion
+  - Variance
+  - Standard deviation
+
+--
+
+Standardized Scores
+
+---
+name: norm
+
+# The Normal Distribution
+
+The **normal distribution**
+  - aka "bell curve" or "Gaussian distribution" 
+  - Two-parameter distribution defined by the mean (
+`\(\mu\)`
+) and standard deviation (
+`\(\sigma\)`
+) 
+
+---
+# The Normal Distribution
+
+.pull-left[
+
+The **probability density function** gives the height of the curve at a particular value for X. 
+
+Although these values communicate information about probability or likelihood, they are not probabilities.
+]
+
+.pull-right[
+&lt;img src="21-slides_files/figure-html/normal-1.png" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+---
+# Probability Density Functions
+
+You can take an entire semester long course on probability. Getting into the details is beyond the scope of this class, sadly. What you should know:
+
+- The total area under the curve of a proability density function is **1**
+- For a given continuous random variable, the probability of getting any single value is basically **0**
+
+
+---
+
+# Probability of a single value
+.pull-left[
+The area under the curve that lies between the mean (here 0) and a value of 1 is the probability of a score between 0 and 1.
+]
+
+.pull-right[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Probability of a single value
+
+.pull-left[
+As our interval shrinks closer and closer to 0, our area (probability) shrinks as well.
+
+It can get vanishingly close to 0—essentially a point rather than an area.
+
+The probability of that "point" is 0.
+]
+
+.pull-right[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+]
+---
+# Probability of a single value
+.pull-left[
+We can keep shrinking the distance between Z and 0, never reaching 0, and still calculate an area.
+
+It will be very, very small. 
+
+]
+
+.pull-right[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Characteristics of the normal distribution
+
+* The mean and standard deviation are independent
+
+* The distribution is unimodal and symmetrical
+
+* For two normal distributions, the area under the curve between corresponding locations in standard deviation units is the same regardless of `\(\mu\)` and `\(\sigma\)` 
+
+---
+
+# Family of Normal Distributions
+
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+# Family of Normal Distributions
+
+All of these distributions are normal and have an equivalent area (proportion) that falls between a standard deviation below and above their respective means.
+
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+# Characteristics of the normal distribution
+
+- About 68.3% of the data will be within one standard deviation of the mean. 
+- About 95% of the data will be within two standard deviations of the mean.  
+- About 99.7% of the data will be within three standard deviations of the mean.
+
+In other words, nearly **all** of the data will fall within 3 standard deviations of the mean in a normal distribution.
+
+---
+name: stdnorm
+
+# Standard normal distribution
+
+A normal distribution with `\(\mu\)`=0 and `\(\sigma\)`=1 is called **standard normal**. It is one specific distribution that comes from the larger family of normal distributions.  
+
+Variables with quite different means and standard deviations can be standardized so that they can be compared in the same metric (standard deviation units). This allows statements such as "relative to the mean, I am more conscientious (e.g., `\(z=2\)`) than I am extraverted (e.g., `\(z=1\)`)."
+
+--
+
+All continuous distributions can be standardized, but if they are not normal to begin with, standardization will not make them so.  *Standardization does not alter distribution shape.*
+
+---
+
+# Standard normal distribution
+
+There is only one (1) standard normal distribution. 
+  
+**How is this useful?**
+  - Given any score, we can calculate the probability of getting a value greater than that `\(z\)`-score. *(Or less than that `\(z\)`-score.)*
+  
+  - Given any two `\(z\)`-scores, we can calculate the probability of getting a value between these scores. *(Or outside those `\(z\)`-scores)*
+  
+  - Given a probability `\(p\)`, we can identify the `\(z\)`-score at which the proportion of scores below *(or above)* `\(p\)` falls. 
+  
+  - Given a probability `\(p\)`, we can identify the `\(z\)`-score at which the proportion of scores that fall above `\(-z\)` and below `\(z\)` is equal to `\(p\)`.
+  
+---
+# Standardized scores ($z$-scores)
+
+&gt; Distance from the mean in standard deviation units
+
+
+$$ z = \frac{x_i - \bar{x}}{s} $$
+
+Properties of `\(z\)`-scores:
+
+- `\(\Large \mu_z = 0\)`
+- `\(\Large \sigma_z = 1\)`
+
+--
+
+- Compare across scales and units of measures
+- More easily identify extreme data
+
+---
+name: use
+
+# Using `\(z\)`-scores
+
+.pull-left[
+
+```
+## # A tibble: 6 x 2
+##   name           height
+##   &lt;chr&gt;           &lt;int&gt;
+## 1 Luke Skywalker    172
+## 2 C-3PO             167
+## 3 R2-D2              96
+## 4 Darth Vader       202
+## 5 Leia Organa       150
+## 6 Owen Lars         178
+```
+]
+
+--
+
+.pull-right[
+
+```r
+starwars %&gt;% 
+  select(1:2) %&gt;% 
+  mutate_at(2, ~round(x = scale(.), digits = 2)) %&gt;% 
+  head(.) %&gt;% 
+  print(.)
+```
+
+```
+## # A tibble: 6 x 2
+##   name           height[,1]
+##   &lt;chr&gt;               &lt;dbl&gt;
+## 1 Luke Skywalker      -0.07
+## 2 C-3PO               -0.21
+## 3 R2-D2               -2.25
+## 4 Darth Vader          0.79
+## 5 Leia Organa         -0.7 
+## 6 Owen Lars            0.1
+```
+
+]
+
+---
+
+# Using `\(z\)`-scores
+Given any score, we can calculate the probability of getting a value greater than that `\(z\)`-score. *(Or less than that z-score.)*
+
+You can look up tables that give you the probability value that corresponds to any given `\(z\)`-score. Or, you can use `R` code. 
+
+--
+
+Luke Skywalker's height is `\(z\)` = -.07
+
+
+```r
+pnorm(q = -.07, mean = 0, sd = 1)
+```
+
+```
+## [1] 0.4720968
+```
+
+---
+# `\(p\)`-values
+
+.pull-left[
+What does `\(p = .4721\)` mean?
+  - The probability of obtaining a `\(z\)`-score less than -.07
+  - The area under the curve from -.07, moving left
+]
+
+.pull-right[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# `\(p\)`-values
+
+**A `\(p\)`-value is the probability of getting a particular test statistic or more extreme given the null hypothesis is true**
+
+--
+
+What is a `\(p\)`-value *NOT*:
+- `\(p\)` is not the probability that H0 is true
+- `\(p\)` is not the probability of a Type I error
+- `\(p\)` is not the probability that the data are due to chance
+- `\(p\)` is not the probability of making a wrong decision
+- the complement of `\(p\)`, which is (1-$p$), is not the probability that the alternative hypothesis is true 
+
+---
+# Using `\(z\)`-scores
+
+.pull-left[
+The probability of getting a `\(z\)`-score of -.07 or greater?
+
+
+```r
+1-pnorm(q = -.07, mean = 0, sd = 1)
+```
+
+```
+## [1] 0.5279032
+```
+]
+
+.pull-right[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+]
+---
+# Using `\(z\)`-scores
+
+.pull-left[
+What about R2D2? ($z$-score of -2.25)
+  - Probability of getting a `\(z\)`-score of -2.25 or something even smaller
+  
+
+```r
+pnorm(q = -2.25, mean = 0, sd = 1)
+```
+
+```
+## [1] 0.01222447
+```
+]
+
+.pull-right[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+]
+---
+# Using `\(z\)`-scores
+
+.pull-left[
+Probability of getting a `\(z\)`-score of -2.25 or something larger
+  
+
+```r
+1-pnorm(q = -2.25, mean = 0, sd = 1)
+```
+
+```
+## [1] 0.9877755
+```
+]
+
+.pull-right[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# Some `\(z\)`-scores of note
+
+- `\(z = 1.64\)`; most extreme 5% of the standard normal distribution (the very far tail)
+
+- `\(z = 1.96\)`; most extreme 2.5% of the standard normal distribution (used when splitting the difference of most positive and most negative extremes)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
