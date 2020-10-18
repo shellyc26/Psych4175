@@ -1,0 +1,686 @@
+---
+title: "Comparing Means"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["xaringan-themer-green.css", "css/additionalCols.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = F,
+                      message = F,
+                      fit.retina = 3,
+                      fig.align = "center")
+
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+```
+
+```{r packagesAndData, include=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(knitr)
+colors = RColorBrewer::brewer.pal(4, "Set2")
+```
+
+# Recap
+
+* Descriptive Stats
+* Normal Distributions
+* Sampling Distributions
+
+---
+
+# This time
+
+* $t$-tests through oneway ANOVA
+* BUT, we're going to take a different approach...
+
+--
+
+**Model Comparisons**
+
+---
+
+name: one
+
+# Scenario 1
+
+**Gerrymandering**
+- Depending on the estimate you pick, about 53% of voters in Wisconsin were Democrats in 2016. 
+- So our best estimate of the percentage of voters that are Democrat in any *district* might be 53%
+- Now that 2016 feels like a million years ago, you find that in actuality it was 52% of voters in Wisconsin were Democrats in 2016.
+- *Question: Was our population estimate of 53% significantly different from our sample estimate of 52%?*
+
+--
+
+**one-sample $t$-test**
+
+---
+
+# Model Comparisons
+
+In the normal **one-sample $t$-test**
+
+  - $\bar{x} = \mu$
+  - $H_0: \bar{x} - \mu = 0$
+  - $H_A: \bar{x} - \mu \neq 0$
+
+---
+
+# Model Comparisons
+
+Let's break it down into **full** and **restricted** models:
+
+- **Restricted Model:** reflects what we are testing *against*. 
+
+--
+
+- **Full Model:** allows us to fully include all information we might have.
+
+--
+
+- Size of the effect is calculated as the following: 
+
+$$\frac{(E_r - E_f) / (df_r - df_f)}{E_f/df_f}$$
+
+where:
+  - $E_r$ is the error from the restricted model
+  - $E_f$ is the error from the full model
+  - $df_r$ is the degrees of freedom from the restricted model
+  - $df_f$ is the degrees of freedom from the full model
+
+---
+
+# The Data
+
+```{r}
+dems <- data.frame(Dem = c(30, 69, 99, 77, 29, 37, 38, 37))
+dems
+```
+
+---
+
+# The Restricted Model
+Step 1: Get the deviation scores. In the restricted model, we are subtracting from our population estimate of 53%
+
+```{r}
+dems$deviationScores <- dems$Dem - 53
+dems
+```
+
+---
+# The Restricted Model
+Step 2: Square the deviation scores
+
+```{r}
+dems$dev2 <- dems$deviationScores ^2
+dems
+```
+
+---
+# The Restricted Model
+Step 3: Get the sum of the square deviation scores. This is our **ERROR** term. It is the squared errors. 
+
+```{r}
+Er <- sum(dems$dev2)
+dems
+Er
+```
+
+---
+# The Restricted Model
+Step 4: Determine the degrees of freedom. 
+
+- Degrees of freedom deals with how much information is *free to vary*
+- You get a feel for this the more you practice
+- In this restricted model, there is nothing that we are "guessing" or estimating. So there is nothing to subtract. $df = n$, **df = 8**
+
+```{r}
+dfr <- 8
+```
+
+---
+
+# The Full Model
+Step 1: Get the deviation scores. In the full model, we are subtracting from our population estimate of 52%
+
+```{r}
+demsFull = dems %>% 
+  select(Dem)
+
+demsFull$deviationScores <- demsFull$Dem - 52
+demsFull
+```
+
+---
+# The Full Model
+Step 2: Square the deviation scores
+
+```{r}
+demsFull$dev2 <- demsFull$deviationScores^2
+demsFull
+```
+
+---
+# The Full Model
+Step 3: Get the sum of the square deviation scores. This is our **ERROR** term. It is the squared errors. 
+
+```{r}
+Ef <- sum(demsFull$dev2)
+demsFull
+Ef
+```
+
+---
+# The Full Model
+Step 4: Determine the degrees of freedom. 
+
+- Degrees of freedom deals with how much information is *free to vary*
+- You get a feel for this the more you practice
+- In this full model, we are guessing/estimating our sample mean of 52. $df = n-1$, **df = 8 - 1 = 7**
+
+```{r}
+dff <- 7
+```
+
+---
+# The Effect
+$$\frac{(E_r - E_f) / (df_r - df_f)}{E_f/df_f}$$
+
+```{r}
+effect <- ((Er - Ef) / (dfr - dff)) / (Ef/dff)
+effect
+```
+
+--
+
+This is our $F$-statistic. Remember that $t^2 = F$. So to get our $t$-statistic, let's take the square root of our `effect`.
+
+```{r}
+tstat <- sqrt(effect)
+round(x = tstat, digits = 3)
+```
+
+---
+# Model Comparison Approach
+
+Is `r round(x = tstat, digits = 3)` more extreme than our critical value? 
+
+- For an $\alpha = .05$ in a two-tailed test with $df - 7$, the critical $t$ value is 2.3650. 
+
+**Conclusion: No, it's not more extreme than the critical value. The error terms between the null and restricted models are not meaningfully different -- therefore the means are not statistically significantly different**
+
+---
+
+# Model Comparison Approach
+
+We just did a one-sample t-test! Let's verify our results:
+
+```{r}
+t.test(x = dems$Dem, mu = 53)
+```
+
+---
+
+# Look at the errors!
+In general, we try to *minimize* error!
+
+.pull-left[
+Restricted
+```{r}
+as.data.frame(dems$dev2)
+```
+]
+
+.pull-right[
+Full
+```{r}
+as.data.frame(demsFull$dev2)
+```
+
+]
+---
+name: indep
+
+# Scenario 2
+
+- What if now we want to compare the difference in means (of % Democrats) between the 2010 election?
+- *Question: are the means of % Democrats significantly different between 2010 and 2016?*
+
+---
+
+# The Data
+
+.code-small[
+```{r}
+dems <- data.frame(Dem = c(30, 69, 99, 77, 29, 37, 38, 37,
+                           30, 62, 50, 69, 27, 29, 44, 45),
+                   Year = c(rep("2016", times = 8),
+                            rep("2010", times = 8)))
+dems$Year <- factor(dems$Year)
+
+dems
+
+```
+]
+
+---
+
+# The Hypotheses
+
+- $H_0: \bar{x}_{2010} - \bar{x}_{2016} = 0$
+- $H_A: \bar{x}_{2010} - \bar{x}_{2016} \neq 0$
+
+--
+
+- Restricted Model: the best way of minimizing errors is to use the overall grand mean
+- Full Model: the best way of minimizing errors is to use the group-specific mean. 
+
+---
+
+# The Means
+
+Let's get the grand mean to use in our Restricted model and the means of each group (% Democrat in 2010 vs. % Democrat in 2016):
+
+```{r}
+grandMean <- mean(dems$Dem)
+
+groupMeans <- dems %>% 
+  group_by(Year) %>% 
+  summarize(means = mean(Dem))
+
+grandMean
+
+groupMeans
+```
+
+---
+
+# The Restricted Model
+
+```{r}
+dems$Mean <- rep(grandMean, times = nrow(dems))
+dems
+```
+
+---
+# The Restricted Model
+
+Step 1: Deviation Scores
+
+```{r}
+dems$deviationScores <- dems$Dem - dems$Mean
+dems
+```
+
+---
+# The Restricted Model
+
+Step 2: Square Deviation Scores
+
+```{r}
+dems$dev2 <- dems$deviationScores ^2
+dems
+```
+
+---
+# The Restricted Model
+
+Step 3: Sum of Squares -- our **ERROR** term
+
+.code-small[
+```{r}
+Er <- sum(dems$dev2)
+dems
+Er
+```
+]
+
+---
+# The Restricted Model
+Step 4: Determine the degrees of freedom. 
+
+- Degrees of freedom deals with how much information is *free to vary*
+- You get a feel for this the more you practice
+- In this restricted model, we are guessing/estimating our grand mean of 48.25. $df = n-1$, **df = 16 - 1 = 15**
+
+```{r}
+dfr <- 15
+```
+
+---
+
+# The Full Model
+
+```{r}
+dems <- data.frame(Dem = c(30, 69, 99, 77, 29, 37, 38, 37,
+                           30, 62, 50, 69, 27, 29, 44, 45),
+                   Year = c(rep("2016", times = 8),
+                            rep("2010", times = 8)))
+dems$Year <- factor(dems$Year)
+
+dems$Mean <- c(rep(groupMeans$means[2], times = 8),
+               rep(groupMeans$means[1], times = 8))
+dems
+```
+
+---
+
+# The Full Model
+
+Step 1: Deviation Scores
+
+```{r}
+dems$deviationScores <- dems$Dem - dems$Mean
+dems
+```
+
+---
+# The Full Model
+
+Step 2: Square Deviation Scores
+
+```{r}
+dems$dev2 <- dems$deviationScores ^2
+dems
+```
+
+---
+# The Full Model
+
+Step 3: Sum of Squares -- our **ERROR** term
+
+.code-small[
+```{r}
+Ef <- sum(dems$dev2)
+dems
+Ef
+```
+]
+---
+# The Full Model
+Step 4: Determine the degrees of freedom. 
+
+- Degrees of freedom deals with how much information is *free to vary*
+- You get a feel for this the more you practice
+- In this full model, we are guessing/estimating our 2 means (mean for 2010 and mean for 2016). $df = n-2$, **df = 16 - 2 = 14**
+
+```{r}
+dff <- 14
+```
+
+---
+# The Effect
+$$\frac{(E_r - E_f) / (df_r - df_f)}{E_f/df_f}$$
+
+```{r}
+effect <- ((Er - Ef) / (dfr - dff)) / (Ef/dff)
+effect
+```
+
+--
+
+This is our $F$-statistic. Remember that $t^2 = F$. So to get our $t$-statistic, let's take the square root of our `effect`.
+
+```{r}
+tstat <- sqrt(effect)
+round(x = tstat, digits = 3)
+```
+
+---
+# Model Comparison Approach
+
+Is `r round(x = tstat, digits = 3)` more extreme than our critical value? 
+
+- For an $\alpha = .05$ in a two-tailed test with $df - 7$, the critical $t$ value is 2.131. 
+
+**Conclusion: No, it's not more extreme than the critical value. The error terms between the null and restricted models are not meaningfully different -- therefore the means are not statistically significantly different**
+
+---
+
+# Model Comparison Approach
+
+We just did an independent-samples t-test! Let's verify our results:
+
+```{r}
+t.test(dems$Dem ~ dems$Year)
+```
+
+---
+name: aov
+
+# Scenario 3
+
+- We have a dataset that looks at the lengths and widths of petals & sepals of the iris flower. It includes 3 different species of irises. 
+- *Question: are the sepal lengths different amongst the 3 species of irises?*
+
+---
+
+# The Data
+
+```{r}
+head(iris)
+
+iris <- iris %>% 
+  select(Sepal.Length, Species)
+```
+
+---
+
+# The Hypotheses
+
+- $H_0: \bar{x}_{setosa} = \bar{x}_{versicolor} = \bar{x}_{virginica}$
+- $H_A: \bar{x}_{setosa} \neq \bar{x}_{versicolor} \neq \bar{x}_{virginica}$
+
+--
+
+- Restricted Model: the best way of minimizing errors is to use the overall grand mean
+- Full Model: the best way of minimizing errors is to use the group-specific mean. 
+
+---
+
+# The Means
+
+Let's get the grand mean to use in our Restricted model and the means of each group:
+
+```{r}
+grandMean <- mean(iris$Sepal.Length)
+
+groupMeans <- iris %>% 
+  group_by(Species) %>% 
+  summarize(means = mean(Sepal.Length))
+
+grandMean
+
+groupMeans
+```
+
+---
+
+# The Restricted Model
+
+```{r}
+restricted <- iris
+restricted$Mean <- rep(grandMean, times = nrow(restricted))
+head(restricted)
+```
+
+---
+# The Restricted Model
+
+Step 1: Deviation Scores
+
+```{r}
+restricted$deviationScores <- restricted$Sepal.Length - restricted$Mean
+head(restricted)
+```
+
+---
+# The Restricted Model
+
+Step 2: Square Deviation Scores
+
+```{r}
+restricted$dev2 <- restricted$deviationScores ^2
+head(restricted)
+```
+
+---
+# The Restricted Model
+
+Step 3: Sum of Squares -- our **ERROR** term
+
+```{r}
+Er <- sum(restricted$dev2)
+head(restricted)
+Er
+```
+
+---
+# The Restricted Model
+Step 4: Determine the degrees of freedom. 
+
+- Degrees of freedom deals with how much information is *free to vary*
+- You get a feel for this the more you practice
+- In this restricted model, we are guessing/estimating our grand mean of 5.843. $df = n-1$, **df = 150 - 1 = 149**
+
+```{r}
+dfr <- 149
+```
+
+---
+
+# The Full Model
+
+```{r}
+full <- iris
+full$Mean <- c(rep(groupMeans$means[1], times = 50),
+               rep(groupMeans$means[2], times = 50),
+               rep(groupMeans$means[3], times = 50))
+head(full)
+```
+
+---
+
+# The Full Model
+
+Step 1: Deviation Scores
+
+```{r}
+full$deviationScores <- full$Sepal.Length - full$Mean
+head(full)
+```
+
+---
+# The Full Model
+
+Step 2: Square Deviation Scores
+
+```{r}
+full$dev2 <- full$deviationScores ^2
+head(full)
+```
+
+---
+# The Full Model
+
+Step 3: Sum of Squares -- our **ERROR** term
+
+```{r}
+Ef <- sum(full$dev2)
+head(full)
+Ef
+```
+
+---
+# The Full Model
+Step 4: Determine the degrees of freedom. 
+
+- Degrees of freedom deals with how much information is *free to vary*
+- You get a feel for this the more you practice
+- In this full model, we are guessing/estimating our 3 means (mean for each species). $df = n-3$, **df = 150 - 3 = 147**
+
+```{r}
+dff <- 147
+```
+
+---
+# The Effect
+$$\frac{(E_r - E_f) / (df_r - df_f)}{E_f/df_f}$$
+
+```{r}
+effect <- ((Er - Ef) / (dfr - dff)) / (Ef/dff)
+effect
+```
+
+--
+
+This is our $F$-statistic. This is an ANOVA, so we can stick with the $F$-statistic.
+
+```{r}
+round(x = effect, digits = 3)
+```
+
+---
+# Model Comparison Approach
+
+Is `r round(x = effect, digits = 3)` more extreme than our critical value? 
+
+- A significant $F$-statistic is anything above 1. Yes, our value is larger than 1.
+
+**Conclusion: The error terms between the null and restricted models are meaningfully different -- therefore the means are statistically significantly different**
+
+---
+
+# Model Comparison Approach
+
+We just did a oneway ANOVA! Let's verify our results:
+
+```{r}
+summary(aov(Sepal.Length ~ Species, data = iris))
+```
+
+---
+
+# Extras
+
+- Could you do this with a paired samples $t$-test? **YES**
+
+--
+
+- Could you do this with a 2x2 ANOVA (or any other form)? **YES**
+
+--
+
+- So. Why is it called ANOVA? 
+
+---
+
+# Utility
+
+We have programs like R. In the workforce, no one will expect you to calculate this stuff by hand. So why go through the effort of showing you this?
+
+--
+
+A model is what **YOU** define. It's how you think the world works. The restricted model is really just an emobodiement of the null hypothesis! The full model is the embodiment of the alternative hypothesis!
+
+--
+
+Minimizing error terms is how we evaluate multitudes of models!
+
+--
+
+Plus, model comparison frameworks come up more formally in some advanced types of statistics. 
