@@ -163,13 +163,18 @@ lectures:
     quiz: "nnn"
     
   - title: 'Comparing Means'
+    lectures: "23-lecture"
     session: 23
     date: "Week 7: 10/27 - 10/29"
     quiz: "nnn"
     
-  - title: 'Regression'
+  - title: 'Fall Break'
     session: 24
     date: "Week 8: 11/3 - 11/5"
+    
+  - title: 'Regression'
+    session: 25
+    date: "Week 9: 11/10 - 11/12"
     quiz: "nnn"
     
   - title: '<span class="fake-header-table">Unit 3: Advanced Topics</span>'
@@ -178,14 +183,10 @@ lectures:
   - title: '---CHECK-IN 4---'
     date: "11/10 2:30pm"
     
-  - title: 'Data Viz Theory I'
-    session: 25
-    date: "Week 9: 11/10 - 11/12"
-    quiz: "nnn"
-    
-  - title: 'Data Viz Theory II'
+  - title: 'Data Viz Theory'
     session: 26
     date: "Week 10: 11/17 - 11/19"
+    quiz: "nnn"
     
   - title: '---CHECK-IN 5---'
     date: "11/24 2:30pm"
