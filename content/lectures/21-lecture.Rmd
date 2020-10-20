@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- Vid link here
+- [Normal Distribution](https://youtu.be/suUyI963dws)
 
 ## Slides
 

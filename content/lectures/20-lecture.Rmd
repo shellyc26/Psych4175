@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- Vid link here
+- [Descriptive Statistics Redux](https://youtu.be/0x4wr5UCM78)
 
 ## Data
 
