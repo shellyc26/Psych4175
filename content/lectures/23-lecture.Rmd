@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- Vid link here
+- [Comparing Means](https://youtu.be/jQ_C_tZQea4)
 
 ## Slides
 

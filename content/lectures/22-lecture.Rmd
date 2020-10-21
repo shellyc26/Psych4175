@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- Vid link here
+- [Sampling Distributions](https://youtu.be/xKV2vC1UVNU)
 
 ## Slides
 
