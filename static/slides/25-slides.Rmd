@@ -1,0 +1,327 @@
+---
+title: "Regression"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["xaringan-themer-blue.css", "css/additionalCols.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = F,
+                      message = F,
+                      fit.retina = 3,
+                      fig.align = "center")
+
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+```
+
+```{r, echo = F, warning = F, message = F, results = 'hide'}
+library(psych)
+library(tidyverse)
+library(broom)
+```
+
+
+## Recap
+
+- Correlations are their own effect size
+
+- On a scale of -1 to 1
+
+- Useful for depicting relationships
+  
+---
+name: reg
+
+## Today
+
+**Regression**
+
+- What is it? Why is it useful
+
+- Nuts and bolts
+
+  - Equation
+
+  - Ordinary least squares
+
+  - Interpretation
+  
+---
+
+## Regression
+
+- Regression is an umbrella term -- lots of things fall under "regression" 
+- This system can handle a variety of forms of relations, although all forms have to be specified in a *linear* way. 
+
+--
+
+The output of regression includes both effect sizes and statistical significance. We can also incorporate multiple influences (IVs) and account for their intercorrelations. 
+
+---
+
+### Regression
+
+- **Scientific** use: explaining the influence of one or more variables on some outcome. 
+
+  + Does this intervention affect reaction time?
+  + Does self-esteem predict relationship quality?
+  
+- **Prediction** use: We can develop models based on what's happened in the past to predict what will happen in the figure.
+
+  + Insurance premiums
+  + Graduate school... success?
+  
+- **Adjustment**: Statistically control for known effects
+
+  + If everyone had the same level of SES, would abuse still be associated with criminal behavior?
+
+---
+
+### How does Y vary with X?
+
+- The regression of Y (DV) on X (IV) corresponds to the line that gives the mean value of Y corresponding to each possible value of X
+
+- "Our best guess" regardless of whether our model includes categories or continuous predictor variables
+
+---
+name: eq
+
+## Regression Equation
+
+$$\Large Y = b_{0} + b_{1}X +e$$
+
+$$\Large \hat{Y} = b_{0} + b_{1}X$$
+
+???
+
+$\hat{Y}$ signifies the predicted score -- no error
+
+The difference between the predicted and observed score is the residual ($e_i$)
+
+There is a different e value for each observation in the dataset
+---
+name: ols
+
+## OLS
+- How do we find the regression estimates? 
+- Ordinary Least Squares (OLS) estimation
+- Minimizes deviations 
+
+$$ min\sum(Y_{i}-\hat{Y})^{2} $$ 
+
+- Other estimation procedures possible (and necessary in some cases)
+
+---
+
+ 
+```{r,echo=FALSE, message=FALSE, cache=TRUE, warning = F}
+set.seed(123)
+x.1 <- rnorm(10, 0, 1)
+e.1 <- rnorm(10, 0, 2)
+y.1 <- .5 + .55 * x.1 + e.1
+d.1 <- data.frame(x.1,y.1)
+m.1 <- lm(y.1 ~ x.1, data = d.1)
+d1.f<- augment(m.1)
+```
+
+```{r plot1, echo=FALSE, cache=TRUE, eval = T}
+ggplot(d1.f , aes(x=x.1, y=y.1)) +
+    geom_point(size = 2) +
+  geom_smooth(method = lm, se = FALSE) +
+  theme_bw(base_size = 20)
+```
+
+---
+
+```{r, echo=FALSE}
+ggplot(d1.f , aes(x=x.1, y=y.1)) +
+    geom_point(size = 2) +
+  geom_point(aes(y = .fitted), shape = 1, size = 2) +
+  theme_bw(base_size = 20)
+```
+
+
+---
+
+```{r, echo=FALSE}
+ggplot(d1.f , aes(x=x.1, y=y.1)) +
+    geom_point(size = 2) +
+  geom_point(aes(y = .fitted), shape = 1, size = 2) +
+  geom_segment(aes( xend = x.1, yend = .fitted))+
+  theme_bw(base_size = 20)
+```
+
+
+
+---
+
+```{r, echo=FALSE}
+ggplot(d1.f , aes(x=x.1, y=y.1)) +
+    geom_point(size = 2) +
+  geom_smooth(method = lm, se = FALSE) +
+  geom_point(aes(y = .fitted), shape = 1, size = 2) +
+  geom_segment(aes( xend = x.1, yend = .fitted))+
+  theme_bw(base_size = 20)
+```
+
+
+---
+
+```{r, echo = F}
+new.i = 1.1
+new.slope = -0.7
+d1.f$new.fitted = 1.1 -0.7*d1.f$x.1
+
+ggplot(d1.f , aes(x=x.1, y=y.1)) +
+    geom_point(size = 2) +
+  geom_abline(intercept = new.i, slope = new.slope, color = "blue", size = 1) +
+  geom_point(aes(y = new.fitted), shape = 1, size = 2) +
+  geom_segment(aes( xend = x.1, yend = new.fitted))+
+  theme_bw(base_size = 20)
+```
+
+## compare to bad fit
+---
+$$\Large Y = b_{0} + b_{1}X +e$$
+
+$$\Large \hat{Y} = b_{0} + b_{1}X$$
+
+$$\Large Y_i = \hat{Y_i} + e_i$$
+
+$$\Large e_i = Y_i - \hat{Y_i}$$
+
+---
+
+## OLS
+
+The line that yields the smallest sum of squared deviations
+
+$$\Large \Sigma(Y_i - \hat{Y_i})^2$$
+$$\Large = \Sigma(Y_i - (b_0+b_{1}X_i))^2$$
+$$\Large = \Sigma(e_i)^2$$
+
+--
+
+In order to find the OLS solution, you could try many different coefficients $(b_0 \text{ and } b_{1})$ until you find the one with the smallest sum squared deviation. Luckily, there are simple calculations that will yield the OLS solution every time.
+
+---
+name: ex
+
+## Example
+
+
+
+```{r}
+galton.data <- psychTools::galton
+head(galton.data)
+describe(galton.data, fast = T)
+cor(galton.data)
+```
+
+
+---
+## In `R`
+What if we regress parent height onto child height?
+
+```{r}
+fit.1 <- lm(child ~ parent, data = galton.data)
+summary(fit.1)
+```
+
+???
+
+**Things to discuss**
+
+- Coefficient estimates
+- Statistical tests (covered in more detail soon)
+
+---
+
+
+```{r, echo=FALSE, cache=TRUE}
+ggplot(galton.data, aes(x=parent, y=child)) +
+    geom_point() +    
+    geom_smooth(method=lm,   # Add linear regression line
+                se=FALSE) +
+  theme_bw(base_size = 20)
+```
+
+---
+
+### Data, predicted, and residuals
+
+```{r}
+library(broom)
+model_info = augment(fit.1)
+head(model_info)
+```
+
+```{r}
+describe(model_info)
+```
+
+???
+
+Point out the average of the residuals is 0, just like average deviation from the mean is 0. 
+
+---
+
+```{r, echo=FALSE}
+model_info %>% ggplot(aes(x = parent, y = .fitted)) +
+  geom_point() + geom_smooth(se = F, method = "lm") + ggtitle(expression(paste("X is related to ", hat(Y))))+
+  scale_x_continuous("X") + scale_y_continuous(expression(hat(Y))) + theme_bw(base_size = 30)
+```
+---
+
+```{r, echo=FALSE}
+model_info %>% ggplot(aes(x = parent, y = .resid)) +
+  geom_point() + geom_smooth(se = F, method = "lm") + ggtitle("X is always unrelated to e")+
+  scale_x_continuous("X") + scale_y_continuous("e") + theme_bw(base_size = 30)
+```
+
+---
+
+```{r, echo=FALSE}
+model_info %>% ggplot(aes(x = child, y = .fitted)) +
+  geom_point() + geom_smooth(se = F, method = "lm") + ggtitle(expression(paste("Y can be related to ", hat(Y))))+
+  scale_x_continuous("Y") + scale_y_continuous(expression(hat(Y))) + theme_bw(base_size = 30)
+```
+
+---
+
+```{r, echo=FALSE}
+model_info %>% ggplot(aes(x = child, y = .resid)) +
+  geom_point() + geom_smooth(se = F, method = "lm") + ggtitle("Y is sometimes related to e")+
+  scale_x_continuous("Y") + scale_y_continuous("e") + theme_bw(base_size = 25)
+```
+
+---
+
+```{r, echo=FALSE}
+model_info %>% ggplot(aes(x = .fitted, y = .resid)) +
+  geom_point() + geom_smooth(se = F, method = "lm") + ggtitle(expression(paste(hat(Y), " is always unrelated to e")))+
+  scale_y_continuous("e") + scale_x_continuous(expression(hat(Y))) + theme_bw(base_size = 30)
+```
+
+---
+
+```{r, echo=FALSE}
+model_info %>% rename(y = child, x = parent) %>% select(x,y,.fitted,.resid) %>% gather("key", "value") %>%
+  ggplot(aes(value, fill = key)) + geom_histogram(bins = 25) + guides(fill = F)+
+  facet_wrap(~key, scales = "free") + theme_bw(base_size = 20)
+```
+

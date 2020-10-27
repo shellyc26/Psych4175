@@ -1,0 +1,36 @@
+---
+title: "Regression"
+linktitle: "25: Regression"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 5
+type: docs
+slides: "25-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- vid links here
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Regression", "reg", FALSE,
+  "Equation", "eq", FALSE,
+  "OLS", "ols", FALSE,
+  "Example", "ex", FALSE
+)
+slide_tabs(sections, "/slides/25-slides.html")
+```

@@ -6,7 +6,7 @@ menu:
     parent: Statistics
     weight: 4
 type: docs
-slides: "23-slides"
+slides: "24-slides"
 output:
   blogdown::html_page:
     toc: true
