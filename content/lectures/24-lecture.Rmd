@@ -1,0 +1,35 @@
+---
+title: "Correlations"
+linktitle: "24: Correlations"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 4
+type: docs
+slides: "23-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- vid links here
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Covariance", "cov", FALSE,
+  "Correlation", "cor", FALSE,
+  "Cor Influences", "affects", FALSE
+)
+slide_tabs(sections, "/slides/24-slides.html")
+```
