@@ -26,7 +26,13 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Recap", "1", TRUE
+  "Recap", "1", TRUE,
+  "Lists", "lists", FALSE,
+  "For Loops", "fl", FALSE,
+  "Ex 1", "ex1", FALSE,
+  "Ex 2", "ex2", FALSE,
+  "Ex 3", "ex3", FALSE,
+  "Bootstrapping", "bs", FALSE
 )
 slide_tabs(sections, "/slides/27-slides.html")
 ```

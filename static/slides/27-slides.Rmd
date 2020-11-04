@@ -123,6 +123,7 @@ myList[[1]] + 12
 From Hadley Wickham, creator of `tidyverse`
 ![](27-slides_files/figure-html/hadley.png)
 ---
+name: fl
 
 # Now on to `for loops`
 
@@ -209,6 +210,7 @@ The basic steps of constructing a `for loop`:
 3. Type out all of the steps within the body of the loop
 
 ---
+name: ex1
 
 # Applied Examples
 
@@ -219,7 +221,7 @@ What if you want to run the following models where the `y` variable stays the sa
 - `lm(Sepal.Length ~ Petal.Width, data = iris)`
 
 ```{r, echo=FALSE}
-kable(head(iris))
+head(iris)
 ```
 
 ---
@@ -283,8 +285,10 @@ sigValues
 ```
 
 ---
+name: ex2
 
 # Applied Example 2
+
 Now, what if you want to store the entire output of the model, not just the $p$-value? The output of `tidy(model)` is a data.frame. So the result of our loop will now be a **list of data.frames**, rather than a vector of $p$-values. Note the double brackets in `modelList[[i]]`!
 
 ```{r, warning = FALSE}
@@ -350,6 +354,8 @@ When it comes to looping through plots, there are a few odd things:
 - `!!` says "actually evaluate what a variable stands for". This will make sense when you see it in the code.
 
 ---
+name: ex3
+
 # Applied Example 3
 We want to store the model outputs AND a list of plots. So we need to intialize 2 things
 .code-small[
@@ -396,13 +402,26 @@ modelDF
 
 ---
 # Applied Example 3
+
+.pull-left[
 .code-small[
-```{r, out.width='30%'}
-print(plotList)
+```{r, echo=FALSE, out.width='60%'}
+print(plotList[1:2])
 ```
+]
+]
+
+.pull-right[
+.code-small[
+```{r, echo=FALSE, out.width='60%'}
+print(plotList[3])
+```
+]
 ]
 
 ---
+name: bs
+
 # Bootstrapping
 
 > to get oneself out of a situation using existing resources
@@ -421,5 +440,127 @@ In statistics...any test or metric that uses random sampling with replacement
 
 # Bootstrapped Mean
 
-Let's say we have a sample of 75 participants 
+Let's say we have a sample of 100 participants that complete an IQ test. IQ tests typically have a mean of 100 and a standard deviation of 15. We want to get the mean IQ of our sample of 100 participants, but we want it to be a **robust** mean -- that is, we want to be pretty darn confident in our mean. What should we do?
 
+--
+
+We can bootstrap our mean! And we can do that using a `for loop`:
+
+- *for each iteration of ## of iterations...*
+  - Randomly choose (sample) 50% of your participants
+  - Now calculate the mean of just this 50%
+  - On the next iteration (e.g., `i + 1`) choose a new set of 50% of participants
+  - Recalculate the mean of just this new 50%
+  - etc.
+- After we run all of our iterations, then we will get the **mean of means**
+
+---
+# Bootstrapping
+
+This whole process sounds like something you are already familiar with -- **sampling distributions**
+
+You can think of bootstrapping as building up your sampling distribution for whatever statistic you want. But instead of repeating your experiment 1000x, you're using a random sample of your current experiment. 
+
+<center>
+<img src="27-slides_files/figure-html/fakeit.jpeg", width="30%">
+</center>
+---
+
+# Bootstrapped Means Example
+
+```{r, echo=FALSE}
+set.seed(123)
+
+iqs <- rnorm(n = 100, mean = 113, sd = 50)
+iqs <- round(iqs, digits = 0)
+```
+
+```{r}
+iqs
+```
+
+---
+
+# Bootstrapped Means Example
+
+Things you need to decide:
+
+- How many iterations? This is really a personal decision. The more iterations you have, the longer your code will take to run. 1000 & 5000 are common, but you could pick 3756 iterations and that would be fine, too. 
+
+- How much of the total sample do you want to comprise your sample? 50% of your participants? 75%? 80%? I typically see things within the 50-75%. 
+
+--
+
+- For now, lets go with 100x iterations (to minimize how long it takes for the code to run)
+
+- For now, lets do 50%
+
+---
+
+# Bootstrapped Means Example
+
+```{r}
+bsMeans <- NULL
+
+for (i in 1:100) {
+  subsample <- sample(x = iqs,
+                      size = 50)
+  
+  bsMeans[i] <- mean(subsample)
+}
+```
+
+---
+# Bootstrapped Means Example
+
+Let's look at our vector of means
+
+.code-small[
+```{r}
+bsMeans
+```
+]
+
+---
+# Bootstrapped Means Example
+
+Now, get the mean of our vector of means...this is our **bootstrapped mean**
+
+```{r}
+mean(bsMeans)
+```
+
+--
+
+When I made these fake IQ scores, I set the "true" population mean to be 113. 
+
+Our mean of the original sample was `mean(iqs)` = **`r mean(iqs)`**
+
+Our bootstrapped mean is `mean(bsMeans)` = **`r mean(bsMeans)`**
+
+--
+
+The bootstrapped mean is closer to the true population mean -- it's more robust, and therefore we trust it more. 
+
+---
+# What can you bootstrap?
+
+Any statistic! 
+- central tendencies (means, medians, modes)
+- dispersions (variances, standard deviations)
+- other estimates (confidence intervals, reliability coefficients, correlations, etc.)
+
+Models!
+- take a subsample and run a model
+- then take the mean of all the coefficients (like regression coefficients, t-values, etc.)
+
+**_what *can't* you bootstrap?_**
+
+---
+# Final Thoughts
+- Code is supposed to make your life EASIER. Use `for loops` to your advantage! That means if you find yourself copying/pasting the same thing a billion times with only minor changes, there’s likely a much simpler way of doing everything you need all in one go.
+  - check out nested `if/else` statements
+  - for `R` specific functions, check out the `lapply()` function and the `purr` package
+- The biggest piece of advice I have is to think carefully about what you want the end result to look like and then work backwards. Don’t just start doing stuff to your dataset because you think that’s what your supposed to do. Think “in order to make this plot, I need my data in this particular format, what do I need to do to get there?”
+- Bootstrapping is just a `for loop`. You can bootstrap anything your heart desires. 
+  - when you test out a for loop, use really small iterations!
