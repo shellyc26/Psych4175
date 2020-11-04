@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>For Loops &amp; Bootstrapping</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="xaringan-themer-red.css" type="text/css" />
+    <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# For Loops &amp; Bootstrapping
+
+---
+
+
+
+
+
+
+# The Problem
+
+- Copying and pasting code is not an efficient use of your time
+
+- Often you want to do the same thing but with different inputs:
+  - Get the mean of a variable for 20 different groups
+  - Plot different variables as your x-axis against the exact same y-axis
+  - Do the exact same analysis and make the same plots for the levels of an independent variable (e.g., patients and controls)
+
+--
+
+- In sum, you're trying to **iterate** (perform repeatedly)
+
+---
+
+# How do we address this?
+
+In this class, we are going to talk specifically about `for loops`. Why?
+  - They are *general purpose*. You will find them in nearly every single programming language. If you decide to not use R and instead go to Python or Matlab or whatever, you'll still come across them.
+  - This is a fundamental component of programming. I would guess that you learn this within the first 2 weeks of CS 131. 
+
+--
+
+There are other ways to do this that are `R`-specific. We are NOT going to cover these (counterintutive, I know). 
+  - the `apply` family of functions, including `lapply`
+  - using the `purr` package from the `tidyverse`
+
+---
+name: lists
+
+# Lists
+Lists are basically vectors but where every element can be a totally different data class. Ex:
+
+.code-small[
+
+```r
+myList &lt;- list(6, head(iris), "hello world", c(1, 3, 5, 7, 9))
+myList
+```
+
+```
+## [[1]]
+## [1] 6
+## 
+## [[2]]
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+## 
+## [[3]]
+## [1] "hello world"
+## 
+## [[4]]
+## [1] 1 3 5 7 9
+```
+]
+
+---
+# Lists
+You can also name the elements in your list:
+
+.code-small[
+
+```r
+myList &lt;- list(Numberz = 6, DFs = head(iris), Chars = "hello world", VectorKing = c(1, 3, 5, 7, 9))
+myList
+```
+
+```
+## $Numberz
+## [1] 6
+## 
+## $DFs
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+## 
+## $Chars
+## [1] "hello world"
+## 
+## $VectorKing
+## [1] 1 3 5 7 9
+```
+]
+
+---
+# Lists
+
+The weirdest thing about lists is accessing the elements within a list. Think of it like a book:
+  - The element itself is like the chapter of a book
+  - But there's a page that just says "Chapter 4" but doesn't contain any text
+  - You need to tell `R` to go to the actual chapter
+
+--
+
+We can do this with double brackets 👇
+
+
+```r
+myList[1]
+```
+
+```
+## $Numberz
+## [1] 6
+```
+
+```r
+myList[[1]]
+```
+
+```
+## [1] 6
+```
+
+---
+
+# Lists
+
+Why does this matter? Say we wanted to take our number `6` from our list and add it to the number `12`
+
+
+```r
+myList[1] + 12
+```
+
+```
+## Error in myList[1] + 12: non-numeric argument to binary operator
+```
+
+```r
+myList[[1]] + 12
+```
+
+```
+## [1] 18
+```
+
+---
+
+# Lists are weird
+
+From Hadley Wickham, creator of `tidyverse`
+![](27-slides_files/figure-html/hadley.png)
+---
+
+# Now on to `for loops`
+
+
+```r
+for (i in 1:some number) {
+  do something
+}
+```
+
+*"For each element in 1 through ___, perform some function"*
+
+*"Perform the function contained in this for loop on every single element in some list of elements"*
+
+---
+
+# `for loops`
+
+
+```r
+for (i in 1:some number) {
+  do something
+}
+```
+
+The important parts:
+
+- You can iterate over anything: rows of a data.frame, columns of a data.frame, lists, or simple 1-dimensional vectors. The `1:some number` portion are the elements you’re iterating over. If you wanted to do something 5 times, you could say `1:5`. Most of the time, we don’t know that second number, though. So we can use a function. `1:nrow(data.frame)` or `1:length(list)` or `1:length(vector)`.
+
+--
+
+- The `i` stands for “each” and is the same type of `i` seen in equations. The top line then reads: “For each item/element in 1 through some number”.
+
+--
+
+- The part between the curly brackets `{ }` is what you want to do (it’s the body of the for loop).
+
+---
+# A Simple Example
+
+For each number in 1 through 10, print the following: *"(number) squared is (that number squared)"*
+
+So for the number 2, the output should be *"2 squared is 4"*
+
+The functions we are going to use are `print()` and `paste0()`. 
+
+.code-small[
+
+```r
+for (i in 1:10) {
+  print(paste0(i, " squared is ", i^2))
+}
+```
+
+```
+## [1] "1 squared is 1"
+## [1] "2 squared is 4"
+## [1] "3 squared is 9"
+## [1] "4 squared is 16"
+## [1] "5 squared is 25"
+## [1] "6 squared is 36"
+## [1] "7 squared is 49"
+## [1] "8 squared is 64"
+## [1] "9 squared is 81"
+## [1] "10 squared is 100"
+```
+]
+
+---
+# Storing the output
+Is there any way for me to access any of the squared numbers from above? No!
+
+If you want to store the output of a loop (which in almost all cases we do), you need to **initialize** an empty object. This means make a blank object *before* running your loop that will contain your stored results. 
+
+--
+
+Let's run the same loop as last time, but this time let's store the squared numbers, rather than just printing out some lines. 
+
+.code-small[
+
+```r
+squaredNumbers &lt;- NULL
+
+for (i in 1:10) {
+  squaredNumbers[i] &lt;- i^2
+}
+
+squaredNumbers
+```
+
+```
+##  [1]   1   4   9  16  25  36  49  64  81 100
+```
+]
+
+---
+# Recap
+
+The basic steps of constructing a `for loop`:
+
+1. Figure out what it is that you want to iterate through (numbers, columns of a data.frame, data.frames, a list, etc.)
+
+2. Think about what you want your output to look like, and initialize an empty object that can store the output
+
+3. Type out all of the steps within the body of the loop
+
+---
+
+# Applied Examples
+
+What if you want to run the following models where the `y` variable stays the same, but the `x` variable changes? For this first example, let's say we only care about the `\(p\)`-value. 
+
+- `lm(Sepal.Length ~ Sepal.Width, data = iris)`
+- `lm(Sepal.Length ~ Petal.Length, data = iris)`
+- `lm(Sepal.Length ~ Petal.Width, data = iris)`
+
+
+ Sepal.Length   Sepal.Width   Petal.Length   Petal.Width  Species 
+-------------  ------------  -------------  ------------  --------
+          5.1           3.5            1.4           0.2  setosa  
+          4.9           3.0            1.4           0.2  setosa  
+          4.7           3.2            1.3           0.2  setosa  
+          4.6           3.1            1.5           0.2  setosa  
+          5.0           3.6            1.4           0.2  setosa  
+          5.4           3.9            1.7           0.4  setosa  
+
+---
+
+# Applied Examples
+
+Thinking through what we need to happen:
+
+1. We're iterating through specific columns of the `iris` data.frame -- so we need to get those column names into a form we can iterate through. 
+
+2. The output is a vector that contains `\(p\)`-values only
+
+3. The body of the loop needs to contain the `lm()` functions
+
+---
+
+# Applied Example 1
+
+
+```r
+varsToIterate &lt;- colnames(iris)[2:4]
+sigValues &lt;- NULL
+
+for (i in 1:length(varsToIterate)) {
+  model &lt;- lm(Sepal.Length ~ iris[,i], data = iris)
+  model &lt;- tidy(model)
+  sig &lt;- model[[2,5]]
+  sigValues[i] &lt;- sig
+}
+
+sigValues
+```
+
+```
+## [1] 0.000000e+00 1.518983e-01 1.038667e-47
+```
+
+---
+# Applied Example 1
+
+You can make comments within `for loops`
+
+
+```r
+# get the column names in a format that we can iterate through
+varsToIterate &lt;- colnames(iris)[2:4]
+
+# initialize an empty output vector
+sigValues &lt;- NULL
+
+for (i in 1:length(varsToIterate)) {
+  # run the model where i is the column that is varying
+  model &lt;- lm(Sepal.Length ~ iris[,i], data = iris)
+  
+  # the tidy function comes from the `broom` package
+  model &lt;- tidy(model)
+  
+  # find the p-value from the tidied model
+  sig &lt;- model[[2,5]]
+  
+  # store the p-value in the output
+  sigValues[i] &lt;- sig
+}
+
+# print the output
+sigValues
+```
+
+```
+## [1] 0.000000e+00 1.518983e-01 1.038667e-47
+```
+
+---
+
+# Applied Example 2
+Now, what if you want to store the entire output of the model, not just the `\(p\)`-value? The output of `tidy(model)` is a data.frame. So the result of our loop will now be a **list of data.frames**, rather than a vector of `\(p\)`-values. Note the double brackets in `modelList[[i]]`!
+
+
+```r
+varsToIterate &lt;- colnames(iris)[2:4]
+
+modelList &lt;- list()
+
+for (i in 1:length(varsToIterate)) {
+  model &lt;- lm(Sepal.Length ~ iris[,i], data = iris)
+  model &lt;- tidy(model)
+  modelList[[i]] &lt;- model
+}
+```
+
+---
+# Applied Example 2
+
+
+```r
+print(modelList)
+```
+
+```
+## [[1]]
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)        0  3.79e-17   0.            1
+## 2 iris[, i]          1  6.43e-18   1.56e17       0
+## 
+## [[2]]
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    6.53      0.479     13.6  6.47e-28
+## 2 iris[, i]     -0.223     0.155     -1.44 1.52e- 1
+## 
+## [[3]]
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic   p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)    4.31     0.0784      54.9 2.43e-100
+## 2 iris[, i]      0.409    0.0189      21.6 1.04e- 47
+```
+
+---
+
+# Applied Example 2.1
+
+Let's modify this slightly so that each output data.frame has a name associated with it (rather than 1, 2, 3)
+
+
+```r
+varsToIterate &lt;- colnames(iris)[2:4]
+
+modelList &lt;- list()
+
+for (i in 1:length(varsToIterate)) {
+  name &lt;- paste0(varsToIterate[i])
+  
+  model &lt;- lm(Sepal.Length ~ iris[,i], data = iris)
+  model &lt;- tidy(model)
+  modelList[[name]] &lt;- model
+}
+```
+
+---
+# Applied Example 2.1
+
+
+```r
+print(modelList)
+```
+
+```
+## $Sepal.Width
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)        0  3.79e-17   0.            1
+## 2 iris[, i]          1  6.43e-18   1.56e17       0
+## 
+## $Petal.Length
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    6.53      0.479     13.6  6.47e-28
+## 2 iris[, i]     -0.223     0.155     -1.44 1.52e- 1
+## 
+## $Petal.Width
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic   p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)    4.31     0.0784      54.9 2.43e-100
+## 2 iris[, i]      0.409    0.0189      21.6 1.04e- 47
+```
+
+---
+# Applied Example 3
+
+Let's do the same thing but with some modifications:
+
+- Let's also plot X &amp; Y so we have a figure that corresponds with each model
+
+- Instead of the output being a list of the different models, what if we wanted the information from all of the models to be contained within a data.frame? 
+
+--
+
+When it comes to looping through plots, there are a few odd things:
+
+- the `sym()` function will take the quotes off of a string so that it can be evaluated properly
+- `!!` says "actually evaluate what a variable stands for". This will make sense when you see it in the code.
+
+---
+# Applied Example 3
+We want to store the model outputs AND a list of plots. So we need to intialize 2 things
+.code-small[
+
+```r
+modelDF &lt;- data.frame() # for models
+plotList &lt;- list() # for plots
+
+for (i in 1:length(varsToIterate)) {
+  nameX &lt;- paste0(varsToIterate[i]) # a character string for labels
+  nameY &lt;- "Sepal.Length" # doesn't change in the loop!
+  
+  # make the models
+  model &lt;- lm(Sepal.Length ~ iris[,i], data = iris)
+  model &lt;- tidy(model)
+  
+  # add a column that repeats whatever nameX is
+  # for us, this will make it easier to keep track of what "i" is
+  model$predictor &lt;- rep(nameX, times = nrow(model))
+  
+  # now bind the current model underneath the previous model
+  # so that it's all contained within the same data.frame
+  modelDF &lt;- rbind(modelDF, model)
+  
+  # now make the plots
+  nameXplot &lt;- sym(varsToIterate[i])
+  
+  plotList[[i]] &lt;- ggplot(data = iris, 
+                          aes(x = !! nameXplot,
+                              y = Sepal.Length)) +
+    geom_point(color = "cornflowerblue") +
+    labs(title = paste0(nameX, " by ", nameY),
+         x = nameX,
+         y = nameY)
+}
+```
+]
+
+---
+# Applied Example 3
+
+
+```r
+modelDF
+```
+
+```
+## # A tibble: 6 x 6
+##   term        estimate std.error statistic   p.value predictor   
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       
+## 1 (Intercept)    0      3.79e-17   0.      1.00e+  0 Sepal.Width 
+## 2 iris[, i]      1      6.43e-18   1.56e17 0.        Sepal.Width 
+## 3 (Intercept)    6.53   4.79e- 1   1.36e 1 6.47e- 28 Petal.Length
+## 4 iris[, i]     -0.223  1.55e- 1  -1.44e 0 1.52e-  1 Petal.Length
+## 5 (Intercept)    4.31   7.84e- 2   5.49e 1 2.43e-100 Petal.Width 
+## 6 iris[, i]      0.409  1.89e- 2   2.16e 1 1.04e- 47 Petal.Width
+```
+
+---
+# Applied Example 3
+.code-small[
+
+```r
+print(plotList)
+```
+
+```
+## [[1]]
+```
+
+&lt;img src="27-slides_files/figure-html/unnamed-chunk-19-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+```
+## 
+## [[2]]
+```
+
+&lt;img src="27-slides_files/figure-html/unnamed-chunk-19-2.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+```
+## 
+## [[3]]
+```
+
+&lt;img src="27-slides_files/figure-html/unnamed-chunk-19-3.png" width="40%" style="display: block; margin: auto;" /&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

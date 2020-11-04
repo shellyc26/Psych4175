@@ -172,9 +172,15 @@ lectures:
     session: 24
     date: "Week 8: 11/3 - 11/5"
     
+  - title: 'Correlation'
+    session: 25
+    lectures: "24-lecture"
+    date: "Week 9: 11/10 - 11/12"
+    quiz: "nnn"
+    
   - title: 'Regression'
     session: 25
-    date: "Week 9: 11/10 - 11/12"
+    lectures: "25-lecture"
     quiz: "nnn"
     
   - title: '<span class="fake-header-table">Unit 3: Advanced Topics</span>'

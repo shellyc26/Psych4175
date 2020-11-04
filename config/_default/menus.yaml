@@ -28,6 +28,8 @@ lectures:
     weight: 5
   - name: Statistics
     weight: 6
+  - name: Advanced Topics
+    weight: 7
 practice:
   - name: Overview
     weight: 1
@@ -41,6 +43,8 @@ practice:
     weight: 5
   - name: Statistics
     weight: 6
+  - name: Advanced Topics
+    weight: 7
 assignment:
   - name: Overview
     weight: 1

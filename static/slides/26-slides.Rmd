@@ -1,0 +1,70 @@
+---
+title: "Visualizing Data"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["xaringan-themer-purple.css", "css/additionalCols.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = F,
+                      message = F,
+                      fit.retina = 3,
+                      fig.align = "center")
+
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+```
+
+```{r, echo = F, warning = F, message = F, results = 'hide'}
+library(psych)
+library(tidyverse)
+library(broom)
+```
+
+# Recap
+
+- We have spent **a lot** of time working with `ggplot2`
+
+- Everything covered this week can be applied with `ggplot2`
+
+- Goal of this week is to get you to stop and think about your plots *before* you make them. What are the kinds of things you should be considering? 
+
+---
+# Stuff you already know
+
+Data visualization is both an art *and* a science
+
+Art:
+  - Color choices
+  - The story you're trying to tell
+  
+Science:
+  - Graphical representation of specific types of data
+  - 
+
+---
+class: inverse, center
+
+# Warning
+
+### Making figures for academic purposes $\neq$ making figures for pure data viz purposes
+
+---
+# Academic Figures
+
+Things you need to think about:
+
+- 

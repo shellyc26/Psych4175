@@ -1,0 +1,32 @@
+---
+title: "Theory of Data Visualization"
+linktitle: "26: Data Viz Theory"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 6
+type: docs
+slides: "26-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- vid links here
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE
+)
+slide_tabs(sections, "/slides/26-slides.html")
+```

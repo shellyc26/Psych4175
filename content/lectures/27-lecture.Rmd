@@ -1,0 +1,32 @@
+---
+title: "For Loops & Bootstrapping"
+linktitle: "27: For Loops"
+menu:
+  lectures:
+    parent: Advanced Topics
+    weight: 1
+type: docs
+slides: "27-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- vid links here
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE
+)
+slide_tabs(sections, "/slides/27-slides.html")
+```
