@@ -3,8 +3,8 @@ title: "Theory of Data Visualization"
 linktitle: "26: Data Viz Theory"
 menu:
   lectures:
-    parent: Statistics
-    weight: 6
+    parent: Advanced Topics
+    weight: 1
 type: docs
 slides: "26-slides"
 output:
@@ -26,7 +26,10 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Recap", "1", TRUE
+  "Recap", "1", TRUE,
+  "Good Figs", "good", FALSE,
+  "Things To Avoid", "avoid", FALSE,
+  "Accessibility", "acc", FALSE
 )
 slide_tabs(sections, "/slides/26-slides.html")
 ```

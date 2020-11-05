@@ -192,6 +192,7 @@ lectures:
   - title: 'Data Viz Theory'
     session: 26
     date: "Week 10: 11/17 - 11/19"
+    lectures: "26-lecture"
     quiz: "nnn"
     
   - title: '---CHECK-IN 5---'
@@ -203,6 +204,7 @@ lectures:
     
   - title: 'Bootstrapping & For Loops'
     session: 28
+    lectures: "27-lecture"
     date: "Week 12: 12/1 - 12/3"
     
   - title: 'Writing Functions'
@@ -218,4 +220,4 @@ lectures:
     
   - title: 'Final Project'
     session: 31
-    date: "1/4 - 1/10"
+    date: "1/7"
