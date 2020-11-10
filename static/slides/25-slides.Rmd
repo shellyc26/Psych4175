@@ -237,10 +237,12 @@ cor(galton.data)
 ## In `R`
 What if we regress parent height onto child height?
 
+.code-small[
 ```{r}
 fit.1 <- lm(child ~ parent, data = galton.data)
 summary(fit.1)
 ```
+]
 
 ???
 
