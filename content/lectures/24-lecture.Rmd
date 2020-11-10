@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- vid links here
+- [Correlations](https://youtu.be/LpCkX4h8sfs)
 
 ## Slides
 

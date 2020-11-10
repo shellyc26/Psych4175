@@ -14,7 +14,11 @@ output:
 
 ## Videos
 
-- vid links here
+- [Theory of Data Visualization](https://youtu.be/tvjhmOWq_E0)
+
+## Extra
+
+- If you enjoy this, you might also enjoy [this book](https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130) (more for academic purposes than web design/graphic design purposes)
 
 ## Slides
 

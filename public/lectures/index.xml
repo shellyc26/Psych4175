@@ -1231,7 +1231,7 @@
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;vid links here&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/LpCkX4h8sfs&#34;&gt;Correlations&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
@@ -1300,7 +1300,7 @@
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;vid links here&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/GcRGotgogsw&#34;&gt;Regression&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
@@ -1371,6 +1371,7 @@
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#extra&#34;&gt;Extra&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -1378,7 +1379,13 @@
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;vid links here&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/tvjhmOWq_E0&#34;&gt;Theory of Data Visualization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extra&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extra&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you enjoy this, you might also enjoy &lt;a href=&#34;https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130&#34;&gt;this book&lt;/a&gt; (more for academic purposes than web design/graphic design purposes)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;

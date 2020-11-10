@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- vid links here
+- [Regression](https://youtu.be/GcRGotgogsw)
 
 ## Slides
 
