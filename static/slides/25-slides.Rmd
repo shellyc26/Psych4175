@@ -71,6 +71,8 @@ name: reg
 
 The output of regression includes both effect sizes and statistical significance. We can also incorporate multiple influences (IVs) and account for their intercorrelations. 
 
+![](25-slides_files/figure-html/twitter.png)
+
 ---
 
 ### Regression
