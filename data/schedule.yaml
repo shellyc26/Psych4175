@@ -210,11 +210,12 @@ lectures:
   - title: 'Writing Functions'
     session: 29
     date: "Week 13: 12/8 - 12/10"
+    lectures: "28-lecture"
     
   - title: '---CHECK-IN 6---'
     date: "12/15 2:30pm"
     
-  - title: 'Simulations? TBD'
+  - title: 'Simulations'
     session: 30
     date: "Week 14: 12/15 - 12/17"
     
