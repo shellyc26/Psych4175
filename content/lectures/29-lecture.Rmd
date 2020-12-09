@@ -1,12 +1,12 @@
 ---
-title: "Making Your Own Functions"
-linktitle: "28: Functions"
+title: "Simulating Data"
+linktitle: "29: Simulation"
 menu:
   lectures:
     parent: Advanced Topics
     weight: 3
 type: docs
-slides: "28-slides"
+slides: "29-slides"
 output:
   blogdown::html_page:
     toc: true
@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- [Making Your Own Functions](https://youtu.be/JCMBVWMYriU)
+- Making Your Own Function (vid link here)
 
 ## Slides
 
@@ -26,12 +26,9 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Recap", "1", TRUE,
-  "Defining A Function", "def", FALSE,
-  "Example 1", "ex1", FALSE,
-  "Example 2", "ex2", FALSE,
-  "Example 3", "ex3", FALSE
+  "Preamble", "1", TRUE
+  
   
 )
-slide_tabs(sections, "/slides/28-slides.html")
+slide_tabs(sections, "/slides/29-slides.html")
 ```
