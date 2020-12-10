@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- Making Your Own Function (vid link here)
+- Simulating Data (vid link here)
 
 ## Slides
 
@@ -26,9 +26,12 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Preamble", "1", TRUE
-  
-  
+  "Preamble", "1", TRUE,
+  "rnorm", "norm", FALSE,
+  "set.seed", "seed", FALSE,
+  "rpois", "pois", FALSE,
+  "characters", "chars", FALSE,
+  "datasets", "dat", FALSE
 )
 slide_tabs(sections, "/slides/29-slides.html")
 ```
