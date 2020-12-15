@@ -1,0 +1,80 @@
+---
+title: "Final Assignment"
+linktitle: "Final"
+date: "12/14/2020"
+due_date: "2021-01-07"
+due_time: "12:00pm"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 6
+type: docs
+weight: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+## Data
+
+For this assignment you will be using the following dataset, and it's corresponding data dictionary (where it explains what each variable means)
+
+- [<i class="fas fa-file-csv"></i> `hcp-data.csv`](/assignments/hcp-data.csv)
+- [<i class="fas fa-file-csv"></i> `hcp-data-dictionary.csv`](/assignments/hcp-data-dictionary.csv)
+
+#### About the HCP Dataset
+
+The Human Connectome Project (HCP) was a landmark study for cognitive neuroscience, headed by Wash U and the University of Minnesota. It is a large-scale multi-center project that enabled the study of individual differences in neural functioning that subserve higher-order cognitive functions (Van Essen et al., 2013). The HCP collected *a ton* of data on 1200 participants, including genetic, physiological, self-report, behavioral, and neuroimaging (structural MRI, resting state functional MRI, and task activation functional MRI). This makes it among the largest and richest publicly available cognitive neuroscience datasets in existence.
+
+For the purposes of this class and this final project, I am providing you with an extremely pared down version of this dataset, with several changes associated with it:
+
+- All of the subject IDs have been changed
+- Some participants were randomly removed to ensure that it's different from the original
+- Some of the values have been replaced with other values so as not to be able to backtrace anything
+
+You should use the data dictionary for more information on each column. 
+
+:::note
+
+- You MUST use a RNotebook for this assignment. You will turn in *both* your .Rmd and .html files
+- You should write your code following the principles of open science and reproducibility. That is, you need to write your code in a way that other people can undersatnd and reproduce your code. 
+
+:::
+
+## Part 1 -- Preparing Your Data
+
+5 points
+
+:::list
+
+sd;fds
+:::
+
+## Part 2 -- Analysis 1
+
+5 points
+
+:::list
+sdfsdf
+:::
+
+## Part 3 -- Analysis 2
+
+5 points
+
+:::list
+sfsdfsd
+:::
+
+## Part 4 -- Analysis 3
+
+5 points
+
+:::list
+sfsdfds
+:::
+
+
+

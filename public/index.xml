@@ -1857,6 +1857,71 @@ library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Final Assignment</title>
+      <link>/assignments/final-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/final-assignment/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;For this assignment you will be using the following dataset, and it’s corresponding data dictionary (where it explains what each variable means)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/assignments/hcp-data.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;hcp-data.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/assignments/hcp-data-dictionary.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;hcp-data-dictionary.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;about-the-hcp-dataset&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;About the HCP Dataset&lt;/h4&gt;
+&lt;p&gt;The Human Connectome Project (HCP) was a landmark study for cognitive neuroscience, headed by Wash U and the University of Minnesota. It is a large-scale multi-center project that enabled the study of individual differences in neural functioning that subserve higher-order cognitive functions (Van Essen et al., 2013). The HCP collected &lt;em&gt;a ton&lt;/em&gt; of data on 1200 participants, including genetic, physiological, self-report, behavioral, and neuroimaging (structural MRI, resting state functional MRI, and task activation functional MRI). This makes it among the largest and richest publicly available cognitive neuroscience datasets in existence.&lt;/p&gt;
+&lt;p&gt;For the purposes of this class and this final project, I am providing you with an extremely pared down version of this dataset, with several changes associated with it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All of the subject IDs have been changed&lt;/li&gt;
+&lt;li&gt;Some participants were randomly removed to ensure that it’s different from the original&lt;/li&gt;
+&lt;li&gt;Some of the values have been replaced with other values so as not to be able to backtrace anything&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You should use the data dictionary for more information on each column.&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;You MUST use a RNotebook for this assignment. You will turn in &lt;em&gt;both&lt;/em&gt; your .Rmd and .html files&lt;/li&gt;
+&lt;li&gt;You should write your code following the principles of open science and reproducibility. That is, you need to write your code in a way that other people can undersatnd and reproduce your code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-1-preparing-your-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part 1 – Preparing Your Data&lt;/h2&gt;
+&lt;p&gt;5 points&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;sd;fds&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-2-analysis-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part 2 – Analysis 1&lt;/h2&gt;
+&lt;p&gt;5 points&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;sdfsdf&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-3-analysis-2&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part 3 – Analysis 2&lt;/h2&gt;
+&lt;p&gt;5 points&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;sfsdfsd&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;part-4-analysis-3&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Part 4 – Analysis 3&lt;/h2&gt;
+&lt;p&gt;5 points&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;sfsdfds&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: Loading/Importing Files</title>
       <link>/practice/07-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
