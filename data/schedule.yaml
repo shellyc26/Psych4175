@@ -218,7 +218,9 @@ lectures:
   - title: 'Simulations'
     session: 30
     date: "Week 14: 12/15 - 12/17"
+    lectures: "29-lecture"
     
   - title: 'Final Project'
     session: 31
     date: "1/7"
+    assignments: "final-assignment"
