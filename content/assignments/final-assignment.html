@@ -37,39 +37,85 @@ editor_options:
 <li>Some of the values have been replaced with other values so as not to be able to backtrace anything</li>
 </ul>
 <p>You should use the data dictionary for more information on each column.</p>
+<p>Each of the 4 primary sections is worth 5 points. This assignment is worth <strong>20 points</strong> total.</p>
 <div class="note">
 <ul>
 <li>You MUST use a RNotebook for this assignment. You will turn in <em>both</em> your .Rmd and .html files</li>
 <li>You should write your code following the principles of open science and reproducibility. That is, you need to write your code in a way that other people can undersatnd and reproduce your code.</li>
 </ul>
 </div>
+<div class="warning">
+<p>I <strong><em>strongly</em></strong> suggest that you read through the entire assignment <em>before</em> starting. Good luck!</p>
+</div>
 </div>
 </div>
 <div id="part-1-preparing-your-data" class="section level2">
 <h2>Part 1 – Preparing Your Data</h2>
-<p>5 points</p>
 <div class="list">
-<p>sd;fds</p>
+<ul>
+<li>Import your data</li>
+<li>Clean such that it is ready for any analyses you might run. How you do this is up to you. Keep in mind that your code needs to be reproducible, so it must be shown in your RMarkdown file.</li>
+</ul>
 </div>
 </div>
-<div id="part-2-analysis-1" class="section level2">
-<h2>Part 2 – Analysis 1</h2>
-<p>5 points</p>
+<div id="part-2-describing-your-data" class="section level2">
+<h2>Part 2 – Describing Your Data</h2>
+<p>Pick 5 of the variables from the dataset that you find particularly interesting for the following section.</p>
 <div class="list">
-<p>sdfsdf</p>
+<p>Your job is to explore each of these 5 variables individually (that is, you are <em>not</em> looking at the relationship between any of these variables). Here’s what you need to do for ALL 5 VARIABLES:</p>
+<ul>
+<li>Make a figure showing if the variable is normally distributed</li>
+<li>Report at least 1 measure of central tendency and 1 measure of variability. This needs to be shown as either a nicely formatted table or you can put these on their respective figures (in either the top or bottom corner of the figure).</li>
+</ul>
+<p>To accomplish this goal, you <em>must</em>:</p>
+<ul>
+<li>Make use of <code>ggplot2</code> (as opposed to <code>base R</code>)</li>
+<li>Use <em>either</em> a <code>for loop</code> or a <code>function</code> that you wrote. You don’t need both – one or the other is fine.</li>
+</ul>
 </div>
 </div>
-<div id="part-3-analysis-2" class="section level2">
-<h2>Part 3 – Analysis 2</h2>
-<p>5 points</p>
+<div id="part-3-comparing-two-means" class="section level2">
+<h2>Part 3 – Comparing Two Means</h2>
+<p>Pick 2 variables. You are going to run a <span class="math inline">\(t\)</span>-test to see if there are any significant differences between the mean of variable 1 and the mean of variable 2. Run this test.</p>
+<p>However, being the savvy statistician in training that you are, you realize that everything becomes “significant” when the sample size is really large. As such, you decide to bootstrap a measure of effect size.</p>
+<p>For the same 2 variables above, bootstrap Cohen’s <span class="math inline">\(d\)</span>:</p>
+<p><span class="math display">\[ d = \frac{\bar{x_1} - \bar{x_2}}{SD_p}\]</span>
+where <span class="math inline">\(SD_p\)</span> is the pooled sample standard deviation. You can make the assumption that sample sizes for the groups are equal (even if they are just slightly off). To get the pooled standard deviation, please use the following formula:</p>
+<p><span class="math display">\[ SD_p = \sqrt{\frac{SD_1^2 + SD_2^2}{2}} \]</span></p>
+<p>where <span class="math inline">\(SD_1\)</span> is the standard deviation of group 1 and <span class="math inline">\(SD_2\)</span> is the standard deviation of the second group.</p>
 <div class="list">
-<p>sfsdfsd</p>
+<p>To summarize:</p>
+<ul>
+<li>Run the <span class="math inline">\(t\)</span>-test</li>
+<li>Bootstrap Cohen’s <span class="math inline">\(d\)</span> (using between 100 and 1000 iterations; you can choose the exact number)</li>
+<li>Plot all of your bootstrapped Cohen’s <span class="math inline">\(d\)</span>s in either a histogram or density plot. That is, you should wind up with a single plot that contains all the Cohen’s <span class="math inline">\(d\)</span>s from each iteration.</li>
+<li>Take the mean of all the <span class="math inline">\(d\)</span>s that you get from the iterations to get your bootstrapped Cohen’s <span class="math inline">\(d\)</span></li>
+<li>Write 3-5 sentences describing your findings. Is your bootstrapped Cohen’s <span class="math inline">\(d\)</span> a small, medium, or large effect size? What does this say in comparison to the <span class="math inline">\(t\)</span>-test that you ran at the beginning of this section? Which do you trust more?</li>
+</ul>
 </div>
 </div>
-<div id="part-4-analysis-3" class="section level2">
-<h2>Part 4 – Analysis 3</h2>
-<p>5 points</p>
+<div id="part-4-relationships-amongst-variables" class="section level2">
+<h2>Part 4 – Relationships Amongst Variables</h2>
+<p>The goal of this section is to examine the relationship between 2 continuous variables, and see how this relationship changes in the presence of a third variable.</p>
+<p>You must use 2 variables that are <em>different</em> from Part 3. Your 3rd added variable can be one that you used in Part 3 or a new one.</p>
 <div class="list">
-<p>sfsdfds</p>
+<ul>
+<li>First, run a correlation between your variables. Plot this.</li>
+<li>Next, write 1-2 sentences describing if you believe this correlation (hint: revisit the lecture for things to be on the lookout for!). Describe why you do or do not trust the correlation coefficient.</li>
+<li>Next, run a regression. You’ll need to choose which variable will be the predictor, and which will be the outcome. Your do <em>not</em> need to plot this because it will be identical to the plot you made earlier of the correlation. Print out the outcome of this regression.</li>
+<li><p>Now, run a second regression model that includes the third variable. Plot this. If your third variable is categorical, this is easy. If it’s continuous, you have 2 options:</p>
+<ul>
+<li>Create a new variable that categorizes your variable into 3 or more categories.</li>
+<li>Look up <code>simple slopes</code> for regression and plot the simple slopes. In real research, this is by far the preferred method. However, we didn’t cover this in class and I don’t expect you to go this route. The first option is much easier.</li>
+</ul></li>
+<li>Make either a table or a figure that tests one of the assumptions of regression.</li>
+<li><p>Finally, write 3-5 sentences describing your findings. Based on your regression model, the test of one of the assumptions, and your plots, what can you interpret?</p></li>
+</ul>
+</div>
+<div id="congratulations" class="section level5">
+<h5>CONGRATULATIONS!</h5>
+<p>Once this is submitted, you will have officially completed the class. Thank you for a wonderful (albeit super strange) semester! You’ve all worked really hard, and hopefully you feel like you’ve gained a new, useful skill. You can always email me if you have <code>R</code> or stats related questions. Keep in touch and best of luck!</p>
+<p>-Shelly</p>
+<p><img src="https://media.giphy.com/media/19tWtHKEnBEk3vUBHE/giphy.gif" /></p>
 </div>
 </div>
