@@ -1869,7 +1869,7 @@ library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;Data&lt;/h2&gt;
 &lt;p&gt;For this assignment you will be using the following dataset, and it’s corresponding data dictionary (where it explains what each variable means)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/assignments/hcp-data.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;hcp-data.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/assignments/hcp-data-version2.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;hcp-data-version2.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;/assignments/hcp-data-dictionary.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;hcp-data-dictionary.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;about-the-hcp-dataset&#34; class=&#34;section level4&#34;&gt;

@@ -21,7 +21,7 @@ editor_options:
 
 For this assignment you will be using the following dataset, and it's corresponding data dictionary (where it explains what each variable means)
 
-- [<i class="fas fa-file-csv"></i> `hcp-data.csv`](/assignments/hcp-data.csv)
+- [<i class="fas fa-file-csv"></i> `hcp-data-version2.csv`](/assignments/hcp-data-version2.csv)
 - [<i class="fas fa-file-csv"></i> `hcp-data-dictionary.csv`](/assignments/hcp-data-dictionary.csv)
 
 #### About the HCP Dataset
