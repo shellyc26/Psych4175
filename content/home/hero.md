@@ -35,7 +35,7 @@ hero_media = "wustl.jpg"
 
 # Note. An optional note to show underneath the links.
 [cta_note]
-  label = "MPH 5926 • Fall 2020<br>Brown School<br>Washington University in St. Louis"
+  label = "MPH 5926 • Spring 2021<br>Brown School<br>Washington University in St. Louis"
 +++
 
 
