@@ -80,6 +80,9 @@ edit_page = false
 ## Additionally, for organizations, these details may be used to enrich search engine results.
 ############################
 
+# Enter an optional link for booking appointments (e.g. calendly.com).
+appointment_url = "https://calendly.com/shelly-cooper/30min"
+
 # Enter contact details (optional). To hide a field, clear it to "".
 email = "shelly.cooper@wustl.edu"
 phone = ""
@@ -99,8 +102,6 @@ directions = ""
 # A list of your office hours. To remove, set to an empty list `[]`.
 office_hours = ""
 
-# Enter an optional link for booking appointments (e.g. calendly.com).
-appointment_url = "https://calendly.com/shelly-cooper/30min"
 
 # Contact links
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.

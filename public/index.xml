@@ -4959,7 +4959,7 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 24&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 1&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Installation&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/00-lecture/&#34;&gt;
@@ -4974,7 +4974,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 24&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 1&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Tour of RStudio&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/01-lecture/&#34;&gt;
@@ -4989,7 +4989,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 24&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 1&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Objects&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/02-lecture/&#34;&gt;
@@ -5000,7 +5000,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 24&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 1&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Indexing&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/03-lecture/&#34;&gt;
@@ -5011,7 +5011,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 24&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 1&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Objects Part 2&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/04-lecture/&#34;&gt;
@@ -5022,7 +5022,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 24&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 1&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Functions &amp;amp; Help&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/05-lecture/&#34;&gt;
@@ -5041,7 +5041,7 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 31&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 8&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Packages&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/06-lecture/&#34;&gt;
@@ -5052,7 +5052,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 31&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 8&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Loading Files&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/07-lecture/&#34;&gt;
@@ -5063,7 +5063,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 31&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 8&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Review and Random&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/08-lecture/&#34;&gt;
@@ -5074,7 +5074,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;August 31&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 8&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Statistics and Intro to Plotting&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/09-lecture/&#34;&gt;
@@ -5093,7 +5093,7 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 14&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 15&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Introduction to Tidyverse&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/10-lecture/&#34;&gt;
@@ -5104,7 +5104,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 14&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 15&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Using Dplyr&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/11-lecture/&#34;&gt;
@@ -5115,7 +5115,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 14&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 15&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Using Tidyr&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/12-lecture/&#34;&gt;
@@ -5134,7 +5134,7 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 21&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 22&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Introduction to RMarkdown&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/13-lecture/&#34;&gt;
@@ -5145,7 +5145,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 21&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 22&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Markdown Anatomy&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/14-lecture/&#34;&gt;
@@ -5156,7 +5156,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 21&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 22&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Endless Flexibility&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/15-lecture/&#34;&gt;
@@ -5175,7 +5175,7 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Assignment&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 28&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 29&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Introduction to Data Visualization&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/16-lecture/&#34;&gt;
@@ -5188,7 +5188,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 28&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 29&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Customizing Your Plots&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/17-lecture/&#34;&gt;
@@ -5201,7 +5201,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 28&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 29&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Multipanel Figures&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/18-lecture/&#34;&gt;
@@ -5214,7 +5214,7 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;September 28&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;March 29&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Layers on Layers on Layers&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/19-lecture/&#34;&gt;
