@@ -5233,5 +5233,119 @@ Figure 1: A fancy pie chart.
 </description>
     </item>
     
+    <item>
+      <title>Syllabus</title>
+      <link>/syllabus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/syllabus/</guid>
+      <description>
+
+
+&lt;div id=&#34;what-is-this-class&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What is this class?&lt;/h2&gt;
+&lt;p&gt;The technical name is: Skill Lab: Introduction to the R Statistical Programming Language and Environment. You can just call it the “R Skill Lab” though.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;who-am-i&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Who am I?&lt;/h2&gt;
+&lt;p&gt;My name is Shelly (she/her), and I’m the instructor. You can reach me via the contact form on the homepage of this site, or you can email me at &lt;a href=&#34;mailto:shelly.cooper@wustl.edu&#34;&gt;shelly.cooper@wustl.edu&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-will-you-learn-in-this-class&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What will you learn in this class?&lt;/h2&gt;
+&lt;p&gt;By the end of the class, you will have learned:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The fundamentals of programming with R statistical software. This includes objects, data classes, functions, data wrangling, plotting/graphing, and making reproducible reports&lt;/li&gt;
+&lt;li&gt;A theoretical foundation for the principles of data visualization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;whats-the-course-philosophy&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What’s the course philosophy?&lt;/h2&gt;
+&lt;p&gt;Programming is increasingly becoming a demanding skill across a wide variety of fields, including public health, psychology, neuroscience, and other social sciences. The goal of this course is for you to leave understanding core fundamentals of applied programming. Although we will use &lt;code&gt;R&lt;/code&gt; software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The only difference between a beginner and expert programmer, is that the expert is better at Googling”.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;My goal is to get you to the point where you can effectively Google &lt;code&gt;R&lt;/code&gt;-related questions and mostly understand the results.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-do-you-need-for-this-course&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What do you need for this course?&lt;/h2&gt;
+&lt;p&gt;You’ll need 3 things:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;You need &lt;code&gt;R&lt;/code&gt; and it’s buddy &lt;code&gt;RStudio&lt;/code&gt;. The first lecture video will show you how to install these.&lt;/li&gt;
+&lt;li&gt;You need this website – most of the content will take place on this website.&lt;/li&gt;
+&lt;li&gt;You need access to our class Canvas page. This is where your you’ll submit your assignments and complete your code reviews.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-do-i-get-a-good-grade&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;How do I get a good grade?&lt;/h2&gt;
+&lt;p&gt;There are no exams! Hooray! To get a good grade in this class, you simply need to do the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Homework Assignments&lt;/strong&gt; will be posted on the course website, and are all frontloaded in Unit 1 at the beginning of the class. This is to make sure that you get lots of practice as you’re learning the basics of &lt;code&gt;R&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;If you want to use one of your own datasets for these, please let me know ahead of time so we can make sure it has certain characteristics that work with the assignments. Otherwise, I’ll post a dataset to Canvas that you can use.&lt;/li&gt;
+&lt;li&gt;Each assignment is worth 15 points and there will be 4 of them for a total of &lt;strong&gt;60 points&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Each day an assignment is late, I will remove 2 points unless you contact me and we discuss other arrangements&lt;/li&gt;
+&lt;li&gt;I will &lt;em&gt;not&lt;/em&gt; grade code on exactness or perfection. However, I do expect an answer for every questions. Points will be taken aware if a question is skipped or not thoroughly answered. I will not take off points for incorrect code, as long as it’s clear you have tried your best to figure it out.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Peer Reviews&lt;/strong&gt; After each homework assignment, you will be randomly assigned to a peer in your class, and you will review the code from each other’s homework assignment. You will fill out several discussion prompts on Canvas about your peer’s code. The goal is for you to gain experience in reading other peoples’ code and for you to obtain consistent feedback from someone other than the instructor.
+&lt;ul&gt;
+&lt;li&gt;Each peer review assignment will be worth 10 points and there will be 4 of them for a total of &lt;strong&gt;40 points&lt;/strong&gt; possible.&lt;/li&gt;
+&lt;li&gt;Points will be taken away if the prompts are not completely answered. For example, if I ask for 2 good things about your peers’ code, and you only provide 1 example, points will be taken away from your code review assignment.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \text{Homeworks (60pts) + Peer Reviews (40pts)} = \text{100 Total Points}\]&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;covid-19-how-to-be-ok&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;COVID-19 &amp;amp; How to be OK&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;(This section was created, albeit slightly modified, from &lt;a href=&#34;https://twitter.com/ProfChrisMJones/status/1282036533562834944&#34;&gt;this awesome tweet by Dr. Chris Jones&lt;/a&gt;. And, you know, the state of the world.)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In case you hadn’t noticed, there is a &lt;strong&gt;&lt;em&gt;global pandemic&lt;/em&gt;&lt;/strong&gt;. None of us are really “OK”. If you tell me you’re having trouble, I’m not going to judge you or think less of you. I hope you’ll extend me the same grace.&lt;/p&gt;
+&lt;p&gt;Let’s set the stage:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You never owe me personal information about your health (mental or physical), or anything else. Since this course is entirely online, we do not have to worry about the whole class physically distancing or needing to go into quarantine if one of us is exposed.&lt;/li&gt;
+&lt;li&gt;You are always welcome to come talk to me about things that you’re going through, however.&lt;/li&gt;
+&lt;li&gt;If I can’t help you, I usually know somebody who can.&lt;/li&gt;
+&lt;li&gt;If you need extra help or you need more time with something, just ask. I’ll work with you. Promise.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;online-etiquette&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Online Etiquette&lt;/h3&gt;
+&lt;p&gt;We will be making use of discussion threads on Canvas. Students are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Any communication shared privately may become public, so be mindful of what you share in discussion boards or chats. This is especially true for sharing any personal and/or identifying information about you or someone else. Do not share any passwords or divulge any personal information (yours or others) that can be used in a malicious manner (phone numbers, addresses etc.).&lt;/li&gt;
+&lt;li&gt;Humor doesn’t always translate in an online forum. If you want to make a joke or a sarcastic remark, be 100% sure that it is clear you are joking.&lt;/li&gt;
+&lt;li&gt;Your comments must be readable to everyone, therefore I ask that you please refrain from using shortcuts. For example, please type out “you” instead of “u”. Very common acronyms are OK (“lol” or “haha”). But please refrain from acronyms that are not as well-known (“fwiw” etc.).&lt;/li&gt;
+&lt;li&gt;Treat your classmates and professor with kindness and respect. Any indication of online harassment or bullying will not be tolerated and will be reported. This is especially pertinent when giving constructive feedback in code reviews.&lt;/li&gt;
+&lt;li&gt;Please avoid using ALL CAPS because it can be interpreted as yelling.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;academic-policies-resources&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Academic Policies &amp;amp; Resources&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wustl.edu/about/compliance-policies/academic-policies/university-student-judicial-code/&#34;&gt;University Code of Conduct&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Any student found guilty of academic misconduct, such as cheating, plagiarizing, forgery, or furnishing false information to a University official will be subject to consequences including failing the class, suspension from the University, or expulsion from the University.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Special accommodations (such as a learning, sensory, or physical disability or any other diagnosis that requires special accommodations and/or assistance with lectures, reading, written assignments, and/or exam taking)
+&lt;ul&gt;
+&lt;li&gt;Contact &lt;a href=&#34;https://students.wustl.edu/disability-resources/&#34;&gt;Disability Resources&lt;/a&gt; at &lt;a href=&#34;mailto:disabilityresources@wustl.edu&#34;&gt;disabilityresources@wustl.edu&lt;/a&gt; or call 314-935-5970&lt;/li&gt;
+&lt;li&gt;Please contact me as soon as possible if you need special accommodations. Once I have the Accommodation Letter from Disability Resources, we can discuss ways to modify the course experience for you.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Mental &amp;amp; Physical Health:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://students.wustl.edu/habif-health-wellness-center/&#34;&gt;Habif Health and Wellness Center&lt;/a&gt;, email &lt;a href=&#34;mailto:HabifInfo@wustl.edu&#34;&gt;HabifInfo@wustl.edu&lt;/a&gt; or call 314-935-6666&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;WUSTL Police Department
+&lt;ul&gt;
+&lt;li&gt;On campus emergency, please call 314-935-5555&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Relationship or sexual violence, including sexual harassment and stalking
+&lt;ul&gt;
+&lt;li&gt;Contact a licensed &lt;a href=&#34;https://students.wustl.edu/relationship-sexual-violence-prevention-center/&#34;&gt;RSVP&lt;/a&gt; counselor (confidential, with some limited information being shared as needed with the appropriate university administrator) at &lt;a href=&#34;mailto:rsvpcenter@wustl.edu&#34;&gt;rsvpcenter@wustl.edu&lt;/a&gt; or call 314-935-3445&lt;/li&gt;
+&lt;li&gt;Contact the University’s Title IX Director, Ms. Jessica Kennedy, at &lt;a href=&#34;mailto:wkennedy@wustl.edu&#34;&gt;jwkennedy@wustl.edu&lt;/a&gt; or call 314-935-3118&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;PLEASE NOTE&lt;/em&gt; You can always come talk to me. Period. However, if you come to me with any issues surrounding child abuse, suicidal tendencies, or sexual assault, sexual discrimination, sexual harassment, dating violence, domestic violence or stalking, I am required to report these to their appropriate administrators. Washington University faculty and administrators strive to maintain confidentiality, but some information may need to be disclosed when it is a matter of safety.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
