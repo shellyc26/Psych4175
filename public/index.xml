@@ -1932,7 +1932,7 @@ where &lt;span class=&#34;math inline&#34;&gt;\(SD_p\)&lt;/span&gt; is the poole
 &lt;p&gt;To summarize:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Run the &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;-test&lt;/li&gt;
-&lt;li&gt;Bootstrap Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; (using between 100 and 1000 iterations; you can choose the exact number)&lt;/li&gt;
+&lt;li&gt;Bootstrap Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; (using between 100 and 1000 iterations; you can choose the exact number). &lt;strong&gt;YOU MUST USE A &lt;code&gt;for loop&lt;/code&gt; FOR THIS SECTION!&lt;/strong&gt; You should &lt;em&gt;not&lt;/em&gt; be using any extra packages for this – just a &lt;code&gt;for loop&lt;/code&gt; (which does not require a package).&lt;/li&gt;
 &lt;li&gt;Plot all of your bootstrapped Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;s in either a histogram or density plot. That is, you should wind up with a single plot that contains all the Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;s from each iteration.&lt;/li&gt;
 &lt;li&gt;Take the mean of all the &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;s that you get from the iterations to get your bootstrapped Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;Write 3-5 sentences describing your findings. Is your bootstrapped Cohen’s &lt;span class=&#34;math inline&#34;&gt;\(d\)&lt;/span&gt; a small, medium, or large effect size? What does this say in comparison to the &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;-test that you ran at the beginning of this section? Which do you trust more?&lt;/li&gt;

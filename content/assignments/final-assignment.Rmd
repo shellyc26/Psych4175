@@ -92,7 +92,7 @@ where $SD_1$ is the standard deviation of group 1 and $SD_2$ is the standard dev
 To summarize:
 
 - Run the $t$-test
-- Bootstrap Cohen's $d$ (using between 100 and 1000 iterations; you can choose the exact number)
+- Bootstrap Cohen's $d$ (using between 100 and 1000 iterations; you can choose the exact number). **YOU MUST USE A `for loop` FOR THIS SECTION!** You should *not* be using any extra packages for this -- just a `for loop` (which does not require a package). 
 - Plot all of your bootstrapped Cohen's $d$s in either a histogram or density plot. That is, you should wind up with a single plot that contains all the Cohen's $d$s from each iteration.
 - Take the mean of all the $d$s that you get from the iterations to get your bootstrapped Cohen's $d$
 - Write 3-5 sentences describing your findings. Is your bootstrapped Cohen's $d$ a small, medium, or large effect size? What does this say in comparison to the $t$-test that you ran at the beginning of this section? Which do you trust more? 
