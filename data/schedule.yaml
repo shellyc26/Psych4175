@@ -148,18 +148,23 @@ lectures:
     session: 19
     lectures: "19-lecture"
     assignments: "05-assignment"
-    
-  - title: '<span class="fake-header-table">Unit 2: Statistics</span>'
-    header: True
   
   - title: '**Wellness Week 1**'
     date: "Week 6: 3/2 - 3/5"
+  
+  - title: '<span class="fake-header-table">Unit 2: Statistics</span>'
     header: True
   
+  - title: '**Describing Data**'
+    date: "Week 7: 3/9 - 3/11"
+    header: True
+    
+  - title: '---CHECK-IN 6---'
+    date: "3/9 2:30pm"
+    
   - title: 'Descriptives'
     session: 20
     lectures: "20-lecture"
-    date: "Week 7: 3/9 - 3/11"
     quiz: "nnn"
     
   - title: 'Normal Distribution'
@@ -171,22 +176,34 @@ lectures:
     lectures: "22-lecture"
     session: 22
     quiz: "nnn"
+  
+  - title: '**Comparisons & Correlations**'
+    date: "Week 8: 3/16 - 3/18"
+    header: True
+  
+  - title: '---CHECK-IN 7---'
+    date: "3/16 2:30pm"
     
   - title: 'Comparing Means'
     lectures: "23-lecture"
     session: 23
-    date: "Week 8: 3/16 - 3/18"
     quiz: "nnn"
 
   - title: 'Correlation'
     session: 24
     lectures: "24-lecture"
     quiz: "nnn"
+  
+  - title: '**Relationships**'
+    date: "Week 9: 3/23 - 3/25 (break)"
+    header: True
+    
+  - title: '---CHECK-IN 8---'
+    date: "3/23 2:30pm"
     
   - title: 'Regression'
     session: 25
     lectures: "25-lecture"
-    date: "Week 9: 3/23 - 3/25 (break)"
     quiz: "nnn"
     
   - title: '<span class="fake-header-table">Unit 3: Advanced Topics</span>'
@@ -198,19 +215,27 @@ lectures:
     lectures: "26-lecture"
     quiz: "nnn"
     
+  - title: '---CHECK-IN 9---'
+    date: "3/30 2:30pm"
+    
   - title: 'Bootstrapping & For Loops'
     session: 27
     lectures: "27-lecture"
     date: "Week 11: 4/6 - 4/8"
     
+  - title: '---CHECK-IN 10---'
+    date: "4/6 2:30pm"
+    
   - title: '**Wellness Week 2**'
     date: "Week 12: 4/13 - 4/15"
-    header: True
     
   - title: 'Writing Functions'
     session: 28
     date: "Week 13: 4/20 - 4/22"
     lectures: "28-lecture"
+    
+  - title: '---CHECK-IN 11---'
+    date: "4/20 2:30pm"
     
   - title: 'Simulations'
     session: 29

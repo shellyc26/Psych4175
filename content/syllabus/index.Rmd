@@ -11,8 +11,13 @@ output:
 ## What is this class?
 Applied Statistical Analysis with R (Psych 4175)
 
-## Who am I?
-My name is Shelly (she/her), and I'm the instructor. You can reach me via the contact form on the homepage of this site, or you can email me at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
+## Who are we?
+
+Instructor: **Shelly Cooper (she/her)**
+You can reach Shelly via the contact form on the homepage of this site, or you can email me at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
+
+Assistant Instructor: **Drew McLaughlin (she/her)**
+You can reach Drew at [drewjmclaughlin@wustl.edu](mailto:drewjmclaughlin@wustl.edu).
 
 ## What will you learn in this class?
 By the end of the class, you will have learned:
@@ -80,7 +85,7 @@ Let’s set the stage:
   -	If you need extra help or you need more time with something, just ask. I’ll work with you. Promise. 
   
 ### Online Etiquette
-We will be making use of discussion threads on Canvas. Students are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:
+We will be making use of discussion threads on Canvas as well as Slack channels. Students are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:
 
   -	Any communication shared privately may become public, so be mindful of what you share in discussion boards or chats. This is especially true for sharing any personal and/or identifying information about you or someone else. Do not share any passwords or divulge any personal information (yours or others) that can be used in a malicious manner (phone numbers, addresses etc.).
   -	Humor doesn’t always translate in an online forum. If you want to make a joke or a sarcastic remark, be 100% sure that it is clear you are joking. 
