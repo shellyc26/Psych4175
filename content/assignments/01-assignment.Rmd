@@ -2,7 +2,7 @@
 title: "Assignment 1"
 linktitle: "# 1"
 date: "6/16/2020"
-due_date: "2020-09-22"
+due_date: "2021-02-02"
 due_time: "2:30pm"
 output:
   blogdown::html_page:
