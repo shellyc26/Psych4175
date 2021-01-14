@@ -55,7 +55,6 @@ There are no exams! Hooray! To get a good grade in this class, you simply need t
     - If you want to use one of your own datasets for these, please let me know ahead of time so we can make sure it has certain characteristics that work with the assignments. Otherwise, I'll post a dataset to Canvas that you can use.
     - Each assignment is worth 8 points and there will be 5 of them for a total of **40 points**
     - Each day an assignment is late, I will remove 2 points unless you contact me and we discuss other arrangements
-    - I will *not* grade code on exactness or perfection. However, I do expect an answer for every questions. Points will be taken aware if a question is skipped or not thoroughly answered. I will not take off points for incorrect code, as long as it's clear you have tried your best to figure it out.
     
   - **Peer Reviews** After each homework assignment, you will be randomly assigned to a peer in your class, and you will review the code from each other’s homework assignment. You will fill out several discussion prompts on Canvas about your peer’s code. The goal is for you to gain experience in reading other peoples’ code and for you to obtain consistent feedback from someone other than the instructor.
     - Each peer review assignment will be worth 4 points and there will be 5 of them for a total of **20 points** possible.
@@ -72,6 +71,13 @@ There are no exams! Hooray! To get a good grade in this class, you simply need t
     
 $$ Homeworks (40pts) + Peer Reviews (20pts) + Quizzes (20pts) + Final Project (20pts) = 100 Total Points$$
 
+## Staying Connected
+In Fall 2020, we learned just how challenging online learning can be. Perhaps most importantly, we learned that online learning can be lonely. To combat this, we will do the following:
+
+-	Your peer review will be with the same person! This way, you’ll have a buddy that you can get to know over the course of the semester. 
+
+-	We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. Shelly or Drew will respond to your questions on slack (if your peers don’t respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you’re learning a skill like coding, in which you’ll repeatedly fail. 
+
 ## COVID-19 & How to be OK
 *(This section was created, albeit slightly modified, from [this awesome tweet by Dr. Chris Jones](https://twitter.com/ProfChrisMJones/status/1282036533562834944). And, you know, the state of the world.)*
 
@@ -83,7 +89,7 @@ Let’s set the stage:
   -	You are always welcome to come talk to me about things that you’re going through, however.
   -	If I can’t help you, I usually know somebody who can.
   -	If you need extra help or you need more time with something, just ask. I’ll work with you. Promise. 
-  
+
 ### Online Etiquette
 We will be making use of discussion threads on Canvas as well as Slack channels. Students are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:
 
