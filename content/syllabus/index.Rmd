@@ -53,23 +53,26 @@ There are no exams! Hooray! To get a good grade in this class, you simply need t
 
   - **Homework Assignments** will be posted on the course website, and are all frontloaded in Unit 1 at the beginning of the class. This is to make sure that you get lots of practice as you’re learning the basics of `R`.
     - If you want to use one of your own datasets for these, please let me know ahead of time so we can make sure it has certain characteristics that work with the assignments. Otherwise, I'll post a dataset to Canvas that you can use.
-    - Each assignment is worth 8 points and there will be 5 of them for a total of **40 points**
+    - Each assignment is worth 7 points and there will be 5 of them for a total of **35 points**
     - Each day an assignment is late, I will remove 2 points unless you contact me and we discuss other arrangements
     
   - **Peer Reviews** After each homework assignment, you will be randomly assigned to a peer in your class, and you will review the code from each other’s homework assignment. You will fill out several discussion prompts on Canvas about your peer’s code. The goal is for you to gain experience in reading other peoples’ code and for you to obtain consistent feedback from someone other than the instructor.
-    - Each peer review assignment will be worth 4 points and there will be 5 of them for a total of **20 points** possible.
+    - Each peer review assignment will be worth 2 points and there will be 5 of them for a total of **10 points** possible.
     - Points will be taken away if the prompts are not completely answered. For example, if I ask for 2 good things about your peers’ code, and you only provide 1 example, points will be taken away from your code review assignment. 
     
   - **Quizzes** There will be 4 Canvas quizzes spanning Unit 2 and into the beginning of Unit 3.
     - You are permitted to use your notes and the internet, but you must NOT discuss with your peers.
     - Each quiz will be worth 5 points for a total of **20 points**.
+  
+  - **Mini Assignments** The remaining assignments will be smaller than your homework assignment, and will be more about debugging code. You will be given blocks of code relevant to that week's topic, and asked to debug it so that it both works and provides the output that is being asked.
+    - Each mini assignment will be worth 5 points and there will be 3 of them for a total of **15 points** possible.
 
   - **Final Assignment** You will complete a final take-home project due during finals week (if you want to turn it in before then, that’s OK!). This project will be completely `R`-based, and will incorporate skills learned over the semester with extra emphasis on those learned in Unit 3.
     - If you would like to use your own dataset for this, you must tell me ahead of time and get it pre-approved!
     - This project will be worth **20 points**.
     - To earn full marks on this project, your code must compile (meaning if I run the code, as is, it should work perfectly) and you must answer all portions of the assignment. 
     
-$$ Homeworks (40pts) + Peer Reviews (20pts) + Quizzes (20pts) + Final Project (20pts) = 100 Total Points$$
+$$ \text{Homeworks (35pts) + Peer Reviews (10pts) + Quizzes (20pts) + Mini Assignments (15pts) + Final Project (20pts)} = \text{100 Total Points}$$
 
 ## Staying Connected
 In Fall 2020, we learned just how challenging online learning can be. Perhaps most importantly, we learned that online learning can be lonely. To combat this, we will do the following:
