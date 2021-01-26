@@ -222,6 +222,8 @@ lectures:
     session: 27
     lectures: "27-lecture"
     date: "Week 11: 4/6 - 4/8"
+    assignments: "01-mini-assignment"
+    practice: "27-practice"
     
   - title: '---CHECK-IN 10---'
     date: "4/8 2:30pm"
@@ -233,6 +235,8 @@ lectures:
     session: 28
     date: "Week 13: 4/20 - 4/22"
     lectures: "28-lecture"
+    assignments: "02-mini-assignment"
+    practice: "28-practice"
     
   - title: '---CHECK-IN 11---'
     date: "4/22 2:30pm"
@@ -241,6 +245,8 @@ lectures:
     session: 29
     date: "Week 14: 4/27 - 4/29"
     lectures: "29-lecture"
+    assignments: "03-mini-assignment"
+    practice: "29-practice"
   
   - title: '---CHECK-IN 12---'
     date: "4/29 2:30pm"
