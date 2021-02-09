@@ -20,8 +20,9 @@ editor_options:
 ## Testing Things
 The first part is going to be a test run to see if a particular type of document works with your computer. It should, but we're going to test it out here just in case. You do NOT need to submit the test file. 
 
-#### WARNING
+:::warning
 The following section requires the internet. Please make sure you have a stable connection before completing the exercise. __PLEASE tell me *as soon as possible* if any errors come up.__ This will be a large part of what we will be doing next week, so if it's not working, we need to get it worked out *__BEFORE__* you continue on to the Reproducibility section.
+:::
 
 **PLEASE READ ALL OF THE STEPS BELOW _BEFORE_ ACTUALLY TRYING IT**. Follow these steps:
 
@@ -61,13 +62,16 @@ As long as the final thing shown above popped up, you're good! It's ok if you se
 
 ## Actual Assignment
 
+You MUST use either the `nhanes_small_assignment3.csv` or `superheroData_assignment3.csv` datasets! These have been modified specifically for this assignment. You can find both on Canvas. 
+
 ### Introduction: Script Prep
 Open a new script file and complete this assignment (the same way you've been doing for previous assignments). 
 
 :::list
 Here's your to-do list:
 
-  - At the top of your script, read in your dataset, load in the `tidyverse` package, and make a comment that confirms that the above test run thing worked. 
+  - At the top of your script, read in your dataset, load in the `tidyverse` package
+  - Make a comment that confirms that the above test run thing worked. 
 :::
 
 ### Methods: Data Wrangling
@@ -77,12 +81,11 @@ Let's practice with data wrangling. Everyone's data is different, so this might 
 Here's your to-do list:
 
   - Make a `tidyverse` code chunk that uses *at least __3__* `tidyverse` functions. Do whatever you think makes the most sense.
+  - All 3 of the functions should be within the SAME code chunk. That is, you should *not* have 3 separate chunks of code. It should be a cohesive code chunk (put differently, a paragraph of code).
 :::
 
 Here's a list of some of the common `tidyverse` functions that you might want to use:
 
-  - `pivot_wider`
-  - `pivot_longer`
   - `filter`
   - `separate`
   - `unite`
@@ -92,10 +95,12 @@ Here's a list of some of the common `tidyverse` functions that you might want to
   - `rename`
   - `recode`
   - any of the `join` functions (see cheatsheet for more)
+  
+(Technically, `pivot_wider` and `pivot_longer` fit the bill, also. But we're going to use these in the last part of the assignment, so please do not use those functions in this section.)
 
 ### Results
 
-Let's make a plot with error bars!
+Let's make a bar plot with error bars!
 
 :::list
 Here's your to-do list:
@@ -128,6 +133,22 @@ ggplot(data = XXX-1, aes(x = XXX-2, y = XXX-3, fill = XXX-4)) +
                 width = .2)
 
 ```
+
+### Data Wrangling Part 2
+
+It's very common to receive data in the wrong format. Either it comes to you as "long" but you need it to be "wide" or vice versa. 
+
+Both datasets now include information about time point. We're going to use this information to convert to the other format!
+
+:::list
+Here's your to-do list:
+
+  - Determine if your data are currently in wide or long format. Make a note of this in your script.
+  - Use the time information to go from wide to long or long to wide. Use `pivot_wider` or `pivot_longer`. 
+  - Rather than printing out the ENTIRE data.frame, print out the first 15 rows and the relevant columns using indexing.
+  - Make a comment that describes what aspects of your data.frame become wide or long; that is, describe what it is you just performed. 
+:::
+
 
 ### Fantastic work!
 Don't forget to submit your code and data file to Canvas. 
