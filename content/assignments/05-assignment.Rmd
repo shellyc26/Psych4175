@@ -20,15 +20,16 @@ editor_options:
 ## Instructions
 This assignment is all about making figures. It's going to be a bit free-form because when it comes to making figures, there are a *silly* number of options. Here are the conditions:
 
-- You must use the `ggplot` package and syntax. This should *not* be practice for `base R`. - Your choice of variables must make sense for the type of plot you are making. 
-- All figures must follow the basics of clear axis labels and titles! (*please* don't make me take points off for this...)
+- You must use the `ggplot2` package and syntax. This should *not* be practice for `base R`.
+- Your choice of variables must make sense for the type of plot you are making. That is, don't give me a histogram for a dichotomous variable (that would just be 2 bars and super weird).
+- All figures must follow the basics of clear axis labels and titles! (*please* don't make me take points off for this...). **I will take points off if these are missing or not clear!**
 - NO PIE CHARTS!
 
 :::note
 **Note**: Please use a RNotebook for this assignment:
 
-- There are two main "sections". Make sure they each have an appropriate header
-- All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large one per section. That is up to you. However, I do not want to see the code for an entire figure located outside of a chunk. 
+- There are two main "sections" of this assignment. Make sure they each have an appropriate header.
+- All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do not want to see the code for an entire figure located outside of a chunk (unless you're making a quick note or telling us what you're doing -- but the code outside of a chunk shouldn't be evaluated). 
 - Any explanations I ask for should be *outside* of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., `#a long sentence like this`). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text. 
 :::
 
@@ -54,6 +55,6 @@ Here's your to-do list:
 :::
 
 ### Yahhoooooooo!
-We'll talk more about the theory of data viz later in the semester. But for now, you should feel comfortable plotting in the `ggplot` world. 
+We'll talk more about the theory of data viz later in the semester. But for now, you should feel comfortable plotting in the `ggplot2` world. 
 
 Go ahead and submit your `.Rmd` and `.html` file to Canvas. If you used an outside dataset, please also submit that, too.
