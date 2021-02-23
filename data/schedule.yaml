@@ -170,17 +170,12 @@ lectures:
     lectures: "20-lecture"
     quiz: "nnn"
     
-  - title: 'Normal Distribution'
+  - title: 'Normal & Sampling Distributions'
     lectures: "21-lecture"
     session: 21
     quiz: "nnn"
-    
-  - title: 'Sampling Distribution'
-    lectures: "22-lecture"
-    session: 22
-    quiz: "nnn"
   
-  - title: '**Comparisons & Correlations**'
+  - title: '**Comparing Means & Stats Issues**'
     date: "Week 8: 3/16 - 3/18"
     header: True
   
@@ -188,18 +183,23 @@ lectures:
     date: "3/18 2:30pm"
     
   - title: 'Comparing Means'
+    lectures: "22-lecture"
+    session: 22
+    quiz: "nnn"
+    
+  - title: 'Power & Problems'
     lectures: "23-lecture"
     session: 23
-    quiz: "nnn"
-
-  - title: 'Correlation'
-    session: 24
-    lectures: "24-lecture"
     quiz: "nnn"
   
   - title: '**Relationships**'
     date: "Week 9: 3/23 - 3/25 (break)"
     header: True
+    
+  - title: 'Correlation'
+    session: 24
+    lectures: "24-lecture"
+    quiz: "nnn"
     
   - title: 'Regression'
     session: 25

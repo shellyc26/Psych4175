@@ -243,16 +243,25 @@ data.frame(mean = means) %>%
 Sampling distributions can be constructed around any statistic -- ranges, standard deviations, difference scores. The standard errors of those distributions are also standard errors. (E.g., the standard error of the difference.)
 
 ---
+
+# Notation
+
+
+|             | Population<br>Distribution |  Sample<br>Distribution | Sampling<br>Distribution |
+|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
+| Distribution consists of:    |    Individual observations<br> $x$    | Individual observations<br> $x$   | Statistics<br> $\bar{x}, s, s^2$ | 
+| Central tendency |    $\mu$   | $\bar{x}$      | $\mu_M$ |
+| Dispersion | $\sigma^2$ | $s^2$ | $\sigma^2_M$ |
+|            | $\sigma$ | $s$ | SEM $\sigma_M$ |
+| Type       | Parameter | Statistic | Statistic of statistics |
+| T vs. O    | Theoretical | Observed | Theoretical
+
+---
+
 # Sampling Distributions
 
 - Distribution of values of a particular statistic ( $\bar{x}$, $s^2$, $s$) across all possible samples of N observations
-  - To keep it simple, let's just focus on the mean 
-  - Statistic will be our *estimator* of the population
-
-- **Sampling distribution $\neq$ sample distribution**
-
-- Provides the frequency/probability with which values of statistics are observed or are expected to be observed when random samples of size N are drawn from a given population
-
+- One of the most imporat
 ---
 # Interactive Example
 

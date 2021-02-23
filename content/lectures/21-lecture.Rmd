@@ -1,6 +1,6 @@
 ---
-title: "The Normal Distribution"
-linktitle: "21: Normal"
+title: "Normal & Sampling Distributions"
+linktitle: "21: Normal & Sampling"
 menu:
   lectures:
     parent: Statistics
@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- [Normal Distribution](https://youtu.be/suUyI963dws)
+- Normal & Sampling Distributions
 
 ## Slides
 
@@ -29,7 +29,8 @@ sections <- tibble::tribble(
   "Recap", "1", TRUE,
   "Normal Distribution", "norm", FALSE,
   "Standard Normal", "stdnorm", FALSE,
-  "Using Z-Scores", "use", FALSE
+  "Using Z-Scores", "use", FALSE,
+  "Sampling Distribution", "sampling", FALSE
 )
 slide_tabs(sections, "/slides/21-slides.html")
 ```

@@ -3,6 +3,7 @@
   <head>
     <title>Sampling Distributions</title>
     <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer-yellow.css" type="text/css" />
     <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
   </head>
@@ -166,16 +167,25 @@ The sampling distribution of the mean is of particular interest, it's called the
 Sampling distributions can be constructed around any statistic -- ranges, standard deviations, difference scores. The standard errors of those distributions are also standard errors. (E.g., the standard error of the difference.)
 
 ---
+
+# Notation
+
+
+|             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution | Sampling&lt;br&gt;Distribution |
+|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
+| Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`   | Statistics&lt;br&gt; `\(\bar{x}, s, s^2\)` | 
+| Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      | `\(\mu_M\)` |
+| Dispersion | `\(\sigma^2\)` | `\(s^2\)` | `\(\sigma^2_M\)` |
+|            | `\(\sigma\)` | `\(s\)` | SEM `\(\sigma_M\)` |
+| Type       | Parameter | Statistic | Statistic of statistics |
+| T vs. O    | Theoretical | Observed | Theoretical
+
+---
+
 # Sampling Distributions
 
 - Distribution of values of a particular statistic ( `\(\bar{x}\)`, `\(s^2\)`, `\(s\)`) across all possible samples of N observations
-  - To keep it simple, let's just focus on the mean 
-  - Statistic will be our *estimator* of the population
-
-- **Sampling distribution `\(\neq\)` sample distribution**
-
-- Provides the frequency/probability with which values of statistics are observed or are expected to be observed when random samples of size N are drawn from a given population
-
+- One of the most imporat
 ---
 # Interactive Example
 
@@ -450,6 +460,7 @@ print(c(ci_lb_z, ci_ub_z))
 |            | `\(\sigma\)` | `\(s\)` | SEM `\(\sigma_M\)` |
 | Type       | Parameter | Statistic | Statistic of statistics |
 | T vs. O    | Theoretical | Observed | Theoretical
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>The Normal Distribution</title>
+    <title>Normal &amp; Sampling Distributions</title>
     <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer-orange.css" type="text/css" />
     <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
   </head>
@@ -10,7 +11,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# The Normal Distribution
+# Normal &amp; Sampling Distributions
 
 ---
 
@@ -87,30 +88,14 @@ The area under the curve that lies between the mean (here 0) and a value of 1 is
 ]
 
 ---
-# Probability of a single value
+# Probability of a single value or more extreme
 
 .pull-left[
-As our interval shrinks closer and closer to 0, our area (probability) shrinks as well.
-
-It can get vanishingly close to 0—essentially a point rather than an area.
-
-The probability of that "point" is 0.
+We can also make statements about probability like *"the probability of obtaining an x value of 1 __or larger__ is \_____"*
 ]
 
 .pull-right[
 &lt;img src="21-slides_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
-]
----
-# Probability of a single value
-.pull-left[
-We can keep shrinking the distance between Z and 0, never reaching 0, and still calculate an area.
-
-It will be very, very small. 
-
-]
-
-.pull-right[
-&lt;img src="21-slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -124,17 +109,11 @@ It will be very, very small.
 * For two normal distributions, the area under the curve between corresponding locations in standard deviation units is the same regardless of `\(\mu\)` and `\(\sigma\)` 
 
 ---
-
-# Family of Normal Distributions
-
-&lt;img src="21-slides_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
-
----
 # Family of Normal Distributions
 
 All of these distributions are normal and have an equivalent area (proportion) that falls between a standard deviation below and above their respective means.
 
-&lt;img src="21-slides_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 # Characteristics of the normal distribution
@@ -159,22 +138,7 @@ Variables with quite different means and standard deviations can be standardized
 All continuous distributions can be standardized, but if they are not normal to begin with, standardization will not make them so.  *Standardization does not alter distribution shape.*
 
 ---
-
-# Standard normal distribution
-
-There is only one (1) standard normal distribution. 
-  
-**How is this useful?**
-  - Given any score, we can calculate the probability of getting a value greater than that `\(z\)`-score. *(Or less than that `\(z\)`-score.)*
-  
-  - Given any two `\(z\)`-scores, we can calculate the probability of getting a value between these scores. *(Or outside those `\(z\)`-scores)*
-  
-  - Given a probability `\(p\)`, we can identify the `\(z\)`-score at which the proportion of scores below *(or above)* `\(p\)` falls. 
-  
-  - Given a probability `\(p\)`, we can identify the `\(z\)`-score at which the proportion of scores that fall above `\(-z\)` and below `\(z\)` is equal to `\(p\)`.
-  
----
-# Standardized scores ($z$-scores)
+# Standardized scores ( `\(z\)`-scores)
 
 &gt; Distance from the mean in standard deviation units
 
@@ -258,33 +222,6 @@ pnorm(q = -.07, mean = 0, sd = 1)
 ```
 
 ---
-# `\(p\)`-values
-
-.pull-left[
-What does `\(p = .4721\)` mean?
-  - The probability of obtaining a `\(z\)`-score less than -.07
-  - The area under the curve from -.07, moving left
-]
-
-.pull-right[
-&lt;img src="21-slides_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
-]
-
----
-# `\(p\)`-values
-
-**A `\(p\)`-value is the probability of getting a particular test statistic or more extreme given the null hypothesis is true**
-
---
-
-What is a `\(p\)`-value *NOT*:
-- `\(p\)` is not the probability that H0 is true
-- `\(p\)` is not the probability of a Type I error
-- `\(p\)` is not the probability that the data are due to chance
-- `\(p\)` is not the probability of making a wrong decision
-- the complement of `\(p\)`, which is (1-$p$), is not the probability that the alternative hypothesis is true 
-
----
 # Using `\(z\)`-scores
 
 .pull-left[
@@ -301,13 +238,13 @@ The probability of getting a `\(z\)`-score of -.07 or greater?
 ]
 
 .pull-right[
-&lt;img src="21-slides_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
 ]
 ---
 # Using `\(z\)`-scores
 
 .pull-left[
-What about R2D2? ($z$-score of -2.25)
+What about R2D2? ( `\(z\)`-score of -2.25)
   - Probability of getting a `\(z\)`-score of -2.25 or something even smaller
   
 
@@ -321,7 +258,7 @@ pnorm(q = -2.25, mean = 0, sd = 1)
 ]
 
 .pull-right[
-&lt;img src="21-slides_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
 ]
 ---
 # Using `\(z\)`-scores
@@ -340,7 +277,7 @@ Probability of getting a `\(z\)`-score of -2.25 or something larger
 ]
 
 .pull-right[
-&lt;img src="21-slides_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -349,6 +286,135 @@ Probability of getting a `\(z\)`-score of -2.25 or something larger
 - `\(z = 1.64\)`; most extreme 5% of the standard normal distribution (the very far tail)
 
 - `\(z = 1.96\)`; most extreme 2.5% of the standard normal distribution (used when splitting the difference of most positive and most negative extremes)
+
+---
+name: sampling
+class: inverse
+
+# Sampling Distributions
+
+---
+
+# What's the point of inferential stats?
+
+.pull-left-small[
+- Most of the time, we can't measure an entire population.
+- We instead take random samples from the population, and we *estimate* statistics. We treat these as our best guess of the population parameter.
+- We know that our statistics will vary from sample to sample.
+]
+
+.pull-right-large[
+|             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution |
+|:-----------:|:-----------:|:-----------:|:-----------:|
+| Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`       | 
+| Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      | 
+| Dispersion | `\(\sigma^2\)` | `\(s^2\)` |
+|            | `\(\sigma\)` | `\(s\)` |
+| Type       | Parameter | Statistic |
+| T vs. O    | Theoretical | Observed |
+]
+
+---
+
+### All sample statistics are wrong, but they become more useful as the sample size increases
+
+.pull-left-small[
+- The parameters of this population distribution are unknown
+
+- We use the sample to inform us about the likely characteristics of the population
+]
+
+.pull-right-large[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+### Samples from the population 
+
+.pull-left-small[
+Each *sample distribution* will resemble the population. That resemblance will be better as sample size increases.
+
+Statistics (e.g., mean) can be calculated for any sample.
+]
+
+.pull-right-large[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+### Sampling Distribution
+
+.pull-left-small[
+- Say you repeated an experiment 100 times, each time using a new sample. Nothing else changes. Each sample has it's own mean (and other statistics).
+- That's 100 means. You can have a distribution of means rather than of scores. That's a sampling distribution! **Distribution of statistics**
+]
+
+.pull-right-large[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+### Sampling Distribution
+
+.pull-left-small[
+- The mean of the sampling distribution converges on the population mean, `\(\mu\)` 
+- The sampling distribution can also have it's own spread (variance/standard deviation). This tell us how typical or rare the sample statistic is likely to be. We call this the **standard error of the mean** (SEM). 
+- Note it could be any statistic (standard error of the median, standard error of the range etc.)
+]
+
+.pull-right-large[
+&lt;img src="21-slides_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Notation
+
+
+|             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution | Sampling&lt;br&gt;Distribution |
+|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
+| Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`   | Statistics&lt;br&gt; `\(\bar{x}, s, s^2\)` | 
+| Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      | `\(\mu_M\)` |
+| Dispersion | `\(\sigma^2\)` | `\(s^2\)` | `\(\sigma^2_M\)` |
+|            | `\(\sigma\)` | `\(s\)` | SEM `\(\sigma_M\)` |
+| Type       | Parameter | Statistic | Statistic of statistics |
+| T vs. O    | Theoretical | Observed | Theoretical
+
+---
+
+# Sampling Distributions
+
+- Distribution of values of a particular statistic ( `\(\bar{x}\)`, `\(s^2\)`, `\(s\)`) across all possible samples of N observations
+- One of the most important discoveries in statistics is that the sampling distributions of many statistics are approximately **normal** even when the sample (and population) distributions are not normal!
+- [Play around with this if you want to prove it to yourself](http://shiny.calpoly.sh/Sampling_Distribution/)
+- Why does this matter? Because as we saw earlier, the normal distribution is awesome!
+
+---
+
+# Scroll back
+
+- Remember that whole exercise we did earlier in this lecture with the Starwars dataset?
+
+  - We took a vector of heights
+  - Turned them into `\(z\)`-scores
+  - Asked *"how likely is it that we got this particular `\(z\)`-score or something more extreme?"*
+
+--
+
+- Now, we are going to do this exact sampe procedure, but this time, rather than working with individual scores, we're going to work with **means**. Is it likely or unlikely that we got a particular mean (or more extreme), if it comes from a particular sampling distribution of means? 
+
+--
+
+_**This is what we're actually interested in!**_
+
+---
+class: inverse
+
+# Next time...
+
+- Comparing means with NHST...putting it all together
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
