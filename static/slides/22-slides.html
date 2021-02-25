@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Sampling Distributions</title>
+    <title>Comparing Means</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer-yellow.css" type="text/css" />
@@ -11,7 +11,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Sampling Distributions
+# Comparing Means
 
 ---
 
@@ -40,426 +40,1127 @@ The standard normal distribution is a particular type of normal distribution
 Using the standard normal &amp; these cool properties, we can make probability statements
   - What is the probability of getting a z-score or more extreme?
 
----
-name: pvs
-# What do we want?
+--
 
-We want to make inferences about a population
-
-  - But the population is too large to measure directly
-  - So we need to estimate the population parameters
+Sampling Distributions are distributions of statistics
+  - They also happen to mostly be normally distributed...let's use this!
   
 ---
+name: ex
 
-# Population
+# Example 
 
-- The population distribution is a *theoretical probability distribution* that has some mathematical form
+University X has been around for 150 years, and so has 150 years worth of ratings of male applicants. You pay an undergrad dig through all the old university files and calculate the average rating of male applicants (5.3 out of 10) and also the standard deviation of those ratings (3.3). 
 
-- Ultimately we want to use a sample distribution to understand the population distribution
+You then collect the ratings of 9 female applicants in 2018 and calculate their average rating (2.9) and also the standard deviation of their rating (3.1)
 
----
+How do you generate the sampling distribution around the null?
 
-# What is the *point* of inferential stats?
-
-Point estimation: we use our sample statistics to take our best guess of the population parameter
-
-We know that our estimates will vary from sample to sample
-
-We're using our sample as an estimate
-  - Sample mean `\(\bar{X}\)` is an **_estimator_** of `\(\mu\)`
-  - A specific sample is an **_estiamte_**
-
----
-
-# Population vs. Sample
-
-|             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution |
-|:-----------:|:-----------:|:-----------:|:-----------:|
-| Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`       | 
-| Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      | 
-| Dispersion | `\(\sigma^2\)` | `\(s^2\)` |
-|            | `\(\sigma\)` | `\(s\)` |
-| Type       | Parameter | Statistic |
-| T vs. O    | Theoretical | Observed |
-
-
----
-name: sampling
-# Sampling Distribution
-
-- The major goal that we have in statistical inference is to make confident claims about the *population* based on a small representation of it, the *sample*.
-
-- Any sample will be off the mark in how well it captures the important features of a population. The **sampling distribution** tells us how far off the mark we can expect a sample statistic to be. 
-
-
----
-# Sampling Distribution
-We use features of the sample (*statistics*) to tell us about features of the population (*parameters*).
-
-The quality of this information goes up as sample size goes up
-
-All sample statistics are wrong, but they become more useful as sample size increases. 
-
----
-# Sampling Distribution
-
-.pull-left[
-
-The parameters of this distribution are unknown.
-
-What can we do? We can use the sample to inform us about the likely characteristics of the population.
-
-]
-
-.pull-right[
-
-&lt;img src="22-slides_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
-]
 ---
 
 .left-column[
-
-### Samples from the population 
-
 .small[
-Each *sample distribution* will resemble the population. That resemblance will be better as sample size increases.
 
-Statistics (e.g., mean) can be calculated for any sample.
+The mean of the sampling distribution = the mean of the null hypothesis
+
+The standard deviation of the sampling distribution:
+
 ]
+
+]
+
+&lt;img src="22-slides_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+
+???
+Pop mean (male) = 5.3
+SD populataion (males) = 3.3
+construct it around the null
+
+##What must we assume in order to use the SEM?
+
+Random sampling
+
+---
+
+.left-column[
+.small[
+
+The mean of the sampling distribution = the mean of the null hypothesis
+
+The standard deviation of the sampling distribution:
+
+`$$SEM = 
+\frac{\sigma}{\sqrt{N}}$$`
+]
+
 ]
 
 &lt;img src="22-slides_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
 
 ???
-here, the sample sizes is 30 fo each of these 4 graphs. each of theses is a sample. and each sample has it's only mean and sd. 
----
+Now, we're trying to decide if given this null hypothesis, that has a distribution that looks like so, is it likely that our females come from this same distribution. the females had a mean of 2.9, so our purple line moves over. The standard deviation of our sampling distribution here is our standard error of the mean. to caluclate that we take our population standard deviation, sigma, and divide by the square root of N. we had 9 females, so square root of 9. this turns out to be 1.1. Even though we're only talking about this tail at the moment, i've plotted out the equivalent tail on the other side. 
 
-.left-column[
-.small[
+Calculate SEM on board.
 
-Say you repeated an experiment 100 times, each time using a new sample. Each sample has it's own mean (and other statistics). 
+`\(\sigma = 3.3\)`
 
-That's 100 means. You can have a distribution of means rather than of scores. That's a sampling distribution! **Distribution of statistics**
-
-The mean of the **sampling distribution** converges on population mean, `\(\mu\)`
-
-]
-]
-
-&lt;img src="22-slides_files/figure-html/sampling1-1.png" style="display: block; margin: auto;" /&gt;
+`\(N = 9\)`
 
 ---
+# Example Cont...
+All well and good. 
 
-.left-column[
-### Sampling Distribution 
-.small[
-This distribution has a standard deviation that tells us how typical or rare values of the sample statistic are likely to be.
-
-The sampling distribution of the mean is of particular interest, it's called the **standard error of the mean** (SEM). 
-]
-]
-
-
-&lt;img src="22-slides_files/figure-html/sampling2-1.png" style="display: block; margin: auto;" /&gt;
-
-???
-
-Sampling distributions can be constructed around any statistic -- ranges, standard deviations, difference scores. The standard errors of those distributions are also standard errors. (E.g., the standard error of the difference.)
-
----
-
-# Notation
-
-
-|             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution | Sampling&lt;br&gt;Distribution |
-|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-| Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`   | Statistics&lt;br&gt; `\(\bar{x}, s, s^2\)` | 
-| Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      | `\(\mu_M\)` |
-| Dispersion | `\(\sigma^2\)` | `\(s^2\)` | `\(\sigma^2_M\)` |
-|            | `\(\sigma\)` | `\(s\)` | SEM `\(\sigma_M\)` |
-| Type       | Parameter | Statistic | Statistic of statistics |
-| T vs. O    | Theoretical | Observed | Theoretical
-
----
-
-# Sampling Distributions
-
-- Distribution of values of a particular statistic ( `\(\bar{x}\)`, `\(s^2\)`, `\(s\)`) across all possible samples of N observations
-- One of the most imporat
----
-# Interactive Example
-
-PLAY WITH THIS!
-
-[Sampling distribution example](http://shiny.calpoly.sh/Sampling_Distribution/)
-
----
-# Sampling Distribution Approximates the Normal
-
-One of the most important discoveries in statistics is that the sampling distributions of many statistics are approximately **normal** even when the sample (and population) distributions are not.
-
-The mean of a random sample will not precisely equal the population mean. But, how far off will it be? 
-
-The error represented by how far off a sample mean is from the population mean is called **sampling error**.  
-
----
-name: clt
-# Central Limit Theorem
-
-According to the **central limit theorem**, as sample size increases, the sampling distribution of the mean approaches normality, even when the data upon which the mean is based are not normally distributed.
-
-The sample size necessary to be "approximately normal" depends on the nature of the underlying data.  The less normal it is, the larger the sample size necessary in order for the sampling distribution of the means to become normal.
-
-"Around sample size of 30" is a common rule of thumb.
-
-???
-
-Regardless of the CLT, if the data are skewed, we might wonder if the mean is the best estimator to use here.
-
----
-# Central Limit Theorem
-.left-column[Ends up that quite a few sample statistics approach normality as sample size increases.
-
-Here is the sample standard deviation from a normal distribution with `\(\sigma = 1\)`.
-]
-
-&lt;img src="22-slides_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
-
----
-# Central Limit Theorem
-
-.left-column[And the range.]
-
-&lt;img src="22-slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
-???
-Note here that we're not just narrowing in, but our mean estimate is getting larger. 
-
-Remember bias?
-
----
-
-# Relationship Between Population &amp; Sampling
-
-- If the population is normally distributed, the sampling distribution of the mean will be normally disributed
-
-- If the population distribution is not normally distributed, the sampling distribution of the mean will become increasingly normally disributed as sample size increases
-
-- We can use the normal distribution to make inferences about the unknown population mean, based on the sample mean and sample standard deviation
-
----
-name: sem
-
-# Mean of the Sampling Distribution
-
-The mean of the sampling distribution converges on the population mean, `\(\mu\)`
-
-Our sample mean is not biased; we'll be a little wrong, but it'll be OK
-
----
-# Variability of the Sampling Distribution
-
-**Standard Error of the Mean**
-  - The standard deviation of the sampling distribution
-  - Directly related to the variability of the underlying data:
-
-`$$\sigma_{m} = \frac{\sigma_x}{\sqrt{N}}$$`
-
-- The smaller the SEM, the more likely it is that your sample estimate of the mean will be closer to the population estimate of the mean
-- SEM is a function of sample size! The more accurate your sample mean, the closer you are to approximating the population, and the smaller the standard error 
-
-???
-We do not know `\(\sigma\)` but we can estimate it based on the sample statistic:
-
-`$$\hat{\sigma} = s = \sqrt{\frac{\sum(x - \bar{x})^2}{N-1}}$$`
-
----
-
-# More SEM
-
-`$$\hat{\sigma} = s = \sqrt{\frac{\sum(x - \bar{x})^2}{N-1}}$$`
-
-This is the sample estimate of the population standard deviation.  This is an unbiased estimate of `\(\sigma\)` and relies on the sample mean, which is an unbiased estimate of `\(\mu\)`.
-
-This is different from the sample standard deviation, which divides the sum of squares by `\(N\)` rather than `\(N-1\)`.
-
-`$$SEM = \sigma_M = \frac{\hat{\sigma}}{\sqrt{N}} = \frac{\text{Estimate of pop SD}}{\sqrt{N}}$$`
-
-
----
-# Making Statements
-
-The sampling distribution of means can be used to make probabilistic statements about means in the same way that the standard normal distribution is used to make probabilistic statements about scores.
-
-For example, we can determine the range within which the population mean is likely to be with a particular level of confidence.
-
-Or, we can propose different values for the population mean and ask how typical or rare the sample mean would be if that population value were true.  We can then compare the plausibility of different such “models” of the population.
-
-???
-The key is that we have a sampling distribution of the mean with a standard deviation **(the SEM)** that is linked to the population:
-
----
-name: ci
-# Confidence Intervals
-
-The sampling distribution of the mean has variability, represented by the SEM, reflecting uncertainty in the sample mean as an estimate of the population mean.
-
-The assumption of normality allows us to construct an interval within which we have good reason to believe a population mean will fall: 
-
-$$\bar{X} - (1.96\times SEM) \leq \mu \leq \bar{X} + (1.96\times SEM) $$
-
-???
-Sampling distributions are normally distributed
----
-# Confidence Intervals
-
-$$\bar{X} - (1.96\times SEM) \leq \mu \leq \bar{X} + (1.96\times SEM) $$
-
-- This is referred to as the **95% confidence interval (CI)**
-- The 95% CI is sometimes represented as:
-
-`$$CI_{95} = \bar{X} \pm [1.96\frac{\hat{\sigma}}{\sqrt{N}}]$$`
-
----
-name: tdist
-
-.left-column[
-.small[
-### The `\(t\)`
-
-The normal distribution assumes we know the population mean and standard deviation. But we don’t. We only know the *sample* mean and standard deviation, and those have some uncertainty about them. 
-
-That uncertainty is reduced with large samples, so that it's “close enough” to the normal. In small samples, the `\(t\)` distribution is better.
-]
-]
-
-&lt;img src="22-slides_files/figure-html/unnamed-chunk-5-1.png" style="display: block; margin: auto;" /&gt;
-
----
-# `\(t\)` distribution
-
-- The primary difference between the normal distribution and the `\(t\)` distribution is the fatter tails
-  - This produces wider confidence intervals
-  - The penalty we have to pay for our ignorance about the population
-
-- The form of the confidence interval remains the same. We simply substitute a corresponding value from the `\(t\)` distribution (using df = `\(N -1\)`).
-
-
-`$$CI_{95} = \bar{X} \pm [1.96\frac{\hat{\sigma}}{\sqrt{N}}]$$`
-
-`$$CI_{95} = \bar{X} \pm [t_{.975, df = N-1}\frac{\hat{\sigma}}{\sqrt{N}}]$$`
-
----
-# Confidence Intervals
-
-What does it NOT mean?
-  - There is a 95% probability that the true mean lies inside the confidence interval
+But rarely will you have access to all the data in your population, so you won't be able to calculate the population standard deviation. What ever will you do?
 
 --
 
-What it *actually* means:
-  - If we carried out random sampling from the population a large number of times...
-  - and calculated the 95% confidence interval each time...
-  - then 95% of those intervals can be expected to contain the population mean.
+`$$SEM = \frac{\hat{\sigma}}{\sqrt{N}} = \frac{s}{\sqrt{N}}$$`
+
+So long as your estimate of the standard deviation is already corrected for bias (you've divided by `\(N-1\)` ), then you can swap in your sample SD.
 
 
 ---
 
 .left-column[
+
 .small[
-###Simulation
+If you didn't know the population (male's) standard deviation, you would use the sample of females to estimate the population standard deviation.
 
-At each sample size, draw 5000 samples from known population ( `\(\mu = 0\)` , `\(\sigma = 1\)` ). 
+`$$SEM = \frac{\hat{\sigma}}{\sqrt{N}}$$`]
+]
 
-Calculate CI for each sample using `\(s\)` and record whether or not 0 was in that interval.
+&lt;img src="22-slides_files/figure-html/sampling-1.png" style="display: block; margin: auto;" /&gt;
 
-Calculate CI using for each sample using `\(\sigma\)`.
+???
 
+Calculate SEM on board.
+
+`\(\hat{\sigma} = 3.1\)`
+
+`\(N = 9\)`
+
+---
+
+.pull-left[
+&lt;img src="22-slides_files/figure-html/unnamed-chunk-3-1.png" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+
+
+
+We have a normal distribution for which we know the mean (M), the standard deviation (SEM), and a score of interest ( `\(\bar{X}\)` ). 
+
+We can use this information to calculate a Z-score; in the context of comparing one mean to a sampling distribution of means, we call this a **Z-statistic**. 
+]
+
+`$$Z = \frac{\bar{X}- M}{SEM} = \frac{2.9-5.3}{1.03} = -2.18$$`
+
+???
+The z here isn't a z-score bc indtrsf we’re calculating standardised version of a sample mean,
+not a standardised version of a single observation, which is what a z-score usually refers to)
+
+let's just recap. our null hypothesis was that the mean of females equaled the mean of females in their applicaton ratings. the alternative is that these means are different. That is, the null is that males and females come from the same population dist, and the alternative is that the females do not come from the same population dist as the males. the population mean of the males, 5.3, was used to derive the null distribution. then we used our sample estimate of the standard deviation from the females as a way of approximating the male population standard deviation (we're pretending we didn't know that). We used this to get a standard error of the mean, and we put it all together to get this z-statistic. the z tells us the number of standard errors that separate the observed sample mean from our population mean, that's predicted by our null hypothesis. 
+---
+
+`$$Z = \frac{\bar{X}- M}{SEM} = \frac{2.9-5.3}{1.03} = -2.18$$`
+
+
+And here's where we use the properties of the Standard Normal Distribution to calculate probabilities, specifically the probability of getting a score this far away from `\(\mu\)` or more extreme:
+
+
+```r
+pnorm(-2.18) + pnorm(2.18, lower.tail = F)
+```
+
+```
+## [1] 0.02925746
+```
+
+```r
+pnorm(-2.18)*2
+```
+
+```
+## [1] 0.02925746
+```
+
+The probability that the average female applicant's score would be at least 2.32 units away from the average male score is 0.029.
+
+This whole process is called the `\(z\)`-test. It's almost never used IRL, but it's a useful tool in terms of understanding what's happening. We use it when we want to know if our mean is the same or different from a population mean. 
+
+---
+
+The probability that the average female applicant's score would be at least 2.18 units away from the average male score is 0.029.
+
+0.029 is our p-value. 
+
+### A p-value DOES NOT:
+
+- Tell you that the probability that the null hypothesis is true. 
+
+- Prove that the alternative hypothesis is true. 
+    
+- Tell you anything about the size or magnitude of any observed difference in your data. 
+    
+---
+
+`$$p = 0.029$$` 
+
+    
+Is that a really low probability?
+
+--
+
+Before you test your hypotheses -- ideally, even before you collect the data -- you have to determine how low is too low. 
+
+Researchers set an alpha ( `\(\alpha\)` ) level that is the probability at which you declare your result to be "statistically significant." How do we determine this?
+
+--
+
+Consider what the p-value means. In a world where the null ( `\(H_0\)` ) is true, then by chance, we'll get statistics in the extreme. Specifically, we'll get them `\(\alpha\)` proportion of the time. So `\(\alpha\)` is our tolerance for False Positives or incorrectly rejecting the null.
+
+---
+
+## NHST Steps
+
+1. Define `\(H_0\)` and `\(H_1\)`. 
+
+2. Choose your `\(\alpha\)` level. 
+
+3. Collect data.
+
+4. Define your sampling distribution using your null hypothesis and either the knowns about the population or estimates of the population from your sample.
+
+5. Calculate the probability of your data or more extreme under the null. (To get the probability, you'll need to calculate some kind of standardized score, like a z-statistic.)
+
+6. Compare your probability (p-value) to your `\(\alpha\)` level and decide whether your data are "statistically significant" (reject the null) or not (fail to reject the null).
+
+---
+# Who Cares?
+
+Nearly all statistical tests follow this format. The things that are different are which sampling distribution to use (is it normal, a `\(t\)`, a `\(F\)`, a binomial, a poisson etc.)
+
+---
+
+name: ttest
+# `\(t\)`-tests
+
+We don't really use `\(z\)`-tests much, but we do use `\(t\)`-tests!
+
+One Sample, Independent Samples (2 kinds), and Paired Samples
+
+  - I want you to know...
+    - What each of these is testing
+    - When we use each one
+    - How to interpret the findings
+    - How to perform them in `R`
+    
+  - I don't care about...
+    - Knowing the formula
+    - Being able to calculate by hand
+
+---
+# The `\(t\)` distribution
+
+.left-column[
+.small[
+
+The normal distribution assumes we know the population mean and standard deviation. But we don’t usually. We only know the *sample* mean and standard deviation, and those have some uncertainty about them. 
+
+That uncertainty is reduced with large samples, so that it's “close enough” to the normal. In small samples, the `\(t\)` distribution is better.
 ]
 ]
 
 &lt;img src="22-slides_files/figure-html/unnamed-chunk-6-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
-name: ex
-## Examples
-.small[
-In the past, my classroom exams (aggregating over many classes) have a mean of 90 and a standard deviation of 8.
+# `\(t\)` distribution
 
-My next class will have 100 students. What range of exam means would be plausible if this class is similar to past classes (comes from the same population)?
+- The primary difference between the normal distribution and the `\(t\)` distribution is the fatter tails
+  - At smaller N, it becomes **harder** to reject the null hypothesis in favor of the alternative
+  - The penalty we have to pay for our ignorance about the population
+
+- When we want to do a `\(t\)`-test, we should use the `\(t\)` sampling distribution; not the normal (unless we have a large N, in which case they'll give you the same answers)
+
+- There are different types, so let's work through them
+
+---
+# One sample `\(t\)`-test
+
+The question: "Is my sample mean equal to a population mean?" The vast majority of the time, we're asking if it's different from 0.
+
+You've basically already done this! It is the exact same procedure as what we just went through with the `\(z\)`-test. The only differences are:
+
+  - We don't know the population standard deviation, so to calculate the SEM, we use our best estimate of sigma ( `\(\hat{\sigma}\)` ), which is our sample standard deviation that has been corrected for bias ($s$) using that `\(N-1\)` denominator
+  - We use the `\(t\)` sampling distribution. If doing it the long way like before, to get the p-values, use the `pt()` function instead of the `pnorm()` function. Or just use the data...
+  
+---
+# One sample `\(t\)`-test
+
+
+```r
+kable(head(iris))
+```
+
+
+
+| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
+|------------:|-----------:|------------:|-----------:|:-------|
+|          5.1|         3.5|          1.4|         0.2|setosa  |
+|          4.9|         3.0|          1.4|         0.2|setosa  |
+|          4.7|         3.2|          1.3|         0.2|setosa  |
+|          4.6|         3.1|          1.5|         0.2|setosa  |
+|          5.0|         3.6|          1.4|         0.2|setosa  |
+|          5.4|         3.9|          1.7|         0.4|setosa  |
+
+---
+# One sample `\(t\)`-test
+
+.code-small[
+
+```r
+# way 1 -- not as recommended unless mu is a number other than 0
+t.test(x = iris$Sepal.Length, mu = 0)
+```
+
+```
+## 
+## 	One Sample t-test
+## 
+## data:  iris$Sepal.Length
+## t = 86.425, df = 149, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  5.709732 5.976934
+## sample estimates:
+## mean of x 
+##  5.843333
+```
+
+```r
+# way 2 -- recommended if mu = 0
+t.test(Sepal.Length ~ 1, data = iris)
+```
+
+```
+## 
+## 	One Sample t-test
+## 
+## data:  Sepal.Length
+## t = 86.425, df = 149, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 0
+## 95 percent confidence interval:
+##  5.709732 5.976934
+## sample estimates:
+## mean of x 
+##  5.843333
+```
 ]
 
+---
+
+# Accessing Your Results
+
+Ok, you just ran a `\(t\)`-test. And you want to keep that output to use for later, so you store it as an object
+
+.code-small[
 
 ```r
-M = 90
-SD = 8
-N = 100
-
-sem = SD/sqrt(N)
-
-ci_lb_z = M - sem * qnorm(p = .975)
-ci_ub_z = M + sem * qnorm(p = .975)
-print(c(ci_lb_z, ci_ub_z))
+oneSample &lt;- t.test(Sepal.Length ~ 1, data = iris)
 ```
+]
 
-```
-## [1] 88.43203 91.56797
-```
+If you look in your Environment, you'll notice this is stored as a List object. Lists can be annoying. You can press on the blue arrow to see the different items contained in your list. To actually accsess them we're going to use our old favorite, **indexing**
+
+--
+
+For instance, to get the p-value, we need to access the 3rd thing in the list
+
 
 ```r
-ci_lb_z = M - sem * qt(p = .975, df = N-1)
-ci_ub_z = M + sem * qt(p = .975, df = N-1)
-print(c(ci_lb_z, ci_ub_z))
+oneSample[3]
 ```
 
 ```
-## [1] 88.41263 91.58737
+## $p.value
+## [1] 3.331256e-129
+```
+
+See how the name `$p.value` prints out. This makes it hard to actually do math with! It's a *"named number"*. We want to get rid of that name, by going in a little deeper.
+
+
+```r
+oneSample[[3]]
+```
+
+```
+## [1] 3.331256e-129
 ```
 
 ---
-## Examples
-.small[
-I give a classroom exam that produces a mean of 83.4 and a standard deviation of 10.6. A total of 26 students took the exam.
+# Accessing Your Results
 
-What is the 95% confidence interval around the mean?
-]
+The list thing can get obnoxious. We'll revisit it later in the semester. But for now, there's an easier way using `tidyverse`. Specifically, we will use the `broom` package. Even though it's part of the `tidyverse` ecosystem, it does not load when you load `tidyverse`. So you'll need to do that manually. 
+
 
 ```r
-M = 83.4
-SD = 10.6
-N = 26
+library(broom)
+oneSample &lt;- t.test(Sepal.Length ~ 1, data = iris)
+tidyOneSample &lt;- tidy(oneSample)
 
-sem = SD/sqrt(N)
-
-ci_lb_z = M - sem * qnorm(p = .975)
-ci_ub_z = M + sem * qnorm(p = .975)
-print(c(ci_lb_z, ci_ub_z))
+kable(tidyOneSample)
 ```
 
-```
-## [1] 79.32557 87.47443
-```
+
+
+| estimate| statistic| p.value| parameter| conf.low| conf.high|method            |alternative |
+|--------:|---------:|-------:|---------:|--------:|---------:|:-----------------|:-----------|
+| 5.843333|  86.42537|       0|       149| 5.709733|  5.976934|One Sample t-test |two.sided   |
+
+---
+# Independent Samples `\(t\)`-test
+
+The question: "Are two means different from one another?" Another way of thinking about this is "is the difference between the means equal to 0?" This is almost always asked in the context of a dichotomous variable.
+
+Two types:
+
+  1. Welch's `\(t\)`-test, the default in `R`. Assumes the variances are unequal
+  2. Student's `\(t\)`-test. Assumes the variances are equal
+
 
 ```r
-ci_lb_z = M - sem * qt(p = .975, df = N-1)
-ci_ub_z = M + sem * qt(p = .975, df = N-1)
-print(c(ci_lb_z, ci_ub_z))
-```
+irisSmall &lt;- iris %&gt;% 
+  filter(Species != "setosa")
 
-```
-## [1] 79.11857 87.68143
+tidyWelch &lt;- tidy(t.test(Sepal.Length ~ Species, data = irisSmall))
+tidyStudent &lt;- tidy(t.test(Sepal.Length ~ Species, data = irisSmall, var.equal = T))
 ```
 
 ---
-# All Together
+# Independent Samples `\(t\)`-test
 
-|             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution | Sampling&lt;br&gt;Distribution |
-|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-| Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`   | Statistics&lt;br&gt; `\(\bar{x}, s, s^2\)` | 
-| Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      | `\(\mu_M\)` |
-| Dispersion | `\(\sigma^2\)` | `\(s^2\)` | `\(\sigma^2_M\)` |
-|            | `\(\sigma\)` | `\(s\)` | SEM `\(\sigma_M\)` |
-| Type       | Parameter | Statistic | Statistic of statistics |
-| T vs. O    | Theoretical | Observed | Theoretical
+```r
+kable(tidyWelch)
+```
+
+
+
+| estimate| estimate1| estimate2| statistic| p.value| parameter|   conf.low|  conf.high|method                  |alternative |
+|--------:|---------:|---------:|---------:|-------:|---------:|----------:|----------:|:-----------------------|:-----------|
+|   -0.652|     5.936|     6.588| -5.629165|   2e-07|  94.02549| -0.8819731| -0.4220269|Welch Two Sample t-test |two.sided   |
+
+```r
+kable(tidyStudent)
+```
+
+
+
+| estimate| estimate1| estimate2| statistic| p.value| parameter|   conf.low|  conf.high|method            |alternative |
+|--------:|---------:|---------:|---------:|-------:|---------:|----------:|----------:|:-----------------|:-----------|
+|   -0.652|     5.936|     6.588| -5.629165|   2e-07|        98| -0.8818516| -0.4221484|Two Sample t-test |two.sided   |
+
+---
+# Paried `\(t\)`-test
+
+In the independent sample `\(t\)`-test, we assume that our data are truly independent. What if they're not? Examples: romantic partners, change in year 1 to year 2 etc. AKA *"repeated measures"*
+
+Let's say we have something like `happiness year 1` and `happiness year 2`. You can't ask if the means are different, because these are very correlated. What we can do is say "is the difference score equal to 0?" That is, "`happiness year 1 - happiness year 2`; is that equal to 0?" This is basically a one-sample `\(t\)`-test but on difference scores now. 
+
+---
+
+# Paried `\(t\)`-test
+
+Let's pretend that the the species `versicolor` and `virginica` are actually related (they both start with `v`, right? lol)
+
+
+```r
+pairedV1 &lt;- tidy(t.test(Sepal.Length ~ Species, data = irisSmall, paired = T))
+
+kable(pairedV1)
+```
+
+
+
+| estimate| statistic| p.value| parameter|  conf.low| conf.high|method        |alternative |
+|--------:|---------:|-------:|---------:|---------:|---------:|:-------------|:-----------|
+|   -0.652| -5.275345|   3e-06|        49| -0.900371| -0.403629|Paired t-test |two.sided   |
+
+---
+name: anova
+
+# More Means
+
+What if you want to compare more than 2 means? Now you're in ANOVA territory
+
+--
+
+#### Oneway ANOVA
+
+You still have a single independent variable, but instead of it being dichotomous, it's trichotomous (or more)
+
+--
+
+#### Other ANOVAs
+
+You have more than 1 independent variable, but they are all still factors (not continuous). 
+
+---
+
+# ANOVA
+
+To keep things simple, let's say we have a Oneway ANOVA with the original `iris` dataset that has 3 sepcies. The null hypothesis is: 
+
+$$ \mu_{setosa} = \mu_{versicolor} = \mu_{viriginica} $$
+
+--
+
+But the alternative hypothesis is that "at least one of these means are different from each other." That could be: 
+
+$$ \mu_{setosa} \neq \mu_{versicolor} = \mu_{virgininca} $$
+$$\mu_{setosa} = \mu_{versicolor} \neq \mu_virginica $$
+
+...or any of these combinations. 
+
+---
+# ANOVA
+
+Instead of using the `\(t\)` or normal distributions, we use the `\(F\)` distribution for ANOVA. The `\(F\)` is a ratio of variances. We take the variance between groups and compare it to the variance within groups (and error).
+
+The idea is that if there is a lot of variance because the means between groups are super different, then the numerator is large while the denominator is small. 
+
+If the means aren't that different, then there's not going to be a lot of variance in the numerator. Instead, the variance in the denominator will take over. This would yield a non-significant ANOVA.
+
+Fun things: Your `\(F\)` statistic cannot be negative. There is no such thing as a negative variance, and we're looking at a ratio of variances. 0 is the smallest it gets.
+---
+#ANOVA
+
+It's the same code from lecture #9. You'll still want to nest `aov()` inside of `summary()`. To store for later, we can still use `tidy()` from the `broom` package. `glance()` from the `broom` package can also help with getting our `\(R^2\)` (variance explained). 
+
+.pull-left[
+.code-small[
+
+```r
+summary(aov(Sepal.Length ~ Species, data = iris))
+```
+
+```
+##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Species       2  63.21  31.606   119.3 &lt;2e-16 ***
+## Residuals   147  38.96   0.265                   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+]
+]
+
+.pull-right[
+.code-small[
+
+```r
+#to tidy it, keep it out of the summary
+
+onewayEx &lt;- tidy(aov(Sepal.Length ~ Species, data = iris))
+onewayEx
+```
+
+```
+## # A tibble: 2 x 6
+##   term         df sumsq meansq statistic   p.value
+##   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Species       2  63.2 31.6        119.  1.67e-31
+## 2 Residuals   147  39.0  0.265       NA  NA
+```
+]
+]
+
+---
+# Downsides
+
+`\(t\)`-tests and ANOVAs are both just special cases of **regression**. In our regression lecture, we'll talk about this.
+
+Regression is a much more flexible framework for statistical analysis. Generally speaking, `\(t\)`-tests are fine staying as `\(t\)`-tests, but if you ever want to run an ANOVA (especially with 2+ predictors), I **strongly** suggest using regression instead of ANOVA. It's the same thing, but you'll get more for your money with regression, and you can start to include predictors that are continuous and categorical -- no need to choose!
+
+---
+class: inverse
+
+# Next time...
+
+Power analyses 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;!-- # Population --&gt;
+
+&lt;!-- - The population distribution is a *theoretical probability distribution* that has some mathematical form --&gt;
+
+&lt;!-- - Ultimately we want to use a sample distribution to understand the population distribution --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # What is the *point* of inferential stats? --&gt;
+
+&lt;!-- Point estimation: we use our sample statistics to take our best guess of the population parameter --&gt;
+
+&lt;!-- We know that our estimates will vary from sample to sample --&gt;
+
+&lt;!-- We're using our sample as an estimate --&gt;
+&lt;!--   - Sample mean `\(\bar{X}\)` is an **_estimator_** of `\(\mu\)` --&gt;
+&lt;!--   - A specific sample is an **_estiamte_** --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Population vs. Sample --&gt;
+
+&lt;!-- |             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution | --&gt;
+&lt;!-- |:-----------:|:-----------:|:-----------:|:-----------:| --&gt;
+&lt;!-- | Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`       |  --&gt;
+&lt;!-- | Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      |  --&gt;
+&lt;!-- | Dispersion | `\(\sigma^2\)` | `\(s^2\)` | --&gt;
+&lt;!-- |            | `\(\sigma\)` | `\(s\)` | --&gt;
+&lt;!-- | Type       | Parameter | Statistic | --&gt;
+&lt;!-- | T vs. O    | Theoretical | Observed | --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- name: sampling --&gt;
+&lt;!-- # Sampling Distribution --&gt;
+
+&lt;!-- - The major goal that we have in statistical inference is to make confident claims about the *population* based on a small representation of it, the *sample*. --&gt;
+
+&lt;!-- - Any sample will be off the mark in how well it captures the important features of a population. The **sampling distribution** tells us how far off the mark we can expect a sample statistic to be.  --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- # Sampling Distribution --&gt;
+&lt;!-- We use features of the sample (*statistics*) to tell us about features of the population (*parameters*). --&gt;
+
+&lt;!-- The quality of this information goes up as sample size goes up --&gt;
+
+&lt;!-- All sample statistics are wrong, but they become more useful as sample size increases.  --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Sampling Distribution --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+
+&lt;!-- The parameters of this distribution are unknown. --&gt;
+
+&lt;!-- What can we do? We can use the sample to inform us about the likely characteristics of the population. --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+
+&lt;!-- ```{r, echo = F, warning = F, message = F} --&gt;
+&lt;!-- ggplot(data.frame(x = seq(-4, 4)), aes(x)) + --&gt;
+&lt;!--   stat_function(fun = function(x) dnorm(x), geom = "area") + --&gt;
+&lt;!--   scale_x_continuous("Variable X") + --&gt;
+&lt;!--   scale_y_continuous("Density") + --&gt;
+&lt;!--   labs(title = expression(Population~mu*"=0"~sigma~"=1"))+ --&gt;
+&lt;!--   theme(text = element_text(size = 20)) --&gt;
+
+&lt;!-- ``` --&gt;
+&lt;!-- ] --&gt;
+&lt;!-- --- --&gt;
+
+&lt;!-- .left-column[ --&gt;
+
+&lt;!-- ### Samples from the population  --&gt;
+
+&lt;!-- .small[ --&gt;
+&lt;!-- Each *sample distribution* will resemble the population. That resemblance will be better as sample size increases. --&gt;
+
+&lt;!-- Statistics (e.g., mean) can be calculated for any sample. --&gt;
+&lt;!-- ] --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- ```{r, echo=FALSE, warning=F, message=F} --&gt;
+&lt;!-- library(ggpubr) #for multiple plots --&gt;
+&lt;!-- sample_size = 30 --&gt;
+&lt;!-- set.seed(101919) --&gt;
+&lt;!-- for(i in 1:4){ --&gt;
+&lt;!--   sample = rnorm(n = sample_size) --&gt;
+&lt;!--   m = round(mean(sample),3) --&gt;
+&lt;!--   s = round(sd(sample),2) --&gt;
+&lt;!--   p = data.frame(x = sample) %&gt;% --&gt;
+&lt;!--     ggplot(aes(x = x)) + --&gt;
+&lt;!--     geom_histogram(color = "white") + --&gt;
+&lt;!--     geom_vline(aes(xintercept = m), color = "purple", size = 2, alpha = .5)+ --&gt;
+&lt;!--     scale_x_continuous(limits = c(-4,4)) + --&gt;
+&lt;!--     scale_y_continuous("", breaks = NULL) + --&gt;
+&lt;!--     labs(title = as.expression(bquote("Sample"~.(i)~", m ="~.(m)~", sd ="~.(s)))) --&gt;
+&lt;!--   assign(paste0("p",i), p) --&gt;
+&lt;!-- } --&gt;
+
+&lt;!-- ggarrange(p1,p2,p3,p4, ncol =2, nrow = 2) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- ??? --&gt;
+&lt;!-- here, the sample sizes is 30 fo each of these 4 graphs. each of theses is a sample. and each sample has it's only mean and sd.  --&gt;
+&lt;!-- --- --&gt;
+
+&lt;!-- .left-column[ --&gt;
+&lt;!-- .small[ --&gt;
+
+&lt;!-- Say you repeated an experiment 100 times, each time using a new sample. Each sample has it's own mean (and other statistics).  --&gt;
+
+&lt;!-- That's 100 means. You can have a distribution of means rather than of scores. That's a sampling distribution! **Distribution of statistics** --&gt;
+
+&lt;!-- The mean of the **sampling distribution** converges on population mean, `\(\mu\)` --&gt;
+
+&lt;!-- ] --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- ```{r sampling1, echo = F, warning = F, message = F} --&gt;
+&lt;!-- reps = 5000 --&gt;
+&lt;!-- means = rep(0, reps) --&gt;
+&lt;!-- se = 1/sqrt(sample_size) --&gt;
+&lt;!-- set.seed(101919) --&gt;
+&lt;!-- for(i in 1:reps){ --&gt;
+&lt;!--   means[i] = mean(rnorm(n = sample_size)) --&gt;
+&lt;!-- } --&gt;
+&lt;!-- data.frame(mean = means) %&gt;% --&gt;
+&lt;!--   ggplot(aes(x = mean)) +  --&gt;
+&lt;!--   geom_histogram(aes(y = ..density..),  --&gt;
+&lt;!--                  fill = "purple",  --&gt;
+&lt;!--                  color = "white") +   --&gt;
+&lt;!--   stat_function(fun = function(x) dnorm(x, mean = 0, sd = se), inherit.aes = F, size = 1.5) + --&gt;
+&lt;!--   labs(title = "Sampling Distribution") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- .left-column[ --&gt;
+&lt;!-- ### Sampling Distribution  --&gt;
+&lt;!-- .small[ --&gt;
+&lt;!-- This distribution has a standard deviation that tells us how typical or rare values of the sample statistic are likely to be. --&gt;
+
+&lt;!-- The sampling distribution of the mean is of particular interest, it's called the **standard error of the mean** (SEM).  --&gt;
+&lt;!-- ] --&gt;
+&lt;!-- ] --&gt;
+
+
+&lt;!-- ```{r sampling2, echo = F, warning = F, message = F} --&gt;
+&lt;!-- reps = 5000 --&gt;
+&lt;!-- means = rep(0, reps) --&gt;
+&lt;!-- se = 1/sqrt(sample_size) --&gt;
+&lt;!-- set.seed(101919) --&gt;
+&lt;!-- for(i in 1:reps){ --&gt;
+&lt;!--   means[i] = mean(rnorm(n = sample_size)) --&gt;
+&lt;!-- } --&gt;
+&lt;!-- data.frame(mean = means) %&gt;% --&gt;
+&lt;!--   ggplot(aes(x = mean)) +  --&gt;
+&lt;!--   geom_histogram(aes(y = ..density..),  --&gt;
+&lt;!--                  fill = "purple",  --&gt;
+&lt;!--                  color = "white") +   --&gt;
+&lt;!--   stat_function(fun = function(x) dnorm(x, mean = 0, sd = se), inherit.aes = F, size = 1.5) + --&gt;
+&lt;!--   labs(title = "Sampling Distribution") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- ??? --&gt;
+
+&lt;!-- Sampling distributions can be constructed around any statistic -- ranges, standard deviations, difference scores. The standard errors of those distributions are also standard errors. (E.g., the standard error of the difference.) --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Notation --&gt;
+
+
+&lt;!-- |             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution | Sampling&lt;br&gt;Distribution | --&gt;
+&lt;!-- |:-----------:|:-----------:|:-----------:|:-----------:|:-----------:| --&gt;
+&lt;!-- | Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`   | Statistics&lt;br&gt; `\(\bar{x}, s, s^2\)` |  --&gt;
+&lt;!-- | Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      | `\(\mu_M\)` | --&gt;
+&lt;!-- | Dispersion | `\(\sigma^2\)` | `\(s^2\)` | `\(\sigma^2_M\)` | --&gt;
+&lt;!-- |            | `\(\sigma\)` | `\(s\)` | SEM `\(\sigma_M\)` | --&gt;
+&lt;!-- | Type       | Parameter | Statistic | Statistic of statistics | --&gt;
+&lt;!-- | T vs. O    | Theoretical | Observed | Theoretical --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Sampling Distributions --&gt;
+
+&lt;!-- - Distribution of values of a particular statistic ( `\(\bar{x}\)`, `\(s^2\)`, `\(s\)`) across all possible samples of N observations --&gt;
+&lt;!-- - One of the most imporat --&gt;
+&lt;!-- --- --&gt;
+&lt;!-- # Interactive Example --&gt;
+
+&lt;!-- PLAY WITH THIS! --&gt;
+
+&lt;!-- [Sampling distribution example](http://shiny.calpoly.sh/Sampling_Distribution/) --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Sampling Distribution Approximates the Normal --&gt;
+
+&lt;!-- One of the most important discoveries in statistics is that the sampling distributions of many statistics are approximately **normal** even when the sample (and population) distributions are not. --&gt;
+
+&lt;!-- The mean of a random sample will not precisely equal the population mean. But, how far off will it be?  --&gt;
+
+&lt;!-- The error represented by how far off a sample mean is from the population mean is called **sampling error**.   --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- name: clt --&gt;
+&lt;!-- # Central Limit Theorem --&gt;
+
+&lt;!-- According to the **central limit theorem**, as sample size increases, the sampling distribution of the mean approaches normality, even when the data upon which the mean is based are not normally distributed. --&gt;
+
+&lt;!-- The sample size necessary to be "approximately normal" depends on the nature of the underlying data.  The less normal it is, the larger the sample size necessary in order for the sampling distribution of the means to become normal. --&gt;
+
+&lt;!-- "Around sample size of 30" is a common rule of thumb. --&gt;
+
+&lt;!-- ??? --&gt;
+
+&lt;!-- Regardless of the CLT, if the data are skewed, we might wonder if the mean is the best estimator to use here. --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Central Limit Theorem --&gt;
+&lt;!-- .left-column[Ends up that quite a few sample statistics approach normality as sample size increases. --&gt;
+
+&lt;!-- Here is the sample standard deviation from a normal distribution with `\(\sigma = 1\)`. --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- ```{r, echo = F, warning = F, message = F} --&gt;
+&lt;!-- set.seed(102419) --&gt;
+&lt;!-- reps = 1000 --&gt;
+&lt;!-- n2 = vector("numeric", reps) --&gt;
+&lt;!-- n5 = vector("numeric", reps) --&gt;
+&lt;!-- n25 = vector("numeric", reps) --&gt;
+&lt;!-- n100 = vector("numeric", reps) --&gt;
+
+&lt;!-- for(i in 1:reps){ --&gt;
+&lt;!--   n2[i] = sd(rnorm(n = 2)) --&gt;
+&lt;!--   n5[i] = sd(rnorm(n = 5)) --&gt;
+&lt;!--   n25[i] = sd(rnorm(n = 25)) --&gt;
+&lt;!--   n100[i] = sd(rnorm(n = 100)) --&gt;
+&lt;!-- } --&gt;
+
+&lt;!-- data.frame(N = rep(c(2,5,25,100), each = reps), s = c(n2, n5, n25, n100)) %&gt;% --&gt;
+&lt;!--   ggplot(aes(x = s)) +  --&gt;
+&lt;!--   geom_histogram(fill = "purple") +  --&gt;
+&lt;!--   scale_x_continuous("Standard Deviation")+ --&gt;
+&lt;!--   scale_y_continuous("Density") + --&gt;
+&lt;!--   facet_wrap(~N, scales = "free_y") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Central Limit Theorem --&gt;
+
+&lt;!-- .left-column[And the range.] --&gt;
+
+&lt;!-- ```{r, echo = F, warning = F, message = F} --&gt;
+&lt;!-- set.seed(102419) --&gt;
+&lt;!-- reps = 1000 --&gt;
+&lt;!-- n2 = vector("numeric", reps) --&gt;
+&lt;!-- n5 = vector("numeric", reps) --&gt;
+&lt;!-- n25 = vector("numeric", reps) --&gt;
+&lt;!-- n100 = vector("numeric", reps) --&gt;
+
+&lt;!-- for(i in 1:reps){ --&gt;
+&lt;!--   n2[i] = range(rnorm(n = 2))[2] - range(rnorm(n = 2))[1] --&gt;
+&lt;!--   n5[i] = range(rnorm(n = 5))[2] - range(rnorm(n = 5))[1] --&gt;
+&lt;!--   n25[i] = range(rnorm(n = 25))[2] - range(rnorm(n = 25))[1] --&gt;
+&lt;!--   n100[i] = range(rnorm(n = 100))[2] - range(rnorm(n = 100))[1] --&gt;
+&lt;!-- } --&gt;
+
+&lt;!-- data.frame(N = rep(c(2,5,25,100), each = reps), s = c(n2, n5, n25, n100)) %&gt;% --&gt;
+&lt;!--   ggplot(aes(x = s)) +  --&gt;
+&lt;!--   geom_histogram(fill = "purple") +  --&gt;
+&lt;!--   scale_x_continuous("Range")+ --&gt;
+&lt;!--   scale_y_continuous("Density") + --&gt;
+&lt;!--   facet_wrap(~N, scales = "free_y") --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ??? --&gt;
+&lt;!-- Note here that we're not just narrowing in, but our mean estimate is getting larger.  --&gt;
+
+&lt;!-- Remember bias? --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # Relationship Between Population &amp; Sampling --&gt;
+
+&lt;!-- - If the population is normally distributed, the sampling distribution of the mean will be normally disributed --&gt;
+
+&lt;!-- - If the population distribution is not normally distributed, the sampling distribution of the mean will become increasingly normally disributed as sample size increases --&gt;
+
+&lt;!-- - We can use the normal distribution to make inferences about the unknown population mean, based on the sample mean and sample standard deviation --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- name: sem --&gt;
+
+&lt;!-- # Mean of the Sampling Distribution --&gt;
+
+&lt;!-- The mean of the sampling distribution converges on the population mean, `\(\mu\)` --&gt;
+
+&lt;!-- Our sample mean is not biased; we'll be a little wrong, but it'll be OK --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Variability of the Sampling Distribution --&gt;
+
+&lt;!-- **Standard Error of the Mean** --&gt;
+&lt;!--   - The standard deviation of the sampling distribution --&gt;
+&lt;!--   - Directly related to the variability of the underlying data: --&gt;
+
+&lt;!-- `$$\sigma_{m} = \frac{\sigma_x}{\sqrt{N}}$$` --&gt;
+
+&lt;!-- - The smaller the SEM, the more likely it is that your sample estimate of the mean will be closer to the population estimate of the mean --&gt;
+&lt;!-- - SEM is a function of sample size! The more accurate your sample mean, the closer you are to approximating the population, and the smaller the standard error  --&gt;
+
+&lt;!-- ??? --&gt;
+&lt;!-- We do not know `\(\sigma\)` but we can estimate it based on the sample statistic: --&gt;
+
+&lt;!-- `$$\hat{\sigma} = s = \sqrt{\frac{\sum(x - \bar{x})^2}{N-1}}$$` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # More SEM --&gt;
+
+&lt;!-- `$$\hat{\sigma} = s = \sqrt{\frac{\sum(x - \bar{x})^2}{N-1}}$$` --&gt;
+
+&lt;!-- This is the sample estimate of the population standard deviation.  This is an unbiased estimate of `\(\sigma\)` and relies on the sample mean, which is an unbiased estimate of `\(\mu\)`. --&gt;
+
+&lt;!-- This is different from the sample standard deviation, which divides the sum of squares by `\(N\)` rather than `\(N-1\)`. --&gt;
+
+&lt;!-- `$$SEM = \sigma_M = \frac{\hat{\sigma}}{\sqrt{N}} = \frac{\text{Estimate of pop SD}}{\sqrt{N}}$$` --&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- # Making Statements --&gt;
+
+&lt;!-- The sampling distribution of means can be used to make probabilistic statements about means in the same way that the standard normal distribution is used to make probabilistic statements about scores. --&gt;
+
+&lt;!-- For example, we can determine the range within which the population mean is likely to be with a particular level of confidence. --&gt;
+
+&lt;!-- Or, we can propose different values for the population mean and ask how typical or rare the sample mean would be if that population value were true.  We can then compare the plausibility of different such “models” of the population. --&gt;
+
+&lt;!-- ??? --&gt;
+&lt;!-- The key is that we have a sampling distribution of the mean with a standard deviation **(the SEM)** that is linked to the population: --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- name: ci --&gt;
+&lt;!-- # Confidence Intervals --&gt;
+
+&lt;!-- The sampling distribution of the mean has variability, represented by the SEM, reflecting uncertainty in the sample mean as an estimate of the population mean. --&gt;
+
+&lt;!-- The assumption of normality allows us to construct an interval within which we have good reason to believe a population mean will fall:  --&gt;
+
+&lt;!-- $$\bar{X} - (1.96\times SEM) \leq \mu \leq \bar{X} + (1.96\times SEM) $$ --&gt;
+
+&lt;!-- ??? --&gt;
+&lt;!-- Sampling distributions are normally distributed --&gt;
+&lt;!-- --- --&gt;
+&lt;!-- # Confidence Intervals --&gt;
+
+&lt;!-- $$\bar{X} - (1.96\times SEM) \leq \mu \leq \bar{X} + (1.96\times SEM) $$ --&gt;
+
+&lt;!-- - This is referred to as the **95% confidence interval (CI)** --&gt;
+&lt;!-- - The 95% CI is sometimes represented as: --&gt;
+
+&lt;!-- `$$CI_{95} = \bar{X} \pm [1.96\frac{\hat{\sigma}}{\sqrt{N}}]$$` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- name: tdist --&gt;
+
+&lt;!-- .left-column[ --&gt;
+&lt;!-- .small[ --&gt;
+&lt;!-- ### The `\(t\)` --&gt;
+
+&lt;!-- The normal distribution assumes we know the population mean and standard deviation. But we don’t. We only know the *sample* mean and standard deviation, and those have some uncertainty about them.  --&gt;
+
+&lt;!-- That uncertainty is reduced with large samples, so that it's “close enough” to the normal. In small samples, the `\(t\)` distribution is better. --&gt;
+&lt;!-- ] --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- ```{r, echo = FALSE, fig.width = 7, warning = FALSE, message = FALSE} --&gt;
+&lt;!-- ggplot(data.frame(x = seq(-4, 4)), aes(x)) + --&gt;
+&lt;!--   stat_function(fun = function(x) dnorm(x),  --&gt;
+&lt;!--                 aes(color = "Normal", linetype = "Normal")) + --&gt;
+&lt;!--   stat_function(fun = function(x) dt(x, df = 1),  --&gt;
+&lt;!--                 aes(color = "t(1)", linetype = "t(1)")) + --&gt;
+&lt;!--   stat_function(fun = function(x) dt(x, df = 5),  --&gt;
+&lt;!--                 aes(color = "t(5)", linetype = "t(5)")) + --&gt;
+&lt;!--   stat_function(fun = function(x) dt(x, df = 25),  --&gt;
+&lt;!--                 aes(color = "t(25)", linetype = "t(25)")) + --&gt;
+&lt;!--   stat_function(fun = function(x) dt(x, df = 100),  --&gt;
+&lt;!--                 aes(color = "t(100)", linetype = "t(100)")) +  --&gt;
+&lt;!--   scale_x_continuous("Variable X") + --&gt;
+&lt;!--   scale_y_continuous("Density") + --&gt;
+&lt;!--   scale_color_manual("",  --&gt;
+&lt;!--                      values = c("red", "black", "black", "blue", "blue")) + --&gt;
+&lt;!--   scale_linetype_manual("",  --&gt;
+&lt;!--                         values = c("solid", "solid", "dashed", "solid", "dashed")) + --&gt;
+&lt;!--   ggtitle("The Normal and t Distributions") + --&gt;
+&lt;!--   theme(text = element_text(size=20),legend.position = "bottom") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # `\(t\)` distribution --&gt;
+
+&lt;!-- - The primary difference between the normal distribution and the `\(t\)` distribution is the fatter tails --&gt;
+&lt;!--   - This produces wider confidence intervals --&gt;
+&lt;!--   - The penalty we have to pay for our ignorance about the population --&gt;
+
+&lt;!-- - The form of the confidence interval remains the same. We simply substitute a corresponding value from the `\(t\)` distribution (using df = `\(N -1\)`). --&gt;
+
+
+&lt;!-- `$$CI_{95} = \bar{X} \pm [1.96\frac{\hat{\sigma}}{\sqrt{N}}]$$` --&gt;
+
+&lt;!-- `$$CI_{95} = \bar{X} \pm [t_{.975, df = N-1}\frac{\hat{\sigma}}{\sqrt{N}}]$$` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # Confidence Intervals --&gt;
+
+&lt;!-- What does it NOT mean? --&gt;
+&lt;!--   - There is a 95% probability that the true mean lies inside the confidence interval --&gt;
+
+&lt;!-- -- --&gt;
+
+&lt;!-- What it *actually* means: --&gt;
+&lt;!--   - If we carried out random sampling from the population a large number of times... --&gt;
+&lt;!--   - and calculated the 95% confidence interval each time... --&gt;
+&lt;!--   - then 95% of those intervals can be expected to contain the population mean. --&gt;
+
+
+&lt;!-- --- --&gt;
+
+&lt;!-- .left-column[ --&gt;
+&lt;!-- .small[ --&gt;
+&lt;!-- ###Simulation --&gt;
+
+&lt;!-- At each sample size, draw 5000 samples from known population ( `\(\mu = 0\)` , `\(\sigma = 1\)` ).  --&gt;
+
+&lt;!-- Calculate CI for each sample using `\(s\)` and record whether or not 0 was in that interval. --&gt;
+
+&lt;!-- Calculate CI using for each sample using `\(\sigma\)`. --&gt;
+
+&lt;!-- ] --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- ```{r, echo = F, message = F} --&gt;
+&lt;!-- reps = 5000 --&gt;
+
+&lt;!-- sizes = seq(5,200,5) --&gt;
+
+&lt;!-- prop = rep(0, length(sizes)) --&gt;
+&lt;!-- prop_sig  = rep(0, length(sizes)) --&gt;
+
+&lt;!-- set.seed(101919) --&gt;
+
+&lt;!-- for(n in 1:length(sizes)){ --&gt;
+&lt;!--   sample_size = sizes[n] --&gt;
+&lt;!--   correct = vector(length = reps) --&gt;
+&lt;!--   correct_sig = vector(length = reps) --&gt;
+&lt;!--   for(i in 1:reps){ --&gt;
+&lt;!--     sample = rnorm(sample_size) --&gt;
+&lt;!--     m = mean(sample) --&gt;
+&lt;!--     s = sd(sample) --&gt;
+&lt;!--     sm = s/sqrt(sample_size) --&gt;
+&lt;!--     lb = m-(1.96*sm) --&gt;
+&lt;!--     ub = m+(1.96*sm) --&gt;
+&lt;!--     missed = lb &gt; 0 | ub &lt; 0 --&gt;
+&lt;!--   correct[i] = !missed --&gt;
+
+&lt;!--     sigma = 1 --&gt;
+&lt;!--     sm_sig = sigma/sqrt(sample_size) --&gt;
+&lt;!--     lb_sig = m-(1.96*sm_sig) --&gt;
+&lt;!--     ub_sig = m+(1.96*sm_sig) --&gt;
+&lt;!--     missed_sig = lb_sig &gt; 0 | ub_sig &lt; 0 --&gt;
+&lt;!--   correct_sig[i] = !missed_sig --&gt;
+&lt;!--   } --&gt;
+&lt;!--   prop[n] = sum(correct)/reps --&gt;
+&lt;!--   prop_sig[n] = sum(correct_sig)/reps --&gt;
+
+&lt;!-- } --&gt;
+
+&lt;!-- data.frame(n = sizes, p = prop, ps = prop_sig) %&gt;% --&gt;
+&lt;!--   gather("estimate", "value", -n) %&gt;% --&gt;
+&lt;!--   mutate(estimate = ifelse(estimate == "p", "Estimate of sigma", "Sigma")) %&gt;% --&gt;
+&lt;!--   ggplot(aes(x = n, y = value, color = estimate)) + --&gt;
+&lt;!--   geom_smooth( se = F) + --&gt;
+&lt;!--   geom_hline(aes(yintercept = .95), color = "black") + --&gt;
+&lt;!--   scale_color_discrete("How do you\ncalculate SEM?") + --&gt;
+&lt;!--   labs(x = "Sample size", y = "Proportion of CIs that\ncontain the population mean") + --&gt;
+&lt;!--   theme(text = element_text(size = 20), legend.position = "bottom") --&gt;
+
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- name: ex --&gt;
+&lt;!-- ## Examples --&gt;
+&lt;!-- .small[ --&gt;
+&lt;!-- In the past, my classroom exams (aggregating over many classes) have a mean of 90 and a standard deviation of 8. --&gt;
+
+&lt;!-- My next class will have 100 students. What range of exam means would be plausible if this class is similar to past classes (comes from the same population)? --&gt;
+&lt;!-- ] --&gt;
+
+&lt;!-- ```{r} --&gt;
+&lt;!-- M = 90 --&gt;
+&lt;!-- SD = 8 --&gt;
+&lt;!-- N = 100 --&gt;
+
+&lt;!-- sem = SD/sqrt(N) --&gt;
+
+&lt;!-- ci_lb_z = M - sem * qnorm(p = .975) --&gt;
+&lt;!-- ci_ub_z = M + sem * qnorm(p = .975) --&gt;
+&lt;!-- print(c(ci_lb_z, ci_ub_z)) --&gt;
+
+
+&lt;!-- ci_lb_z = M - sem * qt(p = .975, df = N-1) --&gt;
+&lt;!-- ci_ub_z = M + sem * qt(p = .975, df = N-1) --&gt;
+&lt;!-- print(c(ci_lb_z, ci_ub_z)) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- ## Examples --&gt;
+&lt;!-- .small[ --&gt;
+&lt;!-- I give a classroom exam that produces a mean of 83.4 and a standard deviation of 10.6. A total of 26 students took the exam. --&gt;
+
+&lt;!-- What is the 95% confidence interval around the mean? --&gt;
+&lt;!-- ] --&gt;
+&lt;!-- ```{r} --&gt;
+&lt;!-- M = 83.4 --&gt;
+&lt;!-- SD = 10.6 --&gt;
+&lt;!-- N = 26 --&gt;
+
+&lt;!-- sem = SD/sqrt(N) --&gt;
+
+&lt;!-- ci_lb_z = M - sem * qnorm(p = .975) --&gt;
+&lt;!-- ci_ub_z = M + sem * qnorm(p = .975) --&gt;
+&lt;!-- print(c(ci_lb_z, ci_ub_z)) --&gt;
+
+
+&lt;!-- ci_lb_z = M - sem * qt(p = .975, df = N-1) --&gt;
+&lt;!-- ci_ub_z = M + sem * qt(p = .975, df = N-1) --&gt;
+&lt;!-- print(c(ci_lb_z, ci_ub_z)) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # All Together --&gt;
+
+&lt;!-- |             | Population&lt;br&gt;Distribution |  Sample&lt;br&gt;Distribution | Sampling&lt;br&gt;Distribution | --&gt;
+&lt;!-- |:-----------:|:-----------:|:-----------:|:-----------:|:-----------:| --&gt;
+&lt;!-- | Distribution consists of:    |    Individual observations&lt;br&gt; `\(x\)`    | Individual observations&lt;br&gt; `\(x\)`   | Statistics&lt;br&gt; `\(\bar{x}, s, s^2\)` |  --&gt;
+&lt;!-- | Central tendency |    `\(\mu\)`   | `\(\bar{x}\)`      | `\(\mu_M\)` | --&gt;
+&lt;!-- | Dispersion | `\(\sigma^2\)` | `\(s^2\)` | `\(\sigma^2_M\)` | --&gt;
+&lt;!-- |            | `\(\sigma\)` | `\(s\)` | SEM `\(\sigma_M\)` | --&gt;
+&lt;!-- | Type       | Parameter | Statistic | Statistic of statistics | --&gt;
+&lt;!-- | T vs. O    | Theoretical | Observed | Theoretical --&gt;
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
