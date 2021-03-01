@@ -58,7 +58,7 @@ These first 5 weeks have been jam packed with getting you up to speed using `R`.
 
 # Where we're going
 
-The next 5 weeks are going to be dedicated in getting you up to speed on statistics. Everyone in this class should have taken Psych 300 (Intro Psych Stats) or equivalent. **_If you have not taken either of these classes, you must get in touch with me ASAP._**
+The next 5 weeks are going to be dedicated in getting you up to speed on statistics. Everyone in this class should have taken Psych 300 (Intro Psych Stats) or equivalent. **_If you have not taken this class (or equivalent), you must get in touch with me ASAP._**
 
 --
 
@@ -89,10 +89,11 @@ Why are we *not* going to talk about more advanced stats in these few weeks?
 
 - Find errors in data entry or collection
 
-- Everybody lies...includind numbers and data
+- Everybody lies...including numbers and data
 
+<center>
 <img src="20-slides_files/figure-html/house.jpg", width = "65%">
-
+</center>
 ---
 
 # Happiness
@@ -243,6 +244,52 @@ world %>%
 
 ---
 
+# If Skewed...
+
+.pull-left-small[
+.code-small[
+```{r, eval = FALSE, warning = FALSE, message = FALSE}
+world %>%
+  ggplot(aes(x = Corruption)) + 
+  geom_histogram(bins = 30,
+                 fill = "#eb4d4b",
+                 color = "black") +
+  geom_vline(aes(xintercept = mean(Corruption, na.rm = T))) +
+  geom_vline(aes(xintercept = median(Corruption, na.rm = T))) + 
+  geom_label(aes(x = mean(Corruption, na.rm = T),
+                 y = maxFreq(Corruption)),
+             label = "mean") +
+  geom_label(aes(x = median(Corruption, na.rm = T),
+                 y = maxFreq(Corruption)*2),
+             label = "median") +
+  theme_classic()
+```
+]
+]
+
+.pull-right-large[
+```{r, echo=FALSE, warning = FALSE, message = FALSE}
+world %>%
+  ggplot(aes(x = Corruption)) + 
+  geom_histogram(bins = 30,
+                 fill = "#eb4d4b",
+                 color = "black") +
+  geom_vline(aes(xintercept = mean(Corruption, na.rm = T))) +
+  geom_vline(aes(xintercept = median(Corruption, na.rm = T))) + 
+  geom_label(aes(x = mean(Corruption, na.rm = T),
+                 y = maxFreq(Corruption)),
+             label = "mean") +
+  geom_label(aes(x = median(Corruption, na.rm = T),
+                 y = maxFreq(Corruption)*2),
+             label = "median") +
+  theme_classic()
+```
+]
+
+...both the mean and median get pulled away from the mode. The mean is pulled further. 
+
+---
+
 name: disp
 
 # Center and spread
@@ -324,51 +371,6 @@ sqrt(sum((x - mean(x))^2)/length(x))
 
 <img src="20-slides_files/figure-html/sdVariants.png", width = "65%">
 
-
----
-# If Skewed...
-
-.pull-left-small[
-.code-small[
-```{r, eval = FALSE, warning = FALSE, message = FALSE}
-world %>%
-  ggplot(aes(x = Corruption)) + 
-  geom_histogram(bins = 30,
-                 fill = "#eb4d4b",
-                 color = "black") +
-  geom_vline(aes(xintercept = mean(Corruption, na.rm = T))) +
-  geom_vline(aes(xintercept = median(Corruption, na.rm = T))) + 
-  geom_label(aes(x = mean(Corruption, na.rm = T),
-                 y = maxFreq(Corruption)),
-             label = "mean") +
-  geom_label(aes(x = median(Corruption, na.rm = T),
-                 y = maxFreq(Corruption)*2),
-             label = "median") +
-  theme_classic()
-```
-]
-]
-
-.pull-right-large[
-```{r, echo=FALSE, warning = FALSE, message = FALSE}
-world %>%
-  ggplot(aes(x = Corruption)) + 
-  geom_histogram(bins = 30,
-                 fill = "#eb4d4b",
-                 color = "black") +
-  geom_vline(aes(xintercept = mean(Corruption, na.rm = T))) +
-  geom_vline(aes(xintercept = median(Corruption, na.rm = T))) + 
-  geom_label(aes(x = mean(Corruption, na.rm = T),
-                 y = maxFreq(Corruption)),
-             label = "mean") +
-  geom_label(aes(x = median(Corruption, na.rm = T),
-                 y = maxFreq(Corruption)*2),
-             label = "median") +
-  theme_classic()
-```
-]
-
-...both the mean and median get pulled away from the mode. The mean is pulled further. 
 
 ---
 name: bias
