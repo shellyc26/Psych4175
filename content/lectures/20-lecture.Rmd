@@ -14,7 +14,8 @@ output:
 
 ## Videos
 
-- [Descriptive Statistics Redux](https://youtu.be/0x4wr5UCM78)
+- [Descriptive Statistics Redux](https://youtu.be/zceFiIEsU8E)
+- In the last 10 minutes, my video froze `r emo::ji("sad")` At that point, I remove the video feed, but the audio still works normally. So you can expect my face to disappear lol! 
 
 ## Data
 
