@@ -1,12 +1,12 @@
 ---
-title: "Sampling Distributions"
-linktitle: "22: Sampling"
+title: "Power Plus"
+linktitle: "23: Power+"
 menu:
   lectures:
     parent: Statistics
-    weight: 3
+    weight: 4
 type: docs
-slides: "22-slides"
+slides: "23-slides"
 output:
   blogdown::html_page:
     toc: true
@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- [Sampling Distributions](https://youtu.be/xKV2vC1UVNU)
+- Power Plus
 
 ## Slides
 
@@ -27,12 +27,10 @@ source(here::here("R", "slide_tabs.R"))
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
   "Recap", "1", TRUE,
-  "Sampling Distribution", "sampling", FALSE,
-  "Central Limit Theorem", "clt", FALSE,
-  "SEM", "sem", FALSE,
   "Confidence Intervals", "ci", FALSE,
-  "t Distribution", "tdist", FALSE,
-  "Examples", "ex", FALSE
+  "p-values", "p", FALSE,
+  "Power", "power", FALSE,
+  "Open Science", "open", FALSE
 )
-slide_tabs(sections, "/slides/22-slides.html")
+slide_tabs(sections, "/slides/23-slides.html")
 ```

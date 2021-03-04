@@ -1,12 +1,12 @@
 ---
 title: "Comparing Means"
-linktitle: "23: Comp Means"
+linktitle: "22: Comparing Means"
 menu:
   lectures:
     parent: Statistics
-    weight: 4
+    weight: 3
 type: docs
-slides: "23-slides"
+slides: "22-slides"
 output:
   blogdown::html_page:
     toc: true
@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- [Comparing Means](https://youtu.be/jQ_C_tZQea4)
+- Comparing Means
 
 ## Slides
 
@@ -27,9 +27,9 @@ source(here::here("R", "slide_tabs.R"))
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
   "Recap", "1", TRUE,
-  "One Sample", "one", FALSE,
-  "Independent Samples", "indep", FALSE,
-  "ANOVA", "aov", FALSE
+  "Examples", "ex", FALSE,
+  "t-tests", "ttest", FALSE,
+  "ANOVA", "anova", FALSE
 )
-slide_tabs(sections, "/slides/23-slides.html")
+slide_tabs(sections, "/slides/22-slides.html")
 ```
