@@ -2,7 +2,7 @@
 title: "Assignment 2"
 linktitle: "# 2"
 date: "6/16/2020"
-due_date: "2020-09-14"
+due_date: "2021-03-15"
 due_time: "9:00am"
 output:
   blogdown::html_page:
@@ -17,6 +17,7 @@ editor_options:
   chunk_output_type: console
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
   <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 
@@ -29,7 +30,8 @@ editor_options:
 <ul>
 <li><p>Below this box is a list of packages that you will need for the rest of this course. Check to see if they are in your Packages tab. If they are <em>not</em> there, please install them.</p></li>
 <li><p>How many of the above packages did you install? If it’s 3 or more, then you may move on to the next question. If it was less than 3, please install as many as you need so that you have installed at least 3 packages total (this is to give you practice!). See below for some more optional packages.</p></li>
-<li><strong>Load</strong> the <code>tidyverse</code> and <code>psych</code> packages.</li>
+<li><p>It must be clear to me in your assignment that you have installed 3 or more packages. That is, use code for this (not the point and click).</p></li>
+<li><p><strong>Load</strong> the <code>tidyverse</code> and <code>psych</code> packages.</p></li>
 </ul>
 </div>
 <p>The <em>required</em> packages for this course:</p>
@@ -60,7 +62,7 @@ editor_options:
 <li><p>Use the <code>describe()</code> function to get summary statistics of your numeric/integer columns <em>only</em>. You do not need to include things like participant ID in this – just the variables you might care about in an actual analysis.</p></li>
 <li><p>Modify one of it’s arguments so that it also shows the interquartile range.</p></li>
 <li><p>Now use <code>describeBy()</code> with one of your categorical variables. What changes?</p></li>
-<li>Finally, use the <code>summary()</code> function on the entire data.frame (keep it simple with <code>summary(data)</code>). Do you prefer the <code>describe</code>/<code>describeBy</code> functions or the <code>summary</code> function? There is no right answer here. I just want to know your preference and why.</li>
+<li><p>Finally, use the <code>summary()</code> function on the entire data.frame (keep it simple with <code>summary(data)</code>). Do you prefer the <code>describe</code>/<code>describeBy</code> functions or the <code>summary</code> function? There is no right answer here. I just want to know your preference and why. Write this out as a comment.</p></li>
 </ul>
 </div>
 </div>
@@ -73,7 +75,7 @@ editor_options:
 <li><p>Pick 2 of your numeric/integer variables (preferably 2 that you think might be related). Get the covariance of each variable using <code>cov()</code>. You may choose to store this as a new object or simply print it out to the console.</p></li>
 <li><p>Now take those same 2 variables, and get the z-scores of each variable. You may use the <code>scale()</code> function that we’ve previously used or you can do it in a different manner. Store these as a new data.frame. That is, you should end up with a data.frame that has 2 columns. Column 1 contains the z-scores of the first variable, and column 2 contains the z-scores of the second variable.</p></li>
 <li><p>Now get the covariance of your <em>new</em> data.frame. The one that has z-scores. Again, you may store this as a new object or simply print it out to the console.</p></li>
-<li>Finally, get the correlation of the two variables from the original data.frame (<em>not</em> the one with z-scores). Use the <code>cor()</code> function. Compare this correlation to the different covariances. What do you notice? Do you remember your statistics class? 😉</li>
+<li><p>Finally, get the correlation of the two variables from the original data.frame (<em>not</em> the one with z-scores). Use the <code>cor()</code> function. Compare this correlation to the different covariances you calculated above. What do you notice? Do you remember your statistics class? 😉</p></li>
 </ul>
 </div>
 </div>
@@ -84,29 +86,30 @@ editor_options:
 <p>Here’s your to-do list:</p>
 <ul>
 <li><p>You will be making plots using <code>ggplot2</code> code. As long as you have loaded the <code>tidyverse</code> package, you should be able to run these easily. However, check to make sure that there is a check mark ✅ next to the <code>ggplot2</code> package under the Packages tab. If it is unchecked, then please load it.</p></li>
-<li><p>Make a scatterplot of the 2 variables from your original data.frame. Make sure the points are <em>not</em> the color black. Specify a new color of your choice.</p></li>
-<li><p>Make a scatterplot of the 2 variables from your <em>z-scored</em> data.frame. What is the difference between this plot and the one you just made?</p></li>
-<li>Finally, make a scatter plot of the 2 original variables, make the colors AND the shapes based on one of your categorical variables.
+<li><p>Make a scatterplot of the 2 variables from your original data.frame (the same 2 you picked from Fun with Statistics part directly above this). Make sure the points are <em>not</em> the color black. Specify a new color of your choice.</p></li>
+<li><p>Make a scatterplot of the 2 variables from your <em>z-scored</em> data.frame (the same one from the Fun with Statistics part directly above, but with z-scores). What is the difference between this plot and the one you just made? Write this out as a comment.</p></li>
+<li><p>Finally, make a scatter plot of the 2 original variables, make the colors AND the shapes based on one of your categorical variables.</p>
 <ul>
-<li>Add the following <em>layer</em> to your plot <code>geom_smooth(method = &quot;lm&quot;, aes(color = yourFactorVariable))</code> Are there different relationships for each category?</li>
+<li>Add the following <em>layer</em> to your plot <code>geom_smooth(method = "lm", aes(color = yourFactorVariable))</code>. Write a commment telling me if there are different relationships for each category.</li>
 </ul></li>
 </ul>
 </div>
 </div>
 <div id="results-influence-of-outliers" class="section level3">
 <h3>Results: Influence of Outliers</h3>
-<p>Outliers can be a real pain in the butt for researchers. One challenge that researchers face is determining which observations are actually outliers to begin with. That is, are they real scores that we should consider? Or are they an artifact of something else? One common way of defining an outlier is to say <em>let’s treat any score that is more than 2 standard deviations away from the mean as an outlier</em>. That’s what you’re going to do here, using the <em>same</em> 2 variables that you used above in your scatterplots (use the variables that are not z-scores).</p>
+<p>Outliers can be a real pain in the butt for researchers. One challenge that researchers face is determining which observations are actually outliers to begin with. That is, are they real scores that we should consider? Or are they an artifact of something else? One common way of defining an outlier is to say <em>let’s treat any score that is more than 2 standard deviations away from the mean as an outlier</em>. That’s what you’re going to do here, using the <em>same</em> 2 variables that you used above in your scatterplots (use the variables that are not z-scores – the original ones, please).</p>
 <div class="list">
 <p>Here’s your to-do list:</p>
 <ul>
-<li>Make a new data.frame that contains all of your columns from the original, but remove the rows that contain outliers – as defined as being more than 2 standard deviations away from the mean.</li>
+<li><p>Starting with your original data.frame, using the same 2 variables used in your above scatter plots (but NOT the z-scored ones…the original!), make a new data.frame that contains all of your columns from the original, but remove the rows that contain outliers – as defined as being more than 2 standard deviations away from the mean.</p></li>
+<li><p>Below this box are some hints on how to do this. Read those hints!</p></li>
+<li><p>Now I want you to remake the 3rd plot from above, but using this new dataset where the outliers are removed (include the <code>geom_smooth(method = "lm", aes(color = yourFactorVariable))</code> layer). Compare the two plots – the one that contains outliers and the one that does not contain outliers. Write a comment telling me if the trends are different now that you removed the outliers.</p></li>
 </ul>
 </div>
 <p>Here are some HINTS on how to do this:</p>
 <ul>
 <li>Use <strong>multiple logical operators</strong> that are then <strong>nested</strong> within a function.</li>
 <li>“Away from the mean” can be in two directions. That is, you can have outliers because values are too high or too low.</li>
-<li>Now I want you to remake the 3rd plot from above, but now using this new dataset where the outliers are removed. (Include the <code>geom_smooth(method = &quot;lm&quot;, aes(color = yourFactorVariable))</code> layer) Compare the two plots. Are the trends different now that you’ve removed the outliers?</li>
 </ul>
 <p><em>General Note On Outliers: I am <strong>not</strong> suggesting that this “2 standard deviations away from the mean” method is the correct way of defining an outlier. How you define outliers is completely dependent upon the data. Similarly, removing outliers is one option for handling them, but it is <em>not</em> the <em>only</em> option. How you want to handle outliers in your own research should be discussed with your colleagues before any statistical analyses are performed (and ideally before data collection begins).</em></p>
 </div>

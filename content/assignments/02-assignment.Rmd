@@ -2,7 +2,7 @@
 title: "Assignment 2"
 linktitle: "# 2"
 date: "6/16/2020"
-due_date: "2020-09-14"
+due_date: "2021-03-15"
 due_time: "9:00am"
 output:
   blogdown::html_page:
@@ -30,6 +30,8 @@ Here's your to-do list:
   - Below this box is a list of packages that you will need for the rest of this course. Check to see if they are in your Packages tab. If they are *not* there, please install them. 
   
   - How many of the above packages did you install? If it's 3 or more, then you may move on to the next question. If it was less than 3, please install as many as you need so that you have installed at least 3 packages total (this is to give you practice!). See below for some more optional packages.
+  
+  - It must be clear to me in your assignment that you have installed 3 or more packages. That is, use code for this (not the point and click).
   
   - **Load** the `tidyverse` and `psych` packages.
 :::
@@ -67,7 +69,7 @@ Here's your to-do list:
   
   - Now use `describeBy()` with one of your categorical variables. What changes?
   
-  - Finally, use the `summary()` function on the entire data.frame (keep it simple with `summary(data)`). Do you prefer the `describe`/`describeBy` functions or the `summary` function? There is no right answer here. I just want to know your preference and why.
+  - Finally, use the `summary()` function on the entire data.frame (keep it simple with `summary(data)`). Do you prefer the `describe`/`describeBy` functions or the `summary` function? There is no right answer here. I just want to know your preference and why. Write this out as a comment. 
 :::
 
 ### Results: Fun With Statistics
@@ -83,7 +85,7 @@ Here's your to-do list:
   
   - Now get the covariance of your *new* data.frame. The one that has z-scores. Again, you may store this as a new object or simply print it out to the console.
   
-  - Finally, get the correlation of the two variables from the original data.frame (*not* the one with z-scores). Use the `cor()` function. Compare this correlation to the different covariances. What do you notice? Do you remember your statistics class? `r emo::ji("wink")`
+  - Finally, get the correlation of the two variables from the original data.frame (*not* the one with z-scores). Use the `cor()` function. Compare this correlation to the different covariances you calculated above. What do you notice? Do you remember your statistics class? `r emo::ji("wink")`
 :::
 
 ### Results: Plot Your Data
@@ -96,29 +98,32 @@ Here's your to-do list:
 
   - You will be making plots using `ggplot2` code. As long as you have loaded the `tidyverse` package, you should be able to run these easily. However, check to make sure that there is a check mark `r emo::ji("check")` next to the `ggplot2` package under the Packages tab. If it is unchecked, then please load it.
   
-  - Make a scatterplot of the 2 variables from your original data.frame. Make sure the points are *not* the color black. Specify a new color of your choice. 
+  - Make a scatterplot of the 2 variables from your original data.frame (the same 2 you picked from Fun with Statistics part directly above this). Make sure the points are *not* the color black. Specify a new color of your choice. 
   
-  - Make a scatterplot of the 2 variables from your *z-scored* data.frame. What is the difference between this plot and the one you just made?
+  - Make a scatterplot of the 2 variables from your *z-scored* data.frame (the same one from the Fun with Statistics part directly above, but with z-scores). What is the difference between this plot and the one you just made? Write this out as a comment.
   
   - Finally, make a scatter plot of the 2 original variables, make the colors AND the shapes based on one of your categorical variables.
-    - Add the following *layer* to your plot `geom_smooth(method = "lm", aes(color = yourFactorVariable))` Are there different relationships for each category?
+    - Add the following *layer* to your plot `geom_smooth(method = "lm", aes(color = yourFactorVariable))`. Write a commment telling me if there are different relationships for each category.
 :::
 
 ### Results: Influence of Outliers
 
-Outliers can be a real pain in the butt for researchers. One challenge that researchers face is determining which observations are actually outliers to begin with. That is, are they real scores that we should consider? Or are they an artifact of something else? One common way of defining an outlier is to say *let's treat any score that is more than 2 standard deviations away from the mean as an outlier*. That's what you're going to do here, using the *same* 2 variables that you used above in your scatterplots (use the variables that are not z-scores).
+Outliers can be a real pain in the butt for researchers. One challenge that researchers face is determining which observations are actually outliers to begin with. That is, are they real scores that we should consider? Or are they an artifact of something else? One common way of defining an outlier is to say *let's treat any score that is more than 2 standard deviations away from the mean as an outlier*. That's what you're going to do here, using the *same* 2 variables that you used above in your scatterplots (use the variables that are not z-scores -- the original ones, please).
 
 :::list
 Here's your to-do list:
 
-  - Make a new data.frame that contains all of your columns from the original, but remove the rows that contain outliers -- as defined as being more than 2 standard deviations away from the mean.
+  - Starting with your original data.frame, using the same 2 variables used in your above scatter plots (but NOT the z-scored ones...the original!), make a new data.frame that contains all of your columns from the original, but remove the rows that contain outliers -- as defined as being more than 2 standard deviations away from the mean.
+  
+  - Below this box are some hints on how to do this. Read those hints!
+  
+  - Now I want you to remake the 3rd plot from above, but using this new dataset where the outliers are removed (include the `geom_smooth(method = "lm", aes(color = yourFactorVariable))` layer). Compare the two plots -- the one that contains outliers and the one that does not contain outliers. Write a comment telling me if the trends are different now that you removed the outliers. 
 :::
 
 Here are some HINTS on how to do this:
 
   - Use **multiple logical operators** that are then **nested** within a function. 
   - "Away from the mean" can be in two directions. That is, you can have outliers because values are too high or too low.
-  - Now I want you to remake the 3rd plot from above, but now using this new dataset where the outliers are removed. (Include the `geom_smooth(method = "lm", aes(color = yourFactorVariable))` layer) Compare the two plots. Are the trends different now that you've removed the outliers? 
 
 _General Note On Outliers: I am **not** suggesting that this "2 standard deviations away from the mean" method is the correct way of defining an outlier. How you define outliers is completely dependent upon the data. Similarly, removing outliers is one option for handling them, but it is *not* the *only* option. How you want to handle outliers in your own research should be discussed with your colleagues before any statistical analyses are performed (and ideally before data collection begins)._
 
