@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- [Correlations](https://youtu.be/LpCkX4h8sfs)
+- Correlations
 
 ## Slides
 
@@ -29,7 +29,9 @@ sections <- tibble::tribble(
   "Recap", "1", TRUE,
   "Covariance", "cov", FALSE,
   "Correlation", "cor", FALSE,
-  "Cor Influences", "affects", FALSE
+  "Cor Influences", "affects", FALSE,
+  "Visualization", "viz", FALSE,
+  "Testing Cors", "infer", FALSE
 )
 slide_tabs(sections, "/slides/24-slides.html")
 ```
