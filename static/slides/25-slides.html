@@ -3,6 +3,7 @@
   <head>
     <title>Regression</title>
     <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer-blue.css" type="text/css" />
     <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
   </head>
@@ -99,7 +100,7 @@ name: eq
 
 The difference between the predicted and observed score is the residual ($e_i$)
 
-There is a different e value for each observation in the dataset
+There is a different `\(e\)` value for each observation in the dataset
 ---
 name: ols
 
@@ -164,50 +165,6 @@ The line that yields the smallest sum of squared deviations
 In order to find the OLS solution, you could try many different coefficients `\((b_0 \text{ and } b_{1})\)` until you find the one with the smallest sum squared deviation. Luckily, there are simple calculations that will yield the OLS solution every time.
 
 ---
-name: ex
-
-## Example
-
-
-
-
-```r
-galton.data &lt;- psychTools::galton
-head(galton.data)
-```
-
-```
-##   parent child
-## 1   70.5  61.7
-## 2   68.5  61.7
-## 3   65.5  61.7
-## 4   64.5  61.7
-## 5   64.0  61.7
-## 6   67.5  62.2
-```
-
-```r
-describe(galton.data, fast = T)
-```
-
-```
-##        vars   n  mean   sd  min  max range   se
-## parent    1 928 68.31 1.79 64.0 73.0     9 0.06
-## child     2 928 68.09 2.52 61.7 73.7    12 0.08
-```
-
-```r
-cor(galton.data)
-```
-
-```
-##           parent     child
-## parent 1.0000000 0.4587624
-## child  0.4587624 1.0000000
-```
-
-
----
 ## In `R`
 What if we regress parent height onto child height?
 
@@ -240,6 +197,10 @@ summary(fit.1)
 ```
 ]
 
+&gt; A 1-unit change in X predicts a *b* change in Y
+
+&gt; A 1-standard deviation change in X predicts a *b* standard deviation change in Y
+
 ???
 
 **Things to discuss**
@@ -249,8 +210,8 @@ summary(fit.1)
 
 ---
 
-
-&lt;img src="25-slides_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+## Child Height Predicted By Parent Height
+&lt;img src="25-slides_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -264,15 +225,15 @@ head(model_info)
 ```
 
 ```
-## # A tibble: 6 x 9
-##   child parent .fitted .se.fit .resid    .hat .sigma .cooksd .std.resid
-##   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;
-## 1  61.7   70.5    69.5  0.116   -7.81 0.00270   2.22 0.0165       -3.49
-## 2  61.7   68.5    68.2  0.0739  -6.51 0.00109   2.23 0.00462      -2.91
-## 3  61.7   65.5    66.3  0.137   -4.57 0.00374   2.23 0.00787      -2.05
-## 4  61.7   64.5    65.6  0.173   -3.93 0.00597   2.24 0.00931      -1.76
-## 5  61.7   64      65.3  0.192   -3.60 0.00735   2.24 0.00966      -1.62
-## 6  62.2   67.5    67.6  0.0807  -5.37 0.00130   2.23 0.00374      -2.40
+## # A tibble: 6 x 8
+##   child parent .fitted .resid .std.resid    .hat .sigma .cooksd
+##   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+## 1  61.7   70.5    69.5  -7.81      -3.49 0.00270   2.22 0.0165 
+## 2  61.7   68.5    68.2  -6.51      -2.91 0.00109   2.23 0.00462
+## 3  61.7   65.5    66.3  -4.57      -2.05 0.00374   2.23 0.00787
+## 4  61.7   64.5    65.6  -3.93      -1.76 0.00597   2.24 0.00931
+## 5  61.7   64      65.3  -3.60      -1.62 0.00735   2.24 0.00966
+## 6  62.2   67.5    67.6  -5.37      -2.40 0.00130   2.23 0.00374
 ```
 
 
@@ -285,22 +246,20 @@ describe(model_info)
 ## child         1 928 68.09 2.52  68.20   68.12 2.97 61.70 73.70 12.00 -0.09
 ## parent        2 928 68.31 1.79  68.50   68.32 1.48 64.00 73.00  9.00 -0.04
 ## .fitted       3 928 68.09 1.16  68.21   68.10 0.96 65.30 71.12  5.82 -0.04
-## .se.fit       4 928  0.10 0.03   0.09    0.09 0.02  0.07  0.21  0.13  1.53
-## .resid        5 928  0.00 2.24   0.05    0.06 2.26 -7.81  5.93 13.73 -0.24
+## .resid        4 928  0.00 2.24   0.05    0.06 2.26 -7.81  5.93 13.73 -0.24
+## .std.resid    5 928  0.00 1.00   0.02    0.03 1.01 -3.49  2.65  6.14 -0.24
 ## .hat          6 928  0.00 0.00   0.00    0.00 0.00  0.00  0.01  0.01  1.99
 ## .sigma        7 928  2.24 0.00   2.24    2.24 0.00  2.22  2.24  0.01 -2.39
 ## .cooksd       8 928  0.00 0.00   0.00    0.00 0.00  0.00  0.02  0.02  3.44
-## .std.resid    9 928  0.00 1.00   0.02    0.03 1.01 -3.49  2.65  6.14 -0.24
 ##            kurtosis   se
 ## child         -0.35 0.08
 ## parent         0.05 0.06
 ## .fitted        0.05 0.04
-## .se.fit        1.50 0.00
 ## .resid        -0.23 0.07
+## .std.resid    -0.23 0.03
 ## .hat           3.47 0.00
 ## .sigma         8.62 0.00
 ## .cooksd       17.34 0.00
-## .std.resid    -0.23 0.03
 ```
 
 ???
@@ -308,27 +267,404 @@ describe(model_info)
 Point out the average of the residuals is 0, just like average deviation from the mean is 0. 
 
 ---
+name: fit
 
-&lt;img src="25-slides_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
+## Are we doing a good job?
+
+- The way the world is = our model + error
+
+- How good is our model? Does it "fit" the data well?
+
+--
+
+To assess how well our model fits the data, we simply take all the variability in our outcome and partition it into different categories. For now, we will partition it into two categories: the variability that is predicted by (explained by) our model, and variability that is not.
+
+--
+
+To the extent that we can generate different predicted values of Y *based on the different values of X*, we are doing well with our model.
+
 ---
 
+## `\(R^2\)`
+
+- `\(R^2\)` is the amount of variance in Y that is explained by X (aka by your model)
+
+- measure of **model fit**; more variance explained, better your model
+
+---
+
+## `\(R^2\)`
+
+
+
+```r
+fit.1 = lm(child ~ parent, data = galton.data)
+summary(fit.1) 
+```
+
+```
+## 
+## Call:
+## lm(formula = child ~ parent, data = galton.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.8050 -1.3661  0.0487  1.6339  5.9264 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 23.94153    2.81088   8.517   &lt;2e-16 ***
+## parent       0.64629    0.04114  15.711   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.239 on 926 degrees of freedom
+*## Multiple R-squared:  0.2105,	Adjusted R-squared:  0.2096 
+## F-statistic: 246.8 on 1 and 926 DF,  p-value: &lt; 2.2e-16
+```
+
+
+---
+
+## Residual Standard Error
+
+- `\(Residuals = Y - \hat{Y}\)`
+
+- There is a residual for each individual (each person has an observed score and a predicted score)
+
+- You can plot these residuals. The *dispersion* or spread of these residuals is called the **Residual Standard Error (RSE)**
+
+- The RSE is the standard deviation of all of these residuals (in original units); it is the standard deviation of `\(Y\)` that is **not** accounted for by the model
+
+--
+
+- If it's a fat distribution, that means the residuals are large; we're not doing great
+
+- If it's a skinny distribution, then the residuals are smaller; we're doing a good job!
+
+---
+
+## RSE
+
+
+
+```r
+fit.1 = lm(child ~ parent, data = galton.data)
+summary(fit.1) 
+```
+
+```
+## 
+## Call:
+## lm(formula = child ~ parent, data = galton.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.8050 -1.3661  0.0487  1.6339  5.9264 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 23.94153    2.81088   8.517   &lt;2e-16 ***
+## parent       0.64629    0.04114  15.711   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+*## Residual standard error: 2.239 on 926 degrees of freedom
+## Multiple R-squared:  0.2105,	Adjusted R-squared:  0.2096 
+## F-statistic: 246.8 on 1 and 926 DF,  p-value: &lt; 2.2e-16
+```
+
+---
+
+## `\(R^2\)` and residual standard deviation
+
+.pull-left-small[
+- two sides of same coin
+
+- one in original units, the other standardized 
+]
+
+
+.pull-right-large[
 &lt;img src="25-slides_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+---
+name: infer
+
+## Inferential Tests
+
+--
+
+#### Omnibus test
+- Test of whether the model fits the data
+
+--
+
+#### Regression Coefficients
+- Is our predictor significant?
 
 ---
 
-&lt;img src="25-slides_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
+## Omnibus test
+Overall, our goal is to partition variance. We want to know if the variance explained by our model is larger than the variance that is left over or *unexplained*. 
+
+Our sampling distribution will be the `\(F\)` distribution. The `\(z\)` and the `\(t\)` test for differences in means. `\(F\)` distribution looks at the size of a **ratio of variances**. The ratio of explained to unexplained variance. The ratio of your regression to error.
+
+Yes, this is analogous to ANOVA. But ANOVAs require categorical predictors. Regression is more flexible!
 
 ---
 
-&lt;img src="25-slides_files/figure-html/unnamed-chunk-15-1.png" style="display: block; margin: auto;" /&gt;
+## ANOVA is a special case of regression!
+
+
+```r
+anova(fit.1)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Response: child
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## parent      1 1236.9 1236.93  246.84 &lt; 2.2e-16 ***
+## Residuals 926 4640.3    5.01                      
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+## ANOVA is a special case of regression!
+
+
+```r
+summary(fit.1)
+```
+
+```
+## 
+## Call:
+## lm(formula = child ~ parent, data = galton.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.8050 -1.3661  0.0487  1.6339  5.9264 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 23.94153    2.81088   8.517   &lt;2e-16 ***
+## parent       0.64629    0.04114  15.711   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.239 on 926 degrees of freedom
+## Multiple R-squared:  0.2105,	Adjusted R-squared:  0.2096 
+## F-statistic: 246.8 on 1 and 926 DF,  p-value: &lt; 2.2e-16
+```
 
 ---
 
-&lt;img src="25-slides_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+## Predictors
+
+`$$\Large H_{0}: \beta_{1}= 0$$`
+
+`$$\Large H_{1}: \beta_{1} \neq 0$$`
+---
+## Predictors
+
+- Does X provide any predictive information? 
+
+- Does X provide any explanatory power regarding the variability of Y? 
+
+- Is the the average value the best guess (i.e., is Y bar equal to the predicted value of Y?)
+
+- Is the regression line flat? 
+
+- Are X and Y correlated?  
 
 ---
 
-&lt;img src="25-slides_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+## Predictors
+
+- **One-sample `\(t\)`-tests**
+
+- `\(t = \frac{b}{se}\)`
+
+.code-small[
+
+```r
+summary(fit.1)
+```
+
+```
+## 
+## Call:
+## lm(formula = child ~ parent, data = galton.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.8050 -1.3661  0.0487  1.6339  5.9264 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 23.94153    2.81088   8.517   &lt;2e-16 ***
+## parent       0.64629    0.04114  15.711   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.239 on 926 degrees of freedom
+## Multiple R-squared:  0.2105,	Adjusted R-squared:  0.2096 
+## F-statistic: 246.8 on 1 and 926 DF,  p-value: &lt; 2.2e-16
+```
+]
+
+---
+name: code
+
+## Coding Tips for Regression
+
+- You either need to store the `lm` model as it's own object, and then call `summary()` on it. OR, you can nest `lm()` within the `summary()` function like: `summary(lm(child ~ parent, data = galton.data))`
+
+.code-small[
+
+```r
+# summary(fit.1)
+
+summary(lm(child ~ parent, data = galton.data))
+```
+
+```
+## 
+## Call:
+## lm(formula = child ~ parent, data = galton.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7.8050 -1.3661  0.0487  1.6339  5.9264 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 23.94153    2.81088   8.517   &lt;2e-16 ***
+## parent       0.64629    0.04114  15.711   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.239 on 926 degrees of freedom
+## Multiple R-squared:  0.2105,	Adjusted R-squared:  0.2096 
+## F-statistic: 246.8 on 1 and 926 DF,  p-value: &lt; 2.2e-16
+```
+]
+
+---
+## Coding Tips for Regression
+
+- The `broom` package is part of the `tidyverse`, but it does not load automatically; you'll need to load it separately
+
+`tidy()` creates a data.frame from the output table
+
+
+```r
+tidy(fit.1)
+```
+
+```
+## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)   23.9      2.81        8.52 6.54e-17
+## 2 parent         0.646    0.0411     15.7  1.73e-49
+```
+
+---
+
+## Coding Tips for Regression
+
+- The `broom` package is part of the `tidyverse`, but it does not load automatically; you'll need to load it separately
+
+`augment` adds columns to a dataset, including things like fitted values and residuals. If it has a `.` in front of the column name, it was added. Also stored as a data.frame so we can use them later. 
+
+
+```r
+augment(fit.1)
+```
+
+```
+## # A tibble: 928 x 8
+##    child parent .fitted .resid .std.resid    .hat .sigma .cooksd
+##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1  61.7   70.5    69.5  -7.81      -3.49 0.00270   2.22 0.0165 
+##  2  61.7   68.5    68.2  -6.51      -2.91 0.00109   2.23 0.00462
+##  3  61.7   65.5    66.3  -4.57      -2.05 0.00374   2.23 0.00787
+##  4  61.7   64.5    65.6  -3.93      -1.76 0.00597   2.24 0.00931
+##  5  61.7   64      65.3  -3.60      -1.62 0.00735   2.24 0.00966
+##  6  62.2   67.5    67.6  -5.37      -2.40 0.00130   2.23 0.00374
+##  7  62.2   67.5    67.6  -5.37      -2.40 0.00130   2.23 0.00374
+##  8  62.2   67.5    67.6  -5.37      -2.40 0.00130   2.23 0.00374
+##  9  62.2   66.5    66.9  -4.72      -2.11 0.00218   2.23 0.00487
+## 10  62.2   66.5    66.9  -4.72      -2.11 0.00218   2.23 0.00487
+## # … with 918 more rows
+```
+
+---
+## Coding Tips for Regression
+
+`augment` adds columns to a dataset, including things like fitted values and residuals. If it has a `.` in front of the column name, it was added. Also stored as a data.frame so we can use them later. 
+
+&lt;img src="25-slides_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## Coding Tips for Regression
+
+- The `broom` package is part of the `tidyverse`, but it does not load automatically; you'll need to load it separately
+
+`glance` gives you the F-test &amp; fit measures
+
+```r
+glance(fit.1)
+```
+
+```
+## # A tibble: 1 x 12
+##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.210         0.210  2.24      247. 1.73e-49     1 -2064. 4133. 4148.
+## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;
+```
+
+---
+## Adding more predictors
+
+- You can enter lots of variables into your regression; you aren't limited to just 1
+
+- `\(Y = b_0 + {b_1}{X_1} + {b_2}{X_2} + ... + {b_n}{X_n} + e\)`
+
+- Interpretation of `\(b\)` coefficients changes slightly: "a 1-unit change in `\(X_1\)` predicts a __ change in `\(Y\)`, *while controlling for* `\(X_2\)`
+
+- Interactions get even more tricky (beyond our scope, sadly)
+
+---
+
+## It's. All. Regression. 
+
+Really want to up your stats games? Go through [this site](https://lindeloev.github.io/tests-as-linear/) so you can see how it's all just actually regression. 
+
+A cheatsheet:
+
+&lt;center&gt;
+&lt;img src="25-slides_files/figure-html/allregression.png", width = "90%"&gt;
+&lt;/center&gt;
+
+---
+
+class: inverse
+
+## Next Time
+
+Principles behind data visualizations
+
+Get ready for some rants...
+
+![](25-slides_files/figure-html/alwaysregression.jpg)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

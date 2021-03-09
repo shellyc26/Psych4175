@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- [Regression](https://youtu.be/GcRGotgogsw)
+- Regression
 
 ## Slides
 
@@ -30,7 +30,9 @@ sections <- tibble::tribble(
   "Regression", "reg", FALSE,
   "Equation", "eq", FALSE,
   "OLS", "ols", FALSE,
-  "Example", "ex", FALSE
+  "Fit", "fit", FALSE,
+  "Making Inferences", "infer", FALSE,
+  "Code Tips", "code", FALSE
 )
 slide_tabs(sections, "/slides/25-slides.html")
 ```
