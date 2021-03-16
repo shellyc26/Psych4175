@@ -2,7 +2,7 @@
 title: "Assignment 3"
 linktitle: "# 3"
 date: "6/16/2020"
-due_date: "2020-09-21"
+due_date: "2021-03-22"
 due_time: "9:00am"
 output:
   blogdown::html_page:
@@ -61,22 +61,26 @@ As long as the final thing shown above popped up, you're good! It's ok if you se
 
 ## Actual Assignment
 
+You MUST use either the `nhanes_small_assignment3.csv` or `superheroData_assignment3.csv` datasets! These have been modified specifically for this assignment. You can find both on Canvas (Week 3 Module > Datasets for Assignment 3.
+
 ### Introduction: Script Prep
 Open a new script file and complete this assignment (the same way you've been doing for previous assignments). 
 
 :::list
 Here's your to-do list:
 
-  - At the top of your script, read in your dataset, load in the `tidyverse` package, and make a comment that confirms that the above test run thing worked. 
+  - At the top of your script, read in your dataset, load in the `tidyverse` package
+  - Write a comment that confirms that the above test run thing worked. 
 :::
 
 ### Methods: Data Wrangling
-Let's practice with data wrangling. Everyone's data is different, so this might depend on what you're working with.
+Let's practice with data wrangling.
 
 :::list
 Here's your to-do list:
 
   - Make a `tidyverse` code chunk that uses *at least __3__* `tidyverse` functions. Do whatever you think makes the most sense.
+  - All 3 of the functions should be within the SAME code chunk. That is, you should *not* have 3 separate chunks of code or 3 separate functions. It should be a cohesive paragraph of code (with multiple pipe operators). 
 :::
 
 Here's a list of some of the common `tidyverse` functions that you might want to use:
@@ -92,6 +96,8 @@ Here's a list of some of the common `tidyverse` functions that you might want to
   - `rename`
   - `recode`
   - any of the `join` functions (see cheatsheet for more)
+  
+(Technically, `pivot_wider` and `pivot_longer` fit the bill, also. But we're going to use these in the last part of the assignment, so please do not use those functions in this section.)
 
 ### Results
 
@@ -128,6 +134,21 @@ ggplot(data = XXX-1, aes(x = XXX-2, y = XXX-3, fill = XXX-4)) +
                 width = .2)
 
 ```
+
+### Data Wrangling Part 2
+It’s very common to receive data in the wrong format. Either it comes to you as “long” but you need it to be “wide” or vice versa.
+
+Both datasets now include information about time point. We're going to use this information to convert to the other format!
+
+:::list
+
+Here's your to-do list:
+
+- Determine if your data are currently in wide or long format. Make a note of this in your script.
+- Use the time information to go from wide to long or long to wide. Use `pivot_wider` or `pivot_longer`.
+- Rather than printing out the ENTIRE data.frame, print out the first 15 rows and the relevant columns using indexing.
+- Write a comment that describes what aspects of your data.frame become wide or long; that is, describe what it is you just performed.
+:::
 
 ### Fantastic work!
 Don't forget to submit your code and data file to Canvas. 
