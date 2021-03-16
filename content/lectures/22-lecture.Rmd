@@ -14,7 +14,8 @@ output:
 
 ## Videos
 
-- Comparing Means
+- [Comparing Means](https://youtu.be/hO2Om4Ts5-Y)
+- *Note, my video feed didn't work with this one. So sorry about that!*
 
 ## Slides
 
