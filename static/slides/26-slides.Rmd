@@ -63,15 +63,17 @@ class: inverse
 
 #### Making figures for academic purposes $\neq$ making figures for pure data viz purposes
 
+If you go into data science (and aren't constrained by academia), you'll want to check out R shiny (for interactive plots), web design, typography, etc. 
+
 
 ---
 # Today
 
 - What kinds of things should you be thinking about when it comes to data viz *for academic papers*? 
 
---
+- What **not** to do (I'm gonna rant a bit)
 
-- This will NOT be a course in web design or graphic design. If you want to take something like that, or typography, etc., check out the Art School!
+- Hopefully helpful resources (no memorizing!)
 
 ---
 # What should we be thinking about?
@@ -91,6 +93,9 @@ class: inverse
 
 - It is *so* easy to **LIE** with data! Balancing act of conveying your message and not lying. 
 
+- As our datasets become more complex and high dimensional, data visualization can become more challenging. 
+
+- The goal is NOT to show every bit of data you have collected. It's to show the relationship you care about in an honest manner.
 ---
 name: good
 
@@ -99,6 +104,7 @@ name: good
 - Clear, descriptive title
 
 - Axes are clearly labeled with variables and units of measurement
+  - **Label. Your. Damn. Axes.** 
 
 - Scale is:
   - consistent across axis
@@ -107,7 +113,56 @@ name: good
   
 - Data points are represented clearly, with a good key/legend if needed
 
-- Graph is the appropriate type for your data
+- Graph is the *appropriate* type for your data (nominal, ordinal, interval, ratio etc.)
+
+---
+# Appropriateness
+
+There are no 100% right answers, but there are wrong ones...
+
+- Pie charts are never the answer; 3D pie charts are the worst of the worse
+  - Instead, try stacked bar plot
+  
+- 3D bar plots are never the answer
+
+- Shelly is anti bar plot...why?
+
+- Careful with lines on plots...why?
+
+---
+# Why Bar Plots Can Suck
+
+.pull-left[
+![](26-slides_files/figure-html/barplot1.png)
+]
+
+.pull-right[
+![](26-slides_files/figure-html/barplot2.png)
+
+- Different alternatives exist, with dot plots being the best option probably
+
+- Bars are more appropriate when you have proportions or counts; but even still -- dotplots
+
+- Tracey Weissgerber has an excellent thread with many resources on why barplots suck and how to maximize the utility of dotplots: [https://tinyurl.com/3e6222a4](https://tinyurl.com/3e6222a4)
+
+]
+
+---
+
+# Why adding lines can be misleading
+
+<center>
+
+![](26-slides_files/figure-html/linesmisuse.png)
+</center >
+
+---
+# Lines Cont...
+
+<center>
+
+![](26-slides_files/figure-html/linemisuserebuttal.png)
+</center >
 
 ---
 name: avoid
@@ -147,17 +202,23 @@ chartjunk is anything that gets in the way of reading the information displayed.
 
 # Inaccurate Plotting
 
-[This strange plot](https://sirota.substack.com/p/georgias-misleading-covid-map) was put out by Georgia's Health Department. It’s trying to show that basically there haven’t been any rael changes in COVID-19 statewide. But look at the values in the legend...They’ve changed them to basically keep the same graph. WUT?!
+[This strange plot](https://sirota.substack.com/p/georgias-misleading-covid-map) was put out by Georgia's Health Department. It's trying to show that basically there haven't been any real changes in COVID-19 statewide. But look at the values in the legend...They've changed them to basically keep the same graph. WUT?!
 
 <img src="26-slides_files/figure-html/covid2.png", width="70%">
 
 
 ---
 
-For more...
+.pull-left[
 
-# [How bad Covid-19 data visualizations mislead the public](https://qz.com/1872980/how-bad-covid-19-data-visualizations-mislead-the-public/)
+# Misleading Shapes
+]
 
+.pull-right[
+
+
+![](26-slides_files/figure-html/latvians.png)
+]
 ---
 name: acc
 
@@ -167,7 +228,7 @@ name: acc
 
 - People have poor vision (glasses, anyone?)
 
-- Plus, journals scale your figure sizes down so that it fits within the article (like within a column of text)
+- Journals scale your figure sizes down so that it fits within the article (like within a column of text)
 
 --
 
@@ -185,23 +246,9 @@ Also super helpful! `RColorBrewer` and `ggsci` are great. But there are millions
 
 Ex: the color palette for all of the slides on this website? The Aussie color palette from [https://flatuicolors.com/palette/au](https://flatuicolors.com/palette/au)
 
-**All you need are hex codes**. This is true for full color palettes and for a monochromatic palette that has different shades that provide *contrast*
+**All you need are hex codes** (6 digits, alphanumeric). This ist rue for all color palettes (including monochromatic). 
 
----
-
-# Contrast 
-
-Think back to Cog Neuro or Bio Psych...you learned about the visual system
-
-We have some visual systems dedicated to colors and details, and we have others that help us delineate edges (think about the orientation of a bar and the classic cat experiments)
-
-<center>
-<img src="26-slides_files/figure-html/cat.jpeg", width="40%">
-</center>
-
---
-
-Using colors in your visualizations to differentiate important things (groups, outcomes etc.) should be obvious. Using **contrast** to your advantage might not be as obvious.
+Different types of palettes (unordered, sequential, divergent etc.). Look here to learn more about these: [https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/](https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/)
 
 ---
 
@@ -235,13 +282,9 @@ The most obvious of this is grayscale (technically, it's not a hue, and you're d
 
 It lets the reader *easily* extract meaningful information. 
 
-Shapes are nice too, but they take longer to process than contrasting colors (and like the boxplot, changing the shape isn't always an option)
+Colors, shapes, size (as in bubble plots), sometimes transparency etc.
 
---
-
-Contrast should not be confused with HUE. Hue is just the color itself. Contrast refers to different shades/tints/tones of a color.
-
-So many websites can help! Ex: [https://www.colorhexa.com/](https://www.colorhexa.com/)
+Need help picking different shades/tones/tints of the same color? A ton of websites can help! Ex: [https://www.colorhexa.com/](https://www.colorhexa.com/)
 
 ---
 
@@ -257,8 +300,29 @@ Some of us are getting old and our eyesight is fading
 
 Also, academic journals scale down your figures. Better to make the text size larger so that when it gets scaled down, it's still readable.
 
+
 ---
 
+# Aspect Ratios
+
+You want to display your figures faithfully, but you don't want to take up extra space you don't need. Think about the aspect ratio of your plots!
+
+![](26-slides_files/figure-html/aspectratio.png)
+
+.tiny[Tufte, Visual Explanations. Graphics Press, Cheshire, Conn, 1997]
+
+---
+
+# Small Multiples
+![](26-slides_files/figure-html/faceting.png)
+.tiny[https://www.juiceanalytics.com/writing/better-know-visualization-small-multiples]
+
+---
+# Don't Use Rainbow Colormaps
+![](26-slides_files/figure-html/rainbow.png)
+
+.tiny[Rogowitz & Treinish, IEEE Spectrum, 35(12):52-59. 1998]
+---
 # Self-evaluation
 
 How do you know if you've made a good figure?
@@ -271,10 +335,26 @@ How do you know if you've made a good figure?
 
 - Does it **_faithfully_** reflect your data? Beauty + truth
 
---
+---
 
-There are some tools to help (but don't rely on them completely)
+# Rules
+- Don't make a plot when a table will do
+- Represent data with appropriate significant figures
+- Use appropriate plot types for the data types
+- Label your axes
+- Label your axes
+- Label your axes
+- Title your figures
+- Whenever possible, show all the data (or at least the distribution)
+- Don't rely on a legend or caption/text
+- Don't rely on default plotting conventions
+- If possible, show outliers rather than removing them
+- Sort categorical data accordingly
+- Exploit small multiples to great effect (in `R`, use faceting)
+- Strive to maintain the same color conventions/palettes across all figures
 
-- [Contrast Checker](https://webaim.org/resources/contrastchecker/)
+---
 
+# Helpful Things in `R`
+- `geom_dotplot`
 
