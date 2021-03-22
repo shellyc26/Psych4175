@@ -1,0 +1,57 @@
+---
+title: "Assignment 4"
+linktitle: "# 4"
+date: "6/16/2020"
+due_date: "2021-03-29"
+due_time: "9:00am"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 4
+type: docs
+weight: 4
+editor_options: 
+  chunk_output_type: console
+---
+
+## Congratulations!
+
+By this point, you have learned a *ton* about `R`. In this assignment, I want you to make something that you might actually use in your real life. So you will be making your own summaries of the things you've learned in this course -- it will basically your own cheatsheet or crib sheet. Something like this:
+
+<center>
+<img src="../miscfigs/figure-html/cs.png" width = "100%">
+</center>
+
+### Requirements for the structure of the document
+Create a `.Rmd` file (either RNotebook or RMarkdown is fine). When you turn in the assignment, I want you to submit ***BOTH*** the `.html` file ***and*** the `.Rmd` file. Please do NOT submit the `.nb.html` file, however. You are free to choose the topics -- it can be anything we've covered!
+
+:::list
+Here's your to-do list (e.g., your file must include the following):
+
+  - 4 large headers (at least) indicating the 4 topics you'll go through
+
+  - There must be (at least) 3 subheaders. They must be notably smaller than the larger headers, indicated that these are subsections of the topic you're covering. You do NOT need 3 subheaders for each of your 4 topics. Just at total of 3 subheaders.
+  
+  - You must have some normal text with at least a sentence or two that describes the topic and/or gives notes to yourself. Within the normal text, there should be both **bolded** text and *italicized* text. You must also include at least 1 list somewhere in the document (this could be ordered with numbers/letters or unordered with bullet points)
+  
+  - There must be *at least* one code chunk per section that shows examples of the topic with code (see the above picture). You must show the results of your code as well. For example, if the topic is indexing, and in your code chunk you use indexing to get a subset, you need to print out that object so that I can see the output of your code (remember, the goal is to show yourself different ideas so that when you forget how to do something, you can look at this document!)
+  
+  - Finally, you must include at least 2 examples of inline code. This could be something that just shows up as looking like code in the text (`like this`) or it can be something that actually evaluates to a number (even if it doesn't look like code, I'll be able to tell because I'll have your actual .Rmd file to check!). 
+:::
+
+### Final thoughts
+This assignment is not meant to be very difficult, just something you might find helpful. So think back on the past few weeks, and identify some topics that you struggled with. Those are the ones that should go in this document (so hopefully you won't struggle with them in the future!). Some topics you can think about:
+
+  - Indexing
+  - Logical operators
+  - How to use functions
+  - Specific functions
+  - `tidyverse`
+  - Statistical analyses
+  - Plotting with `ggplot2`
+
+### So, so wonderful!
+Submit your `.Rmd` and `.html` file to Canvas (but not the `.nb.html` file).
