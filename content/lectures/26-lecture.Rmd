@@ -1,0 +1,40 @@
+---
+title: "Theory of Data Visualization"
+linktitle: "26: Data Viz Theory"
+menu:
+  lectures:
+    parent: Advanced Topics
+    weight: 1
+type: docs
+slides: "26-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- [Visualizing Data](https://youtu.be/W-ploe-I9mY)
+
+## Extra
+
+- If you enjoy this, you might also enjoy [this book](https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130) (more for academic purposes than web design/graphic design purposes)
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Good Figs", "good", FALSE,
+  "Things To Avoid", "avoid", FALSE,
+  "Accessibility", "acc", FALSE,
+  "Rules", "rules", FALSE
+)
+slide_tabs(sections, "/slides/26-slides.html")
+```

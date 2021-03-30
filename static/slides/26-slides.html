@@ -107,13 +107,14 @@ name: good
 There are no 100% right answers, but there are wrong ones...
 
 - Pie charts are never the answer; 3D pie charts are the worst of the worse
-  - Instead, try stacked bar plot
+  - Instead, try stacked bar plot or even better, stacked dot plot
   
 - 3D bar plots are never the answer
 
-- Shelly is anti bar plot...why?
-
-- Careful with lines on plots...why?
+- Typically, you should show either the raw data or at least a distribution
+  - Shelly is anti bar plot, generally
+  - Shelly is anti box plots on their own (nice when combined)
+  - Shelly is skeptical of lines -- need to be careful
 
 ---
 # Why Bar Plots Can Suck
@@ -132,6 +133,14 @@ There are no 100% right answers, but there are wrong ones...
 - Tracey Weissgerber has an excellent thread with many resources on why barplots suck and how to maximize the utility of dotplots: [https://tinyurl.com/3e6222a4](https://tinyurl.com/3e6222a4)
 
 ]
+
+---
+
+# Why box plots on their own can suck
+
+![](26-slides_files/figure-html/BoxViolinSmaller.gif)
+
+.tiny[https://www.autodesk.com/research/publications/same-stats-different-graphs]
 
 ---
 
@@ -176,7 +185,7 @@ name: avoid
 ]
 
 ???
-chartjunk is anything that gets in the way of reading the information displayed. this is stuff like unnecessry lines or grids behind the graph. patterns within the graph that might create the impression of movement or vibration lik the diagonal lines. or something called DUCKS which are any dressings added to the graph that are distracting. like this weird monster or the clowns. it can be fancy fonts or 3d effects or again, anything that detracts from the data itself. 
+chartjunk is anything that gets in the way of reading the information displayed. this is stuff like unnecessary lines or grids behind the graph. patterns within the graph that might create the impression of movement or vibration like the diagonal lines. or something called DUCKS which are any dressings added to the graph that are distracting. like this weird monster or the clowns. it can be fancy fonts or 3d effects or again, anything that detracts from the data itself. 
 
 ---
 
@@ -191,7 +200,6 @@ chartjunk is anything that gets in the way of reading the information displayed.
 [This strange plot](https://sirota.substack.com/p/georgias-misleading-covid-map) was put out by Georgia's Health Department. It's trying to show that basically there haven't been any real changes in COVID-19 statewide. But look at the values in the legend...They've changed them to basically keep the same graph. WUT?!
 
 &lt;img src="26-slides_files/figure-html/covid2.png", width="70%"&gt;
-
 
 ---
 
@@ -232,9 +240,9 @@ Also super helpful! `RColorBrewer` and `ggsci` are great. But there are millions
 
 Ex: the color palette for all of the slides on this website? The Aussie color palette from [https://flatuicolors.com/palette/au](https://flatuicolors.com/palette/au)
 
-**All you need are hex codes** (6 digits, alphanumeric). This ist rue for all color palettes (including monochromatic). 
+**All you need are hex codes** (6 digits, alphanumeric). This is true for all color palettes (including monochromatic). 
 
-Different types of palettes (unordered, sequential, divergent etc.). Look here to learn more about these: [https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/](https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/)
+Different types of palettes (unordered, sequential, divergent etc.). Look [at this blog post](https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/) to learn more about these
 
 ---
 
@@ -272,11 +280,7 @@ Need help picking different shades/tones/tints of the same color? A ton of websi
 
 #### Don't make your font size super uber small!
 
-Some of us are getting old and our eyesight is fading
-
-(I'm not bitter...yes I am...)
-
---
+Some of us are getting old and our eyesight is fading .small[_(I'm not bitter...yes I am...)_]
 
 Also, academic journals scale down your figures. Better to make the text size larger so that when it gets scaled down, it's still readable.
 
@@ -297,6 +301,15 @@ You want to display your figures faithfully, but you don't want to take up extra
 ![](26-slides_files/figure-html/faceting.png)
 .tiny[https://www.juiceanalytics.com/writing/better-know-visualization-small-multiples]
 
+---
+# Small Multiples with COVID
+
+&lt;center&gt;
+&lt;img src="26-slides_files/figure-html/covidgood.png", width="80%"&gt;
+&lt;/center&gt;
+
+
+.tiny[https://twitter.com/chrisprener/status/1375937857840353280/photo/2]
 ---
 # Don't Use Rainbow Colormaps
 ![](26-slides_files/figure-html/rainbow.png)
@@ -321,9 +334,9 @@ How do you know if you've made a good figure?
 - Don't make a plot when a table will do
 - Represent data with appropriate significant figures
 - Use appropriate plot types for the data types
-- Label your axes
-- Label your axes
-- Label your axes
+- **Label your axes**
+- **Label your axes**
+- **Label your axes**
 - Title your figures
 - Whenever possible, show all the data (or at least the distribution)
 - Don't rely on a legend or caption/text
@@ -332,11 +345,20 @@ How do you know if you've made a good figure?
 - Sort categorical data accordingly
 - Exploit small multiples to great effect (in `R`, use faceting)
 - Strive to maintain the same color conventions/palettes across all figures
+- Start with what you want your plot to look like, then work backwards
+- **SHOW. YOUR. CODE.**
 
 ---
 
 # Helpful Things in `R`
-- `geom_dotplot`
+
+- `geom_dotplot`; better than bar plots, typically (see earlier slide)
+- Revisit our section on `ggplot2`; I bet you missed a lot...
+- Raincloud plots; [blog post here](https://micahallen.org/2018/03/15/introducing-raincloud-plots/)
+- Using the same theme modifications for all plots? Make a function to store that theme and call it later (more on functions soon!)
+- **Google is your friend; Google is your professor**
+- Interested in making generative art in `R`? Check out the Twitter accounts of [Danielle Navarro](https://twitter.com/djnavarro) and [Ijeamaka Anyene](https://twitter.com/ijeamaka_a); then look at their websites!
+- Want examples of good COVID plotting with open `R` code? Check out [Chris Prener's Twitter account](https://twitter.com/chrisprener). If you'd like this as a weekly newsletter, check out his [River City Data](https://chrisprener.substack.com/) tracking site!
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
