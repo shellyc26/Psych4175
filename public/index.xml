@@ -5,7 +5,7 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Applied Statistical Analysis with R</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0100</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Applied Statistical Analysis with R</title>
@@ -108,6 +108,375 @@
 &lt;h3&gt;Congrats, you’ve finished!&lt;/h3&gt;
 &lt;p&gt;Submit both your code and your data file to Canvas.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: For Loops</title>
+      <link>/practice/20-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/20-practice/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#for-loops&#34;&gt;For Loops&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#introducing-ifelse-statements&#34;&gt;Introducing if/else statements&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#using-for-loops-for-bootstrapping&#34;&gt;Using &lt;em&gt;for loops&lt;/em&gt; for bootstrapping&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#using-bootstrapping-for-confidence-intervals&#34;&gt;Using bootstrapping for &lt;em&gt;confidence intervals&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;for-loops&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;For Loops&lt;/h2&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/spongememe.jpg&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;For loops are important for completing iterative actions in an efficient manner. The syntax for &lt;em&gt;for loops&lt;/em&gt; looks like the following:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for (i in 1:some_number) {
+  do something
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;1:some number&lt;/code&gt; portion refers to the elements you’re iterating over. If you wanted to do something 5 times, you could say &lt;code&gt;1:5&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; You can iterate over &lt;em&gt;lots of things!&lt;/em&gt; This includes things like:
+- vectors
+- rows of a data.frame
+- columns of a data.frame
+- lists&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;i&lt;/code&gt; stands for “each”. So the first line in the example code above reads as:
+&lt;strong&gt;For each item in 1 through some number…&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Lastly, the section between the curly brackets &lt;code&gt;{}&lt;/code&gt; is the body of the for loop. This area includes all of the commands that will be executed with every iteration of the loop.&lt;/p&gt;
+&lt;div class=&#34;quiz&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-20-quiz1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/20-learnr-quiz1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-20-quiz1&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;p&gt;Most of the time, we want to store the outcome of whatever commands occur during the body of the for loop. In order to do this, we have to &lt;em&gt;initialize&lt;/em&gt; an object.&lt;/p&gt;
+&lt;div class=&#34;quiz&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Drew made the following for loop with the goal of squaring all of the numbers between 1 and 5, and then printing them as a single vector (&lt;code&gt;1 4 9 16 25&lt;/code&gt;) to the console. She made a mistake though.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_object &amp;lt;- NULL
+
+for (i in 1:5) {
+  my_object &amp;lt;- i^2
+}
+
+print(my_object)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-20-quiz2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/20-learnr-quiz2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-20-quiz2&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-20-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/20-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-20-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/rockememe.jpg&#34; width = &#34;50%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;introducing-ifelse-statements&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introducing if/else statements&lt;/h2&gt;
+&lt;p&gt;In programming languages, &lt;code&gt;if/else&lt;/code&gt; statements are used for conditional situations. &lt;em&gt;If&lt;/em&gt; a given boolean statement is evaluated to &lt;code&gt;TRUE&lt;/code&gt;, then one block of code will be executed, if instead (“&lt;em&gt;else&lt;/em&gt;”) the boolean statements evaluates to &lt;code&gt;FALSE&lt;/code&gt;, then a different block of code will be executed.&lt;/p&gt;
+&lt;p&gt;Below is the general format for if/else statements:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;if(boolean statement) {
+  # code to be executed if boolean is true
+} else {
+  # code to be executed if boolean is false
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;What situations will you need to use if/else statements for?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If/else is useful for &lt;em&gt;recoding&lt;/em&gt; and &lt;em&gt;sorting&lt;/em&gt; data based on conditional rules. If/else statements also combine with for loops for very useful coding. Take the following example: Ten students were asked how much they like or dislike provel cheese on a scale of 1 to 10 (10 = love it). However, we want to change this numeric scale to label all values below or equal to 5 as “dislike” and above or equal to 6 “like”.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Student ratings (numeric)
+provel_cheese_rating &amp;lt;- c(1, 1, 9, 3, 5, 4, 7, 1, 3, 10)
+
+# Initialize like vs. dislike vector
+like_dislike &amp;lt;- c()
+
+for(i in provel_cheese_rating) {
+  if(i &amp;lt;= 5) {
+    like_dislike &amp;lt;- append(like_dislike, &amp;quot;dislike&amp;quot;)
+  } else {
+    like_dislike &amp;lt;- append(like_dislike, &amp;quot;like&amp;quot;)
+  }
+} 
+
+# View outcome 
+print(like_dislike)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;dislike&amp;quot; &amp;quot;dislike&amp;quot; &amp;quot;like&amp;quot;    &amp;quot;dislike&amp;quot; &amp;quot;dislike&amp;quot; &amp;quot;dislike&amp;quot; &amp;quot;like&amp;quot;   
+##  [8] &amp;quot;dislike&amp;quot; &amp;quot;dislike&amp;quot; &amp;quot;like&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using a combination of a for loop and an if/else statement, we were able to &lt;em&gt;recode&lt;/em&gt; the vector. Now we know where the students stand on the provel issue…&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/provel_cartoon.png&#34; width = &#34;50%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; There is an additional feature of if/else statements called &lt;code&gt;else if&lt;/code&gt;. This feature can be used for more complex conditional situations&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;What if a simple binary conditional statement won’t cut it? For example, maybe we want to entirely change a series of character labels. Here, we can use &lt;code&gt;elseif&lt;/code&gt; to specify all possibilities.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(Note that, realistically, we would probably never write out every name of animal like this. Maybe instead we would reference a database and search for items, and then label their class, etc.)&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Animals
+animals &amp;lt;- c(&amp;quot;dog&amp;quot;, &amp;quot;cat&amp;quot;, &amp;quot;iguana&amp;quot;, &amp;quot;frog&amp;quot;, &amp;quot;cardinal&amp;quot;)
+
+# Initialize classes of animals vector
+animals_class &amp;lt;- c()
+
+for(i in animals) {
+  if(i == &amp;quot;dog&amp;quot;) {
+    animals_class &amp;lt;- append(animals_class, &amp;quot;mammal&amp;quot;)
+  } else if(i == &amp;quot;cat&amp;quot;) {
+    animals_class &amp;lt;- append(animals_class, &amp;quot;mammal&amp;quot;)
+  } else if(i == &amp;quot;iguana&amp;quot;) {
+    animals_class &amp;lt;- append(animals_class, &amp;quot;reptile&amp;quot;)
+  } else if(i == &amp;quot;frog&amp;quot;) {
+    animals_class &amp;lt;- append(animals_class, &amp;quot;amphibian&amp;quot;)
+  } else {
+    animals_class &amp;lt;- append(animals_class, &amp;quot;bird&amp;quot;)
+  }
+} 
+
+# View outcome 
+print(animals_class)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;mammal&amp;quot;    &amp;quot;mammal&amp;quot;    &amp;quot;reptile&amp;quot;   &amp;quot;amphibian&amp;quot; &amp;quot;bird&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; R has a built in function called &lt;code&gt;ifelse()&lt;/code&gt;. It does the same thing as an &lt;code&gt;if/else&lt;/code&gt; statement. However, it only has 2 conditions. That is, it does not have the opportunity to use &lt;code&gt;else if&lt;/code&gt; for multiple conditional statements.&lt;/p&gt;
+&lt;p&gt;I have unfortunately seen people nest &lt;code&gt;ifelse()&lt;/code&gt; statements. This is incredibly bad form! If you have to do this, it is worth your time to write out a full &lt;code&gt;if/else if/else&lt;/code&gt; statement!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Let’s expand our provel example. Write an &lt;code&gt;if/else if/else&lt;/code&gt; statement that says:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scores of 1-3 correspond to “dislike”&lt;/li&gt;
+&lt;li&gt;Scores of 4-6 correspond to “neutral”&lt;/li&gt;
+&lt;li&gt;Scores of 7-10 correspond to “like”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-20-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/20-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-20-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/matrixmeme.jpeg&#34; width = &#34;50%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-for-loops-for-bootstrapping&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Using &lt;em&gt;for loops&lt;/em&gt; for bootstrapping&lt;/h2&gt;
+&lt;p&gt;Now we will use for loops in order to &lt;strong&gt;bootstrap&lt;/strong&gt; our data.&lt;/p&gt;
+&lt;p&gt;As a reminder:
+* In statistics, &lt;strong&gt;bootstrapping&lt;/strong&gt; is any test or metric that uses random sampling with replacement
+* Examples:
+- bootstrapped means (from random samples of a population)
+- bootstrapped confidence intervals&lt;/p&gt;
+&lt;p&gt;We are going to use bootstrapping to create our own &lt;strong&gt;sampling distribution&lt;/strong&gt; of the mean, and compare the outcomes after a small number of iterations versus a large number of iterations.&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/samplememe.jpg&#34; width = &#34;50%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;p&gt;Unfortunately not those kinds of samples…&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Reminder:&lt;/strong&gt; In statistics, the sampling distribution of the mean is a probability distribution of means drawn from numerous samples of the population.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For this example, I have generated a &lt;em&gt;population&lt;/em&gt; of data. The data.frame is called &lt;code&gt;pop_data&lt;/code&gt;. It has a single column called &lt;code&gt;PopulationMeans&lt;/code&gt;. The true population mean of this dataset is 100.1528973.&lt;/p&gt;
+&lt;p&gt;Here is a histogram of the population data:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(pop_data, aes(x = PopulationMeans)) +
+  geom_histogram(color = &amp;quot;black&amp;quot;, fill = &amp;quot;plum4&amp;quot;) +
+  theme_classic() +
+  ylab(&amp;quot;Count&amp;quot;) +
+  xlab(&amp;quot;Value&amp;quot;) +
+  ggtitle(&amp;quot;Population distribution&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/20-practice_files/figure-html/Summarize%20population%20data-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now, we can use a for loop to draw random samples &lt;em&gt;with replacement&lt;/em&gt; from the population. For this first attempt, we will draw a small number of samples (10) to create &lt;code&gt;sample_means_small&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Initialize vector for means
+sample_means_small &amp;lt;- NULL
+
+# Use for loop to gather means of each sample
+for (i in 1:10) {
+  subsample &amp;lt;- sample(x = pop_data$PopulationMeans, size = 50)
+  sample_means_small[i] &amp;lt;- mean(subsample)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, we will draw a slightly larger number of samples (100) to create &lt;code&gt;sample_means_medium&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Initialize vector for means
+sample_means_medium &amp;lt;- NULL
+
+# Use for loop to gather means of each sample
+for (i in 1:100) {
+  subsample &amp;lt;- sample(x = pop_data$PopulationMeans, size = 50)
+  sample_means_medium[i] &amp;lt;- mean(subsample)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To compare, we will do the same process with a larger set of random samples (1,000) to create &lt;code&gt;sample_means_large&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Initialize vector for means
+sample_means_large &amp;lt;- NULL
+
+# Use for loop to gather means of each sample
+for (i in 1:1000) {
+  subsample &amp;lt;- sample(x = pop_data$PopulationMeans, size = 50)
+  sample_means_large[i] &amp;lt;- mean(subsample)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Visualizing the three sampling distributions give us perspective as to how the number of iterations makes the sampling distribution approach normality.&lt;/p&gt;
+&lt;p&gt;Additionally, if we take the mean of the sampled means (in order to estimate the population mean), it will become &lt;em&gt;more accurate&lt;/em&gt; as the size of the sampling distribution increases. In the plots below, the solid lines marks the true population mean, and the dashed lines mark the sampling distribution means.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot1 &amp;lt;- ggplot() +
+  geom_histogram(data = sample_means_small, aes(values), fill = &amp;quot;plum4&amp;quot;, color = &amp;quot;black&amp;quot;, binwidth = 5) +
+  theme_classic() +
+  xlab(&amp;quot;Sample means&amp;quot;) +
+  ylab(&amp;quot;Count&amp;quot;) +
+  geom_vline(xintercept = small_m, linetype = &amp;quot;longdash&amp;quot;) +
+  geom_vline(xintercept = pop_m) +
+  coord_cartesian(xlim = c(85, 115)) +
+  ggtitle(&amp;quot;Distribution of 10 samples&amp;quot;)
+
+plot2 &amp;lt;- ggplot() +
+  geom_histogram(data = sample_means_small, aes(values), fill = &amp;quot;plum4&amp;quot;, color = &amp;quot;black&amp;quot;, binwidth = 3) +
+  theme_classic() +
+  xlab(&amp;quot;Sample means&amp;quot;) +
+  ylab(&amp;quot;Count&amp;quot;) +
+  geom_vline(xintercept = medium_m, linetype = &amp;quot;longdash&amp;quot;) +
+  geom_vline(xintercept = pop_m) +
+  coord_cartesian(xlim = c(85, 115)) +
+  ggtitle(&amp;quot;Distribution of 100 samples&amp;quot;)
+
+plot3 &amp;lt;- ggplot() +
+  geom_histogram(data = sample_means_large, aes(values), fill = &amp;quot;plum4&amp;quot;, color = &amp;quot;black&amp;quot;) +
+  theme_classic() +
+  xlab(&amp;quot;Sample means&amp;quot;) +
+  ylab(&amp;quot;Count&amp;quot;) +
+  geom_vline(xintercept = large_m, linetype = &amp;quot;longdash&amp;quot;) +
+  geom_vline(xintercept = pop_m) +
+  coord_cartesian(xlim = c(85, 115)) +
+  ggtitle(&amp;quot;Distribution of 1,000 samples&amp;quot;)
+
+ggarrange(plot1, plot2, plot3)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/20-practice_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;85%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-bootstrapping-for-confidence-intervals&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Using bootstrapping for &lt;em&gt;confidence intervals&lt;/em&gt;&lt;/h2&gt;
+&lt;div class=&#34;quiz&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-20-quiz3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/20-learnr-quiz3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-20-quiz3&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Reminder:&lt;/strong&gt; The 95% confidence interval is calculated using the following formula:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(CI_{95} = \bar{X} \pm (1.96 * SEM)\)&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now we’re going to use &lt;em&gt;bootstrapping&lt;/em&gt; to calculate the 95% confidence intervals.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tips and Instructions:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;pop_data&lt;/code&gt; as your dataset&lt;/li&gt;
+&lt;li&gt;See the Power Plus lecture slides 10-11 for examples of calculating a single CI&lt;/li&gt;
+&lt;li&gt;Use z = 1.96 for a 95% interval&lt;/li&gt;
+&lt;li&gt;On each loop iteration, save the upper CI to &lt;code&gt;upper_values&lt;/code&gt;, and the lower CI to &lt;code&gt;lower_values&lt;/code&gt; (see &lt;code&gt;append()&lt;/code&gt; help page)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-20-app3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/20-learnr-app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-20-app3&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;p&gt;That’s it for this practice – go forth and sample iteratively!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assignment 2</title>
+      <link>/assignments/02-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/02-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;p&gt;Let’s get to it!&lt;/p&gt;
+&lt;div id=&#34;introduction-script-prep&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction: Script Prep&lt;/h3&gt;
+&lt;p&gt;Before running any code, you want to make sure that you have the proper packages &lt;strong&gt;installed&lt;/strong&gt;. This requires an internet connection (preferably a strong one - not a coffee shop connection)! The &lt;strong&gt;loading&lt;/strong&gt; of packages does &lt;em&gt;not&lt;/em&gt; require an internet connection.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Below this box is a list of packages that you will need for the rest of this course. Check to see if they are in your Packages tab. If they are &lt;em&gt;not&lt;/em&gt; there, please install them.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Write a comment to tell me how many of the above packages did you install? If it’s 3 or more, then you may move on to the next question. If it was less than 3, please install as many as you need so that you have installed at least 3 packages total (this is to give you practice!). See below for some more optional packages.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Load&lt;/strong&gt; the &lt;code&gt;tidyverse&lt;/code&gt; and &lt;code&gt;psych&lt;/code&gt; packages.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;The &lt;em&gt;required&lt;/em&gt; packages for this course:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;knitr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tidyverse&lt;/code&gt; &lt;em&gt;note that this one installs a lot of stuff - that’s OK!&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;psych&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ggpubr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RColorBrewer&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some &lt;em&gt;optional&lt;/em&gt; packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ez&lt;/code&gt; - nice for within-subjects ANOVA&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lavaan&lt;/code&gt; - structural equation modeling&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ggpredict&lt;/code&gt; - great for plotting complex interactions of continuous variables&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;broom&lt;/code&gt; - might be installed with the above packages; useful for converting the output of regressions into data.frames&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lme4&lt;/code&gt; - hierarchical linear modeling (aka multilevel modeling)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;caret&lt;/code&gt; - machine learning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-summary-statistics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Summary Statistics&lt;/h3&gt;
+&lt;p&gt;In the first assignment, I asked you to manually calculate some summary statistics. This next to-do list will show you a much simpler way of getting summary statistics.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Import your dataset. Make sure all the variables that should be &lt;code&gt;factors&lt;/code&gt; are treated as such.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the &lt;code&gt;describe()&lt;/code&gt; function to get summary statistics of your numeric/integer columns &lt;em&gt;only&lt;/em&gt;. You do not need to include things like participant ID in this – just the variables you might care about in an actual analysis.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Modify one of it’s arguments so that it also shows the interquartile range.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now use &lt;code&gt;describeBy()&lt;/code&gt; with one of your categorical variables. Write a comment telling me what changes?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, use the &lt;code&gt;summary()&lt;/code&gt; function on the entire data.frame (keep it simple with &lt;code&gt;summary(data)&lt;/code&gt;). Do you prefer the &lt;code&gt;describe&lt;/code&gt;/&lt;code&gt;describeBy&lt;/code&gt; functions or the &lt;code&gt;summary&lt;/code&gt; function? There is no right answer here. I just want to know your preference and why. Write this out as a comment.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-fun-with-statistics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Fun With Statistics&lt;/h3&gt;
+&lt;p&gt;Let’s have some good old fashioned nerdy fun with statistics.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Pick 2 of your numeric/integer variables (preferably 2 that you think might be related). Get the covariance of these variables using &lt;code&gt;cov()&lt;/code&gt;. You may choose to store this as a new object or simply print it out to the console.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now take those same 2 variables, and get the z-scores of each variable. You may use the &lt;code&gt;scale()&lt;/code&gt; function that we’ve previously used or you can do it in a different manner. Store these as a new data.frame. That is, you should end up with a data.frame that has 2 columns. Column 1 contains the z-scores of the first variable, and column 2 contains the z-scores of the second variable.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now get the covariance of your &lt;em&gt;new&lt;/em&gt; data.frame. The one that has z-scores. Again, you may store this as a new object or simply print it out to the console.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, get the correlation of the two variables from the original data.frame (&lt;em&gt;not&lt;/em&gt; the one with z-scores). Use the &lt;code&gt;cor()&lt;/code&gt; function. Compare this correlation to the different covariances. Write a comment telling me what you notice? Do you remember your statistics class? 😉&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-plot-your-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Plot Your Data&lt;/h3&gt;
+&lt;p&gt;Now for the crux of almost every academic paper! Plotting!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;You will be making plots using &lt;code&gt;ggplot2&lt;/code&gt; code. As long as you have loaded the &lt;code&gt;tidyverse&lt;/code&gt; package, you should be able to run these easily. However, check to make sure that there is a check mark ✅ next to the &lt;code&gt;ggplot2&lt;/code&gt; package under the Packages tab. If it is unchecked, then please load it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make a scatterplot of the 2 variables from your original data.frame. Make sure the points are &lt;em&gt;not&lt;/em&gt; the color black. Specify a new color of your choice.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make a scatterplot of the 2 variables from your &lt;em&gt;z-scored&lt;/em&gt; data.frame. What is the difference between this plot and the one you just made?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, make a scatter plot of the 2 original variables, make the colors AND the shapes based on one of your categorical variables.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the following &lt;em&gt;layer&lt;/em&gt; to your plot &lt;code&gt;geom_smooth(method = &#34;lm&#34;, aes(color = yourFactorVariable))&lt;/code&gt; Write a comment telling me if there are different relationships for each category?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-influence-of-outliers&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Influence of Outliers&lt;/h3&gt;
+&lt;p&gt;Outliers can be a real pain in the butt for researchers. One challenge that researchers face is determining which observations are actually outliers to begin with. That is, are they real scores that we should consider? Or are they an artifact of something else? One common way of defining an outlier is to say &lt;em&gt;let’s treat any score that is more than 2 standard deviations away from the mean as an outlier&lt;/em&gt;. That’s what you’re going to do here, using the &lt;em&gt;same&lt;/em&gt; 2 variables that you used above in your scatterplots (use the variables that are not z-scores).&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make a new data.frame that contains all of your columns from the original, but remove the rows that contain outliers – as defined as being more than 2 standard deviations away from the mean.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here are some HINTS on how to do this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;multiple logical operators&lt;/strong&gt; that are then &lt;strong&gt;nested&lt;/strong&gt; within a function.&lt;/li&gt;
+&lt;li&gt;“Away from the mean” can be in two directions. That is, you can have outliers because values are too high or too low.&lt;/li&gt;
+&lt;li&gt;Now I want you to remake the 3rd plot from above, but now using this new dataset where the outliers are removed. (Include the &lt;code&gt;geom_smooth(method = &#34;lm&#34;, aes(color = yourFactorVariable))&lt;/code&gt; layer) Compare the two plots. Are the trends different now that you’ve removed the outliers?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;General Note On Outliers: I am &lt;strong&gt;not&lt;/strong&gt; suggesting that this “2 standard deviations away from the mean” method is the correct way of defining an outlier. How you define outliers is completely dependent upon the data. Similarly, removing outliers is one option for handling them, but it is not&lt;/em&gt; the &lt;em&gt;only&lt;/em&gt; option. How you want to handle outliers in your own research should be discussed with your colleagues before any statistical analyses are performed (and ideally before data collection begins).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;boom-its-over&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;BOOM! It’s over!&lt;/h3&gt;
+&lt;p&gt;Submit both your code and your data file to Canvas.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -302,6 +671,144 @@ chickens + cows&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Assignment 3</title>
+      <link>/assignments/03-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/03-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;testing-things&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Testing Things&lt;/h2&gt;
+&lt;p&gt;The first part is going to be a test run to see if a particular type of document works with your computer. It should, but we’re going to test it out here just in case. You do NOT need to submit the test file.&lt;/p&gt;
+&lt;div class=&#34;warning&#34;&gt;
+&lt;p&gt;The following section requires the internet. Please make sure you have a stable connection before completing the exercise. &lt;strong&gt;PLEASE tell me &lt;em&gt;as soon as possible&lt;/em&gt; if any errors come up.&lt;/strong&gt; This will be a large part of what we will be doing next week, so if it’s not working, we need to get it worked out &lt;em&gt;&lt;strong&gt;BEFORE&lt;/strong&gt;&lt;/em&gt; you continue on to the Reproducibility section.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;PLEASE READ ALL OF THE STEPS BELOW &lt;em&gt;BEFORE&lt;/em&gt; ACTUALLY TRYING IT&lt;/strong&gt;. Follow these steps:&lt;/p&gt;
+&lt;div id=&#34;step-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;In your console&lt;/strong&gt; set your working directory somewhere. It doesn’t really matter where, as long as you can easily find it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 2&lt;/h3&gt;
+&lt;p&gt;Next, open a new R Notebook. You can do this via &lt;code&gt;File &amp;gt; New File &amp;gt; R Notebook&lt;/code&gt; or by clicking the white paper with &lt;font color=&#39;green&#39;&gt;green plus sign&lt;/font&gt; from the top left corner (this is the same as opening a new R script) and choosing R Notebook. It should look something like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/rm1.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 3&lt;/h3&gt;
+&lt;p&gt;Next, find the button at the top that says &lt;code&gt;Preview&lt;/code&gt; and click the arrow next to it. You should get a drop down menu. Select &lt;code&gt;Knit to HTML&lt;/code&gt;. It should look like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../miscfigs/figure-html/rm2.png&#34; width = &#34;50%&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;../miscfigs/figure-html/rm3.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;p&gt;It will prompt you to save the file. That’s OK! Give it a name like &lt;code&gt;testNotebook&lt;/code&gt; or whatever you’d like.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 4&lt;/h3&gt;
+&lt;p&gt;Finally, you should see something that pops up, and it should look like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/rm4.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;p&gt;As long as the final thing shown above popped up, you’re good! It’s ok if you see a lot of scary stuff in the console after. But, if the thing above did &lt;em&gt;not&lt;/em&gt; pop up, please take a screen shot of the scary console text! It will be easier for me to help you if I can see the message. Scary text that is actually OK might look like:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/rm5.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;actual-assignment&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Actual Assignment&lt;/h2&gt;
+&lt;p&gt;You MUST use either the &lt;code&gt;nhanes_small_assignment3.csv&lt;/code&gt; or &lt;code&gt;superheroData_assignment3.csv&lt;/code&gt; datasets! These have been modified specifically for this assignment. You can find both on Canvas.&lt;/p&gt;
+&lt;div id=&#34;introduction-script-prep&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction: Script Prep&lt;/h3&gt;
+&lt;p&gt;Open a new script file and complete this assignment (the same way you’ve been doing for previous assignments).&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;At the top of your script, read in your dataset, load in the &lt;code&gt;tidyverse&lt;/code&gt; package&lt;/li&gt;
+&lt;li&gt;Make a comment that confirms that the above test run thing worked.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;methods-data-wrangling&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Methods: Data Wrangling&lt;/h3&gt;
+&lt;p&gt;Let’s practice with data wrangling. Everyone’s data is different, so this might depend on what you’re working with.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make a &lt;code&gt;tidyverse&lt;/code&gt; code chunk that uses &lt;em&gt;at least &lt;strong&gt;3&lt;/strong&gt;&lt;/em&gt; &lt;code&gt;tidyverse&lt;/code&gt; functions. Do whatever you think makes the most sense.&lt;/li&gt;
+&lt;li&gt;All 3 of the functions should be within the SAME code chunk. That is, you should &lt;em&gt;not&lt;/em&gt; have 3 separate chunks of code. It should be a cohesive code chunk (put differently, a paragraph of code).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here’s a list of some of the common &lt;code&gt;tidyverse&lt;/code&gt; functions that you might want to use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;separate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;unite&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rename&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;recode&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;any of the &lt;code&gt;join&lt;/code&gt; functions (see cheatsheet for more)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Technically, &lt;code&gt;pivot_wider&lt;/code&gt; and &lt;code&gt;pivot_longer&lt;/code&gt; fit the bill, also. But we’re going to use these in the last part of the assignment, so please do not use those functions in this section.)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results&lt;/h3&gt;
+&lt;p&gt;Let’s make a bar plot with error bars!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Make a smaller data.frame that contains all the information you would need to make a bar graph (including information for error bars of +/- 1 standard deviation) for &lt;em&gt;at least &lt;strong&gt;two&lt;/strong&gt;&lt;/em&gt; of your categorical variables.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Then, use the plotting code below and replace the missing values with your data so that you can actually make the bar graph!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here’s a HINT:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The hardest part of this is trying to imagine what it is that you need!&lt;/li&gt;
+&lt;li&gt;You need a continuous variable that you can collapse into a value per level of each of your two categorical variables. Then you need to calculate everything needed for the error bars.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here’s the plotting code that you can copy/replace your data with&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;XXX-1: correct data.frame
+XXX-2: one of the two categorical variables
+XXX-3: the summarized continuous variable
+XXX-4: the second of the categorical variables
+XXX-5: the value of the lower edge of the error bar
+XXX-6: the value of the upper edge of the error bar
+
+ggplot(data = XXX-1, aes(x = XXX-2, y = XXX-3, fill = XXX-4)) +
+  geom_col(position = position_dodge(width=.9)) +
+  geom_errorbar(aes(ymin = XXX-5, ymax = XXX-6),
+                position = position_dodge(width=.9),
+                width = .2)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-wrangling-part-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Wrangling Part 2&lt;/h3&gt;
+&lt;p&gt;It’s very common to receive data in the wrong format. Either it comes to you as “long” but you need it to be “wide” or vice versa.&lt;/p&gt;
+&lt;p&gt;Both datasets now include information about time point. We’re going to use this information to convert to the other format!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Determine if your data are currently in wide or long format. Make a note of this in your script.&lt;/li&gt;
+&lt;li&gt;Use the time information to go from wide to long or long to wide. Use &lt;code&gt;pivot_wider&lt;/code&gt; or &lt;code&gt;pivot_longer&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Rather than printing out the ENTIRE data.frame, print out the first 15 rows and the relevant columns using indexing.&lt;/li&gt;
+&lt;li&gt;Make a comment that describes what aspects of your data.frame become wide or long; that is, describe what it is you just performed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fantastic-work&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Fantastic work!&lt;/h3&gt;
+&lt;p&gt;Don’t forget to submit your code and data file to Canvas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: Indexing</title>
       <link>/practice/03-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -423,6 +930,57 @@ actOldScores&lt;/code&gt;&lt;/pre&gt;
 &lt;center&gt;
 &lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/noideareallywell.gif&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
 &lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assignment 4</title>
+      <link>/assignments/04-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/04-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;congratulations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Congratulations!&lt;/h2&gt;
+&lt;p&gt;By this point, you have learned a &lt;em&gt;ton&lt;/em&gt; about &lt;code&gt;R&lt;/code&gt;. In this assignment, I want you to make something that you might actually use in your real life. So you will be making your own summaries of the things you’ve learned in this course – it will basically your own cheatsheet or crib sheet. Something like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/cs.png&#34; width = &#34;100%&#34;&gt;
+&lt;/center&gt;
+&lt;div id=&#34;requirements-for-the-structure-of-the-document&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Requirements for the structure of the document&lt;/h3&gt;
+&lt;p&gt;Create a &lt;code&gt;.Rmd&lt;/code&gt; file (either RNotebook or RMarkdown is fine). When you turn in the assignment, I want you to submit &lt;strong&gt;&lt;em&gt;BOTH&lt;/em&gt;&lt;/strong&gt; the &lt;code&gt;.html&lt;/code&gt; file &lt;strong&gt;&lt;em&gt;and&lt;/em&gt;&lt;/strong&gt; the &lt;code&gt;.Rmd&lt;/code&gt; file. You are free to choose the topics – it can be anything we’ve covered!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list (e.g., your file must include the following):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;4 large headers (at least) indicating the 4 topics you’ll go through&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There must be at least 3 subheaders. They must be notably smaller than the larger headers, indicating that these are subsections of the topic you’re covering.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You must have some normal text with at least a sentence or two that describes the topic and/or gives notes to yourself. Within the normal text, there should be both &lt;strong&gt;bolded&lt;/strong&gt; text and &lt;em&gt;italicized&lt;/em&gt; text. You must also include at least 1 list somewhere in the document (this could be ordered with numbers/letters or unordered with bullet points)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There must be &lt;em&gt;at least&lt;/em&gt; one code chunk &lt;strong&gt;per section&lt;/strong&gt; that shows examples of the topic with code (see the above picture). You must show the results of your code as well. For example, if the topic is indexing, and in your code chunk you use indexing to get a subset, you need to print out that object so that I can see the output of your code (remember, the goal is to show yourself different ideas so that when you forget how to do something, you can look at this document!).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, you must include at least 2 examples of inline code. This could be something that just shows up as looking like code in the text (&lt;code&gt;like this&lt;/code&gt;) or it can be something that actually evaluates to a number (even if it doesn’t look like code, I’ll be able to tell because I’ll have your actual .Rmd file to check!)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;final-thoughts&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Final thoughts&lt;/h3&gt;
+&lt;p&gt;This assignment is not meant to be very difficult, just something you might find helpful. So think back on the past few weeks, and identify some topics that you struggled with. Those are the ones that should go in this document (so hopefully you won’t struggle with them in the future!). Some topics you can think about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Indexing&lt;/li&gt;
+&lt;li&gt;Logical operators&lt;/li&gt;
+&lt;li&gt;How to use functions&lt;/li&gt;
+&lt;li&gt;Specific functions&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Statistical analyses&lt;/li&gt;
+&lt;li&gt;Plotting with &lt;code&gt;ggplot2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;so-so-wonderful&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;So, so wonderful!&lt;/h3&gt;
+&lt;p&gt;Submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -1019,6 +1577,65 @@ demographics[,4]&lt;/code&gt;&lt;/pre&gt;
 &lt;center&gt;
 &lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/ted.gif&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
 &lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assignment 5</title>
+      <link>/assignments/05-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/05-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;instructions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Instructions&lt;/h2&gt;
+&lt;p&gt;This assignment is all about making figures. It’s going to be a bit free-form because when it comes to making figures, there are a &lt;em&gt;silly&lt;/em&gt; number of options. Here are the conditions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You must use the &lt;code&gt;ggplot2&lt;/code&gt; package and syntax. This should &lt;em&gt;not&lt;/em&gt; be practice for &lt;code&gt;base R&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Your choice of variables must make sense for the type of plot you are making. That is, don’t give me a histogram for a dichotomous variable (that would just be 2 bars and super weird).&lt;/li&gt;
+&lt;li&gt;All figures must follow the basics of clear axis labels and titles! (&lt;em&gt;please&lt;/em&gt; don’t make me take points off for this…). &lt;strong&gt;I will take points off if these are missing or not clear!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;NO PIE CHARTS!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Please use a RNotebook for this assignment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are two main “sections” of this assignment. Make sure they each have an appropriate header.&lt;/li&gt;
+&lt;li&gt;All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do not want to see the code for an entire figure located outside of a chunk (unless you’re making a quick note or telling us what you’re doing – but the code outside of a chunk shouldn’t be evaluated).&lt;/li&gt;
+&lt;li&gt;Any explanations I ask for should be &lt;em&gt;outside&lt;/em&gt; of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., &lt;code&gt;#a long sentence like this&lt;/code&gt;). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualizing-data-in-different-ways&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualizing data in different ways&lt;/h2&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;p&gt;Pick 2 variables from your dataset. Make &lt;em&gt;3 &lt;strong&gt;different&lt;/strong&gt; figures&lt;/em&gt; that show the relationship between these 2 variables. Your figures must include the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A theme&lt;/li&gt;
+&lt;li&gt;Make use of different colors (manually or with a color palette)&lt;/li&gt;
+&lt;li&gt;You need to pick the best of the 3 figures &lt;strong&gt;and explain why you think this is the case&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;After you’ve picked your favorite, add a 3rd &lt;em&gt;variable&lt;/em&gt; (not &lt;code&gt;geom&lt;/code&gt;) to that plot (just to your favorite plot – not to all 3 plots). You can choose the dimension on which to add the 3rd variable (aka which aesthetic). Did adding the 3rd variable enhance this plot or does it detract? Explain why.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;explanation-vs.-clutter&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Explanation vs. Clutter&lt;/h2&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make a plot that uses at least 3 &lt;code&gt;geom&lt;/code&gt;s. Make it as beautiful, publication-ready as you can.&lt;/li&gt;
+&lt;li&gt;Explain whether the extra &lt;code&gt;geom&lt;/code&gt;s help explain your data or if it just clutters everything up. You may add an additional plot if you think it help explains your answer better (e.g., if you think a plot with only 2 &lt;code&gt;geom&lt;/code&gt;s would be better, make that plot). An extra plot is not required. The explanation is required.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;yahhoooooooo&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Yahhoooooooo!&lt;/h3&gt;
+&lt;p&gt;We’ll talk more about the theory of data viz later in the semester. But for now, you should feel comfortable plotting in the &lt;code&gt;ggplot2&lt;/code&gt; world.&lt;/p&gt;
+&lt;p&gt;Go ahead and submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas. If you used an outside dataset, please also submit that, too.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -2845,24 +3462,6 @@ date: 2019-09-01
     </item>
     
     <item>
-      <title>Privacy Policy</title>
-      <link>/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/privacy/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Terms</title>
-      <link>/terms/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>/terms/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Academic: the website builder for Hugo</title>
       <link>/post/getting-started/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
@@ -3979,6 +4578,690 @@ Figure 1: A fancy pie chart.
     </item>
     
     <item>
+      <title>Descriptives - Redux</title>
+      <link>/lectures/20-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/20-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data&#34;&gt;Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/zceFiIEsU8E&#34;&gt;Descriptive Statistics Redux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;In the last 10 minutes, my video froze 😢 At that point, I remove the video feed, but the audio still works normally. So you can expect my face to disappear lol!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;This lecture will use a world happiness dataset. If you want to play along, you can download it here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/slides/20-slides_files/world_happiness_2015.csv&#34;&gt;&lt;i class=&#34;fas fa-file-csv&#34;&gt;&lt;/i&gt; &lt;code&gt;world_happiness_2015.csv&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/20-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/20-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;next-5-weeks-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#next-5-weeks&#34; role=&#34;tab&#34; aria-controls=&#34;next-5-weeks&#34; aria-selected=&#34;true&#34;&gt;Next 5 Weeks&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;central-tendency-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#central-tendency&#34; role=&#34;tab&#34; aria-controls=&#34;central-tendency&#34; aria-selected=&#34;false&#34;&gt;Central Tendency&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;dispersion-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#dispersion&#34; role=&#34;tab&#34; aria-controls=&#34;dispersion&#34; aria-selected=&#34;false&#34;&gt;Dispersion&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;bias-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#bias&#34; role=&#34;tab&#34; aria-controls=&#34;bias&#34; aria-selected=&#34;false&#34;&gt;Bias&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;standardization-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#standardization&#34; role=&#34;tab&#34; aria-controls=&#34;standardization&#34; aria-selected=&#34;false&#34;&gt;Standardization&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;next-5-weeks&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;next-5-weeks-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/20-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;central-tendency&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;central-tendency-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/20-slides.html#centTen&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dispersion&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;dispersion-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/20-slides.html#disp&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bias&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;bias-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/20-slides.html#bias&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;standardization&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;standardization-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/20-slides.html#zs&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Normal &amp; Sampling Distributions</title>
+      <link>/lectures/21-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/21-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/astiJBcsY04&#34;&gt;Normal &amp;amp; Sampling Distributions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/21-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/21-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;normal-distribution-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#normal-distribution&#34; role=&#34;tab&#34; aria-controls=&#34;normal-distribution&#34; aria-selected=&#34;false&#34;&gt;Normal Distribution&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;standard-normal-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#standard-normal&#34; role=&#34;tab&#34; aria-controls=&#34;standard-normal&#34; aria-selected=&#34;false&#34;&gt;Standard Normal&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;using-zscores-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#using-zscores&#34; role=&#34;tab&#34; aria-controls=&#34;using-zscores&#34; aria-selected=&#34;false&#34;&gt;Using Z-Scores&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;sampling-distribution-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#sampling-distribution&#34; role=&#34;tab&#34; aria-controls=&#34;sampling-distribution&#34; aria-selected=&#34;false&#34;&gt;Sampling Distribution&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/21-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;normal-distribution&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;normal-distribution-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/21-slides.html#norm&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;standard-normal&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;standard-normal-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/21-slides.html#stdnorm&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-zscores&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;using-zscores-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/21-slides.html#use&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sampling-distribution&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;sampling-distribution-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/21-slides.html#sampling&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Comparing Means</title>
+      <link>/lectures/22-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/22-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/hO2Om4Ts5-Y&#34;&gt;Comparing Means&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/22-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/22-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;examples-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#examples&#34; role=&#34;tab&#34; aria-controls=&#34;examples&#34; aria-selected=&#34;false&#34;&gt;Examples&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;ttests-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#ttests&#34; role=&#34;tab&#34; aria-controls=&#34;ttests&#34; aria-selected=&#34;false&#34;&gt;t-tests&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;anova-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#anova&#34; role=&#34;tab&#34; aria-controls=&#34;anova&#34; aria-selected=&#34;false&#34;&gt;ANOVA&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/22-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;examples&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;examples-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/22-slides.html#ex&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ttests&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;ttests-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/22-slides.html#ttest&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;anova&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;anova-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/22-slides.html#anova&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Power Plus</title>
+      <link>/lectures/23-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/23-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/7Mr2OsMAHNE&#34;&gt;Power Plus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/23-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/23-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;confidence-intervals-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#confidence-intervals&#34; role=&#34;tab&#34; aria-controls=&#34;confidence-intervals&#34; aria-selected=&#34;false&#34;&gt;Confidence Intervals&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;pvalues-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#pvalues&#34; role=&#34;tab&#34; aria-controls=&#34;pvalues&#34; aria-selected=&#34;false&#34;&gt;p-values&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;power-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#power&#34; role=&#34;tab&#34; aria-controls=&#34;power&#34; aria-selected=&#34;false&#34;&gt;Power&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;open-science-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#open-science&#34; role=&#34;tab&#34; aria-controls=&#34;open-science&#34; aria-selected=&#34;false&#34;&gt;Open Science&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/23-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;confidence-intervals&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;confidence-intervals-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/23-slides.html#ci&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pvalues&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;pvalues-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/23-slides.html#p&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;power&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;power-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/23-slides.html#power&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;open-science&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;open-science-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/23-slides.html#open&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Correlations</title>
+      <link>/lectures/24-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/24-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/8CO2dn_PkLM&#34;&gt;Correlations&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/24-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/24-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;covariance-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#covariance&#34; role=&#34;tab&#34; aria-controls=&#34;covariance&#34; aria-selected=&#34;false&#34;&gt;Covariance&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;correlation-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#correlation&#34; role=&#34;tab&#34; aria-controls=&#34;correlation&#34; aria-selected=&#34;false&#34;&gt;Correlation&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;cor-influences-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#cor-influences&#34; role=&#34;tab&#34; aria-controls=&#34;cor-influences&#34; aria-selected=&#34;false&#34;&gt;Cor Influences&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;visualization-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#visualization&#34; role=&#34;tab&#34; aria-controls=&#34;visualization&#34; aria-selected=&#34;false&#34;&gt;Visualization&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;testing-cors-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#testing-cors&#34; role=&#34;tab&#34; aria-controls=&#34;testing-cors&#34; aria-selected=&#34;false&#34;&gt;Testing Cors&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/24-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;covariance&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;covariance-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/24-slides.html#cov&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlation&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;correlation-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/24-slides.html#cor&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cor-influences&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;cor-influences-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/24-slides.html#affects&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualization&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;visualization-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/24-slides.html#viz&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;testing-cors&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;testing-cors-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/24-slides.html#infer&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Regression</title>
+      <link>/lectures/25-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/25-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/YLwCZXTTszo&#34;&gt;Regression&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/25-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/25-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;regression-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#regression&#34; role=&#34;tab&#34; aria-controls=&#34;regression&#34; aria-selected=&#34;false&#34;&gt;Regression&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;equation-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#equation&#34; role=&#34;tab&#34; aria-controls=&#34;equation&#34; aria-selected=&#34;false&#34;&gt;Equation&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;ols-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#ols&#34; role=&#34;tab&#34; aria-controls=&#34;ols&#34; aria-selected=&#34;false&#34;&gt;OLS&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;fit-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#fit&#34; role=&#34;tab&#34; aria-controls=&#34;fit&#34; aria-selected=&#34;false&#34;&gt;Fit&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;making-inferences-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#making-inferences&#34; role=&#34;tab&#34; aria-controls=&#34;making-inferences&#34; aria-selected=&#34;false&#34;&gt;Making Inferences&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;code-tips-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#code-tips&#34; role=&#34;tab&#34; aria-controls=&#34;code-tips&#34; aria-selected=&#34;false&#34;&gt;Code Tips&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/25-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regression&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;regression-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/25-slides.html#reg&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;equation&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;equation-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/25-slides.html#eq&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ols&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;ols-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/25-slides.html#ols&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fit&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;fit-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/25-slides.html#fit&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;making-inferences&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;making-inferences-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/25-slides.html#infer&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;code-tips&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;code-tips-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/25-slides.html#code&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Theory of Data Visualization</title>
+      <link>/lectures/26-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/26-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#extra&#34;&gt;Extra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/W-ploe-I9mY&#34;&gt;Visualizing Data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extra&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extra&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;If you enjoy this, you might also enjoy &lt;a href=&#34;https://www.amazon.com/Visual-Display-Quantitative-Information/dp/1930824130&#34;&gt;this book&lt;/a&gt; (more for academic purposes than web design/graphic design purposes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/26-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/26-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;good-figs-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#good-figs&#34; role=&#34;tab&#34; aria-controls=&#34;good-figs&#34; aria-selected=&#34;false&#34;&gt;Good Figs&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;things-to-avoid-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#things-to-avoid&#34; role=&#34;tab&#34; aria-controls=&#34;things-to-avoid&#34; aria-selected=&#34;false&#34;&gt;Things To Avoid&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;accessibility-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#accessibility&#34; role=&#34;tab&#34; aria-controls=&#34;accessibility&#34; aria-selected=&#34;false&#34;&gt;Accessibility&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;rules-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#rules&#34; role=&#34;tab&#34; aria-controls=&#34;rules&#34; aria-selected=&#34;false&#34;&gt;Rules&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/26-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;good-figs&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;good-figs-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/26-slides.html#good&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;things-to-avoid&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;things-to-avoid-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/26-slides.html#avoid&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;accessibility&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;accessibility-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/26-slides.html#acc&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rules&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;rules-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/26-slides.html#rules&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>For Loops &amp; Bootstrapping</title>
+      <link>/lectures/27-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/27-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/mBYsfbIfGfs&#34;&gt;For Loops&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/27-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/27-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;recap-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#recap&#34; role=&#34;tab&#34; aria-controls=&#34;recap&#34; aria-selected=&#34;true&#34;&gt;Recap&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;lists-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#lists&#34; role=&#34;tab&#34; aria-controls=&#34;lists&#34; aria-selected=&#34;false&#34;&gt;Lists&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;for-loops-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#for-loops&#34; role=&#34;tab&#34; aria-controls=&#34;for-loops&#34; aria-selected=&#34;false&#34;&gt;For Loops&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;ex-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#ex-1&#34; role=&#34;tab&#34; aria-controls=&#34;ex-1&#34; aria-selected=&#34;false&#34;&gt;Ex 1&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;ex-2-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#ex-2&#34; role=&#34;tab&#34; aria-controls=&#34;ex-2&#34; aria-selected=&#34;false&#34;&gt;Ex 2&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;ex-3-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#ex-3&#34; role=&#34;tab&#34; aria-controls=&#34;ex-3&#34; aria-selected=&#34;false&#34;&gt;Ex 3&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link&#34; id=&#34;bootstrapping-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#bootstrapping&#34; role=&#34;tab&#34; aria-controls=&#34;bootstrapping&#34; aria-selected=&#34;false&#34;&gt;Bootstrapping&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;recap&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;recap-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/27-slides.html#1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lists&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;lists-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/27-slides.html#lists&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;for-loops&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;for-loops-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/27-slides.html#fl&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ex-1&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;ex-1-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/27-slides.html#ex1&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ex-2&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;ex-2-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/27-slides.html#ex2&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ex-3&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;ex-3-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/27-slides.html#ex3&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bootstrapping&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;bootstrapping-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/27-slides.html#bs&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Objects</title>
       <link>/lectures/02-lecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -4712,6 +5995,26 @@ Figure 1: A fancy pie chart.
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;1/28 2:30pm&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 2&amp;mdash;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
+                &lt;font color=&#34;f1f1f1&#34;&gt;
+                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Installation&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
@@ -4819,8 +6122,8 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;2/2 2:30pm&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 2&amp;mdash;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;2/4 2:30pm&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 3&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -4908,8 +6211,8 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;2/9 2:30pm&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 3&amp;mdash;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;2/11 2:30pm&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 4&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -4984,8 +6287,8 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;2/16 2:30pm&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 4&amp;mdash;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;2/18 2:30pm&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 5&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -5062,8 +6365,8 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;2/23 2:30pm&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 5&amp;mdash;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;2/25 2:30pm&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 6&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -5182,8 +6485,8 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;3/9 2:30pm&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 6&amp;mdash;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;3/11 2:30pm&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 7&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -5220,7 +6523,7 @@ Figure 1: A fancy pie chart.
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Normal Distribution&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Normal &amp;amp; Sampling Distributions&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/21-lecture/&#34;&gt;
                     &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
@@ -5236,25 +6539,8 @@ Figure 1: A fancy pie chart.
                     &lt;i title=&#34;Quiz for this topic; due the following TUESDAY&#34; class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Sampling Distribution&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;/lectures/22-lecture/&#34;&gt;
-                    &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                    &lt;i title=&#34;Quiz for this topic; due the following TUESDAY&#34; class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 8: 3/16 - 3/18&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;strong&gt;Comparisons &amp;amp; Correlations&lt;/strong&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&lt;strong&gt;Comparing Means &amp;amp; Stats Issues&lt;/strong&gt;&lt;/td&gt;
 
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Lecture&lt;/td&gt;
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Practice&lt;/td&gt;
@@ -5262,8 +6548,8 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;3/16 2:30pm&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 7&amp;mdash;&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;3/18 2:30pm&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 8&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -5285,7 +6571,7 @@ Figure 1: A fancy pie chart.
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Comparing Means&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;/lectures/23-lecture/&#34;&gt;
+                    href=&#34;/lectures/22-lecture/&#34;&gt;
                     &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5300,9 +6586,9 @@ Figure 1: A fancy pie chart.
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Correlation&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Power &amp;amp; Problems&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
-                    href=&#34;/lectures/24-lecture/&#34;&gt;
+                    href=&#34;/lectures/23-lecture/&#34;&gt;
                     &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5325,12 +6611,11 @@ Figure 1: A fancy pie chart.
             &lt;td style=&#34;width:8%;text-align:center&#34; class=&#34;mid-table-header&#34;&gt;Quiz&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;3/23 2:30pm&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 8&amp;mdash;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;Correlation&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
+                    href=&#34;/lectures/24-lecture/&#34;&gt;
+                    &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -5340,9 +6625,7 @@ Figure 1: A fancy pie chart.
                     &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+                    &lt;i title=&#34;Quiz for this topic; due the following TUESDAY&#34; class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;&lt;/td&gt;
@@ -5388,7 +6671,7 @@ Figure 1: A fancy pie chart.
                     &lt;i title=&#34;Quiz for this topic; due the following TUESDAY&#34; class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;3/30 2:30pm&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;4/1 2:30pm&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 9&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5413,21 +6696,17 @@ Figure 1: A fancy pie chart.
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/27-lecture/&#34;&gt;
                     &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/practice/27-practice/&#34;&gt;
+                    &lt;i title=&#34;Practice set for this lecture&#34; class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/assignments/01-mini-assignment/&#34;&gt;
+                    &lt;i title=&#34;Assignment for these topics; due the following TUESDAY&#34; class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;4/6 2:30pm&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;4/8 2:30pm&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 10&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5472,21 +6751,17 @@ Figure 1: A fancy pie chart.
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/28-lecture/&#34;&gt;
                     &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/practice/28-practice/&#34;&gt;
+                    &lt;i title=&#34;Practice set for this lecture&#34; class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/assignments/02-mini-assignment/&#34;&gt;
+                    &lt;i title=&#34;Assignment for these topics; due the following TUESDAY&#34; class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;4/20 2:30pm&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;4/22 2:30pm&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 11&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5511,21 +6786,17 @@ Figure 1: A fancy pie chart.
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a
                     href=&#34;/lectures/29-lecture/&#34;&gt;
                     &lt;i title=&#34;Lecture for this topic&#34; class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
-            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
-                &lt;font color=&#34;f1f1f1&#34;&gt;
-                    &lt;i class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
-            &lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/practice/29-practice/&#34;&gt;
+                    &lt;i title=&#34;Practice set for this lecture&#34; class=&#34;fas fa-laptop-code fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+            &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;&lt;a href=&#34;/assignments/03-mini-assignment/&#34;&gt;
+                    &lt;i title=&#34;Assignment for these topics; due the following TUESDAY&#34; class=&#34;fas fa-pencil-ruler fa-lg&#34;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-question-circle fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
             &lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
-            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;4/27 2:30pm&lt;/td&gt;
+            &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;4/29 2:30pm&lt;/td&gt;
             &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 12&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
@@ -5546,7 +6817,7 @@ Figure 1: A fancy pie chart.
         &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td align=&#34;right&#34; style=&#34;width:18%;text-align:right&#34;&gt;Week 15: 5/4&lt;/td&gt;
-            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;FINAL CHECK-IN&amp;mdash;&lt;/td&gt;
+            &lt;td style=&#34;width:50%;text-align:left&#34;&gt;&amp;mdash;CHECK-IN 13&amp;mdash;&lt;/td&gt;
             &lt;td align=&#34;center&#34; style=&#34;width:10%;text-align:center&#34;&gt;
                 &lt;font color=&#34;f1f1f1&#34;&gt;
                     &lt;i class=&#34;fas fa-book-reader fa-lg&#34;&gt;&lt;/i&gt;&lt;/font&gt;
@@ -5595,6 +6866,7 @@ Figure 1: A fancy pie chart.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/syllabus/</guid>
       <description>
+&lt;script src=&#34;/syllabus/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div id=&#34;what-is-this-class&#34; class=&#34;section level2&#34;&gt;
@@ -5651,18 +6923,22 @@ You can reach Drew at &lt;a href=&#34;mailto:drewjmclaughlin@wustl.edu&#34;&gt;d
 &lt;li&gt;&lt;strong&gt;Homework Assignments&lt;/strong&gt; will be posted on the course website, and are all frontloaded in Unit 1 at the beginning of the class. This is to make sure that you get lots of practice as you’re learning the basics of &lt;code&gt;R&lt;/code&gt;.
 &lt;ul&gt;
 &lt;li&gt;If you want to use one of your own datasets for these, please let me know ahead of time so we can make sure it has certain characteristics that work with the assignments. Otherwise, I’ll post a dataset to Canvas that you can use.&lt;/li&gt;
-&lt;li&gt;Each assignment is worth 8 points and there will be 5 of them for a total of &lt;strong&gt;40 points&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Each assignment is worth 7 points and there will be 5 of them for a total of &lt;strong&gt;35 points&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Each day an assignment is late, I will remove 2 points unless you contact me and we discuss other arrangements&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Peer Reviews&lt;/strong&gt; After each homework assignment, you will be randomly assigned to a peer in your class, and you will review the code from each other’s homework assignment. You will fill out several discussion prompts on Canvas about your peer’s code. The goal is for you to gain experience in reading other peoples’ code and for you to obtain consistent feedback from someone other than the instructor.
 &lt;ul&gt;
-&lt;li&gt;Each peer review assignment will be worth 4 points and there will be 5 of them for a total of &lt;strong&gt;20 points&lt;/strong&gt; possible.&lt;/li&gt;
+&lt;li&gt;Each peer review assignment will be worth 2 points and there will be 5 of them for a total of &lt;strong&gt;10 points&lt;/strong&gt; possible.&lt;/li&gt;
 &lt;li&gt;Points will be taken away if the prompts are not completely answered. For example, if I ask for 2 good things about your peers’ code, and you only provide 1 example, points will be taken away from your code review assignment.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Quizzes&lt;/strong&gt; There will be 4 Canvas quizzes spanning Unit 2 and into the beginning of Unit 3.
 &lt;ul&gt;
 &lt;li&gt;You are permitted to use your notes and the internet, but you must NOT discuss with your peers.&lt;/li&gt;
 &lt;li&gt;Each quiz will be worth 5 points for a total of &lt;strong&gt;20 points&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mini Assignments&lt;/strong&gt; The remaining assignments will be smaller than your homework assignment, and will be more about debugging code. You will be given blocks of code relevant to that week’s topic, and asked to debug it so that it both works and provides the output that is being asked.
+&lt;ul&gt;
+&lt;li&gt;Each mini assignment will be worth 5 points and there will be 3 of them for a total of &lt;strong&gt;15 points&lt;/strong&gt; possible.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Final Assignment&lt;/strong&gt; You will complete a final take-home project due during finals week (if you want to turn it in before then, that’s OK!). This project will be completely &lt;code&gt;R&lt;/code&gt;-based, and will incorporate skills learned over the semester with extra emphasis on those learned in Unit 3.
 &lt;ul&gt;
@@ -5671,7 +6947,7 @@ You can reach Drew at &lt;a href=&#34;mailto:drewjmclaughlin@wustl.edu&#34;&gt;d
 &lt;li&gt;To earn full marks on this project, your code must compile (meaning if I run the code, as is, it should work perfectly) and you must answer all portions of the assignment.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ Homeworks (40pts) + Peer Reviews (20pts) + Quizzes (20pts) + Final Project (20pts) = 100 Total Points\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \text{Homeworks (35pts) + Peer Reviews (10pts) + Quizzes (20pts) + Mini Assignments (15pts) + Final Project (20pts)} = \text{100 Total Points}\]&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;staying-connected&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Staying Connected&lt;/h2&gt;
