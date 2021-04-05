@@ -49,7 +49,7 @@ for (i in 1:some_number) {
 
 The `1:some number` portion refers to the elements you're iterating over. If you wanted to do something 5 times, you could say `1:5`. 
 
-::: {.fyi}
+:::fyi
 **FYI:** You can iterate over *lots of things!* This includes things like: 
 - vectors
 - rows of a data.frame
@@ -169,7 +169,7 @@ Using a combination of a for loop and an if/else statement, we were able to *rec
 </center>
 
 
-::: {.fyi}
+:::fyi
 **FYI:** There is an additional feature of if/else statements called `else if`. This feature can be used for more complex conditional situations
 :::
 
@@ -203,16 +203,21 @@ print(animals_class)
 ```
 
 :::fyi
-**FYI:** R has a built in function called `ifelse()`. It does the same thing as an `if/else` statement. However, it only has 2 conditions. That it, it does not have the opportunity to use `else if` for multiple conditional statements. 
+**FYI:** R has a built in function called `ifelse()`. It does the same thing as an `if/else` statement. However, it only has 2 conditions. That is, it does not have the opportunity to use `else if` for multiple conditional statements. 
 
 I have unfortunately seen people nest `ifelse()` statements. This is incredibly bad form! If you have to do this, it is worth your time to write out a full `if/else if/else` statement!
 :::
 
 :::puzzle
 **You try!** 
+
+Let's expand our provel example. Write an `if/else if/else` statement that says:
+
+- Scores of 1-3 correspond to "dislike"
+- Scores of 4-6 correspond to "neutral"
+- Scores of 7-10 correspond to "like"
 :::
 
-Let's expand our provel example. Write an `if/else if/else` statement. Say that 1-3 corresponds to "dislike", 4-6 corresponds to "neutral", and anything above a score of 7 corresponds to "like".
 
 ```{r, echo=FALSE}
 
@@ -250,22 +255,22 @@ We are going to use bootstrapping to create our own **sampling distribution** of
 
 Unfortunately not those kinds of samples...
 
-::: {.fyi}
+:::fyi
 **Reminder:** In statistics, the sampling distribution of the mean is a probability distribution of means drawn from numerous samples of the population.
 :::
 
 ```{r Create population data, eval = TRUE, include = FALSE, echo = FALSE}
 set.seed(1234)
 pop_data <- rnorm(n = 10000, mean = 100, sd = 25)
-pop_data <- as.data.frame(pop_data)
+pop_data <- data.frame(PopulationMeans = pop_data)
 ```
 
-For this example, I have generated a *population* of data. The true population mean of this dataset is `r mean(pop_data)`.
+For this example, I have generated a *population* of data. The data.frame is called `pop_data`. It has a single column called `PopulationMeans`. The true population mean of this dataset is `r mean(pop_data$PopulationMeans)`.
 
 Here is a histogram of the population data:
 
-```{r Summarize population data}
-ggplot(pop_data, aes(x = pop_data)) +
+```{r Summarize population data, warning=FALSE, message=FALSE}
+ggplot(pop_data, aes(x = PopulationMeans)) +
   geom_histogram(color = "black", fill = "plum4") +
   theme_classic() +
   ylab("Count") +
@@ -281,7 +286,7 @@ sample_means_small <- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:10) {
-  subsample <- sample(x = pop_data$pop_data, size = 50)
+  subsample <- sample(x = pop_data$PopulationMeans, size = 50)
   sample_means_small[i] <- mean(subsample)
 }
 ```
@@ -294,7 +299,7 @@ sample_means_medium <- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:100) {
-  subsample <- sample(x = pop_data$pop_data, size = 50)
+  subsample <- sample(x = pop_data$PopulationMeans, size = 50)
   sample_means_medium[i] <- mean(subsample)
 }
 ```
@@ -307,7 +312,7 @@ sample_means_large <- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:1000) {
-  subsample <- sample(x = pop_data$pop_data, size = 50)
+  subsample <- sample(x = pop_data$PopulationMeans, size = 50)
   sample_means_large[i] <- mean(subsample)
 }
 ```
@@ -327,7 +332,7 @@ medium_m <- mean(sample_means_medium$values)
 large_m <- mean(sample_means_large$values)
 
 # Calculate population mean
-pop_m <- mean(pop_data$pop_data)
+pop_m <- mean(pop_data$PopulationMeans)
 ```
 
 
@@ -335,7 +340,7 @@ Visualizing the three sampling distributions give us perspective as to how the n
 
 Additionally, if we take the mean of the sampled means (in order to estimate the population mean), it will become *more accurate* as the size of the sampling distribution increases. In the plots below, the solid lines marks the true population mean, and the dashed lines mark the sampling distribution means.
 
-```{r, warning = FALSE, message = FALSE}
+```{r, warning = FALSE, message = FALSE, out.width='85%'}
 plot1 <- ggplot() +
   geom_histogram(data = sample_means_small, aes(values), fill = "plum4", color = "black", binwidth = 5) +
   theme_classic() +
@@ -391,13 +396,20 @@ $CI_{95} = \bar{X} \pm (1.96 * SEM)$
 
 :::
 
+:::puzzle
+**You try!** 
+
 Now we're going to use *bootstrapping* to calculate the 95% confidence intervals.
 
 **Tips and Instructions:**
-* Use `pop.data` for the means!
-* See the Power Plus lecture slides 10-11 for examples of calculating a single CI
-* Use z = 1.96 for a 95% interval
-* On each loop iteration, save the upper CI to `upper_values`, and the lower CI to `lower_values` (see `append()` help page)
+
+- Use `pop_data` as your dataset
+- See the Power Plus lecture slides 10-11 for examples of calculating a single CI
+- Use z = 1.96 for a 95% interval
+- On each loop iteration, save the upper CI to `upper_values`, and the lower CI to `lower_values` (see `append()` help page)
+
+:::
+
 
 ```{r, echo=FALSE}
 

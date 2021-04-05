@@ -135,13 +135,18 @@ for(i in animals) {
 print(animals_class)</code></pre>
 <pre><code>## [1] &quot;mammal&quot;    &quot;mammal&quot;    &quot;reptile&quot;   &quot;amphibian&quot; &quot;bird&quot;</code></pre>
 <div class="fyi">
-<p><strong>FYI:</strong> R has a built in function called <code>ifelse()</code>. It does the same thing as an <code>if/else</code> statement. However, it only has 2 conditions. That it, it does not have the opportunity to use <code>else if</code> for multiple conditional statements.</p>
+<p><strong>FYI:</strong> R has a built in function called <code>ifelse()</code>. It does the same thing as an <code>if/else</code> statement. However, it only has 2 conditions. That is, it does not have the opportunity to use <code>else if</code> for multiple conditional statements.</p>
 <p>I have unfortunately seen people nest <code>ifelse()</code> statements. This is incredibly bad form! If you have to do this, it is worth your time to write out a full <code>if/else if/else</code> statement!</p>
 </div>
 <div class="puzzle">
 <p><strong>You try!</strong></p>
+<p>Let’s expand our provel example. Write an <code>if/else if/else</code> statement that says:</p>
+<ul>
+<li>Scores of 1-3 correspond to “dislike”</li>
+<li>Scores of 4-6 correspond to “neutral”</li>
+<li>Scores of 7-10 correspond to “like”</li>
+</ul>
 </div>
-<p>Let’s expand our provel example. Write an <code>if/else if/else</code> statement. Say that 1-3 corresponds to “dislike”, 4-6 corresponds to “neutral”, and anything above a score of 7 corresponds to “like”.</p>
 <p>{{% learnr url="https://shelly-cooper.shinyapps.io/20-learnr-app2/" id="learnr-20-app2" %}}</p>
 <center>
 <p><img src="../encouragementFigs/figure-html/matrixmeme.jpeg" width = "50%"></p>
@@ -163,15 +168,14 @@ print(animals_class)</code></pre>
 <div class="fyi">
 <p><strong>Reminder:</strong> In statistics, the sampling distribution of the mean is a probability distribution of means drawn from numerous samples of the population.</p>
 </div>
-<p>For this example, I have generated a <em>population</em> of data. The true population mean of this dataset is NA.</p>
+<p>For this example, I have generated a <em>population</em> of data. The data.frame is called <code>pop_data</code>. It has a single column called <code>PopulationMeans</code>. The true population mean of this dataset is 100.1528973.</p>
 <p>Here is a histogram of the population data:</p>
-<pre class="r"><code>ggplot(pop_data, aes(x = pop_data)) +
+<pre class="r"><code>ggplot(pop_data, aes(x = PopulationMeans)) +
   geom_histogram(color = &quot;black&quot;, fill = &quot;plum4&quot;) +
   theme_classic() +
   ylab(&quot;Count&quot;) +
   xlab(&quot;Value&quot;) +
   ggtitle(&quot;Population distribution&quot;)</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="/practice/20-practice_files/figure-html/Summarize%20population%20data-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Now, we can use a for loop to draw random samples <em>with replacement</em> from the population. For this first attempt, we will draw a small number of samples (10) to create <code>sample_means_small</code>.</p>
 <pre class="r"><code># Initialize vector for means
@@ -179,7 +183,7 @@ sample_means_small &lt;- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:10) {
-  subsample &lt;- sample(x = pop_data$pop_data, size = 50)
+  subsample &lt;- sample(x = pop_data$PopulationMeans, size = 50)
   sample_means_small[i] &lt;- mean(subsample)
 }</code></pre>
 <p>Next, we will draw a slightly larger number of samples (100) to create <code>sample_means_medium</code>.</p>
@@ -188,7 +192,7 @@ sample_means_medium &lt;- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:100) {
-  subsample &lt;- sample(x = pop_data$pop_data, size = 50)
+  subsample &lt;- sample(x = pop_data$PopulationMeans, size = 50)
   sample_means_medium[i] &lt;- mean(subsample)
 }</code></pre>
 <p>To compare, we will do the same process with a larger set of random samples (1,000) to create <code>sample_means_large</code>.</p>
@@ -197,7 +201,7 @@ sample_means_large &lt;- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:1000) {
-  subsample &lt;- sample(x = pop_data$pop_data, size = 50)
+  subsample &lt;- sample(x = pop_data$PopulationMeans, size = 50)
   sample_means_large[i] &lt;- mean(subsample)
 }</code></pre>
 <p>Visualizing the three sampling distributions give us perspective as to how the number of iterations makes the sampling distribution approach normality.</p>
@@ -233,7 +237,7 @@ plot3 &lt;- ggplot() +
   ggtitle(&quot;Distribution of 1,000 samples&quot;)
 
 ggarrange(plot1, plot2, plot3)</code></pre>
-<p><img src="/practice/20-practice_files/figure-html/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/practice/20-practice_files/figure-html/unnamed-chunk-5-1.png" width="85%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="using-bootstrapping-for-confidence-intervals" class="section level2">
 <h2>Using bootstrapping for <em>confidence intervals</em></h2>
@@ -245,12 +249,17 @@ ggarrange(plot1, plot2, plot3)</code></pre>
 <p><strong>Reminder:</strong> The 95% confidence interval is calculated using the following formula:</p>
 <p><span class="math inline">\(CI_{95} = \bar{X} \pm (1.96 * SEM)\)</span></p>
 </div>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
 <p>Now we’re going to use <em>bootstrapping</em> to calculate the 95% confidence intervals.</p>
-<p><strong>Tips and Instructions:</strong>
-* Use <code>pop.data</code> for the means!
-* See the Power Plus lecture slides 10-11 for examples of calculating a single CI
-* Use z = 1.96 for a 95% interval
-* On each loop iteration, save the upper CI to <code>upper_values</code>, and the lower CI to <code>lower_values</code> (see <code>append()</code> help page)</p>
+<p><strong>Tips and Instructions:</strong></p>
+<ul>
+<li>Use <code>pop_data</code> as your dataset</li>
+<li>See the Power Plus lecture slides 10-11 for examples of calculating a single CI</li>
+<li>Use z = 1.96 for a 95% interval</li>
+<li>On each loop iteration, save the upper CI to <code>upper_values</code>, and the lower CI to <code>lower_values</code> (see <code>append()</code> help page)</li>
+</ul>
+</div>
 <p>{{% learnr url="https://shelly-cooper.shinyapps.io/20-learnr-app3/" id="learnr-20-app3" %}}</p>
 <p>That’s it for this practice – go forth and sample iteratively!</p>
 </div>
