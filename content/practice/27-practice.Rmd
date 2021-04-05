@@ -51,6 +51,7 @@ The `1:some number` portion refers to the elements you're iterating over. If you
 
 :::fyi
 **FYI:** You can iterate over *lots of things!* This includes things like: 
+
 - vectors
 - rows of a data.frame
 - columns of a data.frame
@@ -239,6 +240,7 @@ blogdown::shortcode("learnr",
 Now we will use for loops in order to **bootstrap** our data.
 
 As a reminder:
+
 * In statistics, **bootstrapping** is any test or metric that uses random sampling with replacement
 * Examples:
   - bootstrapped means (from random samples of a population)

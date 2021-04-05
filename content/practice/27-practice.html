@@ -39,11 +39,13 @@ shiny: true
 }</code></pre>
 <p>The <code>1:some number</code> portion refers to the elements you’re iterating over. If you wanted to do something 5 times, you could say <code>1:5</code>.</p>
 <div class="fyi">
-<p><strong>FYI:</strong> You can iterate over <em>lots of things!</em> This includes things like:
-- vectors
-- rows of a data.frame
-- columns of a data.frame
-- lists</p>
+<p><strong>FYI:</strong> You can iterate over <em>lots of things!</em> This includes things like:</p>
+<ul>
+<li>vectors</li>
+<li>rows of a data.frame</li>
+<li>columns of a data.frame</li>
+<li>lists</li>
+</ul>
 </div>
 <p>The <code>i</code> stands for “each”. So the first line in the example code above reads as:
 <strong>For each item in 1 through some number…</strong></p>
@@ -155,11 +157,15 @@ print(animals_class)</code></pre>
 <div id="using-for-loops-for-bootstrapping" class="section level2">
 <h2>Using <em>for loops</em> for bootstrapping</h2>
 <p>Now we will use for loops in order to <strong>bootstrap</strong> our data.</p>
-<p>As a reminder:
-* In statistics, <strong>bootstrapping</strong> is any test or metric that uses random sampling with replacement
-* Examples:
-- bootstrapped means (from random samples of a population)
-- bootstrapped confidence intervals</p>
+<p>As a reminder:</p>
+<ul>
+<li>In statistics, <strong>bootstrapping</strong> is any test or metric that uses random sampling with replacement</li>
+<li>Examples:
+<ul>
+<li>bootstrapped means (from random samples of a population)</li>
+<li>bootstrapped confidence intervals</li>
+</ul></li>
+</ul>
 <p>We are going to use bootstrapping to create our own <strong>sampling distribution</strong> of the mean, and compare the outcomes after a small number of iterations versus a large number of iterations.</p>
 <center>
 <p><img src="../encouragementFigs/figure-html/samplememe.jpg" width = "50%"></p>
