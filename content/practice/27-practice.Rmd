@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: For Loops"
-linktitle: "20: For Loops"
+linktitle: "27: For Loops"
 output:
   blogdown::html_page:
     toc: true
@@ -35,7 +35,7 @@ knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
 
 <center>
 
-<img src="../encouragementFigs/figure-html/spongememe.jpg" width = "75%">
+<img src="../encouragementFigs/figure-html/spongememe.jpg" width = "50%">
 
 </center>
 

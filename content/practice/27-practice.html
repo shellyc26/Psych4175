@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: For Loops"
-linktitle: "20: For Loops"
+linktitle: "27: For Loops"
 output:
   blogdown::html_page:
     toc: true
@@ -31,7 +31,7 @@ shiny: true
 <div id="for-loops" class="section level2">
 <h2>For Loops</h2>
 <center>
-<p><img src="../encouragementFigs/figure-html/spongememe.jpg" width = "75%"></p>
+<p><img src="../encouragementFigs/figure-html/spongememe.jpg" width = "50%"></p>
 </center>
 <p>For loops are important for completing iterative actions in an efficient manner. The syntax for <em>for loops</em> looks like the following:</p>
 <pre class="r"><code>for (i in 1:some_number) {
@@ -176,7 +176,7 @@ print(animals_class)</code></pre>
   ylab(&quot;Count&quot;) +
   xlab(&quot;Value&quot;) +
   ggtitle(&quot;Population distribution&quot;)</code></pre>
-<p><img src="/practice/20-practice_files/figure-html/Summarize%20population%20data-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/practice/27-practice_files/figure-html/Summarize%20population%20data-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Now, we can use a for loop to draw random samples <em>with replacement</em> from the population. For this first attempt, we will draw a small number of samples (10) to create <code>sample_means_small</code>.</p>
 <pre class="r"><code># Initialize vector for means
 sample_means_small &lt;- NULL
@@ -237,7 +237,7 @@ plot3 &lt;- ggplot() +
   ggtitle(&quot;Distribution of 1,000 samples&quot;)
 
 ggarrange(plot1, plot2, plot3)</code></pre>
-<p><img src="/practice/20-practice_files/figure-html/unnamed-chunk-5-1.png" width="85%" style="display: block; margin: auto;" /></p>
+<p><img src="/practice/27-practice_files/figure-html/unnamed-chunk-5-1.png" width="85%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="using-bootstrapping-for-confidence-intervals" class="section level2">
 <h2>Using bootstrapping for <em>confidence intervals</em></h2>
