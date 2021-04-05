@@ -1,0 +1,9 @@
+subject,trial,condition,rt,accuracy
+8,1,hard,372,1
+8,2,easy,916,1
+8,3,moderate,918,1
+8,4,hard,648,1
+8,5,easy,392,1
+8,6,moderate,403,0
+8,7,hard,422,0
+8,8,easy,771,0

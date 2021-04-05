@@ -1,0 +1,9 @@
+"subject","trial","condition","rt","accuracy"
+20,1,"hard",532,1
+20,2,"easy",456,1
+20,3,"moderate",890,1
+20,4,"hard",900,1
+20,5,"easy",445,1
+20,6,"moderate",688,1
+20,7,"hard",923,0
+20,8,"easy",390,1

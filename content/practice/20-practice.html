@@ -1,0 +1,256 @@
+---
+title: "Practice Set: For Loops"
+linktitle: "20: For Loops"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Advanced Topics
+    weight: 1
+type: docs
+weight: 1
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#for-loops">For Loops</a></li>
+<li><a href="#introducing-ifelse-statements">Introducing if/else statements</a></li>
+<li><a href="#using-for-loops-for-bootstrapping">Using <em>for loops</em> for bootstrapping</a></li>
+<li><a href="#using-bootstrapping-for-confidence-intervals">Using bootstrapping for <em>confidence intervals</em></a></li>
+</ul>
+</div>
+
+<div id="for-loops" class="section level2">
+<h2>For Loops</h2>
+<center>
+<p><img src="../encouragementFigs/figure-html/spongememe.jpg" width = "100%"></p>
+</center>
+<p>For loops are important for completing iterative actions in an efficient manner. The syntax for <em>for loops</em> looks like the following:</p>
+<pre class="r"><code>for (i in 1:some_number) {
+  do something
+}</code></pre>
+<p>The <code>1:some number</code> portion refers to the elements you’re iterating over. If you wanted to do something 5 times, you could say <code>1:5</code>.</p>
+<div class="fyi">
+<p><strong>FYI:</strong> You can iterate over <em>lots of things!</em> This includes things like:
+- vectors
+- rows of a data.frame
+- columns of a data.frame
+- lists</p>
+</div>
+<p>The <code>i</code> stands for “each”. So the first line in the example code above reads as:
+<strong>For each item in 1 through some number…</strong></p>
+<p>Lastly, the section between the curly brackets <code>{}</code> is the body of the for loop. This area includes all of the commands that will be executed with every iteration of the loop.</p>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/20-learnr-quiz1/" id="learnr-20-quiz1" %}}</p>
+<p>Most of the time, we want to store the outcome of whatever commands occur during the body of the for loop. In order to do this, we have to <em>initialize</em> an object.</p>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+<p>Drew made the following for loop with the goal of squaring all of the numbers between 1 and 5, and then printing them as a single vector (<code>1 4 9 16 25</code>) to the console. She made a mistake though.</p>
+<pre class="r"><code>my_object &lt;- NULL
+
+for (i in 1:5) {
+  my_object &lt;- i^2
+}
+
+print(my_object)</code></pre>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/20-learnr-quiz2/" id="learnr-20-quiz2" %}}</p>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+</div>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/20-learnr-app1/" id="learnr-20-app1" %}}</p>
+<center>
+<p><img src="../encouragementFigs/figure-html/rockememe.jpg" width = "50%"></p>
+</center>
+</div>
+<div id="introducing-ifelse-statements" class="section level2">
+<h2>Introducing if/else statements</h2>
+<p>In programming languages, <code>if/else</code> statements are used for conditional situations. <em>If</em> a given boolean statement is evaluated to <code>TRUE</code>, then one block of code will be executed, if instead (“<em>else</em>”) the boolean statements evaluates to <code>FALSE</code>, then a different block of code will be executed.</p>
+<p>Below is the general format for if/else statements:</p>
+<pre class="r"><code>if(boolean statement) {
+  # code to be executed if boolean is true
+} else {
+  # code to be executed if boolean is false
+}</code></pre>
+<p><strong>What situations will you need to use if/else statements for?</strong></p>
+<p>If/else is useful for <em>recoding</em> and <em>sorting</em> data based on conditional rules. If/else statements also combine with for loops for very useful coding. Take the following example: Ten students were asked how much they like or dislike provel cheese on a scale of 1 to 10 (10 = love it). However, we want to change this numeric scale to label all values below or equal to 5 as “dislike” and above or equal to 6 “like”.</p>
+<pre class="r"><code># Student ratings (numeric)
+provel_cheese_rating &lt;- c(1, 1, 9, 3, 5, 4, 7, 1, 3, 10)
+
+# Initialize like vs. dislike vector
+like_dislike &lt;- c()
+
+for(i in provel_cheese_rating) {
+  if(i &lt;= 5) {
+    like_dislike &lt;- append(like_dislike, &quot;dislike&quot;)
+  } else {
+    like_dislike &lt;- append(like_dislike, &quot;like&quot;)
+  }
+} 
+
+# View outcome 
+print(like_dislike)</code></pre>
+<pre><code>##  [1] &quot;dislike&quot; &quot;dislike&quot; &quot;like&quot;    &quot;dislike&quot; &quot;dislike&quot; &quot;dislike&quot; &quot;like&quot;   
+##  [8] &quot;dislike&quot; &quot;dislike&quot; &quot;like&quot;</code></pre>
+<p>Using a combination of a for loop and an if/else statement, we were able to <em>recode</em> the vector. Now we know where the students stand on the provel issue…</p>
+<center>
+<p><img src="../encouragementFigs/figure-html/provel_cartoon.png" width = "50%"></p>
+</center>
+<div class="fyi">
+<p><strong>FYI:</strong> There is an additional feature of if/else statements called <code>else if</code>. This feature can be used for more complex conditional situations</p>
+</div>
+<p>What if a simple binary conditional statement won’t cut it? For example, maybe we want to entirely change a series of character labels. Here, we can use <code>elseif</code> to specify all possibilities.</p>
+<p><em>(Note that, realistically, we would probably never write out every name of animal like this. Maybe instead we would reference a database and search for items, and then label their class, etc.)</em></p>
+<pre class="r"><code># Animals
+animals &lt;- c(&quot;dog&quot;, &quot;cat&quot;, &quot;iguana&quot;, &quot;frog&quot;, &quot;cardinal&quot;)
+
+# Initialize classes of animals vector
+animals_class &lt;- c()
+
+for(i in animals) {
+  if(i == &quot;dog&quot;) {
+    animals_class &lt;- append(animals_class, &quot;mammal&quot;)
+  } else if(i == &quot;cat&quot;) {
+    animals_class &lt;- append(animals_class, &quot;mammal&quot;)
+  } else if(i == &quot;iguana&quot;) {
+    animals_class &lt;- append(animals_class, &quot;reptile&quot;)
+  } else if(i == &quot;frog&quot;) {
+    animals_class &lt;- append(animals_class, &quot;amphibian&quot;)
+  } else {
+    animals_class &lt;- append(animals_class, &quot;bird&quot;)
+  }
+} 
+
+# View outcome 
+print(animals_class)</code></pre>
+<pre><code>## [1] &quot;mammal&quot;    &quot;mammal&quot;    &quot;reptile&quot;   &quot;amphibian&quot; &quot;bird&quot;</code></pre>
+<div class="fyi">
+<p><strong>FYI:</strong> R has a built in function called <code>ifelse()</code>. It does the same thing as an <code>if/else</code> statement. However, it only has 2 conditions. That it, it does not have the opportunity to use <code>else if</code> for multiple conditional statements.</p>
+<p>I have unfortunately seen people nest <code>ifelse()</code> statements. This is incredibly bad form! If you have to do this, it is worth your time to write out a full <code>if/else if/else</code> statement!</p>
+</div>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+</div>
+<p>Let’s expand our provel example. Write an <code>if/else if/else</code> statement. Say that 1-3 corresponds to “dislike”, 4-6 corresponds to “neutral”, and anything above a score of 7 corresponds to “like”.</p>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/20-learnr-app2/" id="learnr-20-app2" %}}</p>
+<center>
+<p><img src="../encouragementFigs/figure-html/matrixmeme.jpeg" width = "50%"></p>
+</center>
+</div>
+<div id="using-for-loops-for-bootstrapping" class="section level2">
+<h2>Using <em>for loops</em> for bootstrapping</h2>
+<p>Now we will use for loops in order to <strong>bootstrap</strong> our data.</p>
+<p>As a reminder:
+* In statistics, <strong>bootstrapping</strong> is any test or metric that uses random sampling with replacement
+* Examples:
+- bootstrapped means (from random samples of a population)
+- bootstrapped confidence intervals</p>
+<p>We are going to use bootstrapping to create our own <strong>sampling distribution</strong> of the mean, and compare the outcomes after a small number of iterations versus a large number of iterations.</p>
+<center>
+<p><img src="../encouragementFigs/figure-html/samplememe.jpg" width = "50%"></p>
+</center>
+<p>Unfortunately not those kinds of samples…</p>
+<div class="fyi">
+<p><strong>Reminder:</strong> In statistics, the sampling distribution of the mean is a probability distribution of means drawn from numerous samples of the population.</p>
+</div>
+<p>For this example, I have generated a <em>population</em> of data. The true population mean of this dataset is NA.</p>
+<p>Here is a histogram of the population data:</p>
+<pre class="r"><code>ggplot(pop_data, aes(x = pop_data)) +
+  geom_histogram(color = &quot;black&quot;, fill = &quot;plum4&quot;) +
+  theme_classic() +
+  ylab(&quot;Count&quot;) +
+  xlab(&quot;Value&quot;) +
+  ggtitle(&quot;Population distribution&quot;)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/practice/20-practice_files/figure-html/Summarize%20population%20data-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Now, we can use a for loop to draw random samples <em>with replacement</em> from the population. For this first attempt, we will draw a small number of samples (10) to create <code>sample_means_small</code>.</p>
+<pre class="r"><code># Initialize vector for means
+sample_means_small &lt;- NULL
+
+# Use for loop to gather means of each sample
+for (i in 1:10) {
+  subsample &lt;- sample(x = pop_data$pop_data, size = 50)
+  sample_means_small[i] &lt;- mean(subsample)
+}</code></pre>
+<p>Next, we will draw a slightly larger number of samples (100) to create <code>sample_means_medium</code>.</p>
+<pre class="r"><code># Initialize vector for means
+sample_means_medium &lt;- NULL
+
+# Use for loop to gather means of each sample
+for (i in 1:100) {
+  subsample &lt;- sample(x = pop_data$pop_data, size = 50)
+  sample_means_medium[i] &lt;- mean(subsample)
+}</code></pre>
+<p>To compare, we will do the same process with a larger set of random samples (1,000) to create <code>sample_means_large</code>.</p>
+<pre class="r"><code># Initialize vector for means
+sample_means_large &lt;- NULL
+
+# Use for loop to gather means of each sample
+for (i in 1:1000) {
+  subsample &lt;- sample(x = pop_data$pop_data, size = 50)
+  sample_means_large[i] &lt;- mean(subsample)
+}</code></pre>
+<p>Visualizing the three sampling distributions give us perspective as to how the number of iterations makes the sampling distribution approach normality.</p>
+<p>Additionally, if we take the mean of the sampled means (in order to estimate the population mean), it will become <em>more accurate</em> as the size of the sampling distribution increases. In the plots below, the solid lines marks the true population mean, and the dashed lines mark the sampling distribution means.</p>
+<pre class="r"><code>plot1 &lt;- ggplot() +
+  geom_histogram(data = sample_means_small, aes(values), fill = &quot;plum4&quot;, color = &quot;black&quot;, binwidth = 5) +
+  theme_classic() +
+  xlab(&quot;Sample means&quot;) +
+  ylab(&quot;Count&quot;) +
+  geom_vline(xintercept = small_m, linetype = &quot;longdash&quot;) +
+  geom_vline(xintercept = pop_m) +
+  coord_cartesian(xlim = c(85, 115)) +
+  ggtitle(&quot;Distribution of 10 samples&quot;)
+
+plot2 &lt;- ggplot() +
+  geom_histogram(data = sample_means_small, aes(values), fill = &quot;plum4&quot;, color = &quot;black&quot;, binwidth = 3) +
+  theme_classic() +
+  xlab(&quot;Sample means&quot;) +
+  ylab(&quot;Count&quot;) +
+  geom_vline(xintercept = medium_m, linetype = &quot;longdash&quot;) +
+  geom_vline(xintercept = pop_m) +
+  coord_cartesian(xlim = c(85, 115)) +
+  ggtitle(&quot;Distribution of 100 samples&quot;)
+
+plot3 &lt;- ggplot() +
+  geom_histogram(data = sample_means_large, aes(values), fill = &quot;plum4&quot;, color = &quot;black&quot;) +
+  theme_classic() +
+  xlab(&quot;Sample means&quot;) +
+  ylab(&quot;Count&quot;) +
+  geom_vline(xintercept = large_m, linetype = &quot;longdash&quot;) +
+  geom_vline(xintercept = pop_m) +
+  coord_cartesian(xlim = c(85, 115)) +
+  ggtitle(&quot;Distribution of 1,000 samples&quot;)
+
+ggarrange(plot1, plot2, plot3)</code></pre>
+<p><img src="/practice/20-practice_files/figure-html/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="using-bootstrapping-for-confidence-intervals" class="section level2">
+<h2>Using bootstrapping for <em>confidence intervals</em></h2>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/20-learnr-quiz3/" id="learnr-20-quiz3" %}}</p>
+<div class="fyi">
+<p><strong>Reminder:</strong> The 95% confidence interval is calculated using the following formula:</p>
+<p><span class="math inline">\(CI_{95} = \bar{X} \pm (1.96 * SEM)\)</span></p>
+</div>
+<p>Now we’re going to use <em>bootstrapping</em> to calculate the 95% confidence intervals.</p>
+<p><strong>Tips and Instructions:</strong>
+* Use <code>pop.data</code> for the means!
+* See the Power Plus lecture slides 10-11 for examples of calculating a single CI
+* Use z = 1.96 for a 95% interval
+* On each loop iteration, save the upper CI to <code>upper_values</code>, and the lower CI to <code>lower_values</code> (see <code>append()</code> help page)</p>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/20-learnr-app3/" id="learnr-20-app3" %}}</p>
+<p>That’s it for this practice – go forth and sample iteratively!</p>
+</div>
