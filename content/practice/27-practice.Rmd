@@ -70,8 +70,8 @@ Lastly, the section between the curly brackets `{}` is the body of the for loop.
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/20-learnr-quiz1/",
-                    id = "learnr-20-quiz1")
+                    url = "https://shelly-cooper.shinyapps.io/27-learnr-quiz1/",
+                    id = "learnr-27-quiz1")
 
 ```
 
@@ -98,8 +98,8 @@ print(my_object)
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/20-learnr-quiz2/",
-                    id = "learnr-20-quiz2")
+                    url = "https://shelly-cooper.shinyapps.io/27-learnr-quiz2/",
+                    id = "learnr-27-quiz2")
 
 ```
 
@@ -111,14 +111,14 @@ blogdown::shortcode("learnr",
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/20-learnr-app1/",
-                    id = "learnr-20-app1")
+                    url = "https://shelly-cooper.shinyapps.io/27-learnr-app1/",
+                    id = "learnr-27-app1")
 
 ```
 
 <center>
 
-<img src="../encouragementFigs/figure-html/rockememe.jpg" width = "50%">
+<img src="../encouragementFigs/figure-html/rockmeme.jpg" width = "50%">
 
 </center>
 
@@ -222,8 +222,8 @@ Let's expand our provel example. Write an `if/else if/else` statement that says:
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/20-learnr-app2/",
-                    id = "learnr-20-app2")
+                    url = "https://shelly-cooper.shinyapps.io/27-learnr-app2/",
+                    id = "learnr-27-app2")
 
 ```
 
@@ -384,8 +384,8 @@ ggarrange(plot1, plot2, plot3)
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/20-learnr-quiz3/",
-                    id = "learnr-20-quiz3")
+                    url = "https://shelly-cooper.shinyapps.io/27-learnr-quiz3/",
+                    id = "learnr-27-quiz3")
 
 ```
 
@@ -414,10 +414,15 @@ Now we're going to use *bootstrapping* to calculate the 95% confidence intervals
 ```{r, echo=FALSE}
 
 blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/20-learnr-app3/",
-                    id = "learnr-20-app3")
+                    url = "https://shelly-cooper.shinyapps.io/27-learnr-app3/",
+                    id = "learnr-27-app3")
 
 ```
 
 That's it for this practice -- go forth and sample iteratively!
+
+Massive shout out to our very own Drew McLaughlin for creating this excellent Practice Set! If you have any feedback on how this particular practice (or any of them) could be improved. Please get in touch with Drew and/or Shelly. We are always happy to hear your feedback!
+
+- [Email Drew](mailto:drewjmclaughlin@wustl.edu)
+- [Email Shelly](mailto:shelly.cooper@wustl.edu)
 
