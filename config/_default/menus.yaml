@@ -52,3 +52,5 @@ assignment:
     weight: 2
   - name: Quizzes
     weight: 3
+  - name: Mini Assignments
+    weight: 4
