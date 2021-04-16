@@ -60,7 +60,7 @@ function_name <- function(arg_1, arg_2, ..., arg_x) {
 
 For example, maybe we ran a study with 50 subjects, and subjects with odd number IDs were randomly assigned to Counterbalance A and subjects with even number IDs were randomly assigned to Counterbalance B. We forgot to include this information in our data.frame (called `studyData`), so now it needs to be added. There are 50 participants total (50 rows), and the first few rows look like this:
 
-```{r, include = FALSE, echo=FALSE}
+```{r, echo=FALSE}
 # Creating fake data.frame
 subject <- 1:50
 set.seed(1234)

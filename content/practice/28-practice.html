@@ -50,6 +50,13 @@ shiny: true
 <p><strong>FYI:</strong> Functions technically don’t have to have defined arguments. However, in most cases arguments are helpful and/or necessary to make a function <em>generalizable</em>.</p>
 </div>
 <p>For example, maybe we ran a study with 50 subjects, and subjects with odd number IDs were randomly assigned to Counterbalance A and subjects with even number IDs were randomly assigned to Counterbalance B. We forgot to include this information in our data.frame (called <code>studyData</code>), so now it needs to be added. There are 50 participants total (50 rows), and the first few rows look like this:</p>
+<pre><code>##   subject    score
+## 1       1 72.58587
+## 2       2 75.55486
+## 3       3 77.16888
+## 4       4 70.30860
+## 5       5 75.85825
+## 6       6 76.01211</code></pre>
 <p>Put simply: <em>We want to create a function that determines whether numbers in a vector are even or odd.</em> The simplest version of this function (below) requires no arguments, and will return <code>TRUE</code> for subjects with even numbers and <code>FALSE</code> for subjects with odd numbers.</p>
 <pre class="r"><code># Creating the even_odd function
 even_odd &lt;- function() {
