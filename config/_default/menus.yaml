@@ -54,3 +54,5 @@ assignment:
     weight: 3
   - name: Mini Assignments
     weight: 4
+  - name: Final Assignment
+    weight: 5
