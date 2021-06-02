@@ -52,15 +52,12 @@ zip_projects: $(ZIP_TARGETS)
 clean:
 	rm -rf public/
 
-static/slides/css/ath-slides.css:
-	sass static/slides/css/ath-slides.scss > static/slides/css/ath-slides.css
-
 # build: 
-build: static/slides/css/ath-slides.css zip_projects pdf_slides
+build: static/slides/css/additionalCols.css zip_projects pdf_slides
 	Rscript -e "blogdown::build_site(build_rmd = blogdown::filter_md5sum)"
 
 serve: build
 	Rscript -e "blogdown::serve_site(port=4321)"
 
 deploy: build
-rsync -Prvzc --exclude='.DS_Store' --exclude='.Rproj.user/' --delete $(OUTPUTDIR)/
+rsync -Prvzc --exclude='.DS_Store' --exclude='.Rproj.user/' 
