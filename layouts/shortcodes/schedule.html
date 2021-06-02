@@ -12,7 +12,6 @@
             <td style="width:8%;text-align:center" class="mid-table-header">Lecture</td>
             <td style="width:8%;text-align:center" class="mid-table-header">Practice</td>
             <td style="width:8%;text-align:center" class="mid-table-header">Assignment</td>
-            <td style="width:8%;text-align:center" class="mid-table-header">Quiz</td>
 
             {{- else }}
 
@@ -39,7 +38,7 @@
 
             {{- if .assignments }}
             <td align="center" style="width:10%;text-align:center"><a href="{{ .Site.baseurl }}/assignments/{{ .assignments }}/">
-                    <i title="Assignment for these topics; due the following TUESDAY" class="fas fa-pencil-ruler fa-lg"></i></a></td>
+                    <i title="Assignment for these topics; due the following MONDAY" class="fas fa-pencil-ruler fa-lg"></i></a></td>
             {{- else }}
             <td align="center" style="width:10%;text-align:center">
                 <font color="f1f1f1">
@@ -47,15 +46,6 @@
             </td>
             {{- end }}
             
-            {{- if .quiz }}
-            <td align="center" style="width:10%;text-align:center">
-                    <i title="Quiz for this topic; due the following TUESDAY" class="fas fa-question-circle fa-lg"></i></a></td>
-            {{- else }}
-            <td align="center" style="width:10%;text-align:center">
-                <font color="f1f1f1">
-                    <i class="fas fa-question-circle fa-lg"></i></font>
-            </td>
-            {{- end }}
 
             {{- end }}
         </tr>

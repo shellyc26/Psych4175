@@ -5,21 +5,31 @@ slug: schedule
 
 Here's your roadmap for this course!
 
-- [**Lectures**](/lectures/) (<i class="fas fa-book-reader"></i>): This contains the lecture slides and video recordings of these lectures. You should watch the videos and follow along for each topic that is assigned per week. 
-- [**Practice**](/practice/) (<i class="fas fa-laptop-code"></i>): This page contains an interactive lesson that reinforces the principles that were discussed in the corresponding lecture. They also tend to go through more detail. Go through these *after* watching the lecture videos. 
+**_Before_ Every Monday's Class:**
 
-After you have watched the lectures and completed the practices for the week's assigned topics, you will complete an assignment.
+- [**Lectures**](/lectures/) (<i class="fas fa-book-reader"></i>): This contains the lecture slides and video recordings of these lectures. You should watch the videos and follow along for each topic that is assigned per week.
 
-- [**Assignment**](/assignment/) (<i class="fas fa-pencil-ruler"></i>): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. **Assignments are due by 2:30pm on the _following_ TUESDAY.** Ex: Assignment 1 covers the topic from Week 1, but is due on Tuesday 9/22 at 2:30pm.
+**Mondays:**
 
-- **Quizzes** (<i class="fas fa-question-circle fa-lg"></i>): There are 4 quizzes total, and they will be administered on Canvas. **Quizzes are due by 2:30pm on the _following_ TUESDAY.** Ex: Quiz 1 covers the topic of "Distributions" from Week 6 (10/20 - 10/22), but is due on Tuesday 10/27. 
+- We will first complete peer reviews (if there was an assignment for the previous week's material).
+- [**Practice**](/practice/) (<i class="fas fa-laptop-code"></i>): This page contains an interactive lesson that reinforces the principles that were discussed in the corresponding lecture. They also tend to go through more detail. We will go through this as a class, but you are able to practice on your own, too. Note that I will **not** be re-lecturing the material; watching the lectures is your homework.
+
+**Wednesdays:**
+
+- [**Assignment**](/assignment/) (<i class="fas fa-pencil-ruler"></i>): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. The entire class period on Wednesdays is dedicated to you doing the assignment. The Shelly and AJ are around to help when you get stuck. You will need to finish the assignment at home if you do not complete it in class. **Assignments are due by 12pm on the _following_ MONDAY.** Ex: On Wednesday 9/15 you will work on Assignment 1. It covers the lecture material in Week 3. Assignment 1 is due the following Monday (9/22) at 12pm. However, you should be able to vast majority Assignment 1 during class on Wednesday 9/15.
+
+**Exceptions to the rule:**
+
+- The first week is an exception; normal lecture style
+- Any week where we only have 1 class period, it will be a normal lecture style
 
 :::note
-**tl;dr**: You should follow this general process each day:
+**tl;dr**: You should follow this general process:
 
-- Do everything on the Lectures (<i class="fas fa-book-reader"></i>) page
-- Work through the practice set (<i class="fas fa-laptop-code"></i>) page
-- Complete the assignment (<i class="fas fa-pencil-ruler"></i>) or quiz (<i class="fas fa-question-circle fa-lg"></i>)
+- Watch the Lectures (<i class="fas fa-book-reader"></i>) at home before each Monday's class
+- Come prepared on Monday to assist the class with the Practice sets (<i class="fas fa-laptop-code"></i>)
+- Come prepared on Wednesday to work your way through each Assignment (<i class="fas fa-pencil-ruler"></i>)
+- If needed, finish the Assignment (<i class="fas fa-pencil-ruler"></i>) at home, and start watching next week's Lectures (<i class="fas fa-book-reader"></i>)
 :::
 
 ---
