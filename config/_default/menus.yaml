@@ -50,9 +50,7 @@ assignment:
     weight: 1
   - name: Assignments
     weight: 2
-  - name: Quizzes
-    weight: 3
   - name: Mini Assignments
-    weight: 4
+    weight: 3
   - name: Final Assignment
-    weight: 5
+    weight: 4

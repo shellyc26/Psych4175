@@ -35,7 +35,7 @@ hero_media = "wustl.jpg"
 
 # Note. An optional note to show underneath the links.
 [cta_note]
-  label = "Psych 4175 • Spring 2021<br>Psychological & Brain Sciences<br>Washington University in St. Louis"
+  label = "Psych 4175 • Fall 2021<br>Psychological & Brain Sciences<br>Washington University in St. Louis"
 +++
 
 

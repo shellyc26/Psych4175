@@ -16,17 +16,9 @@ Applied Statistical Analysis with R (Psych 4175)
 Instructor: **Shelly Cooper (she/her)**
 You can reach Shelly via the contact form on the homepage of this site, or you can email me at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
 
-Assistant Instructor: **Drew McLaughlin (she/her)**
-You can reach Drew at [drewjmclaughlin@wustl.edu](mailto:drewjmclaughlin@wustl.edu).
+Assistant Instructor: **AJ Wright (she/her)**
+You can reach Drew at [ajwright@wustl.edu](mailto:ajwright@wustl.edu).
 
-## What will you learn in this class?
-By the end of the class, you will have learned:
-
-  -	The fundamentals of programming with R statistical software. This includes objects, data classes, functions, data wrangling, plotting/graphing, and making reproducible reports
-  -	The fundamentals of basic statistics including distributions, correlations, t-tests, ANOVAs, and linear regression
-  -	A theoretical foundation for the principles of data visualization
-  -	A knowledge base in which to expand your statistical horizons by using more sophisticated code, such as bootstrapping and writing your own functions (make your code work for you!)
-  
 ## What's the course philosophy?
 Programming & statistics are increasingly becoming a demanding skill across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to leave understanding core fundamentals of applied programming and statistics. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.). 
 
@@ -34,39 +26,34 @@ Programming & statistics are increasingly becoming a demanding skill across a wi
 
 *My goal is to get you to the point where you can effectively Google `R`-related questions and mostly understand the results.* 
 
+## What will you learn in this class?
+By the end of the class, you will have learned:
+
+  -	The fundamentals of programming with R statistical software. This includes objects, data classes, functions, data wrangling, plotting/graphing, and making reproducible reports
+  -	The fundamentals of basic statistics including distributions, correlations, t-tests, ANOVAs, and linear regression
+  -	A knowledge base in which to expand your statistical horizons by using more sophisticated code, such as bootstrapping and writing your own functions (make your code work for you!)
+
 ## How is this course organized?
 There will be 3 units:
 
-  1.	Getting you up to speed with coding in R. This will include weekly homework assignments and you will review one of your peers’ code each week. 
+  1.	Getting you up to speed with coding in R. 
   2.	Recap of statistics learned in Psych 300 (Intro to Psych Stats). However, the material will focus on the application of these tests in R, accessing their results, and incorporating them into academic manuscripts.
-  3.	This will include some more advanced, nuanced topics such as theoretical understanding of the principles in data visualization, using for loops and conditional statements to perform simulations, and writing your own R functions that can be as general or specific as you’d like. 
+  3.	This will include some more advanced topics in terms of writing code that can expand your statistical horizon. 
   
 ## What do you need for this course?
-You'll need 3 things:
+You'll need 5 things:
 
-  1. You need `R` and it's buddy `RStudio`. The first lecture video will show you how to install these.
+  1. You need `R` and it's buddy `RStudio`. We will go through this together.
   2. You need this website -- most of the content will take place on this website.
-  3. You need access to our class Canvas page. This is where your you'll submit your assignments, complete your quizzes, and complete your code reviews.
+  3. You need a GitHub account -- use your `wustl.edu` email to avoid paying $. You will turn all assignments in via GitHub and you will complete your peer reviews on GitHub. 
+  4. While not required, I **very strongly** suggest being apart of our Slack workspace. You can quickly and easily ask me and AJ questions privately or publicly so your peers can learn too. You can interact with your peers, and enjoy remarkably silly memes. 
+  5. Our Canvas page will contain your grades as well as some miscellaneous information. You will mainly use it to check your grade and nothing else.
   
 ## How do I get a good grade?
-There are no exams! Hooray! To get a good grade in this class, you simply need to do the following:
+There are no exams! Hooray! To get a good grade in this class, you need to do the following:
 
-  - **Homework Assignments** will be posted on the course website, and are all frontloaded in Unit 1 at the beginning of the class. This is to make sure that you get lots of practice as you’re learning the basics of `R`.
-    - If you want to use one of your own datasets for these, please let me know ahead of time so we can make sure it has certain characteristics that work with the assignments. Otherwise, I'll post a dataset to Canvas that you can use.
-    - Each assignment is worth 7 points and there will be 5 of them for a total of **35 points**
-    - Each day an assignment is late, I will remove 2 points unless you contact me and we discuss other arrangements
-    
-  - **Peer Reviews** After each homework assignment, you will be randomly assigned to a peer in your class, and you will review the code from each other’s homework assignment. You will fill out several discussion prompts on Canvas about your peer’s code. The goal is for you to gain experience in reading other peoples’ code and for you to obtain consistent feedback from someone other than the instructor.
-    - Each peer review assignment will be worth 2 points and there will be 5 of them for a total of **10 points** possible.
-    - Points will be taken away if the prompts are not completely answered. For example, if I ask for 2 good things about your peers’ code, and you only provide 1 example, points will be taken away from your code review assignment. 
-    
-  - **Quizzes** There will be 4 Canvas quizzes spanning Unit 2 and into the beginning of Unit 3.
-    - You are permitted to use your notes and the internet, but you must NOT discuss with your peers.
-    - Each quiz will be worth 5 points for a total of **20 points**.
-  
-  - **Mini Assignments** The remaining assignments will be smaller than your homework assignment, and will be more about debugging code. You will be given blocks of code relevant to that week's topic, and asked to debug it so that it both works and provides the output that is being asked.
-    - Each mini assignment will be worth 5 points and there will be 3 of them for a total of **15 points** possible.
-
+  - **Assignments** will be posted on the course website. These are mostly weekly assignments, and they are there to make sure you get lots of practice as you are learning the basics of `R`. 
+  - **Peer Reviews** will give you practice looking at other peoples' code and will give you consistent feedback from someone other than the instructor/AI. You will be randomly assigned to a peer in your class and you will answer very specific questions about the assignment.
   - **Final Assignment** You will complete a final take-home project due during finals week (if you want to turn it in before then, that’s OK!). This project will be completely `R`-based, and will incorporate skills learned over the semester with extra emphasis on those learned in Unit 3.
     - If you would like to use your own dataset for this, you must tell me ahead of time and get it pre-approved!
     - This project will be worth **20 points**.
@@ -74,32 +61,30 @@ There are no exams! Hooray! To get a good grade in this class, you simply need t
     
 $$ \text{Homeworks (35pts) + Peer Reviews (10pts) + Quizzes (20pts) + Mini Assignments (15pts) + Final Project (20pts)} = \text{100 Total Points}$$
 
+## Final Grade Rubric
+
 ## Staying Connected
-In Fall 2020, we learned just how challenging online learning can be. Perhaps most importantly, we learned that online learning can be lonely. To combat this, we will do the following:
+The 2020-2021 academic year was lonely. Although we're back in person, we still might feel that residual loneliness. On top of that, learning to code can be really scary -- impostor syndrome is real! The best thing we can do to combat these feelings is to stay connected to one another. Here's how we'll accomplish this in our class:
 
--	Your peer review will be with the same person! This way, you’ll have a buddy that you can get to know over the course of the semester. 
+-	Your peer review will be with the same person! This way, you will get to know your buddy over the course of the semester. Make a friend! 
 
--	We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. Shelly or Drew will respond to your questions on slack (if your peers don’t respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you’re learning a skill like coding, in which you’ll repeatedly fail. 
+-	We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. Shelly or AJ will respond to your questions on slack (if your peers don't respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you're learning a skill like coding, in which you’ll repeatedly fail. Slack is not required per se, but it is **highly encouraged**.
 
-## COVID-19 & How to be OK
-*(This section was created, albeit slightly modified, from [this awesome tweet by Dr. Chris Jones](https://twitter.com/ProfChrisMJones/status/1282036533562834944). And, you know, the state of the world.)*
+## Let's learn from COVID-19
+That year sucked. But instead of burying our heads in the sand and forgetting it existed, let's at least extract some things and incorporate them into our lives. For this class, here's what that means:
 
-In case you hadn’t noticed, there is a **_global pandemic_**. None of us are really “OK”. If you tell me you’re having trouble, I’m not going to judge you or think less of you. I hope you’ll extend me the same grace. 
+- It is OK to not be OK. If you tell me you're having trouble, I'm not going to judge you or think less of you. I hope you will do the same for me. I will work with you to make sure we have a reasonable plan in place should something come up. *However*, this does require you telling me "hey, I'm not OK".
+- You are always welcome to come talk to me about things that you're going through. If I can't help you, I usually know someone who can help -- or I can at least give you some resources and point you in the right direction.
+- If you are struggling or need extra help, please just ask. I promise I will work with you.
 
-Let’s set the stage:
-
-  -	You never owe me personal information about your health (mental or physical), or anything else. Since this course is entirely online, we do not have to worry about the whole class physically distancing or needing to go into quarantine if one of us is exposed.
-  -	You are always welcome to come talk to me about things that you’re going through, however.
-  -	If I can’t help you, I usually know somebody who can.
-  -	If you need extra help or you need more time with something, just ask. I’ll work with you. Promise. 
 
 ### Online Etiquette
-We will be making use of discussion threads on Canvas as well as Slack channels. Students are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:
+There will be a lot of online communication with the instructor, the AI, and your peers. You are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:
 
   -	Any communication shared privately may become public, so be mindful of what you share in discussion boards or chats. This is especially true for sharing any personal and/or identifying information about you or someone else. Do not share any passwords or divulge any personal information (yours or others) that can be used in a malicious manner (phone numbers, addresses etc.).
-  -	Humor doesn’t always translate in an online forum. If you want to make a joke or a sarcastic remark, be 100% sure that it is clear you are joking. 
+  -	Humor doesn't always translate in an online forum. If you want to make a joke or a sarcastic remark, be 100% sure that it is clear you are joking. 
   -	Your comments must be readable to everyone, therefore I ask that you please refrain from using shortcuts. For example, please type out “you” instead of “u”. Very common acronyms are OK (“lol” or “haha”). But please refrain from acronyms that are not as well-known (“fwiw” etc.).
-  -	Treat your classmates and professor with kindness and respect. Any indication of online harassment or bullying will not be tolerated and will be reported. This is especially pertinent when giving constructive feedback in code reviews.
+  -	Treat your classmates, professor, and AI with kindness and respect. Any indication of online harassment or bullying will not be tolerated and will be reported. This is especially pertinent when giving constructive feedback in code reviews.
   - Please avoid using ALL CAPS because it can be interpreted as yelling.
 
 ### Academic Policies & Resources
