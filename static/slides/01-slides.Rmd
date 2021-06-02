@@ -112,9 +112,4 @@ Step 2:
 
 - It is *strongly* recommended that you make notes to yourself along the way!
 
----
-name: practice
-class: inverse, middle, center
 
-# No Practice
-There is no practice set that accompanies this lecture/video sequence. Once you have a feel for RStudio (as described in this lecture), you may continue on to Lecture 2. 

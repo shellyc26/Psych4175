@@ -18,7 +18,7 @@ pdf_slides: $(PDF_TARGETS)
 
 # Automatic project zipping -----------------------------------------------
 # Project filenames to work with
-TO_ZIP_DIRS = $(filter %/, $(wildcard static/projects/*/))  # Find all directories in static/projects
+TO_ZIP_DIRS = $(filter %/, $(wildcard static/slides/*/))  # Find all directories in static/projects
 TO_ZIP_NAMES = $(patsubst %/,%,$(TO_ZIP_DIRS))  # Remove trailing /
 ZIP_TARGETS = $(addsuffix .zip,$(TO_ZIP_NAMES))  # Add .zip
 
@@ -53,7 +53,7 @@ clean:
 	rm -rf public/
 
 # build: 
-build: static/slides/css/additionalCols.css zip_projects pdf_slides
+build: static/slides/ zip_projects pdf_slides
 	Rscript -e "blogdown::build_site(build_rmd = blogdown::filter_md5sum)"
 
 serve: build
