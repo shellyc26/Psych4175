@@ -16,11 +16,13 @@ editor_options:
 shiny: true
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
   <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 <div id="TOC">
 <ul>
-<li><a href="#directories">Directories</a><ul>
+<li><a href="#directories">Directories</a>
+<ul>
 <li><a href="#organize-your-filesprojects">Organize your files/projects!</a></li>
 </ul></li>
 <li><a href="#importing-data">Importing Data</a></li>
@@ -30,8 +32,8 @@ shiny: true
 <p>This time we’ll talk about several little things, but all relate to importing your own data files. Most of us are not creating data.frames from scratch every time. Instead, our data is collected elsewhere, and stored as a file that a colleague shares with you, you download from the internet, etc.</p>
 <div id="directories" class="section level2">
 <h2>Directories</h2>
-<p>Your computer is just a series of folders. Folders are also known as directories. <code>R</code> will only look and save things to your working directory. To find your current working directory, you can type <code>getwd()</code> in your console. To change your working directory to somewhere else, you can use <code>setwd(&quot;/file/path/goes/here&quot;)</code>.</p>
-<p>Fun Fact: The <code>~</code> sign helps shorten some of the really long file paths. Try <code>setwd(&quot;~/rest/of/file/path&quot;)</code>. It usually points to the User’s directory. For instance, on my computer, it is set to <code>/Users/Coop</code>.</p>
+<p>Your computer is just a series of folders. Folders are also known as directories. <code>R</code> will only look and save things to your working directory. To find your current working directory, you can type <code>getwd()</code> in your console. To change your working directory to somewhere else, you can use <code>setwd("/file/path/goes/here")</code>.</p>
+<p>Fun Fact: The <code>~</code> sign helps shorten some of the really long file paths. Try <code>setwd("~/rest/of/file/path")</code>. It usually points to the User’s directory. For instance, on my computer, it is set to <code>/Users/Coop</code>.</p>
 <div id="organize-your-filesprojects" class="section level3">
 <h3>Organize your files/projects!</h3>
 <p>Whether you use <code>RProjects</code> (<a href="/lectures/07-lecture">see 7: Loading files slides</a> for more) or not, you should have some sort of structure to your projects. You’ll need to play around with what’s right for you. Generally speaking, a good idea is something like this:</p>

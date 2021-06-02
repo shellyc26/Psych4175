@@ -7,7 +7,7 @@
   </url>
   
   <url>
-    <loc>/practice/20-practice/</loc>
+    <loc>/practice/27-practice/</loc>
   </url>
   
   <url>
@@ -19,6 +19,10 @@
   </url>
   
   <url>
+    <loc>/assignments/01-mini-assignment/</loc>
+  </url>
+  
+  <url>
     <loc>/practice/</loc>
   </url>
   
@@ -27,7 +31,19 @@
   </url>
   
   <url>
+    <loc>/practice/28-practice/</loc>
+  </url>
+  
+  <url>
     <loc>/practice/02-practice/</loc>
+  </url>
+  
+  <url>
+    <loc>/assignments/02-mini-assignment/</loc>
+  </url>
+  
+  <url>
+    <loc>/assignments/03-mini-assignment/</loc>
   </url>
   
   <url>
@@ -346,6 +362,14 @@
   </url>
   
   <url>
+    <loc>/lectures/28-lecture/</loc>
+  </url>
+  
+  <url>
+    <loc>/lectures/29-lecture/</loc>
+  </url>
+  
+  <url>
     <loc>/lectures/02-lecture/</loc>
   </url>
   
@@ -375,6 +399,10 @@
   
   <url>
     <loc>/lectures/09-lecture/</loc>
+  </url>
+  
+  <url>
+    <loc>/assignments/final-assignment/</loc>
   </url>
   
   <url>

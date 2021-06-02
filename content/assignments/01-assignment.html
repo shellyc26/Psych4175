@@ -17,6 +17,7 @@ editor_options:
   chunk_output_type: console
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
   <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 
@@ -61,7 +62,7 @@ editor_options:
 <ul>
 <li><p>In 1-2 sentences, describe your dataset. No need for a ton of detail, just generally, what’s in it.</p></li>
 <li><p><em>Using code</em>, find the object class of each column vector. Then find the object class of the entire data set. Describe if these make sense, or are there any that were unexpected? If they were unexpected, why?</p></li>
-<li>Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called <em>factors</em>? If they should be treated as categorical variables, please do so using the <code>factor()</code> function.</li>
+<li><p>Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called <em>factors</em>? If they should be treated as categorical variables, please do so using the <code>factor()</code> function.</p></li>
 </ul>
 </div>
 <p>Here’s a HINT for the last item:</p>
@@ -78,7 +79,7 @@ editor_options:
 <p>Here’s your to-do list:</p>
 <ul>
 <li><p>For 2 of your numeric/integer variables, get the mean, standard deviation, and range. If you don’t know the function names, Google it!</p></li>
-<li>For your categorical variable, get very quick counts of each level (e.g., how many observations are there in group 1 vs. group 2).</li>
+<li><p>For your categorical variable, get very quick counts of each level (e.g., how many observations are there in group 1 vs. group 2).</p></li>
 </ul>
 </div>
 <p>Here are some HINTS:</p>
@@ -95,7 +96,7 @@ editor_options:
 <ul>
 <li><p>Make a smaller datasets that only contain items from each level of your categorical variable. For example, let’s say the factor “treatment_group” had 2 levels: <code>treatment</code> and <code>control</code>. Make a new data.frame that is something like <code>data_treatment</code> and another new data.frame that is <code>data_controls</code>. Do this via INDEXING and LOGICAL OPERATORS.</p></li>
 <li><p>One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame – even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls).</p></li>
-<li>Now repeat the same summary statistics from above (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar? What does that mean for your analysis?</li>
+<li><p>Now repeat the same summary statistics from above (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar? What does that mean for your analysis?</p></li>
 </ul>
 </div>
 <p>Here is a HINT:</p>

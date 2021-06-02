@@ -16,6 +16,7 @@ editor_options:
 shiny: true
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
   <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 <div id="TOC">
@@ -37,9 +38,9 @@ shiny: true
 - Make sure the variables <code>sex</code>, <code>heart_self</code>, and <code>heart_father</code> are treated as <code>factor()</code> variables.
 - Use the same <code>na.omit()</code> function from the <a href="/lectures/08-lecture">8: R&amp;R slides</a> to remove all <code>NA</code> variables.
 - Look at the first 6 rows of the <code>midus</code> data.frame by using the <code>head()</code> function.</p></li>
-<li>If you want to practice locally (actually opening up <code>RStudio</code> on your computer), please do the following:
+<li><p>If you want to practice locally (actually opening up <code>RStudio</code> on your computer), please do the following:
 - Either create a new script or open an existing script. Your choice.
-- Import the data file. You should already have this downloaded, but just in case, here it is again. Make sure the code you use to import the file winds up in your script!
+- Import the data file. You should already have this downloaded, but just in case, here it is again. Make sure the code you use to import the file winds up in your script!</p>
 <ul>
 <li><a href="/practice/07-practice/data/midus.csv"><i class="fas fa-file-csv"></i> <code>midus.csv</code></a>
 <ul>
@@ -51,7 +52,7 @@ shiny: true
 </ul></li>
 </ol>
 </div>
-{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app1/" id="learnr-09-app1" %}}
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app1/" id="learnr-09-app1" %}}</p>
 <div id="plotting-with-ggplot2" class="section level2">
 <h2>Plotting with <code>ggplot2</code></h2>
 <p>You can make plots with <code>base R</code> (we’ve done this once already!). But they’re kinda ugly. Actually, they’re really ugly. So we’re going to use a package called <code>ggplot2</code> to make prety plots. This practice set will go through the very basics of how to use <code>ggplot2</code>. For more control over your plots, check out the Data Viz section.</p>
@@ -123,7 +124,7 @@ shiny: true
 <li>Look at the help page for <code>labs()</code> and see if you can give your plot a title and different x- &amp; y-axes labels.</li>
 </ul>
 </div>
-{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app2/" id="learnr-09-app2" %}}
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app2/" id="learnr-09-app2" %}}</p>
 </div>
 <div id="correlation" class="section level4">
 <h4>Correlation</h4>
@@ -140,7 +141,7 @@ shiny: true
 <li>Make the shape of the points different based on if they’ve ever been diagnosed with a heart issue or not</li>
 </ul>
 </div>
-{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app3/" id="learnr-09-app3" %}}
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app3/" id="learnr-09-app3" %}}</p>
 </div>
 <div id="anova" class="section level4">
 <h4>ANOVA</h4>
@@ -159,14 +160,14 @@ shiny: true
 <li>41-60 years old = “middle”</li>
 <li>60-84 years old = “old”</li>
 </ul>
-<p>Additionally, bar plots can kind of suck. The height of each bar should be the <em>mean</em> of the dependent variable for each group. After the trichotomizing code, I have written several lines of code to help you get all the data you need. Whenever you see an empty set of quotation marks <code>&quot;&quot;</code>, you need to fill in the blanks (HINT: read the variable names!).</p>
+<p>Additionally, bar plots can kind of suck. The height of each bar should be the <em>mean</em> of the dependent variable for each group. After the trichotomizing code, I have written several lines of code to help you get all the data you need. Whenever you see an empty set of quotation marks <code>""</code>, you need to fill in the blanks (HINT: read the variable names!).</p>
 <p>Finally, at the very bottom of the chunk, we make a data.frame based on everything from the middle chunk. You do NOT need to change this part of the code. But do try to understand what it’s doing!</p>
-{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app4/" id="learnr-09-app4" %}}
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app4/" id="learnr-09-app4" %}}</p>
 </div>
 <div id="now-run-the-analysis" class="section level5">
 <h5>Now, run the analysis</h5>
 <p>Now that you’ve done the hard work of making your categorical variable and your data.frame of means for the plot, go ahead and write/run code for the ANOVA and bar plot!</p>
-{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app5/" id="learnr-09-app5" %}}
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app5/" id="learnr-09-app5" %}}</p>
 <p><em>(Again, we will learn how to do this analysis prep in a MUCH easier way when we talk about the tidyverse)</em></p>
 </div>
 </div>
@@ -184,7 +185,7 @@ shiny: true
 <li>Plot: Scatter plot</li>
 </ul>
 </div>
-{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app6/" id="learnr-09-app6" %}}
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/09-learnr-app6/" id="learnr-09-app6" %}}</p>
 </div>
 <div id="congratulations" class="section level4">
 <h4>CONGRATULATIONS!</h4>
