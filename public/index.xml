@@ -5909,6 +5909,38 @@ Figure 1: A fancy pie chart.
     </item>
     
     <item>
+      <title>Interactions</title>
+      <link>/lectures/30-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/30-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/30-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/30-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Indexing</title>
       <link>/lectures/03-lecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -7286,18 +7318,8 @@ Figure 1: A fancy pie chart.
 &lt;h2&gt;Who are we?&lt;/h2&gt;
 &lt;p&gt;Instructor: &lt;strong&gt;Shelly Cooper (she/her)&lt;/strong&gt;
 You can reach Shelly via the contact form on the homepage of this site, or you can email me at &lt;a href=&#34;mailto:shelly.cooper@wustl.edu&#34;&gt;shelly.cooper@wustl.edu&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Assistant Instructor: &lt;strong&gt;Drew McLaughlin (she/her)&lt;/strong&gt;
-You can reach Drew at &lt;a href=&#34;mailto:drewjmclaughlin@wustl.edu&#34;&gt;drewjmclaughlin@wustl.edu&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;what-will-you-learn-in-this-class&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;What will you learn in this class?&lt;/h2&gt;
-&lt;p&gt;By the end of the class, you will have learned:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The fundamentals of programming with R statistical software. This includes objects, data classes, functions, data wrangling, plotting/graphing, and making reproducible reports&lt;/li&gt;
-&lt;li&gt;The fundamentals of basic statistics including distributions, correlations, t-tests, ANOVAs, and linear regression&lt;/li&gt;
-&lt;li&gt;A theoretical foundation for the principles of data visualization&lt;/li&gt;
-&lt;li&gt;A knowledge base in which to expand your statistical horizons by using more sophisticated code, such as bootstrapping and writing your own functions (make your code work for you!)&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Assistant Instructor: &lt;strong&gt;AJ Wright (she/her)&lt;/strong&gt;
+You can reach AJ at &lt;a href=&#34;mailto:ajwright@wustl.edu&#34;&gt;ajwright@wustl.edu&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;whats-the-course-philosophy&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;What’s the course philosophy?&lt;/h2&gt;
@@ -7307,48 +7329,41 @@ You can reach Drew at &lt;a href=&#34;mailto:drewjmclaughlin@wustl.edu&#34;&gt;d
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;em&gt;My goal is to get you to the point where you can effectively Google &lt;code&gt;R&lt;/code&gt;-related questions and mostly understand the results.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;what-will-you-learn-in-this-class&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What will you learn in this class?&lt;/h2&gt;
+&lt;p&gt;By the end of the class, you will have learned:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The fundamentals of programming with R statistical software. This includes objects, data classes, functions, data wrangling, plotting/graphing, and making reproducible reports&lt;/li&gt;
+&lt;li&gt;The fundamentals of basic statistics including distributions, correlations, t-tests, ANOVAs, and linear regression&lt;/li&gt;
+&lt;li&gt;A knowledge base in which to expand your statistical horizons by using more sophisticated code, such as bootstrapping and writing your own functions (make your code work for you!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;div id=&#34;how-is-this-course-organized&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;How is this course organized?&lt;/h2&gt;
 &lt;p&gt;There will be 3 units:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Getting you up to speed with coding in R. This will include weekly homework assignments and you will review one of your peers’ code each week.&lt;/li&gt;
+&lt;li&gt;Getting you up to speed with coding in R.&lt;/li&gt;
 &lt;li&gt;Recap of statistics learned in Psych 300 (Intro to Psych Stats). However, the material will focus on the application of these tests in R, accessing their results, and incorporating them into academic manuscripts.&lt;/li&gt;
-&lt;li&gt;This will include some more advanced, nuanced topics such as theoretical understanding of the principles in data visualization, using for loops and conditional statements to perform simulations, and writing your own R functions that can be as general or specific as you’d like.&lt;/li&gt;
+&lt;li&gt;This will include some more advanced topics in terms of writing code that can expand your statistical horizon.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div id=&#34;what-do-you-need-for-this-course&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;What do you need for this course?&lt;/h2&gt;
-&lt;p&gt;You’ll need 3 things:&lt;/p&gt;
+&lt;p&gt;You’ll need 5 things:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;You need &lt;code&gt;R&lt;/code&gt; and it’s buddy &lt;code&gt;RStudio&lt;/code&gt;. The first lecture video will show you how to install these.&lt;/li&gt;
+&lt;li&gt;You need &lt;code&gt;R&lt;/code&gt; and it’s buddy &lt;code&gt;RStudio&lt;/code&gt;. We will go through this together.&lt;/li&gt;
 &lt;li&gt;You need this website – most of the content will take place on this website.&lt;/li&gt;
-&lt;li&gt;You need access to our class Canvas page. This is where your you’ll submit your assignments, complete your quizzes, and complete your code reviews.&lt;/li&gt;
+&lt;li&gt;You need a GitHub account – use your &lt;code&gt;wustl.edu&lt;/code&gt; email to avoid paying $. You will turn all assignments in via GitHub and you will complete your peer reviews on GitHub.&lt;/li&gt;
+&lt;li&gt;While not required, I &lt;strong&gt;very strongly&lt;/strong&gt; suggest being apart of our Slack workspace. You can quickly and easily ask me and AJ questions privately or publicly so your peers can learn too. You can interact with your peers, and enjoy remarkably silly memes.&lt;/li&gt;
+&lt;li&gt;Our Canvas page will contain your grades as well as some miscellaneous information. You will mainly use it to check your grade and nothing else.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;div id=&#34;how-do-i-get-a-good-grade&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;How do I get a good grade?&lt;/h2&gt;
-&lt;p&gt;There are no exams! Hooray! To get a good grade in this class, you simply need to do the following:&lt;/p&gt;
+&lt;p&gt;There are no exams! Hooray! To get a good grade in this class, you need to do the following:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Homework Assignments&lt;/strong&gt; will be posted on the course website, and are all frontloaded in Unit 1 at the beginning of the class. This is to make sure that you get lots of practice as you’re learning the basics of &lt;code&gt;R&lt;/code&gt;.
-&lt;ul&gt;
-&lt;li&gt;If you want to use one of your own datasets for these, please let me know ahead of time so we can make sure it has certain characteristics that work with the assignments. Otherwise, I’ll post a dataset to Canvas that you can use.&lt;/li&gt;
-&lt;li&gt;Each assignment is worth 7 points and there will be 5 of them for a total of &lt;strong&gt;35 points&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Each day an assignment is late, I will remove 2 points unless you contact me and we discuss other arrangements&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Peer Reviews&lt;/strong&gt; After each homework assignment, you will be randomly assigned to a peer in your class, and you will review the code from each other’s homework assignment. You will fill out several discussion prompts on Canvas about your peer’s code. The goal is for you to gain experience in reading other peoples’ code and for you to obtain consistent feedback from someone other than the instructor.
-&lt;ul&gt;
-&lt;li&gt;Each peer review assignment will be worth 2 points and there will be 5 of them for a total of &lt;strong&gt;10 points&lt;/strong&gt; possible.&lt;/li&gt;
-&lt;li&gt;Points will be taken away if the prompts are not completely answered. For example, if I ask for 2 good things about your peers’ code, and you only provide 1 example, points will be taken away from your code review assignment.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Quizzes&lt;/strong&gt; There will be 4 Canvas quizzes spanning Unit 2 and into the beginning of Unit 3.
-&lt;ul&gt;
-&lt;li&gt;You are permitted to use your notes and the internet, but you must NOT discuss with your peers.&lt;/li&gt;
-&lt;li&gt;Each quiz will be worth 5 points for a total of &lt;strong&gt;20 points&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mini Assignments&lt;/strong&gt; The remaining assignments will be smaller than your homework assignment, and will be more about debugging code. You will be given blocks of code relevant to that week’s topic, and asked to debug it so that it both works and provides the output that is being asked.
-&lt;ul&gt;
-&lt;li&gt;Each mini assignment will be worth 5 points and there will be 3 of them for a total of &lt;strong&gt;15 points&lt;/strong&gt; possible.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Assignments&lt;/strong&gt; will be posted on the course website. These are mostly weekly assignments, and they are there to make sure you get lots of practice as you are learning the basics of &lt;code&gt;R&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Peer Reviews&lt;/strong&gt; will give you practice looking at other peoples’ code and will give you consistent feedback from someone other than the instructor/AI. You will be randomly assigned to a peer in your class and you will answer very specific questions about the assignment.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Final Assignment&lt;/strong&gt; You will complete a final take-home project due during finals week (if you want to turn it in before then, that’s OK!). This project will be completely &lt;code&gt;R&lt;/code&gt;-based, and will incorporate skills learned over the semester with extra emphasis on those learned in Unit 3.
 &lt;ul&gt;
 &lt;li&gt;If you would like to use your own dataset for this, you must tell me ahead of time and get it pre-approved!&lt;/li&gt;
@@ -7358,33 +7373,33 @@ You can reach Drew at &lt;a href=&#34;mailto:drewjmclaughlin@wustl.edu&#34;&gt;d
 &lt;/ul&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \text{Homeworks (35pts) + Peer Reviews (10pts) + Quizzes (20pts) + Mini Assignments (15pts) + Final Project (20pts)} = \text{100 Total Points}\]&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;final-grade-rubric&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Final Grade Rubric&lt;/h2&gt;
+&lt;/div&gt;
 &lt;div id=&#34;staying-connected&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Staying Connected&lt;/h2&gt;
-&lt;p&gt;In Fall 2020, we learned just how challenging online learning can be. Perhaps most importantly, we learned that online learning can be lonely. To combat this, we will do the following:&lt;/p&gt;
+&lt;p&gt;The 2020-2021 academic year was lonely. Although we’re back in person, we still might feel that residual loneliness. On top of that, learning to code can be really scary – impostor syndrome is real! The best thing we can do to combat these feelings is to stay connected to one another. Here’s how we’ll accomplish this in our class:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Your peer review will be with the same person! This way, you’ll have a buddy that you can get to know over the course of the semester.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. Shelly or Drew will respond to your questions on slack (if your peers don’t respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you’re learning a skill like coding, in which you’ll repeatedly fail.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Your peer review will be with the same person! This way, you will get to know your buddy over the course of the semester. Make a friend!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. Shelly or AJ will respond to your questions on slack (if your peers don’t respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you’re learning a skill like coding, in which you’ll repeatedly fail. Slack is not required per se, but it is &lt;strong&gt;highly encouraged&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div id=&#34;covid-19-how-to-be-ok&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;COVID-19 &amp;amp; How to be OK&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;(This section was created, albeit slightly modified, from &lt;a href=&#34;https://twitter.com/ProfChrisMJones/status/1282036533562834944&#34;&gt;this awesome tweet by Dr. Chris Jones&lt;/a&gt;. And, you know, the state of the world.)&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;In case you hadn’t noticed, there is a &lt;strong&gt;&lt;em&gt;global pandemic&lt;/em&gt;&lt;/strong&gt;. None of us are really “OK”. If you tell me you’re having trouble, I’m not going to judge you or think less of you. I hope you’ll extend me the same grace.&lt;/p&gt;
-&lt;p&gt;Let’s set the stage:&lt;/p&gt;
+&lt;div id=&#34;lets-learn-from-covid-19&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Let’s learn from COVID-19&lt;/h2&gt;
+&lt;p&gt;That year sucked. But instead of burying our heads in the sand and forgetting it existed, let’s at least extract some things and incorporate them into our lives. For this class, here’s what that means:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;You never owe me personal information about your health (mental or physical), or anything else. Since this course is entirely online, we do not have to worry about the whole class physically distancing or needing to go into quarantine if one of us is exposed.&lt;/li&gt;
-&lt;li&gt;You are always welcome to come talk to me about things that you’re going through, however.&lt;/li&gt;
-&lt;li&gt;If I can’t help you, I usually know somebody who can.&lt;/li&gt;
-&lt;li&gt;If you need extra help or you need more time with something, just ask. I’ll work with you. Promise.&lt;/li&gt;
+&lt;li&gt;It is OK to not be OK. If you tell me you’re having trouble, I’m not going to judge you or think less of you. I hope you will do the same for me. I will work with you to make sure we have a reasonable plan in place should something come up. &lt;em&gt;However&lt;/em&gt;, this does require you telling me “hey, I’m not OK”.&lt;/li&gt;
+&lt;li&gt;You are always welcome to come talk to me about things that you’re going through. If I can’t help you, I usually know someone who can help – or I can at least give you some resources and point you in the right direction.&lt;/li&gt;
+&lt;li&gt;If you are struggling or need extra help, please just ask. I promise I will work with you.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div id=&#34;online-etiquette&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Online Etiquette&lt;/h3&gt;
-&lt;p&gt;We will be making use of discussion threads on Canvas as well as Slack channels. Students are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:&lt;/p&gt;
+&lt;p&gt;There will be a lot of online communication with the instructor, the AI, and your peers. You are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Any communication shared privately may become public, so be mindful of what you share in discussion boards or chats. This is especially true for sharing any personal and/or identifying information about you or someone else. Do not share any passwords or divulge any personal information (yours or others) that can be used in a malicious manner (phone numbers, addresses etc.).&lt;/li&gt;
 &lt;li&gt;Humor doesn’t always translate in an online forum. If you want to make a joke or a sarcastic remark, be 100% sure that it is clear you are joking.&lt;/li&gt;
 &lt;li&gt;Your comments must be readable to everyone, therefore I ask that you please refrain from using shortcuts. For example, please type out “you” instead of “u”. Very common acronyms are OK (“lol” or “haha”). But please refrain from acronyms that are not as well-known (“fwiw” etc.).&lt;/li&gt;
-&lt;li&gt;Treat your classmates and professor with kindness and respect. Any indication of online harassment or bullying will not be tolerated and will be reported. This is especially pertinent when giving constructive feedback in code reviews.&lt;/li&gt;
+&lt;li&gt;Treat your classmates, professor, and AI with kindness and respect. Any indication of online harassment or bullying will not be tolerated and will be reported. This is especially pertinent when giving constructive feedback in code reviews.&lt;/li&gt;
 &lt;li&gt;Please avoid using ALL CAPS because it can be interpreted as yelling.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;

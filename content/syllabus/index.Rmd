@@ -17,7 +17,7 @@ Instructor: **Shelly Cooper (she/her)**
 You can reach Shelly via the contact form on the homepage of this site, or you can email me at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
 
 Assistant Instructor: **AJ Wright (she/her)**
-You can reach Drew at [ajwright@wustl.edu](mailto:ajwright@wustl.edu).
+You can reach AJ at [ajwright@wustl.edu](mailto:ajwright@wustl.edu).
 
 ## What's the course philosophy?
 Programming & statistics are increasingly becoming a demanding skill across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to leave understanding core fundamentals of applied programming and statistics. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.). 
