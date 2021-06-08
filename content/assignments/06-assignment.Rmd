@@ -1,0 +1,91 @@
+---
+title: "Assignment 6"
+linktitle: "# 6"
+date: "6/16/2020"
+due_date: "2021-03-09"
+due_time: "2:30pm"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 6
+type: docs
+weight: 6
+editor_options: 
+  chunk_output_type: console
+---
+
+## Instructions
+
+This assignment (and the three following assignments) are about using `R` to reinforce the statistical principles you learned about in Psych Stats. You may use any of the datasets posted on Canvas or you may use an outside dataset (must be approved by Shelly). **I STRONGLY SUGGEST USING THE SAME DATASET THAT YOU USED ON ASSIGNMENT 1**
+
+:::note
+**RULES**
+
+You must use a RNotebook for this assignment:
+
+- Sections should have appropriate headers
+- All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do _not_ want to see code located outside of a chunk (unless you're making a quick note or telling us what you're doing -- but the code outside of a chunk shouldn't be evaluated). 
+- Any explanations I ask for should be *outside* of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., `#a long sentence like this`). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text. 
+
+You must use the `ggplot2` package and syntax for all plotting. No plots in `base R`.
+:::
+
+## Descriptive Statistics
+
+Revisit Assignment 1, especially the `Results: Summary Statistics - Part 2` section. After reviewing that, do the following. 
+
+:::list
+Here's your to-do list:
+
+- Get the mean, median, variance, and standard deviation of 3 numeric variables in your dataset, but get these for each level of the categorical variable you chose in Assignment 1. That is, if your categorical variable was "treatment group", you need the mean, median, variance, and standard deviation for those that were in the "control" group and those that were in the "treatment" group. Now that you know more about using R, complete this task in any way except the way you did in Assignment 1. That is, do NOT use indexing and logical vectors.
+- Take those same 3 numeric variables and z-score them. Then make a density plot that has the distribution for all 3 variables overlaid and a figure legend telling you which variable each color represents. It should look similar to the plot on slide 25 of the `Descirptives` lecture. Add in a vertical line representing the mean of each of the 3 distributions, and make sure it's labeled (see `Descriptives` slides for inspiration). You do *not* need to plot each distribution per level of your categorical variable. 
+- Write a few sentences describing the variables analyzed here in this section (your 3 numeric and 1 categorical variable) based on your analyses in the first two bullet points. Additionally, describe why you z-scored the 3 variables before plotting. 
+:::
+
+**Hint:** For the second bullet point, think carefully about whether the data should be in the long form or wide form before plotting.
+
+## Sampling Distributions
+
+The normal distribution is awesome, and by far and away the most commonly used. But many, many others exist! Luckily, a lot of the principles we learned about with the normal nicely expand to other distributions -- including `R` code!
+
+Let's learn about a new distribution, and then you will complete your to-do list with this new one. It's called the **binomial** distribution.
+
+#### Binomial Distribution
+
+This is a theoretical probability distribution (like the normal) that is appropriate when you want to model your expected outcome (X) over a pre-specified number of times (N). However, X, your outcome, must be BINARY (success/failure). For each of your N trials, each trial needs to be independent. The classic example is flipping a coin. The outcomes is binary -- it's either heads or tails. And each trial is independent meaning that if you get a *heads* on the first toss, that does not influence whether you will get a *heads* or *tails* on the next toss. We also need to know how many times we are flipping the coin. Same thing goes for rolling a dice, where rolling the number 6 is considered a "success".
+
+All this sounds very hypothetical, but it's actually quite useful! For instance, let's say you run a study on bilingual adults, and you want to know if their reading comprehension in their second language is as good as their first language. You ask them to read a book in their second language and then give them a 20-item multiple choice question exam where the questions are all about that book. Each question has 4 options A, B, C, or D. Getting 14 correct out of 20 items is considered "passing". However, you are concerned that your study participants might do well by chance alone. You don't want your participants to pass the multiple choice test if they just showed up for the exam and guessed on each question. So we want to know how likely is it that a guesser would score above the minimum passing threshold (get 14 out of 20 correct)? We can use the binomial distribution where success is 14 or higher and failure is 13 or lower, we have 20 trials, and the probability of each option is the same per trial (that is, the probability of A, B, C, or D is .25 each).
+
+**Copy/paste this entire code chunk into your .Rmd file**
+
+```{r, eval=FALSE}
+set.seed(4175)
+
+# let's create our dataset
+# We will first have a column for the test score (getting a 0/20, 1/20, 2/20 etc.)
+# Then we will have the probability of getting that test score
+
+binomData <- data.frame(testScore = 0:20,
+                        prob = dbinom(x = 0:20, size = 20, prob = .25))
+
+```
+
+:::list
+Here's your to-do list:
+
+- Make a histogram with each test score on the x-axis (be sure to independently show 0 through 20) against the probability. 
+- Now get the probability of guessing 13 items or fewer correct out of 20 items.
+- Get the complement of the above, the probability of getting 14 items or more correct out of 20 items. 
+- Write a few sentences describing the distribution that you plotted and the probabilities. Do the probabilities make sense given your plot? If you are just totally lost here, then instead, write out 3 different questions about where you are confused and we will answer!
+- Switch to a new distribution. Specifically, the $t$ distribution. What is the probability of getting a value of .875 or smaller, assuming you had 100 data points (and 99 degrees of freedom because 100-1 = 99)? What is the probability of getting a value of 2.3 or larger, assuming you had 16 data points? 
+:::
+
+**Hint:** Check out `geom_bar` instead of `geom_histogram`. Not sure how to make every number between 0 and 20 show up on your x-axis? You'll need to Google for how to change the scale of the x-axis.
+
+### Ta-da!
+You finished! Hooray!
+
+Go ahead and submit your `.Rmd` and `.html` file to Canvas. If you used an outside dataset, please also submit that, too.

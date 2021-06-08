@@ -40,7 +40,7 @@
 "content/lectures/27-lecture.Rmd" "a8c217e0460980635c3c4a44f567e172"
 "content/lectures/28-lecture.Rmd" "ea70042c4516031319f20b49af3584a8"
 "content/lectures/29-lecture.Rmd" "5944434836371f4ca028dad5dd6984b8"
-"content/lectures/30-lecture.Rmd" "0d96ccd8135cc423292973b79bf93744"
+"content/lectures/30-lecture.Rmd" "9213e2c686213bcb5242bd197b48c8f0"
 "content/post/2015-07-23-r-rmarkdown.Rmd" "07fb7b8b73e5d70b510a34d1e5200adc"
 "content/practice/_index.Rmd" "21bfdaad9a4b78cfae6d30eebd412da7"
 "content/practice/02-practice.Rmd" "1eaf4d549428bb4eae13fa554d48fcbe"

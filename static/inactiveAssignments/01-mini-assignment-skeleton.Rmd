@@ -26,8 +26,9 @@ I have created 2 vectors. One with 5 digit numbers and the other with 4 digit nu
 
 Edit the for loop below to create the output. 
 
-```{r}
-# do not edit this code
+```{r, eval=FALSE}
+# First, remove the `, eval=FALSE` from the above chunk parameter, so that it only says "```{r}"
+# Do NOT edit lines 33-36
 
 set.seed(1234)
 

@@ -6,23 +6,17 @@ lectures:
     header: True
     date: "Week 1: 8/30 - 9/1"
   
-  - title: 'Syllabus' 
-    session: 0
-    
-  - title: 'Git & GitHub'
-    session: 1
-  
-  - title: '**R & RStudio**'
-    header: True
-    date: "Week 2: 9/6 (no class) - 9/8"
-    
-  - title: 'Installation'
+  - title: 'Syllabus & Installation' 
     session: 0
     lectures: "00-lecture"
-
-  - title: 'Tour of RStudio'
+    
+  - title: 'R & RStudio'
     session: 1
     lectures: "01-lecture"
+  
+  - title: '**Files**'
+    header: True
+    date: "Week 2: 9/6 (no class) - 9/8"
   
   - title: 'Loading Files'
     session: 7
