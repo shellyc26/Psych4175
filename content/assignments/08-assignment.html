@@ -1,0 +1,66 @@
+---
+title: "Assignment 8"
+linktitle: "# 8"
+date: "6/16/2020"
+due_date: "2021-03-09"
+due_time: "2:30pm"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 8
+type: docs
+weight: 8
+editor_options: 
+  chunk_output_type: console
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+
+<div class="note">
+<p><strong>RULES</strong></p>
+<p>You must use a RNotebook for this assignment:</p>
+<ul>
+<li>Sections should have appropriate headers</li>
+<li>All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do <em>not</em> want to see code located outside of a chunk (unless you’re making a quick note or telling us what you’re doing – but the code outside of a chunk shouldn’t be evaluated).</li>
+<li>Any explanations I ask for should be <em>outside</em> of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., <code>#a long sentence like this</code>). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text.</li>
+</ul>
+<p>You must use the <code>ggplot2</code> package and syntax for all plotting. No plots in <code>base R</code>.</p>
+</div>
+<div id="correlations" class="section level2">
+<h2>Correlations</h2>
+<p>Choose 2 continuous variables from your dataset that you think might be related to one another, and then do the following.</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
+<ul>
+<li>There are lots of ways to get a correlation in <code>R</code>. Use the following functions to get the correlation:
+<ul>
+<li><code>cor</code></li>
+<li><code>cor.test</code></li>
+<li><code>corr.test</code> (from <code>psych</code> package)</li>
+</ul></li>
+<li>Write a sentence or two about which of the above functions you like best and explain why</li>
+<li>Make 2 scatter plots of your data with a best fit line indicating the correlation. In the first scatter plot use the raw data. In the second scatter plot, use standardized variables. Write a sentence describing if the line is the same or if it’s different, and explain why this is the case.</li>
+</ul>
+</div>
+</div>
+<div id="its-all-regression" class="section level2">
+<h2>It’s All Regression</h2>
+<p>For this exercise you will need 2 continuous variables and 2 categorical variables. One of your categorical variables should have 3 or more levels. One of the continuous variables will be your OUTCOME measure (or your <span class="math inline">\(Y\)</span> variable). Please use this same variable as the outcome for all of the analyses described below.</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
+<ul>
+<li>Get the correlation between your outcome variable and your second continuous variable. Store this as an object. Next, run a simple linear regression with these two variables. Lastly, re-run your simple linear regression with the same variables, but now standardized. Print the output for all 3 analyses and write 2-3 sentences explaining what you find. What’s the same and what’s different?</li>
+<li>Run a oneway ANOVA with your categorical variable that has 3 or more levels and your outcome variable. Now re-run that same model but as a regression instead. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Be sure to interpret the coefficients <em>and</em> the overall model (omnibus test).</li>
+<li>Now run an ANOVA with both of your categorical variables predicting your outcome variable. Then re-run that same model as a regression. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Be sure to interpret the coefficients <em>and</em> the overall model (omnibus test).</li>
+</ul>
+</div>
+<div id="boom" class="section level3">
+<h3>Boom!</h3>
+<p>Go ahead and submit your <code>.Rmd</code> and <code>.html</code> file to Canvas. If you used an outside dataset, please also submit that, too.</p>
+</div>
+</div>
