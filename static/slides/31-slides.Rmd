@@ -1,5 +1,5 @@
 ---
-title: "Advanced Statistical Methods"
+title: "Potpourri"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -45,22 +45,54 @@ library(knitr)
 
 ## This Time
 
-- Where your research might lead you
+- Advanced methods you might come across
+- Demo of Git/GitHub
 - This is a fun lecture. This is not to scare you.
-- I will *NOT* show you how to do everything in `R`, but I will provide resources
 - Sit back and enjoy the ride
 
 ---
-name: mlm
+name: methods
 
-## Multi-level Modeling
+## Advanced Statistical Methods
 
-AKA:
+- Multilevel Modeling
+- Structural Equation Modeling
+- Machine Learning
+- Bayesian Analyses
 
-- linear mixed effects models
-- hierarchical linear models
+**I just want you to know these things exist!**
+
+---
+
+## Multilevel Modeling
+
+
+#### What?
+All of our statistical tests have assumptions. Often, one of those assumptions is **independence**, meaning that the errors, or residuals of your regression should not be correlated with anything. When we have nested data, this assumption is violated. When violated, bad things happen:
+    - Amounts to artificially inflating your sample size
+    - Standard error estimates decrease (you think you have more precision, but you don't)
+    - Type I error increases meaning you get more false positives
+    
+--
+
+What does dependent data look like? **Nested data**. Students are nested within classrooms which are nested within schools which are nested within districts. Reaction times per trial are nested within session are nested within participants are nested within group assignment (i.e., patient vs. control)
 
 --
 
-**We use this when our data are _nested_**
+How do we get around these dependencies?:
+    - One student per class (reduces power, not always feasible) -- boooooo
+    - Aggregate (use means; model underestimates variability, lose information) -- boooooo
+
+---
+## Multilevel Modeling
+
+MLM is an extension of our typical regression that we can use when we encounter nested data (aka our data have dependencies). It lets us model fixed effects and random effects simultaneously. 
+
+**Fixed effects** are population-level (i.e., average) trends that should persist across experiments. The number of words you know should increase with age -- that's at the population level and it shouldn't matter if you are in classroom A or classroom B. 
+
+**Random effects** are cluster-level trends
+
+--
+
+#### Why?
 
