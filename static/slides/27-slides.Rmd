@@ -53,12 +53,12 @@ library(knitr)
 # How do we address this?
 
 In this class, we are going to talk specifically about `for loops`. Why?
-  - They are *general purpose*. You will find them in nearly every single programming language. If you decide to not use R and instead go to Python or Matlab or whatever, you'll still come across them.
+  - They are *general purpose*. You will find them in nearly every single programming language. If you decide to not use `R` and instead go to `Python` or `Matlab` or whatever, you'll still come across them.
   - This is a fundamental component of programming. I would guess that you learn this within the first 2 weeks of CS 131. 
 
 --
 
-There are other ways to do this that are `R`-specific. We are NOT going to cover these (counterintutive, I know). 
+There are other ways to do this that are `R`-specific. We are NOT going to cover these (counterintuitive, I know). 
   - the `apply` family of functions, including `lapply`
   - using the `purr` package from the `tidyverse`
 
@@ -205,7 +205,7 @@ The basic steps of constructing a `for loop`:
 
 1. Figure out what it is that you want to iterate through (numbers, columns of a data.frame, data.frames, a list, etc.)
 
-2. Think about what you want your output to look like, and initialize an empty object that can store the output
+2. Think about what you want the *output* to look like, and initialize an empty object that can store the output
 
 3. Type out all of the steps within the body of the loop
 
@@ -214,7 +214,7 @@ name: ex1
 
 # Applied Examples
 
-What if you want to run the following models where the `y` variable stays the same, but the `x` variable changes? For this first example, let's say we only care about the $p$-value. 
+What if you want to run the following models where the `Y` dependent variable stays the same, but the `X` independent variable changes? For this first example, let's say we only care about the $p$-value. 
 
 - `lm(Sepal.Length ~ Sepal.Width, data = iris)`
 - `lm(Sepal.Length ~ Petal.Length, data = iris)`
@@ -357,7 +357,7 @@ When it comes to looping through plots, there are a few odd things:
 name: ex3
 
 # Applied Example 3
-We want to store the model outputs AND a list of plots. So we need to intialize 2 things
+We want to store the model outputs AND a list of plots. So we need to initialize 2 things
 .code-small[
 ```{r}
 modelDF <- data.frame() # for models
@@ -436,8 +436,99 @@ In statistics...any test or metric that uses random sampling with replacement
 - bootstrapped confidence intervals
 - bootstrap anything your heart desires! 
 
+--
+
+**SAMPLING _WITH_ REPLACEMENT**
+
 ---
 
+# Bootstrapping
+
+- Alternative to traditional NHST (considered a "resampling method")
+- Previously, we had to use equations, formulas, and a lot of assumptions to get our sampling distribution
+- But what if we don't know the theoretical sampling distribution or we can't verify it? 
+
+--
+
+- We build the sampling distribution empirically by random sampling with replacement from the sample
+- Easier to interpret and more robust because we're not relying on a bunch of assumptions/equations to estimate our sampling distribution -- we actually created the sampling distribution instead! 
+    - **robust** in statistics can mean different things. Here we're saying that it doesn't matter if a small thing changes in the dataset, because the bootstrapped mean will be resilient to those small changes. 
+    
+---
+
+# Illustration
+
+Imagine you had a sample of 6 people that happen to live in NYC in the mid 1990's. Let's just say their names are Rachel, Monica, Phoebe, Joey, Chandler, and Ross. Maybe we have the height of each of these 6 individuals (in inches). But now let's say we want to get a sense of the average height in a person in their mid 20's in the 1990's in NYC. We can bootstrap the mean height. That is, we are going to draw from this group many samples of 6 people *with replacement*, each time calculating the average height of the sample. 
+
+```{r, echo = F}
+friends = c("Rachel", "Monica", "Phoebe", "Joey", "Chandler", "Ross")
+heights = c(65, 65, 68, 70, 72, 73)
+names(heights) = friends
+(sample1 = sample(friends, size = 6, replace = T)); mean(heights[sample1])
+(sample1 = sample(friends, size = 6, replace = T)); mean(heights[sample1])
+(sample1 = sample(friends, size = 6, replace = T)); mean(heights[sample1])
+(sample1 = sample(friends, size = 6, replace = T)); mean(heights[sample1])
+(sample1 = sample(friends, size = 6, replace = T)); mean(heights[sample1])
+(sample1 = sample(friends, size = 6, replace = T)); mean(heights[sample1])
+(sample1 = sample(friends, size = 6, replace = T)); mean(heights[sample1])
+(sample1 = sample(friends, size = 6, replace = T)); mean(heights[sample1])
+```
+
+---
+
+# Illustration
+
+```{r}
+boot = 10000
+friends = c("Rachel", "Monica", "Phoebe", "Joey", "Chandler", "Ross")
+heights = c(65, 65, 68, 70, 72, 73)
+sample_means = NULL
+
+for(i in 1:boot){
+  this_sample = sample(heights, size = length(heights), replace = TRUE)
+  sample_means[i] = mean(this_sample)
+}
+
+mean(sample_means)
+```
+
+---
+
+# Illustration
+```{r, echo = F, message = F, fig.width = 10, fig.height=6, warning = F}
+library(ggpubr)
+library(cowplot)
+mu = mean(heights)
+sem = sd(heights)/sqrt(length(heights))
+cv_t = qt(p = .975, df = length(heights)-1)
+
+bootstrapped = data.frame(means = sample_means) %>%
+  ggplot(aes(x = means)) + 
+  geom_histogram(color = "white") +
+  geom_density() +
+  geom_vline(aes(xintercept = mean(sample_means), color = "mean"), size = 2) +
+  geom_vline(aes(xintercept = median(sample_means), color = "median"), size = 2) +
+  geom_vline(aes(xintercept = quantile(sample_means, probs = .025), color = "Lower 2.5%"), size = 2) +
+    geom_vline(aes(xintercept = quantile(sample_means, probs = .975), color = "Upper 2.5%"), size = 2) +
+  scale_x_continuous(limits = c(mu-3*sem, mu+3*sem))+
+  ggtitle("Bootstrapped distribution") +
+  cowplot::theme_cowplot()
+
+
+from_prob = data.frame(means = seq(from = min(sample_means), to = max(sample_means))) %>%
+  ggplot(aes(x = means)) +
+  stat_function(fun = function(x) dnorm(x, m = mu, sd = sem)) + 
+  geom_vline(aes(xintercept = mean(heights), color = "mean"), size = 2) +
+  geom_vline(aes(xintercept = median(heights), color = "median"), size = 2) +
+  geom_vline(aes(xintercept = mu-cv_t*sem, color = "Lower 2.5%"), size = 2) +
+  geom_vline(aes(xintercept = mu+cv_t*sem, color = "Upper 2.5%"), size = 2) +scale_x_continuous(limits = c(mu-3*sem, mu+3*sem))+  
+  ggtitle("Distribution from probability theory") +
+  cowplot::theme_cowplot()
+
+ggarrange(bootstrapped, from_prob, ncol = 1)
+```
+
+---
 # Bootstrapped Mean
 
 Let's say we have a sample of 100 participants that complete an IQ test. IQ tests typically have a mean of 100 and a standard deviation of 15. We want to get the mean IQ of our sample of 100 participants, but we want it to be a **robust** mean -- that is, we want to be pretty darn confident in our mean. What should we do?
@@ -447,10 +538,10 @@ Let's say we have a sample of 100 participants that complete an IQ test. IQ test
 We can bootstrap our mean! And we can do that using a `for loop`:
 
 - *for each iteration of ## of iterations...*
-  - Randomly choose (sample) 50% of your participants
-  - Now calculate the mean of just this 50%
-  - On the next iteration (e.g., `i + 1`) choose a new set of 50% of participants
-  - Recalculate the mean of just this new 50%
+  - Randomly sample FROM your current sample (so choose 100 from your 100)
+  - But when choosing your new 100 data points, you are going to REPLACE each participant
+  - This means Participant #1 could be chosen many times
+  - On the next iteration (e.g., `i + 1`) do another round of choose 100 from your original 100 with replacement
   - etc.
 - After we run all of our iterations, then we will get the **mean of means**
 
@@ -471,7 +562,7 @@ You can think of bootstrapping as building up your sampling distribution for wha
 ```{r, echo=FALSE}
 set.seed(123)
 
-iqs <- rnorm(n = 100, mean = 113, sd = 50)
+iqs <- rnorm(n = 50, mean = 113, sd = 30)
 iqs <- round(iqs, digits = 0)
 ```
 
@@ -479,21 +570,6 @@ iqs <- round(iqs, digits = 0)
 iqs
 ```
 
----
-
-# Bootstrapped Means Example
-
-Things you need to decide:
-
-- How many iterations? This is really a personal decision. The more iterations you have, the longer your code will take to run. 1000 & 5000 are common, but you could pick 3756 iterations and that would be fine, too. 
-
-- How much of the total sample do you want to comprise your sample? 50% of your participants? 75%? 80%? I typically see things within the 50-75%. 
-
---
-
-- For now, lets go with 100x iterations (to minimize how long it takes for the code to run)
-
-- For now, lets do 50%
 
 ---
 
@@ -504,7 +580,8 @@ bsMeans <- NULL
 
 for (i in 1:100) {
   subsample <- sample(x = iqs,
-                      size = 50)
+                      size = 50,
+                      replace = T)
   
   bsMeans[i] <- mean(subsample)
 }
@@ -546,12 +623,12 @@ The bootstrapped mean is closer to the true population mean -- it's more robust,
 # What can you bootstrap?
 
 Any statistic! 
-- central tendencies (means, medians, modes)
-- dispersions (variances, standard deviations)
+- central tendency (means, medians, modes)
+- dispersion (variances, standard deviations)
 - other estimates (confidence intervals, reliability coefficients, correlations, etc.)
 
 Models!
-- take a subsample and run a model
+- on each iteration where you draw with replacement, run your model 
 - then take the mean of all the coefficients (like regression coefficients, t-values, etc.)
 
 **_what *can't* you bootstrap?_**
@@ -559,8 +636,8 @@ Models!
 ---
 # Final Thoughts
 - Code is supposed to make your life EASIER. Use `for loops` to your advantage! That means if you find yourself copying/pasting the same thing a billion times with only minor changes, there’s likely a much simpler way of doing everything you need all in one go.
-  - check out nested `if/else` statements
+  - check out nested `if/else` statements in the practice set! 
   - for `R` specific functions, check out the `lapply()` function and the `purr` package
-- The biggest piece of advice I have is to think carefully about what you want the end result to look like and then work backwards. Don’t just start doing stuff to your dataset because you think that’s what your supposed to do. Think “in order to make this plot, I need my data in this particular format, what do I need to do to get there?”
+  - when you are first writing your `for loop` and testing things, use really small iterations; once it's working properly, then you can run a ton of iterations
 - Bootstrapping is just a `for loop`. You can bootstrap anything your heart desires. 
-  - when you test out a for loop, use really small iterations!
+- The biggest piece of advice I have is to think carefully about what you want the end result to look like and then work backwards. Don’t just start doing stuff to your dataset because you think that’s what your supposed to do. Think “in order to make this plot, I need my data in this particular format, what do I need to do to get there?”

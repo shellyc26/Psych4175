@@ -3,7 +3,7 @@
   <head>
     <title>Objects &amp; Indexing</title>
     <meta charset="utf-8" />
-    <script src="libs/kePrint/kePrint.js"></script>
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer-green.css" type="text/css" />
     <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
   </head>
@@ -100,198 +100,20 @@ Typically, this is what we want our data to look like. In `empire`, we have 6 co
 ---
 # Data.frames
 Every **row** has **6** pieces of data that are associated with one another...
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; mass &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 77.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 75.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 32.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Darth Vader &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 202 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 136.0 &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Tatooine &lt;/td&gt;
-   &lt;td style="text-align:left;background-color: #FFFF00 !important;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 49.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Alderaan &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 77.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Stewjon &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 112.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 80.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 17.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 78.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;center&gt;
+
+&lt;img src="04-slides_files/figure-html/slide7.png", width = "100%"&gt;
+
+&lt;/center&gt;
 ---
 # Data.frames
 Every **column** has **10** observations...
 
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; mass &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 77.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 75.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 32.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Naboo &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Darth Vader &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 202 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 136.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Tatooine &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 49.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Alderaan &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 77.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Stewjon &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 112.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 80.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 17.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
-   &lt;td style="text-align:right;background-color: #FFFF00 !important;"&gt; 78.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;center&gt;
+
+&lt;img src="04-slides_files/figure-html/slide8.png", width = "100%"&gt;
+
+&lt;/center&gt;
 ---
 name: indexing
 
@@ -312,100 +134,11 @@ Data.frames can be indexed just like vectors.
 What *should* we get if we typed `empire[1:6,5]`?
 --
 
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; name &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; height &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; mass &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; homeworld &lt;/th&gt;
-   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Luke Skywalker &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 172 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 77.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;Tatooine&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; C-3PO &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 167 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 75.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;Tatooine&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; R2-D2 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 96 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 32.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; none &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;Naboo&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Droid &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Darth Vader &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 202 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 136.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;Tatooine&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Leia Organa &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 49.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;Alderaan&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Obi-Wan Kenobi &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 182 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 77.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #FFFF00 !important;" &gt;Stewjon&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Chewbacca &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 228 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 112.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Kashyyyk &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Wookiee &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Han Solo &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 80.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Corellia &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Yoda &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 17.0 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Yoda's species &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Boba Fett &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 183 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 78.2 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Kamino &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Human &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;center&gt;
+
+&lt;img src="04-slides_files/figure-html/slide10.png", width = "100%"&gt;
+
+&lt;/center&gt;
 ---
 # Indexing Data.frames
 `data.frame[rows, columns]`
@@ -704,6 +437,8 @@ exampleList[[2]]$mass
 ```
 ## [1] 77 75 32
 ```
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

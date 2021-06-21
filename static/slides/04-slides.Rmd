@@ -124,18 +124,20 @@ Typically, this is what we want our data to look like. In `empire`, we have 6 co
 ---
 # Data.frames
 Every **row** has **6** pieces of data that are associated with one another...
-```{r, echo=F}
-kable(empire, format = "html", escape = F) %>%
-  row_spec(row = 4, background = c("#FFFF00"))
-```
+<center>
+
+<img src="04-slides_files/figure-html/slide7.png", width = "100%">
+
+</center>
 ---
 # Data.frames
 Every **column** has **10** observations...
 
-```{r, echo=F}
-kable(empire, format = "html", escape = F) %>%
-  column_spec(3, background = c("#FFFF00"))
-```
+<center>
+
+<img src="04-slides_files/figure-html/slide8.png", width = "100%">
+
+</center>
 ---
 name: indexing
 
@@ -156,11 +158,11 @@ Data.frames can be indexed just like vectors.
 What *should* we get if we typed `empire[1:6,5]`?
 --
 
-```{r, echo=F}
-empire$homeworld[1:6] <- cell_spec(empire$homeworld[1:6], "html", background = c("#FFFF00"))
+<center>
 
-kable(empire, format = "html", escape = F)
-```
+<img src="04-slides_files/figure-html/slide10.png", width = "100%">
+
+</center>
 ---
 # Indexing Data.frames
 `data.frame[rows, columns]`

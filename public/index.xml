@@ -290,22 +290,38 @@ print(animals_class)&lt;/code&gt;&lt;/pre&gt;
   xlab(&amp;quot;Value&amp;quot;) +
   ggtitle(&amp;quot;Population distribution&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/practice/27-practice_files/figure-html/Summarize%20population%20data-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Now, we can use a for loop to draw random samples &lt;em&gt;with replacement&lt;/em&gt; from the population. For this first attempt, we will draw a small number of samples (10) to create &lt;code&gt;sample_means_small&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It’s so great that here we have a population distribution. But in reality, we almost never have the population data. We only have sample data. Let’s randomly choose 30 people from the same population as above (not with replacement…30 unique individuals) and call it our sample. This is equivalent to saying “Our study had a n=30 where participants were college students at Wash U enrolled in Psych 101”. It’s not the entire population – it’s a sample of the population.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sample_data &amp;lt;- data.frame(SampleMeans = sample(pop_data$PopulationMeans, size = 30, replace = FALSE))
+
+ggplot(sample_data, aes(x = SampleMeans)) +
+  geom_histogram(color = &amp;quot;black&amp;quot;, fill = &amp;quot;plum4&amp;quot;, binwidth = 1) +
+  theme_classic() +
+  ylab(&amp;quot;Count&amp;quot;) +
+  xlab(&amp;quot;Value&amp;quot;) +
+  ggtitle(&amp;quot;Sample distribution&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/27-practice_files/figure-html/Create%20sample%20data-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Let’s recap. We have a population distribution, and we randomly chose 30 people in our study. But the vast majority of the time, we don’t have the population distribution to work with. We only have the sample. In traditional NHST procedures, we use formulas and equations to estimate the true underlying sampling distribution of a statistic (like the mean). But when we are bootstrapping, there is no need to estimate – we actually go ahead and build the sampling distribution.&lt;/p&gt;
+&lt;p&gt;When building the sampling distribution, you have to choose how many times/iterations you want to do this. Larger is better (like running more studies as opposed to fewer studies). Let’s illustrate this.&lt;/p&gt;
+&lt;p&gt;The mean of the true population (the one we almost never have access to) is &lt;strong&gt;100&lt;/strong&gt;
+The mean of our sample of 30 participants (the one we always have access to; equivalent to running a study) is &lt;strong&gt;97.1142558&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We want to bootstrap the mean of our 30 participants to get as close as possible to the true population mean. We’re building up a sampling distribution. We can do this with a &lt;code&gt;for loop&lt;/code&gt; where we pull from our sample many times, &lt;em&gt;with replacement&lt;/em&gt;. But how many times? For this first attempt, let’s do a small number of samples (10) to create &lt;code&gt;sample_means_small&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Initialize vector for means
 sample_means_small &amp;lt;- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:10) {
-  subsample &amp;lt;- sample(x = pop_data$PopulationMeans, size = 50)
+  indices &amp;lt;- sample(x = 1:30, size = 30, replace = T)
+  subsample &amp;lt;- sample_data[indices,1]
   sample_means_small[i] &amp;lt;- mean(subsample)
 }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next, we will draw a slightly larger number of samples (100) to create &lt;code&gt;sample_means_medium&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Next, we will draw a slightly larger number of samples (50) to create &lt;code&gt;sample_means_medium&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Initialize vector for means
 sample_means_medium &amp;lt;- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:100) {
-  subsample &amp;lt;- sample(x = pop_data$PopulationMeans, size = 50)
+  indices &amp;lt;- sample(x = 1:30, size = 30, replace = T)
+  subsample &amp;lt;- sample_data[indices,1]
   sample_means_medium[i] &amp;lt;- mean(subsample)
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To compare, we will do the same process with a larger set of random samples (1,000) to create &lt;code&gt;sample_means_large&lt;/code&gt;.&lt;/p&gt;
@@ -314,28 +330,29 @@ sample_means_large &amp;lt;- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:1000) {
-  subsample &amp;lt;- sample(x = pop_data$PopulationMeans, size = 50)
+  indices &amp;lt;- sample(x = 1:30, size = 30, replace = T)
+  subsample &amp;lt;- sample_data[indices,1]
   sample_means_large[i] &amp;lt;- mean(subsample)
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Visualizing the three sampling distributions give us perspective as to how the number of iterations makes the sampling distribution approach normality.&lt;/p&gt;
 &lt;p&gt;Additionally, if we take the mean of the sampled means (in order to estimate the population mean), it will become &lt;em&gt;more accurate&lt;/em&gt; as the size of the sampling distribution increases. In the plots below, the solid lines marks the true population mean, and the dashed lines mark the sampling distribution means.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot1 &amp;lt;- ggplot() +
-  geom_histogram(data = sample_means_small, aes(values), fill = &amp;quot;plum4&amp;quot;, color = &amp;quot;black&amp;quot;, binwidth = 5) +
+  geom_histogram(data = sample_means_small, aes(values), fill = &amp;quot;plum4&amp;quot;, color = &amp;quot;black&amp;quot;, binwidth = 1) +
   theme_classic() +
   xlab(&amp;quot;Sample means&amp;quot;) +
   ylab(&amp;quot;Count&amp;quot;) +
-  geom_vline(xintercept = small_m, linetype = &amp;quot;longdash&amp;quot;) +
-  geom_vline(xintercept = pop_m) +
+  geom_vline(xintercept = small_m, linetype = &amp;quot;longdash&amp;quot;, color = &amp;quot;red&amp;quot;) +
+  geom_vline(xintercept = pop_m, color = &amp;quot;green&amp;quot;) +
   coord_cartesian(xlim = c(85, 115)) +
   ggtitle(&amp;quot;Distribution of 10 samples&amp;quot;)
 
 plot2 &amp;lt;- ggplot() +
-  geom_histogram(data = sample_means_small, aes(values), fill = &amp;quot;plum4&amp;quot;, color = &amp;quot;black&amp;quot;, binwidth = 3) +
+  geom_histogram(data = sample_means_medium, aes(values), fill = &amp;quot;plum4&amp;quot;, color = &amp;quot;black&amp;quot;, binwidth = 1) +
   theme_classic() +
   xlab(&amp;quot;Sample means&amp;quot;) +
   ylab(&amp;quot;Count&amp;quot;) +
-  geom_vline(xintercept = medium_m, linetype = &amp;quot;longdash&amp;quot;) +
-  geom_vline(xintercept = pop_m) +
+  geom_vline(xintercept = medium_m, linetype = &amp;quot;longdash&amp;quot;, color = &amp;quot;red&amp;quot;) +
+  geom_vline(xintercept = pop_m, color = &amp;quot;green&amp;quot;) +
   coord_cartesian(xlim = c(85, 115)) +
   ggtitle(&amp;quot;Distribution of 100 samples&amp;quot;)
 
@@ -344,13 +361,13 @@ plot3 &amp;lt;- ggplot() +
   theme_classic() +
   xlab(&amp;quot;Sample means&amp;quot;) +
   ylab(&amp;quot;Count&amp;quot;) +
-  geom_vline(xintercept = large_m, linetype = &amp;quot;longdash&amp;quot;) +
-  geom_vline(xintercept = pop_m) +
+  geom_vline(xintercept = large_m, linetype = &amp;quot;longdash&amp;quot;, color = &amp;quot;red&amp;quot;) +
+  geom_vline(xintercept = pop_m, color = &amp;quot;green&amp;quot;) +
   coord_cartesian(xlim = c(85, 115)) +
   ggtitle(&amp;quot;Distribution of 1,000 samples&amp;quot;)
 
 ggarrange(plot1, plot2, plot3)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/practice/27-practice_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;85%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/practice/27-practice_files/figure-html/AllViz-1.png&#34; width=&#34;85%&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;using-bootstrapping-for-confidence-intervals&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Using bootstrapping for &lt;em&gt;confidence intervals&lt;/em&gt;&lt;/h2&gt;
@@ -359,29 +376,22 @@ ggarrange(plot1, plot2, plot3)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-27-quiz3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/27-learnr-quiz3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-27-quiz3&#34;)&#39;&gt;&lt;/iframe&gt;
 &lt;/p&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Reminder:&lt;/strong&gt; The 95% confidence interval is calculated using the following formula:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math inline&#34;&gt;\(CI_{95} = \bar{X} \pm (1.96 * SEM)\)&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;OK based on the quiz above, we need to carry out our sampling procedure a large number of times. That’s exactly what we are doing with bootstrapping! So now all we need to do is get the upper and lower 2.5% quantiles and we have our confidence intervals. The real kicker is that you need to bootstrap your statistic, and then find the quantiles to align with your confidence intervals.&lt;/p&gt;
 &lt;div class=&#34;puzzle&#34;&gt;
 &lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Now we’re going to use &lt;em&gt;bootstrapping&lt;/em&gt; to calculate the 95% confidence intervals.&lt;/p&gt;
+&lt;p&gt;Now we’re going to use &lt;em&gt;bootstrapping&lt;/em&gt; to calculate the 95% confidence intervals for a 1-tailed &lt;em&gt;t&lt;/em&gt;-test. We want to know if our mean is significantly different from 95.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Tips and Instructions:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Use &lt;code&gt;pop_data&lt;/code&gt; as your dataset&lt;/li&gt;
-&lt;li&gt;See the Power Plus lecture slides 10-11 for examples of calculating a single CI&lt;/li&gt;
-&lt;li&gt;Use z = 1.96 for a 95% interval&lt;/li&gt;
-&lt;li&gt;On each loop iteration, save the upper CI to &lt;code&gt;upper_values&lt;/code&gt;, and the lower CI to &lt;code&gt;lower_values&lt;/code&gt; (see &lt;code&gt;append()&lt;/code&gt; help page)&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;sample_data&lt;/code&gt; as your dataset&lt;/li&gt;
+&lt;li&gt;Run multiple iterations to get the difference between the sample mean and 95&lt;/li&gt;
+&lt;li&gt;Store and plot those differences&lt;/li&gt;
+&lt;li&gt;Add in &lt;code&gt;quantile&lt;/code&gt;s to get the upper and lower 2.5% aka our confidence intervals around the difference in means&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-27-app3&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/27-learnr-app3/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-27-app3&#34;)&#39;&gt;&lt;/iframe&gt;
 &lt;/p&gt;
 &lt;p&gt;That’s it for this practice – go forth and sample iteratively!&lt;/p&gt;
-&lt;p&gt;Massive shout out to our very own Drew McLaughlin for creating this excellent Practice Set! If you have any feedback on how this particular practice (or any of them) could be improved. Please get in touch with Drew and/or Shelly. We are always happy to hear your feedback!&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;mailto:drewjmclaughlin@wustl.edu&#34;&gt;Email Drew&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;mailto:shelly.cooper@wustl.edu&#34;&gt;Email Shelly&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;small&gt;Massive shout out to the Sping 2021 AI Drew McLaughlin for creating this excellent Practice Set!&lt;/small&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -2386,6 +2396,81 @@ class(demographics$survey)&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Assignment 6</title>
+      <link>/assignments/06-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/06-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;instructions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Instructions&lt;/h2&gt;
+&lt;p&gt;This assignment (and the three following assignments) are about using &lt;code&gt;R&lt;/code&gt; to reinforce the statistical principles you learned about in Psych Stats. You may use any of the datasets posted on Canvas or you may use an outside dataset (must be approved by Shelly). &lt;strong&gt;I STRONGLY SUGGEST USING THE SAME DATASET THAT YOU USED ON ASSIGNMENT 1&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;RULES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You must use a RNotebook for this assignment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sections should have appropriate headers&lt;/li&gt;
+&lt;li&gt;All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do &lt;em&gt;not&lt;/em&gt; want to see code located outside of a chunk (unless you’re making a quick note or telling us what you’re doing – but the code outside of a chunk shouldn’t be evaluated).&lt;/li&gt;
+&lt;li&gt;Any explanations I ask for should be &lt;em&gt;outside&lt;/em&gt; of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., &lt;code&gt;#a long sentence like this&lt;/code&gt;). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You must use the &lt;code&gt;ggplot2&lt;/code&gt; package and syntax for all plotting. No plots in &lt;code&gt;base R&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;descriptive-statistics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Descriptive Statistics&lt;/h2&gt;
+&lt;p&gt;Revisit Assignment 1, especially the &lt;code&gt;Results: Summary Statistics - Part 2&lt;/code&gt; section. After reviewing that, do the following.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get the mean, median, variance, and standard deviation of 3 numeric variables in your dataset, but get these for each level of the categorical variable you chose in Assignment 1. That is, if your categorical variable was “treatment group”, you need the mean, median, variance, and standard deviation for those that were in the “control” group and those that were in the “treatment” group. Now that you know more about using R, complete this task in any way except the way you did in Assignment 1. That is, do NOT use indexing and logical vectors.&lt;/li&gt;
+&lt;li&gt;Take those same 3 numeric variables and z-score them. Then make a density plot that has the distribution for all 3 variables overlaid and a figure legend telling you which variable each color represents. It should look similar to the plot on slide 25 of the &lt;code&gt;Descirptives&lt;/code&gt; lecture. Add in a vertical line representing the mean of each of the 3 distributions, and make sure it’s labeled (see &lt;code&gt;Descriptives&lt;/code&gt; slides for inspiration). You do &lt;em&gt;not&lt;/em&gt; need to plot each distribution per level of your categorical variable.&lt;/li&gt;
+&lt;li&gt;Write a few sentences describing the variables analyzed here in this section (your 3 numeric and 1 categorical variable) based on your analyses in the first two bullet points. Additionally, describe why you z-scored the 3 variables before plotting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; For the second bullet point, think carefully about whether the data should be in the long form or wide form before plotting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sampling-distributions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Sampling Distributions&lt;/h2&gt;
+&lt;p&gt;The normal distribution is awesome, and by far and away the most commonly used. But many, many others exist! Luckily, a lot of the principles we learned about with the normal nicely expand to other distributions – including &lt;code&gt;R&lt;/code&gt; code!&lt;/p&gt;
+&lt;p&gt;Let’s learn about a new distribution, and then you will complete your to-do list with this new one. It’s called the &lt;strong&gt;binomial&lt;/strong&gt; distribution.&lt;/p&gt;
+&lt;div id=&#34;binomial-distribution&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Binomial Distribution&lt;/h4&gt;
+&lt;p&gt;This is a theoretical probability distribution (like the normal) that is appropriate when you want to model your expected outcome (X) over a pre-specified number of times (N). However, X, your outcome, must be BINARY (success/failure). For each of your N trials, each trial needs to be independent. The classic example is flipping a coin. The outcomes is binary – it’s either heads or tails. And each trial is independent meaning that if you get a &lt;em&gt;heads&lt;/em&gt; on the first toss, that does not influence whether you will get a &lt;em&gt;heads&lt;/em&gt; or &lt;em&gt;tails&lt;/em&gt; on the next toss. We also need to know how many times we are flipping the coin. Same thing goes for rolling a dice, where rolling the number 6 is considered a “success”.&lt;/p&gt;
+&lt;p&gt;All this sounds very hypothetical, but it’s actually quite useful! For instance, let’s say you run a study on bilingual adults, and you want to know if their reading comprehension in their second language is as good as their first language. You ask them to read a book in their second language and then give them a 20-item multiple choice question exam where the questions are all about that book. Each question has 4 options A, B, C, or D. Getting 14 correct out of 20 items is considered “passing”. However, you are concerned that your study participants might do well by chance alone. You don’t want your participants to pass the multiple choice test if they just showed up for the exam and guessed on each question. So we want to know how likely is it that a guesser would score above the minimum passing threshold (get 14 out of 20 correct)? We can use the binomial distribution where success is 14 or higher and failure is 13 or lower, we have 20 trials, and the probability of each option is the same per trial (that is, the probability of A, B, C, or D is .25 each).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Copy/paste this entire code chunk into your .Rmd file&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(4175)
+
+# let&amp;#39;s create our dataset
+# We will first have a column for the test score (getting a 0/20, 1/20, 2/20 etc.)
+# Then we will have the probability of getting that test score
+
+binomData &amp;lt;- data.frame(testScore = 0:20,
+                        prob = dbinom(x = 0:20, size = 20, prob = .25))&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make a histogram with each test score on the x-axis (be sure to independently show 0 through 20) against the probability.&lt;/li&gt;
+&lt;li&gt;Now get the probability of guessing 13 items or fewer correct out of 20 items.&lt;/li&gt;
+&lt;li&gt;Get the complement of the above, the probability of getting 14 items or more correct out of 20 items.&lt;/li&gt;
+&lt;li&gt;Write a few sentences describing the distribution that you plotted and the probabilities. Do the probabilities make sense given your plot? If you are just totally lost here, then instead, write out 3 different questions about where you are confused and we will answer!&lt;/li&gt;
+&lt;li&gt;Switch to a new distribution. Specifically, the &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt; distribution. What is the probability of getting a value of .875 or smaller, assuming you had 100 data points (and 99 degrees of freedom because 100-1 = 99)? What is the probability of getting a value of 2.3 or larger, assuming you had 16 data points?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; Check out &lt;code&gt;geom_bar&lt;/code&gt; instead of &lt;code&gt;geom_histogram&lt;/code&gt;. Not sure how to make every number between 0 and 20 show up on your x-axis? You’ll need to Google for how to change the scale of the x-axis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ta-da&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Ta-da!&lt;/h3&gt;
+&lt;p&gt;You finished! Hooray!&lt;/p&gt;
+&lt;p&gt;Go ahead and submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas. If you used an outside dataset, please also submit that, too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: Packages</title>
       <link>/practice/06-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2517,6 +2602,62 @@ library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
 &lt;center&gt;
 &lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/morememes.png&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
 &lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assignment 7</title>
+      <link>/assignments/07-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/07-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;RULES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You must use a RNotebook for this assignment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sections should have appropriate headers&lt;/li&gt;
+&lt;li&gt;All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do &lt;em&gt;not&lt;/em&gt; want to see code located outside of a chunk (unless you’re making a quick note or telling us what you’re doing – but the code outside of a chunk shouldn’t be evaluated).&lt;/li&gt;
+&lt;li&gt;Any explanations I ask for should be &lt;em&gt;outside&lt;/em&gt; of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., &lt;code&gt;#a long sentence like this&lt;/code&gt;). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You must use the &lt;code&gt;ggplot2&lt;/code&gt; package and syntax for all plotting. No plots in &lt;code&gt;base R&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hypothesis-testing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hypothesis Testing&lt;/h2&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conduct 3 hypothesis tests from your dataset. Choose any statistical tests that come from the &lt;code&gt;Comparing Means&lt;/code&gt; lecture. For each of the 3 tests you need to:
+&lt;ul&gt;
+&lt;li&gt;Give a rationale for why you’re looking at this (does it theoretically make sense?; one sentence is OK)&lt;/li&gt;
+&lt;li&gt;State your hypothesis&lt;/li&gt;
+&lt;li&gt;Have a code chunk running the test and printing out the results&lt;/li&gt;
+&lt;li&gt;Make a plot that shows the effect for each of your 3 tests&lt;/li&gt;
+&lt;li&gt;Write 2-5 sentences interpreting the results including interpreting the p-value, and confidence intervals (if shown)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;current-state-of-academia-in-psychology-and-neuroscience&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Current State of Academia in Psychology and Neuroscience&lt;/h2&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Write a few sentences about publication bias as discussed in the lecture. In it, describe what the “file drawer problem” is and how statistical power plays a role in publication bias.&lt;/li&gt;
+&lt;li&gt;Given what was presented in the &lt;code&gt;Power+&lt;/code&gt; lecture, what do you think about the state of Psychology and Neuroscience research? Do you feel optimistic, hopeless, energized, etc.? Explain why. There is no right answer, I just want to hear your thoughts.&lt;/li&gt;
+&lt;li&gt;If you currently work in a lab (or have previously worked in a lab), describe 2 things that your lab could improve upon to better support rigorous Psych/Neuro research. If you do not work in a lab (and you have not previously worked in one), describe 2 things that you could do better with your assignments in this class that would better adhere to Open Science standards.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Side note: Lots of focus has been given to Psychology research, but all of these same problems are present in Neuroscience research, too. If you would like papers supporting this, feel free to reach out – I’m happy to send some over. Anyone studying behavior will run into these types of issues because humans are not rational beings (unlike what your economist friends might say…). I also just really love these topics, so feel free to reach out at any point if you want to know more or want to pursue these topics.&lt;/p&gt;
+&lt;div id=&#34;whooooooooo&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Whooooooooo!&lt;/h3&gt;
+&lt;p&gt;Done!&lt;/p&gt;
+&lt;p&gt;Go ahead and submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas. If you used an outside dataset, please also submit that, too.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -2656,6 +2797,62 @@ newFile &amp;lt;- read.csv(&amp;quot;../code/preprocessing code&amp;quot;)&lt;/c
 &lt;center&gt;
 &lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/yas.gif&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
 &lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assignment 8</title>
+      <link>/assignments/08-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/08-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;RULES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You must use a RNotebook for this assignment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sections should have appropriate headers&lt;/li&gt;
+&lt;li&gt;All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do &lt;em&gt;not&lt;/em&gt; want to see code located outside of a chunk (unless you’re making a quick note or telling us what you’re doing – but the code outside of a chunk shouldn’t be evaluated).&lt;/li&gt;
+&lt;li&gt;Any explanations I ask for should be &lt;em&gt;outside&lt;/em&gt; of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., &lt;code&gt;#a long sentence like this&lt;/code&gt;). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You must use the &lt;code&gt;ggplot2&lt;/code&gt; package and syntax for all plotting. No plots in &lt;code&gt;base R&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Correlations&lt;/h2&gt;
+&lt;p&gt;Choose 2 continuous variables from your dataset that you think might be related to one another, and then do the following.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are lots of ways to get a correlation in &lt;code&gt;R&lt;/code&gt;. Use the following functions to get the correlation:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cor&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cor.test&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;corr.test&lt;/code&gt; (from &lt;code&gt;psych&lt;/code&gt; package)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Write a sentence or two about which of the above functions you like best and explain why&lt;/li&gt;
+&lt;li&gt;Make 2 scatter plots of your data with a best fit line indicating the correlation. In the first scatter plot use the raw data. In the second scatter plot, use standardized variables. Write a sentence describing if the line is the same or if it’s different, and explain why this is the case.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;its-all-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;It’s All Regression&lt;/h2&gt;
+&lt;p&gt;For this exercise you will need 2 continuous variables and 2 categorical variables. One of your categorical variables should have 3 or more levels. One of the continuous variables will be your OUTCOME measure (or your &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; variable). Please use this same variable as the outcome for all of the analyses described below.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get the correlation between your outcome variable and your second continuous variable. Store this as an object. Next, run a simple linear regression with these two variables. Lastly, re-run your simple linear regression with the same variables, but now standardized. Print the output for all 3 analyses and write 2-3 sentences explaining what you find. What’s the same and what’s different?&lt;/li&gt;
+&lt;li&gt;Run a oneway ANOVA with your categorical variable that has 3 or more levels and your outcome variable. Now re-run that same model but as a regression instead. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Be sure to interpret the coefficients &lt;em&gt;and&lt;/em&gt; the overall model (omnibus test).&lt;/li&gt;
+&lt;li&gt;Now run an ANOVA with both of your categorical variables predicting your outcome variable. Then re-run that same model as a regression. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Be sure to interpret the coefficients &lt;em&gt;and&lt;/em&gt; the overall model (omnibus test).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;boom&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Boom!&lt;/h3&gt;
+&lt;p&gt;Go ahead and submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas. If you used an outside dataset, please also submit that, too.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -5006,7 +5203,7 @@ Figure 1: A fancy pie chart.
 &lt;h2&gt;Videos&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://youtu.be/zceFiIEsU8E&#34;&gt;Descriptive Statistics Redux&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;In the last 10 minutes, my video froze 😭 At that point, I remove the video feed, but the audio still works normally. So you can expect my face to disappear lol!&lt;/li&gt;
+&lt;li&gt;In the last 10 minutes, my video froze 😿 At that point, I remove the video feed, but the audio still works normally. So you can expect my face to disappear lol!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
@@ -5970,6 +6167,38 @@ Figure 1: A fancy pie chart.
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Advanced Statistical Methods</title>
+      <link>/lectures/31-lecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/lectures/31-lecture/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Videos&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Slides&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/31-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/31-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

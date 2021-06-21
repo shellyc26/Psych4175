@@ -71,11 +71,23 @@
   </url>
   
   <url>
+    <loc>/assignments/06-assignment/</loc>
+  </url>
+  
+  <url>
     <loc>/practice/06-practice/</loc>
   </url>
   
   <url>
+    <loc>/assignments/07-assignment/</loc>
+  </url>
+  
+  <url>
     <loc>/practice/07-practice/</loc>
+  </url>
+  
+  <url>
+    <loc>/assignments/08-assignment/</loc>
   </url>
   
   <url>
@@ -375,6 +387,10 @@
   
   <url>
     <loc>/lectures/30-lecture/</loc>
+  </url>
+  
+  <url>
+    <loc>/lectures/31-lecture/</loc>
   </url>
   
   <url>

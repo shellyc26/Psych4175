@@ -3,6 +3,7 @@
   <head>
     <title>For Loops &amp; Bootstrapping</title>
     <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer-red.css" type="text/css" />
     <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
   </head>
@@ -37,12 +38,12 @@ class: center, middle, inverse, title-slide
 # How do we address this?
 
 In this class, we are going to talk specifically about `for loops`. Why?
-  - They are *general purpose*. You will find them in nearly every single programming language. If you decide to not use R and instead go to Python or Matlab or whatever, you'll still come across them.
+  - They are *general purpose*. You will find them in nearly every single programming language. If you decide to not use `R` and instead go to `Python` or `Matlab` or whatever, you'll still come across them.
   - This is a fundamental component of programming. I would guess that you learn this within the first 2 weeks of CS 131. 
 
 --
 
-There are other ways to do this that are `R`-specific. We are NOT going to cover these (counterintutive, I know). 
+There are other ways to do this that are `R`-specific. We are NOT going to cover these (counterintuitive, I know). 
   - the `apply` family of functions, including `lapply`
   - using the `purr` package from the `tidyverse`
 
@@ -275,7 +276,7 @@ The basic steps of constructing a `for loop`:
 
 1. Figure out what it is that you want to iterate through (numbers, columns of a data.frame, data.frames, a list, etc.)
 
-2. Think about what you want your output to look like, and initialize an empty object that can store the output
+2. Think about what you want the *output* to look like, and initialize an empty object that can store the output
 
 3. Type out all of the steps within the body of the loop
 
@@ -284,7 +285,7 @@ name: ex1
 
 # Applied Examples
 
-What if you want to run the following models where the `y` variable stays the same, but the `x` variable changes? For this first example, let's say we only care about the `\(p\)`-value. 
+What if you want to run the following models where the `Y` dependent variable stays the same, but the `X` independent variable changes? For this first example, let's say we only care about the `\(p\)`-value. 
 
 - `lm(Sepal.Length ~ Sepal.Width, data = iris)`
 - `lm(Sepal.Length ~ Petal.Length, data = iris)`
@@ -404,7 +405,7 @@ print(modelList)
 ## # A tibble: 2 x 5
 ##   term        estimate std.error statistic p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)        0  3.79e-17   0.            1
+## 1 (Intercept)        0  3.79e-17   0             1
 ## 2 iris[, i]          1  6.43e-18   1.56e17       0
 ## 
 ## [[2]]
@@ -456,7 +457,7 @@ print(modelList)
 ## # A tibble: 2 x 5
 ##   term        estimate std.error statistic p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)        0  3.79e-17   0.            1
+## 1 (Intercept)        0  3.79e-17   0             1
 ## 2 iris[, i]          1  6.43e-18   1.56e17       0
 ## 
 ## $Petal.Length
@@ -494,7 +495,7 @@ When it comes to looping through plots, there are a few odd things:
 name: ex3
 
 # Applied Example 3
-We want to store the model outputs AND a list of plots. So we need to intialize 2 things
+We want to store the model outputs AND a list of plots. So we need to initialize 2 things
 .code-small[
 
 ```r
@@ -543,8 +544,8 @@ modelDF
 ## # A tibble: 6 x 6
 ##   term        estimate std.error statistic   p.value predictor   
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       
-## 1 (Intercept)    0      3.79e-17   0.      1.00e+  0 Sepal.Width 
-## 2 iris[, i]      1      6.43e-18   1.56e17 0.        Sepal.Width 
+## 1 (Intercept)    0      3.79e-17   0       1   e+  0 Sepal.Width 
+## 2 iris[, i]      1      6.43e-18   1.56e17 0         Sepal.Width 
 ## 3 (Intercept)    6.53   4.79e- 1   1.36e 1 6.47e- 28 Petal.Length
 ## 4 iris[, i]     -0.223  1.55e- 1  -1.44e 0 1.52e-  1 Petal.Length
 ## 5 (Intercept)    4.31   7.84e- 2   5.49e 1 2.43e-100 Petal.Width 
@@ -600,8 +601,124 @@ In statistics...any test or metric that uses random sampling with replacement
 - bootstrapped confidence intervals
 - bootstrap anything your heart desires! 
 
+--
+
+**SAMPLING _WITH_ REPLACEMENT**
+
 ---
 
+# Bootstrapping
+
+- Alternative to traditional NHST (considered a "resampling method")
+- Previously, we had to use equations, formulas, and a lot of assumptions to get our sampling distribution
+- But what if we don't know the theoretical sampling distribution or we can't verify it? 
+
+--
+
+- We build the sampling distribution empirically by random sampling with replacement from the sample
+- Easier to interpret and more robust because we're not relying on a bunch of assumptions/equations to estimate our sampling distribution -- we actually created the sampling distribution instead! 
+    - **robust** in statistics can mean different things. Here we're saying that it doesn't matter if a small thing changes in the dataset, because the bootstrapped mean will be resilient to those small changes. 
+    
+---
+
+# Illustration
+
+Imagine you had a sample of 6 people that happen to live in NYC in the mid 1990's. Let's just say their names are Rachel, Monica, Phoebe, Joey, Chandler, and Ross. Maybe we have the height of each of these 6 individuals (in inches). But now let's say we want to get a sense of the average height in a person in their mid 20's in the 1990's in NYC. We can bootstrap the mean height. That is, we are going to draw from this group many samples of 6 people *with replacement*, each time calculating the average height of the sample. 
+
+
+```
+## [1] "Monica"   "Chandler" "Phoebe"   "Monica"   "Chandler" "Phoebe"
+```
+
+```
+## [1] 68.33333
+```
+
+```
+## [1] "Monica" "Rachel" "Ross"   "Phoebe" "Phoebe" "Ross"
+```
+
+```
+## [1] 68.66667
+```
+
+```
+## [1] "Monica"   "Ross"     "Chandler" "Joey"     "Chandler" "Ross"
+```
+
+```
+## [1] 70.83333
+```
+
+```
+## [1] "Phoebe" "Phoebe" "Joey"   "Phoebe" "Phoebe" "Ross"
+```
+
+```
+## [1] 69.16667
+```
+
+```
+## [1] "Phoebe"   "Chandler" "Phoebe"   "Phoebe"   "Ross"     "Joey"
+```
+
+```
+## [1] 69.83333
+```
+
+```
+## [1] "Monica"   "Chandler" "Monica"   "Monica"   "Chandler" "Phoebe"
+```
+
+```
+## [1] 67.83333
+```
+
+```
+## [1] "Monica"   "Ross"     "Phoebe"   "Monica"   "Chandler" "Chandler"
+```
+
+```
+## [1] 69.16667
+```
+
+```
+## [1] "Ross"   "Joey"   "Ross"   "Ross"   "Phoebe" "Phoebe"
+```
+
+```
+## [1] 70.83333
+```
+
+---
+
+# Illustration
+
+
+```r
+boot = 10000
+friends = c("Rachel", "Monica", "Phoebe", "Joey", "Chandler", "Ross")
+heights = c(65, 65, 68, 70, 72, 73)
+sample_means = NULL
+
+for(i in 1:boot){
+  this_sample = sample(heights, size = length(heights), replace = TRUE)
+  sample_means[i] = mean(this_sample)
+}
+
+mean(sample_means)
+```
+
+```
+## [1] 68.85162
+```
+
+---
+
+# Illustration
+&lt;img src="27-slides_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
+
+---
 # Bootstrapped Mean
 
 Let's say we have a sample of 100 participants that complete an IQ test. IQ tests typically have a mean of 100 and a standard deviation of 15. We want to get the mean IQ of our sample of 100 participants, but we want it to be a **robust** mean -- that is, we want to be pretty darn confident in our mean. What should we do?
@@ -611,10 +728,10 @@ Let's say we have a sample of 100 participants that complete an IQ test. IQ test
 We can bootstrap our mean! And we can do that using a `for loop`:
 
 - *for each iteration of ## of iterations...*
-  - Randomly choose (sample) 50% of your participants
-  - Now calculate the mean of just this 50%
-  - On the next iteration (e.g., `i + 1`) choose a new set of 50% of participants
-  - Recalculate the mean of just this new 50%
+  - Randomly sample FROM your current sample (so choose 100 from your 100)
+  - But when choosing your new 100 data points, you are going to REPLACE each participant
+  - This means Participant #1 could be chosen many times
+  - On the next iteration (e.g., `i + 1`) do another round of choose 100 from your original 100 with replacement
   - etc.
 - After we run all of our iterations, then we will get the **mean of means**
 
@@ -640,29 +757,11 @@ iqs
 ```
 
 ```
-##   [1]  85 101 191 117 119 199 136  50  79  91 174 131 133 119  85 202 138  15
-##  [19] 148  89  60 102  62  77  82  29 155 121  56 176 134  98 158 157 154 147
-##  [37] 141 110  98  94  78 103  50 221 173  57  93  90 152 109 126 112 111 181
-##  [55] 102 189  36 142 119 124 132  88  96  62  59 128 135 116 159 216  88  -2
-##  [73] 163  78  79 164  99  52 122 106 113 132  94 145 102 130 168 135  97 170
-##  [91] 163 140 125  82 181  83 222 190 101  62
+##  [1]  96 106 160 115 117 164 127  75  92 100 150 124 125 116  96 167 128  54 134
+## [20]  99  81 106  82  91  94  62 138 118  79 151 126 104 140 139 138 134 130 111
+## [39] 104 102  92 107  75 178 149  79 101  99 136 110
 ```
 
----
-
-# Bootstrapped Means Example
-
-Things you need to decide:
-
-- How many iterations? This is really a personal decision. The more iterations you have, the longer your code will take to run. 1000 &amp; 5000 are common, but you could pick 3756 iterations and that would be fine, too. 
-
-- How much of the total sample do you want to comprise your sample? 50% of your participants? 75%? 80%? I typically see things within the 50-75%. 
-
---
-
-- For now, lets go with 100x iterations (to minimize how long it takes for the code to run)
-
-- For now, lets do 50%
 
 ---
 
@@ -674,7 +773,8 @@ bsMeans &lt;- NULL
 
 for (i in 1:100) {
   subsample &lt;- sample(x = iqs,
-                      size = 50)
+                      size = 50,
+                      replace = T)
   
   bsMeans[i] &lt;- mean(subsample)
 }
@@ -692,16 +792,16 @@ bsMeans
 ```
 
 ```
-##   [1] 117.06 115.76 122.66 118.02 114.18 111.00 116.16 107.64 119.70 119.12
-##  [11] 111.98 116.10 113.56 115.82 116.18 124.68 119.64 111.04 114.98 116.14
-##  [21] 123.44 111.96 126.50 121.18 116.62 120.36 119.00 117.02 113.68 117.54
-##  [31] 110.44 120.18 118.82 120.00 114.66 111.66 113.24 108.20 121.62 104.24
-##  [41] 122.48 122.54 124.28 127.58 110.68 110.62 122.46 105.44 115.46 120.18
-##  [51] 114.60 124.78 112.78 117.22 105.92 112.28 124.66 115.20 119.02 113.14
-##  [61] 118.86 118.96 112.08 113.48 118.04 116.92 114.26 106.74 120.54 117.58
-##  [71] 110.38 122.30 115.20 122.26 112.74 121.52 118.64 117.10 118.76 122.96
-##  [81] 118.86 116.48 112.76 114.88 120.54 117.34 124.02 118.18 114.28 117.14
-##  [91] 113.14 112.96 113.82 110.18 123.36 110.12 112.84 116.04 118.46 111.90
+##   [1] 108.24 116.12 103.58 110.66 119.66 111.28 124.18 114.98 115.40 114.98
+##  [11] 110.76 116.42 113.02 111.06 112.32 108.14 111.30 115.70 115.96 121.50
+##  [21] 112.78 110.96 108.40 108.22 122.12 108.84 119.16 118.40 114.32 112.78
+##  [31] 114.36 113.78 117.92 121.16 112.54 116.14 108.82 120.72 115.00 116.30
+##  [41] 112.56 111.24 112.28 111.98 107.18 114.52 114.58 113.20 112.62 114.42
+##  [51] 122.10 117.58 107.96 111.52 117.52 107.58 107.36 115.54 109.72 115.74
+##  [61] 116.36 114.90 112.56 110.34 112.04 111.72 110.42 114.38 119.72 115.62
+##  [71] 116.48 118.86 119.82 114.64 113.00 116.86 109.86 114.36 109.26 115.66
+##  [81] 108.84 116.18 113.70 118.86 111.24 112.08 108.12 119.14 119.12 111.92
+##  [91] 113.32 113.90 120.70 121.54 108.76 107.96 107.82 108.14 115.66 111.90
 ```
 ]
 
@@ -716,16 +816,16 @@ mean(bsMeans)
 ```
 
 ```
-## [1] 116.4972
+## [1] 113.8094
 ```
 
 --
 
 When I made these fake IQ scores, I set the "true" population mean to be 113. 
 
-Our mean of the original sample was `mean(iqs)` = **117.56**
+Our mean of the original sample was `mean(iqs)` = **114.02**
 
-Our bootstrapped mean is `mean(bsMeans)` = **116.4972**
+Our bootstrapped mean is `mean(bsMeans)` = **113.8094**
 
 --
 
@@ -735,12 +835,12 @@ The bootstrapped mean is closer to the true population mean -- it's more robust,
 # What can you bootstrap?
 
 Any statistic! 
-- central tendencies (means, medians, modes)
-- dispersions (variances, standard deviations)
+- central tendency (means, medians, modes)
+- dispersion (variances, standard deviations)
 - other estimates (confidence intervals, reliability coefficients, correlations, etc.)
 
 Models!
-- take a subsample and run a model
+- on each iteration where you draw with replacement, run your model 
 - then take the mean of all the coefficients (like regression coefficients, t-values, etc.)
 
 **_what *can't* you bootstrap?_**
@@ -748,11 +848,11 @@ Models!
 ---
 # Final Thoughts
 - Code is supposed to make your life EASIER. Use `for loops` to your advantage! That means if you find yourself copying/pasting the same thing a billion times with only minor changes, there’s likely a much simpler way of doing everything you need all in one go.
-  - check out nested `if/else` statements
+  - check out nested `if/else` statements in the practice set! 
   - for `R` specific functions, check out the `lapply()` function and the `purr` package
-- The biggest piece of advice I have is to think carefully about what you want the end result to look like and then work backwards. Don’t just start doing stuff to your dataset because you think that’s what your supposed to do. Think “in order to make this plot, I need my data in this particular format, what do I need to do to get there?”
+  - when you are first writing your `for loop` and testing things, use really small iterations; once it's working properly, then you can run a ton of iterations
 - Bootstrapping is just a `for loop`. You can bootstrap anything your heart desires. 
-  - when you test out a for loop, use really small iterations!
+- The biggest piece of advice I have is to think carefully about what you want the end result to look like and then work backwards. Don’t just start doing stuff to your dataset because you think that’s what your supposed to do. Think “in order to make this plot, I need my data in this particular format, what do I need to do to get there?”
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -280,7 +280,27 @@ ggplot(pop_data, aes(x = PopulationMeans)) +
   ggtitle("Population distribution")
 ```
 
-Now, we can use a for loop to draw random samples *with replacement* from the population. For this first attempt, we will draw a small number of samples (10) to create `sample_means_small`. 
+It's so great that here we have a population distribution. But in reality, we almost never have the population data. We only have sample data. Let's randomly choose 30 people from the same population as above (not with replacement...30 unique individuals) and call it our sample. This is equivalent to saying "Our study had a n=30 where participants were college students at Wash U enrolled in Psych 101". It's not the entire population -- it's a sample of the population. 
+
+```{r Create sample data}
+sample_data <- data.frame(SampleMeans = sample(pop_data$PopulationMeans, size = 30, replace = FALSE))
+
+ggplot(sample_data, aes(x = SampleMeans)) +
+  geom_histogram(color = "black", fill = "plum4", binwidth = 1) +
+  theme_classic() +
+  ylab("Count") +
+  xlab("Value") +
+  ggtitle("Sample distribution")
+```
+
+Let's recap. We have a population distribution, and we randomly chose 30 people in our study. But the vast majority of the time, we don't have the population distribution to work with. We only have the sample. In traditional NHST procedures, we use formulas and equations to estimate the true underlying sampling distribution of a statistic (like the mean). But when we are bootstrapping, there is no need to estimate -- we actually go ahead and build the sampling distribution. 
+
+When building the sampling distribution, you have to choose how many times/iterations you want to do this. Larger is better (like running more studies as opposed to fewer studies). Let's illustrate this.
+
+The mean of the true population (the one we almost never have access to) is **100**
+The mean of our sample of 30 participants (the one we always have access to; equivalent to running a study) is **`r mean(sample_data$SampleMeans)`**
+
+We want to bootstrap the mean of our 30 participants to get as close as possible to the true population mean. We're building up a sampling distribution. We can do this with a `for loop` where we pull from our sample many times, *with replacement*. But how many times? For this first attempt, let's do a small number of samples (10) to create `sample_means_small`. 
 
 ```{r Bootstrap 1}
 # Initialize vector for means
@@ -288,12 +308,13 @@ sample_means_small <- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:10) {
-  subsample <- sample(x = pop_data$PopulationMeans, size = 50)
+  indices <- sample(x = 1:30, size = 30, replace = T)
+  subsample <- sample_data[indices,1]
   sample_means_small[i] <- mean(subsample)
 }
 ```
 
-Next, we will draw a slightly larger number of samples (100) to create `sample_means_medium`. 
+Next, we will draw a slightly larger number of samples (50) to create `sample_means_medium`. 
 
 ```{r Bootstrap 2}
 # Initialize vector for means
@@ -301,7 +322,8 @@ sample_means_medium <- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:100) {
-  subsample <- sample(x = pop_data$PopulationMeans, size = 50)
+  indices <- sample(x = 1:30, size = 30, replace = T)
+  subsample <- sample_data[indices,1]
   sample_means_medium[i] <- mean(subsample)
 }
 ```
@@ -314,7 +336,8 @@ sample_means_large <- NULL
 
 # Use for loop to gather means of each sample
 for (i in 1:1000) {
-  subsample <- sample(x = pop_data$PopulationMeans, size = 50)
+  indices <- sample(x = 1:30, size = 30, replace = T)
+  subsample <- sample_data[indices,1]
   sample_means_large[i] <- mean(subsample)
 }
 ```
@@ -342,24 +365,24 @@ Visualizing the three sampling distributions give us perspective as to how the n
 
 Additionally, if we take the mean of the sampled means (in order to estimate the population mean), it will become *more accurate* as the size of the sampling distribution increases. In the plots below, the solid lines marks the true population mean, and the dashed lines mark the sampling distribution means.
 
-```{r, warning = FALSE, message = FALSE, out.width='85%'}
+```{r AllViz, warning = FALSE, message = FALSE, out.width='85%'}
 plot1 <- ggplot() +
-  geom_histogram(data = sample_means_small, aes(values), fill = "plum4", color = "black", binwidth = 5) +
+  geom_histogram(data = sample_means_small, aes(values), fill = "plum4", color = "black", binwidth = 1) +
   theme_classic() +
   xlab("Sample means") +
   ylab("Count") +
-  geom_vline(xintercept = small_m, linetype = "longdash") +
-  geom_vline(xintercept = pop_m) +
+  geom_vline(xintercept = small_m, linetype = "longdash", color = "red") +
+  geom_vline(xintercept = pop_m, color = "green") +
   coord_cartesian(xlim = c(85, 115)) +
   ggtitle("Distribution of 10 samples")
 
 plot2 <- ggplot() +
-  geom_histogram(data = sample_means_small, aes(values), fill = "plum4", color = "black", binwidth = 3) +
+  geom_histogram(data = sample_means_medium, aes(values), fill = "plum4", color = "black", binwidth = 1) +
   theme_classic() +
   xlab("Sample means") +
   ylab("Count") +
-  geom_vline(xintercept = medium_m, linetype = "longdash") +
-  geom_vline(xintercept = pop_m) +
+  geom_vline(xintercept = medium_m, linetype = "longdash", color = "red") +
+  geom_vline(xintercept = pop_m, color = "green") +
   coord_cartesian(xlim = c(85, 115)) +
   ggtitle("Distribution of 100 samples")
 
@@ -368,8 +391,8 @@ plot3 <- ggplot() +
   theme_classic() +
   xlab("Sample means") +
   ylab("Count") +
-  geom_vline(xintercept = large_m, linetype = "longdash") +
-  geom_vline(xintercept = pop_m) +
+  geom_vline(xintercept = large_m, linetype = "longdash", color = "red") +
+  geom_vline(xintercept = pop_m, color = "green") +
   coord_cartesian(xlim = c(85, 115)) +
   ggtitle("Distribution of 1,000 samples")
 
@@ -391,24 +414,20 @@ blogdown::shortcode("learnr",
 
 ```
 
-:::fyi
-**Reminder:** The 95% confidence interval is calculated using the following formula:
+OK based on the quiz above, we need to carry out our sampling procedure a large number of times. That's exactly what we are doing with bootstrapping! So now all we need to do is get the upper and lower 2.5% quantiles and we have our confidence intervals. The real kicker is that you need to bootstrap your statistic, and then find the quantiles to align with your confidence intervals. 
 
-$CI_{95} = \bar{X} \pm (1.96 * SEM)$
-
-:::
 
 :::puzzle
 **You try!** 
 
-Now we're going to use *bootstrapping* to calculate the 95% confidence intervals.
+Now we're going to use *bootstrapping* to calculate the 95% confidence intervals for a 1-tailed *t*-test. We want to know if our mean is significantly different from 95. 
 
 **Tips and Instructions:**
 
-- Use `pop_data` as your dataset
-- See the Power Plus lecture slides 10-11 for examples of calculating a single CI
-- Use z = 1.96 for a 95% interval
-- On each loop iteration, save the upper CI to `upper_values`, and the lower CI to `lower_values` (see `append()` help page)
+- Use `sample_data` as your dataset
+- Run multiple iterations to get the difference between the sample mean and 95
+- Store and plot those differences
+- Add in `quantile`s to get the upper and lower 2.5% aka our confidence intervals around the difference in means
 
 :::
 
@@ -423,8 +442,5 @@ blogdown::shortcode("learnr",
 
 That's it for this practice -- go forth and sample iteratively!
 
-Massive shout out to our very own Drew McLaughlin for creating this excellent Practice Set! If you have any feedback on how this particular practice (or any of them) could be improved. Please get in touch with Drew and/or Shelly. We are always happy to hear your feedback!
 
-- [Email Drew](mailto:drewjmclaughlin@wustl.edu)
-- [Email Shelly](mailto:shelly.cooper@wustl.edu)
-
+<small>Massive shout out to the Sping 2021 AI Drew McLaughlin for creating this excellent Practice Set!</small>
