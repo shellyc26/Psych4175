@@ -25,6 +25,7 @@ shiny: true
 <ul>
 <li><a href="#organize-your-filesprojects">Organize your files/projects!</a></li>
 </ul></li>
+<li><a href="#rprojects">RProjects</a></li>
 <li><a href="#importing-data">Importing Data</a></li>
 </ul>
 </div>
@@ -36,7 +37,7 @@ shiny: true
 <p>Fun Fact: The <code>~</code> sign helps shorten some of the really long file paths. Try <code>setwd("~/rest/of/file/path")</code>. It usually points to the User’s directory. For instance, on my computer, it is set to <code>/Users/Coop</code>.</p>
 <div id="organize-your-filesprojects" class="section level3">
 <h3>Organize your files/projects!</h3>
-<p>Whether you use <code>RProjects</code> (<a href="/lectures/07-lecture">see 7: Loading files slides</a> for more) or not, you should have some sort of structure to your projects. You’ll need to play around with what’s right for you. Generally speaking, a good idea is something like this:</p>
+<p>YOU NEED to have some sort of structure to your projects. Play around with what’s right for you. Generally speaking, a good idea is something like this:</p>
 <ul>
 <li>Project Name <em>(top level directory)</em>
 <ul>
@@ -74,10 +75,24 @@ shiny: true
 </div>
 </div>
 </div>
+<div id="rprojects" class="section level2">
+<h2>RProjects</h2>
+<p>RProjects are a specific type of file. It’s not one that you edit directly, though. Instead, it contains metadata that is useful for keeping things organized. We are going to combine a RProject file along with a package called <code>here</code> so that we never have to type all of these file paths again! Hooray!</p>
+<div class="puzzle">
+<p><strong>You try!</strong> Follow along with Shelly as we create an RProject for this class. Together, we are going to do the following steps:</p>
+<ul>
+<li>Create a top level directory on Box. Call it <code>Psych4175</code> or something similar.</li>
+<li>Create sub-directories (folders) for assignments, data, notes, and slides</li>
+<li>Download all datasets from Canvas and put it in the <code>data</code> sub-directory</li>
+<li>Install the <code>here</code> package (only do once!)</li>
+<li>Follow along as we open our project. See what happens when the whole thing moves to a totally different folder.</li>
+</ul>
+</div>
+</div>
 <div id="importing-data" class="section level2">
 <h2>Importing Data</h2>
 <p>For a lot of us, our data will be stored as either <code>.csv</code> or <code>.txt</code> files. <code>R</code> can handle many types of files but we’ll just practice with <code>.csv</code>. (For more on importing other types, ask your old friend Google)</p>
-<p>You can use the <code>RStudio</code> interface to import your file (see the <a href="/lectures/07-lecture">slides &amp; corresponding videos</a> for how to do this). In fact, doing that once is a good idea to make sure it looks the way you want it to. However, once you finish, there will be a line of code that has printed to your console. COPY THIS LINE OF CODE and put it into your script file. That way, next time you open your script, you do not need to use the <code>RStudio</code> interface to re-import. You simply run that line of code, and BAM! You’re good to go.</p>
+<p>You can use the <code>RStudio</code> interface to import your file (see the <a href="/lectures/07-lecture">slides</a> for how to do this). But it’s a lot of steps for something so simple! Let’s do it the lazy way.</p>
 <div id="to-read-in-a-.csv" class="section level4">
 <h4>To read in a <code>.csv</code></h4>
 <p>The function for reading in a <code>.csv</code> file is <code>read.csv()</code> and the input is the file path.</p>
@@ -85,29 +100,17 @@ shiny: true
 <div id="to-read-in-a-.txt" class="section level4">
 <h4>To read in a <code>.txt</code></h4>
 <p>The function for reading in a <code>.txt</code> file is <code>read.delim()</code> and the input is the file path.</p>
-<div class="note">
-<p><strong>Note:</strong> <code>R</code> recently updated. Previously, when you imported a dataset, it would try to automatically convert character variables into factor variables. This created a lot of problems for a lot of people. As of version 4.0, <code>R</code> doesn’t do that anymore.</p>
-<p>You should all be using an updated version of <code>R</code> so hopefully this won’t matter. But just in case, what you can do is add the argument <code>stringsAsFactors = FALSE</code> to the <code>read.csv()</code> or <code>read.delim()</code> functions, after the file paths.</p>
 </div>
-<div class="puzzle">
-<p><strong>You try!</strong> In the lectures, I used the <code>midus</code> dataset. Now it’s your turn to import it locally (in <code>RStudio</code> on your computer).</p>
-<ul>
-<li>Step 1: Create a folder/directory on your desktop specific for this workshop.</li>
-<li>Step 2: Download the <code>midus.csv</code> dataset from below. Save it to this new directory.</li>
-<li>Step 3: Go into <code>RStudio</code> and open a new script file.</li>
-<li>Step 4: In your script file set your working directory (<code>setwd()</code>) to your newly created directory.</li>
-<li>Step 5: Use either code or the <code>RStudio</code> interface to import your data. If you use the <code>RStudio</code> interface, make sure you copy the function/file path it spits out into the console, and paste that into your script file. If you use code for importing, type/run that line from your script file (not your console).</li>
-<li>Step 6: Save that script file. Next time you open <code>R</code>, you won’t need to use the Import button or type any new code!</li>
-</ul>
+<div id="file-path-what" class="section level4">
+<h4>File Path What?</h4>
+<p>Remember that long <code>"/Users/Coop/Box Sync/Class/Data"</code> line that was our file path? We would have to type that every single time. But now that we have an RProject that contains metadata, we don’t need to do anything special! Instead, here’s what we’ll do:</p>
+<pre class="r"><code>library(here)
+
+data &lt;- read.csv(here(&quot;data/some_data_file.csv&quot;))</code></pre>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
 </div>
-</div>
-<div id="the-dataset" class="section level4">
-<h4>The dataset</h4>
-<ul>
-<li><a href="/practice/07-practice/data/midus.csv"><i class="fas fa-file-csv"></i> <code>midus.csv</code></a></li>
-</ul>
-<div class="fyi">
-<p><strong>Bonus:</strong> <em>(not required</em>) If you are in a directory, but you want to go further down within that directory, you do not need to keep doing <code>setwd()</code>. Remember, your working directory is where <code>R</code> will look. So for example, let’s say you have this file structure:</p>
+<p>Assume we have a project whose structure looks like this:</p>
 <ul>
 <li>Project Name
 <ul>
@@ -129,18 +132,13 @@ shiny: true
 <li>manuscripts</li>
 </ul></li>
 </ul>
-<p>If your current working directory is <code>code</code>, but the file you need is in the <code>preprocessing code</code> directory, you do NOT need to re-set your working directory. Instead, modify your file path like this:</p>
-<pre class="r"><code>newData &lt;- read.csv(&quot;preprocessing code/file.csv&quot;)</code></pre>
-<p>Or let’s say the file you need is in <code>figures</code>, but your working directory is <code>Project Name</code>:</p>
-<pre class="r"><code>newData &lt;- read.csv(&quot;results/figures/file.csv&quot;)</code></pre>
-<p>You can keep hitting the TAB button until you find the folder you’re looking for!</p>
-<p>If you want to go up one directory level, you can use <code>..</code> in the file path. For instance, let’s say your current working directory is <code>figures</code>, but you want the <code>Project Name</code> directory. This requires going up 2 levels (from <code>figures</code> to <code>results</code>, and then from <code>results</code> to <code>Project Name</code>). You can use <code>..</code> to indicate 1 level. For example:</p>
-<pre class="r"><code># from figures to Project Name:
-setwd(&quot;../../Project Name&quot;)
-
-# from data source 3 to preprocessing code
-newFile &lt;- read.csv(&quot;../code/preprocessing code&quot;)</code></pre>
-<p>Notice that it doesn’t matter what function you’re using. You can always go up and down directory levels!</p>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/07-learnr-quiz1/" id="learnr-07-quiz1" %}}</p>
+<div class="puzzle">
+<p><strong>You try!</strong> (on your own computer; not in this browser)</p>
+<ul>
+<li>Open a new script file. Make sure it is in the <code>notes</code> sub-directory</li>
+<li>Load in the <code>nhanes_small.csv</code> dataset</li>
+</ul>
 </div>
 <center>
 <p><img src="../encouragementFigs/figure-html/yas.gif" width = "100%"></p>

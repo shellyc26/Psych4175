@@ -31,7 +31,7 @@ Your computer is just a series of folders. Folders are also known as directories
 Fun Fact: The `~` sign helps shorten some of the really long file paths. Try `setwd("~/rest/of/file/path")`. It usually points to the User's directory. For instance, on my computer, it is set to `/Users/Coop`. 
 
 ### Organize your files/projects!
-Whether you use `RProjects` ([see 7: Loading files slides](/lectures/07-lecture) for more) or not, you should have some sort of structure to your projects. You'll need to play around with what's right for you. Generally speaking, a good idea is something like this:
+YOU NEED to have some sort of structure to your projects. Play around with what's right for you. Generally speaking, a good idea is something like this:
 
 - Project Name *(top level directory)*
   - Data *(sub-directory of Project Name)*
@@ -60,10 +60,26 @@ Again, things will change based on your specific projects. But keeping things or
 Ok, I'll get off the soapbox now...
 :::
 
+## RProjects
+
+RProjects are a specific type of file. It's not one that you edit directly, though. Instead, it contains metadata that is useful for keeping things organized. We are going to combine a RProject file along with a package called `here` so that we never have to type all of these file paths again! Hooray!
+
+:::puzzle
+
+**You try!** Follow along with Shelly as we create an RProject for this class. Together, we are going to do the following steps:
+
+- Create a top level directory on Box. Call it `Psych4175` or something similar.
+- Create sub-directories (folders) for assignments, data, notes, and slides
+- Download all datasets from Canvas and put it in the `data` sub-directory
+- Install the `here` package (only do once!)
+- Follow along as we open our project. See what happens when the whole thing moves to a totally different folder.
+
+:::
+
 ## Importing Data
 For a lot of us, our data will be stored as either `.csv` or `.txt` files. `R` can handle many types of files but we'll just practice with `.csv`. (For more on importing other types, ask your old friend Google)
 
-You can use the `RStudio` interface to import your file (see the [slides & corresponding videos](/lectures/07-lecture) for how to do this). In fact, doing that once is a good idea to make sure it looks the way you want it to. However, once you finish, there will be a line of code that has printed to your console. COPY THIS LINE OF CODE and put it into your script file. That way, next time you open your script, you do not need to use the `RStudio` interface to re-import. You simply run that line of code, and BAM! You're good to go. 
+You can use the `RStudio` interface to import your file (see the [slides](/lectures/07-lecture) for how to do this). But it's a lot of steps for something so simple! Let's do it the lazy way.
 
 #### To read in a `.csv`
 The function for reading in a `.csv` file is `read.csv()` and the input is the file path.
@@ -71,29 +87,21 @@ The function for reading in a `.csv` file is `read.csv()` and the input is the f
 #### To read in a `.txt`
 The function for reading in a `.txt` file is `read.delim()` and the input is the file path.
 
-:::note
-**Note:** `R` recently updated. Previously, when you imported a dataset, it would try to automatically convert character variables into factor variables. This created a lot of problems for a lot of people. As of version 4.0, `R` doesn't do that anymore. 
+#### File Path What?
+Remember that long `"/Users/Coop/Box Sync/Class/Data"` line that was our file path? We would have to type that every single time. But now that we have an RProject that contains metadata, we don't need to do anything special! Instead, here's what we'll do:
 
-You should all be using an updated version of `R` so hopefully this won't matter. But just in case, what you can do is add the argument `stringsAsFactors = FALSE` to the `read.csv()` or `read.delim()` functions, after the file paths. 
+```{r eval=FALSE}
+library(here)
+
+data <- read.csv(here("data/some_data_file.csv"))
+
+```
+
+:::quiz
+**Quick Quiz**
 :::
 
-:::puzzle
-**You try!** In the lectures, I used the `midus` dataset. Now it's your turn to import it locally (in `RStudio` on your computer).
-
-  - Step 1: Create a folder/directory on your desktop specific for this workshop.
-  - Step 2: Download the `midus.csv` dataset from below. Save it to this new directory.
-  - Step 3: Go into `RStudio` and open a new script file. 
-  - Step 4: In your script file set your working directory (`setwd()`) to your newly created directory.
-  - Step 5: Use either code or the `RStudio` interface to import your data. If you use the `RStudio` interface, make sure you copy the function/file path it spits out into the console, and paste that into your script file. If you use code for importing, type/run that line from your script file (not your console).
-  - Step 6: Save that script file. Next time you open `R`, you won't need to use the Import button or type any new code!
-:::
-
-#### The dataset
-
-- [<i class="fas fa-file-csv"></i> `midus.csv`](/practice/07-practice/data/midus.csv)
-
-:::fyi
-**Bonus:** *(not required*) If you are in a directory, but you want to go further down within that directory, you do not need to keep doing `setwd()`. Remember, your working directory is where `R` will look. So for example, let's say you have this file structure:
+Assume we have a project whose structure looks like this: 
 
 - Project Name
   - data
@@ -107,31 +115,21 @@ You should all be using an updated version of `R` so hopefully this won't matter
     - figures
   - manuscripts
 
-If your current working directory is `code`, but the file you need is in the `preprocessing code` directory, you do NOT need to re-set your working directory. Instead, modify your file path like this:
 
-```{r, eval=FALSE}
-newData <- read.csv("preprocessing code/file.csv")
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/07-learnr-quiz1/",
+                    id = "learnr-07-quiz1")
+
 ```
 
-Or let's say the file you need is in `figures`, but your working directory is `Project Name`:
 
-```{r, eval=FALSE}
-newData <- read.csv("results/figures/file.csv")
-```
+:::puzzle
+**You try!** (on your own computer; not in this browser)
 
-You can keep hitting the TAB button until you find the folder you're looking for!
-
-If you want to go up one directory level, you can use `..` in the file path. For instance, let's say your current working directory is `figures`, but you want the `Project Name` directory. This requires going up 2 levels (from `figures` to `results`, and then from `results` to `Project Name`). You can use `..` to indicate 1 level. For example: 
-
-```{r, eval=FALSE}
-# from figures to Project Name:
-setwd("../../Project Name")
-
-# from data source 3 to preprocessing code
-newFile <- read.csv("../code/preprocessing code")
-```
-
-Notice that it doesn't matter what function you're using. You can always go up and down directory levels!
+- Open a new script file. Make sure it is in the `notes` sub-directory
+- Load in the `nhanes_small.csv` dataset
 :::
 
 <center>
