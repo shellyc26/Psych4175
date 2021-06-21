@@ -377,8 +377,5 @@ blogdown::shortcode("learnr",
 
 Nice job finishing this practice! We hope you have fun making custom functions built for you. Once you get the hang of things and are ready to take it a step further, you can put your custom functions into your very own custom R package!
 
-Massive shout out to our very own Drew McLaughlin for creating this excellent Practice Set! If you have any feedback on how this particular practice (or any of them) could be improved. Please get in touch with Drew and/or Shelly. We are always happy to hear your feedback!
-
-- [Email Drew](mailto:drewjmclaughlin@wustl.edu)
-- [Email Shelly](mailto:shelly.cooper@wustl.edu)
+<small>Massive shout out to the Sping 2021 AI Drew McLaughlin for creating this excellent Practice Set!</small>
 
