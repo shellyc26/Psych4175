@@ -9,18 +9,20 @@ output:
 ---
 
 ## What is this class?
-Applied Statistical Analysis with R (Psych 4175)
+- Applied Statistical Analysis with R (Psych 4175)
+- Mondays/Wednesdays 1-2:20pm
+- Room TBD
 
 ## Who are we?
 
 Instructor: **Shelly Cooper (she/her)**
-You can reach Shelly via the contact form on the homepage of this site, or you can email me at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
+You can reach Shelly via the contact form on the homepage of this site, or you can email her at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
 
 Assistant Instructor: **AJ Wright (she/her)**
 You can reach AJ at [ajwright@wustl.edu](mailto:ajwright@wustl.edu).
 
 ## What's the course philosophy?
-Programming & statistics are increasingly becoming a demanding skill across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to leave understanding core fundamentals of applied programming and statistics. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.). 
+Programming & statistics are in demand skills across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to feel comfortable with the programmatic skills needed to take a data analysis project from start to finish including data wrangling, executing appropriate statistical tests, interpreting the results, and communicating your findings. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.). 
 
 >The only difference between a beginner and expert programmer, is that the expert is better at Googling”.
 
@@ -38,37 +40,78 @@ There will be 3 units:
 
   1.	Getting you up to speed with coding in R. 
   2.	Recap of statistics learned in Psych 300 (Intro to Psych Stats). However, the material will focus on the application of these tests in R, accessing their results, and incorporating them into academic manuscripts.
-  3.	This will include some more advanced topics in terms of writing code that can expand your statistical horizon. 
+  3.	More advanced topics in terms of writing code that can expand your statistical horizons. 
+  
+This is a **flipped** classroom meaning your homework is to watch the lectures. Our in-class time will be dedicated to hands-on problem sets. For a roadmap of the class, please see the [Schedule](https://psych4175.profcoops.com/schedule/) page of this website.
   
 ## What do you need for this course?
-You'll need 5 things:
+You'll need 4 things:
 
   1. You need `R` and it's buddy `RStudio`. We will go through this together.
   2. You need this website -- most of the content will take place on this website.
-  3. You need a GitHub account -- use your `wustl.edu` email to avoid paying $. You will turn all assignments in via GitHub and you will complete your peer reviews on GitHub. 
-  4. While not required, I **very strongly** suggest being apart of our Slack workspace. You can quickly and easily ask me and AJ questions privately or publicly so your peers can learn too. You can interact with your peers, and enjoy remarkably silly memes. 
-  5. Our Canvas page will contain your grades as well as some miscellaneous information. You will mainly use it to check your grade and nothing else.
+  3. While not required, I **very strongly** suggest being apart of our Slack workspace. You can quickly and easily ask Shelly and AJ questions privately or publicly so your peers can learn too. You can interact with your peers, and enjoy remarkably silly memes. 
+  4. Our Canvas page will contain your grades, datasets, and will be where you complete your peer code reviews.
   
 ## How do I get a good grade?
 There are no exams! Hooray! To get a good grade in this class, you need to do the following:
 
-  - **Assignments** will be posted on the course website. These are mostly weekly assignments, and they are there to make sure you get lots of practice as you are learning the basics of `R`. 
+  - **Assignments** will be posted on the course website. These are mostly weekly assignments, and they are there to make sure you get lots of practice.
+      - The first 8 assignments will be completed on your own
+      - The remaining 3 assignments will be completed with your peer buddy
   - **Peer Reviews** will give you practice looking at other peoples' code and will give you consistent feedback from someone other than the instructor/AI. You will be randomly assigned to a peer in your class and you will answer very specific questions about the assignment.
-  - **Final Assignment** You will complete a final take-home project due during finals week (if you want to turn it in before then, that’s OK!). This project will be completely `R`-based, and will incorporate skills learned over the semester with extra emphasis on those learned in Unit 3.
-    - If you would like to use your own dataset for this, you must tell me ahead of time and get it pre-approved!
-    - This project will be worth **20 points**.
-    - To earn full marks on this project, your code must compile (meaning if I run the code, as is, it should work perfectly) and you must answer all portions of the assignment. 
+  - **Final Project** You will complete a final take-home project due during finals week (if you want to turn it in before then, that’s OK!). This project will be completely `R`-based, and will incorporate skills learned over the semester with extra emphasis on those learned in Unit 3. This will be completed on your own. 
+  - **Participation** refers to answering questions in class. This is to keep you honest about watching lectures at home (see [Schedule](https://psych4175.profcoops.com/schedule/) page for more details). 
     
-$$ \text{Homeworks (35pts) + Peer Reviews (10pts) + Quizzes (20pts) + Mini Assignments (15pts) + Final Project (20pts)} = \text{100 Total Points}$$
+
+\begin{equation}
+\begin{aligned}
+
+\text{Solo Assignments 8 x 10 pts/ea = 80pts} \\
+\text{Peer Reviews 8 x 7.5pts/ea = 60pts} \\
+\text{Group Assignments 3 x 10pts/ea = 30pts} \\
+\text{Final Project 1 x 15pts/ea = 15pts} \\
+\text{Participation 10 x 1.5pts/ea = 15pts} \\
+\mathbf{\text{Total = 200pts}}
+
+\end{aligned}
+\end{equation}
+
 
 ## Final Grade Rubric
+
+$$
+\begin{equation}
+\begin{split}
+
+& \text{> 100% = A+} \\
+& \text{93% - 99.99% = A} \\
+& \text{90% - 92.99% = A-} \\
+& \text{87% - 89.99% = B+} \\
+& \text{83% - 86.99% = B} \\
+& \text{80% - 82.99% = B-} \\
+
+\end{split}
+
+\begin{split}
+& \text{77% - 79.99% = C+} \\
+& \text{73% - 76.99% = C} \\
+& \text{70% - 72.99% = C-} \\
+& \text{67% - 69.99% = D+} \\
+& \text{63% - 66.99% = D} \\
+& \text{60% - 62.99% = D-} \\
+&\text{< 50% = F}
+
+\end{split}
+\end{equation}
+$$
+
 
 ## Staying Connected
 The 2020-2021 academic year was lonely. Although we're back in person, we still might feel that residual loneliness. On top of that, learning to code can be really scary -- impostor syndrome is real! The best thing we can do to combat these feelings is to stay connected to one another. Here's how we'll accomplish this in our class:
 
 -	Your peer review will be with the same person! This way, you will get to know your buddy over the course of the semester. Make a friend! 
 
--	We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. Shelly or AJ will respond to your questions on slack (if your peers don't respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you're learning a skill like coding, in which you’ll repeatedly fail. Slack is not required per se, but it is **highly encouraged**.
+-	We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. Shelly or AJ will respond to your questions on slack (if your peers don't respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you're learning a skill like coding, in which you’ll repeatedly fail. Slack is not required *per se*, but it is **highly encouraged**.
 
 ## Let's learn from COVID-19
 That year sucked. But instead of burying our heads in the sand and forgetting it existed, let's at least extract some things and incorporate them into our lives. For this class, here's what that means:
