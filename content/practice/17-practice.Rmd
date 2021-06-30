@@ -24,7 +24,8 @@ knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
 ```
 
 ```{r, echo=FALSE}
-midus <- read.csv("../../public/practice/07-practice/data/midus.csv")
+library(here)
+midus <- read.csv(here("R/midus.csv"))
 midus <- midus %>% 
   mutate_at(vars(1, 2, 10, 11), list(factor)) %>% 
   na.omit(.)

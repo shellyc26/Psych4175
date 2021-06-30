@@ -79,7 +79,6 @@ There are no exams! Hooray! To get a good grade in this class, you need to do th
 
 ## Final Grade Rubric
 
-$$
 \begin{equation}
 \begin{split}
 
@@ -103,8 +102,6 @@ $$
 
 \end{split}
 \end{equation}
-$$
-
 
 ## Staying Connected
 The 2020-2021 academic year was lonely. Although we're back in person, we still might feel that residual loneliness. On top of that, learning to code can be really scary -- impostor syndrome is real! The best thing we can do to combat these feelings is to stay connected to one another. Here's how we'll accomplish this in our class:

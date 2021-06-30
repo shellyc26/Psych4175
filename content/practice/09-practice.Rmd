@@ -100,7 +100,8 @@ decorate("gg-code", eval=FALSE) %>%
 #### Example on aesthetics/arguments from the slides
 
 ```{r, echo=FALSE}
-midus <- read.csv("../../public/practice/07-practice/data/midus.csv")
+library(here)
+midus <- read.csv(here("R/midus.csv"))
 midus <- midus %>% 
   mutate_at(vars(1, 2, 10, 11), list(factor)) %>% 
   na.omit(.)

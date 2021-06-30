@@ -3,6 +3,7 @@
   <head>
     <title>Loading Files</title>
     <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer-purple.css" type="text/css" />
     <link rel="stylesheet" href="css/additionalCols.css" type="text/css" />
   </head>
@@ -20,28 +21,22 @@ class: center, middle, inverse, title-slide
 
 
 
-name: recap
+name: today
 
-# Recap
-.box-inv-7.small.left[**Packages** are a collection of functions and data sets]
-  1. You **install** the package once; must be connected to the internet
-  2. You **load** the package every time you use it; do not need to be connected to the internet
-  
---
+# Loading &amp; Organizing
 
-.box-inv-7.small.left[How do you find the function you need? How do you now what package it's in?] 
-- **G-o-o-g-l-e!**
-- "structural equation modeling in R"
+.pull-left[
+- BE. ORGANIZED.
+- It's hard to load in files if you don't know where they are
+- We can use packages and tools to our advantage when we are organized
+- Less typing
+- Being organized will spark joy
+]
 
---
+.pull-right[
+![](07-slides_files/figure-html/kondo.jpeg)
+]
 
-.box-inv-7.small.left[How do you know how to use the function? What are the function's **arguments**?]
-- Help documentation in R
-- `? function.name`
-
---
-
-.box-inv-7.medium[Today we will talk about how to get your data files into R]
 ---
 name: directories
 # Directories
@@ -86,7 +81,7 @@ How do you change your working directory?
 name: rproject
 
 # An Alternative: RProjects
-Getting and setting your working directory can be a pain in the $%^
+Getting and setting your working directory can be a pain in the @$\$
   - What happens if you reorganize your computer and you want to move the files? 
   
 --
@@ -96,21 +91,22 @@ Getting and setting your working directory can be a pain in the $%^
   1. It syncs to Github. Excellent for version control and open science!
   2. Your project is it's own contained ecosystem. If you move it on your computer, it doesn't matter. No need to get/set your working directory. 
   3. Easy to look for files within that project (rather than the entire computer)
-  4. *(If you work with things that require randomly doing something--like generate a random dataset--RProjects makes it easier)*
+
 
 ---
+
 class: inverse, middle, center
 
-# Demo of making a RProject &amp; using Github
+# We are going to make this together next Wednesday!
 
 ---
 name: files
 
 # .R files
-- text files
-- contain the code that you've written 
-- (equivalent to syntax files in SPSS)
-- Also called **scripts**
+- Aka **scripts**
+- Text files
+- Contain the code that you've written 
+- (Equivalent to syntax files in SPSS)
   
 --
 
@@ -122,10 +118,11 @@ Why use them?
   - `# reliability estimates for depression scale`
   - `# scatter plot for BMI predicting diabetes diagnosis`
 - Share your analyses with collaborators and readers
+
 ---
 
 # Other file types
-- `.RProject` -- not where you would write any form of code
+- `.RProject` -- not where you would write any form of code -- more to come!
 - `.Rmd` -- aka "RMarkdown" or "RNotebook"; will talk about for reproducibility!
 - **Your data!**
 
@@ -160,7 +157,20 @@ The following line of code will appear in your console:
 
 `midus &lt;- read.csv("~/Desktop/rSkillLab/midus.csv")`
 
-.box-inv-7.large[I STRONGLY recommend copying/pasting this line of code into your script (.R) file!]
+.box-inv-7.large[If you do _not_ use a RProject, then you MUST copy/paste this line of code into your script (.R) file!]
+
+---
+
+# A note about Excel
+
+- Excel is owned by Microsoft
+- Microsoft is not a non-profit; they make a stupid amount of money
+- When programming languages were developed, Microsoft didn't play nicely with things that weren't also owned by Microsoft
+- What does this mean for you?
+    - If you are working with a data file, it is better to save it as a `.csv` or `.txt` rather than `.xls` or `.xlsx`
+    - It *used* to be really hard to get your data into `R` if it was a `.xls` or `.xlsx` format. It's now a lot easier. So it doesn't matter much, but if you have a say in the matter, change it. 
+    - Color coding/highlighting in Excel doesn't translate to `R`. Stop using it for data. Story time.
+  
 ---
 
 # Typical workflow in R
@@ -181,6 +191,9 @@ The following line of code will appear in your console:
 # Typical format of .R file
 
 &lt;img src="07-slides_files/figure-html/samplescript.png", width = "100%"&gt;
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
