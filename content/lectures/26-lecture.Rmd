@@ -1,10 +1,10 @@
 ---
 title: "Theory of Data Visualization"
-linktitle: "26: Data Viz Theory"
+linktitle: "Data Viz Theory"
 menu:
   lectures:
     parent: Advanced Topics
-    weight: 1
+    weight: 2
 type: docs
 slides: "26-slides"
 output:

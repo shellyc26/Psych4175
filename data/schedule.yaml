@@ -151,10 +151,12 @@ lectures:
   - title: 'Descriptives'
     session: 20
     lectures: "20-lecture"
+    assignments: "06-assignment"
     
   - title: 'Normal & Sampling Distributions'
     lectures: "21-lecture"
     session: 21
+    assignments: "06-assignment"
   
   - title: '**Comparing Means & Stats Issues**'
     date: "Week 9: 10/25 - 10/27"
@@ -163,10 +165,12 @@ lectures:
   - title: 'Comparing Means'
     lectures: "22-lecture"
     session: 22
+    assignments: "07-assignment"
     
   - title: 'Power & Problems'
     lectures: "23-lecture"
     session: 23
+    assignments: "07-assignment"
   
   - title: '**Relationships**'
     date: "Week 10: 11/1 - 11/3"
@@ -175,43 +179,49 @@ lectures:
   - title: 'Correlation'
     session: 24
     lectures: "24-lecture"
+    assignments: "08-assignment"
     
   - title: 'Regression'
     session: 25
     lectures: "25-lecture"
+    assignments: "08-assignment"
     
   - title: '**Above and Beyond**'
     date: "Week 11: 11/8 - 11/10"
     header: True
   
   - title: 'Interactions'
+    session: 26
+    lectures: "30-lecture"
   
   - title: 'Advanced Stats'
+    session: 27
+    lectures: "31-lecture"
   
   - title: '<span class="fake-header-table">Unit 3: Advanced Topics</span>'
     header: True
   
   - title: 'Bootstrapping & For Loops'
-    session: 27
+    session: 28
     lectures: "27-lecture"
     date: "Week 12: 11/15 - 11/17"
     assignments: "01-mini-assignment"
     practice: "27-practice"
     
   - title: 'Data Viz Theory'
-    session: 26
+    session: 29
     date: "Week 13: 11/22 - 11/24 (no class)"
     lectures: "26-lecture"
     
   - title: 'Writing Functions'
-    session: 28
+    session: 30
     date: "Week 14: 11/29 - 12/1"
     lectures: "28-lecture"
     assignments: "02-mini-assignment"
     practice: "28-practice"
     
   - title: 'Simulations'
-    session: 29
+    session: 31
     date: "Week 15: 12/6 - 12/8"
     lectures: "29-lecture"
     assignments: "03-mini-assignment"

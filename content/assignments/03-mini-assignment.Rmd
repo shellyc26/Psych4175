@@ -1,15 +1,15 @@
 ---
-title: "Mini Assignment 3"
-linktitle: "Mini #3"
+title: "Peer Assignment 3"
+linktitle: "Peer #3"
 date: "6/16/2020"
-due_date: "2021-05-04"
-due_time: "2:30pm"
+due_date: "2021-12-14"
+due_time: "1:00pm"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
 menu:
   assignment:
-    parent: Mini Assignments
+    parent: Peer Assignments
     weight: 2
 type: docs
 weight: 2

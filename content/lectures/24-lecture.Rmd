@@ -1,6 +1,6 @@
 ---
 title: "Correlations"
-linktitle: "24: Correlations"
+linktitle: "Correlations"
 menu:
   lectures:
     parent: Statistics

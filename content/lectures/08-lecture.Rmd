@@ -1,6 +1,6 @@
 ---
 title: "Review & Random"
-linktitle: "8: R & R"
+linktitle: "R & R"
 menu:
   lectures:
     parent: The Basics

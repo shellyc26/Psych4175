@@ -1,10 +1,10 @@
 ---
 title: "Advanced Statistical Methods"
-linktitle: "31: Advanced Stats"
+linktitle: "Advanced Stats"
 menu:
   lectures:
-    parent: Advanced Topics
-    weight: 6
+    parent: Statistics
+    weight: 8
 type: docs
 slides: "31-slides"
 output:

@@ -16,11 +16,7 @@ The assignments in this section are meant to give you even more practice. To ear
 
 ### Submitting 
 
-You should complete the assignments on your local computer. You will upload **both** your code and dataset files directly to our [Canvas site](https://wustl.instructure.com/courses/53735) to be graded.
-
-For your code file, please name it `LastName_A#_Code.R`. For example, if I was turning in Assignment 1, it would be `Cooper_A1_Code.R`.
-
-Similarly, for your data file, please name it `LastName_Data.csv`. 
+You should complete the assignments on your local computer. You will upload code directly to our [Canvas site](https://wustl.instructure.com/courses/72704) to be graded. If you use a dataset that is different from the ones I've provided, then you must also submit that dataset (see below).
 
 ### Dataset
 
@@ -32,7 +28,7 @@ In a perfect world, you would use your own research dataset. However, in order f
   - Ideally, the columns would be objects of different classes. Most importantly however is that there are **at least 3 columns** that would be considered **numeric or integer**. There should also be **1 or 2** columns that are **characters**. Of these, I would like at least **1 column** to be a categorical variable. 
   - _**This must be de-identified!**_ It is fine for coded IDs to be included (e.g., SubjectID etc.). However, please no identifying information. This includes names, family structures, zip codes and more. If your dataset has any of these items and you don't know how to get rid of them, please email me ASAP!
 
-If you do not have a dataset that meets these criteria, please email me ASAP and I will supply you with one.
+If you want to use a dataset but are unsure if it meets these qualifications, please email me ASAP and we can work through it. 
 
 :::warning
 The struggle is real when it comes to code. You might not get something at first, but that's OK! Use Google! If after 2-3 hours, you're still stuck on something, then reach out to me and I'll be happy to help. But the struggle is where all the learning takes place!

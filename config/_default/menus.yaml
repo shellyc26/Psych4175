@@ -22,9 +22,9 @@ lectures:
     weight: 2
   - name: Tidyverse
     weight: 3
-  - name: Reproducibility
-    weight: 4
   - name: Data Viz
+    weight: 4
+  - name: Reproducibility
     weight: 5
   - name: Statistics
     weight: 6
@@ -37,9 +37,9 @@ practice:
     weight: 2
   - name: Tidyverse
     weight: 3
-  - name: Reproducibility
-    weight: 4
   - name: Data Viz
+    weight: 4
+  - name: Reproducibility
     weight: 5
   - name: Statistics
     weight: 6
@@ -50,7 +50,7 @@ assignment:
     weight: 1
   - name: Assignments
     weight: 2
-  - name: Mini Assignments
+  - name: Peer Assignments
     weight: 3
   - name: Final Assignment
     weight: 4

@@ -1,6 +1,6 @@
 ---
 title: "Power Plus"
-linktitle: "23: Power+"
+linktitle: "Power+"
 menu:
   lectures:
     parent: Statistics

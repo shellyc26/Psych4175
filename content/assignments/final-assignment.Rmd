@@ -2,8 +2,8 @@
 title: "Final Assignment"
 linktitle: "Final"
 date: "12/14/2020"
-due_date: "2021-05-13"
-due_time: "2:30pm"
+due_date: "2021-12-20"
+due_time: "11:59pm"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
@@ -37,11 +37,11 @@ For the purposes of this class and this final project, I am providing you with a
 
 You should use the data dictionary for more information on each column. 
 
-You can find the grading rubric on Canvas. This assignment is worth **20 points total**
+You can find the grading rubric on Canvas. This assignment is worth **15 points total**
 
-- Each of the 4 sections are worth 5 points each in total
-- 3 of the points will be for accuracy (including code and interpretations)
-- 2 points will be for pretty code (is it easy to read, do your naming conventions make sense, do you go to new lines when appropriate, is it easy to reproduce your code etc.). 
+- Each of the 4 sections are worth 3.75 points each in total
+- 2.5 of the points will be for accuracy (including code and interpretations)
+- 1.25 points will be for pretty code (is it easy to read, do your naming conventions make sense, do you go to new lines when appropriate, is it easy to reproduce your code etc.). 
 
 :::note
 
@@ -74,7 +74,7 @@ Here's what it needs to look like:
 **Demographic Dataset**
 
 - This one contains socioeconomic status values. You are not concerned with those values. You only want `Subject`, `Gender`, and `Age` columns. 
-- At some point, you will need to use the following line in your code. You should copy/paste this directly. Where you put it is up to you. It replaces dots with dashes. `mutate_at(vars("Age"), ~str_replace(string = ., pattern = "\\.", replacement = "-"))`
+- At some point, you might need to use the following line in your code. You should copy/paste this directly. Where you put it is up to you. It replaces dots with dashes. `mutate_at(vars("Age"), ~str_replace(string = ., pattern = "\\.", replacement = "-"))` *(please note that you don't have to use this, but depending on the approach you take, you might find it helpful)*
 - One of the age groups should be `36+`. You might need to recode a variable in order to do this.
 
 **Cognitive Dataset**
@@ -139,7 +139,7 @@ In Psychology and Neuroscience, we aim for 80% statistical power. You are going 
 
 ##### CONGRATULATIONS!
 
-Once this is submitted, you will have officially completed the class. Thank you for a wonderful (albeit super strange) semester! You've all worked really hard, and hopefully you feel like you've gained a new, useful skill. You can always email me if you have `R` or stats related questions. Keep in touch and best of luck!
+Once this is submitted, you will have officially completed the class. Thank you for a wonderful semester! You've all worked really hard, and hopefully you feel like you've gained a new, useful skill. You can always email me if you have `R` or stats related questions. Keep in touch and best of luck!
 
 -Shelly
 

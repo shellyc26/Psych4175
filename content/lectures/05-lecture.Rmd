@@ -1,10 +1,10 @@
 ---
 title: "Acting On Variables"
-linktitle: "5: Functions + Help"
+linktitle: "Functions + Help"
 menu:
   lectures:
     parent: The Basics
-    weight: 6
+    weight: 7
 type: docs
 slides: "05-slides"
 output:

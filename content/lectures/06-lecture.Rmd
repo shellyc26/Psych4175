@@ -1,10 +1,10 @@
 ---
 title: "Packages"
-linktitle: "6: Packages"
+linktitle: "Packages"
 menu:
   lectures:
     parent: The Basics
-    weight: 7
+    weight: 8
 type: docs
 slides: "06-slides"
 output:

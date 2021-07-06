@@ -1,6 +1,6 @@
 ---
 title: "Customize Your Plots"
-linktitle: "17: Customization"
+linktitle: "Customization"
 menu:
   lectures:
     parent: Data Viz

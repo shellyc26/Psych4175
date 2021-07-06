@@ -1,6 +1,6 @@
 ---
 title: "Descriptives - Redux"
-linktitle: "20: Descriptives"
+linktitle: "Descriptives"
 menu:
   lectures:
     parent: Statistics

@@ -1,10 +1,10 @@
 ---
 title: "Objects"
-linktitle: "2: Objects"
+linktitle: "Objects"
 menu:
   lectures:
     parent: The Basics
-    weight: 3
+    weight: 4
 type: docs
 slides: "02-slides"
 output:

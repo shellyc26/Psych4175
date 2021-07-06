@@ -1,16 +1,18 @@
 ---
-title: "Mini Assignment 3"
-author: "YOUR NAME HERE"
+title: "Peer Assignment 3"
+author:
+  - Your Name, Primary
+  - Buddy's Name, Peer
 output: html_document
 ---
 
 ## How this works
-This mini assignment is on the topic of *simulating data*. There are 4 problems, each ramping up in terms of difficulty and points:
+This peer assignment is on the topic of *simulating data*. There are 4 problems, each ramping up in terms of difficulty and points:
 
-- Easiest, .5 points
-- A little harder, 1 point
-- A little harder still, 1.5 points
-- Hardest, 2 points
+- Easiest, 1 point
+- A little harder, 2 points
+- A little harder still, 3 points
+- Hardest, 4 points
 
 You need to edit the code chunks to create the correct output. **You will be graded on accuracy!** Specifically, you need to get the correct output.
 
@@ -31,7 +33,7 @@ set.seed(4175)
 library(ggplot2)
 ```
 
-## Question 1 (.5 points)
+## Question 1 (1 point)
 
 You are the new Psych 300 Introduction to Statistics professor. You want to show your students that the normal distribution is actually a family of distributions. Even if they have the same mean and similar features (symmetric, unimodal etc.), they might look quite different. 
 
@@ -45,7 +47,7 @@ Your goal is to make a plot of overlapping density distributions, where 1 of the
 # plot
 ```
 
-## Question 2 (1 point)
+## Question 2 (2 points)
 
 You're still the professor of the stats class. Now, you want to show that if you are comparing 2 means via a $t$-test, the results of that test might differ based on how much variability there is in each group. 
 
@@ -64,7 +66,7 @@ After simulating the data, then run the 2 $t$-tests and print out the results.
 ```
 
 
-## Question 3 (1.5 points)
+## Question 3 (3 points)
 
 Still the stats professor. One of your students asks what happens to correlations if there is a lot of measurement error. Rather than going through lots of formulas, you decide to show them what happens via a simulation. To do this, you're going to create a dataset using the `rnorm_multi` function from the `faux` package (install if you don't already have it -- make sure that the line `install.packages()` is commented out though). Set the following arguments (and look at the help page!):
 
@@ -94,7 +96,7 @@ You should be able to show your students that if you add in random noise (which 
 
 ```
 
-## Question 4 (2 points)
+## Question 4 (4 points)
 
 You are still the King/Queen of stats. You are a reviewer for a manuscript, where the study ran a $t$-test where each group had 25 participants and the reported effect size was .7. The paper claims that they achieved at least 80% power (using standard alpha = .05). You do not agree, so you decide to simulate power given their sample size and effect size.
 

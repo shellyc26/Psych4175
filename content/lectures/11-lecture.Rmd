@@ -1,6 +1,6 @@
 ---
 title: "Dplyr Functions"
-linktitle: "11: Dplyr"
+linktitle: "Dplyr"
 menu:
   lectures:
     parent: Tidyverse

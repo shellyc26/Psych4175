@@ -1,6 +1,6 @@
 ---
 title: "Welcome to the Tidyverse"
-linktitle: "10: Intro to Tidyverse"
+linktitle: "Intro to Tidyverse"
 menu:
   lectures:
     parent: Tidyverse

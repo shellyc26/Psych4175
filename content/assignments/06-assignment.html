@@ -2,8 +2,8 @@
 title: "Assignment 6"
 linktitle: "# 6"
 date: "6/16/2020"
-due_date: "2021-03-09"
-due_time: "2:30pm"
+due_date: "2021-10-25"
+due_time: "1:00pm"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
@@ -56,10 +56,10 @@ editor_options:
 <h4>Binomial Distribution</h4>
 <p>This is a theoretical probability distribution (like the normal) that is appropriate when you want to model your expected outcome (X) over a pre-specified number of times (N). However, X, your outcome, must be BINARY (success/failure). For each of your N trials, each trial needs to be independent. The classic example is flipping a coin. The outcomes is binary – it’s either heads or tails. And each trial is independent meaning that if you get a <em>heads</em> on the first toss, that does not influence whether you will get a <em>heads</em> or <em>tails</em> on the next toss. We also need to know how many times we are flipping the coin. Same thing goes for rolling a dice, where rolling the number 6 is considered a “success”.</p>
 <p>All this sounds very hypothetical, but it’s actually quite useful! For instance, let’s say you run a study on bilingual adults, and you want to know if their reading comprehension in their second language is as good as their first language. You ask them to read a book in their second language and then give them a 20-item multiple choice question exam where the questions are all about that book. Each question has 4 options A, B, C, or D. Getting 14 correct out of 20 items is considered “passing”. However, you are concerned that your study participants might do well by chance alone. You don’t want your participants to pass the multiple choice test if they just showed up for the exam and guessed on each question. So we want to know how likely is it that a guesser would score above the minimum passing threshold (get 14 out of 20 correct)? We can use the binomial distribution where success is 14 or higher and failure is 13 or lower, we have 20 trials, and the probability of each option is the same per trial (that is, the probability of A, B, C, or D is .25 each).</p>
-<p><strong>Copy/paste this entire code chunk into your .Rmd file</strong></p>
+<p><strong>Copy/paste this entire code chunk into your .Rmd file.</strong></p>
 <pre class="r"><code>set.seed(4175)
 
-# let&#39;s create our dataset
+# Let&#39;s create our dataset!
 # We will first have a column for the test score (getting a 0/20, 1/20, 2/20 etc.)
 # Then we will have the probability of getting that test score
 

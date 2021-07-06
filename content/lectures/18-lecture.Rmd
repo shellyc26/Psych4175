@@ -1,6 +1,6 @@
 ---
 title: "Multipanel Figures & Adding To Your Plot"
-linktitle: "18: MultiPanel & Additions"
+linktitle: "MultiPanel & Additions"
 menu:
   lectures:
     parent: Data Viz

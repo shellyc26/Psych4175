@@ -1,6 +1,6 @@
 ---
 title: "Intro to Data Visualization"
-linktitle: "16: Intro to Data Viz"
+linktitle: "Intro to Data Viz"
 menu:
   lectures:
     parent: Data Viz

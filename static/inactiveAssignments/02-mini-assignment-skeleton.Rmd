@@ -1,16 +1,18 @@
 ---
-title: "Mini Assignment 2"
-author: "YOUR NAME HERE"
+title: "Peer Assignment 2"
+author:
+  - Your Name, Primary
+  - Buddy's Name, Peer
 output: html_document
 ---
 
 ## How this works
-This mini assignment is on the topic of *writing your own functions*. There are 4 problems, each ramping up in terms of difficulty and points:
+This peer assignment is on the topic of *writing your own functions*. There are 4 problems, each ramping up in terms of difficulty and points:
 
-- Easiest, .5 points
-- A little harder, 1 point
-- A little harder still, 1.5 points
-- Hardest, 2 points
+- Easiest, 1 point
+- A little harder, 2 points
+- A little harder still, 3 points
+- Hardest, 4 points
 
 You need to edit the code chunks to create the correct output. **You will be graded on accuracy!** Specifically, you need to get the correct output.
 
@@ -20,7 +22,7 @@ You've all been doing great this semester, so I am confident you will do well on
 
 Let's get to it!
 
-## Question 1 (.5 points)
+## Question 1 (1 point)
 
 Below I am creating a vector of reaction times in milliseconds. 
 ```{r}
@@ -50,7 +52,7 @@ cleanedRT <- rtRemoval(rt = rt, min = 250, max = 3000)
 cleanedRT
 ```
 
-## Question 2 (1 point) 
+## Question 2 (2 points) 
 
 Logistic regression is a type of regression that is used when your outcome (dependent variable) is binary, meaning it's coded as either a 0 or a 1. Logistic regression is great, but it has one problem. Rather than giving you "predicted values" of your outcome, it gives you something called "predicted logits". A logits is the natural log of **odds** (as in, betting style odds).
 
@@ -100,7 +102,7 @@ vec <- seq(from = .01, to = 1.5, by = .15)
 
 ```
 
-## Question 3 (1.5 points) 
+## Question 3 (3 points) 
 
 You magically become a professor overnight. Write a function that tells you what your students' final grades will be, if they get a ___ score on their final exam. 
 
@@ -157,7 +159,7 @@ _**Print the results of each run of this function so that I can see at least the
 
 (Once you solve this, you might want to save it so that you can use it with future classes!)
 
-## Question 4 (2 points) 
+## Question 4 (4 points) 
 
 Write a function that takes in a data.frame and then automatically makes a scatter plot. Your plot should include:
 

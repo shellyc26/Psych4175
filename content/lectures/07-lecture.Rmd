@@ -1,10 +1,10 @@
 ---
 title: "Loading Files"
-linktitle: "7: Loading Files"
+linktitle: "Loading Files"
 menu:
   lectures:
     parent: The Basics
-    weight: 8
+    weight: 3
 type: docs
 slides: "07-slides"
 output:

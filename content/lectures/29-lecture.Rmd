@@ -1,10 +1,10 @@
 ---
 title: "Simulating Data"
-linktitle: "29: Simulation"
+linktitle: "Simulation"
 menu:
   lectures:
     parent: Advanced Topics
-    weight: 3
+    weight: 4
 type: docs
 slides: "29-slides"
 output:
