@@ -28,11 +28,12 @@ Programming is increasingly becoming a demanding skill across a wide variety of 
 *My goal is to get you to the point where you can effectively Google `R`-related questions and mostly understand the results.* 
 
 ## What do you need for this course?
-You'll need 3 things:
+You'll need 4 things:
 
   1. You need `R` and it's buddy `RStudio`. The first lecture video will show you how to install these.
   2. You need this website -- most of the content will take place on this website.
   3. You need access to our class Canvas page. This is where your you'll submit your assignments and complete your code reviews.
+  4. You need access to our Slack workspace. This is where we will mainly communicate. You can post to threads that the entire class can see (akin to raising your hand to ask a question), or you can directly message me. We can share code snippets, and I will answer questions here. The goal is that Slack replaces email for class-related, non-sensitive topics. 
   
 ## How do I get a good grade?
 There are no exams! Hooray! To get a good grade in this class, you simply need to do the following:
@@ -45,24 +46,23 @@ There are no exams! Hooray! To get a good grade in this class, you simply need t
     
   - **Peer Reviews** After each homework assignment, you will be randomly assigned to a peer in your class, and you will review the code from each other's homework assignment. You will fill out several discussion prompts on Canvas about your peer's code. The goal is for you to gain experience in reading other peoples’ code and for you to obtain consistent feedback from someone other than the instructor.
     - Each peer review assignment will be worth 10 points and there will be 4 of them for a total of **40 points** possible.
-    - Points will be taken away if the prompts are not completely answered. For example, if I ask for 2 good things about your peers’ code, and you only provide 1 example, points will be taken away from your code review assignment. 
-    
+    - Points will be taken away if the prompts are not completely answered. For example, if I ask for 2 good things about your peers’ code, and you only provide 1 example, points will be taken away from your code review assignment. Please note that I provide the prompts and you need to answer exactly those questions! This is not a free for all code review.
 
 $$ \text{Homeworks (60pts) + Peer Reviews (40pts)} = \text{100 Total Points}$$
 
-## COVID-19 & How to be OK
-*(This section was created, albeit slightly modified, from [this awesome tweet by Dr. Chris Jones](https://twitter.com/ProfChrisMJones/status/1282036533562834944). And, you know, the state of the world.)*
+## Learning From a Crappy Year
+The 2020-2021 academic year sucked. But instead of burying our heads in the sand and forgetting it existed, let's at least extract some things and incorporate them into our lives. For this class, here’s what that means:
 
-In case you hadn’t noticed, there is a **_global pandemic_**. None of us are really “OK”. If you tell me you’re having trouble, I’m not going to judge you or think less of you. I hope you’ll extend me the same grace. 
+  - It is OK to not be OK. If you tell me you’re having trouble, I'm not going to judge you or think less of you. I hope you will do the same for me. I will work with you to make sure we have a reasonable plan in place should something come up. However, this does require you telling me "hey, I'm not OK".
+  - You are always welcome to come talk to me about things that you're going through. If I can't help you, I usually know someone who can help – or I can at least give you some resources and point you in the right direction.
+  - If you are struggling or need extra help, please just ask. I promise I will work with you.
 
-Let’s set the stage:
+Last year was lonely. And since this class is asynchronous and remote, it might be lonely again this semester. Here's how we're going to combat this:
 
-  -	You never owe me personal information about your health (mental or physical), or anything else. Since this course is entirely online, we do not have to worry about the whole class physically distancing or needing to go into quarantine if one of us is exposed.
-  -	You are always welcome to come talk to me about things that you’re going through, however.
-  -	If I can’t help you, I usually know somebody who can.
-  -	If you need extra help or you need more time with something, just ask. I’ll work with you. Promise. 
-  
-### Online Etiquette
+  - Your peer review will be with the same person for all 5 weeks. This way, you'll get to know your buddy. Take advantage of this! Be friends!
+  - We will have a dedicated class Slack workspace (see homepage for link). You can post questions that everyone can see, or make use of direct messaging. Shelly will respond to your questions on Slack (if your peers don't respond first!). This is really great for one-off questions, or if you need some quick clarification on something. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you're learning a skill like coding, in which you'll repeatedly fail. Slack is not required *per se*, but it is **highly encouraged**.
+
+## Online Etiquette
 We will be making use of discussion threads on Canvas. Students are expected to maintain a polite and respectful tone in their online discourse. Some things to consider:
 
   -	Any communication shared privately may become public, so be mindful of what you share in discussion boards or chats. This is especially true for sharing any personal and/or identifying information about you or someone else. Do not share any passwords or divulge any personal information (yours or others) that can be used in a malicious manner (phone numbers, addresses etc.).
@@ -71,7 +71,7 @@ We will be making use of discussion threads on Canvas. Students are expected to 
   -	Treat your classmates and professor with kindness and respect. Any indication of online harassment or bullying will not be tolerated and will be reported. This is especially pertinent when giving constructive feedback in code reviews.
   - Please avoid using ALL CAPS because it can be interpreted as yelling.
 
-### Academic Policies & Resources
+## Academic Policies & Resources
 - [University Code of Conduct](https://wustl.edu/about/compliance-policies/academic-policies/university-student-judicial-code/)
   - Any student found guilty of academic misconduct, such as cheating, plagiarizing, forgery, or furnishing false information to a University official will be subject to consequences including failing the class, suspension from the University, or expulsion from the University.
   
