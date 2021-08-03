@@ -16,23 +16,21 @@ The assignments in this section are meant to give you even more practice. To ear
 
 ### Submitting 
 
-You should complete the assignments on your local computer. You will upload **both** your code and dataset files directly to our [Canvas site](https://wustl.instructure.com/courses/53735) to be graded.
+You should complete the assignments on your local computer (or a computer on campus). You **MUST** upload your code file. If you used one of the datasets I have provided, you do *not* need to upload it. If you used your own dataset, then you *must* upload that in addition to your code file.
 
-For your code file, please name it `LastName_A#_Code.R`. For example, if I was turning in Assignment 1, it would be `Cooper_A1_Code.R`.
-
-Similarly, for your data file, please name it `LastName_Data.csv`. 
+You will upload everything to [Canvas](https://wustl.instructure.com/courses/75386), but you need to do it **twice**. The first must be in the Assignments tab, and the second must be in your Peer Review Discussion Board, so that your buddy can review your code.
 
 ### Dataset
 
-In a perfect world, you would use your own research dataset. However, in order for you to practice all the different elements we cover in the lectures, your dataset should have the following characteristics: 
+I will provide some datasets for you to use on Canvas. But, in a perfect world, you would use your own research dataset. However, in order for you to practice all the different elements we cover in the lectures, your dataset should have the following characteristics: 
 
   - It should be in either a **.csv** or **.txt** file format. This is typical of most datasets. If it is *not* in either of these formats, and you don't know how to convert it, please email me ASAP. 
   - It should contain rows and columns:
     - There must be *at least* **20 observations (rows)**. If you have a very long dataset (several hundred or thousands of rows), you may shorten it for the purposes of these assignments.
   - Ideally, the columns would be objects of different classes. Most importantly however is that there are **at least 3 columns** that would be considered **numeric or integer**. There should also be **1 or 2** columns that are **characters**. Of these, I would like at least **1 column** to be a categorical variable. 
-  - _**This must be de-identified!**_ It is fine for coded IDs to be included (e.g., SubjectID etc.). However, please no identifying information. This includes names, family structures, zip codes and more. If your dataset has any of these items and you don't know how to get rid of them, please email me ASAP!
+  - _**This must be de-identified!**_ It is fine for coded IDs to be included (e.g., SubjectID etc.). However, please no identifying information. This includes names, family structures, zip codes and more. If your dataset has any of these items and you don't know how to get rid of them, please get in touch with me ASAP!
 
-If you do not have a dataset that meets these criteria, please email me ASAP and I will supply you with one.
+If you have a research dataset that you would like to work with, but you are unsure if it meets the criteria (or it needs some adjustments, but would otherwise work), please get in touch with me ASAP!
 
 :::warning
 The struggle is real when it comes to code. You might not get something at first, but that's OK! Use Google! If after 2-3 hours, you're still stuck on something, then reach out to me and I'll be happy to help. But the struggle is where all the learning takes place!
