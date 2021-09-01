@@ -1,15 +1,15 @@
 ---
 title: "Practice Set: Objects"
-linktitle: "2: Objects"
+linktitle: "Objects"
 output:
   blogdown::html_page:
     toc: true
 menu:
   practice:
     parent: The Basics
-    weight: 2
+    weight: 3
 type: docs
-weight: 2
+weight: 3
 editor_options: 
   chunk_output_type: console
 shiny: true

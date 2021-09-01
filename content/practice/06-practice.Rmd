@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Packages"
-linktitle: "6: Packages"
+linktitle: "Packages"
 output:
   blogdown::html_page:
     toc: true
@@ -8,9 +8,9 @@ output:
 menu:
   practice:
     parent: The Basics
-    weight: 6
+    weight: 7
 type: docs
-weight: 6
+weight: 7
 editor_options: 
   chunk_output_type: console
 shiny: true

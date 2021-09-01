@@ -1,436 +1,212 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>/assignments/01-assignment/</loc>
-  </url>
-  
   <url>
     <loc>/practice/27-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/assignments/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/lectures/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/01-mini-assignment/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/02-assignment/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/28-practice/</loc>
-  </url>
-  
-  <url>
-    <loc>/practice/02-practice/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/02-mini-assignment/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/03-mini-assignment/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/03-assignment/</loc>
-  </url>
-  
-  <url>
-    <loc>/practice/03-practice/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/04-assignment/</loc>
-  </url>
-  
-  <url>
-    <loc>/practice/04-practice/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/05-assignment/</loc>
-  </url>
-  
-  <url>
-    <loc>/practice/05-practice/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/06-assignment/</loc>
-  </url>
-  
-  <url>
-    <loc>/practice/06-practice/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/07-assignment/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/07-practice/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/08-assignment/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/practice/02-practice/</loc>
+  </url><url>
+    <loc>/practice/03-practice/</loc>
+  </url><url>
+    <loc>/practice/05-practice/</loc>
+  </url><url>
+    <loc>/practice/04-practice/</loc>
+  </url><url>
+    <loc>/practice/06-practice/</loc>
+  </url><url>
     <loc>/practice/08-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/09-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/10-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/11-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/12-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/13-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/14-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/15-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/16-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/17-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/18-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/practice/19-practice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/talk/example/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/writing-technical-content/</loc>
     <lastmod>2019-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication-type/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication/preprint/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/authors/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/author/nelson-bighetti/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication_types/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tag/source-themes/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/jupyter/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tag/academic/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/getting-started/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/category/demo/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/author/%E5%90%B3%E6%81%A9%E9%81%94/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tag/%E5%BC%80%E6%BA%90/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/category/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication-type/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication/journal-article/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/author/robert-ford/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/2015-07-23-r-rmarkdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tag/plot/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/category/r/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tag/r-markdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tag/regression/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication-type/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication/conference-paper/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/lectures/00-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/10-lecture/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/lectures/31-lecture/</loc>
+  </url><url>
+    <loc>/lectures/22-lecture/</loc>
+  </url><url>
+    <loc>/lectures/24-lecture/</loc>
+  </url><url>
+    <loc>/lectures/17-lecture/</loc>
+  </url><url>
+    <loc>/lectures/26-lecture/</loc>
+  </url><url>
+    <loc>/lectures/20-lecture/</loc>
+  </url><url>
     <loc>/lectures/11-lecture/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/lectures/15-lecture/</loc>
+  </url><url>
+    <loc>/lectures/27-lecture/</loc>
+  </url><url>
+    <loc>/lectures/28-lecture/</loc>
+  </url><url>
+    <loc>/lectures/05-lecture/</loc>
+  </url><url>
+    <loc>/lectures/03-lecture/</loc>
+  </url><url>
+    <loc>/lectures/00-lecture/</loc>
+  </url><url>
+    <loc>/lectures/30-lecture/</loc>
+  </url><url>
+    <loc>/lectures/16-lecture/</loc>
+  </url><url>
+    <loc>/lectures/13-lecture/</loc>
+  </url><url>
+    <loc>/lectures/10-lecture/</loc>
+  </url><url>
+    <loc>/lectures/19-lecture/</loc>
+  </url><url>
+    <loc>/lectures/07-lecture/</loc>
+  </url><url>
+    <loc>/lectures/18-lecture/</loc>
+  </url><url>
+    <loc>/lectures/21-lecture/</loc>
+  </url><url>
+    <loc>/lectures/02-lecture/</loc>
+  </url><url>
+    <loc>/lectures/04-lecture/</loc>
+  </url><url>
+    <loc>/lectures/06-lecture/</loc>
+  </url><url>
+    <loc>/lectures/23-lecture/</loc>
+  </url><url>
+    <loc>/lectures/08-lecture/</loc>
+  </url><url>
+    <loc>/lectures/25-lecture/</loc>
+  </url><url>
+    <loc>/lectures/14-lecture/</loc>
+  </url><url>
+    <loc>/lectures/01-lecture/</loc>
+  </url><url>
+    <loc>/schedule/</loc>
+  </url><url>
+    <loc>/lectures/29-lecture/</loc>
+  </url><url>
+    <loc>/lectures/09-lecture/</loc>
+  </url><url>
+    <loc>/syllabus/</loc>
+  </url><url>
     <loc>/lectures/12-lecture/</loc>
   </url>
-  
-  <url>
-    <loc>/lectures/13-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/14-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/15-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/16-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/17-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/18-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/19-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/01-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/20-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/21-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/22-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/23-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/24-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/25-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/26-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/27-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/28-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/29-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/02-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/30-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/31-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/03-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/04-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/05-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/06-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/07-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/08-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/lectures/09-lecture/</loc>
-  </url>
-  
-  <url>
-    <loc>/assignments/final-assignment/</loc>
-  </url>
-  
-  <url>
-    <loc>/schedule/</loc>
-  </url>
-  
-  <url>
-    <loc>/syllabus/</loc>
-  </url>
-  
 </urlset>

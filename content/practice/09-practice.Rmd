@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Statistics & Plotting"
-linktitle: "9: Stats & Plot"
+linktitle: "Stats & Plot"
 output:
   blogdown::html_page:
     toc: true
