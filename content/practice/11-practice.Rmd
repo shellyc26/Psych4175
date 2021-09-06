@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Dplyr"
-linktitle: "11: Dplyr"
+linktitle: "Dplyr"
 output:
   blogdown::html_page:
     toc: true

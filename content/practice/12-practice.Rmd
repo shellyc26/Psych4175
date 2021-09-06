@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Tidyr"
-linktitle: "12: Tidyr"
+linktitle: "Tidyr"
 output:
   blogdown::html_page:
     toc: true
