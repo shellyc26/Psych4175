@@ -1,0 +1,130 @@
+---
+title: "Assignment 2"
+linktitle: "# 2"
+date: "6/16/2020"
+due_date: "2021-09-27"
+due_time: "1:00pm"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 2
+type: docs
+weight: 2
+editor_options: 
+  chunk_output_type: console
+---
+
+Let's get to it!
+
+### Introduction: Script Prep
+
+Before running any code, you want to make sure that you have the proper packages **installed**. This requires an internet connection (preferably a strong one - not a coffee shop connection)! The **loading** of packages does *not* require an internet connection.
+
+::: {.list}
+Here's your to-do list:
+
+-   Below this box is a list of packages that you will need for the rest of this course. Check to see if they are in your Packages tab. If they are *not* there, please install them.
+
+-   Write a comment to tell me how many of the above packages did you install? If it's 3 or more, then you may move on to the next question. If it was less than 3, please install as many as you need so that you have installed at least 3 packages total (this is to give you practice!). See below for some more optional packages.
+
+-   **Load** the `tidyverse` and `psych` packages.
+:::
+
+The *required* packages for this course:
+
+-   `knitr`
+-   `tidyverse` *note that this one installs a lot of stuff - that's OK!*
+-   `psych`
+-   `ggpubr`
+-   `RColorBrewer`
+
+Some *optional* packages:
+
+-   `ez` - nice for within-subjects ANOVA
+-   `lavaan` - structural equation modeling
+-   `ggpredict` - great for plotting complex interactions of continuous variables
+-   `broom` - might be installed with the above packages so double check before installing; useful for converting the output of regressions into data.frames
+-   `lme4` - hierarchical linear modeling (aka multilevel modeling)
+-   `tidymodels` - machine learning *note that this one installs a lot of stuff - that's OK!*
+-   `devtools` - useful for trying out the beta versions of packages or importing data directly from GitHub
+-   `kableExtra` - making prettier tables (works with `knitr`)
+-   `blogdown` - making books and websites in R, like this class website!
+
+### Results: Summary Statistics
+
+In the first assignment, I asked you to manually calculate some summary statistics. This next to-do list will show you a much simpler way of getting summary statistics.
+
+::: {.list}
+Here's your to-do list:
+
+-   Import your dataset. Make sure all the variables that should be `factors` are treated as such.
+
+-   Use the `describe()` function to get summary statistics of your numeric/integer columns *only*. You do not need to include things like participant ID in this -- just the variables you might care about in an actual analysis.
+
+-   Modify one of it's arguments so that it also shows the interquartile range. Do NOT calculate the interquartile range by hand.
+
+-   Now use `describeBy()` with one of your categorical variables. Write a comment telling me what changes?
+
+-   Finally, use the `summary()` function on the entire data.frame (keep it simple with `summary(data)`). Write a comment telling me if you prefer the `describe`/`describeBy` functions or the `summary` function? There is no right answer here. I just want to know your preference and why.
+:::
+
+### Results: Fun With Statistics
+
+Let's have some good old fashioned nerdy fun with statistics.
+
+::: {.list}
+Here's your to-do list:
+
+-   Pick 2 of your numeric/integer variables (preferably 2 that you think might be related). Get the covariance of these variables using `cov()`. You may choose to store this as a new object or simply print it out to the console.
+
+-   Now take those same 2 variables, and get the z-scores of each variable. You may use the `scale()` function that we've previously used or you can do it in a different manner. Store these as a new data.frame. That is, you should end up with a data.frame that has 2 columns. Column 1 contains the z-scores of the first variable, and column 2 contains the z-scores of the second variable.
+
+-   Now get the covariance of your *new* data.frame. The one that has z-scores. Again, you may store this as a new object or simply print it out to the console.
+
+-   Finally, get the correlation of the two variables from the original data.frame (*not* the one with z-scores). Use the `cor()` function. Compare this correlation to the different covariances. Write a comment telling me what you notice? Do you remember your statistics class? `r emo::ji("wink")`
+:::
+
+### Results: Plot Your Data
+
+Now for the crux of almost every academic paper! Plotting!
+
+::: {.list}
+Here's your to-do list:
+
+-   You will be making plots using `ggplot2` code. As long as you have loaded the `tidyverse` package, you should be able to run these easily. However, check to make sure that there is a check mark `r emo::ji("check")` next to the `ggplot2` package under the Packages tab. If it is unchecked, then please load it.
+
+-   Make a scatterplot of the 2 variables from your original data.frame. Make sure the points are *not* the color black. Specify a new color of your choice.
+
+-   Make a scatterplot of the 2 variables from your *z-scored* data.frame. Write a comment telling me the difference between this plot and the one you just made.
+
+-   Finally, make a scatter plot of the 2 original variables, make the colors AND the shapes based on one of your categorical variables.
+
+    -   Add the following *layer* to your plot `geom_smooth(method = "lm", aes(color = yourFactorVariable))` Write a comment telling me if there are different relationships for each category?
+:::
+
+### Results: Influence of Outliers
+
+Outliers can be a real pain in the butt for researchers. One challenge that researchers face is determining which observations are actually outliers to begin with. That is, are they real scores that we should consider? Or are they an artifact of something else? One common way of defining an outlier is to say *let's treat any score that is more than 2 standard deviations away from the mean as an outlier*. That's what you're going to do here, using the *same* 2 variables that you used above in your scatterplots (use the variables that are not z-scores).
+
+::: {.list}
+Here's your to-do list:
+
+-   Make a new data.frame that contains all of your columns from the original, but remove the rows that contain outliers -- as defined as being more than 2 standard deviations away from the mean.
+
+-   Now I want you to remake the 3rd plot from above, but now using this new dataset where the outliers are removed. (Include the `geom_smooth(method = "lm", aes(color = yourFactorVariable))` layer) Compare the two plots. Are the trends different now that you've removed the outliers?
+:::
+
+Here are some HINTS on how to do this:
+
+-   Use **multiple logical operators** that are then **nested** within a function. You may choose to use indexing or you may choose to use a function instead (it's one we covered in lectures).
+-   "Away from the mean" can be in two directions. That is, you can have outliers because values are too high or too low.
+
+
+*General Note On Outliers: I am __not__* suggesting that this "2 standard deviations away from the mean" method is the _correct_ way of defining an outlier. How you define outliers is completely dependent upon the data. Similarly, removing outliers is one option for handling them, but it is __not__ the *only* option. How you want to handle outliers in your own research should be discussed with your colleagues before any statistical analyses are performed (and ideally before data collection begins).
+
+### BOOM! It's over!
+
+Submit both your code to Canvas (as an Assignment and as an attachment on the peer review discussion board)
