@@ -257,3 +257,10 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: var(--black);
 }
 
+.img_top_right {
+  position: absolute;
+  width: 100px;
+  top: 0;
+  right: 0;
+}
+.img_top_right p{margin: 0;}

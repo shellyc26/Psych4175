@@ -24,7 +24,6 @@ This lecture will use a world happiness dataset. If you want to play along, you 
 - [<i class="fas fa-file-csv"></i> `world_happiness_2015.csv`](/slides/20-slides_files/world_happiness_2015.csv)
 
 
-
 ## Slides
 
 `r blogdown::shortcode("slide-buttons")`
@@ -42,4 +41,19 @@ sections <- tibble::tribble(
   "Standardization", "zs", FALSE
 )
 slide_tabs(sections, "/slides/20-slides.html")
+```
+
+## Extra Slides for Week 8
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs2, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Data Types and Validity", "1", TRUE
+)
+slide_tabs(sections, "/slides/ExtraSlides-Week8.html")
 ```
