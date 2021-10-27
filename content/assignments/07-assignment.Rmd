@@ -37,10 +37,11 @@ Here's your to-do list:
 
 - Conduct 3 hypothesis tests from your dataset. Choose any statistical tests that come from the `Comparing Means` lecture. For each of the 3 tests you need to:
     - Give a rationale for why you're looking at this (does it theoretically make sense?; one sentence is OK)
-    - State your hypothesis
+    - State your null and alternative hypotheses
     - Have a code chunk running the test and printing out the results
     - Make a plot that shows the effect for each of your 3 tests
-    - Write 2-5 sentences interpreting the results including interpreting the p-value, and confidence intervals (if shown)
+    - For each test, you must also provide either a confidence interval or a measure of effect size
+    - Write 2-5 sentences per test interpreting the results including interpreting the $p$-value, confidence intervals/effect sizes, graph, and how it fits in to your hypotheses.
 :::
 
 ## Current State of Academia in Psychology and Neuroscience
