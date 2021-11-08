@@ -28,6 +28,214 @@ knitr::knit_hooks$set(source = function(x, options) {
 })
 ```
 
+```{r, warning = FALSE, message = FALSE, echo=FALSE}
+library(here)
+library(tidyverse)
+```
+
+## Categorical predictors
+
+One of the benefits of using regression (instead of partial correlations) is that it can handle both continuous and categorical predictors and allows for using both in the same model.
+
+Categorical predictors with more than two levels are broken up into several smaller variables. In doing so, we take variables that don't have any inherent numerical value to them (i.e., nominal and ordinal variables) and ascribe meaningful numbers that allow for us to calculate meaningful statistics. 
+
+You can choose just about any numbers to represent your categorical variable. However, there are several commonly used methods that result in very useful statistics. 
+
+---
+
+## Dummy coding
+
+In dummy coding, one group is selected to be a reference group. From your single nominal variable with *K* levels, $K-1$ dummy code variables are created; for each new dummy code variable, one of the non-reference groups is assigned 1; all other groups are assigned 0.
+
+.pull-left[
+| Occupation | D1 | D2 |
+|:----------:|:--:|:--:|
+|Engineer | 0 | 0 |
+|Teacher | 1 | 0 |
+|Doctor | 0 | 1 |
+
+The dummy codes are entered as IV's in the regression equation.
+]
+
+--
+
+.pull-right[
+|Person | Occupation | D1 | D2 |
+|:-----|:----------:|:--:|:--:|
+|Billy |Engineer | 0 | 0 |
+|Susan |Teacher | 1 | 0 |
+|Michael |Teacher | 1 | 0 |
+|Molly |Engineer | 0 | 0 |
+|Katie |Doctor | 0 | 1 |
+
+]
+
+
+---
+
+### Example
+Solomon’s paradox describes the tendency for people to reason more wisely about other people’s
+problems compared to their own. One potential explanation for this paradox is that people tend to view
+other people’s problems from a more psychologically distant perspective, whereas they view their own
+problems from a psychologically immersed perspective. To test this possibility, researchers asked romantically-involved participants to think about a situation in which their partner cheated on them (self condition) or a friend’s partner cheated on their friend (other condition). Participants were also instructed to take a first-person perspective (immersed condition) by using pronouns such as I and me, or a third-person perspective (distanced condition) by using pronouns such as he and her.
+
+```{r, results = 'hide', message = F}
+solomon <- read.csv(here::here("R", "solomon.csv"))
+```
+
+ 
+.small[Grossmann, I., & Kross, E. (2014). Exploring Solomon’s paradox: Self-distancing eliminates self-other
+asymmetry in wise reasoning about close relationships in younger and older adults. _Psychological Science, 25_, 1571-1580.]
+
+---
+
+
+```{r}
+psych::describe(solomon[,c("ID", "CONDITION", "WISDOM")], fast = T)
+```
+
+--
+.pull-left[
+```{r table, results = 'asis', message=FALSE, warning=FALSE, eval = F}
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+head(solomon) %>% 
+  select(ID, CONDITION, 
+         WISDOM) %>%
+  kable() %>% kable_styling()
+```
+]
+
+.pull-right[
+```{r, ref.label="table", echo = F, results = 'asis', message=FALSE, warning=FALSE}
+
+```
+
+]
+
+---
+
+```{r}
+solomon = solomon %>%
+  mutate(dummy_2 = ifelse(CONDITION == 2, 1, 0),
+         dummy_3 = ifelse(CONDITION == 3, 1, 0),
+         dummy_4 = ifelse(CONDITION == 4, 1, 0)) 
+solomon %>% 
+  select(ID, CONDITION, WISDOM,
+         matches("dummy")) %>%
+  kable() %>% kable_styling()
+```
+
+---
+
+```{r}
+mod.1 = lm(WISDOM ~ dummy_2 + dummy_3 + dummy_4, data = solomon)
+summary(mod.1)
+```
+
+---
+
+### Interpreting coefficients
+
+When working with dummy codes, the intercept can be interpreted as the mean of the reference group.
+
+$$\begin{aligned} 
+\hat{Y} &= b_0 + b_1D_2 + b_2D_3 + b_3D_2 \\
+\hat{Y} &= b_0 + b_1(0) + b_2(0) + b_3(0) \\
+\hat{Y} &= b_0 \\
+\hat{Y} &= \bar{Y}_{\text{Reference}}
+\end{aligned}$$
+
+What do each of the slope coefficients mean?
+
+---
+
+From this equation, we can get the mean of every single group.
+
+```{r}
+newdata = data.frame(dummy_2 = c(0,1,0,0),
+                     dummy_3 = c(0,0,1,0),
+                     dummy_4 = c(0,0,0,1))
+predict(mod.1, newdata = newdata, se.fit = T)
+```
+
+---
+
+From this equation, we can get the mean of every single group.
+```{r}
+solomon %>% 
+  mutate_at("CONDITION", ~as.factor(.)) %>% 
+  group_by(CONDITION) %>% 
+  drop_na() %>% 
+  summarize(meanWisdom = mean(WISDOM))
+
+```
+---
+
+And the test of the coefficient represents the significance test of each group to the reference. This is an independent-samples *t*-test.
+
+The test of the intercept is the one-sample *t*-test comparing the intercept to 0.
+
+```{r}
+summary(mod.1)$coef
+```
+
+What if you wanted to compare groups 2 and 3?
+
+---
+
+```{r}
+solomon = solomon %>%
+  mutate(dummy_1 = ifelse(CONDITION == 1, 1, 0),
+         dummy_3 = ifelse(CONDITION == 3, 1, 0),
+         dummy_4 = ifelse(CONDITION == 4, 1, 0)) 
+mod.2 = lm(WISDOM ~ dummy_1 + dummy_3 + dummy_4, data = solomon)
+summary(mod.2)
+```
+
+---
+
+### Time savers
+
+Show in `R`!
+
+---
+
+```{r}
+mod.3 = lm(WISDOM ~ CONDITION, data = solomon)
+summary(mod.3)
+```
+
+
+---
+
+### Omnibus test
+
+```{r, highlight.output = 20:21}
+summary(mod.1)
+```
+---
+
+### Omnibus test
+```{r, highlight.output = 20:21}
+summary(mod.2)
+```
+---
+
+### Omnibus test
+```{r, highlight.output = 20:21}
+summary(mod.3)
+```
+---
+
+### Omnibus test
+```{r}
+anova(mod.3)
+```
+
+---
+
 ## What are interactions?
 
 When we have two variables, A and B, in a regression model, we are testing whether these variables have **additive effects** on our outcome, Y. That is, the effect of A on Y is constant over all values of B. 
