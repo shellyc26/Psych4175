@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- [For Loops](https://youtu.be/mBYsfbIfGfs)
+- [For Loops](https://youtu.be/ujYxAORiCgo)
 
 ## Slides
 
