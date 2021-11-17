@@ -20,7 +20,7 @@ editor_options:
 :::list
 Here's the task:
 
-- <i class="fas fa-file"></i> <a href="../miscfigs/figure-html/01-mini-assignment-skeleton.Rmd" download="01-mini-assignment-skeleton.Rmd">Download this RMarkdown file</a>
+- <i class="fas fa-file"></i> <a href="/peerAssignments/rm3.png" download="rm3.png">Download this RMarkdown file</a>
 - Edit the file on your local computer, following all the directions
 - Knit the file to a HTML file
 - Upload your edited .Rmd and the knitted HTML file to Canvas
