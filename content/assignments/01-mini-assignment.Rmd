@@ -17,10 +17,15 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r include=FALSE}
+xfun::pkg_load2(c('htmltools', 'mime'))
+```
+
+
 :::list
 Here's the task:
 
-- <i class="fas fa-file"></i> <a href="/peerAssignments/rm3.png" download="rm3.png">Download this RMarkdown file</a>
+- <i class="fas fa-file"></i> `r xfun::embed_file('01-peer-assignment-skeleton.Rmd')`
 - Edit the file on your local computer, following all the directions
 - Knit the file to a HTML file
 - Upload your edited .Rmd and the knitted HTML file to Canvas

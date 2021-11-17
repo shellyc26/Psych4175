@@ -26,7 +26,7 @@ I have created 2 vectors. One with 5 digit numbers and the other with 4 digit nu
 
 Edit the for loop below to create the output. 
 
-```{r, error= TRUE, warning=FALSE, message=FALSE}
+```{r, eval=FALSE}
 # First, remove the `, eval=FALSE` from the above chunk parameter, so that it only says "```{r}"
 # Do NOT edit lines 33-36
 
@@ -62,7 +62,7 @@ You need to create a composite variable for each of the 5 factors, *per individu
 
 The only package you need is the `psych` package for accessing the dataset. The goal is to practice for loops. Not other functions. 
 
-```{r, message=FALSE, warning=FALSE, error=TRUE}
+```{r}
 library(psych)
 
 bfi$Openness <- NA
