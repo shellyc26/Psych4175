@@ -1,0 +1,28 @@
+---
+title: "Peer Assignment 1"
+linktitle: "Peer #1"
+date: "6/16/2020"
+due_date: "2021-11-22"
+due_time: "1:00pm"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Peer Assignments
+    weight: 1
+type: docs
+weight: 1
+editor_options: 
+  chunk_output_type: console
+---
+
+:::list
+Here's the task:
+
+- <i class="fas fa-file"></i> <a href="../01-mini-assignment-skeleton.Rmd" download="01-mini-assignment-skeleton.Rmd">Download this RMarkdown file</a>
+- Edit the file on your local computer, following all the directions
+- Knit the file to a HTML file
+- Upload your edited .Rmd and the knitted HTML file to Canvas
+- Be sure you clearly state the name of your partner somewhere at the top of your document 
+:::

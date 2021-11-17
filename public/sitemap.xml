@@ -2,27 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/assignments/01-assignment/</loc>
+  </url><url>
     <loc>/practice/27-practice/</loc>
   </url><url>
     <loc>/assignments/</loc>
   </url><url>
     <loc>/lectures/</loc>
   </url><url>
+    <loc>/assignments/01-mini-assignment/</loc>
+  </url><url>
     <loc>/practice/</loc>
+  </url><url>
+    <loc>/assignments/02-assignment/</loc>
   </url><url>
     <loc>/practice/28-practice/</loc>
   </url><url>
     <loc>/practice/07-practice/</loc>
   </url><url>
+    <loc>/assignments/03-assignment/</loc>
+  </url><url>
     <loc>/practice/02-practice/</loc>
+  </url><url>
+    <loc>/assignments/04-assignment/</loc>
   </url><url>
     <loc>/practice/03-practice/</loc>
   </url><url>
-    <loc>/practice/05-practice/</loc>
+    <loc>/assignments/05-assignment/</loc>
   </url><url>
     <loc>/practice/04-practice/</loc>
   </url><url>
+    <loc>/assignments/06-assignment/</loc>
+  </url><url>
+    <loc>/practice/05-practice/</loc>
+  </url><url>
+    <loc>/assignments/07-assignment/</loc>
+  </url><url>
     <loc>/practice/06-practice/</loc>
+  </url><url>
+    <loc>/assignments/08-assignment/</loc>
   </url><url>
     <loc>/practice/08-practice/</loc>
   </url><url>
@@ -188,6 +206,8 @@
     <loc>/lectures/04-lecture/</loc>
   </url><url>
     <loc>/lectures/06-lecture/</loc>
+  </url><url>
+    <loc>/assignments/01-mini-assignment-skeleton/</loc>
   </url><url>
     <loc>/lectures/23-lecture/</loc>
   </url><url>

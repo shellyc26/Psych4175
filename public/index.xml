@@ -13,6 +13,107 @@
     </image>
     
     <item>
+      <title>Assignment 1</title>
+      <link>/assignments/01-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/01-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;importing-your-data-into-r&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Importing Your Data into R&lt;/h2&gt;
+&lt;p&gt;We will be covering this in detail next class, but for now, please do the following:&lt;/p&gt;
+&lt;div id=&#34;step-1.-know-where-your-data-is-saved&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step 1. Know where your data is saved!&lt;/h4&gt;
+&lt;p&gt;This could be your Desktop, Box, Dropbox, etc. Just know where it is.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2.-in-the-environment-tab-click-on-import-dataset&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step 2. In the Environment tab, click on &lt;code&gt;Import Dataset&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;Choose &lt;strong&gt;&lt;code&gt;From text (base)&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3.-select-the-file&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step 3. Select the file&lt;/h4&gt;
+&lt;p&gt;You should get a pop-up like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/popup.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4.-make-the-following-changes&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step 4. Make the following Changes:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;In the top left box, name your data something that makes sense. For example: &lt;code&gt;hw1Data&lt;/code&gt; or &lt;code&gt;votes_by_district&lt;/code&gt; or whatever. This name &lt;em&gt;cannot&lt;/em&gt; start with a number (e.g., &lt;code&gt;1hwData&lt;/code&gt; would not work).&lt;/li&gt;
+&lt;li&gt;Last item on the left is a checkbox that says &lt;code&gt;Strings as factors&lt;/code&gt;. Please &lt;strong&gt;uncheck&lt;/strong&gt; that box.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-5.-click-import&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step 5. Click “Import”&lt;/h4&gt;
+&lt;p&gt;Once your data looks ok in that bottom window, go ahead and click “Import”. You should now see your data.frame in the Environment tab. Email me ASAP if you are not able to get your data into R!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;assignment&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Assignment&lt;/h1&gt;
+&lt;p&gt;OK, now that you have your data in &lt;code&gt;R&lt;/code&gt;, let’s go on to the actual assignment!&lt;/p&gt;
+&lt;div id=&#34;introduction-data-cleaning-management&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction: Data Cleaning &amp;amp; Management&lt;/h3&gt;
+&lt;p&gt;The following are important steps to take for any code you might run. You want to make sure things look the way they ought to look, and that you (and whoever is reading your code) knows what is happening.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;In 1-2 sentences, describe your dataset. No need for a ton of detail, just generally, what’s in it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Using code&lt;/em&gt;, find the object class of each column vector. Then find the object class of the entire data set. Describe if these make sense, or are there any that were unexpected? If they were unexpected, why?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called &lt;em&gt;factors&lt;/em&gt;? If they should be treated as categorical variables, please do so using the &lt;code&gt;factor()&lt;/code&gt; function.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here’s a HINT for the last item:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;new_column &amp;lt;- factor(data$column)&lt;/code&gt; makes a completely new object outside of the dataset.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;data$new_column &amp;lt;- factor(data$column)&lt;/code&gt; makes a new column that lives within the existing dataset.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;data$column &amp;lt;- factor(data$column)&lt;/code&gt; overwrites the original column.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-summary-statistics-part-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Summary Statistics – Part 1&lt;/h3&gt;
+&lt;p&gt;One of the first items in the “Results” section of an academic paper is to look at summary statistics of the variables of interest. Here’s your shot!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;For 2 of your numeric/integer variables, get the mean, standard deviation, and range. If you don’t know the function names, Google it!&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;For your categorical variable, get very quick counts of each level (e.g., how many observations are there in group 1 vs. group 2).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here are some HINTS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In your functions, pay attention to missing data!&lt;/li&gt;
+&lt;li&gt;The easiest function to use for your second to-do item was shown in the slides under “commonly used functions”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-summary-statistics-part-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Summary Statistics – Part 2&lt;/h3&gt;
+&lt;p&gt;Another thing we check in the Results section of a paper is whether our variables of interest might differ based on something we don’t want. For example, if all of our male participants were notably older than all of our female participants, it might screw up the interpretation of our results.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Make a smaller datasets that only contain items from each level of your categorical variable. For example, let’s say the factor “treatment_group” had 2 levels: &lt;code&gt;treatment&lt;/code&gt; and &lt;code&gt;control&lt;/code&gt;. Make a new data.frame that is something like &lt;code&gt;data_treatment&lt;/code&gt; and another new data.frame that is &lt;code&gt;data_controls&lt;/code&gt;. Do this via INDEXING and LOGICAL OPERATORS.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame – even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now repeat the same summary statistics from above (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar? What does that mean for your analysis?&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here is a HINT:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Logical operators result in &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;. You can use this within indexing so that anything that evaluates to &lt;code&gt;TRUE&lt;/code&gt; will be either the rows or the columns that are kept.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;congrats-youve-finished&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Congrats, you’ve finished!&lt;/h3&gt;
+&lt;p&gt;Submit both your code and your data file to Canvas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: For Loops</title>
       <link>/practice/27-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -291,6 +392,139 @@ ggarrange(plot1, plot2, plot3)&lt;/code&gt;&lt;/pre&gt;
 &lt;/p&gt;
 &lt;p&gt;That’s it for this practice – go forth and sample iteratively!&lt;/p&gt;
 &lt;p&gt;&lt;small&gt;Massive shout out to the Sping 2021 AI Drew McLaughlin for creating this excellent Practice Set!&lt;/small&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Peer Assignment 1</title>
+      <link>/assignments/01-mini-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/01-mini-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s the task:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i class=&#34;fas fa-file&#34;&gt;&lt;/i&gt; &lt;a href=&#34;/assignments/01-mini-assignment-skeleton.Rmd&#34; download=&#34;01-mini-assignment-skeleton.Rmd&#34;&gt;Download this RMarkdown file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Edit the file on your local computer, following all the directions&lt;/li&gt;
+&lt;li&gt;Knit the file to a HTML file&lt;/li&gt;
+&lt;li&gt;Upload your edited .Rmd and the knitted HTML file to Canvas&lt;/li&gt;
+&lt;li&gt;Be sure you clearly state the name of your partner somewhere at the top of your document&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assignment 2</title>
+      <link>/assignments/02-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/02-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;p&gt;Let’s get to it!&lt;/p&gt;
+&lt;div id=&#34;introduction-script-prep&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction: Script Prep&lt;/h3&gt;
+&lt;p&gt;Before running any code, you want to make sure that you have the proper packages &lt;strong&gt;installed&lt;/strong&gt;. This requires an internet connection (preferably a strong one - not a coffee shop connection)! The &lt;strong&gt;loading&lt;/strong&gt; of packages does &lt;em&gt;not&lt;/em&gt; require an internet connection.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Below this box is a list of packages that you will need for the rest of this course. Check to see if they are in your Packages tab. If they are &lt;em&gt;not&lt;/em&gt; there, please install them.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Write a comment to tell me how many of the above packages did you install? If it’s 3 or more, then you may move on to the next question. If it was less than 3, please install as many as you need so that you have installed at least 3 packages total (this is to give you practice!). See below for some more optional packages.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Load&lt;/strong&gt; the &lt;code&gt;tidyverse&lt;/code&gt; and &lt;code&gt;psych&lt;/code&gt; packages.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;The &lt;em&gt;required&lt;/em&gt; packages for this course:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;knitr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tidyverse&lt;/code&gt; &lt;em&gt;note that this one installs a lot of stuff - that’s OK!&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;psych&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ggpubr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RColorBrewer&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some &lt;em&gt;optional&lt;/em&gt; packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ez&lt;/code&gt; - nice for within-subjects ANOVA&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lavaan&lt;/code&gt; - structural equation modeling&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ggpredict&lt;/code&gt; - great for plotting complex interactions of continuous variables&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;broom&lt;/code&gt; - might be installed with the above packages so double check before installing; useful for converting the output of regressions into data.frames&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lme4&lt;/code&gt; - hierarchical linear modeling (aka multilevel modeling)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tidymodels&lt;/code&gt; - machine learning &lt;em&gt;note that this one installs a lot of stuff - that’s OK!&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;devtools&lt;/code&gt; - useful for trying out the beta versions of packages or importing data directly from GitHub&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kableExtra&lt;/code&gt; - making prettier tables (works with &lt;code&gt;knitr&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;blogdown&lt;/code&gt; - making books and websites in R, like this class website!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-summary-statistics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Summary Statistics&lt;/h3&gt;
+&lt;p&gt;In the first assignment, I asked you to manually calculate some summary statistics. This next to-do list will show you a much simpler way of getting summary statistics.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Import your dataset. Make sure all the variables that should be &lt;code&gt;factors&lt;/code&gt; are treated as such.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use the &lt;code&gt;describe()&lt;/code&gt; function to get summary statistics of your numeric/integer columns &lt;em&gt;only&lt;/em&gt;. You do not need to include things like participant ID in this – just the variables you might care about in an actual analysis.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Modify one of it’s arguments so that it also shows the interquartile range. Do NOT calculate the interquartile range by hand.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now use &lt;code&gt;describeBy()&lt;/code&gt; with one of your categorical variables. Write a comment telling me what changes?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, use the &lt;code&gt;summary()&lt;/code&gt; function on the entire data.frame (keep it simple with &lt;code&gt;summary(data)&lt;/code&gt;). Write a comment telling me if you prefer the &lt;code&gt;describe&lt;/code&gt;/&lt;code&gt;describeBy&lt;/code&gt; functions or the &lt;code&gt;summary&lt;/code&gt; function? There is no right answer here. I just want to know your preference and why.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-fun-with-statistics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Fun With Statistics&lt;/h3&gt;
+&lt;p&gt;Let’s have some good old fashioned nerdy fun with statistics.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Pick 2 of your numeric/integer variables (preferably 2 that you think might be related). Get the covariance of these variables using &lt;code&gt;cov()&lt;/code&gt;. You may choose to store this as a new object or simply print it out to the console.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now take those same 2 variables, and get the z-scores of each variable. You may use the &lt;code&gt;scale()&lt;/code&gt; function that we’ve previously used or you can do it in a different manner. Store these as a new data.frame. That is, you should end up with a data.frame that has 2 columns. Column 1 contains the z-scores of the first variable, and column 2 contains the z-scores of the second variable.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now get the covariance of your &lt;em&gt;new&lt;/em&gt; data.frame. The one that has z-scores. Again, you may store this as a new object or simply print it out to the console.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, get the correlation of the two variables from the original data.frame (&lt;em&gt;not&lt;/em&gt; the one with z-scores). Use the &lt;code&gt;cor()&lt;/code&gt; function. Compare this correlation to the different covariances. Write a comment telling me what you notice? Do you remember your statistics class? 😉&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-plot-your-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Plot Your Data&lt;/h3&gt;
+&lt;p&gt;Now for the crux of almost every academic paper! Plotting!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;You will be making plots using &lt;code&gt;ggplot2&lt;/code&gt; code. As long as you have loaded the &lt;code&gt;tidyverse&lt;/code&gt; package, you should be able to run these easily. However, check to make sure that there is a check mark ✅ next to the &lt;code&gt;ggplot2&lt;/code&gt; package under the Packages tab. If it is unchecked, then please load it.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make a scatterplot of the 2 variables from your original data.frame. Make sure the points are &lt;em&gt;not&lt;/em&gt; the color black. Specify a new color of your choice.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make a scatterplot of the 2 variables from your &lt;em&gt;z-scored&lt;/em&gt; data.frame. Write a comment telling me the difference between this plot and the one you just made.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, make a scatter plot of the 2 original variables, make the colors AND the shapes based on one of your categorical variables.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the following &lt;em&gt;layer&lt;/em&gt; to your plot &lt;code&gt;geom_smooth(method = &#34;lm&#34;, aes(color = yourFactorVariable))&lt;/code&gt; Write a comment telling me if there are different relationships for each category?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results-influence-of-outliers&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results: Influence of Outliers&lt;/h3&gt;
+&lt;p&gt;Outliers can be a real pain in the butt for researchers. One challenge that researchers face is determining which observations are actually outliers to begin with. That is, are they real scores that we should consider? Or are they an artifact of something else? One common way of defining an outlier is to say &lt;em&gt;let’s treat any score that is more than 2 standard deviations away from the mean as an outlier&lt;/em&gt;. That’s what you’re going to do here, using the &lt;em&gt;same&lt;/em&gt; 2 variables that you used above in your scatterplots (use the variables that are not z-scores).&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Make a new data.frame that contains all of your columns from the original, but remove the rows that contain outliers – as defined as being more than 2 standard deviations away from the mean.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Now I want you to remake the 3rd plot from above, but now using this new dataset where the outliers are removed. (Include the &lt;code&gt;geom_smooth(method = &#34;lm&#34;, aes(color = yourFactorVariable))&lt;/code&gt; layer) Compare the two plots. Are the trends different now that you’ve removed the outliers?&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here are some HINTS on how to do this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;strong&gt;multiple logical operators&lt;/strong&gt; that are then &lt;strong&gt;nested&lt;/strong&gt; within a function. You may choose to use indexing or you may choose to use a function instead (it’s one we covered in lectures).&lt;/li&gt;
+&lt;li&gt;“Away from the mean” can be in two directions. That is, you can have outliers because values are too high or too low.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;General Note On Outliers: I am &lt;strong&gt;not&lt;/strong&gt;&lt;/em&gt; suggesting that this “2 standard deviations away from the mean” method is the &lt;em&gt;correct&lt;/em&gt; way of defining an outlier. How you define outliers is completely dependent upon the data. Similarly, removing outliers is one option for handling them, but it is &lt;strong&gt;not&lt;/strong&gt; the &lt;em&gt;only&lt;/em&gt; option. How you want to handle outliers in your own research should be discussed with your colleagues before any statistical analyses are performed (and ideally before data collection begins).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;boom-its-over&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;BOOM! It’s over!&lt;/h3&gt;
+&lt;p&gt;Submit both your code to Canvas (as an Assignment and as an attachment on the peer review discussion board)&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -731,6 +965,144 @@ data &amp;lt;- read.csv(here(&amp;quot;data/some_data_file.csv&amp;quot;))&lt;/c
     </item>
     
     <item>
+      <title>Assignment 3</title>
+      <link>/assignments/03-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/03-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;testing-things&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Testing Things&lt;/h2&gt;
+&lt;p&gt;The first part is going to be a test run to see if a particular type of document works with your computer. It should, but we’re going to test it out here just in case. You do NOT need to submit the test file.&lt;/p&gt;
+&lt;div class=&#34;warning&#34;&gt;
+&lt;p&gt;The following section requires the internet. Please make sure you have a stable connection before completing the exercise. &lt;strong&gt;PLEASE tell me &lt;em&gt;as soon as possible&lt;/em&gt; if any errors come up.&lt;/strong&gt; This will be a large part of what we will be doing next week, so if it’s not working, we need to get it worked out &lt;em&gt;&lt;strong&gt;BEFORE&lt;/strong&gt;&lt;/em&gt; you continue on to the Reproducibility section.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;PLEASE READ ALL OF THE STEPS BELOW &lt;em&gt;BEFORE&lt;/em&gt; ACTUALLY TRYING IT&lt;/strong&gt;. Follow these steps:&lt;/p&gt;
+&lt;div id=&#34;step-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 1&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;In your console&lt;/strong&gt; set your working directory somewhere. It doesn’t really matter where, as long as you can easily find it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 2&lt;/h3&gt;
+&lt;p&gt;Next, open a new R Notebook. You can do this via &lt;code&gt;File &amp;gt; New File &amp;gt; R Notebook&lt;/code&gt; or by clicking the white paper with &lt;font color=&#39;green&#39;&gt;green plus sign&lt;/font&gt; from the top left corner (this is the same as opening a new R script) and choosing R Notebook. It should look something like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/rm1.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 3&lt;/h3&gt;
+&lt;p&gt;Next, find the button at the top that says &lt;code&gt;Preview&lt;/code&gt; and click the arrow next to it. You should get a drop down menu. Select &lt;code&gt;Knit to HTML&lt;/code&gt;. It should look like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../miscfigs/figure-html/rm2.png&#34; width = &#34;50%&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;../miscfigs/figure-html/rm3.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;p&gt;It will prompt you to save the file. That’s OK! Give it a name like &lt;code&gt;testNotebook&lt;/code&gt; or whatever you’d like.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-4&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Step 4&lt;/h3&gt;
+&lt;p&gt;Finally, you should see something that pops up, and it should look like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/rm4.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;p&gt;As long as the final thing shown above popped up, you’re good! It’s ok if you see a lot of scary stuff in the console after. But, if the thing above did &lt;em&gt;not&lt;/em&gt; pop up, please take a screen shot of the scary console text! It will be easier for me to help you if I can see the message. Scary text that is actually OK might look like:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/rm5.png&#34; width = &#34;70%&#34;&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;actual-assignment&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Actual Assignment&lt;/h2&gt;
+&lt;p&gt;You MUST use either the &lt;code&gt;nhanes_small_assignment3.csv&lt;/code&gt; or &lt;code&gt;superheroData_assignment3.csv&lt;/code&gt; datasets! These have been modified specifically for this assignment. You can find both on Canvas.&lt;/p&gt;
+&lt;div id=&#34;introduction-script-prep&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Introduction: Script Prep&lt;/h3&gt;
+&lt;p&gt;Open a new script file and complete this assignment (the same way you’ve been doing for previous assignments).&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;At the top of your script, read in your dataset, load in the &lt;code&gt;tidyverse&lt;/code&gt; package&lt;/li&gt;
+&lt;li&gt;Make a comment that confirms that the above test run thing worked.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;methods-data-wrangling&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Methods: Data Wrangling&lt;/h3&gt;
+&lt;p&gt;Let’s practice with data wrangling. Everyone’s data is different, so this might depend on what you’re working with.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make a &lt;code&gt;tidyverse&lt;/code&gt; code chunk that uses &lt;em&gt;at least &lt;strong&gt;3&lt;/strong&gt;&lt;/em&gt; &lt;code&gt;tidyverse&lt;/code&gt; functions. Do whatever you think makes the most sense.&lt;/li&gt;
+&lt;li&gt;All 3 of the functions should be within the SAME code chunk. That is, you should &lt;em&gt;not&lt;/em&gt; have 3 separate chunks of code. It should be a cohesive code chunk (put differently, a paragraph of code).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here’s a list of some of the common &lt;code&gt;tidyverse&lt;/code&gt; functions that you might want to use:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;separate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;unite&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rename&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;recode&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;any of the &lt;code&gt;join&lt;/code&gt; functions (see cheatsheet for more)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Technically, &lt;code&gt;pivot_wider&lt;/code&gt; and &lt;code&gt;pivot_longer&lt;/code&gt; fit the bill, also. But we’re going to use these in the last part of the assignment, so please do not use those functions in this section.)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results&lt;/h3&gt;
+&lt;p&gt;Let’s make a bar plot with error bars!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Make a smaller data.frame that contains all the information you would need to make a bar graph (including information for error bars of +/- 1 standard deviation) for &lt;em&gt;at least &lt;strong&gt;two&lt;/strong&gt;&lt;/em&gt; of your categorical variables.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Then, use the plotting code below and replace the missing values with your data so that you can actually make the bar graph!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Here’s a HINT:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The hardest part of this is trying to imagine what it is that you need!&lt;/li&gt;
+&lt;li&gt;You need a continuous variable that you can collapse into a value per level of each of your two categorical variables. Then you need to calculate everything needed for the error bars.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here’s the plotting code that you can copy/replace your data with&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;XXX-1: correct data.frame
+XXX-2: one of the two categorical variables
+XXX-3: the summarized continuous variable
+XXX-4: the second of the categorical variables
+XXX-5: the value of the lower edge of the error bar
+XXX-6: the value of the upper edge of the error bar
+
+ggplot(data = XXX-1, aes(x = XXX-2, y = XXX-3, fill = XXX-4)) +
+  geom_col(position = position_dodge(width=.9)) +
+  geom_errorbar(aes(ymin = XXX-5, ymax = XXX-6),
+                position = position_dodge(width=.9),
+                width = .2)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-wrangling-part-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Wrangling Part 2&lt;/h3&gt;
+&lt;p&gt;It’s very common to receive data in the wrong format. Either it comes to you as “long” but you need it to be “wide” or vice versa.&lt;/p&gt;
+&lt;p&gt;Both datasets now include information about time point. We’re going to use this information to convert to the other format!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Determine if your data are currently in wide or long format. Make a note of this in your script.&lt;/li&gt;
+&lt;li&gt;Use the time information to go from wide to long or long to wide. Use &lt;code&gt;pivot_wider&lt;/code&gt; or &lt;code&gt;pivot_longer&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Rather than printing out the ENTIRE data.frame, print out the first 15 rows and the relevant columns using indexing.&lt;/li&gt;
+&lt;li&gt;Make a comment that describes what aspects of your data.frame become wide or long; that is, describe what it is you just performed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fantastic-work&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Fantastic work!&lt;/h3&gt;
+&lt;p&gt;Don’t forget to submit your code and data file to Canvas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: Objects</title>
       <link>/practice/02-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -922,6 +1294,57 @@ chickens + cows&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Assignment 5</title>
+      <link>/assignments/04-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/04-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;congratulations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Congratulations!&lt;/h2&gt;
+&lt;p&gt;By this point, you have learned a &lt;em&gt;ton&lt;/em&gt; about &lt;code&gt;R&lt;/code&gt;. In this assignment, I want you to make something that you might actually use in your real life. So you will be making your own summaries of the things you’ve learned in this course – it will basically your own cheatsheet or crib sheet. Something like this:&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;../miscfigs/figure-html/cs.png&#34; width = &#34;100%&#34;&gt;
+&lt;/center&gt;
+&lt;div id=&#34;requirements-for-the-structure-of-the-document&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Requirements for the structure of the document&lt;/h3&gt;
+&lt;p&gt;Create a &lt;code&gt;.Rmd&lt;/code&gt; file (either RNotebook or RMarkdown is fine). When you turn in the assignment, I want you to submit &lt;strong&gt;&lt;em&gt;BOTH&lt;/em&gt;&lt;/strong&gt; the &lt;code&gt;.html&lt;/code&gt; file &lt;strong&gt;&lt;em&gt;and&lt;/em&gt;&lt;/strong&gt; the &lt;code&gt;.Rmd&lt;/code&gt; file. You are free to choose the topics – it can be anything we’ve covered!&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list (e.g., your file must include the following):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;4 large headers (at least) indicating the 4 topics you’ll go through&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There must be at least 3 subheaders. They must be notably smaller than the larger headers, indicating that these are subsections of the topic you’re covering.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You must have some normal text with at least a sentence or two that describes the topic and/or gives notes to yourself. Within the normal text, there should be both &lt;strong&gt;bolded&lt;/strong&gt; text and &lt;em&gt;italicized&lt;/em&gt; text. You must also include at least 1 list somewhere in the document (this could be ordered with numbers/letters or unordered with bullet points)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There must be &lt;em&gt;at least&lt;/em&gt; one code chunk &lt;strong&gt;per section&lt;/strong&gt; that shows examples of the topic with code (see the above picture). You must show the results of your code as well. For example, if the topic is indexing, and in your code chunk you use indexing to get a subset, you need to print out that object so that I can see the output of your code (remember, the goal is to show yourself different ideas so that when you forget how to do something, you can look at this document!).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, you must include at least 2 examples of inline code. This could be something that just shows up as looking like code in the text (&lt;code&gt;like this&lt;/code&gt;) or it can be something that actually evaluates to a number (even if it doesn’t look like code, I’ll be able to tell because I’ll have your actual .Rmd file to check!)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;final-thoughts&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Final thoughts&lt;/h3&gt;
+&lt;p&gt;This assignment is not meant to be very difficult, just something you might find helpful. So think back on the past few weeks, and identify some topics that you struggled with. Those are the ones that should go in this document (so hopefully you won’t struggle with them in the future!). Some topics you can think about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Indexing&lt;/li&gt;
+&lt;li&gt;Logical operators&lt;/li&gt;
+&lt;li&gt;How to use functions&lt;/li&gt;
+&lt;li&gt;Specific functions&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Statistical analyses&lt;/li&gt;
+&lt;li&gt;Plotting with &lt;code&gt;ggplot2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;so-so-wonderful&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;So, so wonderful!&lt;/h3&gt;
+&lt;p&gt;Submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: Indexing</title>
       <link>/practice/03-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1050,362 +1473,51 @@ actOldScores&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Practice Set: Functions</title>
-      <link>/practice/05-practice/</link>
+      <title>Assignment 4</title>
+      <link>/assignments/05-assignment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/practice/05-practice/</guid>
+      <guid>/assignments/05-assignment/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
   &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
 
-&lt;div id=&#34;TOC&#34;&gt;
+
+&lt;div id=&#34;instructions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Instructions&lt;/h2&gt;
+&lt;p&gt;This assignment is all about making figures. It’s going to be a bit free-form because when it comes to making figures, there are a &lt;em&gt;silly&lt;/em&gt; number of options. Here are the conditions:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#logical-operators&#34;&gt;Logical Operators&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#functions&#34;&gt;Functions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#help-pages&#34;&gt;Help Pages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#examples-of-a-few-functioins&#34;&gt;Examples of a few functioins&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;You must use the &lt;code&gt;ggplot2&lt;/code&gt; package and syntax. This should &lt;em&gt;not&lt;/em&gt; be practice for &lt;code&gt;base R&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Your choice of variables must make sense for the type of plot you are making. That is, don’t give me a histogram for a dichotomous variable (that would just be 2 bars and super weird).&lt;/li&gt;
+&lt;li&gt;All figures must follow the basics of clear axis labels and titles! (&lt;em&gt;please&lt;/em&gt; don’t make me take points off for this…). &lt;strong&gt;I will take points off if these are missing or not clear!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;NO PIE CHARTS!&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-
-&lt;div id=&#34;logical-operators&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Logical Operators&lt;/h2&gt;
-&lt;p&gt;Logical operators are crucial for understanding any programming language, not just R. Effective use of logic allows you to perform really complex computations with ease. The more comfortable you feel in using these, the better.&lt;/p&gt;
-&lt;p&gt;For the time being, let’s start simple. Check out the &lt;a href=&#34;/lectures/08-lecture&#34;&gt;R&amp;amp;R slides&lt;/a&gt; for more complicated logical operator statements.&lt;/p&gt;
-&lt;p&gt;What are the operators?&lt;/p&gt;
+&lt;div id=&#34;visualizing-data-in-different-ways&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Visualizing data in different ways&lt;/h2&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;p&gt;Pick 2 variables from your dataset. Make &lt;em&gt;3 &lt;strong&gt;different&lt;/strong&gt; figures&lt;/em&gt; that show the relationship between these 2 variables. Your figures must include the following:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;==&lt;/code&gt; equality&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;!=&lt;/code&gt; inequality (&lt;code&gt;!&lt;/code&gt; is read as &lt;code&gt;not&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; greater than&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;gt;=&lt;/code&gt; greater than or equal to&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;&lt;/code&gt; less than&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;=&lt;/code&gt; less than or equal to&lt;/li&gt;
+&lt;li&gt;A theme&lt;/li&gt;
+&lt;li&gt;Make use of different colors (manually or with a color palette)&lt;/li&gt;
+&lt;li&gt;You need to pick the best of the 3 figures &lt;strong&gt;and explain why you think this is the case&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;After you’ve picked your favorite, add a 3rd &lt;em&gt;variable&lt;/em&gt; (not &lt;code&gt;geom&lt;/code&gt;) to that plot (just to your favorite plot – not to all 3 plots). You can choose the dimension on which to add the 3rd variable (aka which aesthetic). Did adding the 3rd variable enhance this plot or does it detract? Explain why.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;&lt;strong&gt;Logical operators test whether a statement is &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;&lt;/strong&gt;.&lt;/span&gt;&lt;/p&gt;
-Let’s revisit our &lt;code&gt;demographics&lt;/code&gt; data.frame
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-SubjectID
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Location
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-SmokerTF
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-SubjectAge
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-ID1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Missouri
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-TRUE
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-20
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-ID2
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Iowa
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-FALSE
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-18
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-ID3
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Missouri
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-FALSE
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-32
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-ID4
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Idaho
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-TRUE
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-25
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-ID5
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Maine
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-FALSE
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-25
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;: Is anyone from the state of &lt;em&gt;Missouri&lt;/em&gt;? To answer this with code, we could do:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$Location == &amp;quot;Missouri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1]  TRUE FALSE  TRUE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The result is a vector of &lt;code&gt;TRUE&lt;/code&gt; and &lt;code&gt;FALSE&lt;/code&gt; – one for each item in &lt;code&gt;demographics$Location&lt;/code&gt;. The 1st and 3rd elements are &lt;code&gt;TRUE&lt;/code&gt;, so those people are from “Missouri”. The others are no.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;Spelling, capitalization, and quotation marks count!&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;These things (and missing/extra parentheses) account for at least 75% of all your errors! 🙀 If you’re evaluating a number, you do NOT need quotation marks. If it’s a character string, you do. For example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# no quotes around the character string
-demographics$Location == Missouri&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): object &amp;#39;Missouri&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# capitalization
-demographics$Location == &amp;quot;missouri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;☝️ Note that this doesn’t throw and error, but everything is returned as &lt;code&gt;FALSE&lt;/code&gt;. But we know that’s not true…&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# spelling
-demographics$Location == &amp;quot;Missour-uh&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Same as the capitalization thing.&lt;/p&gt;
-&lt;div class=&#34;warning&#34;&gt;
-&lt;p&gt;Be careful with &lt;code&gt;=&lt;/code&gt; vs &lt;code&gt;==&lt;/code&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;explanation-vs.-clutter&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Explanation vs. Clutter&lt;/h2&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;==&lt;/code&gt; is a logical operator&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;=&lt;/code&gt; is for assignment. It’s the same thing as &lt;code&gt;&amp;lt;-&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Make a plot that uses at least 3 &lt;code&gt;geom&lt;/code&gt;s. Make it as beautiful, publication-ready as you can.&lt;/li&gt;
+&lt;li&gt;Explain whether the extra &lt;code&gt;geom&lt;/code&gt;s help explain your data or if it just clutters everything up. You may add an additional plot if you think it help explains your answer better (e.g., if you think a plot with only 2 &lt;code&gt;geom&lt;/code&gt;s would be better, make that plot). An extra plot is not required. The explanation is required.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Look at the example below.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Logical operator usage…&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Is each element in the SubjectID column equal to the character
-# string &amp;quot;ID4&amp;quot;?
-demographics$SubjectID == &amp;quot;ID4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE  TRUE FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Assignment usage…&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Make each element in the SubjectID column equal to the character
-# string &amp;quot;ID4&amp;quot;
-demographics$SubjectID = &amp;quot;ID4&amp;quot;
-
-# now view the column
-demographics$SubjectID&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now that we’ve gone through this demo, let’s change the &lt;code&gt;SubjectID&lt;/code&gt; column back to what it’s supposed to look like.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SubjectID &amp;lt;- ids
-
-# view the column to double check
-demographics$SubjectID&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ID1&amp;quot; &amp;quot;ID2&amp;quot; &amp;quot;ID3&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID5&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;quiz&#34;&gt;
-&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-quiz1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-quiz1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-quiz1&#34;)&#39;&gt;&lt;/iframe&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;functions&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Functions&lt;/h2&gt;
-&lt;p&gt;Functions are the heart and soul of &lt;code&gt;R&lt;/code&gt;, and are especially powerful. They are the &lt;strong&gt;verbs&lt;/strong&gt; of a programming language because the act on the objects. Each function has:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;em&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/em&gt; that is unique&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&lt;strong&gt;Arguments&lt;/strong&gt;&lt;/em&gt; - What is the verb acting on? How should the function behave?&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/em&gt; or the result of the function (can be anything!) that can be stored to another object&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;You’ve already seen some functions in action! You just didn’t know it, yet!&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;c()&lt;/code&gt; is the combine/concatenate function:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It’s name is &lt;code&gt;c&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;It’s input is whatever you’re trying to combine&lt;/li&gt;
-&lt;li&gt;It’s output is the vector that has the elements combined&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;data.frame()&lt;/code&gt; is the function for making a data.frame:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It’s name is &lt;code&gt;data.frame&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;It’s input is a series of vectors that all have the same length&lt;/li&gt;
-&lt;li&gt;It’s output is a nicely formatted data.frame&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;class()&lt;/code&gt; is the function for finding out the class of an object:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It’s name is &lt;code&gt;class&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;It’s input is the object you are examining&lt;/li&gt;
-&lt;li&gt;It’s output is a character telling you what class the object is&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Most functions use more arguments than what we’ve seen above. And those arguments have names.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;Use the argument names!&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Autocomplete will help so it’s not so tedious. See the &lt;a href=&#34;/lectures/05-lecture&#34;&gt;lecture slides&lt;/a&gt; for the example with the &lt;code&gt;round()&lt;/code&gt; function. When you have multiple arguments, you separate them with a comma &lt;code&gt;function(argument 1 = something, argument 2 = something else)&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;puzzle&#34;&gt;
-&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Follow the directions for each chunk below to create different sequences of numbers.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-app1&#34;)&#39;&gt;&lt;/iframe&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;help-pages&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Help Pages&lt;/h2&gt;
-&lt;p&gt;One of the biggest mistakes I see new coders make is that they pull up the help pages, but don’t actually read them. &lt;strong&gt;TAKE THE TIME TO READ THEM!&lt;/strong&gt; There is a lot of really, really helpful information in there. And they are all organized the same way. See the &lt;a href=&#34;/lectures/05-lecture&#34;&gt;lecture slides&lt;/a&gt; for a breakdown of the Help pages.&lt;/p&gt;
-&lt;p&gt;You can always look at help by typing &lt;code&gt;?functionName&lt;/code&gt;. For example, &lt;code&gt;?cbind&lt;/code&gt; will bring up the help documentation for the function &lt;code&gt;cbind()&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;puzzle&#34;&gt;
-&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Follow the directions below each block to ultimately create a plot of standardized variables from our &lt;code&gt;empire&lt;/code&gt; dataset. Note that this exercise is intentionally a bit harder than previous exercises – that’s because you’re getting better!&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-app2&#34;)&#39;&gt;&lt;/iframe&gt;
-&lt;/p&gt;
-&lt;div class=&#34;fyi&#34;&gt;
-&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; In this exercise, we made a very basic scatter plot. But it’s not very pretty. We will talk &lt;em&gt;a lot&lt;/em&gt; about making really pretty plots. You can check out the very basics in the &lt;a href=&#34;/lectures/09-lecture&#34;&gt;Stats &amp;amp; Plot&lt;/a&gt; section, and then we’ll go into a lot more detail when we get to the Data Visualization section.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Congratulations! You’re making great progress and are well on your way to being a bad@$% programmer!&lt;/p&gt;
-&lt;center&gt;
-&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/you-did-good-job-meme.jpg&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
-&lt;/center&gt;
-&lt;/div&gt;
-&lt;div id=&#34;examples-of-a-few-functioins&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Examples of a few functioins&lt;/h2&gt;
-&lt;p&gt;In the corresponding lecture, I listed a couple functions that you might use quite frequently. Below are examples of how to use these functions. Note that you do not need to go through all of them at this time. However, I would encourage you to come back and take a look at some point.&lt;/p&gt;
-&lt;div id=&#34;length-nrow-ncol&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;&lt;code&gt;length()&lt;/code&gt;, &lt;code&gt;nrow()&lt;/code&gt;, &lt;code&gt;ncol()&lt;/code&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;length()&lt;/code&gt; is the same as getting the last element’s index position&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;nrow()&lt;/code&gt; and &lt;code&gt;ncol()&lt;/code&gt; tell you how many rows and columns there are in a data.frame, respectively&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nrow(demographics)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ncol(demographics)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that these don’t work properly for &lt;em&gt;any&lt;/em&gt; object&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# length on a 2-d object just gives the 2nd dimension (columns)
-# lots of people get this confused and think it should return the
-# number of rows!
-length(demographics)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# nrow and ncol of a 1-d vector don&amp;#39;t make sense...
-# there is no such thing as columns or rows in a vector
-nrow(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ncol(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;factor-and-as.factor&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;&lt;code&gt;factor()&lt;/code&gt; and &lt;code&gt;as.factor()&lt;/code&gt;&lt;/h4&gt;
-&lt;p&gt;Both of these convert a character vector into a factor. Factors are a special case of character where there is inherent meaning/grouping. Categorical variables.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;(Note: For the life of me, I can’t figure out the difference between &lt;code&gt;factor()&lt;/code&gt; and &lt;code&gt;as.factor()&lt;/code&gt; 🤷‍♀ so you can think of them as interchangable.)&lt;/em&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Our &amp;#39;Location&amp;#39; variable consists of states. We might want
-# to think of this as a categorical variable, where each state
-# is a meaingfully different category from the next state.
-
-# Don&amp;#39;t forget to re-assign the variable so that it stores your new
-# factor!
-demographics$Location &amp;lt;- factor(demographics$Location)
-demographics$Location&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] Missouri Iowa     Missouri Idaho    Maine   
-## Levels: Idaho Iowa Maine Missouri&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# To double check, use the `class()` function
-class(demographics$Location)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The LEVELS of a factor are all the different categories. Here, we have 4 states. &lt;code&gt;R&lt;/code&gt; will always put these in alphabetical order unless you tell it otherwise (hint: you can change this by modifying one of the arguments).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;table-for-quick-counts&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;&lt;code&gt;table()&lt;/code&gt; for quick counts&lt;/h4&gt;
-&lt;p&gt;Especially good for factors &amp;amp; logicals!&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# how many states are in each category?
-table(demographics$Location)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##    Idaho     Iowa    Maine Missouri 
-##        1        1        1        2&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# states x smoker table
-table(demographics$Location, demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##           
-##            FALSE TRUE
-##   Idaho        0    1
-##   Iowa         1    0
-##   Maine        1    0
-##   Missouri     1    1&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;cbind-and-rbind-for-adding-columns-and-rows-respectively&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;&lt;code&gt;cbind()&lt;/code&gt; and &lt;code&gt;rbind()&lt;/code&gt; for adding columns and rows, respectively&lt;/h4&gt;
-&lt;p&gt;These are for if you have a vector that you want to add to a data.frame. You should make sure there’s the same number of items – which changes depending on if you’re adding a row or a column!&lt;/p&gt;
-&lt;p&gt;Let’s add a column consisting of survey scores, on a scale of 1 to 10. Then we’ll add a row.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# first, let&amp;#39;s add a column for surveys. there are currently
-# 5 rows/observations, so we&amp;#39;ll want 5 elements in this vector
-survey &amp;lt;- c(6, 4, 10, 2, 8)
-
-# now use cbind() to add it to your data.frame
-# the 1st argument is the data.frame
-# the 2nd argument is the thing you want to add to it
-# (you&amp;#39;re combining BOTH things)
-
-# note that we re-assign the entire data.frame
-demographics &amp;lt;- cbind(demographics, survey)
-
-# print it out to view
-demographics&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   SubjectID Location SmokerTF SubjectAge survey
-## 1       ID1 Missouri     TRUE         20      6
-## 2       ID2     Iowa    FALSE         18      4
-## 3       ID3 Missouri    FALSE         32     10
-## 4       ID4    Idaho     TRUE         25      2
-## 5       ID5    Maine    FALSE         25      8&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;############
-
-# now let&amp;#39;s add a row. there are 5 columns, so we need to add an
-# element that will match up with each column
-newParticipant &amp;lt;- c(&amp;quot;ID6&amp;quot;, &amp;quot;Iowa&amp;quot;, FALSE, 28, 5)
-
-# now use rbind() to bind by rows
-# the 1st argument is the data.frame
-# the 2nd argument is the row you want to add to it. This makes it the LAST row
-# (if you switched the order, it would become the FIRST row)
-demographics &amp;lt;- rbind(demographics, newParticipant)
-
-# print it out to view
-demographics&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   SubjectID Location SmokerTF SubjectAge survey
-## 1       ID1 Missouri     TRUE         20      6
-## 2       ID2     Iowa    FALSE         18      4
-## 3       ID3 Missouri    FALSE         32     10
-## 4       ID4    Idaho     TRUE         25      2
-## 5       ID5    Maine    FALSE         25      8
-## 6       ID6     Iowa    FALSE         28      5&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There is 1 slight issue with &lt;code&gt;rbind()&lt;/code&gt;. Vectors will always take on the least specific class So &lt;code&gt;newParticipant&lt;/code&gt; is considered a character vector because all of it’s elements could be thought of as characters, but not everything could be considered numeric or logical. This means that when we added it to the &lt;code&gt;demographics&lt;/code&gt; data.frame, it made any column that wasn’t already a character into characters!&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$Location) # factors are special characters&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SubjectAge)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$survey)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;However, the last 3 columns should &lt;strong&gt;NOT&lt;/strong&gt; be characters. I change them back below. See if you can figure out what each function does.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SmokerTF &amp;lt;- as.logical(demographics$SmokerTF)
-class(demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;logical&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SubjectAge &amp;lt;- as.numeric(demographics$SubjectAge)
-class(demographics$SubjectAge)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$survey &amp;lt;- as.numeric(demographics$survey)
-class(demographics$survey)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(Ok for real this time…The End)&lt;/p&gt;
+&lt;div id=&#34;yahhoooooooo&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Yahhoooooooo!&lt;/h3&gt;
+&lt;p&gt;We’ll talk more about the theory of data viz later in the semester. But for now, you should feel comfortable plotting in the &lt;code&gt;ggplot2&lt;/code&gt; world.&lt;/p&gt;
+&lt;p&gt;Go ahead and submit your code file to Canvas. If you used an outside dataset, please also submit that, too.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -2009,6 +2121,500 @@ demographics[,4]&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
+      <title>Assignment 6</title>
+      <link>/assignments/06-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/06-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div id=&#34;instructions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Instructions&lt;/h2&gt;
+&lt;p&gt;This assignment (and the three following assignments) are about using &lt;code&gt;R&lt;/code&gt; to reinforce the statistical principles you learned about in Psych Stats. You may use any of the datasets posted on Canvas or you may use an outside dataset (must be approved by Shelly). &lt;strong&gt;I STRONGLY SUGGEST USING THE SAME DATASET THAT YOU USED ON ASSIGNMENT 1&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;RULES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You must use a RNotebook for this assignment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sections should have appropriate headers&lt;/li&gt;
+&lt;li&gt;All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do &lt;em&gt;not&lt;/em&gt; want to see code located outside of a chunk (unless you’re making a quick note or telling us what you’re doing – but the code outside of a chunk shouldn’t be evaluated).&lt;/li&gt;
+&lt;li&gt;Any explanations I ask for should be &lt;em&gt;outside&lt;/em&gt; of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., &lt;code&gt;#a long sentence like this&lt;/code&gt;). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You must use the &lt;code&gt;ggplot2&lt;/code&gt; package and syntax for all plotting. No plots in &lt;code&gt;base R&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;descriptive-statistics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Descriptive Statistics&lt;/h2&gt;
+&lt;p&gt;Revisit Assignment 1, especially the &lt;code&gt;Results: Summary Statistics - Part 2&lt;/code&gt; section. After reviewing that, do the following.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get the mean, median, variance, and standard deviation of 3 numeric variables in your dataset, but get these for each level of the categorical variable you chose in Assignment 1. That is, if your categorical variable was “treatment group”, you need the mean, median, variance, and standard deviation for those that were in the “control” group and those that were in the “treatment” group. Now that you know more about using R, complete this task in any way except the way you did in Assignment 1. That is, do NOT use indexing and logical vectors.&lt;/li&gt;
+&lt;li&gt;Take those same 3 numeric variables and z-score them. Then make a density plot that has the distribution for all 3 variables overlaid and a figure legend telling you which variable each color represents. It should look similar to the plot on slide 25 of the &lt;code&gt;Descirptives&lt;/code&gt; lecture. Add in a vertical line representing the mean of each of the 3 distributions, and make sure it’s labeled (see &lt;code&gt;Descriptives&lt;/code&gt; slides for inspiration). You do &lt;em&gt;not&lt;/em&gt; need to plot each distribution per level of your categorical variable.&lt;/li&gt;
+&lt;li&gt;Write a few sentences describing the variables analyzed here in this section (your 3 numeric and 1 categorical variable) based on your analyses in the first two bullet points. Additionally, describe why you z-scored the 3 variables before plotting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; For the second bullet point, think carefully about whether the data should be in the long form or wide form before plotting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sampling-distributions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Sampling Distributions&lt;/h2&gt;
+&lt;p&gt;The normal distribution is awesome, and by far and away the most commonly used. But many, many others exist! Luckily, a lot of the principles we learned about with the normal nicely expand to other distributions – including &lt;code&gt;R&lt;/code&gt; code!&lt;/p&gt;
+&lt;p&gt;Let’s learn about a new distribution, and then you will complete your to-do list with this new one. It’s called the &lt;strong&gt;binomial&lt;/strong&gt; distribution.&lt;/p&gt;
+&lt;div id=&#34;binomial-distribution&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Binomial Distribution&lt;/h4&gt;
+&lt;p&gt;This is a theoretical probability distribution (like the normal) that is appropriate when you want to model your expected outcome (X) over a pre-specified number of times (N). However, X, your outcome, must be BINARY (success/failure). For each of your N trials, each trial needs to be independent. The classic example is flipping a coin. The outcomes is binary – it’s either heads or tails. And each trial is independent meaning that if you get a &lt;em&gt;heads&lt;/em&gt; on the first toss, that does not influence whether you will get a &lt;em&gt;heads&lt;/em&gt; or &lt;em&gt;tails&lt;/em&gt; on the next toss. We also need to know how many times we are flipping the coin. Same thing goes for rolling a dice, where rolling the number 6 is considered a “success”.&lt;/p&gt;
+&lt;p&gt;All this sounds very hypothetical, but it’s actually quite useful! For instance, let’s say you run a study on bilingual adults, and you want to know if their reading comprehension in their second language is as good as their first language. You ask them to read a book in their second language and then give them a 20-item multiple choice question exam where the questions are all about that book. Each question has 4 options A, B, C, or D. Getting 14 correct out of 20 items is considered “passing”. However, you are concerned that your study participants might do well by chance alone. You don’t want your participants to pass the multiple choice test if they just showed up for the exam and guessed on each question. So we want to know how likely is it that a guesser would score above the minimum passing threshold (get 14 out of 20 correct)? We can use the binomial distribution where success is 14 or higher and failure is 13 or lower, we have 20 trials, and the probability of each option is the same per trial (that is, the probability of A, B, C, or D is .25 each).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Copy/paste this entire code chunk into your .Rmd file.&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(4175)
+
+# Let&amp;#39;s create our dataset!
+# We will first have a column for the test score (getting a 0/20, 1/20, 2/20 etc.)
+# Then we will have the probability of getting that test score
+
+binomData &amp;lt;- data.frame(testScore = 0:20,
+                        prob = dbinom(x = 0:20, size = 20, prob = .25))&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make a histogram with each test score on the x-axis (be sure to independently show 0 through 20) against the probability.&lt;/li&gt;
+&lt;li&gt;Now get the probability of guessing 13 items or fewer correct out of 20 items.&lt;/li&gt;
+&lt;li&gt;Get the complement of the above, the probability of getting 14 items or more correct out of 20 items.&lt;/li&gt;
+&lt;li&gt;Write a few sentences describing the distribution that you plotted and the probabilities. Do the probabilities make sense given your plot? If you are just totally lost here, then instead, write out 3 different questions about where you are confused and we will answer!&lt;/li&gt;
+&lt;li&gt;Switch to a new distribution. Specifically, the &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt; distribution. What is the probability of getting a value of .875 or smaller, assuming you had 100 data points (and 99 degrees of freedom because 100-1 = 99)? What is the probability of getting a value of 2.3 or larger, assuming you had 16 data points?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Hint:&lt;/strong&gt; Check out &lt;code&gt;geom_col&lt;/code&gt; instead of &lt;code&gt;geom_histogram&lt;/code&gt;. Not sure how to make every number between 0 and 20 show up on your x-axis? You’ll need to Google for how to change the scale of the x-axis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ta-da&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Ta-da!&lt;/h3&gt;
+&lt;p&gt;You finished! Hooray!&lt;/p&gt;
+&lt;p&gt;Go ahead and submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas. If you used an outside dataset, please also submit that, too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Practice Set: Functions</title>
+      <link>/practice/05-practice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/practice/05-practice/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#logical-operators&#34;&gt;Logical Operators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#functions&#34;&gt;Functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#help-pages&#34;&gt;Help Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#examples-of-a-few-functioins&#34;&gt;Examples of a few functioins&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;logical-operators&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Logical Operators&lt;/h2&gt;
+&lt;p&gt;Logical operators are crucial for understanding any programming language, not just R. Effective use of logic allows you to perform really complex computations with ease. The more comfortable you feel in using these, the better.&lt;/p&gt;
+&lt;p&gt;For the time being, let’s start simple. Check out the &lt;a href=&#34;/lectures/08-lecture&#34;&gt;R&amp;amp;R slides&lt;/a&gt; for more complicated logical operator statements.&lt;/p&gt;
+&lt;p&gt;What are the operators?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;==&lt;/code&gt; equality&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!=&lt;/code&gt; inequality (&lt;code&gt;!&lt;/code&gt; is read as &lt;code&gt;not&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; greater than&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;gt;=&lt;/code&gt; greater than or equal to&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;&lt;/code&gt; less than&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;=&lt;/code&gt; less than or equal to&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;&lt;strong&gt;Logical operators test whether a statement is &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;&lt;/strong&gt;.&lt;/span&gt;&lt;/p&gt;
+Let’s revisit our &lt;code&gt;demographics&lt;/code&gt; data.frame
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+SubjectID
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Location
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+SmokerTF
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+SubjectAge
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+20
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Iowa
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+18
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Missouri
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+32
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID4
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Idaho
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+TRUE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+ID5
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Maine
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+FALSE
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;: Is anyone from the state of &lt;em&gt;Missouri&lt;/em&gt;? To answer this with code, we could do:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$Location == &amp;quot;Missouri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  TRUE FALSE  TRUE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The result is a vector of &lt;code&gt;TRUE&lt;/code&gt; and &lt;code&gt;FALSE&lt;/code&gt; – one for each item in &lt;code&gt;demographics$Location&lt;/code&gt;. The 1st and 3rd elements are &lt;code&gt;TRUE&lt;/code&gt;, so those people are from “Missouri”. The others are no.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;Spelling, capitalization, and quotation marks count!&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;These things (and missing/extra parentheses) account for at least 75% of all your errors! 🙀 If you’re evaluating a number, you do NOT need quotation marks. If it’s a character string, you do. For example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# no quotes around the character string
+demographics$Location == Missouri&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): object &amp;#39;Missouri&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# capitalization
+demographics$Location == &amp;quot;missouri&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;☝️ Note that this doesn’t throw and error, but everything is returned as &lt;code&gt;FALSE&lt;/code&gt;. But we know that’s not true…&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# spelling
+demographics$Location == &amp;quot;Missour-uh&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE FALSE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Same as the capitalization thing.&lt;/p&gt;
+&lt;div class=&#34;warning&#34;&gt;
+&lt;p&gt;Be careful with &lt;code&gt;=&lt;/code&gt; vs &lt;code&gt;==&lt;/code&gt;!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;==&lt;/code&gt; is a logical operator&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;=&lt;/code&gt; is for assignment. It’s the same thing as &lt;code&gt;&amp;lt;-&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Look at the example below.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Logical operator usage…&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Is each element in the SubjectID column equal to the character
+# string &amp;quot;ID4&amp;quot;?
+demographics$SubjectID == &amp;quot;ID4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE FALSE FALSE  TRUE FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Assignment usage…&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Make each element in the SubjectID column equal to the character
+# string &amp;quot;ID4&amp;quot;
+demographics$SubjectID = &amp;quot;ID4&amp;quot;
+
+# now view the column
+demographics$SubjectID&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID4&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we’ve gone through this demo, let’s change the &lt;code&gt;SubjectID&lt;/code&gt; column back to what it’s supposed to look like.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SubjectID &amp;lt;- ids
+
+# view the column to double check
+demographics$SubjectID&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;ID1&amp;quot; &amp;quot;ID2&amp;quot; &amp;quot;ID3&amp;quot; &amp;quot;ID4&amp;quot; &amp;quot;ID5&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;quiz&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Quick Quiz&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-quiz1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-quiz1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-quiz1&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;functions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Functions&lt;/h2&gt;
+&lt;p&gt;Functions are the heart and soul of &lt;code&gt;R&lt;/code&gt;, and are especially powerful. They are the &lt;strong&gt;verbs&lt;/strong&gt; of a programming language because the act on the objects. Each function has:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/em&gt; that is unique&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Arguments&lt;/strong&gt;&lt;/em&gt; - What is the verb acting on? How should the function behave?&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/em&gt; or the result of the function (can be anything!) that can be stored to another object&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You’ve already seen some functions in action! You just didn’t know it, yet!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;c()&lt;/code&gt; is the combine/concatenate function:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s name is &lt;code&gt;c&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;It’s input is whatever you’re trying to combine&lt;/li&gt;
+&lt;li&gt;It’s output is the vector that has the elements combined&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;data.frame()&lt;/code&gt; is the function for making a data.frame:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s name is &lt;code&gt;data.frame&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;It’s input is a series of vectors that all have the same length&lt;/li&gt;
+&lt;li&gt;It’s output is a nicely formatted data.frame&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;class()&lt;/code&gt; is the function for finding out the class of an object:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It’s name is &lt;code&gt;class&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;It’s input is the object you are examining&lt;/li&gt;
+&lt;li&gt;It’s output is a character telling you what class the object is&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Most functions use more arguments than what we’ve seen above. And those arguments have names.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;medium&#34;&gt;Use the argument names!&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Autocomplete will help so it’s not so tedious. See the &lt;a href=&#34;/lectures/05-lecture&#34;&gt;lecture slides&lt;/a&gt; for the example with the &lt;code&gt;round()&lt;/code&gt; function. When you have multiple arguments, you separate them with a comma &lt;code&gt;function(argument 1 = something, argument 2 = something else)&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Follow the directions for each chunk below to create different sequences of numbers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-app1&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-app1/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-app1&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;help-pages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Help Pages&lt;/h2&gt;
+&lt;p&gt;One of the biggest mistakes I see new coders make is that they pull up the help pages, but don’t actually read them. &lt;strong&gt;TAKE THE TIME TO READ THEM!&lt;/strong&gt; There is a lot of really, really helpful information in there. And they are all organized the same way. See the &lt;a href=&#34;/lectures/05-lecture&#34;&gt;lecture slides&lt;/a&gt; for a breakdown of the Help pages.&lt;/p&gt;
+&lt;p&gt;You can always look at help by typing &lt;code&gt;?functionName&lt;/code&gt;. For example, &lt;code&gt;?cbind&lt;/code&gt; will bring up the help documentation for the function &lt;code&gt;cbind()&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;puzzle&#34;&gt;
+&lt;p&gt;&lt;strong&gt;You try!&lt;/strong&gt; Follow the directions below each block to ultimately create a plot of standardized variables from our &lt;code&gt;empire&lt;/code&gt; dataset. Note that this exercise is intentionally a bit harder than previous exercises – that’s because you’re getting better!&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;iframe style=&#34;margin:0 auto; min-width: 100%;&#34; id=&#34;learnr-05-app2&#34; class=&#34;interactive&#34; src=&#34;https://shelly-cooper.shinyapps.io/05-learnr-app2/&#34; scrolling=&#34;no&#34; frameborder=&#34;no&#34; onload=&#39;iFrameResize({}, &#34;#learnr-05-app2&#34;)&#39;&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;div class=&#34;fyi&#34;&gt;
+&lt;p&gt;&lt;strong&gt;FYI:&lt;/strong&gt; In this exercise, we made a very basic scatter plot. But it’s not very pretty. We will talk &lt;em&gt;a lot&lt;/em&gt; about making really pretty plots. You can check out the very basics in the &lt;a href=&#34;/lectures/09-lecture&#34;&gt;Stats &amp;amp; Plot&lt;/a&gt; section, and then we’ll go into a lot more detail when we get to the Data Visualization section.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Congratulations! You’re making great progress and are well on your way to being a bad@$% programmer!&lt;/p&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/you-did-good-job-meme.jpg&#34; width = &#34;100%&#34;&gt;&lt;/p&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;examples-of-a-few-functioins&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Examples of a few functioins&lt;/h2&gt;
+&lt;p&gt;In the corresponding lecture, I listed a couple functions that you might use quite frequently. Below are examples of how to use these functions. Note that you do not need to go through all of them at this time. However, I would encourage you to come back and take a look at some point.&lt;/p&gt;
+&lt;div id=&#34;length-nrow-ncol&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;code&gt;length()&lt;/code&gt;, &lt;code&gt;nrow()&lt;/code&gt;, &lt;code&gt;ncol()&lt;/code&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt; is the same as getting the last element’s index position&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nrow()&lt;/code&gt; and &lt;code&gt;ncol()&lt;/code&gt; tell you how many rows and columns there are in a data.frame, respectively&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nrow(demographics)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ncol(demographics)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that these don’t work properly for &lt;em&gt;any&lt;/em&gt; object&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# length on a 2-d object just gives the 2nd dimension (columns)
+# lots of people get this confused and think it should return the
+# number of rows!
+length(demographics)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# nrow and ncol of a 1-d vector don&amp;#39;t make sense...
+# there is no such thing as columns or rows in a vector
+nrow(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ncol(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;factor-and-as.factor&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;code&gt;factor()&lt;/code&gt; and &lt;code&gt;as.factor()&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;Both of these convert a character vector into a factor. Factors are a special case of character where there is inherent meaning/grouping. Categorical variables.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(Note: For the life of me, I can’t figure out the difference between &lt;code&gt;factor()&lt;/code&gt; and &lt;code&gt;as.factor()&lt;/code&gt; 🤷‍♀ so you can think of them as interchangable.)&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Our &amp;#39;Location&amp;#39; variable consists of states. We might want
+# to think of this as a categorical variable, where each state
+# is a meaingfully different category from the next state.
+
+# Don&amp;#39;t forget to re-assign the variable so that it stores your new
+# factor!
+demographics$Location &amp;lt;- factor(demographics$Location)
+demographics$Location&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] Missouri Iowa     Missouri Idaho    Maine   
+## Levels: Idaho Iowa Maine Missouri&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# To double check, use the `class()` function
+class(demographics$Location)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The LEVELS of a factor are all the different categories. Here, we have 4 states. &lt;code&gt;R&lt;/code&gt; will always put these in alphabetical order unless you tell it otherwise (hint: you can change this by modifying one of the arguments).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;table-for-quick-counts&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;code&gt;table()&lt;/code&gt; for quick counts&lt;/h4&gt;
+&lt;p&gt;Especially good for factors &amp;amp; logicals!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# how many states are in each category?
+table(demographics$Location)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##    Idaho     Iowa    Maine Missouri 
+##        1        1        1        2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# states x smoker table
+table(demographics$Location, demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           
+##            FALSE TRUE
+##   Idaho        0    1
+##   Iowa         1    0
+##   Maine        1    0
+##   Missouri     1    1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cbind-and-rbind-for-adding-columns-and-rows-respectively&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;&lt;code&gt;cbind()&lt;/code&gt; and &lt;code&gt;rbind()&lt;/code&gt; for adding columns and rows, respectively&lt;/h4&gt;
+&lt;p&gt;These are for if you have a vector that you want to add to a data.frame. You should make sure there’s the same number of items – which changes depending on if you’re adding a row or a column!&lt;/p&gt;
+&lt;p&gt;Let’s add a column consisting of survey scores, on a scale of 1 to 10. Then we’ll add a row.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# first, let&amp;#39;s add a column for surveys. there are currently
+# 5 rows/observations, so we&amp;#39;ll want 5 elements in this vector
+survey &amp;lt;- c(6, 4, 10, 2, 8)
+
+# now use cbind() to add it to your data.frame
+# the 1st argument is the data.frame
+# the 2nd argument is the thing you want to add to it
+# (you&amp;#39;re combining BOTH things)
+
+# note that we re-assign the entire data.frame
+demographics &amp;lt;- cbind(demographics, survey)
+
+# print it out to view
+demographics&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   SubjectID Location SmokerTF SubjectAge survey
+## 1       ID1 Missouri     TRUE         20      6
+## 2       ID2     Iowa    FALSE         18      4
+## 3       ID3 Missouri    FALSE         32     10
+## 4       ID4    Idaho     TRUE         25      2
+## 5       ID5    Maine    FALSE         25      8&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;############
+
+# now let&amp;#39;s add a row. there are 5 columns, so we need to add an
+# element that will match up with each column
+newParticipant &amp;lt;- c(&amp;quot;ID6&amp;quot;, &amp;quot;Iowa&amp;quot;, FALSE, 28, 5)
+
+# now use rbind() to bind by rows
+# the 1st argument is the data.frame
+# the 2nd argument is the row you want to add to it. This makes it the LAST row
+# (if you switched the order, it would become the FIRST row)
+demographics &amp;lt;- rbind(demographics, newParticipant)
+
+# print it out to view
+demographics&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   SubjectID Location SmokerTF SubjectAge survey
+## 1       ID1 Missouri     TRUE         20      6
+## 2       ID2     Iowa    FALSE         18      4
+## 3       ID3 Missouri    FALSE         32     10
+## 4       ID4    Idaho     TRUE         25      2
+## 5       ID5    Maine    FALSE         25      8
+## 6       ID6     Iowa    FALSE         28      5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There is 1 slight issue with &lt;code&gt;rbind()&lt;/code&gt;. Vectors will always take on the least specific class So &lt;code&gt;newParticipant&lt;/code&gt; is considered a character vector because all of it’s elements could be thought of as characters, but not everything could be considered numeric or logical. This means that when we added it to the &lt;code&gt;demographics&lt;/code&gt; data.frame, it made any column that wasn’t already a character into characters!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SubjectID)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$Location) # factors are special characters&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;factor&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$SubjectAge)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(demographics$survey)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;character&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;However, the last 3 columns should &lt;strong&gt;NOT&lt;/strong&gt; be characters. I change them back below. See if you can figure out what each function does.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SmokerTF &amp;lt;- as.logical(demographics$SmokerTF)
+class(demographics$SmokerTF)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;logical&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$SubjectAge &amp;lt;- as.numeric(demographics$SubjectAge)
+class(demographics$SubjectAge)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;demographics$survey &amp;lt;- as.numeric(demographics$survey)
+class(demographics$survey)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;numeric&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(Ok for real this time…The End)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assignment 7</title>
+      <link>/assignments/07-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/07-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;RULES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You must use a RNotebook for this assignment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sections should have appropriate headers&lt;/li&gt;
+&lt;li&gt;All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do &lt;em&gt;not&lt;/em&gt; want to see code located outside of a chunk (unless you’re making a quick note or telling us what you’re doing – but the code outside of a chunk shouldn’t be evaluated).&lt;/li&gt;
+&lt;li&gt;Any explanations I ask for should be &lt;em&gt;outside&lt;/em&gt; of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., &lt;code&gt;#a long sentence like this&lt;/code&gt;). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You must use the &lt;code&gt;ggplot2&lt;/code&gt; package and syntax for all plotting. No plots in &lt;code&gt;base R&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;hypothesis-testing&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Hypothesis Testing&lt;/h2&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conduct 3 hypothesis tests from your dataset. Choose any statistical tests that come from the &lt;code&gt;Comparing Means&lt;/code&gt; lecture. For each of the 3 tests you need to:
+&lt;ul&gt;
+&lt;li&gt;Give a rationale for why you’re looking at this (does it theoretically make sense?; one sentence is OK)&lt;/li&gt;
+&lt;li&gt;State your null and alternative hypotheses&lt;/li&gt;
+&lt;li&gt;Have a code chunk running the test and printing out the results&lt;/li&gt;
+&lt;li&gt;Make a plot that shows the effect for each of your 3 tests&lt;/li&gt;
+&lt;li&gt;For each test, you must also provide either a confidence interval or a measure of effect size&lt;/li&gt;
+&lt;li&gt;Write 2-5 sentences per test interpreting the results including interpreting the &lt;span class=&#34;math inline&#34;&gt;\(p\)&lt;/span&gt;-value, confidence intervals/effect sizes, graph, and how it fits in to your hypotheses.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;current-state-of-academia-in-psychology-and-neuroscience&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Current State of Academia in Psychology and Neuroscience&lt;/h2&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Write a few sentences about publication bias as discussed in the lecture. In it, describe what the “file drawer problem” is and how statistical power plays a role in publication bias.&lt;/li&gt;
+&lt;li&gt;Given what was presented in the &lt;code&gt;Power+&lt;/code&gt; lecture, what do you think about the state of Psychology and Neuroscience research? Do you feel optimistic, hopeless, energized, etc.? Explain why. There is no right answer, I just want to hear your thoughts.&lt;/li&gt;
+&lt;li&gt;If you currently work in a lab (or have previously worked in a lab), describe 2 things that your lab could improve upon to better support rigorous Psych/Neuro research. If you do not work in a lab (and you have not previously worked in one), describe 2 things that you could do better with your assignments in this class that would better adhere to Open Science standards.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;p&gt;Side note: Lots of focus has been given to Psychology research, but all of these same problems are present in Neuroscience research, too. If you would like papers supporting this, feel free to reach out – I’m happy to send some over. Anyone studying behavior will run into these types of issues because humans are not rational beings (unlike what your economist friends might say…). I also just really love these topics, so feel free to reach out at any point if you want to know more or want to pursue these topics.&lt;/p&gt;
+&lt;div id=&#34;whooooooooo&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Whooooooooo!&lt;/h3&gt;
+&lt;p&gt;Done!&lt;/p&gt;
+&lt;p&gt;Go ahead and submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas. If you used an outside dataset, please also submit that, too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Practice Set: Packages</title>
       <link>/practice/06-practice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2140,6 +2746,62 @@ library(ggplot2)&lt;/code&gt;&lt;/pre&gt;
 &lt;center&gt;
 &lt;p&gt;&lt;img src=&#34;../encouragementFigs/figure-html/morememes.png&#34; width = &#34;75%&#34;&gt;&lt;/p&gt;
 &lt;/center&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Assignment 8</title>
+      <link>/assignments/08-assignment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/08-assignment/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;/slides/css/additionalCols.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+&lt;div class=&#34;note&#34;&gt;
+&lt;p&gt;&lt;strong&gt;RULES&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You must use a RNotebook for this assignment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sections should have appropriate headers&lt;/li&gt;
+&lt;li&gt;All code must be contained within a code chunk. You are allowed to split up your code into many code chunks, or just have one large chunk per section. That is up to you. However, I do &lt;em&gt;not&lt;/em&gt; want to see code located outside of a chunk (unless you’re making a quick note or telling us what you’re doing – but the code outside of a chunk shouldn’t be evaluated).&lt;/li&gt;
+&lt;li&gt;Any explanations I ask for should be &lt;em&gt;outside&lt;/em&gt; of a code chunk (aka formatted text). I personally would put this directly underneath the header, but it can come after the code chunk ends, as well. Whatever you prefer. However, I do not want to see any sentences as comments within a code chunk (e.g., &lt;code&gt;#a long sentence like this&lt;/code&gt;). Comments within the code is fine in terms of describing what the code is doing. But when I ask for your opinion or an explanation of something, that needs to be formatted text.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You must use the &lt;code&gt;ggplot2&lt;/code&gt; package and syntax for all plotting. No plots in &lt;code&gt;base R&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;correlations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Correlations&lt;/h2&gt;
+&lt;p&gt;Choose 2 continuous variables from your dataset that you think might be related to one another, and then do the following.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;There are lots of ways to get a correlation in &lt;code&gt;R&lt;/code&gt;. Use the following functions to get the correlation:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cor&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cor.test&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;corr.test&lt;/code&gt; (from &lt;code&gt;psych&lt;/code&gt; package)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Write a sentence or two about which of the above functions you like best and explain why&lt;/li&gt;
+&lt;li&gt;Make 2 scatter plots of your data with a best fit line indicating the correlation. In the first scatter plot use the raw data. In the second scatter plot, use standardized variables. Write a sentence describing if the line is the same or if it’s different, and explain why this is the case.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;its-all-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;It’s All Regression&lt;/h2&gt;
+&lt;p&gt;For this exercise you will need 2 continuous variables and 2 categorical variables. One of your categorical variables should have 3 or more levels. One of the continuous variables will be your OUTCOME measure (or your &lt;span class=&#34;math inline&#34;&gt;\(Y\)&lt;/span&gt; variable). Please use this same variable as the outcome for all of the analyses described below.&lt;/p&gt;
+&lt;div class=&#34;list&#34;&gt;
+&lt;p&gt;Here’s your to-do list:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Get the correlation between your outcome variable and your second continuous variable. Store this as an object. Next, run a simple linear regression with these two variables. Lastly, re-run your simple linear regression with the same variables, but now standardized. Print the output for all 3 analyses and write 2-3 sentences explaining what you find. What’s the same and what’s different?&lt;/li&gt;
+&lt;li&gt;Run a oneway ANOVA with your categorical variable that has 3 or more levels and your outcome variable. Now re-run that same model but as a regression instead. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Be sure to interpret the coefficients &lt;em&gt;and&lt;/em&gt; the overall model (omnibus test).&lt;/li&gt;
+&lt;li&gt;Now run an ANOVA with both of your categorical variables predicting your outcome variable. Then re-run that same model as a regression. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Be sure to interpret the coefficients &lt;em&gt;and&lt;/em&gt; the overall model (omnibus test).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;boom&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Boom!&lt;/h3&gt;
+&lt;p&gt;Go ahead and submit your &lt;code&gt;.Rmd&lt;/code&gt; and &lt;code&gt;.html&lt;/code&gt; file to Canvas. If you used an outside dataset, please also submit that, too.&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -3548,7 +4210,7 @@ pie(
   col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
   init.angle = -50, border = NA
 )&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span style=&#34;display:block;&#34; id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
 &lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: A fancy pie chart.
@@ -3965,6 +4627,7 @@ Figure 1: A fancy pie chart.
 &lt;li&gt;&lt;a href=&#34;#videos&#34;&gt;Videos&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#data&#34;&gt;Data&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#slides&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#extra-slides-for-week-8&#34;&gt;Extra Slides for Week 8&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
@@ -4032,6 +4695,25 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;standardization&#34; class=&#34;tab-pane fade&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;standardization-tab&#34;&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
 &lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/20-slides.html#zs&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extra-slides-for-week-8&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extra Slides for Week 8&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;&lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/20-slides.html&#34;&gt;&lt;i class=&#34;fas fa-external-link-alt&#34;&gt;&lt;/i&gt; View all slides in new window&lt;/a&gt; &lt;a class=&#34;btn btn-primary btn-lg&#34; target=&#34;_blank&#34; href=&#34;/slides/20-slides.pdf&#34; role=&#34;button&#34;&gt;&lt;i class=&#34;far fa-file-pdf&#34;&gt;&lt;/i&gt; Download PDF of all slides&lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;slide-tabs&#34; role=&#34;tablist&#34;&gt;
+&lt;li class=&#34;nav-item&#34;&gt;
+&lt;a class=&#34;nav-link active&#34; id=&#34;data-types-and-validity-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#data-types-and-validity&#34; role=&#34;tab&#34; aria-controls=&#34;data-types-and-validity&#34; aria-selected=&#34;true&#34;&gt;Data Types and Validity&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;slide-tabs&#34; class=&#34;tab-content&#34;&gt;
+&lt;div id=&#34;data-types-and-validity&#34; class=&#34;tab-pane fade show active&#34; role=&#34;tabpanel&#34; aria-labelledby=&#34;data-types-and-validity-tab&#34;&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+&lt;iframe class=&#34;embed-responsive-item&#34; src=&#34;/slides/ExtraSlides-Week8.html#1&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4225,7 +4907,7 @@ Figure 1: A fancy pie chart.
 &lt;div id=&#34;videos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Videos&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://youtu.be/mBYsfbIfGfs&#34;&gt;For Loops&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://youtu.be/ujYxAORiCgo&#34;&gt;For Loops&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;slides&#34; class=&#34;section level2&#34;&gt;
@@ -5356,6 +6038,162 @@ Figure 1: A fancy pie chart.
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Peer Assignment 1</title>
+      <link>/assignments/01-mini-assignment-skeleton/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/assignments/01-mini-assignment-skeleton/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;how-this-works&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;How this works&lt;/h2&gt;
+&lt;p&gt;This peer assignment is on the topic of &lt;code&gt;for loops&lt;/code&gt;. There are 4 problems, each ramping up in terms of difficulty and points:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Easiest, .5 points&lt;/li&gt;
+&lt;li&gt;A little harder, 1 point&lt;/li&gt;
+&lt;li&gt;A little harder still, 1.5 points&lt;/li&gt;
+&lt;li&gt;Hardest, 2 points&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You need to edit the code chunks to create the correct output. &lt;strong&gt;You will be graded on accuracy!&lt;/strong&gt; Specifically, you need to get the correct output.&lt;/p&gt;
+&lt;p&gt;DO NOT CHANGE ANY OF THE CODE CHUNK PARAMETERS UNLESS OTHERWISE SPECIFIED. The only things in this markdown file you should change are the names in the YAML header, and you should edit the actual code chunks. I will not ask you for any text responses, and I don’t want you to change any of the RMarkdown parameters.&lt;/p&gt;
+&lt;p&gt;You’ve all been doing great this semester, so I am confident you will do well on this, too.&lt;/p&gt;
+&lt;p&gt;Let’s get to it!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;question-1-.5-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Question 1 (.5 points)&lt;/h2&gt;
+&lt;p&gt;I have created 2 vectors. One with 5 digit numbers and the other with 4 digit numbers. We are going to pretend these are real zip codes. Your job is to create a vector called &lt;code&gt;zipcodes&lt;/code&gt; that takes the full 9 digit form, with a hyphen in between. For instance, Wash U’s zip code is 63130-4899. This is the form that we want our final vector to be in.&lt;/p&gt;
+&lt;p&gt;Edit the for loop below to create the output.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# First, remove the `, eval=FALSE` from the above chunk parameter, so that it only says &amp;quot;```{r}&amp;quot;
+# Do NOT edit lines 33-36
+
+set.seed(1234)
+
+fives &amp;lt;- sample(x = 10000:99999, size = 1000)
+fours &amp;lt;- sample(x = 1000:9999, size = 1000)
+
+# edit this code
+for (i in 1:) 
+  zipcodes &amp;lt;- paste0(fives[i], &amp;quot;-&amp;quot;, fours[i])
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error: &amp;lt;text&amp;gt;:10:13: unexpected &amp;#39;)&amp;#39;
+## 9: # edit this code
+## 10: for (i in 1:)
+##                 ^&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;question-2-1-point&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Question 2 (1 point)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Iterate through a dataframe&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;bfi&lt;/code&gt; dataset is part of the &lt;code&gt;psych&lt;/code&gt; package. It shows 25 personality items representing 5 factors (or the Big 5).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Column names beginning with “O” belong to the factor “Openness”&lt;/li&gt;
+&lt;li&gt;Column names beginning with “C” belong to the factor “Conscientiousness”&lt;/li&gt;
+&lt;li&gt;Column names beginning with “A” belong to the factor “Agreeableness”&lt;/li&gt;
+&lt;li&gt;Column names beginning with “N” belong to the factor “Neuroticism”&lt;/li&gt;
+&lt;li&gt;Column names beginning with “E” belong to the factor “Extraversion”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You need to create a composite variable for each of the 5 factors, &lt;em&gt;per individual&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Below is a skeleton of the code, but it doesn’t quite work. Your job is to fix it!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The only package you need is the &lt;code&gt;psych&lt;/code&gt; package for accessing the dataset. The goal is to practice for loops. Not other functions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(psych)
+
+bfi$Openness &amp;lt;- NA
+bfi$Conscientiousness &amp;lt;- na&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in eval(expr, envir, enclos): object &amp;#39;na&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;bfi$Agreeableness &amp;lt;- NA
+bfi$Neuroticism &amp;lt;- NA
+bfi$Extraversion &amp;lt;- NA
+
+for (i in 1:nrow(bfi)) {
+  bfi$Openness &amp;lt;- (bfi[i,21] + bfi[i,22] + bfi[i,23] + bfi[i,24] + bfi[i,25])/5
+  
+  bfi$Conscientiousness[i] &amp;lt;- (bfi[i,6] + bfi[i,7] + bfi[i,8] + bfi[i,9] + bfi[i,10])/5
+  
+  bfi$Agreeableness[i] &amp;lt;- (bfi[i,1] + bfi[i,2] + bfi[i,3] + bfi[i,4] + bfi[i,5])/5
+  
+  bfi$Neuroticism[i] &amp;lt;- bfi[i,16] + bfi[i,17] + bfi[i,18] + bfi[i,19] + bfi[i,20]
+  
+  bfi$Extraversion[i] &amp;lt;- (bfi[11,i] + bfi[12,i] + bfi[13,i] + bfi[14,i] + bfi[15,i])/5
+  
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Error in bfi$Extraversion[i] &amp;lt;- (bfi[11, i] + bfi[12, i] + bfi[13, i] + : replacement has length zero&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;question-3-1.5-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Question 3 (1.5 points)&lt;/h2&gt;
+&lt;p&gt;We are going to play a game. It’s called Fizz Buzz. You are going to print integers 1 to 50, but print “Fizz” if an integer is divisible by 3, “Buzz” if an integer is divisible by 5, and “FizzBuzz” if an integer is divisible by both 3 and 5.&lt;/p&gt;
+&lt;p&gt;To do this, let’s introduce you to the &lt;strong&gt;modulus operator&lt;/strong&gt;. We use 2 percent signs, like this &lt;code&gt;%%&lt;/code&gt;. It returns the &lt;em&gt;remainder&lt;/em&gt; of a division. So for instance &lt;code&gt;4 %% 2&lt;/code&gt; will result in &lt;code&gt;0&lt;/code&gt;. That’s because 2 goes into 4 evenly. There is no remainder after that division! If you instead did &lt;code&gt;17 %% 7&lt;/code&gt; the result would be &lt;code&gt;3&lt;/code&gt;. That’s because 7 goes into 17 two times, but there are 3 left over. This is often used to figure out if something is an even number or not.&lt;/p&gt;
+&lt;p&gt;You’re going to make this one from scratch. Think carefully about the logic you want! I have provided you with the 100 numbers, and the empty vector called &lt;code&gt;game&lt;/code&gt;. At the end, we’re going to print your vector.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fizzbuzz_numbers &amp;lt;- 1:100
+
+game &amp;lt;- c()
+
+# your code goes here
+
+
+
+print(game)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## NULL&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Why am I having you play Fizz Buzz? Because it is easily one of the most popular interview questions in all of data science, software engineering, developer positions etc. In fact, my husband uses it in his interview process for new coders! So if you’re hoping to go into industry, you’ll definitely need to know this one. It’s also an excellent test of thinking logically.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;question-4-2-points&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Question 4 (2 points)&lt;/h2&gt;
+&lt;p&gt;Last one!&lt;/p&gt;
+&lt;p&gt;We have talked about nested functions. Arguably, even more important though is nested &lt;code&gt;for loops&lt;/code&gt;. I have used this in my own work quite a bit! Something like “for each cognitive task performed and for each time point, do something”.&lt;/p&gt;
+&lt;p&gt;We’re going to start small. Use 2 nested for loops to create a 20x20 multiplication table.&lt;/p&gt;
+&lt;p&gt;I do not want you using any extra packages or functions. And you do not need to format anything special.&lt;/p&gt;
+&lt;p&gt;I have created an empty matrix. Use your nested for loops to fill in the matrix.&lt;/p&gt;
+&lt;p&gt;HINT: If you think of this as a data.frame, the first loop goes through the rows and the second loop goes through the columns. Normally we use &lt;code&gt;i&lt;/code&gt; for “each”. But now you’ll need each row and each column. You might need an extra letter.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# We&amp;#39;re only doing 20x20. Don&amp;#39;t change this!
+endNumber &amp;lt;- 20
+
+# Make an empty vector. Don&amp;#39;t change this!
+multTable &amp;lt;- matrix(vector(), nrow = endNumber, ncol = endNumber)
+
+# YOUR CODE GOES HERE
+
+
+
+
+
+
+
+
+
+# I am changing the row names and column names. Just trust me on
+# this one, it&amp;#39;ll make the table look much better! :-)
+# Don&amp;#39;t change this!
+colnames(multTable) &amp;lt;- paste0(1:20, &amp;quot;j&amp;quot;)
+rownames(multTable) &amp;lt;- paste0(1:20, &amp;quot;i&amp;quot;)
+
+# Print it out. Don&amp;#39;t change this!
+multTable&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##     1j 2j 3j 4j 5j 6j 7j 8j 9j 10j 11j 12j 13j 14j 15j 16j 17j 18j 19j 20j
+## 1i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 2i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 3i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 4i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 5i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 6i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 7i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 8i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 9i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 10i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 11i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 12i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 13i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 14i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 15i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 16i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 17i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 18i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 19i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 20i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
