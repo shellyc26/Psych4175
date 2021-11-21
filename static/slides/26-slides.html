@@ -136,6 +136,12 @@ There are no 100% right answers, but there are wrong ones...
 
 ---
 
+# What to do?
+
+&lt;img src="26-slides_files/figure-html/dotplot.jpeg", width="80%"&gt;
+
+---
+
 # Why box plots on their own can suck
 
 ![](26-slides_files/figure-html/BoxViolinSmaller.gif)
@@ -159,6 +165,10 @@ There are no 100% right answers, but there are wrong ones...
 ![](26-slides_files/figure-html/linemisuserebuttal.png)
 &lt;/center &gt;
 
+---
+# Simpson's Paradox
+
+![](26-slides_files/figure-html/simpsonsparadox.png)
 ---
 name: avoid
 
@@ -213,6 +223,19 @@ chartjunk is anything that gets in the way of reading the information displayed.
 
 ![](26-slides_files/figure-html/latvians.png)
 ]
+
+---
+.pull-left[
+![](26-slides_files/figure-html/latvians.png)
+]
+
+.pull-right[
+![](26-slides_files/figure-html/yaoming.jpeg)
+- Kevin Hart: 5'2
+- Shaquille O'Neal: 7'1
+- Yao Ming: 7'6
+]
+
 ---
 name: acc
 
@@ -254,7 +277,13 @@ When you have something side-by-side, you can have different colors. OR you can 
 &lt;img src="26-slides_files/figure-html/unnamed-chunk-2-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
+class: center, middle
 
+# Bad use of colors
+
+![](26-slides_files/figure-html/colorhell.png)
+
+---
 # Grayscale
 
 The most obvious of this is grayscale (technically, it's not a hue, and you're dealing with saturation, but that's completely unimportant for this intro):
@@ -311,6 +340,14 @@ You want to display your figures faithfully, but you don't want to take up extra
 
 .tiny[https://twitter.com/chrisprener/status/1375937857840353280/photo/2]
 ---
+# Rainbow Colormaps
+
+What is this? 
+
+&lt;img src="26-slides_files/figure-html/rainbow2.png", width="70%"&gt;
+
+---
+
 # Don't Use Rainbow Colormaps
 ![](26-slides_files/figure-html/rainbow.png)
 
@@ -329,13 +366,12 @@ How do you know if you've made a good figure?
 - Does it **_faithfully_** reflect your data? Beauty + truth
 
 ---
+name: rules
 
 # Rules
 - Don't make a plot when a table will do
 - Represent data with appropriate significant figures
 - Use appropriate plot types for the data types
-- **Label your axes**
-- **Label your axes**
 - **Label your axes**
 - Title your figures
 - Whenever possible, show all the data (or at least the distribution)
@@ -354,7 +390,7 @@ How do you know if you've made a good figure?
 
 - `geom_dotplot`; better than bar plots, typically (see earlier slide)
 - Revisit our section on `ggplot2`; I bet you missed a lot...
-- Raincloud plots; [blog post here](https://micahallen.org/2018/03/15/introducing-raincloud-plots/)
+- Raincloud plots; [blog post here](https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/)
 - Using the same theme modifications for all plots? Make a function to store that theme and call it later (more on functions soon!)
 - **Google is your friend; Google is your professor**
 - Interested in making generative art in `R`? Check out the Twitter accounts of [Danielle Navarro](https://twitter.com/djnavarro) and [Ijeamaka Anyene](https://twitter.com/ijeamaka_a); then look at their websites!
