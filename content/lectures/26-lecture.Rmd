@@ -14,7 +14,7 @@ output:
 
 ## Videos
 
-- [Visualizing Data](https://youtu.be/W-ploe-I9mY)
+- [Visualizing Data](https://youtu.be/eRLe2gSFasA)
 
 ## Extra
 
