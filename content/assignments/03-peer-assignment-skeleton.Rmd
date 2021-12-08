@@ -1,0 +1,133 @@
+---
+title: "Peer Assignment 3"
+author:
+  - Your Name, Primary
+  - Buddy's Name, Peer
+output: html_document
+---
+
+## How this works
+This peer assignment is on the topic of *simulating data*. There are 4 problems, each ramping up in terms of difficulty and points:
+
+- Easiest, 1 point
+- A little harder, 2 points
+- A little harder still, 3 points
+- Hardest, 4 points
+
+You need to edit the code chunks to create the correct output. **You will be graded on accuracy!** Specifically, you need to get the correct output.
+
+DO NOT CHANGE ANY OF THE CODE CHUNK PARAMETERS. The only things in this markdown file you should change are the name in the YAML header, and you should edit the actual code chunks. I will not ask you for any text responses, and I don't want you to change any of the RMarkdown parameters. 
+
+You've all been doing great this semester, so I am confident you will do well on this, too. 
+
+Let's get to it!
+
+_**Note, there was no practice set for simulating data (sorry!), so this mini assignment is a little easier than previous mini assignments because we're going to use this as our practice.**_
+
+
+```{r, warning = FALSE, message = FALSE}
+# DO NOT EDIT THIS CODE
+# setting the seed for the whole document so we get the same answers. 
+set.seed(4175)
+
+library(ggplot2)
+```
+
+## Question 1 (1 point)
+
+You are the new Psych 300 Introduction to Statistics professor. You want to show your students that the normal distribution is actually a family of distributions. Even if they have the same mean and similar features (symmetric, unimodal etc.), they might look quite different. 
+
+Your goal is to make a plot of overlapping density distributions, where 1 of the distributions has a lot of variability, 1 of the distributions is the standard normal, and the last distribution has very little variability. Make sure the density plots are filled by different colors. Note, this should be a single plot -- not 3 separate ones.
+
+```{r}
+# simulate the dataset
+
+
+
+# plot
+```
+
+## Question 2 (2 points)
+
+You're still the professor of the stats class. Now, you want to show that if you are comparing 2 means via a $t$-test, the results of that test might differ based on how much variability there is in each group. 
+
+Make 2 datasets with 100 people in each. In both of your datasets, make the mean of group 1 to be 100 and the mean of group 2 to be 115. However, in dataset 1, make the variability of both groups to be large. In dataset 2, make the variability of both groups to be small. Be sure there is a difference of at least 5 (if not more) between the variabilities. 
+
+After simulating the data, then run the 2 $t$-tests and print out the results. 
+
+```{r}
+# simulate the datasets
+
+
+
+
+
+# print out the t-tests
+```
+
+
+## Question 3 (3 points)
+
+Still the stats professor. One of your students asks what happens to correlations if there is a lot of measurement error. Rather than going through lots of formulas, you decide to show them what happens via a simulation. To do this, you're going to create a dataset using the `rnorm_multi` function from the `faux` package (install if you don't already have it -- make sure that the line `install.packages()` is commented out though). Set the following arguments (and look at the help page!):
+
+- The means should be the same. Pick a number
+- Variances should be the same. Pick a number less than your mean. 
+- Make all 3 variables correlate at .5
+- Give them names
+- Set `empirical = TRUE` (this makes sure we get sample data and not population data)
+
+Once you've done this, look at your dataset (no need to print it). Just get a sense of what's in it. After you do this, then complete the following steps:
+
+- Get the correlation of your data.frame. Print this out. It should match what you specified. If it doesn't, your code is wrong. 
+- Duplicate your dataset (aka just assign it to a new object with a new name).
+- Add random noise to every value in the last variable in your duplicated dataset.
+- Now get the correlation of this duplicated dataset. Print this out. 
+
+You should be able to show your students that if you add in random noise (which is the same as adding in measurement error), the correlation changes substantially. Thus, it's important to measure your variables as best as possible (aka no MRIs during earthquakes etc.).
+
+
+```{r}
+
+
+
+
+
+
+
+```
+
+## Question 4 (4 points)
+
+You are still the King/Queen of stats. You are a reviewer for a manuscript, where the study ran a $t$-test where each group had 25 participants and the reported effect size was .7. The paper claims that they achieved at least 80% power (using standard alpha = .05). You do not agree, so you decide to simulate power given their sample size and effect size.
+
+To simulate power, you run large number of iterations where on each iteration you generate a new dataset (values for each group) and run the $t$-test. Then, you mark whether the test was significant or not (coded as 0 or 1). After doing this a large number of times, you can take the mean of that vector to figure out how many iterations were significant and how many were not, and that will converge on your statistical power.
+
+**HINTS:**
+
+- Effect size for $t$-tests is *Cohen's d*. This is the standardized mean difference. So if your first group has a mean of 0, your second group should have a mean that is equivalent to Cohen's d. 
+- You're in for loop territory! Run 5000 iterations.
+- Print the simulated power
+- You can set the `var.equal=TRUE` parameter in the $t$-test function if when you actually simulate the data, you give them the same standard deviation (recommended)
+- You can code significance as 0 or 1. Or, you can code it as `TRUE` or `FALSE`. R will count `TRUE` as 1 and `FALSE` as 0. 
+
+```{r}
+# set parameters so you don't have to type this by hand
+N <- 25
+d <- .7
+
+# for loop that simulates your data
+
+
+
+
+
+
+
+# print out the statistical power here
+
+
+```
+
+The power you get should be less than 80%. Even at a large effect size (.7), 25 people per group is not enough. 
+
+
