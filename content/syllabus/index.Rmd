@@ -10,16 +10,21 @@ output:
 
 ## What is this class?
 - Applied Statistical Analysis with R (Psych 4175)
-- Mondays/Wednesdays 1-2:20pm
-- Mallinckrodt 303
+- Tuesday/Thursdays 11:30am-12:50pm
+- Somers Family Hall 216B
 
-## Who am I?
+## Who are we?
 
 Instructor: **Shelly Cooper (she/her)**
 You can reach Shelly via the contact form on the homepage of this site, or you can email her at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
 
+Assistant to the Instructor: **Tabea Springstein**
+You can reach Tabea via email at [tspringstein@wustl.edu](mailto:tspringstein@wustl.edu).
+
 ## What's the course philosophy?
-Programming & statistics are in demand skills across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to feel comfortable with the programmatic skills needed to take a data analysis project from start to finish including data wrangling, executing appropriate statistical tests, interpreting the results, and communicating your findings. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.). 
+Programming & statistics are in demand skills across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to feel comfortable with the programmatic skills needed to take a data analysis project from start to finish including data wrangling, executing appropriate statistical tests, interpreting the results, and communicating your findings. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.).
+
+You do not need to have any experience with programming, at all, in order to do well in this class.
 
 >The only difference between a beginner and expert programmer, is that the expert is better at Googling”.
 

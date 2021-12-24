@@ -5,18 +5,18 @@ slug: schedule
 
 Here's your roadmap for this course!
 
-**_Before_ Every Monday's Class:**
+**_Before_ Every Tuesday's Class:**
 
 - [**Lectures**](/lectures/) (<i class="fas fa-book-reader"></i>): This contains the lecture slides and video recordings of these lectures. You should watch the videos and follow along for each topic that is assigned per week.
 
-**Mondays:**
+**Tuesdays:**
 
 - We will first complete peer reviews (if there was an assignment for the previous week's material).
 - [**Practice**](/practice/) (<i class="fas fa-laptop-code"></i>): This page contains an interactive lesson that reinforces the principles that were discussed in the corresponding lecture. They also tend to go through more detail. We will go through this as a class, but you are able to practice on your own, too. Note that I will **not** be re-lecturing the material; watching the lectures is your homework. 1 out of 1.5 of your participation points each week will come from here! If I ask you questions when we go through material, and it is clear you have not watched the lectures, you will be docked participation. 
 
-**Wednesdays:**
+**Thursdays:**
 
-- [**Assignment**](/assignment/) (<i class="fas fa-pencil-ruler"></i>): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. The entire class period on Wednesdays is dedicated to you doing the assignment. I am around to help when you get stuck. You will need to finish the assignment at home if you do not complete it in class. **Assignments are due by 1pm on the _following_ MONDAY.** Ex: On Wednesday 9/15 you will work on Assignment 1. It covers the lecture material in Week 3. Assignment 1 is due the following Monday (9/22) at 1pm. However, you should be able to complete the vast majority of Assignment 1 during class on Wednesday 9/15. Attendance will be taken on Wednesdays, and will constitute the other .5 points of the 1.5 participation points.
+- [**Assignment**](/assignment/) (<i class="fas fa-pencil-ruler"></i>): This page contains the instructions for each assignment. All items in the green to-do list boxes are part of the assignment. The entire class period on Wednesdays is dedicated to you doing the assignment. I am around to help when you get stuck. You will need to finish the assignment at home if you do not complete it in class. **Assignments are due by 11:30am on the _following_  TUESDAY.** Ex: On Thursday 1/27 you will work on Assignment 1. It covers the lecture material in Week 2. Assignment 1 is due the following Tuesday (2/1) at 11:30am. However, you should be able to complete the vast majority of Assignment 1 during class on Thursday 1/27. Attendance will be taken on Thursdays, and will constitute the other .5 points of the 1.5 participation points.
 
 **Exceptions to the rule:**
 
@@ -26,9 +26,9 @@ Here's your roadmap for this course!
 :::note
 **tl;dr**: You should follow this general process:
 
-- Watch the Lectures (<i class="fas fa-book-reader"></i>) at home before each Monday's class
-- Come prepared on Monday to assist the class with the Practice sets (<i class="fas fa-laptop-code"></i>)
-- Come prepared on Wednesday to work your way through each Assignment (<i class="fas fa-pencil-ruler"></i>)
+- Watch the Lectures (<i class="fas fa-book-reader"></i>) at home before each Tuesday's class
+- Come prepared on Tuesday to assist the class with the Practice sets (<i class="fas fa-laptop-code"></i>)
+- Come prepared on Thursday to work your way through each Assignment (<i class="fas fa-pencil-ruler"></i>)
 - If needed, finish the Assignment (<i class="fas fa-pencil-ruler"></i>) at home, and start watching next week's Lectures (<i class="fas fa-book-reader"></i>)
 :::
 
