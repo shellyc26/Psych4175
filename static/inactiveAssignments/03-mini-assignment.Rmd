@@ -2,8 +2,8 @@
 title: "Peer Assignment 3"
 linktitle: "Peer #3"
 date: "6/16/2020"
-due_date: "2021-12-14"
-due_time: "1:00pm"
+due_date: "2022-05-03"
+due_time: "11:30am"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
