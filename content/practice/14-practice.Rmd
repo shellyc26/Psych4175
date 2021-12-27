@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Rmd Anatomy"
-linktitle: "14: Rmd Anatomy"
+linktitle: "Rmd Anatomy"
 output:
   blogdown::html_page:
     toc: true

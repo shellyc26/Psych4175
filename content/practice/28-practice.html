@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Writing Custom Functions"
-linktitle: "28: Functions"
+linktitle: " Functions"
 output:
   blogdown::html_page:
     toc: true
@@ -239,7 +239,7 @@ plot2 &lt;- ggplot(studyData, aes(x = score)) +
   ggtitle(&quot;Drew&#39;s custom theme&quot;)
 
 ggarrange(plot1, plot2)</code></pre>
-<p><img src="/practice/28-practice_files/figure-html/Using%20functions%20for%20themes%20(example%201)-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/practice/28-practice_files/figure-html/unnamed-chunk-6-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Other than the text settings, <code>theme_drew()</code> is just mimicking <code>theme_classic()</code> right now. To make larger changes, we would add the following syntax:</p>
 <pre class="r"><code>theme_drew &lt;- function(){
   theme_classic(base_size = 14, base_family = &quot;Georgia&quot;)  
@@ -277,7 +277,7 @@ plot2 &lt;- ggplot(studyData, aes(x = score)) +
   ggtitle(&quot;Shelly&#39;s custom theme&quot;)
 
 ggarrange(plot1, plot2)</code></pre>
-<p><img src="/practice/28-practice_files/figure-html/Using%20functions%20for%20themes%20(example%203)-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/practice/28-practice_files/figure-html/unnamed-chunk-8-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="fyi">
 <p>This isn’t a FYI, but just to show that the background of the plot now looks different!</p>
 <center>

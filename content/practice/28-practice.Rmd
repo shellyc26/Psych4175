@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Writing Custom Functions"
-linktitle: "28: Functions"
+linktitle: " Functions"
 output:
   blogdown::html_page:
     toc: true
@@ -47,7 +47,7 @@ By now we're very familiar with how to use functions from base R and installed p
 
 The syntax for defining a function is as follows:
 
-```{r Example 1, eval = FALSE}
+```{r Example 1, eval = FALSE, error=FALSE}
 function_name <- function(arg_1, arg_2, ..., arg_x) {
   Function body 
   return(your_output)
@@ -261,7 +261,7 @@ To make `theme_drew()`, we create a function! In the body of the function I call
 :::
 
 
-```{r Using functions for themes (example 1), warning = FALSE, message = FALSE}
+```{r warning = FALSE, message = FALSE}
 # Changing theme_classic into theme_drew
 theme_drew <- function(){
   require(ggplot2)
@@ -296,7 +296,7 @@ ggarrange(plot1, plot2)
 
 Other than the text settings, `theme_drew()` is just mimicking `theme_classic()` right now. To make larger changes, we would add the following syntax:
 
-```{r Using functions for themes (example 2), eval=FALSE}
+```{r eval=FALSE, error=FALSE}
 theme_drew <- function(){
   theme_classic(base_size = 14, base_family = "Georgia")  
         theme(
@@ -310,7 +310,7 @@ Shelly is also a big fan of the ggplot2 classic theme, but she wants the backgro
 
 How would you know about `element_blank()` etc.? Professor Google! If you search for *modify ggplot2 theme* or something similar, a whole bunch of things should come up. If you search for *R theme*, you'll have a lot more trouble.
 
-```{r Using functions for themes (example 3), warning = FALSE, message = FALSE}
+```{r warning = FALSE, message = FALSE}
 # Changing theme_classic into theme_drew
 theme_shelly <- function(){
   theme_classic()

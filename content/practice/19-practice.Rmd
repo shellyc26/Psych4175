@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Layers on Layers on Layers"
-linktitle: "19: Layers"
+linktitle: "Layers"
 output:
   blogdown::html_page:
     toc: true

@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: For Loops"
-linktitle: "27: For Loops"
+linktitle: "For Loops"
 output:
   blogdown::html_page:
     toc: true

@@ -4,7 +4,7 @@ linktitle: "Data Viz Theory"
 menu:
   lectures:
     parent: Advanced Topics
-    weight: 2
+    weight: 1
 type: docs
 slides: "26-slides"
 output:

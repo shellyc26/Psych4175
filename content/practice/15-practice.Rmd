@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Flexibility"
-linktitle: "15: Flexibility"
+linktitle: "Flexibility"
 output:
   blogdown::html_page:
     toc: true

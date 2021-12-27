@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Intro to Data Visualization"
-linktitle: "16: Intro to Data Viz"
+linktitle: "Intro to Data Viz"
 output:
   blogdown::html_page:
     toc: true

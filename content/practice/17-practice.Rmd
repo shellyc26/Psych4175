@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Customize Your Plots"
-linktitle: "17: Customization"
+linktitle: "Customization"
 output:
   blogdown::html_page:
     toc: true
