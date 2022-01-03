@@ -105,19 +105,27 @@ There are no exams! Hooray! To get a good grade in this class, you need to do th
 \end{split}
 \end{equation}
 
+## What to Expect?
+
+#### You will struggle a lot, and you will learn a lot
+Learning to code is a lot like learning to snowboard or surf. The beginning is hard. You fall down a lot. But once you get the feel of things, it becomes much easier! Most students find that the first 5-6 weeks are the most difficult of the course because they are learning this new thing and "falling down". This is totally normal! We are here to help you. But please make no mistake, the first third of the semester is challenging and requires a lot of work. The course is designed to facilitate your learning, and make sure you don't fall too far behind. **Procrastination is not your friend.** Those who take the perspective of doing a little bit each day will be the most successful. 
+
+#### Late Adds
+Please be aware that if you decide to join this course after Week 2, you will need to make up a lot of work very quickly. In general, I don’t advise students to add the course more than 4 class sessions late. If you are thinking about adding the class late, I encourage you to contact me first. We might decide together that it would be better for you to wait to take this class, in which case the good news is that it will be offered again in Fall 2022!
+
 ## Class Policies
 
 #### Attendance
 Your attendance, whether in person or online, is required for you to do well in the course. You get **2** unexcused absences for the semester. For these, you do not need to tell the instructor anything. Any other absences must be excused by the instructor. Excused absences include illness, quarantine, bereavement etc. The instructor has full authority to decide what is excused and what is unexcused.
 
-Please note that quarantine is an excused absence for in-person components, but is not considered an excused absence for online components (if applicable).
+Please note that quarantine is an excused absence for in-person components, but is not considered an excused absence for online components.
 
-If you are in quarantine or you are ill, **you must forward the COVID-19 screening form** declaring that you are not allowed on campus.
+If you are in quarantine or you are ill, **you must forward the COVID-19 screening form** declaring that you are not allowed on campus. Paper trails help all of us.
 
 Attendance is wrapped up in the participation portion of your grade. All unexcused absences, beyond the 2 that are permitted, will be counted as a 0 for that day's participation grade.
 
 #### Late Assignments
-One of the most important aspects of this class is staying on top of your work -- you cannot progress your skills if you haven't mastered the basics. These policies are designed to motiviate you to stay on track.
+One of the most important aspects of this class is staying on top of your work -- you cannot progress your skills if you haven't mastered the basics. These policies are designed to motivate you to stay on track.
 
 You will be docked points based on how late your work is turned in. This is true for both homework assignments and peer review assignments. Here is the rubric for how many points will be docked:
 
