@@ -1,0 +1,153 @@
+---
+title: "Peer Assignment 1"
+author: "YOUR NAME HERE and YOUR PARTNER'S NAME"
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="how-this-works" class="section level2">
+<h2>How this works</h2>
+<p>This peer assignment is on the topic of <code>for loops</code>. There are 4 problems, each ramping up in terms of difficulty and points:</p>
+<ul>
+<li>Easiest, .5 points</li>
+<li>A little harder, 1 point</li>
+<li>A little harder still, 1.5 points</li>
+<li>Hardest, 2 points</li>
+</ul>
+<p>You need to edit the code chunks to create the correct output. <strong>You will be graded on accuracy!</strong> Specifically, you need to get the correct output.</p>
+<p>DO NOT CHANGE ANY OF THE CODE CHUNK PARAMETERS UNLESS OTHERWISE SPECIFIED. The only things in this markdown file you should change are the names in the YAML header, and you should edit the actual code chunks. I will not ask you for any text responses, and I don’t want you to change any of the RMarkdown parameters.</p>
+<p>You’ve all been doing great this semester, so I am confident you will do well on this, too.</p>
+<p>Let’s get to it!</p>
+</div>
+<div id="question-1-.5-points" class="section level2">
+<h2>Question 1 (.5 points)</h2>
+<p>I have created 2 vectors. One with 5 digit numbers and the other with 4 digit numbers. We are going to pretend these are real zip codes. Your job is to create a vector called <code>zipcodes</code> that takes the full 9 digit form, with a hyphen in between. For instance, Wash U’s zip code is 63130-4899. This is the form that we want our final vector to be in.</p>
+<p>Edit the for loop below to create the output.</p>
+<pre class="r"><code># First, remove the `, eval=FALSE` from the above chunk parameter, so that it only says &quot;```{r}&quot;
+# Do NOT edit lines 33-36
+
+set.seed(1234)
+
+fives &lt;- sample(x = 10000:99999, size = 1000)
+fours &lt;- sample(x = 1000:9999, size = 1000)
+
+# edit this code
+for (i in 1:) 
+  zipcodes &lt;- paste0(fives[i], &quot;-&quot;, fours[i])
+}
+</code></pre>
+<pre><code>## Error: &lt;text&gt;:10:13: unexpected &#39;)&#39;
+## 9: # edit this code
+## 10: for (i in 1:)
+##                 ^</code></pre>
+</div>
+<div id="question-2-1-point" class="section level2">
+<h2>Question 2 (1 point)</h2>
+<p><strong>Iterate through a dataframe</strong></p>
+<p>The <code>bfi</code> dataset is part of the <code>psych</code> package. It shows 25 personality items representing 5 factors (or the Big 5).</p>
+<ul>
+<li>Column names beginning with “O” belong to the factor “Openness”</li>
+<li>Column names beginning with “C” belong to the factor “Conscientiousness”</li>
+<li>Column names beginning with “A” belong to the factor “Agreeableness”</li>
+<li>Column names beginning with “N” belong to the factor “Neuroticism”</li>
+<li>Column names beginning with “E” belong to the factor “Extraversion”</li>
+</ul>
+<p>You need to create a composite variable for each of the 5 factors, <em>per individual</em>.</p>
+<p><strong>Below is a skeleton of the code, but it doesn’t quite work. Your job is to fix it!</strong></p>
+<p>The only package you need is the <code>psych</code> package for accessing the dataset. The goal is to practice for loops. Not other functions.</p>
+<pre class="r"><code>library(psych)
+
+bfi$Openness &lt;- NA
+bfi$Conscientiousness &lt;- na</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;na&#39; not found</code></pre>
+<pre class="r"><code>bfi$Agreeableness &lt;- NA
+bfi$Neuroticism &lt;- NA
+bfi$Extraversion &lt;- NA
+
+for (i in 1:nrow(bfi)) {
+  bfi$Openness &lt;- (bfi[i,21] + bfi[i,22] + bfi[i,23] + bfi[i,24] + bfi[i,25])/5
+  
+  bfi$Conscientiousness[i] &lt;- (bfi[i,6] + bfi[i,7] + bfi[i,8] + bfi[i,9] + bfi[i,10])/5
+  
+  bfi$Agreeableness[i] &lt;- (bfi[i,1] + bfi[i,2] + bfi[i,3] + bfi[i,4] + bfi[i,5])/5
+  
+  bfi$Neuroticism[i] &lt;- bfi[i,16] + bfi[i,17] + bfi[i,18] + bfi[i,19] + bfi[i,20]
+  
+  bfi$Extraversion[i] &lt;- (bfi[11,i] + bfi[12,i] + bfi[13,i] + bfi[14,i] + bfi[15,i])/5
+  
+}</code></pre>
+<pre><code>## Error in bfi$Extraversion[i] &lt;- (bfi[11, i] + bfi[12, i] + bfi[13, i] + : replacement has length zero</code></pre>
+</div>
+<div id="question-3-1.5-points" class="section level2">
+<h2>Question 3 (1.5 points)</h2>
+<p>We are going to play a game. It’s called Fizz Buzz. You are going to print integers 1 to 50, but print “Fizz” if an integer is divisible by 3, “Buzz” if an integer is divisible by 5, and “FizzBuzz” if an integer is divisible by both 3 and 5.</p>
+<p>To do this, let’s introduce you to the <strong>modulus operator</strong>. We use 2 percent signs, like this <code>%%</code>. It returns the <em>remainder</em> of a division. So for instance <code>4 %% 2</code> will result in <code>0</code>. That’s because 2 goes into 4 evenly. There is no remainder after that division! If you instead did <code>17 %% 7</code> the result would be <code>3</code>. That’s because 7 goes into 17 two times, but there are 3 left over. This is often used to figure out if something is an even number or not.</p>
+<p>You’re going to make this one from scratch. Think carefully about the logic you want! I have provided you with the 100 numbers, and the empty vector called <code>game</code>. At the end, we’re going to print your vector.</p>
+<pre class="r"><code>fizzbuzz_numbers &lt;- 1:100
+
+game &lt;- c()
+
+# your code goes here
+
+
+
+print(game)</code></pre>
+<pre><code>## NULL</code></pre>
+<p>Why am I having you play Fizz Buzz? Because it is easily one of the most popular interview questions in all of data science, software engineering, developer positions etc. In fact, my husband uses it in his interview process for new coders! So if you’re hoping to go into industry, you’ll definitely need to know this one. It’s also an excellent test of thinking logically.</p>
+</div>
+<div id="question-4-2-points" class="section level2">
+<h2>Question 4 (2 points)</h2>
+<p>Last one!</p>
+<p>We have talked about nested functions. Arguably, even more important though is nested <code>for loops</code>. I have used this in my own work quite a bit! Something like “for each cognitive task performed and for each time point, do something”.</p>
+<p>We’re going to start small. Use 2 nested for loops to create a 20x20 multiplication table.</p>
+<p>I do not want you using any extra packages or functions. And you do not need to format anything special.</p>
+<p>I have created an empty matrix. Use your nested for loops to fill in the matrix.</p>
+<p>HINT: If you think of this as a data.frame, the first loop goes through the rows and the second loop goes through the columns. Normally we use <code>i</code> for “each”. But now you’ll need each row and each column. You might need an extra letter.</p>
+<pre class="r"><code># We&#39;re only doing 20x20. Don&#39;t change this!
+endNumber &lt;- 20
+
+# Make an empty vector. Don&#39;t change this!
+multTable &lt;- matrix(vector(), nrow = endNumber, ncol = endNumber)
+
+# YOUR CODE GOES HERE
+
+
+
+
+
+
+
+
+
+# I am changing the row names and column names. Just trust me on
+# this one, it&#39;ll make the table look much better! :-)
+# Don&#39;t change this!
+colnames(multTable) &lt;- paste0(1:20, &quot;j&quot;)
+rownames(multTable) &lt;- paste0(1:20, &quot;i&quot;)
+
+# Print it out. Don&#39;t change this!
+multTable</code></pre>
+<pre><code>##     1j 2j 3j 4j 5j 6j 7j 8j 9j 10j 11j 12j 13j 14j 15j 16j 17j 18j 19j 20j
+## 1i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 2i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 3i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 4i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 5i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 6i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 7i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 8i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 9i  NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 10i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 11i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 12i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 13i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 14i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 15i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 16i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 17i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 18i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 19i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA
+## 20i NA NA NA NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA</code></pre>
+</div>

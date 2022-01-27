@@ -21,47 +21,17 @@ editor_options:
   <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 
-<div id="importing-your-data-into-r" class="section level2">
-<h2>Importing Your Data into R</h2>
-<p>We will be covering this in detail next class, but for now, please do the following:</p>
-<div id="step-1.-know-where-your-data-is-saved" class="section level4">
-<h4>Step 1. Know where your data is saved!</h4>
-<p>This could be your Desktop, Box, Dropbox, etc. Just know where it is.</p>
-</div>
-<div id="step-2.-in-the-environment-tab-click-on-import-dataset" class="section level4">
-<h4>Step 2. In the Environment tab, click on <code>Import Dataset</code></h4>
-<p>Choose <strong><code>From text (base)</code></strong></p>
-</div>
-<div id="step-3.-select-the-file" class="section level4">
-<h4>Step 3. Select the file</h4>
-<p>You should get a pop-up like this:</p>
-<center>
-<img src="../miscfigs/figure-html/popup.png" width = "70%">
-</center>
-</div>
-<div id="step-4.-make-the-following-changes" class="section level4">
-<h4>Step 4. Make the following Changes:</h4>
-<ul>
-<li>In the top left box, name your data something that makes sense. For example: <code>hw1Data</code> or <code>votes_by_district</code> or whatever. This name <em>cannot</em> start with a number (e.g., <code>1hwData</code> would not work).</li>
-<li>Last item on the left is a checkbox that says <code>Strings as factors</code>. Please <strong>uncheck</strong> that box.</li>
-</ul>
-</div>
-<div id="step-5.-click-import" class="section level4">
-<h4>Step 5. Click “Import”</h4>
-<p>Once your data looks ok in that bottom window, go ahead and click “Import”. You should now see your data.frame in the Environment tab. Email me ASAP if you are not able to get your data into R!</p>
-</div>
-</div>
 <div id="assignment" class="section level1">
 <h1>Assignment</h1>
-<p>OK, now that you have your data in <code>R</code>, let’s go on to the actual assignment!</p>
 <div id="introduction-data-cleaning-management" class="section level3">
 <h3>Introduction: Data Cleaning &amp; Management</h3>
 <p>The following are important steps to take for any code you might run. You want to make sure things look the way they ought to look, and that you (and whoever is reading your code) knows what is happening.</p>
 <div class="list">
 <p>Here’s your to-do list:</p>
 <ul>
+<li><p>Import your data. This needs to eventually be a line of code at the top of your script.</p></li>
 <li><p>In 1-2 sentences, describe your dataset. No need for a ton of detail, just generally, what’s in it.</p></li>
-<li><p><em>Using code</em>, find the object class of each column vector. Then find the object class of the entire data set. Describe if these make sense, or are there any that were unexpected? If they were unexpected, why?</p></li>
+<li><p><em>Using code</em>, find the object class of the first 5 column vectors of your data set. Then find the object class of the entire data set. Describe if these make sense, or are there any that were unexpected? If they were unexpected, why?</p></li>
 <li><p>Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called <em>factors</em>? If they should be treated as categorical variables, please do so using the <code>factor()</code> function.</p></li>
 </ul>
 </div>
@@ -94,15 +64,28 @@ editor_options:
 <div class="list">
 <p>Here’s your to-do list:</p>
 <ul>
-<li><p>Make a smaller datasets that only contain items from each level of your categorical variable. For example, let’s say the factor “treatment_group” had 2 levels: <code>treatment</code> and <code>control</code>. Make a new data.frame that is something like <code>data_treatment</code> and another new data.frame that is <code>data_controls</code>. Do this via INDEXING and LOGICAL OPERATORS.</p></li>
+<li><p>Make a smaller datasets that only contain items from each level of your categorical variable. For example, let’s say the factor “treatment_group” had 2 levels: <code>treatment</code> and <code>control</code>. Make a new data.frame that is something like <code>data_treatment</code> and another new data.frame that is <code>data_controls</code>. Do this via INDEXING and LOGICAL OPERATORS. See hints below for an example what is meant by a smaller dataset.</p></li>
 <li><p>One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame – even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls).</p></li>
 <li><p>Now repeat the same summary statistics from above (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar? What does that mean for your analysis?</p></li>
 </ul>
 </div>
 <p>Here is a HINT:</p>
 <ul>
-<li>Logical operators result in <code>TRUE</code> or <code>FALSE</code>. You can use this within indexing so that anything that evaluates to <code>TRUE</code> will be either the rows or the columns that are kept.</li>
+<li><p>Logical operators result in <code>TRUE</code> or <code>FALSE</code>. You can use this within indexing so that anything that evaluates to <code>TRUE</code> will be either the rows or the columns that are kept.</p></li>
+<li><p>If this is your original dataset…</p></li>
 </ul>
+<center>
+<img src="../miscfigs/figure-html/original.png" width = "40%">
+</center>
+<ul>
+<li>Then the smaller datasets might look like these:</li>
+</ul>
+<center>
+<img src="../miscfigs/figure-html/miniA.png" width = "40%">
+</center>
+<center>
+<img src="../miscfigs/figure-html/miniB.png" width = "40%">
+</center>
 </div>
 <div id="congrats-youve-finished" class="section level3">
 <h3>Congrats, you’ve finished!</h3>
