@@ -31,11 +31,11 @@ knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
 **Setup:** We will be using the same `midus.csv` dataset for this practice. You have 2 choices...
 
   1. If you want to practice on this website in the code chunks below, please do the following:
-    - Load the package `ggplot2`
-    - (You do not need to import the dataset -- I have done that for you so that you can access it through this website)
-    - Make sure the variables `sex`, `heart_self`, and `heart_father` are treated as `factor()` variables.
-    - Use the same `na.omit()` function from the [8: R&R slides](/lectures/08-lecture) to remove all `NA` variables. 
-    - Look at the first 6 rows of the `midus` data.frame by using the `head()` function. 
+  - Load the package `ggplot2`
+  - (You do not need to import the dataset -- I have done that for you so that you can access it through this website)
+  - Make sure the variables `sex`, `heart_self`, and `heart_father` are treated as `factor()` variables.
+  - Use the same `na.omit()` function from the [8: R&R slides](/lectures/08-lecture) to remove all `NA` variables.
+  - Look at the first 6 rows of the `midus` data.frame by using the `head()` function. 
     
   2. If you want to practice locally (actually opening up `RStudio` on your computer), please do the following:
     - Either create a new script or open an existing script. Your choice.
