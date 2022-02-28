@@ -53,7 +53,7 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Data Types and Validity", "1", TRUE
+  "Validity", "1", TRUE
 )
 slide_tabs(sections, "/slides/ExtraSlides-Week8.html")
 ```
