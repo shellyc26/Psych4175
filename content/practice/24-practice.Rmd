@@ -1,0 +1,231 @@
+---
+title: "Practice Set: Correlations"
+linktitle: "Correlations"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Statistics
+    weight: 4
+type: docs
+weight: 4
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(psych)
+library(corrplot)
+library(devtools)
+#install_github("janhove/cannonball")
+library(cannonball)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+## Correlations
+
+Correlations enable us to describe the relationship between two variables. We can answer many different questions that we have in psychology by looking at correlations. Which of these questions could be answered simply by looking at a correlation? Why or why not? 
+
+- Does social media use cause depression? 
+- Do people care less about the environment when they make more money? 
+- Are middle aged people happier than young and old people? 
+- Is drinking coffee associated with having more friends? 
+- Am I happier when I need fewer attempts to solve the wordle for the day? 
+
+:::warning
+**Warning**
+
+- Correlation $\neq$ causation
+- Correlations look at *linear* relationships
+
+:::
+
+Let's start with some *assumptions* that we have to look into before we can happily correlate any variables we come across.
+
+These are variables from a dataset that is embedded within the `car` package. Can you spot problems with either of these variables? 
+
+```{r}
+df <- carData::Ginzberg
+
+ggplot(df, aes(x = depression)) +
+  geom_histogram(binwidth = .2, fill = "blue") +
+  theme_classic()
+
+ggplot(df, aes(x = fatalism)) +
+  geom_histogram(binwidth = .2, fill = "black") +
+  theme_classic()
+
+ggplot(df, aes(x = fatalism, y = depression)) +
+  geom_point() +
+  ggtitle("Corelation between fatalism and depression") +
+  geom_smooth(method = lm, se = FALSE)
+
+```
+
+
+Let's have a look at how depression is correlated with simplicity (i.e.,subject's need to see the world in black and white). What do you notice about the simplicity scale? 
+
+```{r}
+
+ggplot(df, aes(x = simplicity)) +
+  geom_histogram(binwidth = .2, fill = "black") +
+  theme_classic()
+
+ggplot(df, aes(x = simplicity, y = depression)) +
+  geom_point() +
+  ggtitle("Correlation between simplicity and depression") +
+  geom_smooth(method = lm, se = FALSE)
+
+cor(df$simplicity, df$depression)
+
+df %>%
+  filter(., !simplicity > 2.85) %>%
+  summarise(out = cor(simplicity, depression,
+                      use = "complete.obs"))
+
+```
+
+And finally, an example of something that I come across all the time in my research -- couples that participate in research studies together are waaay too happy....
+
+```{r}
+
+relsat <- rnorm(75, mean = 6, sd = 0.2)
+pos_emo <- rnorm(75, mean = 3.5, sd = 1)
+df <- cbind.data.frame(relsat, pos_emo)
+
+ggplot(df, aes(x = pos_emo)) +
+  geom_histogram(binwidth = .2, fill = "salmon") +
+  xlim(0, 7) +
+  theme_classic()
+
+ggplot(df, aes(x = relsat, y = pos_emo)) +
+  geom_point() +
+  ggtitle("Correlation between positive emotions and relationship satisfaction") +
+  geom_smooth(method = lm, se = FALSE) +
+  xlim(0, 7)
+
+```
+
+
+**IMPORTANT**: When you get a certain correlation value you should always look at a scatterplot because things might not be as they seem...
+
+Someone wrote a really fun R-Package to show this - [cannonball](https://janhove.github.io/teaching/2018/09/26/cannonball). We can enter different correlation coefficients (r) and sample sizes (N) and see examples of what the data underlying those correlation looks like 
+
+```{r}
+# library(devtools)
+# install_github("janhove/cannonball")
+
+plot_r(r = 0.3, n = 100, showdata = FALSE, plot = TRUE)
+```
+
+
+```{r, include = FALSE}
+# ADD NAs to dataset, don't include this 
+df <- carData::Ginzberg
+df$fatalism[c(1, 5, 7, 8)] <- NA
+df$depression[c(2, 5, 7, 75)] <- NA
+```
+
+
+Now let's get some practice getting correlations! 
+
+```{r}
+cor(df$fatalism, df$depression)
+```
+
+Why is our result `NA`? What could be going on here? 
+
+
+How to get rid of `NA`? How would you tell `R` to “not use observations from people that have any missing values”? 
+
+```{r}
+# this is the default and does not work
+cor(df$fatalism, df$depression, use = "everything") 
+
+# this one works
+cor(df$fatalism, df$depression, use = "complete")
+```
+
+How do we handle missing values if we are looking at several correlations in the dataset? 
+
+```{r, include = FALSE}
+# ADD NAs to dataset, don't print 
+df<-carData::Ginzberg
+df$simplicity[c(1,5,3,74)]<-NA
+df$fatalism[c(1,5,7,8)]<-NA
+df$depression[c(2,5,7,75)]<-NA
+
+df$grouping = rep(c("Group1", "Group2"), times = 41)
+df$grouping = factor(df$grouping)
+```
+
+```{r}
+cor(select(df, c("simplicity", "fatalism", "depression")))
+
+cor(select(df, c("simplicity", "fatalism", "depression")), use = "complete")
+
+cor(select(df, c("simplicity", "fatalism", "depression")), use = "pairwise")
+```
+
+:::quiz
+**Quick Quiz**
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/24-learnr-quiz1/",
+                    id = "learnr-24-quiz1")
+
+```
+
+Now that we have gotten correlation coefficients, how do we know whether the correlations are significant? A simple way to do that is to use `corr.test` from the `psych` package 
+
+```{r}
+corr.test(select(df,
+                 c("simplicity", "fatalism", "depression")),
+          use = "pairwise")
+```
+
+Which correlations are significant here? 
+
+Why are the sample sizes different? 
+
+Right now we are only dealing with three different correlations at a time but once you add more and more variables to your correlation matrix it can get hard to keep an overview of what's going on - `corrplot` can be a useful way of getting an overview of your correlations
+
+```{r}
+cors <- cor(select(df, 
+                   c("simplicity", "fatalism", "depression")), 
+            use = "complete")
+
+corrplot(cors, diag = FALSE)
+
+```
+
+:::puzzle
+**You try!** 
+
+The first line of the code below adds a grouping variable (Group 1 vs. Group 2). 
+
+- Get the correlations between `fatalism` and `depression` for group 1 and for group 2 Name this `COR1`
+- Do the same thing for `depression` and `simplicity` for group 1 and group 2 Name this `COR2`
+
+*Hint: do you remember `tidyverse`?*
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/24-learnr-app1/",
+                    id = "learnr-24-app1")
+
+```
+
+
+

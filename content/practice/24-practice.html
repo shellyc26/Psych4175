@@ -1,0 +1,180 @@
+---
+title: "Practice Set: Correlations"
+linktitle: "Correlations"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Statistics
+    weight: 4
+type: docs
+weight: 4
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#correlations">Correlations</a></li>
+</ul>
+</div>
+
+<div id="correlations" class="section level2">
+<h2>Correlations</h2>
+<p>Correlations enable us to describe the relationship between two variables. We can answer many different questions that we have in psychology by looking at correlations. Which of these questions could be answered simply by looking at a correlation? Why or why not?</p>
+<ul>
+<li>Does social media use cause depression?</li>
+<li>Do people care less about the environment when they make more money?</li>
+<li>Are middle aged people happier than young and old people?</li>
+<li>Is drinking coffee associated with having more friends?</li>
+<li>Am I happier when I need fewer attempts to solve the wordle for the day?</li>
+</ul>
+<div class="warning">
+<p><strong>Warning</strong></p>
+<ul>
+<li>Correlation <span class="math inline">\(\neq\)</span> causation</li>
+<li>Correlations look at <em>linear</em> relationships</li>
+</ul>
+</div>
+<p>Let’s start with some <em>assumptions</em> that we have to look into before we can happily correlate any variables we come across.</p>
+<p>These are variables from a dataset that is embedded within the <code>car</code> package. Can you spot problems with either of these variables?</p>
+<pre class="r"><code>df &lt;- carData::Ginzberg
+
+ggplot(df, aes(x = depression)) +
+  geom_histogram(binwidth = .2, fill = &quot;blue&quot;) +
+  theme_classic()</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-1-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(df, aes(x = fatalism)) +
+  geom_histogram(binwidth = .2, fill = &quot;black&quot;) +
+  theme_classic()</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-1-2.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(df, aes(x = fatalism, y = depression)) +
+  geom_point() +
+  ggtitle(&quot;Corelation between fatalism and depression&quot;) +
+  geom_smooth(method = lm, se = FALSE)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-1-3.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Let’s have a look at how depression is correlated with simplicity (i.e.,subject’s need to see the world in black and white). What do you notice about the simplicity scale?</p>
+<pre class="r"><code>ggplot(df, aes(x = simplicity)) +
+  geom_histogram(binwidth = .2, fill = &quot;black&quot;) +
+  theme_classic()</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-2-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(df, aes(x = simplicity, y = depression)) +
+  geom_point() +
+  ggtitle(&quot;Correlation between simplicity and depression&quot;) +
+  geom_smooth(method = lm, se = FALSE)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-2-2.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>cor(df$simplicity, df$depression)</code></pre>
+<pre><code>## [1] 0.6432668</code></pre>
+<pre class="r"><code>df %&gt;%
+  filter(., !simplicity &gt; 2.85) %&gt;%
+  summarise(out = cor(simplicity, depression,
+                      use = &quot;complete.obs&quot;))</code></pre>
+<pre><code>##         out
+## 1 0.6570763</code></pre>
+<p>And finally, an example of something that I come across all the time in my research – couples that participate in research studies together are waaay too happy….</p>
+<pre class="r"><code>relsat &lt;- rnorm(75, mean = 6, sd = 0.2)
+pos_emo &lt;- rnorm(75, mean = 3.5, sd = 1)
+df &lt;- cbind.data.frame(relsat, pos_emo)
+
+ggplot(df, aes(x = pos_emo)) +
+  geom_histogram(binwidth = .2, fill = &quot;salmon&quot;) +
+  xlim(0, 7) +
+  theme_classic()</code></pre>
+<pre><code>## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot(df, aes(x = relsat, y = pos_emo)) +
+  geom_point() +
+  ggtitle(&quot;Correlation between positive emotions and relationship satisfaction&quot;) +
+  geom_smooth(method = lm, se = FALSE) +
+  xlim(0, 7)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-3-2.png" width="576" style="display: block; margin: auto;" /></p>
+<p><strong>IMPORTANT</strong>: When you get a certain correlation value you should always look at a scatterplot because things might not be as they seem…</p>
+<p>Someone wrote a really fun R-Package to show this - <a href="https://janhove.github.io/teaching/2018/09/26/cannonball">cannonball</a>. We can enter different correlation coefficients (r) and sample sizes (N) and see examples of what the data underlying those correlation looks like</p>
+<pre class="r"><code># library(devtools)
+# install_github(&quot;janhove/cannonball&quot;)
+
+plot_r(r = 0.3, n = 100, showdata = FALSE, plot = TRUE)</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-4-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Now let’s get some practice getting correlations!</p>
+<pre class="r"><code>cor(df$fatalism, df$depression)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>Why is our result <code>NA</code>? What could be going on here?</p>
+<p>How to get rid of <code>NA</code>? How would you tell <code>R</code> to “not use observations from people that have any missing values”?</p>
+<pre class="r"><code># this is the default and does not work
+cor(df$fatalism, df$depression, use = &quot;everything&quot;) </code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code># this one works
+cor(df$fatalism, df$depression, use = &quot;complete&quot;)</code></pre>
+<pre><code>## [1] 0.6509671</code></pre>
+<p>How do we handle missing values if we are looking at several correlations in the dataset?</p>
+<pre class="r"><code>cor(select(df, c(&quot;simplicity&quot;, &quot;fatalism&quot;, &quot;depression&quot;)))</code></pre>
+<pre><code>##            simplicity fatalism depression
+## simplicity          1       NA         NA
+## fatalism           NA        1         NA
+## depression         NA       NA          1</code></pre>
+<pre class="r"><code>cor(select(df, c(&quot;simplicity&quot;, &quot;fatalism&quot;, &quot;depression&quot;)), use = &quot;complete&quot;)</code></pre>
+<pre><code>##            simplicity  fatalism depression
+## simplicity  1.0000000 0.6316438  0.6454335
+## fatalism    0.6316438 1.0000000  0.6402812
+## depression  0.6454335 0.6402812  1.0000000</code></pre>
+<pre class="r"><code>cor(select(df, c(&quot;simplicity&quot;, &quot;fatalism&quot;, &quot;depression&quot;)), use = &quot;pairwise&quot;)</code></pre>
+<pre><code>##            simplicity  fatalism depression
+## simplicity  1.0000000 0.6294402  0.6454600
+## fatalism    0.6294402 1.0000000  0.6509671
+## depression  0.6454600 0.6509671  1.0000000</code></pre>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/24-learnr-quiz1/" id="learnr-24-quiz1" %}}</p>
+<p>Now that we have gotten correlation coefficients, how do we know whether the correlations are significant? A simple way to do that is to use <code>corr.test</code> from the <code>psych</code> package</p>
+<pre class="r"><code>corr.test(select(df,
+                 c(&quot;simplicity&quot;, &quot;fatalism&quot;, &quot;depression&quot;)),
+          use = &quot;pairwise&quot;)</code></pre>
+<pre><code>## Call:corr.test(x = select(df, c(&quot;simplicity&quot;, &quot;fatalism&quot;, &quot;depression&quot;)), 
+##     use = &quot;pairwise&quot;)
+## Correlation matrix 
+##            simplicity fatalism depression
+## simplicity       1.00     0.63       0.65
+## fatalism         0.63     1.00       0.65
+## depression       0.65     0.65       1.00
+## Sample Size 
+##            simplicity fatalism depression
+## simplicity         78       76         75
+## fatalism           76       78         76
+## depression         75       76         78
+## Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+##            simplicity fatalism depression
+## simplicity          0        0          0
+## fatalism            0        0          0
+## depression          0        0          0
+## 
+##  To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
+<p>Which correlations are significant here?</p>
+<p>Why are the sample sizes different?</p>
+<p>Right now we are only dealing with three different correlations at a time but once you add more and more variables to your correlation matrix it can get hard to keep an overview of what’s going on - <code>corrplot</code> can be a useful way of getting an overview of your correlations</p>
+<pre class="r"><code>cors &lt;- cor(select(df, 
+                   c(&quot;simplicity&quot;, &quot;fatalism&quot;, &quot;depression&quot;)), 
+            use = &quot;complete&quot;)
+
+corrplot(cors, diag = FALSE)</code></pre>
+<p><img src="/practice/24-practice_files/figure-html/unnamed-chunk-12-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<p>The first line of the code below adds a grouping variable (Group 1 vs. Group 2).</p>
+<ul>
+<li>Get the correlations between <code>fatalism</code> and <code>depression</code> for group 1 and for group 2 Name this <code>COR1</code></li>
+<li>Do the same thing for <code>depression</code> and <code>simplicity</code> for group 1 and group 2 Name this <code>COR2</code></li>
+</ul>
+<p><em>Hint: do you remember <code>tidyverse</code>?</em></p>
+</div>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/24-learnr-app1/" id="learnr-24-app1" %}}</p>
+</div>
