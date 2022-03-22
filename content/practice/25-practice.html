@@ -1,0 +1,327 @@
+---
+title: "Practice Set: Regression"
+linktitle: "Regression"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Statistics
+    weight: 5
+type: docs
+weight: 5
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#continuous-predictor">Continuous Predictor</a></li>
+<li><a href="#categorical-predictor">Categorical Predictor</a></li>
+<li><a href="#reporting-regression">Reporting Regression</a></li>
+</ul>
+</div>
+
+<center>
+<p><img src="../encouragementFigs/figure-html/regMeme.jpeg"></p>
+</center>
+<p>This time we will work with the palmer penguins dataset.</p>
+<center>
+<p><img src="../encouragementFigs/figure-html/penguins.png"></p>
+</center>
+<p>If you want to install this on your own computer, you can run the following code. It is already installed for the purposes of this website:</p>
+<pre class="r"><code>install.packages(&quot;palmerpenguins&quot;)</code></pre>
+<p>Let’s take a look at our dataset!</p>
+<pre class="r"><code># store it as an object so we can work with it
+penguins &lt;- palmerpenguins::penguins
+kable(head(penguins))</code></pre>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="11%" />
+<col width="16%" />
+<col width="15%" />
+<col width="20%" />
+<col width="13%" />
+<col width="7%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">species</th>
+<th align="left">island</th>
+<th align="right">bill_length_mm</th>
+<th align="right">bill_depth_mm</th>
+<th align="right">flipper_length_mm</th>
+<th align="right">body_mass_g</th>
+<th align="left">sex</th>
+<th align="right">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">39.1</td>
+<td align="right">18.7</td>
+<td align="right">181</td>
+<td align="right">3750</td>
+<td align="left">male</td>
+<td align="right">2007</td>
+</tr>
+<tr class="even">
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">39.5</td>
+<td align="right">17.4</td>
+<td align="right">186</td>
+<td align="right">3800</td>
+<td align="left">female</td>
+<td align="right">2007</td>
+</tr>
+<tr class="odd">
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">40.3</td>
+<td align="right">18.0</td>
+<td align="right">195</td>
+<td align="right">3250</td>
+<td align="left">female</td>
+<td align="right">2007</td>
+</tr>
+<tr class="even">
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="right">2007</td>
+</tr>
+<tr class="odd">
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">36.7</td>
+<td align="right">19.3</td>
+<td align="right">193</td>
+<td align="right">3450</td>
+<td align="left">female</td>
+<td align="right">2007</td>
+</tr>
+<tr class="even">
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">39.3</td>
+<td align="right">20.6</td>
+<td align="right">190</td>
+<td align="right">3650</td>
+<td align="left">male</td>
+<td align="right">2007</td>
+</tr>
+</tbody>
+</table>
+<div id="continuous-predictor" class="section level2">
+<h2>Continuous Predictor</h2>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<p>Write a regression model and print the output for body mass in penguins predicted by bill length</p>
+</div>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/25-learnr-app1/" id="learnr-25-app1" %}}</p>
+<p>Let’s <strong>interpret</strong> those coefficients!</p>
+<ul>
+<li>What does the estimate for the intercept mean?</li>
+<li>What does the bill length estimate mean?</li>
+<li>How could you calculate the <span class="math inline">\(t\)</span>-statistic if it was not part of this output?</li>
+</ul>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<p>Now we’re going to do the following:</p>
+<ul>
+<li>Make the output prettier</li>
+<li>Add on extra stuff, like predicted values</li>
+<li>Look at fit statistics</li>
+</ul>
+</div>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/25-learnr-app2/" id="learnr-25-app2" %}}</p>
+<p>What if our units are hard to interpret? Maybe we want to examine things in the context of standard deviation. No problem! We can standardize things!</p>
+<pre class="r"><code>mod2 &lt;- lm(scale(body_mass_g) ~ scale(bill_length_mm),
+           data = penguins)
+summary(mod2)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = scale(body_mass_g) ~ scale(bill_length_mm), data = penguins)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2.19724 -0.55736  0.04064  0.57648  2.04109 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)           3.793e-16  4.352e-02    0.00        1    
+## scale(bill_length_mm) 5.951e-01  4.358e-02   13.65   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.8048 on 340 degrees of freedom
+##   (2 observations deleted due to missingness)
+## Multiple R-squared:  0.3542, Adjusted R-squared:  0.3523 
+## F-statistic: 186.4 on 1 and 340 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>For a 1-SD increase in bill length, we expect weight to increase by <span class="math inline">\(b1\)</span>.</p>
+</div>
+<div id="categorical-predictor" class="section level2">
+<h2>Categorical Predictor</h2>
+<p>Now what happens when we enter a categorical variable as a predictor?</p>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<p>Create a new model called <code>mod3</code> that looks at how body mass differs by whether penguins are male and female</p>
+</div>
+<p>{{% learnr url="https://shelly-cooper.shinyapps.io/25-learnr-app3/" id="learnr-25-app3" %}}</p>
+<p>Let’s <strong>interpret</strong> those coefficients!
+- What does the intercept mean?
+- What does the slope mean?</p>
+<p>Let’s get more familiar with OLS estimation and play a fun guessing game</p>
+<p><a href="https://sophieehill.shinyapps.io/eyeball-regression/" class="uri">https://sophieehill.shinyapps.io/eyeball-regression/</a></p>
+</div>
+<div id="reporting-regression" class="section level2">
+<h2>Reporting Regression</h2>
+<p>There are many ways of reporting your models - R conveniently has some packages that make publishable tables for you. Here is an example</p>
+<pre class="r"><code>#install.packages(&quot;apaTables&quot;)
+mod1 &lt;- lm(body_mass_g ~ bill_length_mm, data = penguins)
+apaTables::apa.reg.table(mod1)</code></pre>
+<pre><code>## 
+## 
+## Regression results using body_mass_g as the criterion
+##  
+## 
+##       Predictor       b          b_95%_CI beta  beta_95%_CI sr2 sr2_95%_CI
+##     (Intercept)  362.31 [-195.02, 919.64]                                 
+##  bill_length_mm 87.42**   [74.82, 100.01] 0.60 [0.51, 0.68] .35 [.28, .42]
+##                                                                           
+##                                                                           
+##                                                                           
+##      r             Fit
+##                       
+##  .60**                
+##            R2 = .354**
+##        95% CI[.28,.42]
+##                       
+## 
+## Note. A significant b-weight indicates the beta-weight and semi-partial correlation are also significant.
+## b represents unstandardized regression weights. beta indicates the standardized regression weights. 
+## sr2 represents the semi-partial correlation squared. r represents the zero-order correlation.
+## Square brackets are used to enclose the lower and upper limits of a confidence interval.
+## * indicates p &lt; .05. ** indicates p &lt; .01.
+## </code></pre>
+<pre class="r"><code>sjPlot::tab_model(mod1)</code></pre>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+body_mass_g
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+CI
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+p
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+362.31
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-195.02 – 919.64
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.202
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+bill length mm
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+87.42
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+74.82 – 100.01
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+<strong>&lt;0.001</strong>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">
+342
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">
+0.354 / 0.352
+</td>
+</tr>
+</table>
+<p>Something that was missing from the <code>lm</code> output – Confidence Intervals. Journals often want them reported so here is a quick way of getting them (if not using a table package that gets them for you automatically)</p>
+<pre class="r"><code>confint(mod1)</code></pre>
+<pre><code>##                     2.5 %   97.5 %
+## (Intercept)    -195.02364 919.6371
+## bill_length_mm   74.82279 100.0078</code></pre>
+<p>When plotting using <code>ggplot2</code> you’ll also get a confidence band</p>
+<pre class="r"><code>ggplot(penguins, aes(y = body_mass_g, x = bill_length_mm)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;) +
+  labs(title = &quot;Confidence Band&quot;,
+       x = &quot;Bill Length (mm)&quot;,
+       y = &quot;Body Mass (g)&quot;)</code></pre>
+<p><img src="/practice/25-practice_files/figure-html/unnamed-chunk-9-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>What do you notice in this plot?</p>
+<p>Lastly, confidence bands are a little different from prediction bands. A confidence band is basically your confidence interval around the regression line. A prediction band:</p>
+<ul>
+<li>We are predicting and individual score, not the <span class="math inline">\(\hat{Y}\)</span> for a particular level of <span class="math inline">\(X\)</span></li>
+<li>Because there is greater variation in predicting an individual value rather than a collection of individual values (i.e., the mean) the prediction band is greater</li>
+</ul>
+<pre class="r"><code>penguinsSmall = penguins %&gt;% 
+  select(body_mass_g, bill_length_mm) %&gt;% 
+  drop_na()
+
+temp_var &lt;- predict(mod1, interval = &quot;prediction&quot;)
+new_df &lt;- cbind(penguinsSmall, temp_var)
+ggplot(new_df, aes(y = body_mass_g,
+                           x = bill_length_mm)) +
+  geom_point() +
+  geom_smooth(method = lm, se = TRUE) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr),
+              fill = &quot;blue&quot;, alpha = 0.1) +
+  theme_classic() +
+  labs(title = &quot;Prediction Band vs. Confidence Band&quot;,
+       x = &quot;Bill Length (mm)&quot;,
+       y = &quot;Body Mass (g)&quot;)</code></pre>
+<p><img src="/practice/25-practice_files/figure-html/unnamed-chunk-10-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><small>Massive shout out to the Sping 2022 AI Tabea Springstein for creating this excellent Practice Set!</small></p>
+</div>

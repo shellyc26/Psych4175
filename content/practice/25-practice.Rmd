@@ -1,0 +1,198 @@
+---
+title: "Practice Set: Regression"
+linktitle: "Regression"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Statistics
+    weight: 5
+type: docs
+weight: 5
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(psych)
+library(corrplot)
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+<center>
+
+<img src="../encouragementFigs/figure-html/regMeme.jpeg">
+
+</center>
+
+This time we will work with the palmer penguins dataset.
+
+<center>
+
+<img src="../encouragementFigs/figure-html/penguins.png">
+
+</center>
+
+If you want to install this on your own computer, you can run the following code. It is already installed for the purposes of this website:
+
+```{r, eval=FALSE}
+install.packages("palmerpenguins")
+```
+
+Let's take a look at our dataset!
+
+```{r}
+# store it as an object so we can work with it
+penguins <- palmerpenguins::penguins
+kable(head(penguins))
+```
+
+## Continuous Predictor
+
+:::puzzle
+
+**You try!**
+
+Write a regression model and print the output for body mass in penguins predicted by bill length
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/25-learnr-app1/",
+                    id = "learnr-25-app1")
+
+```
+
+Let's **interpret** those coefficients!
+
+- What does the estimate for the intercept mean?
+- What does the bill length estimate mean? 
+- How could you calculate the $t$-statistic if it was not part of this output? 
+
+
+:::puzzle
+
+**You try!**
+
+Now we're going to do the following:
+
+- Make the output prettier
+- Add on extra stuff, like predicted values
+- Look at fit statistics
+
+:::
+
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/25-learnr-app2/",
+                    id = "learnr-25-app2")
+
+```
+
+What if our units are hard to interpret? Maybe we want to examine things in the context of standard deviation. No problem! We can standardize things!
+
+```{r}
+mod2 <- lm(scale(body_mass_g) ~ scale(bill_length_mm),
+           data = penguins)
+summary(mod2)
+```
+
+For a 1-SD increase in bill length, we expect weight to increase by $b1$. 
+
+## Categorical Predictor
+
+Now what happens when we enter a categorical variable as a predictor? 
+
+:::puzzle
+
+**You try!**
+
+Create a new model called `mod3` that looks at how body mass differs by whether penguins are male and female
+
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/25-learnr-app3/",
+                    id = "learnr-25-app3")
+
+```
+
+
+Let's **interpret** those coefficients!
+- What does the intercept mean?
+- What does the slope mean?
+
+
+Let's get more familiar with OLS estimation and play a fun guessing game 
+
+https://sophieehill.shinyapps.io/eyeball-regression/
+
+## Reporting Regression
+
+There are many ways of reporting your models - R conveniently has some packages that make publishable tables for you. Here is an example 
+```{r, warning = FALSE, message = FALSE}
+#install.packages("apaTables")
+mod1 <- lm(body_mass_g ~ bill_length_mm, data = penguins)
+apaTables::apa.reg.table(mod1)
+
+sjPlot::tab_model(mod1)
+```
+
+
+Something that was missing from the `lm` output -- Confidence Intervals. Journals often want them reported so here is a quick way of getting them (if not using a table package that gets them for you automatically)
+
+```{r}
+confint(mod1)
+```
+
+When plotting using `ggplot2` you'll also get a confidence band
+
+```{r, warning = FALSE, message = FALSE}
+ggplot(penguins, aes(y = body_mass_g, x = bill_length_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Confidence Band",
+       x = "Bill Length (mm)",
+       y = "Body Mass (g)")
+```
+
+What do you notice in this plot? 
+
+Lastly, confidence bands are a little different from prediction bands. A confidence band is basically your confidence interval around the regression line. A prediction band:
+
+- We are predicting and individual score, not the $\hat{Y}$ for a particular level of $X$
+- Because there is greater variation in predicting an individual value rather than a collection of individual values (i.e., the mean) the prediction band is greater
+
+```{r warning=FALSE, message=FALSE}
+penguinsSmall = penguins %>% 
+  select(body_mass_g, bill_length_mm) %>% 
+  drop_na()
+
+temp_var <- predict(mod1, interval = "prediction")
+new_df <- cbind(penguinsSmall, temp_var)
+ggplot(new_df, aes(y = body_mass_g,
+                           x = bill_length_mm)) +
+  geom_point() +
+  geom_smooth(method = lm, se = TRUE) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr),
+              fill = "blue", alpha = 0.1) +
+  theme_classic() +
+  labs(title = "Prediction Band vs. Confidence Band",
+       x = "Bill Length (mm)",
+       y = "Body Mass (g)")
+
+```
+
+
+<small>Massive shout out to the Sping 2022 AI Tabea Springstein for creating this excellent Practice Set!</small>
