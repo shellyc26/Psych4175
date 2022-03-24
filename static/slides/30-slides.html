@@ -23,17 +23,212 @@ class: center, middle, inverse, title-slide
 
 
 
-## Multiple Regression
+## With 1 predictor
 
-- Previously, we had 1 predictor
-    * __Continuous__: A 1-unit change in X predicts a `\(b1\)` change in Y
-    * __Categorical__: A 1-unit change in X predicts a `\(b1\)` change in Y, except a 1-unit change is going from category coded as 0 to category coded as 1
+**Intercept**
+- __Continuous__: The mean value of Y (outcome) when X (predictor) is 0
+- __Categorical__: The mean value of Y (outcome) when X (predictor) is 0, except one of your groups is coded as 0. So it's the mean value of Y for the group coded as 0. 
+
+**Regression Coefficient**
+- __Continuous__: A 1-unit change in X predicts a `\(b1\)` change in Y
+- __Categorical__: A 1-unit change in X predicts a `\(b1\)` change in Y, except a 1-unit change is going from the category coded as 0 to the category coded as 1
+
+**Omnibus test**
+- How well does the model fit the data?
+- `\(F\)`-test, `\(R^2\)` etc.
+
+---
+
+## Multiple Regression
     
 - Now we are going to add in more variables
     * Maybe you have a covariate you want to **control** for
     * Maybe you want to look at the effects of X and Z on Y...independently
 
 ---
+name: MRCont
+
+### Multiple Regression with Continuous Predictors
+
+`$$\large \hat{Y} = b_0 + b_1X_1 + b_2X_2 + \dots+b_kX_k$$`
+
+- Intercept is the value of `\(Y\)` when all predictors = 0
+
+- Regression coefficients are the predicted change in `\(Y\)` for a 1 unit change in `\(X\)`, *holding all other predictors constant*
+
+- Residual in simple regression can be thought of as a measure of `\(Y\)` that is left over after accounting for your DV
+
+---
+
+```r
+library(here)
+stress.data = read.csv(here::here("R", "stress.csv"))
+library(psych)
+describe(stress.data$Stress)
+```
+
+```
+##    vars   n mean   sd median trimmed  mad  min   max range skew kurtosis   se
+## X1    1 118 5.18 1.88   5.27    5.17 1.65 0.62 10.32  9.71 0.08     0.22 0.17
+```
+
+---
+
+## Example
+
+
+```r
+mr.model &lt;- lm(Stress ~ Support + Anxiety, data = stress.data)
+summary(mr.model)
+```
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support + Anxiety, data = stress.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1958 -0.8994 -0.1370  0.9990  3.6995 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.31587    0.85596  -0.369 0.712792    
+## Support      0.40618    0.05115   7.941 1.49e-12 ***
+## Anxiety      0.25609    0.06740   3.799 0.000234 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.519 on 115 degrees of freedom
+## Multiple R-squared:  0.3556,	Adjusted R-squared:  0.3444 
+## F-statistic: 31.73 on 2 and 115 DF,  p-value: 1.062e-11
+```
+
+---
+## Visualizing multiple regression
+
+
+```r
+library(visreg)
+
+visreg2d(mr.model,"Support", "Anxiety", plot.type = "persp")
+```
+
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+```r
+mr.model &lt;- lm(Stress ~ Support + Anxiety, data = stress.data)
+summary(mr.model)
+```
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support + Anxiety, data = stress.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1958 -0.8994 -0.1370  0.9990  3.6995 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+*## (Intercept) -0.31587    0.85596  -0.369 0.712792    
+## Support      0.40618    0.05115   7.941 1.49e-12 ***
+## Anxiety      0.25609    0.06740   3.799 0.000234 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.519 on 115 degrees of freedom
+## Multiple R-squared:  0.3556,	Adjusted R-squared:  0.3444 
+## F-statistic: 31.73 on 2 and 115 DF,  p-value: 1.062e-11
+```
+
+---
+
+
+```r
+mr.model &lt;- lm(Stress ~ Support + Anxiety, data = stress.data)
+summary(mr.model)
+```
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support + Anxiety, data = stress.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1958 -0.8994 -0.1370  0.9990  3.6995 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.31587    0.85596  -0.369 0.712792    
+*## Support      0.40618    0.05115   7.941 1.49e-12 ***
+*## Anxiety      0.25609    0.06740   3.799 0.000234 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.519 on 115 degrees of freedom
+## Multiple R-squared:  0.3556,	Adjusted R-squared:  0.3444 
+## F-statistic: 31.73 on 2 and 115 DF,  p-value: 1.062e-11
+```
+
+---
+## "Controlling for"
+
+&lt;center&gt;
+
+&lt;img src="30-slides_files/figure-html/control.gif"&gt;
+
+&lt;/center&gt;
+
+Taken from [@nickchk](https://twitter.com/nickchk/status/1068215492458905600)
+---
+
+## Estimating model fit
+
+
+```r
+mr.model &lt;- lm(Stress ~ Support + Anxiety, data = stress.data)
+summary(mr.model)
+```
+
+```
+## 
+## Call:
+## lm(formula = Stress ~ Support + Anxiety, data = stress.data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1958 -0.8994 -0.1370  0.9990  3.6995 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.31587    0.85596  -0.369 0.712792    
+## Support      0.40618    0.05115   7.941 1.49e-12 ***
+## Anxiety      0.25609    0.06740   3.799 0.000234 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.519 on 115 degrees of freedom
+*## Multiple R-squared:  0.3556,	Adjusted R-squared:  0.3444 
+## F-statistic: 31.73 on 2 and 115 DF,  p-value: 1.062e-11
+```
+
+---
+## R-squared, `\(R^2\)`
+
+
+- Same interpretation as before  
+
+- Adding predictors into your model will increase `\(R^2\)` – regardless of whether or not the predictor is significantly correlated with Y.    
+
+- Adjusted/Shrunken `\(R^2\)` takes into account the number of predictors in your model  
+
+---
+name: MRCat
 
 ## Categorical predictors
 
@@ -1308,12 +1503,6 @@ summary(mod.2)
 
 ---
 
-### Time savers
-
-Show in `R`!
-
----
-
 
 ```r
 solomon = solomon %&gt;% 
@@ -1462,6 +1651,7 @@ anova(mod.3)
 ```
 
 ---
+name: interactions
 
 ## What are interactions?
 
@@ -1471,6 +1661,7 @@ When we have two variables, A and B, in a regression model, we are testing wheth
 ---
 
 ## What are interactions?
+
 However, we may hypothesize that two variables have **joint effects**, or interact with each other. In this case, the effect of A on Y changes as a function of B. 
 
 - Example: Chronic stress has a negative impact on health but only for individuals who receive little or no social support; for individuals with high social support, chronic stress has no impact on health. 
@@ -1480,20 +1671,20 @@ However, we may hypothesize that two variables have **joint effects**, or intera
 .pull-left[
 ### Univariate regression
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-16-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
 
 ]
 .pull-right[
 ### Multivariate regression
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-17-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
 
 ]
 ---
 
 ### Multivariate regression with an interaction
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1577,6 +1768,195 @@ summary(i.model1)
 ## Multiple R-squared:  0.4084,	Adjusted R-squared:  0.3928 
 ## F-statistic: 26.23 on 3 and 114 DF,  p-value: 5.645e-13
 ```
+---
+
+### All our tidying functions work!
+
+
+```r
+library(broom)
+library(knitr)
+
+kable(tidy(i.model1))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; term &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; std.error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; statistic &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p.value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.7396625 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.1210052 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2.443934 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0160605 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Anxiety &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6156122 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1301016 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.731780 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000064 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Support &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6669669 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0954746 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.985802 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Anxiety:Support &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0417408 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0130933 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -3.187954 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0018497 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+### All our tidying functions work!
+
+
+```r
+kable(head(augment(i.model1)))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Stress &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Anxiety &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Support &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .fitted &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .resid &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .hat &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .sigma &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .cooksd &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .std.resid &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3.19813 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.18520 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.1602 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.020185 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.8220554 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0205374 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.458248 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0083121 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.2592378 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 7.00840 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.58873 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.9069 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.563653 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.4447470 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0173247 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.450055 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0125411 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.6868210 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 6.17400 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.58500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.5433 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.448214 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7257861 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0131721 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.466888 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0008333 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4997215 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 8.69884 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.95430 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.4605 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.133020 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.5658202 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0379024 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.447732 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0315283 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.7891912 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.26707 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.59910 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.5516 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.880245 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.3868246 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0200085 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.462572 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0046863 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9581874 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.12485 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.15600 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.5117 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.734061 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3907895 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0100296 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.468032 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0001828 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2686407 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+### All our tidying functions work!
+
+
+```r
+kable(glance(i.model1))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; r.squared &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; adj.r.squared &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sigma &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; statistic &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p.value &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; logLik &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; deviance &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df.residual &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; nobs &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.4083528 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.3927831 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.462042 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26.22746 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -210.2205 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 430.441 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 444.2944 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 243.6827 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 114 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 118 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
 ---
 
 ### Conceptual interpretation
@@ -1740,13 +2120,13 @@ Often we graph the simple slopes as a way to understand the interaction. Interpr
 ## Interaction shapes
 ### Ordinal interactions
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-27-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-36-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 ## Interaction shapes
 ### Cross-over (disordinal) interactions
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-28-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-37-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -1757,7 +2137,7 @@ library(sjPlot)
 plot_model(imodel, type = "int")
 ```
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-38-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1766,7 +2146,7 @@ plot_model(imodel, type = "int")
 plot_model(imodel, type = "int", mdrt.values = "meansd")
 ```
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-30-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-39-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1774,7 +2154,7 @@ plot_model(imodel, type = "int", mdrt.values = "meansd")
 plot_model(imodel, type = "pred", terms = c("Support", "Anxiety[5,10]"))
 ```
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-31-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-40-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1783,7 +2163,7 @@ plot_model(imodel, type = "pred", terms = c("Support", "Anxiety[5,10]"))
 plot_model(imodel, type = "pred", terms = c("Support", "Anxiety"), mdrt.values = "meansd")
 ```
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-32-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -1956,14 +2336,13 @@ Y ~ z(X) + z(Z) + z(X*Z)
 ]
 
 ---
-name: extensions
+name: mixing
 
 ## Extensions of Interactions
 
 Interactions are all over the place and we can extend these concetps out:
 
 - Mixing continuous &amp; categorical variables. *"does the slop of x &amp; y change between group 1 and group 2?"*
-- *ANOVAs are regressions*
 - Polynomials are also interactions
 
 ---
@@ -1999,16 +2378,16 @@ This, by the way, is ANCOVA.
 
 ### Visualizing
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-40-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 ### Visualizing
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-50-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 ### Visualizing
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-51-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -2040,7 +2419,7 @@ What is the interpretation of `\(b_3?\)`
 
 ### Visualizing
 
-&lt;img src="30-slides_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="30-slides_files/figure-html/unnamed-chunk-52-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 

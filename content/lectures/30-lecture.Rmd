@@ -1,6 +1,6 @@
 ---
 title: "Interactions"
-linktitle: "Interactions"
+linktitle: "Mult Reg & Interactions"
 menu:
   lectures:
     parent: Statistics
@@ -25,10 +25,13 @@ source(here::here("R", "slide_tabs.R"))
 
 sections <- tibble::tribble(
   ~name, ~slide, ~active,
-  "Interactions", "1", TRUE,
+  "Multiple Regression", "1", TRUE,
+  "MR - Continuous", "MRCont", FALSE,
+  "MR - Categorical", "MRCat", FALSE,
+  "Interactions", "interactions", FALSE,
   "Simple Slopes", "simpleslopes", FALSE,
   "Centering", "centering", FALSE,
-  "Extensions", "extensions", FALSE
+  "Mixing", "mixing", FALSE
 )
 slide_tabs(sections, "/slides/30-slides.html")
 ```

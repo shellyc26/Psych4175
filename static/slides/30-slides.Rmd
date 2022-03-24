@@ -34,17 +34,112 @@ library(tidyverse)
 ```
 
 
-## Multiple Regression
+## With 1 predictor
 
-- Previously, we had 1 predictor
-    * __Continuous__: A 1-unit change in X predicts a $b1$ change in Y
-    * __Categorical__: A 1-unit change in X predicts a $b1$ change in Y, except a 1-unit change is going from category coded as 0 to category coded as 1
+**Intercept**
+- __Continuous__: The mean value of Y (outcome) when X (predictor) is 0
+- __Categorical__: The mean value of Y (outcome) when X (predictor) is 0, except one of your groups is coded as 0. So it's the mean value of Y for the group coded as 0. 
+
+**Regression Coefficient**
+- __Continuous__: A 1-unit change in X predicts a $b1$ change in Y
+- __Categorical__: A 1-unit change in X predicts a $b1$ change in Y, except a 1-unit change is going from the category coded as 0 to the category coded as 1
+
+**Omnibus test**
+- How well does the model fit the data?
+- $F$-test, $R^2$ etc.
+
+---
+
+## Multiple Regression
     
 - Now we are going to add in more variables
     * Maybe you have a covariate you want to **control** for
     * Maybe you want to look at the effects of X and Z on Y...independently
 
 ---
+name: MRCont
+
+### Multiple Regression with Continuous Predictors
+
+$$\large \hat{Y} = b_0 + b_1X_1 + b_2X_2 + \dots+b_kX_k$$
+
+- Intercept is the value of $Y$ when all predictors = 0
+
+- Regression coefficients are the predicted change in $Y$ for a 1 unit change in $X$, *holding all other predictors constant*
+
+- Residual in simple regression can be thought of as a measure of $Y$ that is left over after accounting for your DV
+
+---
+```{r, message=FALSE}
+library(here)
+stress.data = read.csv(here::here("R", "stress.csv"))
+library(psych)
+describe(stress.data$Stress)
+```
+
+---
+
+## Example
+
+```{r, output.lines = c(9:19)}
+mr.model <- lm(Stress ~ Support + Anxiety, data = stress.data)
+summary(mr.model)
+```
+
+---
+## Visualizing multiple regression
+
+```{r}
+library(visreg)
+
+visreg2d(mr.model,"Support", "Anxiety", plot.type = "persp")
+
+```
+
+---
+```{r, highlight.output = 11}
+mr.model <- lm(Stress ~ Support + Anxiety, data = stress.data)
+summary(mr.model)
+```
+
+---
+
+```{r, highlight.output = 12:13}
+mr.model <- lm(Stress ~ Support + Anxiety, data = stress.data)
+summary(mr.model)
+```
+
+---
+## "Controlling for"
+
+<center>
+
+<img src="30-slides_files/figure-html/control.gif">
+
+</center>
+
+Taken from [@nickchk](https://twitter.com/nickchk/status/1068215492458905600)
+---
+
+## Estimating model fit
+
+```{r, highlight.output = 18}
+mr.model <- lm(Stress ~ Support + Anxiety, data = stress.data)
+summary(mr.model)
+```
+
+---
+## R-squared, $R^2$
+
+
+- Same interpretation as before  
+
+- Adding predictors into your model will increase $R^2$ – regardless of whether or not the predictor is significantly correlated with Y.    
+
+- Adjusted/Shrunken $R^2$ takes into account the number of predictors in your model  
+
+---
+name: MRCat
 
 ## Categorical predictors
 
@@ -209,12 +304,6 @@ summary(mod.2)
 
 ---
 
-### Time savers
-
-Show in `R`!
-
----
-
 ```{r}
 solomon = solomon %>% 
   mutate_at("CONDITION", ~as.factor(.))
@@ -251,6 +340,7 @@ anova(mod.3)
 ```
 
 ---
+name: interactions
 
 ## What are interactions?
 
@@ -260,6 +350,7 @@ When we have two variables, A and B, in a regression model, we are testing wheth
 ---
 
 ## What are interactions?
+
 However, we may hypothesize that two variables have **joint effects**, or interact with each other. In this case, the effect of A on Y changes as a function of B. 
 
 - Example: Chronic stress has a negative impact on health but only for individuals who receive little or no social support; for individuals with high social support, chronic stress has no impact on health. 
@@ -342,6 +433,31 @@ imodel_bad = lm(Stress ~ Anxiety:Support,
 i.model1 = lm(Stress ~ Anxiety*Support, data = stress.data)
 summary(i.model1)
 ```
+---
+
+### All our tidying functions work!
+
+```{r warning=FALSE, message=FALSE}
+library(broom)
+library(knitr)
+
+kable(tidy(i.model1))
+```
+
+---
+### All our tidying functions work!
+
+```{r warning=FALSE, message=FALSE}
+kable(head(augment(i.model1)))
+```
+
+---
+### All our tidying functions work!
+
+```{r warning=FALSE, message=FALSE}
+kable(glance(i.model1))
+```
+
 ---
 
 ### Conceptual interpretation
@@ -599,14 +715,13 @@ Y ~ z(X) + z(Z) + z(X*Z)
 ]
 
 ---
-name: extensions
+name: mixing
 
 ## Extensions of Interactions
 
 Interactions are all over the place and we can extend these concetps out:
 
 - Mixing continuous & categorical variables. *"does the slop of x & y change between group 1 and group 2?"*
-- *ANOVAs are regressions*
 - Polynomials are also interactions
 
 ---
