@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Interactions</title>
+    <title>Multiple Regression &amp; Interactions</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <script src="libs/kePrint/kePrint.js"></script>
@@ -13,7 +13,7 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Interactions
+# Multiple Regression &amp; Interactions
 
 ---
 
@@ -22,9 +22,22 @@ class: center, middle, inverse, title-slide
 
 
 
+
+## Multiple Regression
+
+- Previously, we had 1 predictor
+    * __Continuous__: A 1-unit change in X predicts a `\(b1\)` change in Y
+    * __Categorical__: A 1-unit change in X predicts a `\(b1\)` change in Y, except a 1-unit change is going from category coded as 0 to category coded as 1
+    
+- Now we are going to add in more variables
+    * Maybe you have a covariate you want to **control** for
+    * Maybe you want to look at the effects of X and Z on Y...independently
+
+---
+
 ## Categorical predictors
 
-One of the benefits of using regression (instead of partial correlations) is that it can handle both continuous and categorical predictors and allows for using both in the same model.
+One of the benefits of using regression is that it can handle both continuous and categorical predictors and allows for using both in the same model.
 
 Categorical predictors with more than two levels are broken up into several smaller variables. In doing so, we take variables that don't have any inherent numerical value to them (i.e., nominal and ordinal variables) and ascribe meaningful numbers that allow for us to calculate meaningful statistics. 
 
@@ -1303,6 +1316,9 @@ Show in `R`!
 
 
 ```r
+solomon = solomon %&gt;% 
+  mutate_at("CONDITION", ~as.factor(.))
+
 mod.3 = lm(WISDOM ~ CONDITION, data = solomon)
 summary(mod.3)
 ```
@@ -1313,20 +1329,22 @@ summary(mod.3)
 ## lm(formula = WISDOM ~ CONDITION, data = solomon)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -2.64827 -0.55096  0.09494  0.72958  2.20076 
+##     Min      1Q  Median      3Q     Max 
+## -2.6809 -0.4209  0.0473  0.6694  2.3499 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -0.69638    0.21399  -3.254 0.001500 ** 
-## CONDITION    0.28621    0.07956   3.598 0.000478 ***
+## (Intercept)  -0.5593     0.1686  -3.317 0.001232 ** 
+## CONDITION2    0.6814     0.2497   2.729 0.007390 ** 
+## CONDITION3    0.7541     0.2348   3.211 0.001729 ** 
+## CONDITION4    0.8938     0.2524   3.541 0.000583 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.943 on 113 degrees of freedom
+## Residual standard error: 0.9389 on 111 degrees of freedom
 ##   (5 observations deleted due to missingness)
-## Multiple R-squared:  0.1028,	Adjusted R-squared:  0.09482 
-## F-statistic: 12.94 on 1 and 113 DF,  p-value: 0.000478
+## Multiple R-squared:  0.1262,	Adjusted R-squared:  0.1026 
+## F-statistic: 5.343 on 3 and 111 DF,  p-value: 0.001783
 ```
 
 
@@ -1407,22 +1425,23 @@ summary(mod.3)
 ## lm(formula = WISDOM ~ CONDITION, data = solomon)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -2.64827 -0.55096  0.09494  0.72958  2.20076 
+##     Min      1Q  Median      3Q     Max 
+## -2.6809 -0.4209  0.0473  0.6694  2.3499 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -0.69638    0.21399  -3.254 0.001500 ** 
-## CONDITION    0.28621    0.07956   3.598 0.000478 ***
+## (Intercept)  -0.5593     0.1686  -3.317 0.001232 ** 
+## CONDITION2    0.6814     0.2497   2.729 0.007390 ** 
+## CONDITION3    0.7541     0.2348   3.211 0.001729 ** 
+## CONDITION4    0.8938     0.2524   3.541 0.000583 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.943 on 113 degrees of freedom
+## Residual standard error: 0.9389 on 111 degrees of freedom
 ##   (5 observations deleted due to missingness)
-## Multiple R-squared:  0.1028,	Adjusted R-squared:  0.09482 
-## F-statistic: 12.94 on 1 and 113 DF,  p-value: 0.000478
-*
-*NA```
+*## Multiple R-squared:  0.1262,	Adjusted R-squared:  0.1026 
+*## F-statistic: 5.343 on 3 and 111 DF,  p-value: 0.001783
+```
 ---
 
 ### Omnibus test
@@ -1435,9 +1454,9 @@ anova(mod.3)
 ## Analysis of Variance Table
 ## 
 ## Response: WISDOM
-##            Df  Sum Sq Mean Sq F value   Pr(&gt;F)    
-## CONDITION   1  11.508 11.5082  12.942 0.000478 ***
-## Residuals 113 100.478  0.8892                     
+##            Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+## CONDITION   3 14.131  4.7105  5.3432 0.001783 **
+## Residuals 111 97.855  0.8816                    
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ```

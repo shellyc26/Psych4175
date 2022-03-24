@@ -1,5 +1,5 @@
 ---
-title: "Interactions"
+title: "Multiple Regression & Interactions"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -33,9 +33,22 @@ library(here)
 library(tidyverse)
 ```
 
+
+## Multiple Regression
+
+- Previously, we had 1 predictor
+    * __Continuous__: A 1-unit change in X predicts a $b1$ change in Y
+    * __Categorical__: A 1-unit change in X predicts a $b1$ change in Y, except a 1-unit change is going from category coded as 0 to category coded as 1
+    
+- Now we are going to add in more variables
+    * Maybe you have a covariate you want to **control** for
+    * Maybe you want to look at the effects of X and Z on Y...independently
+
+---
+
 ## Categorical predictors
 
-One of the benefits of using regression (instead of partial correlations) is that it can handle both continuous and categorical predictors and allows for using both in the same model.
+One of the benefits of using regression is that it can handle both continuous and categorical predictors and allows for using both in the same model.
 
 Categorical predictors with more than two levels are broken up into several smaller variables. In doing so, we take variables that don't have any inherent numerical value to them (i.e., nominal and ordinal variables) and ascribe meaningful numbers that allow for us to calculate meaningful statistics. 
 
@@ -203,6 +216,9 @@ Show in `R`!
 ---
 
 ```{r}
+solomon = solomon %>% 
+  mutate_at("CONDITION", ~as.factor(.))
+
 mod.3 = lm(WISDOM ~ CONDITION, data = solomon)
 summary(mod.3)
 ```

@@ -37,7 +37,7 @@ Choose 2 continuous variables from your dataset that you think might be related 
 
 Here's your to-do list:
 
-- There are lots of ways to get a correlation in `R`. Use the following functions to get the correlation:
+- There are lots of ways to get a correlation in `R`. Use all 3 of the following functions to get the correlation (of the same 2 variables):
     - `cor`
     - `cor.test`
     - `corr.test` (from `psych` package)
