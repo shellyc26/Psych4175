@@ -14,6 +14,7 @@ output:
 
 ## Videos
 
+[Mutliple Regression and Interactions](https://youtu.be/NFMDtmYFNvY)
 
 ## Slides
 
