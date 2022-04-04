@@ -201,33 +201,33 @@ lectures:
   - title: '<span class="fake-header-table">Unit 3: Advanced Topics</span>'
     header: True
   
-  - title: 'Data Viz Theory'
-    session: 28
-    date: "Week 12: 4/5 - 4/7"
-    lectures: "26-lecture"
-  
   - title: 'Bootstrapping & For Loops'
-    session: 29
+    session: 28
     lectures: "27-lecture"
-    date: "Week 13: 4/12 - 4/14"
+    date: "Week 12: 4/5 - 4/7"
     assignments: "01-mini-assignment"
     practice: "27-practice"
     
   - title: 'Writing Functions'
-    session: 30
-    date: "Week 14: 4/19 - 4/21"
+    session: 29
+    date: "Week 13: 4/12 - 4/14"
     lectures: "28-lecture"
     assignments: "02-mini-assignment"
     practice: "28-practice"
     
   - title: 'Simulations'
-    session: 31
-    date: "Week 15: 4/26 - 4/28"
+    session: 30
+    date: "Week 14: 4/19 - 4/21"
     lectures: "29-lecture"
     assignments: "03-mini-assignment"
     practice: "29-practice"
     
+  - title: 'Data Viz Theory'
+    session: 31
+    date: "Week 15: 4/26 - 4/28"
+    lectures: "26-lecture"
+    
   - title: 'Final Project'
-    session: 30
+    session: 32
     date: "Due 5/10"
     assignments: "final-assignment"

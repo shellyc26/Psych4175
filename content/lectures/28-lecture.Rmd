@@ -4,7 +4,7 @@ linktitle: "Functions"
 menu:
   lectures:
     parent: Advanced Topics
-    weight: 3
+    weight: 2
 type: docs
 slides: "28-slides"
 output:
