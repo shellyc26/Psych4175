@@ -87,14 +87,14 @@ for (i in 1:nrow(bfi)) {
 
 ## Question 3 (1.5 points)
 
-We are going to play a game. It's called Fizz Buzz. You are going to print integers 1 to 50, but print “Fizz” if an integer is divisible by 3, “Buzz” if an integer is divisible by 5, and “FizzBuzz” if an integer is divisible by both 3 and 5.
+We are going to play a game. It's called Fizz Buzz. You are going to print integers 1 to 250, but print “Fizz” if an integer is divisible by 3, “Buzz” if an integer is divisible by 5, and “FizzBuzz” if an integer is divisible by both 3 and 5.
 
 To do this, let's introduce you to the **modulus operator**. We use 2 percent signs, like this `%%`. It returns the *remainder* of a division. So for instance `4 %% 2` will result in `0`. That's because 2 goes into 4 evenly. There is no remainder after that division! If you instead did `17 %% 7` the result would be `3`. That's because 7 goes into 17 two times, but there are 3 left over. This is often used to figure out if something is an even number or not. 
 
-You're going to make this one from scratch. Think carefully about the logic you want! I have provided you with the 100 numbers, and the empty vector called `game`. At the end, we're going to print your vector. 
+You're going to make this one from scratch. Think carefully about the logic you want! I have provided you with the 250 numbers, and the empty vector called `game`. At the end, we're going to print your vector. 
 
 ```{r}
-fizzbuzz_numbers <- 1:100
+fizzbuzz_numbers <- 1:250
 
 game <- c()
 
