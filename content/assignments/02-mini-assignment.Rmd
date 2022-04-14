@@ -2,7 +2,7 @@
 title: "Peer Assignment 2"
 linktitle: "Peer #2"
 date: "6/16/2020"
-due_date: "2022-04-26"
+due_date: "2022-04-19"
 due_time: "11:30am"
 output:
   blogdown::html_page:

@@ -193,11 +193,10 @@ In the following empty code chunk, run your `autoPlot` function for the followin
 
 1. `Sepal.Length` vs. `Sepal.Width` of the `iris` data.frame
 2. `mpg` vs. `hp` of the `mtcars` data.frame
-3. `carat` vs. `price` of the `diamonds` data.frame
-4. `brainwt` vs. `bodywt` of the `msleep` data.frame
-5. `listings` vs. `sales` of the `txhousing` data.frame
+3. `brainwt` vs. `bodywt` of the `msleep` data.frame
+4. `listings` vs. `sales` of the `txhousing` data.frame
 
-Note that items 1 & 2 are built into base R. Items 3-5 are all data.frames that are part of the `ggplot2` package, so you can take a look at them if you're interested. 
+Note that items 1 & 2 are built into base R. Items 3-4 are all data.frames that are part of the `ggplot2` package, so you can take a look at them if you're interested. 
 
 ```{r, warning = FALSE, message = FALSE, out.width='70%'}
 
