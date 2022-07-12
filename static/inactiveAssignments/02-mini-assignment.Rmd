@@ -1,18 +1,18 @@
 ---
-title: "Peer Assignment 3"
-linktitle: "Peer #3"
+title: "Peer Assignment 2"
+linktitle: "Peer #2"
 date: "6/16/2020"
-due_date: "2022-04-26"
-due_time: "11:30am"
+due_date: "2022-12-05"
+due_time: "1:00pm"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
 menu:
   assignment:
     parent: Peer Assignments
-    weight: 3
+    weight: 2
 type: docs
-weight: 3
+weight: 2
 editor_options: 
   chunk_output_type: console
 ---
@@ -20,7 +20,7 @@ editor_options:
 :::list
 Here's the task:
 
-- <i class="fas fa-file"></i> `r xfun::embed_file('03-peer-assignment-skeleton.Rmd')`
+- <i class="fas fa-file"></i> `r xfun::embed_file('02-peer-assignment-skeleton.Rmd')`
 - Edit the file on your local computer, following all the directions
 - Knit the file to a HTML file
 - Upload your edited .Rmd and the knitted HTML file to Canvas

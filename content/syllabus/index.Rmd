@@ -10,7 +10,7 @@ output:
 
 ## What is this class?
 - Applied Statistical Analysis with R (Psych 4175)
-- Tuesday/Thursdays 11:30am-12:50pm
+- Monday/Wednesday 1:00pm-2:20pm
 - Somers Family Hall 216B
 
 ## Who are we?
@@ -18,8 +18,8 @@ output:
 Instructor: **Shelly Cooper (she/her)**
 You can reach Shelly via the contact form on the homepage of this site, or you can email her at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
 
-Assistant to the Instructor: **Tabea Springstein**
-You can reach Tabea via email at [tspringstein@wustl.edu](mailto:tspringstein@wustl.edu).
+Assistant to the Instructor: **Selin Toprakkiran**
+You can reach Selin via email at [selintoprakkiran@wustl.edu](mailto:selintoprakkiran@wustl.edu).
 
 ## What's the course philosophy?
 Programming & statistics are in demand skills across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to feel comfortable with the programmatic skills needed to take a data analysis project from start to finish including data wrangling, executing appropriate statistical tests, interpreting the results, and communicating your findings. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.).
@@ -28,7 +28,7 @@ You do not need to have any experience with programming, at all, in order to do 
 
 >The only difference between a beginner and expert programmer, is that the expert is better at Googling”.
 
-*My goal is to get you to the point where you can effectively Google `R`-related questions and mostly understand the results.* 
+*The goal of this course is to get you to the point where you can effectively Google `R`-related questions and mostly understand the results.* 
 
 ## What will you learn in this class?
 By the end of the class, you will have learned:
@@ -68,12 +68,12 @@ There are no exams! Hooray! To get a good grade in this class, you need to do th
 \begin{equation}
 \begin{aligned}
 
-\text{Solo Assignments 8 x 10 pts/ea = 80pts} \\
-\text{Peer Reviews 8 x 7.5pts/ea = 60pts} \\
-\text{Group Assignments 3 x 10pts/ea = 30pts} \\
-\text{Final Project 1 x 15pts/ea = 15pts} \\
-\text{Participation 10 x 1.5pts/ea = 15pts} \\
-\mathbf{\text{Total = 200pts}}
+\text{Solo Assignments 8 x 15 pts/ea = 120pts} \\
+\text{Peer Reviews 8 x 5pts/ea = 40pts} \\
+\text{Group Assignments 3 x 15pts/ea = 45pts} \\
+\text{Final Project 1 x 25pts/ea = 25pts} \\
+\text{Participation 15 (adjusted) x 1.5pts/ea = 20pts} \\
+\mathbf{\text{Total = 250pts}}
 
 \end{aligned}
 \end{equation}
@@ -111,7 +111,7 @@ There are no exams! Hooray! To get a good grade in this class, you need to do th
 Learning to code is a lot like learning to snowboard or surf. The beginning is hard. You fall down a lot. But once you get the feel of things, it becomes much easier! Most students find that the first 5-6 weeks are the most difficult of the course because they are learning this new thing and "falling down". This is totally normal! We are here to help you. But please make no mistake, the first third of the semester is challenging and requires a lot of work. The course is designed to facilitate your learning, and make sure you don't fall too far behind. **Procrastination is not your friend.** Those who take the perspective of doing a little bit each day will be the most successful. 
 
 #### Late Adds
-Please be aware that if you decide to join this course after Week 2, you will need to make up a lot of work very quickly. In general, I don’t advise students to add the course more than 4 class sessions late. If you are thinking about adding the class late, I encourage you to contact me first. We might decide together that it would be better for you to wait to take this class, in which case the good news is that it will be offered again in Fall 2022!
+Please be aware that if you decide to join this course after Week 2, you will need to make up a lot of work very quickly. In general, I don’t advise students to add the course more than 4 class sessions late. If you are thinking about adding the class late, I encourage you to contact me first. We might decide together that it would be better for you to wait to take this class, in which case the good news is that it will be offered again in Fall 2023!
 
 ## Class Policies
 
@@ -138,7 +138,7 @@ You will be docked points based on how late your work is turned in. This is true
 After 5 days, if you still have not completed the assignment, you will receive a 0. 
 
 ## Staying Connected
-The 2020-2021 academic year was lonely. Although we're back in person, we still might feel that residual loneliness. On top of that, learning to code can be really scary -- impostor syndrome is real! The best thing we can do to combat these feelings is to stay connected to one another. Here's how we'll accomplish this in our class:
+The 2020-2021 academic year was lonely and 2021-2022 was just plain weird. Although we're back in person, we still might feel that residual loneliness and weirdness. On top of that, learning to code can be really scary -- impostor syndrome is real! The best thing we can do to combat these feelings is to stay connected to one another. Here's how we'll accomplish this in our class:
 
 -	Your peer review will be with the same person! This way, you will get to know your buddy over the course of the semester. Make a friend! 
 

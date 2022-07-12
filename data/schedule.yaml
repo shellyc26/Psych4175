@@ -4,7 +4,7 @@ lectures:
     
   - title: '**Welcome**'
     header: True
-    date: "Week 1: 1/18 - 1/20"
+    date: "Weeks 1 & 2: 8/29, 8/32, 9/5 (no class), 9/7"
   
   - title: 'Syllabus & Installation' 
     session: 0
@@ -21,7 +21,7 @@ lectures:
   
   - title: '**The Basics Part 1**'
     header: True
-    date: "Week 2: 1/25 - 1/27"
+    date: "Week 3: 9/12 - 9/14"
     
   - title: 'Objects'
     session: 2
@@ -49,7 +49,7 @@ lectures:
     
   - title: '**The Basics Part 2**'
     header: True
-    date: "Week 3: 2/1 - 2/3"
+    date: "Week 4: 9/19 - 9/21"
     
   - title: 'Packages'
     session: 6
@@ -70,7 +70,7 @@ lectures:
     assignments: "02-assignment"
     
   - title: '**Data Wrangling**'
-    date: "Week 4: 2/8 - 2/10"
+    date: "Week 5: 9/26 - 9/28"
     header: True
     
   - title: 'Introduction to Tidyverse'
@@ -91,7 +91,7 @@ lectures:
     assignments: "03-assignment"
 
   - title: '**Data Visualization**'
-    date: "Week 5: 2/15 - 2/17"
+    date: "Week 6: 10/3 - 10/5"
     header: True
   
   - title: 'Introduction to Data Visualization'
@@ -118,7 +118,7 @@ lectures:
     assignments: "05-assignment"
       
   - title: '**Reproducibility**'
-    date: "Week 6: 2/22 - 2/24"
+    date: "Week 7: 10/10 (no class) - 10/12"
     header: True
     
   - title: 'Introduction to RMarkdown'
@@ -141,7 +141,7 @@ lectures:
     header: True
   
   - title: '**Describing Data**'
-    date: "Week 7: 3/1 - 3/3"
+    date: "Week 8: 10/17 - 10/19"
     header: True
     
   - title: 'Descriptives'
@@ -155,7 +155,7 @@ lectures:
     assignments: "06-assignment"
   
   - title: '**Comparing Means & Stats Issues**'
-    date: "Week 8: 3/8 - 3/10"
+    date: "Week 9: 10/24 - 10/26"
     header: True
     
   - title: 'Comparing Means'
@@ -167,13 +167,9 @@ lectures:
     lectures: "23-lecture"
     session: 23
     assignments: "07-assignment"
-    
-  - title: '**Spring Break**'
-    date: "Week 9: 3/15 - 3/17 (No Class)"
-    header: True
   
   - title: '**Relationships**'
-    date: "Week 10: 3/22 - 3/24"
+    date: "Week 10: 10/31 - 11/2"
     header: True
     
   - title: 'Correlation'
@@ -187,7 +183,7 @@ lectures:
     assignments: "08-assignment"
     
   - title: '**Above and Beyond**'
-    date: "Week 11: 3/29 - 3/31"
+    date: "Week 11: 11/7 - 11/9"
     header: True
   
   - title: 'Interactions'
@@ -204,30 +200,31 @@ lectures:
   - title: 'Bootstrapping & For Loops'
     session: 28
     lectures: "27-lecture"
-    date: "Week 12: 4/5 - 4/7"
+    date: "Week 12: 11/14 - 11/16"
     assignments: "01-mini-assignment"
     practice: "27-practice"
     
-  - title: 'Writing Functions'
+  - title: 'Data Viz Theory'
     session: 29
-    date: "Week 13: 4/12 - 4/14"
+    date: "Week 13: 11/21 - 11/23 (no class)"
+    lectures: "26-lecture"
+    
+  - title: 'Writing Functions'
+    session: 30
+    date: "Week 14: 11/28 - 11/30"
     lectures: "28-lecture"
     assignments: "02-mini-assignment"
     practice: "28-practice"
     
   - title: 'Simulations'
-    session: 30
-    date: "Week 14: 4/19 - 4/21"
+    session: 31
+    date: "Week 15: 12/5 - 12/7"
     lectures: "29-lecture"
     assignments: "03-mini-assignment"
     practice: "29-practice"
-    
-  - title: 'Data Viz Theory'
-    session: 31
-    date: "Week 15: 4/26 - 4/28"
-    lectures: "26-lecture"
+  
     
   - title: 'Final Project'
     session: 32
-    date: "Due 5/10"
+    date: "Due 12/19"
     assignments: "final-assignment"
