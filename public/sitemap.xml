@@ -2,45 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/assignments/01-assignment/</loc>
+    <loc>/assignments/</loc>
   </url><url>
     <loc>/practice/27-practice/</loc>
   </url><url>
-    <loc>/assignments/</loc>
-  </url><url>
     <loc>/lectures/</loc>
   </url><url>
-    <loc>/assignments/01-mini-assignment/</loc>
-  </url><url>
     <loc>/practice/</loc>
-  </url><url>
-    <loc>/assignments/02-assignment/</loc>
   </url><url>
     <loc>/practice/28-practice/</loc>
   </url><url>
     <loc>/practice/07-practice/</loc>
   </url><url>
-    <loc>/assignments/03-assignment/</loc>
-  </url><url>
     <loc>/practice/02-practice/</loc>
   </url><url>
-    <loc>/assignments/04-assignment/</loc>
+    <loc>/practice/24-practice/</loc>
   </url><url>
     <loc>/practice/03-practice/</loc>
   </url><url>
-    <loc>/assignments/05-assignment/</loc>
-  </url><url>
     <loc>/practice/04-practice/</loc>
   </url><url>
-    <loc>/assignments/06-assignment/</loc>
+    <loc>/practice/25-practice/</loc>
   </url><url>
     <loc>/practice/05-practice/</loc>
   </url><url>
-    <loc>/assignments/07-assignment/</loc>
-  </url><url>
     <loc>/practice/06-practice/</loc>
-  </url><url>
-    <loc>/assignments/08-assignment/</loc>
   </url><url>
     <loc>/practice/08-practice/</loc>
   </url><url>
@@ -66,13 +52,13 @@
   </url><url>
     <loc>/practice/19-practice/</loc>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url><url>
     <loc>/talk/example/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
     <loc>/talk/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/</loc>
@@ -181,11 +167,11 @@
   </url><url>
     <loc>/lectures/05-lecture/</loc>
   </url><url>
+    <loc>/welcome/</loc>
+  </url><url>
     <loc>/lectures/03-lecture/</loc>
   </url><url>
     <loc>/lectures/00-lecture/</loc>
-  </url><url>
-    <loc>/lectures/30-lecture/</loc>
   </url><url>
     <loc>/lectures/16-lecture/</loc>
   </url><url>
@@ -197,6 +183,8 @@
   </url><url>
     <loc>/lectures/07-lecture/</loc>
   </url><url>
+    <loc>/lectures/30-lecture/</loc>
+  </url><url>
     <loc>/lectures/18-lecture/</loc>
   </url><url>
     <loc>/lectures/21-lecture/</loc>
@@ -207,7 +195,9 @@
   </url><url>
     <loc>/lectures/06-lecture/</loc>
   </url><url>
-    <loc>/assignments/01-mini-assignment-skeleton/</loc>
+    <loc>/peerassignments/mini-01-assignment-skeleton/</loc>
+  </url><url>
+    <loc>/peerassignments/</loc>
   </url><url>
     <loc>/lectures/23-lecture/</loc>
   </url><url>

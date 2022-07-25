@@ -1,19 +1,13 @@
 main:
-  - name: Syllabus
-    url: /syllabus/
+  - name: How This Works
+    url: /welcome/
     weight: 1
-  - name: Schedule
-    url: /schedule/
-    weight: 2
   - name: Lectures
     url: /lectures/
-    weight: 3
+    weight: 2
   - name: Practice
     url: /practice/
-    weight: 4
-  - name: Assignments
-    url: /assignments/
-    weight: 5
+    weight: 3
 
 lectures:
   - name: Overview
@@ -22,14 +16,11 @@ lectures:
     weight: 2
   - name: Tidyverse
     weight: 3
-  - name: Data Viz
-    weight: 4
   - name: Reproducibility
+    weight: 4
+  - name: Data Viz
     weight: 5
-  - name: Statistics
-    weight: 6
-  - name: Advanced Topics
-    weight: 7
+
 practice:
   - name: Overview
     weight: 1
@@ -37,20 +28,7 @@ practice:
     weight: 2
   - name: Tidyverse
     weight: 3
-  - name: Data Viz
-    weight: 4
   - name: Reproducibility
-    weight: 5
-  - name: Statistics
-    weight: 6
-  - name: Advanced Topics
-    weight: 7
-assignment:
-  - name: Overview
-    weight: 1
-  - name: Assignments
-    weight: 2
-  - name: Peer Assignments
-    weight: 3
-  - name: Final Assignment
     weight: 4
+  - name: Data Viz
+    weight: 5

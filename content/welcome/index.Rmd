@@ -1,0 +1,49 @@
+---
+title: "How This Works"
+slug: welcome
+---
+
+## Why are you here? What is this?
+You are planning on taking Quantitative Methods I and II (Psych 5066 & 5067). We will be using the R programming language quite heavily in these courses. That means you need to be up to speed in terms of using R and understanding the output. This website is here to make sure you have a solid foundation for building your R skills.
+
+## Who are we?
+
+Instructor: **Shelly Cooper, PhD (she/her)**
+You can reach Shelly via the contact form on the homepage of this site, or you can email her at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
+
+R Support Person: **Selin Toprakkiran**
+You can reach Selin via email at [selintoprakkiran@wustl.edu](mailto:selintoprakkiran@wustl.edu).
+
+R Support Person: **Violet Brown**
+You can reach Violet via email at [violet.brown@wustl.edu](mailto:violet.brown@wustl.edu).
+
+Shelly will be your instructor for Quantitative Methods. Violet and Selin are current grad students that are R experts! As you are going through this introduction to R, if you get stuck or have questions or don't understand an error message etc., you are to reach out to Violet or Selin. (Please don't reach out to Shelly for this -- she will just point you to Violet or Selin)
+
+## How does this work?
+
+This is a self-paced ordeal. You will watch some lectures, do some practice sets when available, and then complete a short assessment on Canvas. Selin and Violet will grade the assessment and provide feedback. Once you have completed the last assessment, you will be enrolled into Quantitative Methods I!
+
+Tips:
+
+**If you DON'T know R**: No worries! These lectures are geared towards students that have never ever coded before. We will walk you through everything. Since this is a self-paced course, please give yourself some time to complete everything. And be sure to reach out to the R Support Staff (Violet and Selin) whenever you have questions. They are here to help you!
+
+**If you DO know R**: Great! This should go quickly. You are not being forced to watch lectures or do practice sets etc. If you feel very comfortable in R already, feel free to skip straight to the assessments on Canvas. 
+
+Here's your roadmap for utilizing this website!
+
+- [**Lectures**](/lectures/) (<i class="fas fa-book-reader"></i>): This contains the lecture slides and video recordings of these lectures. You should watch the videos and follow along for each topic that is assigned per week.
+
+- [**Practice**](/practice/) (<i class="fas fa-laptop-code"></i>): This page contains an interactive lesson that reinforces the principles that were discussed in the corresponding lecture. They also tend to go through more detail. 
+
+- **Assessments** (<i class="fas fa-pencil-ruler"></i>): When you have finished a larger topic, there will be a corresponding Canvas assessment (not on this website). Please complete and submit the assessment on Canvas. 
+
+:::note
+**tl;dr**: You should follow this general process:
+
+- Watch the Lectures (<i class="fas fa-book-reader"></i>) at home before each Monday's class
+- Then do the Practice sets (<i class="fas fa-laptop-code"></i>)
+- Repeat until you reach the end of the broader topic
+- Take Canvas Assignment (<i class="fas fa-pencil-ruler"></i>)
+:::
+
+---
