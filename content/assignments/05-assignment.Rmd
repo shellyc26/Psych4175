@@ -35,7 +35,6 @@ Pick 2 variables from your dataset. Make *3 __different__ figures* that show the
   - A theme
   - Make use of different colors (manually or with a color palette)
   - You need to pick the best of the 3 figures **and explain why you think this is the case**
-  - After you've picked your favorite, add a 3rd *variable* (not `geom`) to that plot (just to your favorite plot -- not to all 3 plots). You can choose the dimension on which to add the 3rd variable (aka which aesthetic). Did adding the 3rd variable enhance this plot or does it detract? Explain why.
 :::
   
 ## Explanation vs. Clutter
@@ -44,6 +43,16 @@ Here's your to-do list:
 
 - Make a plot that uses at least 3 `geom`s. Make it as beautiful, publication-ready as you can.
 - Explain whether the extra `geom`s help explain your data or if it just clutters everything up. You may add an additional plot if you think it help explains your answer better (e.g., if you think a plot with only 2 `geom`s would be better, make that plot). An extra plot is not required. The explanation is required.
+:::
+
+## Multipanel Figures
+:::list
+Here's your to-do list:
+
+  - Create a multipanel figure. You will need at least 2 variables from your dataset to do this (likely more than 2). 2 of these variables need to be new (aka not used in section 1 of this assignment). After you've picked 2 new variables, you can start to use other variables that were already used. For instance, if you want 3 variables, 2 must be new and 1 can be from earlier in the assignment. 
+  - Multipanel can be in the form of subplots or it can be in the form of different figures woven together as a single figure. You choose.
+  - Keep in mind the dimensions. We should be able to easily look at your figure on a standard laptop screen without having to scroll left/right very much. 
+  - Think about what format the data need to be in! Use `tidyverse` or whatever packages are necessary in order to wrangle your data into the appropriate format to plot.
 :::
 
 ### Yahhoooooooo!
