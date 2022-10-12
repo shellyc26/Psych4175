@@ -31,9 +31,9 @@ Create a `.Rmd` file (either RNotebook or RMarkdown is fine). When you turn in t
 :::list
 Here's your to-do list (e.g., your file must include the following):
 
-  - 4 large headers (at least) indicating the 4 topics you'll go through
+  - 3 large headers (at least) indicating the 3 topics you'll go through
 
-  - There must be at least 3 subheaders. They must be notably smaller than the larger headers, indicating that these are subsections of the topic you're covering.
+  - There must be at least 2 subheaders. They must be notably smaller than the larger headers, indicating that these are subsections of the topic you're covering.
   
   - You must have some normal text with at least a sentence or two that describes the topic and/or gives notes to yourself. Within the normal text, there should be both **bolded** text and *italicized* text. You must also include at least 1 list somewhere in the document (this could be ordered with numbers/letters or unordered with bullet points)
   
