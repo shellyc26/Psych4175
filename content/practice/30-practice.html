@@ -1,0 +1,205 @@
+---
+title: "Practice Set: Interactions"
+linktitle: "Interactions"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Statistics
+    weight: 6
+type: docs
+weight: 6
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#multiple-regression" id="toc-multiple-regression">Multiple Regression</a></li>
+<li><a href="#continuous-predictors-interacting" id="toc-continuous-predictors-interacting">Continuous Predictors Interacting</a></li>
+<li><a href="#simple-slopes" id="toc-simple-slopes">Simple Slopes</a></li>
+</ul>
+</div>
+
+<div id="multiple-regression" class="section level2">
+<h2>Multiple Regression</h2>
+<p><span class="medium"><strong>Let’s take a look at the iris data set!</strong></span></p>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
+<div class="puzzle">
+<p><strong>You Try!</strong></p>
+<ul>
+<li>Build a multiple regression model with <code>Petal Length</code> as the outcome and <code>Sepal Length</code> and <code>Sepal Width</code> as predictors.</li>
+<li>Name it <code>mod_cont</code>.</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/30-learnr-app1/" id="learnr-30-app1" %}}
+<p>Let’s interpret those coefficients!</p>
+<ul>
+<li>What does the estimate for the intercept mean?</li>
+<li>What do the coefficients for each variable mean?</li>
+<li>If the Estimate for Sepal Length was 2 and the Standard Error was 0.5, what would the <em>t</em>-value be?</li>
+<li>What do the <em>p</em>-values mean?</li>
+<li>What does the <span class="math inline">\(R^2\)</span> stand for?</li>
+</ul>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<ul>
+<li>Let’s build a multiple regression model with Petal Length as the outcome and Sepal Length and Species as predictors.</li>
+<li>Name it <code>mod_cat</code>.</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/30-learnr-app2/" id="learnr-30-app2" %}}
+<p>Let’s interpret those coefficients!</p>
+<ul>
+<li>What is the reference (base) category?</li>
+<li>What does the estimate for the intercept mean?</li>
+<li>What do the coefficients for each variable mean?</li>
+</ul>
+</div>
+<div id="continuous-predictors-interacting" class="section level2">
+<h2>Continuous Predictors Interacting</h2>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<ul>
+<li>Let’s build a regression model with Petal Length as the outcome and Sepal Length and Sepal Width as predictors that interact.</li>
+<li>Name it <code>mod1</code>.</li>
+<li>We’ll reference <code>mod1</code>throughout the assignment, so don’t forget what it stands for!</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/30-learnr-app3/" id="learnr-30-app3" %}}
+<p>Let’s interpret those coefficients!</p>
+<ul>
+<li>What does the estimate for the intercept mean?</li>
+<li>What do the coefficients for each variable mean?</li>
+<li>What happened to the coefficient of Sepal Length compared to the multiple regression model <code>mod_cont</code>?</li>
+</ul>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/30-learnr-quiz1/" id="learnr-30-quiz1" %}}
+<p>☝️ Good job! You can work with continuous variable interactions!</p>
+</div>
+<div id="simple-slopes" class="section level2">
+<h2>Simple Slopes</h2>
+<p><strong>A great way of understanding interactions is by visualizing them!</strong></p>
+<p>Example 1:</p>
+<p>First, choose which package you want to use. We’ll start with <code>sjPlot</code>.</p>
+<pre class="r"><code>library(sjPlot)</code></pre>
+<p>Plug in your regression model(we’ll use <code>mod1</code>) and plot the interaction!</p>
+<pre class="r"><code>plot_model(mod1, type = &quot;pred&quot;,terms = c(&quot;Sepal.Width&quot;,&quot;Sepal.Length&quot;))</code></pre>
+<p><img src="/practice/30-practice_files/figure-html/example2-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Now, we’ll look at these interactions for <code>mod1</code> when <code>Sepal.Width</code> equals 2 and 3.</p>
+<pre class="r"><code>plot_model(mod1, type = &quot;pred&quot;, terms = c(&quot;Sepal.Width&quot;, &quot;Sepal.Length[2,3]&quot;))</code></pre>
+<p><img src="/practice/30-practice_files/figure-html/unnamed-chunk-6-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<ul>
+<li>Let’s visualize this model: <code>Sepal.Width ~ Sepal.Length*Petal.Length</code> using the <code>sjPlot</code> package</li>
+<li>Name your regression model <code>mod_width</code></li>
+<li>Then let’s visualize this models when <code>Sepal.Length</code> is 4 and 6</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/30-learnr-app4/" id="learnr-30-app4" %}}
+<p>Let’s look at these interactions across <code>Species</code>. For this, we’ll need to create a new regression model first.</p>
+<pre class="r"><code>mod1_species&lt;-lm(Petal.Length~Sepal.Length*Sepal.Width+Species, data=iris)
+
+plot_model(mod1_species, type = &quot;pred&quot;, terms = c(&quot;Sepal.Length&quot;, &quot;Sepal.Width&quot;, &quot;Species&quot;))</code></pre>
+<p><img src="/practice/30-practice_files/figure-html/unnamed-chunk-8-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>Example 2:</p>
+<p>There are many ways of exploring an interaction. Now we’re going to try using the <code>reghelper</code> package to look at the significance of our simple slopes at specific levels.</p>
+<p>Using <code>mod1</code>, let’s see if Sepal Width is a significant predictor of Petal Length at different levels of Sepal Length (specifically when Sepal Length is 5 and 6).</p>
+<pre class="r"><code>simple_slopes(mod1, levels = list(Sepal.Length = c(5,6)))</code></pre>
+<pre><code>##   Sepal.Length Sepal.Width Test Estimate Std. Error  t value  df  Pr(&gt;|t|) Sig.
+## 1            5      sstest       -1.6709     0.1631 -10.2436 146 &lt; 2.2e-16  ***
+## 2            6      sstest       -1.1652     0.1326  -8.7874 146 3.842e-15  ***</code></pre>
+<pre class="r"><code># what do these results mean?</code></pre>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<ul>
+<li>Now let’s see if Sepal Length is a significant predictor of Sepal Width at different levels of Petal length (specifically when Petal Length is 4 and 6).</li>
+<li>Please use the <code>reghelper</code> package</li>
+<li>HINT: check slide 53</li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/30-learnr-app5/" id="learnr-30-app5" %}}
+<p>Example 3:</p>
+<p>Just like how there are many ways of exploring simple slopes, there are also many ways of visualizing interactions!</p>
+<p>Let’s visualize <code>mod1</code> using the package <code>ggeffects</code>.</p>
+<pre class="r"><code>predict&lt;- ggpredict(mod1, terms =
+                      c(&quot;Sepal.Width&quot;,&quot;Sepal.Length&quot;))
+
+plot(predict)</code></pre>
+<p><img src="/practice/30-practice_files/figure-html/unnamed-chunk-11-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>There’s something cool about this function, though. Check out the data that <code>ggpredict</code> creates!</p>
+<pre class="r"><code>predict</code></pre>
+<pre><code>## # Predicted values of Petal.Length
+## 
+## # Sepal.Length = 5.02
+## 
+## Sepal.Width | Predicted |        95% CI
+## ---------------------------------------
+##        2.00 |      4.09 | [ 3.71, 4.48]
+##        2.40 |      3.43 | [ 3.16, 3.70]
+##        2.80 |      2.77 | [ 2.59, 2.95]
+##        3.20 |      2.10 | [ 1.96, 2.25]
+##        3.60 |      1.44 | [ 1.23, 1.64]
+##        4.40 |      0.11 | [-0.31, 0.53]
+## 
+## # Sepal.Length = 5.84
+## 
+## Sepal.Width | Predicted |       95% CI
+## --------------------------------------
+##        2.00 |      5.09 | [4.82, 5.36]
+##        2.40 |      4.59 | [4.41, 4.78]
+##        2.80 |      4.09 | [3.98, 4.21]
+##        3.20 |      3.60 | [3.49, 3.70]
+##        3.60 |      3.10 | [2.93, 3.27]
+##        4.40 |      2.10 | [1.76, 2.44]
+## 
+## # Sepal.Length = 6.67
+## 
+## Sepal.Width | Predicted |       95% CI
+## --------------------------------------
+##        2.00 |      6.10 | [5.65, 6.55]
+##        2.40 |      5.77 | [5.47, 6.07]
+##        2.80 |      5.44 | [5.27, 5.61]
+##        3.20 |      5.11 | [4.95, 5.27]
+##        3.60 |      4.78 | [4.51, 5.05]
+##        4.40 |      4.12 | [3.54, 4.69]</code></pre>
+<p>What does this output mean?</p>
+<div class="puzzle">
+<p><strong>Make it pretty!</strong></p>
+<ul>
+<li>Let’s visualize <code>mod_width</code> using the same package!</li>
+<li>This time, set color palette to “eight”</li>
+<li>Here’s a nice website for reference <a href="https://strengejacke.github.io/ggeffects/reference/plot.html" class="uri">https://strengejacke.github.io/ggeffects/reference/plot.html</a></li>
+</ul>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/30-learnr-app6/" id="learnr-30-app6" %}}
+<p>What is this graph telling you?</p>
+</div>

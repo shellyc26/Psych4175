@@ -1,0 +1,268 @@
+---
+title: "Practice Set: Interactions"
+linktitle: "Interactions"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Statistics
+    weight: 6
+type: docs
+weight: 6
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+```{r setup, warning = FALSE, message = FALSE, include=FALSE}
+library(tidyverse)
+library(flair)
+library(knitr)
+library(kableExtra)
+library(datasets)
+library(sjPlot)
+library(reghelper)
+library(ggeffects)
+library("effects")
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
+```
+
+
+## Multiple Regression
+
+[**Let's take a look at the iris data set!**]{.medium}
+
+```{r, echo=FALSE}
+#loading data
+
+iris<-datasets::iris
+
+head(iris)
+
+summary(iris)
+mod1 <- lm(Petal.Length~Sepal.Length*Sepal.Width,data= iris)
+
+```
+
+:::puzzle
+
+**You Try!**
+
+- Build a multiple regression model with `Petal Length` as the outcome and `Sepal Length` and `Sepal Width` as predictors.
+- Name it `mod_cont`.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/30-learnr-app1/",
+                    id = "learnr-30-app1")
+
+```
+
+Let’s interpret those coefficients!
+
+- What does the estimate for the intercept mean?
+- What do the coefficients for each variable mean?
+- If the Estimate for Sepal Length was 2 and the Standard Error was 0.5, what would the *t*-value be?
+- What do the *p*-values mean?
+- What does the $R^2$ stand for?
+
+:::puzzle
+
+**You try!**
+
+- Let's build a multiple regression model with Petal Length as the outcome and Sepal Length and Species as predictors. 
+- Name it `mod_cat`.
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/30-learnr-app2/",
+                    id = "learnr-30-app2")
+
+```
+
+Let’s interpret those coefficients!
+
+- What is the reference (base) category?
+- What does the estimate for the intercept mean?
+- What do the coefficients for each variable mean?
+
+
+## Continuous Predictors Interacting
+
+:::puzzle
+
+**You try!**
+
+- Let's build a regression model with Petal Length as the outcome and Sepal Length and Sepal Width as predictors that interact.
+- Name it `mod1`.
+- We'll reference `mod1`throughout the assignment, so don't forget what it stands for!
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/30-learnr-app3/",
+                    id = "learnr-30-app3")
+
+```
+
+Let’s interpret those coefficients!
+
+- What does the estimate for the intercept mean?
+- What do the coefficients for each variable mean?
+- What happened to the coefficient of Sepal Length compared to the multiple regression model `mod_cont`?
+
+
+:::quiz
+**Quick Quiz**
+:::
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/30-learnr-quiz1/",
+                    id = "learnr-30-quiz1")
+
+```
+
+
+`r emo::ji("index_pointing_up")` Good job! You can work with continuous variable interactions!
+
+
+## Simple Slopes
+
+**A great way of understanding interactions is by visualizing them!**
+
+Example 1:
+
+First, choose which package you want to use. We'll start with `sjPlot`.
+
+```{r example1}
+library(sjPlot)
+```
+
+Plug in your regression model(we'll use `mod1`) and plot the interaction!
+
+```{r example2}
+plot_model(mod1, type = "pred",terms = c("Sepal.Width","Sepal.Length"))
+```
+
+Now, we'll look at these interactions for `mod1` when `Sepal.Width` equals 2 and 3. 
+
+```{r}
+
+plot_model(mod1, type = "pred", terms = c("Sepal.Width", "Sepal.Length[2,3]"))
+
+```
+
+:::puzzle
+**You try!**
+
+- Let's visualize this model: `Sepal.Width ~ Sepal.Length*Petal.Length` using the `sjPlot` package
+- Name your regression model `mod_width`
+- Then let's visualize this models when `Sepal.Length` is 4 and 6
+
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/30-learnr-app4/",
+                    id = "learnr-30-app4")
+
+```
+
+Let's look at these interactions across `Species`. For this, we'll need to create a new regression model first.
+
+```{r}
+
+mod1_species<-lm(Petal.Length~Sepal.Length*Sepal.Width+Species, data=iris)
+
+plot_model(mod1_species, type = "pred", terms = c("Sepal.Length", "Sepal.Width", "Species"))
+
+```
+
+
+Example 2:
+
+There are many ways of exploring an interaction. Now we're going to try using the `reghelper` package to look at the significance of our simple slopes at specific levels.
+
+Using `mod1`, let's see if Sepal Width is a significant predictor of Petal Length at different levels of Sepal Length (specifically when Sepal Length is 5 and 6).
+
+```{r}
+
+simple_slopes(mod1, levels = list(Sepal.Length = c(5,6)))
+
+# what do these results mean?
+```
+
+
+:::puzzle
+**You try!**
+
+- Now let's see if Sepal Length is a significant predictor of Sepal Width at different levels of Petal length (specifically when Petal Length is 4 and 6).
+- Please use the `reghelper` package
+- HINT: check slide 53
+
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/30-learnr-app5/",
+                    id = "learnr-30-app5")
+
+```
+
+Example 3:
+
+Just like how there are many ways of exploring simple slopes, there are also many ways of visualizing interactions!
+
+Let's visualize `mod1` using the package `ggeffects`. 
+
+```{r}
+
+predict<- ggpredict(mod1, terms =
+                      c("Sepal.Width","Sepal.Length"))
+
+plot(predict)
+
+```
+
+There's something cool about this function, though. Check out the data that `ggpredict` creates!
+
+```{r}
+predict
+```
+
+What does this output mean?
+
+
+:::puzzle
+
+**Make it pretty!**
+
+- Let's visualize `mod_width` using the same package!
+- This time, set color palette to "eight"
+- Here's a nice website for reference https://strengejacke.github.io/ggeffects/reference/plot.html
+
+:::
+
+```{r, echo=FALSE}
+
+blogdown::shortcode("learnr",
+                    url = "https://shelly-cooper.shinyapps.io/30-learnr-app6/",
+                    id = "learnr-30-app6")
+
+```
+
+
+
+What is this graph telling you?
+
+
