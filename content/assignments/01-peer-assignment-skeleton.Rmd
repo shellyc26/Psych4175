@@ -62,7 +62,8 @@ You need to create a composite variable for each of the 5 factors, *per individu
 
 The only package you need is the `psych` package for accessing the dataset. The goal is to practice for loops. Not other functions. 
 
-```{r}
+```{r, eval=FALSE}
+# First, remove the `, eval=FALSE` from the above chunk parameter, so that it only says "```{r}"
 library(psych)
 
 bfi$Openness <- NA
