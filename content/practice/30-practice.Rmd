@@ -266,3 +266,4 @@ blogdown::shortcode("learnr",
 What is this graph telling you?
 
 
+<small>Massive shout out to the Fall 2022 AI Selin Toprakkiran for creating this excellent Practice Set!</small>
