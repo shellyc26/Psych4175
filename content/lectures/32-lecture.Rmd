@@ -1,0 +1,18 @@
+---
+title: "Debugging & Artificial Intelligence"
+linktitle: "Debug & AI"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 8
+type: docs
+slides: "32-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+
+## Slides

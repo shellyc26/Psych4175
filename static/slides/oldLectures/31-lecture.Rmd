@@ -1,0 +1,30 @@
+---
+title: "Advanced Statistical Methods"
+linktitle: "Advanced Stats"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 8
+type: docs
+slides: "31-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active
+)
+slide_tabs(sections, "/slides/31-slides.html")
+```

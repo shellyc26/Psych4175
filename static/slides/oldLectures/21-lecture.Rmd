@@ -1,0 +1,36 @@
+---
+title: "Normal & Sampling Distributions"
+linktitle: "Normal & Sampling"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 2
+type: docs
+slides: "21-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- [Normal & Sampling Distributions](https://youtu.be/astiJBcsY04)
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Recap", "1", TRUE,
+  "Normal Distribution", "norm", FALSE,
+  "Standard Normal", "stdnorm", FALSE,
+  "Using Z-Scores", "use", FALSE,
+  "Sampling Distribution", "sampling", FALSE
+)
+slide_tabs(sections, "/slides/21-slides.html")
+```

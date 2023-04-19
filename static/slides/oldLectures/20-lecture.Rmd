@@ -1,0 +1,59 @@
+---
+title: "Descriptives - Redux"
+linktitle: "Descriptives"
+menu:
+  lectures:
+    parent: Statistics
+    weight: 1
+type: docs
+slides: "20-slides"
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+## Videos
+
+- [Descriptive Statistics Redux](https://youtu.be/zceFiIEsU8E)
+- In the last 10 minutes, my video froze `r emo::ji("sad")` At that point, I remove the video feed, but the audio still works normally. So you can expect my face to disappear lol! 
+
+## Data
+
+This lecture will use a world happiness dataset. If you want to play along, you can download it here:
+
+- [<i class="fas fa-file-csv"></i> `world_happiness_2015.csv`](/slides/20-slides_files/world_happiness_2015.csv)
+
+
+## Slides
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Next 5 Weeks", "1", TRUE,
+  "Central Tendency", "centTen", FALSE,
+  "Dispersion", "disp", FALSE,
+  "Bias", "bias", FALSE,
+  "Standardization", "zs", FALSE
+)
+slide_tabs(sections, "/slides/20-slides.html")
+```
+
+## Extra Slides for Week 8
+
+`r blogdown::shortcode("slide-buttons")`
+
+```{r show-slide-tabs2, echo=FALSE, results='asis'}
+
+source(here::here("R", "slide_tabs.R"))
+
+sections <- tibble::tribble(
+  ~name, ~slide, ~active,
+  "Validity", "1", TRUE
+)
+slide_tabs(sections, "/slides/ExtraSlides-Week8.html")
+```

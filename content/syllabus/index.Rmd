@@ -15,8 +15,8 @@ output:
 
 ## Who are we?
 
-Instructor: **Shelly Cooper (she/her)**
-You can reach Shelly via the contact form on the homepage of this site, or you can email her at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
+Instructor: **Shelly Cooper, PhD (she/her)**
+You can reach Dr. Cooper via the contact form on the homepage of this site, or you can email her at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
 
 Assistant to the Instructor: **Selin Toprakkiran**
 You can reach Selin via email at [selintoprakkiran@wustl.edu](mailto:selintoprakkiran@wustl.edu).
@@ -108,10 +108,10 @@ There are no exams! Hooray! To get a good grade in this class, you need to do th
 ## What to Expect?
 
 #### You will struggle a lot, and you will learn a lot
-Learning to code is a lot like learning to snowboard or surf. The beginning is hard. You fall down a lot. But once you get the feel of things, it becomes much easier! Most students find that the first 5-6 weeks are the most difficult of the course because they are learning this new thing and "falling down". This is totally normal! We are here to help you. But please make no mistake, the first third of the semester is challenging and requires a lot of work. The course is designed to facilitate your learning, and make sure you don't fall too far behind. **Procrastination is not your friend.** Those who take the perspective of doing a little bit each day will be the most successful. 
+Learning to code is a lot like learning to snowboard or surf. The beginning is hard. You fall down a lot. But once you get the feel of things, it becomes much easier! Most students find that the first 5-6 weeks are the most difficult of the course because they are learning this new thing and "falling down". This is totally normal! We are here to help you. But please make no mistake, the first third of the semester is challenging and requires a lot of work. The course is designed to facilitate your learning, and make sure you don't fall too far behind. **Procrastination is not your friend!** Those who take the perspective of doing a little bit each day will be the most successful. 
 
 #### Late Adds
-Please be aware that if you decide to join this course after Week 2, you will need to make up a lot of work very quickly. In general, I don’t advise students to add the course more than 4 class sessions late. If you are thinking about adding the class late, I encourage you to contact me first. We might decide together that it would be better for you to wait to take this class, in which case the good news is that it will be offered again in Fall 2023!
+Please be aware that if you decide to join this course after Week 2, you will need to make up a lot of work very quickly. In general, I don’t advise students to add the course more than 4 class sessions late. If you are thinking about adding the class late, I encourage you to contact me first. We might decide together that it would be better for you to wait to take this class, in which case the good news is that it will be offered again in Fall 2024!
 
 ## Class Policies
 
@@ -119,8 +119,6 @@ Please be aware that if you decide to join this course after Week 2, you will ne
 Your attendance, whether in person or online, is required for you to do well in the course. You get **2** unexcused absences for the semester. For these, you do not need to tell the instructor anything. Any other absences must be excused by the instructor. Excused absences include illness, quarantine, bereavement etc. The instructor has full authority to decide what is excused and what is unexcused.
 
 Please note that quarantine is an excused absence for in-person components, but is not considered an excused absence for online components.
-
-If you are in quarantine or you are ill, **you must forward the COVID-19 screening form** declaring that you are not allowed on campus. Paper trails help all of us.
 
 Attendance is wrapped up in the participation portion of your grade. All unexcused absences, beyond the 2 that are permitted, will be counted as a 0 for that day's participation grade.
 
@@ -137,15 +135,24 @@ You will be docked points based on how late your work is turned in. This is true
 
 After 5 days, if you still have not completed the assignment, you will receive a 0. 
 
+#### Aritifical Intelligence (Chat-GPT etc.) Policy
+New Artificial Intelligence tools like Chat-GPT are rapidly changing the landscape of how we write code. These tools are truly wonderful for writing code quickly (rather than going down crazy rabbit holes). It is used frequently outside of the classroom for writing code in a variety of languages, including R. It would be CRAZY not to incorporate this tool into your learning.
+
+That said, Chat-GPT very, very often gives you the *wrong* code. My goal is to get you to a place where you can use Chat-GPT and be able to understand if the code it provides will give you the right answer or the wrong one. Here is my policy for this class:
+
+- You are allowed to use Chat-GPT. If you do, in your assignment, please say "I used Chat-GPT and here is the prompt that I used to generate this code: ____" and provide the prompt. This way, I can help make sure you understand why the code works or does not work.
+
+- I very, very strongly encourage you to *NOT* use Chat-GPT until midway through the semester. The first part is hard, but you'll need to know these topics in order to use Chat-GPT as an effective tool. We will devote an entire class to using Chat-GPT. But it is my opinion that you are sort of shooting yourself in the foot if you try to use it without understanding some of the basic principles. 
+
 ## Staying Connected
-The 2020-2021 academic year was lonely and 2021-2022 was just plain weird. Although we're back in person, we still might feel that residual loneliness and weirdness. On top of that, learning to code can be really scary -- impostor syndrome is real! The best thing we can do to combat these feelings is to stay connected to one another. Here's how we'll accomplish this in our class:
+The past few years have been a combination of lonely and weird. Although we're back in person, we still might feel that residual loneliness and weirdness. On top of that, learning to code can be really scary -- impostor syndrome is real! The best thing we can do to combat these feelings is to stay connected to one another. Here's how we'll accomplish this in our class:
 
 -	Your peer review will be with the same person! This way, you will get to know your buddy over the course of the semester. Make a friend! 
 
--	We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. Shelly will respond to your questions on slack (if your peers don't respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you're learning a skill like coding, in which you’ll repeatedly fail. Slack is not required *per se*, but it is **highly encouraged**.
+-	We will have a dedicated class Slack workspace (see homepage of website for link). You can post questions that everyone can see, or make use of direct messaging. The instructors will respond to your questions on Slack (if your peers don't respond first!). This is really great for one-off questions, or need some quick clarification on. We will also have a dedicated channel for silly programming and stats memes, because humor is important when you're learning a skill like coding, in which you’ll repeatedly fail. Slack is not required *per se*, but it is **highly encouraged**.
 
 ## Let's learn from COVID-19
-That year sucked. But instead of burying our heads in the sand and forgetting it existed, let's at least extract some things and incorporate them into our lives. For this class, here's what that means:
+COVID sucked. But instead of burying our heads in the sand and forgetting it existed, let's at least extract some things and incorporate them into our lives. For this class, here's what that means:
 
 - It is OK to not be OK. If you tell me you're having trouble, I'm not going to judge you or think less of you. I hope you will do the same for me. I will work with you to make sure we have a reasonable plan in place should something come up. *However*, this does require you telling me "hey, I'm not OK".
 - You are always welcome to come talk to me about things that you're going through. If I can't help you, I usually know someone who can help -- or I can at least give you some resources and point you in the right direction.
