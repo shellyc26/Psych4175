@@ -21,7 +21,7 @@ Shelly will be your instructor for Quantitative Methods. Tabea and Selin are cur
 
 ## How does this work?
 
-This is a self-paced ordeal. You will watch some lectures, do some practice sets when available, and then complete a short assessment on Canvas. Selin and Violet will grade the assessment and provide feedback. Once you have completed the last assessment, you will be enrolled into Quantitative Methods I!
+This is a self-paced ordeal. You will watch some lectures, do some practice sets when available, and then complete a short assessment on Canvas. Selin and Tabea will grade the assessment and provide feedback. Once you have completed the last assessment, you will be enrolled into Quantitative Methods I!
 
 #### All assignments must be turned in by August 18th or else you will not be enrolled in the class!
 
@@ -44,7 +44,7 @@ Here's your roadmap for utilizing this website!
 :::note
 **tl;dr**: You should follow this general process:
 
-- Watch the Lectures (<i class="fas fa-book-reader"></i>) at home before each Monday's class
+- Watch the Lectures (<i class="fas fa-book-reader"></i>) 
 - Then do the Practice sets (<i class="fas fa-laptop-code"></i>)
 - Repeat until you reach the end of the broader topic
 - Take Canvas Assignment (<i class="fas fa-pencil-ruler"></i>)
