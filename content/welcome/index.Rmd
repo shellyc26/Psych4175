@@ -14,24 +14,28 @@ You can reach Shelly via the contact form on the homepage of this site, or you c
 R Support Person: **Selin Toprakkiran**
 You can reach Selin via email at [selintoprakkiran@wustl.edu](mailto:selintoprakkiran@wustl.edu).
 
-R Support Person: **Violet Brown**
-You can reach Violet via email at [violet.brown@wustl.edu](mailto:violet.brown@wustl.edu).
+R Support Person: **Tabea Springstein**
+You can reach Tabea via email at [tspringstein@wustl.edu ](mailto:tspringstein@wustl.edu).
 
-Shelly will be your instructor for Quantitative Methods. Violet and Selin are current grad students that are R experts! As you are going through this introduction to R, if you get stuck or have questions or don't understand an error message etc., you are to reach out to Violet or Selin. (Please don't reach out to Shelly for this -- she will just point you to Violet or Selin)
+Shelly will be your instructor for Quantitative Methods. Tabea and Selin are current grad students that are R experts! As you are going through this introduction to R, if you get stuck or have questions or don't understand an error message etc., you are to reach out to Tabea or Selin. (Please don't reach out to Shelly for this -- she will just point you to Tabea or Selin)
 
 ## How does this work?
 
 This is a self-paced ordeal. You will watch some lectures, do some practice sets when available, and then complete a short assessment on Canvas. Selin and Violet will grade the assessment and provide feedback. Once you have completed the last assessment, you will be enrolled into Quantitative Methods I!
 
+#### All assignments must be turned in by August 18th or else you will not be enrolled in the class!
+
 Tips:
 
-**If you DON'T know R**: No worries! These lectures are geared towards students that have never ever coded before. We will walk you through everything. Since this is a self-paced course, please give yourself some time to complete everything. And be sure to reach out to the R Support Staff (Violet and Selin) whenever you have questions. They are here to help you!
+**If you DON'T know R**: No worries! These lectures are geared towards students that have never ever coded before. We will walk you through everything. Since this is a self-paced course, please give yourself some time to complete everything. And be sure to reach out to the R Support Staff (Tabea and Selin) whenever you have questions. They are here to help you!
+
+We have also set up a Slack workspace. Over the course of the summer, you can always post questions and Tabea & Selin will be happy to answer your questions. Your peers can help too!
 
 **If you DO know R**: Great! This should go quickly. You are not being forced to watch lectures or do practice sets etc. If you feel very comfortable in R already, feel free to skip straight to the assessments on Canvas. 
 
 Here's your roadmap for utilizing this website!
 
-- [**Lectures**](/lectures/) (<i class="fas fa-book-reader"></i>): This contains the lecture slides and video recordings of these lectures. You should watch the videos and follow along for each topic that is assigned per week.
+- [**Lectures**](/lectures/) (<i class="fas fa-book-reader"></i>): This contains the lecture slides and video recordings of these lectures. You should watch the videos and follow along for each topic that is assigned.
 
 - [**Practice**](/practice/) (<i class="fas fa-laptop-code"></i>): This page contains an interactive lesson that reinforces the principles that were discussed in the corresponding lecture. They also tend to go through more detail. 
 
