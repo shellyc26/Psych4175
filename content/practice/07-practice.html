@@ -16,21 +16,26 @@ editor_options:
 shiny: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
   <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 <div id="TOC">
 <ul>
-<li><a href="#directories">Directories</a>
+<li><a href="#data" id="toc-data">Data</a></li>
+<li><a href="#directories" id="toc-directories">Directories</a>
 <ul>
-<li><a href="#organize-your-filesprojects">Organize your files/projects!</a></li>
+<li><a href="#organize-your-filesprojects" id="toc-organize-your-filesprojects">Organize your files/projects!</a></li>
 </ul></li>
-<li><a href="#rprojects">RProjects</a></li>
-<li><a href="#importing-data">Importing Data</a></li>
+<li><a href="#rprojects" id="toc-rprojects">RProjects</a></li>
+<li><a href="#importing-data" id="toc-importing-data">Importing Data</a></li>
 </ul>
 </div>
 
 <p>This time we’ll talk about several little things, but all relate to importing your own data files. Most of us are not creating data.frames from scratch every time. Instead, our data is collected elsewhere, and stored as a file that a colleague shares with you, you download from the internet, etc.</p>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>You can (and should) practice loading in data that you will feasibly work with. However, if you don’t have that yet, please download the following:</p>
+<p><a href="/practice/07-practice/data/nhanes_small.csv"><i class="fas fa-file-csv"></i> <code>nhanes_small.csv</code></a></p>
+</div>
 <div id="directories" class="section level2">
 <h2>Directories</h2>
 <p>Your computer is just a series of folders. Folders are also known as directories. <code>R</code> will only look and save things to your working directory. To find your current working directory, you can type <code>getwd()</code> in your console. To change your working directory to somewhere else, you can use <code>setwd("/file/path/goes/here")</code>.</p>
@@ -81,9 +86,9 @@ shiny: true
 <div class="puzzle">
 <p><strong>You try!</strong> Follow along with Shelly as we create an RProject for this class. Together, we are going to do the following steps:</p>
 <ul>
-<li>Create a top level directory on Box. Call it <code>Psych4175</code> or something similar.</li>
+<li>Create a top level directory on Box. Call it <code>QuantPrep</code> or something similar.</li>
 <li>Create sub-directories (folders) for assignments, data, notes, and slides</li>
-<li>Download all datasets from Canvas and put it in the <code>data</code> sub-directory</li>
+<li>Download the <code>nhanes_small.csv</code> file put it in the <code>data</code> sub-directory. Alternatively, take a dataset that you are using in your lab, and copy it into the <code>data</code> sub-directory.</li>
 <li>Install the <code>here</code> package (only do once!)</li>
 <li>Follow along as we open our project. See what happens when the whole thing moves to a totally different folder.</li>
 </ul>
@@ -132,7 +137,7 @@ data &lt;- read.csv(here(&quot;data/some_data_file.csv&quot;))</code></pre>
 <li>manuscripts</li>
 </ul></li>
 </ul>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/07-learnr-quiz1/" id="learnr-07-quiz1" %}}</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/07-learnr-quiz1/" id="learnr-07-quiz1" %}}
 <div class="puzzle">
 <p><strong>You try!</strong> (on your own computer; not in this browser)</p>
 <ul>

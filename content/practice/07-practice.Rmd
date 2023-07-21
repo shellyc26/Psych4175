@@ -25,6 +25,12 @@ knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
 
 This time we'll talk about several little things, but all relate to importing your own data files. Most of us are not creating data.frames from scratch every time. Instead, our data is collected elsewhere, and stored as a file that a colleague shares with you, you download from the internet, etc. 
 
+## Data
+
+You can (and should) practice loading in data that you will feasibly work with. However, if you don't have that yet, please download the following:
+
+[<i class="fas fa-file-csv"></i> `nhanes_small.csv`](/practice/07-practice/data/nhanes_small.csv)
+
 ## Directories
 Your computer is just a series of folders. Folders are also known as directories. `R` will only look and save things to your working directory. To find your current working directory, you can type `getwd()` in your console. To change your working directory to somewhere else, you can use `setwd("/file/path/goes/here")`.
 
@@ -68,9 +74,9 @@ RProjects are a specific type of file. It's not one that you edit directly, thou
 
 **You try!** Follow along with Shelly as we create an RProject for this class. Together, we are going to do the following steps:
 
-- Create a top level directory on Box. Call it `Psych4175` or something similar.
+- Create a top level directory on Box. Call it `QuantPrep` or something similar.
 - Create sub-directories (folders) for assignments, data, notes, and slides
-- Download all datasets from Canvas and put it in the `data` sub-directory
+- Download the `nhanes_small.csv` file put it in the `data` sub-directory. Alternatively, take a dataset that you are using in your lab, and copy it into the `data` sub-directory.
 - Install the `here` package (only do once!)
 - Follow along as we open our project. See what happens when the whole thing moves to a totally different folder.
 
