@@ -51,7 +51,7 @@ You'll need 4 things:
 
   1. You need `R` and it's buddy `RStudio`. We will go through this together.
   2. You need this website -- most of the content will take place on this website.
-  3. While not required, I **very strongly** suggest being apart of our Slack workspace. You can quickly and easily ask Shelly questions privately or publicly so your peers can learn too. You can interact with your peers, and enjoy remarkably silly memes. 
+  3. While not required, I **very strongly** suggest being apart of our Slack workspace. You can quickly and easily ask the instructors questions privately or publicly so your peers can learn too. You can interact with your peers, and enjoy remarkably silly memes. 
   4. Our Canvas page will contain your grades, datasets, and will be where you complete your peer code reviews.
   
 ## How do I get a good grade?
@@ -84,17 +84,16 @@ There are no exams! Hooray! To get a good grade in this class, you need to do th
 \begin{equation}
 \begin{split}
 
-& \text{> 100% = A+} \\
-& \text{93% - 99.99% = A} \\
+& \text{> 93% = A} \\
 & \text{90% - 92.99% = A-} \\
 & \text{87% - 89.99% = B+} \\
 & \text{83% - 86.99% = B} \\
 & \text{80% - 82.99% = B-} \\
+& \text{77% - 79.99% = C+} \\
 
 \end{split}
 
 \begin{split}
-& \text{77% - 79.99% = C+} \\
 & \text{73% - 76.99% = C} \\
 & \text{70% - 72.99% = C-} \\
 & \text{67% - 69.99% = D+} \\
@@ -135,12 +134,12 @@ You will be docked points based on how late your work is turned in. This is true
 
 After 5 days, if you still have not completed the assignment, you will receive a 0. 
 
-#### Aritifical Intelligence (Chat-GPT etc.) Policy
+#### Artifical Intelligence (Chat-GPT etc.) Policy
 New Artificial Intelligence tools like Chat-GPT are rapidly changing the landscape of how we write code. These tools are truly wonderful for writing code quickly (rather than going down crazy rabbit holes). It is used frequently outside of the classroom for writing code in a variety of languages, including R. It would be CRAZY not to incorporate this tool into your learning.
 
 That said, Chat-GPT very, very often gives you the *wrong* code. My goal is to get you to a place where you can use Chat-GPT and be able to understand if the code it provides will give you the right answer or the wrong one. Here is my policy for this class:
 
-- You are allowed to use Chat-GPT. If you do, in your assignment, please say "I used Chat-GPT and here is the prompt that I used to generate this code: ____" and provide the prompt. This way, I can help make sure you understand why the code works or does not work.
+- You are allowed to use AI tools, however, this is contingent on you providing the link to the "conversation". This way, I can help make sure you understand why the code works or does not work. If you do not provide this link, and you still use AI tools, it will be considered an academic integrity violation.
 
 - I very, very strongly encourage you to *NOT* use Chat-GPT until midway through the semester. The first part is hard, but you'll need to know these topics in order to use Chat-GPT as an effective tool. We will devote an entire class to using Chat-GPT. But it is my opinion that you are sort of shooting yourself in the foot if you try to use it without understanding some of the basic principles. 
 
@@ -171,6 +170,7 @@ There will be a lot of online communication with the instructor, the AI, and you
 ### Academic Policies & Resources
 - [University Code of Conduct](https://wustl.edu/about/compliance-policies/academic-policies/university-student-judicial-code/)
   - Any student found guilty of academic misconduct, such as cheating, plagiarizing, forgery, or furnishing false information to a University official will be subject to consequences including failing the class, suspension from the University, or expulsion from the University.
+  - As a reminder, AI tools are permitted with proper citation. If you have any questions about what is and what is not authorized usage, please speak with the instructor. 
   
 -	Special accommodations (such as a learning, sensory, or physical disability or any other diagnosis that requires special accommodations and/or assistance with lectures, reading, written assignments, and/or exam taking)
     - Contact [Disability Resources](https://students.wustl.edu/disability-resources/) at [disabilityresources@wustl.edu](mailto:disabilityresources@wustl.edu) or call 314-935-5970
