@@ -11,7 +11,7 @@ output:
 ## What is this class?
 - Applied Statistical Analysis with R (Psych 4175)
 - Monday/Wednesday 1:00pm-2:20pm
-- Somers Family Hall 216B
+- Mallinckrodt 303
 
 ## Who are we?
 

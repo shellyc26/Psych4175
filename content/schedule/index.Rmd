@@ -11,8 +11,9 @@ Here's your roadmap for this course!
 
 **Mondays:**
 
-- We will first complete peer reviews (if there was an assignment for the previous week's material).
 - [**Practice**](/practice/) (<i class="fas fa-laptop-code"></i>): This page contains an interactive lesson that reinforces the principles that were discussed in the corresponding lecture. They also tend to go through more detail. We will go through this as a class, but you are able to practice on your own, too. Note that I will **not** be re-lecturing the material; watching the lectures is your homework. 1 out of 1.5 of your participation points each week will come from here! If I ask you questions when we go through material, and it is clear you have not watched the lectures, you will be docked participation. 
+
+- **Peer Reviews**: You will complete a peer review of your buddy's code. Instructions can be found on Canvas and are the exact same for every peer review assignment. You have 24 hours to complete the peer review from *after* class on Monday. That is, you may complete the peer review between 2:20pm on Monday to 3:30pm on Tuesday. 
 
 **Wednesdays:**
 
