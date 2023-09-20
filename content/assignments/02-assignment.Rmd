@@ -2,7 +2,7 @@
 title: "Assignment 2"
 linktitle: "# 2"
 date: "6/16/2020"
-due_date: "2022-09-26"
+due_date: "2022-09-25"
 due_time: "1:00pm"
 output:
   blogdown::html_page:
@@ -62,11 +62,11 @@ Here's your to-do list:
 
 -   Import your dataset. Make sure all the variables that should be `factors` are treated as such.
 
--   Use the `describe()` function to get summary statistics of your numeric/integer columns *only*. You do not need to include things like participant ID in this -- just the variables you might care about in an actual analysis.
+-   Use the `describe()` function to get summary statistics of your numeric/integer columns *only*. You do not need to include things like participant ID in this -- just the variables you might care about in an actual analysis. For large datasets, you can just choose 3-4 columns. 
 
 -   Modify one of it's arguments so that it also shows the interquartile range. Do NOT calculate the interquartile range by hand.
 
--   Now use `describeBy()` with one of your categorical variables. Write a comment telling me what changes?
+-   Now use `describeBy()` with one of your categorical variables. Write a comment telling me what changes.
 
 -   Finally, use the `summary()` function on the entire data.frame (keep it simple with `summary(data)`). Write a comment telling me if you prefer the `describe`/`describeBy` functions or the `summary` function? There is no right answer here. I just want to know your preference and why.
 :::
