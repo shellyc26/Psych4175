@@ -2,7 +2,7 @@
 title: "Assignment 4"
 linktitle: "# 4"
 date: "6/16/2020"
-due_date: "2022-10-12"
+due_date: "2023-10-11"
 due_time: "1:00pm"
 output:
   blogdown::html_page:
@@ -22,7 +22,7 @@ This assignment is all about making figures. It's going to be a bit free-form be
 
 - You must use the `ggplot2` package and syntax. This should *not* be practice for `base R`.
 - Your choice of variables must make sense for the type of plot you are making. That is, don't give me a histogram for a dichotomous variable (that would just be 2 bars and super weird).
-- All figures must follow the basics of clear axis labels and titles! (*please* don't make me take points off for this...). **I will take points off if these are missing or not clear!**
+- All figures must follow the basics of clear axis labels and titles! (*please* don't make me take points off for this...). **I will take points off if these are missing or not clear!** Do NOT use the defaults. You need to change the labels to make them publication-ready.
 - NO PIE CHARTS!
 
 ## Visualizing data in different ways
