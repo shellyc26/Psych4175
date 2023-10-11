@@ -2,7 +2,7 @@
 title: "Assignment 5"
 linktitle: "# 5"
 date: "6/16/2020"
-due_date: "2022-10-17"
+due_date: "2023-10-16"
 due_time: "1:00pm"
 output:
   blogdown::html_page:
@@ -33,9 +33,9 @@ Here's your to-do list (e.g., your file must include the following):
 
   - 3 large headers (at least) indicating the 3 topics you'll go through
 
-  - There must be at least 2 subheaders. They must be notably smaller than the larger headers, indicating that these are subsections of the topic you're covering.
+  - There must be at least 2 sub-headers. They must be notably smaller than the larger headers, indicating that these are sub-sections of the topic you're covering.
   
-  - You must have some normal text with at least a sentence or two that describes the topic and/or gives notes to yourself. Within the normal text, there should be both **bolded** text and *italicized* text. You must also include at least 1 list somewhere in the document (this could be ordered with numbers/letters or unordered with bullet points)
+  - You must have some normal text with at least a sentence or two that describes the topic and/or gives notes to yourself. Within the normal text, there should be both **bolded** text and *italicized* text. You must also include at least 1 list somewhere in the document (this could be ordered with numbers/letters or un-ordered with bullet points)
   
   - There must be *at least* one code chunk **per section** that shows examples of the topic with code (see the above picture). You must show the results of your code as well. For example, if the topic is indexing, and in your code chunk you use indexing to get a subset, you need to print out that object so that I can see the output of your code (remember, the goal is to show yourself different ideas so that when you forget how to do something, you can look at this document!). 
   
