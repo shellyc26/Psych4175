@@ -161,6 +161,7 @@ lectures:
   - title: 'Correlation'
     session: 24
     lectures: "24-lecture"
+    practice: "24-practice"
     assignments: "08-assignment"
     
   - title: 'Regression'
