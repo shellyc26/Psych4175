@@ -2,7 +2,7 @@
 title: "Assignment 6"
 linktitle: "# 6"
 date: "6/16/2020"
-due_date: "2022-10-24"
+due_date: "2023-10-23"
 due_time: "1:00pm"
 output:
   blogdown::html_page:
@@ -40,7 +40,7 @@ Revisit Assignment 1, especially the `Results: Summary Statistics - Part 2` sect
 :::list
 Here's your to-do list:
 
-- Get the mean, median, variance, and standard deviation of 3 numeric variables in your dataset, but get these for each level of the categorical variable you chose in Assignment 1. That is, if your categorical variable was "treatment group", you need the mean, median, variance, and standard deviation for those that were in the "control" group and those that were in the "treatment" group. Now that you know more about using R, complete this task in any way except the way you did in Assignment 1. That is, do NOT use indexing and logical vectors.
+- Get the mean, median, variance, and standard deviation of 3 numeric variables in your dataset, but get these for each level of the categorical variable you chose in Assignment 1. That is, if your categorical variable was "treatment group", you need the mean, median, variance, and standard deviation for those that were in the "control" group and those that were in the "treatment" group. Now that you know more about using R, complete this task in any way *except* the way you did in Assignment 1. That is, do NOT use indexing and logical vectors.
 - Take those same 3 numeric variables and z-score them. Then make a density plot that has the distribution for all 3 variables overlaid and a figure legend telling you which variable each color represents. It should look similar to the plot on slide 25 of the `Descirptives` lecture. Add in a vertical line representing the mean of each of the 3 distributions, and make sure it's labeled (see `Descriptives` slides for inspiration). You do *not* need to plot each distribution per level of your categorical variable. 
 - Write a few sentences describing the variables analyzed here in this section (your 3 numeric and 1 categorical variable) based on your analyses in the first two bullet points. Additionally, describe why you z-scored the 3 variables before plotting. 
 :::

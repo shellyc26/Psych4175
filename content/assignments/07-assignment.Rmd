@@ -1,8 +1,8 @@
 ---
-title: "Assignment 7"
-linktitle: "# 7"
+title: "Assignment 6"
+linktitle: "# 6"
 date: "6/16/2020"
-due_date: "2022-10-31"
+due_date: "2023-10-23"
 due_time: "1:00pm"
 output:
   blogdown::html_page:
@@ -10,9 +10,9 @@ output:
 menu:
   assignment:
     parent: Assignments
-    weight: 7
+    weight: 6
 type: docs
-weight: 7
+weight: 6
 editor_options: 
   chunk_output_type: console
 ---
@@ -52,7 +52,7 @@ Here's your to-do list:
 
 - Write a few sentences about publication bias as discussed in the lecture. In it, describe what the "file drawer problem" is and how statistical power plays a role in publication bias. 
 - Given what was presented in the `Power+` lecture, what do you think about the state of Psychology and Neuroscience research? Do you feel optimistic, hopeless, energized, etc.? Explain why. There is no right answer, I just want to hear your thoughts. 
-- If you currently work in a lab (or have previously worked in a lab), describe 2 things that your lab could improve upon to better support rigorous Psych/Neuro research. If you do not work in a lab (and you have not previously worked in one), describe 2 things that you could do better with your assignments in this class that would better adhere to Open Science standards. 
+- If you currently work in a lab (or have previously worked in a lab), describe 2 things that your lab could improve upon to better support rigorous research. If you do not work in a lab (and you have not previously worked in one), describe 2 things that you could do better with your assignments in this class that would better adhere to Open Science standards. 
 :::
 
 Side note: Lots of focus has been given to Psychology research, but all of these same problems are present in Neuroscience research, too. If you would like papers supporting this, feel free to reach out -- I'm happy to send some over. Anyone studying behavior will run into these types of issues because humans are not rational beings (unlike what your economist friends might say...). I also just really love these topics, so feel free to reach out at any point if you want to know more or want to pursue these topics. 
