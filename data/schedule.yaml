@@ -154,35 +154,38 @@ lectures:
     session: 23
     assignments: "07-assignment"
   
-  - title: '**Relationships Part 1**'
+  - title: '**Class Canceled**'
     date: "Week 9: 10/23 - 10/25"
     header: True
     
-  - title: 'Correlation'
+  - title: 'Prof Coops Sick'
     session: 24
-    lectures: "24-lecture"
-    practice: "24-practice"
-    assignments: "08-assignment"
     
-  - title: 'Regression'
-    session: 25
-    lectures: "25-lecture"
-    assignments: "08-assignment"
-    
-  - title: '**Relationships Part 2**'
+  - title: '**Relationships Part 1**'
     date: "Week 10: 10/30 - 11/1"
     header: True
     
-  - title: 'Multiple Regression & Interactions'
-    session: 26
-    lectures: "30-lecture"   
+  - title: 'Correlation'
+    session: 25
+    lectures: "24-lecture"
+    practice: "24-practice"
+    assignments: "08-assignment"   
     
-  - title: '**Debugging & AI**'
+  - title: 'Regression'
+    session: 26
+    lectures: "25-lecture"
+    practice: "25-practice"
+    assignments: "08-assignment"
+    
+  - title: '**Relationships Part 2**'
     date: "Week 11: 11/6 - 11/8"
     header: True
   
-  - title: 'ChatGPT & Debugging Code'
+  - title: 'Multiple Regression & Interactions'
     session: 27
+    lectures: "30-lecture"
+    practice: "30-practice"
+    assignments: "09-assignment"
   
   - title: '<span class="fake-header-table">Unit 3: Advanced Topics</span>'
     header: True
