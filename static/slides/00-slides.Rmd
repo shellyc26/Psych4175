@@ -66,7 +66,7 @@ Before anything, make sure your operating system is up to date!
 <img src="00-slides_files/figure-html/downloadR1.png", width = "100%">
 
 **If you use Mac:**
-  - Scroll down to the first `.pkg` file. As of 1/21/2021, it is `R-4.0.3.pkg`.
+  - Scroll down to the first `.pkg` file. As of 6/18/2024, it is `R-4.4.1.pkg`.
 
 <center>
 <img src="00-slides_files/figure-html/downloadR2.png", width = "100%">
@@ -98,7 +98,7 @@ Once we have **RStudio** installed, you will almost never open **R**. You will j
 
 ---
 
-# Installing RStudio
+### Installing RStudio
 
 #### Go to the [.url[RStudio site]](https://rstudio.com/products/rstudio/download/#download)
 
@@ -110,14 +110,6 @@ It should automatically detect what operating system you're using, and something
 
 If the operating system presented matches your actual operating system, go ahead and click Download. Follow all the prompts as you normally would. 
 
----
-# Installing RStudio
-
-#### Go to the [.url[RStudio site]](https://rstudio.com/products/rstudio/download/#download)
-
-If the operating system presented does **not** match your actual operating system, scroll down on the page until you find the one that does. 
-
-Click Download for the appropriate version (make sure to check your Downloads file!), and follow all prompts as you normally would. 
 ---
 
 # Note for WINDOWS users!
