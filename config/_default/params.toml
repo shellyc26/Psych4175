@@ -105,8 +105,8 @@ appointment_url = "https://calendly.com/shelly-cooper/30min"
 # Contact links
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.
 contact_links = [
-{icon = "slack-hash", icon_pack = "fab", name = "Slack Channel", link = "https://app.slack.com/client/T05Q08ALJ7K/C05PMK4HP42"},
-{icon = "chalkboard-teacher", icon_pack = "fas", name = "Canvas", link = "https://wustl.instructure.com/courses/116282"}
+{icon = "slack-hash", icon_pack = "fab", name = "Slack Channel", link = "https://applied-stats-with-r.slack.com"},
+{icon = "chalkboard-teacher", icon_pack = "fas", name = "Canvas", link = "https://wustl.instructure.com/courses/136971"}
  # {icon = "twitter", icon_pack = "fab", name = "DM Me", link = "https://twitter.com/Twitter"},
  # {icon = "skype", icon_pack = "fab", name = "Skype Me", link = "skype:echo123?call"},
  # {icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/"},

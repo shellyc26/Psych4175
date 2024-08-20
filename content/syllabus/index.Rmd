@@ -9,17 +9,17 @@ output:
 ---
 
 ## What is this class?
-- Applied Statistical Analysis with R (Psych 4175)
-- Monday/Wednesday 1:00pm-2:20pm
-- Mallinckrodt 303
+- Applied Statistical Analysis with R (Psych 3175)
+- Monday/Wednesday 11:30am-12:50pm
+- Somers Family Hall 216
 
 ## Who are we?
 
 Instructor: **Shelly Cooper, PhD (she/her)**
 You can reach Dr. Cooper via the contact form on the homepage of this site, or you can email her at [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
 
-Assistant to the Instructor: **Selin Toprakkiran**
-You can reach Selin via email at [selintoprakkiran@wustl.edu](mailto:selintoprakkiran@wustl.edu).
+Assistant to the Instructor: **Margaret Redic (she/her)**
+You can reach Margaret via email at [m.m.redic@wustl.edu](mailto:m.m.redic@wustl.edu).
 
 ## What's the course philosophy?
 Programming & statistics are in demand skills across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to feel comfortable with the programmatic skills needed to take a data analysis project from start to finish including data wrangling, executing appropriate statistical tests, interpreting the results, and communicating your findings. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.).
@@ -59,7 +59,7 @@ There are no exams! Hooray! To get a good grade in this class, you need to do th
 
   - **Assignments** will be posted on the course website. These are mostly weekly assignments, and they are there to make sure you get lots of practice.
       - The first 8 assignments will be completed on your own
-      - The remaining 3 assignments will be completed with your peer buddy
+      - The remaining 3 assignments will be completed with peers
   - **Peer Reviews** will give you practice looking at other peoples' code and will give you consistent feedback from someone other than the instructor/AI. You will be randomly assigned to a peer in your class and you will answer very specific questions about the assignment.
   - **Final Project** You will complete a final take-home project due during finals week (if you want to turn it in before then, that’s OK!). This project will be completely `R`-based, and will incorporate skills learned over the semester with extra emphasis on those learned in Unit 3. This will be completed on your own. 
   - **Participation** refers to answering questions in class. This is to keep you honest about watching lectures at home (see [Schedule](https://psych4175.profcoops.com/schedule/) page for more details). 
@@ -107,7 +107,7 @@ There are no exams! Hooray! To get a good grade in this class, you need to do th
 ## What to Expect?
 
 #### You will struggle a lot, and you will learn a lot
-Learning to code is a lot like learning to snowboard or surf. The beginning is hard. You fall down a lot. But once you get the feel of things, it becomes much easier! Most students find that the first 5-6 weeks are the most difficult of the course because they are learning this new thing and "falling down". This is totally normal! We are here to help you. But please make no mistake, the first third of the semester is challenging and requires a lot of work. The course is designed to facilitate your learning, and make sure you don't fall too far behind. **Procrastination is not your friend!** Those who take the perspective of doing a little bit each day will be the most successful. 
+Learning to code is a lot like learning to snowboard or surf. The beginning is hard. You fall down a lot. But once you get the feel of things, it becomes much easier! Most students find that the first 7 weeks are the most difficult of the course because they are learning this new thing and "falling down". This is totally normal! We are here to help you. But please make no mistake, the half of the semester is challenging and requires a lot of work. The course is designed to facilitate your learning, and make sure you don't fall too far behind. **Procrastination is not your friend!** Those who take the perspective of doing a little bit each day will be the most successful. 
 
 #### Late Adds
 Please be aware that if you decide to join this course after Week 2, you will need to make up a lot of work very quickly. In general, I don’t advise students to add the course more than 4 class sessions late. If you are thinking about adding the class late, I encourage you to contact me first. We might decide together that it would be better for you to wait to take this class, in which case the good news is that it will be offered again in Fall 2024!
@@ -115,7 +115,7 @@ Please be aware that if you decide to join this course after Week 2, you will ne
 ## Class Policies
 
 #### Attendance
-Your attendance, whether in person or online, is required for you to do well in the course. You get **2** unexcused absences for the semester. For these, you do not need to tell the instructor anything. Any other absences must be excused by the instructor. Excused absences include illness, quarantine, bereavement etc. The instructor has full authority to decide what is excused and what is unexcused.
+Your attendance, whether in person or online, is required for you to do well in the course. You get **2** unexcused absences for the semester. For these, you do not need to tell the instructor anything. Any other absences must be excused by the instructor. Excused absences include illness, bereavement etc. The instructor has full authority to decide what is excused and what is unexcused.
 
 Please note that quarantine is an excused absence for in-person components, but is not considered an excused absence for online components.
 
@@ -135,11 +135,11 @@ You will be docked points based on how late your work is turned in. This is true
 After 5 days, if you still have not completed the assignment, you will receive a 0. 
 
 #### Artifical Intelligence (Chat-GPT etc.) Policy
-New Artificial Intelligence tools like Chat-GPT are rapidly changing the landscape of how we write code. These tools are truly wonderful for writing code quickly (rather than going down crazy rabbit holes). It is used frequently outside of the classroom for writing code in a variety of languages, including R. It would be CRAZY not to incorporate this tool into your learning.
+New Artificial Intelligence tools like Chat-GPT are rapidly changing the landscape of how we write code. These tools are truly wonderful for writing code quickly. It is used frequently outside of the classroom for writing code in a variety of languages, including R. It would be CRAZY not to incorporate this tool into your learning.
 
-That said, Chat-GPT very, very often gives you the *wrong* code. My goal is to get you to a place where you can use Chat-GPT and be able to understand if the code it provides will give you the right answer or the wrong one. Here is my policy for this class:
+That said, Chat-GPT very, very often gives you the *WRONG* code. My goal is to get you to a place where you can use Chat-GPT and be able to understand if the code it provides will give you the right answer or the wrong one. Here is my policy for this class:
 
-- You are allowed to use AI tools, however, this is contingent on you providing the link to the "conversation". This way, I can help make sure you understand why the code works or does not work. If you do not provide this link, and you still use AI tools, it will be considered an academic integrity violation.
+- You are allowed to use AI tools, however, this is contingent on you providing the link to the "conversation". This way, I can help make sure you understand why the code works or does not work. **If you do not provide this link, and you still use AI tools, it will be considered an academic integrity violation.**
 
 - I very, very strongly encourage you to *NOT* use Chat-GPT until midway through the semester. The first part is hard, but you'll need to know these topics in order to use Chat-GPT as an effective tool. We will devote an entire class to using Chat-GPT. But it is my opinion that you are sort of shooting yourself in the foot if you try to use it without understanding some of the basic principles. 
 
