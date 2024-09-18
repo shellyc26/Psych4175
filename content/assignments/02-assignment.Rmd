@@ -2,8 +2,8 @@
 title: "Assignment 2"
 linktitle: "# 2"
 date: "6/16/2020"
-due_date: "2022-09-25"
-due_time: "1:00pm"
+due_date: "2024-09-23"
+due_time: "11:30am"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
