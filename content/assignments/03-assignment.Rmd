@@ -2,8 +2,8 @@
 title: "Assignment 3"
 linktitle: "# 3"
 date: "6/16/2020"
-due_date: "2023-10-02"
-due_time: "1:00pm"
+due_date: "2024-09-30"
+due_time: "11:30am"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
@@ -27,7 +27,7 @@ The following section requires the internet. Please make sure you have a stable 
 **PLEASE READ ALL OF THE STEPS BELOW _BEFORE_ ACTUALLY TRYING IT**. Follow these steps:
 
 ### Step 1
-**In your console** set your working directory somewhere. It doesn't really matter where, as long as you can easily find it.
+**In your console** set your working directory somewhere. It doesn't really matter where, as long as you can easily find it. If you are using an RProject, you can skip this step.
 
 ### Step 2
 Next, open a new R Notebook. You can do this via `File > New File > R Notebook` or by clicking the white paper with <font color='green'>green plus sign</font> from the top left corner (this is the same as opening a new R script) and choosing R Notebook. It should look something like this:
