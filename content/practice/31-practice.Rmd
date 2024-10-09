@@ -1,0 +1,520 @@
+---
+title: "Practice Set: Comparing Means & Power"
+linktitle: "Means & Power"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Statistics
+    weight: 3
+type: docs
+weight: 3
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+# **Comparing Means Lecture**
+
+```{r, load packages, echo=FALSE, message=FALSE, warning=FALSE}
+library(shiny)
+library(learnr)
+library(knitr)
+library(broom)
+library(dplyr)
+```
+
+### **Comparing Means Lecture Review Quiz**
+
+```{r, quiz_p_2, echo=FALSE}
+#quiz(
+  #question("What do we do in the SEM formula when we are using estimates of the population (rather than having the whole population data)?",
+    #answer("use N-1", correct = TRUE, 
+          # message = "Correct! We use N-1 as the adjustment when estimating the population"),
+    #answer("use N", correct = FALSE, 
+           #message = "Not quite. N is used when we have the entire population"),
+    #answer("use N - # of variables", correct = FALSE, 
+           #message = "Incorrect. N - # of variables is not the correct adjustment"),
+   # allow_retry = TRUE
+ # ),
+  #question("Why do we have to use N-1 when _estimating_ the population parameters?",
+   # answer("Because our sample is 1 smaller than the population", correct = FALSE, 
+           #message = "Incorrect. This doesn't fully explain why we adjust with N-1."),
+   # answer("To account for the uncertainty in our estimates", correct = TRUE, 
+           #message = "Correct! Using N-1 compensates for the additional uncertainty in our estimates."),
+   # allow_retry = TRUE
+  #),
+  #question("What is comparing one mean to a sampling distribution of means?",
+   # answer("t statistic", correct = FALSE, 
+          # message = "Not quite. The t statistic is used when comparing means with small samples or unknown population standard deviations."),
+    #answer("z statistic", correct = TRUE, 
+           #message = "Correct! The z statistic compares a sample mean to a known population mean with a known population standard deviation."),
+    #allow_retry = TRUE
+ # ),
+  #question("What does a z test tell you?",
+   # answer("if our sample mean is larger than the population mean", correct = FALSE, 
+          # message = "Not exactly. The z-test is about checking if the means are different, not just larger."),
+    #answer("if our sample mean is different than the population mean", correct = TRUE, 
+         #  message = "Correct!"),
+    #allow_retry = TRUE
+ # )
+#)
+
+```
+ 
+## **Let's Practice!**
+The average student consumes 2 cups of coffee per day during the semester, but you believe that this number spikes during midterms. You survey 50 students and find the average is 2.5 cups, with a population standard deviation of 1 cup.
+
+```{r, quiz_p_3, echo=FALSE}
+#quiz(
+  #question("What would your null hypothesis be for this test?",
+    #answer("students consume the same amount of coffee during midterms and during the regular semester", correct = TRUE, 
+          # message = "Correct! The null hypothesis states that there is no significant difference in coffee consumption."),
+    #answer("students consume significantly more coffee during midterms than during the regular semester", correct = FALSE, 
+          # message = "Incorrect. This statement reflects an alternative hypothesis, not the null."),
+   # allow_retry = TRUE
+ # )
+#)
+
+```
+
+## You calculate the z-statistic and it is *-3.54*.  
+### Calculate the probability of getting this # of cups, or more extreme, given the null is true.
+```{r, coding block 1}
+# { have them tell me what to code }
+
+# correct code:
+pnorm(-3.54)*2
+
+```
+
+```{r, quiz_p_4, echo=FALSE}
+#quiz(
+  #question("Based on this, what would you conclude about our test under NHST?",
+    #answer("reject the null", correct = TRUE, 
+           #message = "Correct!"),
+    #answer("fail to reject the null", correct = FALSE, 
+           #message = "Incorrect. The p-value is considered significant."),
+    #allow_retry = TRUE
+  #)
+#)
+```
+
+![Which distribution is the t distribution?](/Users/margaretredic/Desktop/dist.png)
+```{r, quiz_p_5, echo=FALSE}
+#quiz(
+  #question("Which distribution is the t distribution?",
+   # answer("the blue", correct = FALSE, 
+        #   message = "Incorrect. That is the normal distribution."),
+    #answer("the green", correct = TRUE, 
+          # message = "Correct!"),
+    #allow_retry = TRUE
+  #)
+#)
+```
+
+### The t distribution has fatter tails because it has to pay a price for not knowing population.
+
+### We recently measured the average rainfall in 70 U.S. cities ("precip"). The average rainfall in the U.S. is 30 inches. We want to determine if our 70 cities are representative of the entire population. 
+
+```{r, quiz_p_6, echo=FALSE}
+#quiz(
+  #question("What test should we run?",
+    #answer("one sample t test", correct = TRUE, 
+          # message = "Correct! A one sample t test is appropriate for comparing the sample mean to a known population mean."),
+  #  answer("ANOVA (comparing different cities)", correct = FALSE, 
+           # message = "Incorrect. ANOVA is used for comparing means across multiple groups, not for a single sample."),
+   # allow_retry = TRUE
+  #)
+#)
+```
+
+
+# Let's run a test!
+### The name of the data and variable is "precip" and the mean of entire population is 30.
+```{r, coding block 2, echo=TRUE}
+data(InsectSprays)
+# correct code:
+oneSample <- t.test(precip, mu = 30, data = precip)
+# or
+oneSample <- t.test(precip, mu = 30)
+oneSample
+
+```
+
+### Is the sample mean significantly different than the population mean? What is the p-value?
+```{r, coding block 3}
+
+# correct code:
+library(broom)
+library(knitr)
+tidyOneSample <- tidy(oneSample)
+kable(tidyOneSample)
+
+# could use:
+oneSample[[3]]
+# but this just gives you the value (not ideal, so use broom package)
+
+```
+
+```{r, quiz_p_7, echo=FALSE}
+#quiz(
+  #question("What would you conclude?",
+   # answer("reject null, the sample mean is significantly different from the population mean", correct = TRUE, 
+          # message = "Correct! Rejecting the null indicates that there is significant evidence that the sample mean differs from the population mean."),
+   # answer("fail to reject null, the sample mean is not significantly different from the population mean", correct = FALSE, 
+        #   message = "Incorrect. The p-value is significant."),
+    #allow_retry = TRUE
+ # )
+#)
+
+```
+
+### We want to look at the effects of Vitamin C on tooth growth in guinea pigs. The data ("ToothGrowth") compares orange juice vs. vitamin C supplements ("supp"). Tooth growth is measured by length ("len").
+
+```{r, quiz_p_75, echo=FALSE}
+
+#quiz(
+  #question("What test should you use?",
+    #answer("one sample t test looking at one treatment condition at a time", correct = FALSE, 
+          # message = "Incorrect. A one sample t test is used for comparing the sample mean to a known population mean, not for comparing two independent groups."),
+   # answer("independent samples t test", correct = TRUE, 
+          # message = "Correct! An independent samples t test is used for comparing means between two independent groups."),
+   # allow_retry = TRUE
+ # )
+# )
+
+```
+
+
+## Let's see what we find!
+```{r, coding block 4}
+
+# correct code:
+data(ToothGrowth)
+tidy(t.test(len ~ supp, data = ToothGrowth))
+
+```
+
+```{r, quiz_p_8, echo=FALSE}
+#quiz(
+  #question("What would you conclude?",
+  #  answer("reject the null, the mean tooth length is significantly different between OJ and VC groups.", correct = FALSE, 
+         #  message = "Incorrect. Rejecting the null would imply that there is significant evidence of a difference, which is not the case here."),
+  #  answer("fail to reject the null, the mean tooth length is not significantly different between OJ and VC groups.", correct = TRUE, 
+         #  message = "Correct! Failing to reject the null indicates that there is not enough evidence to suggest a significant difference between the groups."),
+    #allow_retry = TRUE
+#  )
+#)
+
+```
+
+### What is another way you could guess that the p-value might be non-significant based on the tidy output?
+<!-- the confidence interval includes 0 -->
+
+
+
+## A new sleep treatment was tested in rats. They were split up into control and treatment groups ("group") and their sleep ("extra") was measured before treatment and after treatment. Each rat was assigned an ID number ("ID"). 
+
+```{r, quiz_p_9, echo=FALSE}
+#quiz(
+  #question("What test should you use to see if there were significant treatment differences?",
+   # answer("independent samples t test", correct = FALSE, 
+         #  message = "Incorrect. An independent samples t test is used for comparing means between two independent groups."),
+   # answer("paired samples t test", correct = TRUE, 
+          # message = "Correct! A paired samples t test is used when comparing two related groups, such as measurements taken on the same subjects."),
+   # allow_retry = TRUE
+ # )
+#)
+
+```
+<!-- data are not independent (looking at differences within each rat) -->
+
+
+## Let's see what we find:
+```{r, coding block 5}
+data(sleep)
+# correct code:
+tidy(t.test(extra ~ group, data = sleep, paired = T))
+# or
+tidy(t.test(extra ~ group, data = sleep, paired = TRUE))
+
+```
+
+```{r, quiz_p_10, echo=FALSE}
+#quiz(
+ # question("What would you conclude?",
+   # answer("there are not significant treatment differences", correct = FALSE, 
+         #  message = "Incorrect. This conclusion suggests no evidence of a difference, which is not supported by the test results."),
+   # answer("there are significant treatment differences", correct = TRUE, 
+         #  message = "Correct! This conclusion indicates that the statistical analysis has provided evidence of significant differences between the treatment groups."),
+  #  allow_retry = TRUE
+ # ),
+ # question("Going back to the guinea pig teeth example... what if experimenters want to test a third treatment group using sun exposure? What if we want to compare more than 2 groups?",
+   # answer("run a couple of pairwise t-tests", correct = FALSE, 
+         #  message = "Incorrect. Running multiple t-tests increases the risk of Type I error. It's better to use a method that considers all groups together."),
+    #answer("use ANOVA", correct = TRUE, 
+          # message = "Correct! ANOVA is designed to compare means across multiple groups simultaneously."),
+   # answer("close your computer, you can't :(", correct = FALSE, 
+          # message = "Incorrect. You can definitely perform the analysis using ANOVA!"),
+   # allow_retry = TRUE
+ # ),
+  #question("What is the null hypothesis for one-way ANOVA?",
+    #answer("depends on the data", correct = FALSE, 
+          # message = "Incorrect. The null hypothesis is consistent regardless of the specific data."),
+   # answer("the group means average to 0", correct = FALSE, 
+          # message = "Incorrect. This statement is not correct for ANOVA."),
+    #answer("all means for the groups are equal", correct = TRUE, 
+         #  message = "Correct! The null hypothesis states that all group means are equal."),
+    #allow_retry = TRUE
+#  ),
+  
+ # question("What about the alternative hypothesis?",
+   # answer("at least one of the means is different from the others", correct = TRUE, 
+          # message = "Correct! The alternative hypothesis states that at least one group mean differs from the others."),
+  #  answer("all of the means are significantly different", correct = FALSE, 
+         #  message = "Incorrect. The alternative hypothesis does not claim that all means are different, just that at least one is."),
+   # answer("all of the means are equal", correct = FALSE, 
+          # message = "Incorrect. This statement is not correct for the alternative hypothesis."),
+   # allow_retry = TRUE
+ # )
+#)
+
+```
+
+
+![What distribution is this?](/Users/margaretredic/Desktop/f.jpg)
+```{r, quiz_p_11, echo=FALSE}
+#quiz(
+  #question("What distribution is this?",
+   # answer("t distribution", correct = FALSE, 
+         #  message = "Incorrect. Try again."),
+    #answer("chi squared distribution", correct = FALSE, 
+           #message = "Incorrect. Try again."),
+    #answer("f distribution", correct = TRUE, 
+           #message = "Correct!"),
+    #allow_retry = TRUE
+ # )
+#)
+
+```
+
+## How could you tell?
+<!-- starts at 0 on x-axis (can't be negative) -->
+
+```{r, quiz_p_12, echo=FALSE}
+#quiz(
+ # question("What does the F distribution measure?",
+   # answer("variance between groups", correct = TRUE, 
+          # message = "Correct!"),
+    #answer("group means", correct = FALSE, 
+         #  message = "Incorrect. While the F distribution is used in ANOVA to compare group means, it specifically measures the variance between groups."),
+   # allow_retry = TRUE
+  #)
+#)
+
+```
+
+
+## Let's run one together!
+### Researchers are interested in learning ways to help plants grow larger. They are trying out two different fertilizers and are including a control group. We want to see if the weights of the plants differ in the 3 groups.
+
+data frame name: PlantGrowth
+group name: group
+weight variable: weight
+
+```{r, coding block 6}
+
+data(PlantGrowth)
+# correct code:
+onewayANOVA <- tidy(aov(weight ~ group, data = PlantGrowth))
+onewayANOVA
+#or
+print(onewayANOVA)
+
+```
+
+### Looking at the F statistic alone, what would you guess about the conclusion?
+<!-- F > 1 so would think there is a significant difference between at least one group -->
+
+### How confident can you be in this conclusion?
+<!-- The larger the F stat, the more difference, we can be relatively confident here -->
+
+## Changing gears to power...
+### Let's review:
+```{r, quiz_p_13, echo=FALSE}
+#quiz(
+  #question("Which of the following confidence intervals has the most precision?",
+   # answer("[-13.58, -4.77]", correct = FALSE, 
+           #message = "Incorrect. This interval is wide, indicating less precision."),
+    #answer("[-1.30, 2.65]", correct = TRUE, 
+           #message = "Correct! This interval is the narrowest, indicating the most precision."),
+   # answer("[7.89, 14.51]", correct = FALSE, 
+          # message = "Incorrect."),
+   # allow_retry = TRUE
+  #),
+  #question("What might you conclude if you got this confidence interval: [-1.30, 2.65]?",
+   # answer("significant", correct = FALSE, 
+         #  message = "Incorrect. Try again!"),
+  #  answer("not significant", correct = TRUE, 
+          # message = "Correct! This interval includes 0, indicating not significant."),
+    #answer("can't say, only tells precision", correct = FALSE, 
+         #  message = "Incorrect. While it tells about precision, it also indicates significance."),
+    #allow_retry = TRUE
+ # ),
+  #question("What about this one: [-13.58, -4.77]?",
+   # answer("significant", correct = FALSE, 
+          # message = "Incorrect. This interval does not include 0, but the confidence interval must be interpreted carefully."),
+   # answer("not significant", correct = FALSE, 
+          # message = "Incorrect. This interval does not include 0, indicating potential significance."),
+    #answer("can't say, only tells precision", correct = TRUE, 
+           #message = "Correct! While it suggests potential significance, we can't conclude definitively without more context."),
+    #allow_retry = TRUE
+ # ),
+  #question("How can you tell which confidence interval is from t vs. normal distribution?",
+    #answer("normal has wider interval and fatter tails", correct = FALSE, 
+          # message = "Incorrect. The normal distribution has narrower intervals and thinner tails compared to t."),
+    #answer("t has wider interval and fatter tails", correct = TRUE, 
+         #  message = "Correct! The t distribution has wider intervals and fatter tails compared to the normal distribution."),
+   # allow_retry = TRUE
+ # )
+#)
+
+```
+
+
+## Now back to coding!
+### Ignoring the values, what is wrong with the following code in calculating SEM for confidence intervals?
+```{r, coding block 7}
+mean <- 17.2
+sd <- 3.4
+n <- 100
+
+sem <- (sd/mean)
+sem
+
+# correct change:
+sem <- (sd/sqrt(mean))
+```
+
+### We want a confidence interval of 95% (for alpha = .05). Is the following code correct?
+
+```{r, coding block 8}
+
+ci_lb_z = mean - sem + qnorm(p = .95)
+ci_ub_z = mean + sem + qnorm(p = .95)
+print(c(ci_lb_z, ci_ub_z))
+
+# correct code: should be:
+ci_lb_z = mean - sem + qt(p = .975, df = n-1)
+ci_ub_z = mean + sem + qt(p = .975, df = n-1)
+print(c(ci_lb_z, ci_ub_z))
+
+```
+
+
+```{r, quiz_p_14, echo=FALSE}
+#quiz(
+ # question("You got a p-value of 0.03. Using the definition of a p-value what would you conclude?",
+    #answer("The probability of getting the test statistic is 3% given that the null hypothesis is true.", 
+          # correct = FALSE, 
+          # message = "Incorrect. Remember the 'or more extreme'!"),
+   # answer("The probability of getting the test statistic, or more extreme, is 3% given that the null hypothesis is true.", 
+          # correct = TRUE, 
+          # message = "Correct! The p-value reflects the probability of obtaining the test statistic or more extreme, given the null hypothesis is true."),
+    #allow_retry = TRUE
+ # ),
+  
+  #question("The p-value can prove that the alternative hypothesis is true",
+    #answer("T", 
+          # correct = FALSE, 
+          # message = "Incorrect. A p-value cannot prove the alternative hypothesis; it only tells you how likely the data is under the null hypothesis."),
+   # answer("F", 
+          # correct = TRUE, 
+           #message = "Correct! The p-value does not prove the alternative hypothesis."),
+   # allow_retry = TRUE
+ # ),
+  
+  #question("The p-value tells you about the size/magnitude of your effect",
+   # answer("T", 
+          # correct = FALSE, 
+           #message = "Incorrect. The p-value does not provide information about the magnitude of the effect, only the probability related to the null hypothesis."),
+    #answer("F", 
+          # correct = TRUE, 
+         #  message = "Correct! The p-value does not tell you the size of the effect."),
+    #allow_retry = TRUE
+ # ),
+  
+  #question("A common p-value cut-off is 0.05 for significance",
+    #answer("T", 
+          # correct = TRUE, 
+          # message = "Correct! The 0.05 threshold is commonly used to determine statistical significance."),
+   # answer("F", 
+    #       correct = FALSE, 
+          # message = "Incorrect. 0.05 is a common threshold for significance."),
+    #allow_retry = TRUE
+ # ),
+  
+ # question("Setting the alpha for p-value is the tolerance for false positives",
+   # answer("T", 
+          # correct = TRUE, 
+          # message = "Correct! The alpha level controls the tolerance for false positives (Type I errors)."),
+   # answer("F", 
+          # correct = FALSE, 
+          # message = "Incorrect. Alpha determines the rate of false positives, not false negatives."),
+   # allow_retry = TRUE
+  #),
+  
+ # question("A Type II error (beta) is falsely rejecting the null",
+    #answer("T", 
+          # correct = FALSE, 
+          # message = "Incorrect. A Type II error occurs when you fail to reject the null hypothesis when it is actually false."),
+   # answer("F", 
+          # correct = TRUE, 
+          # message = "Correct! A Type II error occurs when you fail to reject a false null hypothesis."),
+   # allow_retry = TRUE
+  #)
+#)
+
+```
+
+## Let's practice calculating the probability of a Type II error:
+### The z-score of your distribution is -1.84.
+
+```{r, coding block 9}
+zScore <- -1.84
+
+# correct code:
+beta <- pnorm(zScore)
+beta
+
+```
+
+### What about calculating power (probability of detecting an effect that is actually there)?
+
+```{r, coding block 10}
+
+# correct code:
+power <- 1 - beta
+power
+
+```
+
+```{r, quiz_p_15, echo=FALSE}
+#question("Which of the following is *not* a way to increase power?",
+    #answer("Increase sample size", correct = FALSE, 
+          # message = "Incorrect. Increasing the sample size is a common way to increase the power of a test."),
+    #answer("Decrease CV", correct = FALSE, 
+          # message = "Incorrect. Decreasing the coefficient of variation (CV) can help increase power."),
+    #answer("Increase standard deviation", correct = TRUE, 
+          # message = "Correct! Increasing the standard deviation decreases the power of a test, as it increases variability and makes it harder to detect an effect."),
+   # allow_retry = TRUE
+#)
+
+```
+
+# Great job!!!
+![Woohoo](/Users/margaretredic/Desktop/meme.jpg)
+
