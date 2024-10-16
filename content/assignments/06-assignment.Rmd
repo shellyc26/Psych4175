@@ -2,8 +2,8 @@
 title: "Assignment 6"
 linktitle: "# 6"
 date: "6/16/2020"
-due_date: "2023-10-23"
-due_time: "1:00pm"
+due_date: "2024-10-21"
+due_time: "11:30am"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
@@ -62,7 +62,7 @@ All this sounds very hypothetical, but it's actually quite useful! For instance,
 **Copy/paste this entire code chunk into your .Rmd file.**
 
 ```{r, eval=FALSE}
-set.seed(4175)
+set.seed(3175)
 
 # Let's create our dataset!
 # We will first have a column for the test score (getting a 0/20, 1/20, 2/20 etc.)
