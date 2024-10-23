@@ -1,18 +1,18 @@
 ---
-title: "Assignment 6"
-linktitle: "# 6"
+title: "Assignment 7"
+linktitle: "# 7"
 date: "6/16/2020"
-due_date: "2023-10-23"
-due_time: "1:00pm"
+due_date: "2024-10-28"
+due_time: "11:30am"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
 menu:
   assignment:
     parent: Assignments
-    weight: 6
+    weight: 7
 type: docs
-weight: 6
+weight: 7
 editor_options: 
   chunk_output_type: console
 ---
