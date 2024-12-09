@@ -1,8 +1,8 @@
 ---
 title: "Final Assignment"
 linktitle: "Final"
-date: "12/14/2020"
-due_date: "2023-12-17"
+date: "12/15/2020"
+due_date: "2024-12-15"
 due_time: "11:59pm"
 output:
   blogdown::html_page:
@@ -29,8 +29,7 @@ For this assignment you will be using the Human Connectome Project. It comes in 
 
 The Human Connectome Project (HCP) was a landmark study for cognitive neuroscience, headed by Wash U and the University of Minnesota. It is a large-scale multi-center project that enabled the study of individual differences in neural functioning that subserve higher-order cognitive functions (Van Essen et al., 2013). The HCP collected *a ton* of data on 1200 participants, including genetic, physiological, self-report, behavioral, and neuroimaging (structural MRI, resting state functional MRI, and task activation functional MRI). This makes it among the largest and richest publicly available cognitive neuroscience datasets in existence.
 
-For the purposes of this class and this final project, I am providing you with an extremely pared down version of this dataset.
-You should use the data dictionary for more information on each column. 
+For the purposes of this class and this final project, I am providing you with an extremely pared down version of this dataset. You should use the data dictionary for more information on each column. 
 
 You can find the grading rubric on Canvas. This assignment is worth **25 points total**
 
@@ -94,7 +93,7 @@ Pick 5 of the variables from the dataset that you find particularly interesting 
 
 :::list
 
-- Make a figure showing if the variable is normally distributed. This should be a single figure with 5 subplots (do not overlay onto the same figure and do not make 5 individual plots; yes, we 100% went over how to do this) 
+- Make a figure showing if the variable is normally distributed. This should be a single figure with 5 subplots (do not overlay onto the same figure and do not make 5 individual plots; yes, we went over how to do this) 
 - Write some formatted text describing your results (aka text to accompany the figure, like you would in a manuscript)
 - Report at least 1 measure of central tendency and 1 measure of variability. Put these in the figure itself (top or bottom corner). 
 - To accomplish this goal, you *must* use `ggplot2`
@@ -113,13 +112,13 @@ Pick 3 independent variables and 1 dependent variable and run a multiple regress
     - Interpret each regression coefficient
     - Interpret the omnibus test
     - Interpret the model fit
-- One of the assumptions of regression is that the fitted values (meaning the predicted values) should not correlate at all with the residual values. If you plot them, there should be a very flat horizontal line at 0. That's because the fitted (aka predicted) values include the exact same residuals in their predictions. However, if you see that there is a correlation between the fitted and residual values, that indicates that your regression has some issues (could be a number of different things, including a missing predictor). Plot the fitted (X-axis) vs. residuals (Y-axis) and describe what you see. Do this using `ggplot2` not `base R`. HINT: you will need to extract both fitted and residuals values. Yes, we 100% went over ways to get these. 
+- One of the assumptions of regression is that the fitted values (meaning the predicted values) should NOT correlate at all with the residual values. If you plot them, there should be a very flat horizontal line at 0. That's because the fitted (aka predicted) values include the exact same residuals in their predictions. However, if you see that there is a correlation between the fitted and residual values, that indicates that your regression has some issues (could be a number of different things, including a missing predictor). Plot the fitted (X-axis) vs. residuals (Y-axis) and describe what you see. Do this using `ggplot2` not `base R`. HINT: you will need to extract both fitted and residuals values. Yes, we went over ways to get these. 
 :::
 
 
 ## Part 4 -- Simulating Power
 
-In Psychology and Neuroscience, we aim for 80% statistical power. You are going to simulate the power of the omnibus test of the regression you ran above. 
+In Psychology and Neuroscience, we aim for 80% statistical power. You are going to simulate the power of the OMNIBUS test of the regression you ran above. 
 
 :::list
 - You'll need to simulate data for all IVs and DVs. Pick the simulation function based on the original data. Think carefully about the output of `rnorm()` vs. `rpois()` vs. any other function you are considering. When simulating the data, you want the simulated variables to have the same properties as the original variables. That is, you should get different individual values, but if you looked at the summary statistics of the simulated data and the original data, they should be very similar.

@@ -1,8 +1,8 @@
 ---
 title: "Final Assignment"
 linktitle: "Final"
-date: "12/14/2020"
-due_date: "2023-12-17"
+date: "12/15/2020"
+due_date: "2024-12-15"
 due_time: "11:59pm"
 output:
   blogdown::html_page:
@@ -31,8 +31,7 @@ editor_options:
 <div id="about-the-hcp-dataset" class="section level4">
 <h4>About the HCP Dataset</h4>
 <p>The Human Connectome Project (HCP) was a landmark study for cognitive neuroscience, headed by Wash U and the University of Minnesota. It is a large-scale multi-center project that enabled the study of individual differences in neural functioning that subserve higher-order cognitive functions (Van Essen et al., 2013). The HCP collected <em>a ton</em> of data on 1200 participants, including genetic, physiological, self-report, behavioral, and neuroimaging (structural MRI, resting state functional MRI, and task activation functional MRI). This makes it among the largest and richest publicly available cognitive neuroscience datasets in existence.</p>
-<p>For the purposes of this class and this final project, I am providing you with an extremely pared down version of this dataset.
-You should use the data dictionary for more information on each column.</p>
+<p>For the purposes of this class and this final project, I am providing you with an extremely pared down version of this dataset. You should use the data dictionary for more information on each column.</p>
 <p>You can find the grading rubric on Canvas. This assignment is worth <strong>25 points total</strong></p>
 <ul>
 <li>Each of the 4 sections are worth 6.25 points each in total</li>
@@ -96,7 +95,7 @@ You should use the data dictionary for more information on each column.</p>
 <p>Pick 5 of the variables from the dataset that you find particularly interesting for the following section. Your job is to explore each of these 5 variables individually (that is, you are <em>not</em> looking at the relationship between any of these variables).</p>
 <div class="list">
 <ul>
-<li>Make a figure showing if the variable is normally distributed. This should be a single figure with 5 subplots (do not overlay onto the same figure and do not make 5 individual plots; yes, we 100% went over how to do this)</li>
+<li>Make a figure showing if the variable is normally distributed. This should be a single figure with 5 subplots (do not overlay onto the same figure and do not make 5 individual plots; yes, we went over how to do this)</li>
 <li>Write some formatted text describing your results (aka text to accompany the figure, like you would in a manuscript)</li>
 <li>Report at least 1 measure of central tendency and 1 measure of variability. Put these in the figure itself (top or bottom corner).</li>
 <li>To accomplish this goal, you <em>must</em> use <code>ggplot2</code></li>
@@ -117,13 +116,13 @@ You should use the data dictionary for more information on each column.</p>
 <li>Interpret the omnibus test</li>
 <li>Interpret the model fit</li>
 </ul></li>
-<li>One of the assumptions of regression is that the fitted values (meaning the predicted values) should not correlate at all with the residual values. If you plot them, there should be a very flat horizontal line at 0. That’s because the fitted (aka predicted) values include the exact same residuals in their predictions. However, if you see that there is a correlation between the fitted and residual values, that indicates that your regression has some issues (could be a number of different things, including a missing predictor). Plot the fitted (X-axis) vs. residuals (Y-axis) and describe what you see. Do this using <code>ggplot2</code> not <code>base R</code>. HINT: you will need to extract both fitted and residuals values. Yes, we 100% went over ways to get these.</li>
+<li>One of the assumptions of regression is that the fitted values (meaning the predicted values) should NOT correlate at all with the residual values. If you plot them, there should be a very flat horizontal line at 0. That’s because the fitted (aka predicted) values include the exact same residuals in their predictions. However, if you see that there is a correlation between the fitted and residual values, that indicates that your regression has some issues (could be a number of different things, including a missing predictor). Plot the fitted (X-axis) vs. residuals (Y-axis) and describe what you see. Do this using <code>ggplot2</code> not <code>base R</code>. HINT: you will need to extract both fitted and residuals values. Yes, we went over ways to get these.</li>
 </ul>
 </div>
 </div>
 <div id="part-4-simulating-power" class="section level2">
 <h2>Part 4 – Simulating Power</h2>
-<p>In Psychology and Neuroscience, we aim for 80% statistical power. You are going to simulate the power of the omnibus test of the regression you ran above.</p>
+<p>In Psychology and Neuroscience, we aim for 80% statistical power. You are going to simulate the power of the OMNIBUS test of the regression you ran above.</p>
 <div class="list">
 <ul>
 <li>You’ll need to simulate data for all IVs and DVs. Pick the simulation function based on the original data. Think carefully about the output of <code>rnorm()</code> vs. <code>rpois()</code> vs. any other function you are considering. When simulating the data, you want the simulated variables to have the same properties as the original variables. That is, you should get different individual values, but if you looked at the summary statistics of the simulated data and the original data, they should be very similar.</li>
