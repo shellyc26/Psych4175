@@ -102,7 +102,6 @@ pnorm(-3.54)*2
 #)
 ```
 
-![Which distribution is the t distribution?](/Users/margaretredic/Desktop/dist.png)
 ```{r, quiz_p_5, echo=FALSE}
 #quiz(
   #question("Which distribution is the t distribution?",
@@ -516,5 +515,5 @@ power
 ```
 
 # Great job!!!
-![Woohoo](/Users/margaretredic/Desktop/meme.jpg)
+
 

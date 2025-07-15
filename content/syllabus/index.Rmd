@@ -10,8 +10,8 @@ output:
 
 ## What is this class?
 - Applied Statistical Analysis with R (Psych 3175)
-- Monday/Wednesday 11:30am-12:50pm
-- Somers Family Hall 216
+- Monday/Wednesday 8:30am-9:50am
+- TBD
 
 ## Who are we?
 
