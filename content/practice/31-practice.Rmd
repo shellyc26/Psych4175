@@ -13,14 +13,12 @@ type: docs
 weight: 3
 editor_options: 
   chunk_output_type: console
-shiny: true
 ---
 
 # **Comparing Means Lecture**
 
 ```{r, load packages, echo=FALSE, message=FALSE, warning=FALSE}
 library(shiny)
-library(learnr)
 library(knitr)
 library(broom)
 library(dplyr)
@@ -236,9 +234,9 @@ tidy(t.test(len ~ supp, data = ToothGrowth))
 ```{r, coding block 5}
 data(sleep)
 # correct code:
-tidy(t.test(extra ~ group, data = sleep, paired = T))
+#tidy(t.test(extra ~ group, data = sleep, paired = T))
 # or
-tidy(t.test(extra ~ group, data = sleep, paired = TRUE))
+#tidy(t.test(extra ~ group, data = sleep, paired = TRUE))
 
 ```
 

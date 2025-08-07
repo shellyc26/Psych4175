@@ -33,13 +33,15 @@ Now that you're oriented to RStudio, it's time to write and execute some code. T
   3. Watch what happens!
 :::
 
-```{r, echo=FALSE}
 
-blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/02-learnr-app1/",
-                    id = "learnr-02-app1")
 
-```
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-app1/"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
+
+
 
 Over the course of this basic training, we'll cover all the elements in this code block that produced this graph. It's 100% OK if it looks like complete gibberish to you right now!
 
@@ -77,13 +79,11 @@ The thing you want to actually store for later goes on the <font style="color:#6
   - If you get a message that's something like "Last value is invisible", you can ignore it
 :::
 
-```{r, echo=FALSE}
-
-blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/02-learnr-app2/",
-                    id = "learnr-02-app2")
-
-```
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-app2/"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
 
 #### Things to note:
 1. If you were to run this line of code from within RStudio, you would see the word `continents` in the Environment pane (upper right side). This is an easy way for you to glance over and see if your object is actually stored. 
@@ -103,13 +103,11 @@ In your research, most of the time, you don't necessarily want to print out ever
 **Quick Quiz**
 :::
 
-```{r, echo=FALSE}
-
-blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/02-learnr-quiz1/",
-                    id = "learnr-02-quiz1")
-
-```
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-quiz1/"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
 
 ### The whole point of making an object is that you can do things with them!
 
@@ -144,13 +142,13 @@ In this scenario, we did an "overwrite" of our original `chickens` and `cows` ob
 :::quiz
 **Quick Quiz**
 :::
-```{r, echo=FALSE}
 
-blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/02-learnr-quiz2/",
-                    id = "learnr-02-quiz2")
 
-```
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-quiz2/"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
 
 ## Practice with Vectors
 A **vector** is a group of objects that's 1-dimensional:
@@ -188,13 +186,11 @@ Here, each row can be considered it's own vector, and each column can be conside
   2. Then, check the `class()` of each of your newly created vectors.
 :::
 
-```{r, echo=FALSE}
-
-blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/02-learnr-app3/",
-                    id = "learnr-02-app3")
-
-```
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-app3/"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
 
 #### Remember Star Wars?
 You've already made a factor! You turned `species` into a factor. The result is that in our graph, we have discrete categories for the different types of Star Wars characters!
@@ -229,6 +225,6 @@ Learning to code can be really intimidating. But you're doing great! Keep it up!
 
 <center>
 
-<img src="../encouragementFigs/figure-html/youre-amazing.jpg" width = "75%">
+<img src="../encouragementFigs/figure-html/youre-amazing.jpg" width = "50%">
 
 </center>

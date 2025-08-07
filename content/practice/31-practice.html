@@ -1,0 +1,293 @@
+---
+title: "Practice Set: Comparing Means & Power"
+linktitle: "Means & Power"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Statistics
+    weight: 3
+type: docs
+weight: 3
+editor_options: 
+  chunk_output_type: console
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#comparing-means-lecture" id="toc-comparing-means-lecture"><strong>Comparing Means Lecture</strong></a>
+<ul>
+<li><a href="#comparing-means-lecture-review-quiz" id="toc-comparing-means-lecture-review-quiz"><strong>Comparing Means Lecture Review Quiz</strong></a></li>
+<li><a href="#lets-practice" id="toc-lets-practice"><strong>Let’s Practice!</strong></a></li>
+<li><a href="#you-calculate-the-z-statistic-and-it-is--3.54." id="toc-you-calculate-the-z-statistic-and-it-is--3.54.">You calculate the z-statistic and it is <em>-3.54</em>.</a>
+<ul>
+<li><a href="#calculate-the-probability-of-getting-this-of-cups-or-more-extreme-given-the-null-is-true." id="toc-calculate-the-probability-of-getting-this-of-cups-or-more-extreme-given-the-null-is-true.">Calculate the probability of getting this # of cups, or more extreme, given the null is true.</a></li>
+<li><a href="#the-t-distribution-has-fatter-tails-because-it-has-to-pay-a-price-for-not-knowing-population." id="toc-the-t-distribution-has-fatter-tails-because-it-has-to-pay-a-price-for-not-knowing-population.">The t distribution has fatter tails because it has to pay a price for not knowing population.</a></li>
+<li><a href="#we-recently-measured-the-average-rainfall-in-70-u.s.-cities-precip.-the-average-rainfall-in-the-u.s.-is-30-inches.-we-want-to-determine-if-our-70-cities-are-representative-of-the-entire-population." id="toc-we-recently-measured-the-average-rainfall-in-70-u.s.-cities-precip.-the-average-rainfall-in-the-u.s.-is-30-inches.-we-want-to-determine-if-our-70-cities-are-representative-of-the-entire-population.">We recently measured the average rainfall in 70 U.S. cities (“precip”). The average rainfall in the U.S. is 30 inches. We want to determine if our 70 cities are representative of the entire population.</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#lets-run-a-test" id="toc-lets-run-a-test">Let’s run a test!</a>
+<ul>
+<li><a href="#the-name-of-the-data-and-variable-is-precip-and-the-mean-of-entire-population-is-30." id="toc-the-name-of-the-data-and-variable-is-precip-and-the-mean-of-entire-population-is-30.">The name of the data and variable is “precip” and the mean of entire population is 30.</a></li>
+<li><a href="#is-the-sample-mean-significantly-different-than-the-population-mean-what-is-the-p-value" id="toc-is-the-sample-mean-significantly-different-than-the-population-mean-what-is-the-p-value">Is the sample mean significantly different than the population mean? What is the p-value?</a></li>
+<li><a href="#we-want-to-look-at-the-effects-of-vitamin-c-on-tooth-growth-in-guinea-pigs.-the-data-toothgrowth-compares-orange-juice-vs.-vitamin-c-supplements-supp.-tooth-growth-is-measured-by-length-len." id="toc-we-want-to-look-at-the-effects-of-vitamin-c-on-tooth-growth-in-guinea-pigs.-the-data-toothgrowth-compares-orange-juice-vs.-vitamin-c-supplements-supp.-tooth-growth-is-measured-by-length-len.">We want to look at the effects of Vitamin C on tooth growth in guinea pigs. The data (“ToothGrowth”) compares orange juice vs. vitamin C supplements (“supp”). Tooth growth is measured by length (“len”).</a></li>
+<li><a href="#lets-see-what-we-find" id="toc-lets-see-what-we-find">Let’s see what we find!</a>
+<ul>
+<li><a href="#what-is-another-way-you-could-guess-that-the-p-value-might-be-non-significant-based-on-the-tidy-output" id="toc-what-is-another-way-you-could-guess-that-the-p-value-might-be-non-significant-based-on-the-tidy-output">What is another way you could guess that the p-value might be non-significant based on the tidy output?</a></li>
+</ul></li>
+<li><a href="#a-new-sleep-treatment-was-tested-in-rats.-they-were-split-up-into-control-and-treatment-groups-group-and-their-sleep-extra-was-measured-before-treatment-and-after-treatment.-each-rat-was-assigned-an-id-number-id." id="toc-a-new-sleep-treatment-was-tested-in-rats.-they-were-split-up-into-control-and-treatment-groups-group-and-their-sleep-extra-was-measured-before-treatment-and-after-treatment.-each-rat-was-assigned-an-id-number-id.">A new sleep treatment was tested in rats. They were split up into control and treatment groups (“group”) and their sleep (“extra”) was measured before treatment and after treatment. Each rat was assigned an ID number (“ID”).</a></li>
+<li><a href="#lets-see-what-we-find-1" id="toc-lets-see-what-we-find-1">Let’s see what we find:</a></li>
+<li><a href="#how-could-you-tell" id="toc-how-could-you-tell">How could you tell?</a></li>
+<li><a href="#lets-run-one-together" id="toc-lets-run-one-together">Let’s run one together!</a>
+<ul>
+<li><a href="#researchers-are-interested-in-learning-ways-to-help-plants-grow-larger.-they-are-trying-out-two-different-fertilizers-and-are-including-a-control-group.-we-want-to-see-if-the-weights-of-the-plants-differ-in-the-3-groups." id="toc-researchers-are-interested-in-learning-ways-to-help-plants-grow-larger.-they-are-trying-out-two-different-fertilizers-and-are-including-a-control-group.-we-want-to-see-if-the-weights-of-the-plants-differ-in-the-3-groups.">Researchers are interested in learning ways to help plants grow larger. They are trying out two different fertilizers and are including a control group. We want to see if the weights of the plants differ in the 3 groups.</a></li>
+<li><a href="#looking-at-the-f-statistic-alone-what-would-you-guess-about-the-conclusion" id="toc-looking-at-the-f-statistic-alone-what-would-you-guess-about-the-conclusion">Looking at the F statistic alone, what would you guess about the conclusion?</a></li>
+<li><a href="#how-confident-can-you-be-in-this-conclusion" id="toc-how-confident-can-you-be-in-this-conclusion">How confident can you be in this conclusion?</a></li>
+</ul></li>
+<li><a href="#changing-gears-to-power" id="toc-changing-gears-to-power">Changing gears to power…</a>
+<ul>
+<li><a href="#lets-review" id="toc-lets-review">Let’s review:</a></li>
+</ul></li>
+<li><a href="#now-back-to-coding" id="toc-now-back-to-coding">Now back to coding!</a>
+<ul>
+<li><a href="#ignoring-the-values-what-is-wrong-with-the-following-code-in-calculating-sem-for-confidence-intervals" id="toc-ignoring-the-values-what-is-wrong-with-the-following-code-in-calculating-sem-for-confidence-intervals">Ignoring the values, what is wrong with the following code in calculating SEM for confidence intervals?</a></li>
+<li><a href="#we-want-a-confidence-interval-of-95-for-alpha-.05.-is-the-following-code-correct" id="toc-we-want-a-confidence-interval-of-95-for-alpha-.05.-is-the-following-code-correct">We want a confidence interval of 95% (for alpha = .05). Is the following code correct?</a></li>
+</ul></li>
+<li><a href="#lets-practice-calculating-the-probability-of-a-type-ii-error" id="toc-lets-practice-calculating-the-probability-of-a-type-ii-error">Let’s practice calculating the probability of a Type II error:</a>
+<ul>
+<li><a href="#the-z-score-of-your-distribution-is--1.84." id="toc-the-z-score-of-your-distribution-is--1.84.">The z-score of your distribution is -1.84.</a></li>
+<li><a href="#what-about-calculating-power-probability-of-detecting-an-effect-that-is-actually-there" id="toc-what-about-calculating-power-probability-of-detecting-an-effect-that-is-actually-there">What about calculating power (probability of detecting an effect that is actually there)?</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#great-job" id="toc-great-job">Great job!!!</a></li>
+</ul>
+</div>
+
+<div id="comparing-means-lecture" class="section level1">
+<h1><strong>Comparing Means Lecture</strong></h1>
+<div id="comparing-means-lecture-review-quiz" class="section level3">
+<h3><strong>Comparing Means Lecture Review Quiz</strong></h3>
+</div>
+<div id="lets-practice" class="section level2">
+<h2><strong>Let’s Practice!</strong></h2>
+<p>The average student consumes 2 cups of coffee per day during the semester, but you believe that this number spikes during midterms. You survey 50 students and find the average is 2.5 cups, with a population standard deviation of 1 cup.</p>
+</div>
+<div id="you-calculate-the-z-statistic-and-it-is--3.54." class="section level2">
+<h2>You calculate the z-statistic and it is <em>-3.54</em>.</h2>
+<div id="calculate-the-probability-of-getting-this-of-cups-or-more-extreme-given-the-null-is-true." class="section level3">
+<h3>Calculate the probability of getting this # of cups, or more extreme, given the null is true.</h3>
+<pre class="r"><code># { have them tell me what to code }
+
+# correct code:
+pnorm(-3.54)*2</code></pre>
+<pre><code>## [1] 0.000400127</code></pre>
+</div>
+<div id="the-t-distribution-has-fatter-tails-because-it-has-to-pay-a-price-for-not-knowing-population." class="section level3">
+<h3>The t distribution has fatter tails because it has to pay a price for not knowing population.</h3>
+</div>
+<div id="we-recently-measured-the-average-rainfall-in-70-u.s.-cities-precip.-the-average-rainfall-in-the-u.s.-is-30-inches.-we-want-to-determine-if-our-70-cities-are-representative-of-the-entire-population." class="section level3">
+<h3>We recently measured the average rainfall in 70 U.S. cities (“precip”). The average rainfall in the U.S. is 30 inches. We want to determine if our 70 cities are representative of the entire population.</h3>
+</div>
+</div>
+</div>
+<div id="lets-run-a-test" class="section level1">
+<h1>Let’s run a test!</h1>
+<div id="the-name-of-the-data-and-variable-is-precip-and-the-mean-of-entire-population-is-30." class="section level3">
+<h3>The name of the data and variable is “precip” and the mean of entire population is 30.</h3>
+<pre class="r"><code>data(InsectSprays)
+# correct code:
+oneSample &lt;- t.test(precip, mu = 30, data = precip)
+# or
+oneSample &lt;- t.test(precip, mu = 30)
+oneSample</code></pre>
+<pre><code>## 
+## 	One Sample t-test
+## 
+## data:  precip
+## t = 2.9823, df = 69, p-value = 0.003952
+## alternative hypothesis: true mean is not equal to 30
+## 95 percent confidence interval:
+##  31.61748 38.15395
+## sample estimates:
+## mean of x 
+##  34.88571</code></pre>
+</div>
+<div id="is-the-sample-mean-significantly-different-than-the-population-mean-what-is-the-p-value" class="section level3">
+<h3>Is the sample mean significantly different than the population mean? What is the p-value?</h3>
+<pre class="r"><code># correct code:
+library(broom)
+library(knitr)
+tidyOneSample &lt;- tidy(oneSample)
+kable(tidyOneSample)</code></pre>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="10%" />
+<col width="11%" />
+<col width="20%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">estimate</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">parameter</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">34.88571</td>
+<td align="right">2.982262</td>
+<td align="right">0.0039518</td>
+<td align="right">69</td>
+<td align="right">31.61748</td>
+<td align="right">38.15395</td>
+<td align="left">One Sample t-test</td>
+<td align="left">two.sided</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># could use:
+oneSample[[3]]</code></pre>
+<pre><code>## [1] 0.003951783</code></pre>
+<pre class="r"><code># but this just gives you the value (not ideal, so use broom package)</code></pre>
+</div>
+<div id="we-want-to-look-at-the-effects-of-vitamin-c-on-tooth-growth-in-guinea-pigs.-the-data-toothgrowth-compares-orange-juice-vs.-vitamin-c-supplements-supp.-tooth-growth-is-measured-by-length-len." class="section level3">
+<h3>We want to look at the effects of Vitamin C on tooth growth in guinea pigs. The data (“ToothGrowth”) compares orange juice vs. vitamin C supplements (“supp”). Tooth growth is measured by length (“len”).</h3>
+</div>
+<div id="lets-see-what-we-find" class="section level2">
+<h2>Let’s see what we find!</h2>
+<pre class="r"><code># correct code:
+data(ToothGrowth)
+tidy(t.test(len ~ supp, data = ToothGrowth))</code></pre>
+<pre><code>## # A tibble: 1 × 10
+##   estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high
+##      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1      3.7      20.7      17.0      1.92  0.0606      55.3   -0.171      7.57
+## # ℹ 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</code></pre>
+<div id="what-is-another-way-you-could-guess-that-the-p-value-might-be-non-significant-based-on-the-tidy-output" class="section level3">
+<h3>What is another way you could guess that the p-value might be non-significant based on the tidy output?</h3>
+<!-- the confidence interval includes 0 -->
+</div>
+</div>
+<div id="a-new-sleep-treatment-was-tested-in-rats.-they-were-split-up-into-control-and-treatment-groups-group-and-their-sleep-extra-was-measured-before-treatment-and-after-treatment.-each-rat-was-assigned-an-id-number-id." class="section level2">
+<h2>A new sleep treatment was tested in rats. They were split up into control and treatment groups (“group”) and their sleep (“extra”) was measured before treatment and after treatment. Each rat was assigned an ID number (“ID”).</h2>
+<!-- data are not independent (looking at differences within each rat) -->
+</div>
+<div id="lets-see-what-we-find-1" class="section level2">
+<h2>Let’s see what we find:</h2>
+<pre class="r"><code>data(sleep)
+# correct code:
+#tidy(t.test(extra ~ group, data = sleep, paired = T))
+# or
+#tidy(t.test(extra ~ group, data = sleep, paired = TRUE))</code></pre>
+<div class="float">
+<img src="/Users/margaretredic/Desktop/f.jpg" alt="What distribution is this?" />
+<div class="figcaption">What distribution is this?</div>
+</div>
+</div>
+<div id="how-could-you-tell" class="section level2">
+<h2>How could you tell?</h2>
+<!-- starts at 0 on x-axis (can't be negative) -->
+</div>
+<div id="lets-run-one-together" class="section level2">
+<h2>Let’s run one together!</h2>
+<div id="researchers-are-interested-in-learning-ways-to-help-plants-grow-larger.-they-are-trying-out-two-different-fertilizers-and-are-including-a-control-group.-we-want-to-see-if-the-weights-of-the-plants-differ-in-the-3-groups." class="section level3">
+<h3>Researchers are interested in learning ways to help plants grow larger. They are trying out two different fertilizers and are including a control group. We want to see if the weights of the plants differ in the 3 groups.</h3>
+<p>data frame name: PlantGrowth
+group name: group
+weight variable: weight</p>
+<pre class="r"><code>data(PlantGrowth)
+# correct code:
+onewayANOVA &lt;- tidy(aov(weight ~ group, data = PlantGrowth))
+onewayANOVA</code></pre>
+<pre><code>## # A tibble: 2 × 6
+##   term         df sumsq meansq statistic p.value
+##   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 group         2  3.77  1.88       4.85  0.0159
+## 2 Residuals    27 10.5   0.389     NA    NA</code></pre>
+<pre class="r"><code>#or
+print(onewayANOVA)</code></pre>
+<pre><code>## # A tibble: 2 × 6
+##   term         df sumsq meansq statistic p.value
+##   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 group         2  3.77  1.88       4.85  0.0159
+## 2 Residuals    27 10.5   0.389     NA    NA</code></pre>
+</div>
+<div id="looking-at-the-f-statistic-alone-what-would-you-guess-about-the-conclusion" class="section level3">
+<h3>Looking at the F statistic alone, what would you guess about the conclusion?</h3>
+<!-- F > 1 so would think there is a significant difference between at least one group -->
+</div>
+<div id="how-confident-can-you-be-in-this-conclusion" class="section level3">
+<h3>How confident can you be in this conclusion?</h3>
+<!-- The larger the F stat, the more difference, we can be relatively confident here -->
+</div>
+</div>
+<div id="changing-gears-to-power" class="section level2">
+<h2>Changing gears to power…</h2>
+<div id="lets-review" class="section level3">
+<h3>Let’s review:</h3>
+</div>
+</div>
+<div id="now-back-to-coding" class="section level2">
+<h2>Now back to coding!</h2>
+<div id="ignoring-the-values-what-is-wrong-with-the-following-code-in-calculating-sem-for-confidence-intervals" class="section level3">
+<h3>Ignoring the values, what is wrong with the following code in calculating SEM for confidence intervals?</h3>
+<pre class="r"><code>mean &lt;- 17.2
+sd &lt;- 3.4
+n &lt;- 100
+
+sem &lt;- (sd/mean)
+sem</code></pre>
+<pre><code>## [1] 0.1976744</code></pre>
+<pre class="r"><code># correct change:
+sem &lt;- (sd/sqrt(mean))</code></pre>
+</div>
+<div id="we-want-a-confidence-interval-of-95-for-alpha-.05.-is-the-following-code-correct" class="section level3">
+<h3>We want a confidence interval of 95% (for alpha = .05). Is the following code correct?</h3>
+<pre class="r"><code>ci_lb_z = mean - sem + qnorm(p = .95)
+ci_ub_z = mean + sem + qnorm(p = .95)
+print(c(ci_lb_z, ci_ub_z))</code></pre>
+<pre><code>## [1] 18.02504 19.66467</code></pre>
+<pre class="r"><code># correct code: should be:
+ci_lb_z = mean - sem + qt(p = .975, df = n-1)
+ci_ub_z = mean + sem + qt(p = .975, df = n-1)
+print(c(ci_lb_z, ci_ub_z))</code></pre>
+<pre><code>## [1] 18.36440 20.00403</code></pre>
+</div>
+</div>
+<div id="lets-practice-calculating-the-probability-of-a-type-ii-error" class="section level2">
+<h2>Let’s practice calculating the probability of a Type II error:</h2>
+<div id="the-z-score-of-your-distribution-is--1.84." class="section level3">
+<h3>The z-score of your distribution is -1.84.</h3>
+<pre class="r"><code>zScore &lt;- -1.84
+
+# correct code:
+beta &lt;- pnorm(zScore)
+beta</code></pre>
+<pre><code>## [1] 0.03288412</code></pre>
+</div>
+<div id="what-about-calculating-power-probability-of-detecting-an-effect-that-is-actually-there" class="section level3">
+<h3>What about calculating power (probability of detecting an effect that is actually there)?</h3>
+<pre class="r"><code># correct code:
+power &lt;- 1 - beta
+power</code></pre>
+<pre><code>## [1] 0.9671159</code></pre>
+</div>
+</div>
+</div>
+<div id="great-job" class="section level1">
+<h1>Great job!!!</h1>
+</div>

@@ -15,16 +15,15 @@ editor_options:
 shiny: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#visualizing-star-wars">Visualizing Star Wars</a></li>
-<li><a href="#practice-with-objects">Practice with Objects</a>
+<li><a href="#visualizing-star-wars" id="toc-visualizing-star-wars">Visualizing Star Wars</a></li>
+<li><a href="#practice-with-objects" id="toc-practice-with-objects">Practice with Objects</a>
 <ul>
-<li><a href="#the-whole-point-of-making-an-object-is-that-you-can-do-things-with-them">The whole point of making an object is that you can do things with them!</a></li>
+<li><a href="#the-whole-point-of-making-an-object-is-that-you-can-do-things-with-them" id="toc-the-whole-point-of-making-an-object-is-that-you-can-do-things-with-them">The whole point of making an object is that you can do things with them!</a></li>
 </ul></li>
-<li><a href="#practice-with-vectors">Practice with Vectors</a></li>
+<li><a href="#practice-with-vectors" id="toc-practice-with-vectors">Practice with Vectors</a></li>
 </ul>
 </div>
 
@@ -39,7 +38,8 @@ shiny: true
 <li>Watch what happens!</li>
 </ol>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/02-learnr-app1/" id="learnr-02-app1" %}}</p>
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-app1/" width="100%" height="800" frameborder="0" style="border-radius: 12px; border: 1px solid #ccc;" scrolling="auto">
+</iframe>
 <p>Over the course of this basic training, we’ll cover all the elements in this code block that produced this graph. It’s 100% OK if it looks like complete gibberish to you right now!</p>
 </div>
 <div id="practice-with-objects" class="section level2">
@@ -49,7 +49,6 @@ shiny: true
 <li>They are the <em>nouns</em> of programming languages; they are typically what we are acting <em>on</em></li>
 <li>We give an object a name; this is called <strong>assignment</strong>, and it takes the form of:</li>
 </ul>
-<pre><code class='language-r'><code><span style='background-color:#FFFF007D'>nameOfMyObject</span> <span style='background-color:#ff79797d'><-</span> <span style='background-color:#686DE07D'>objectToStore</span></code></code></pre>
 <p>The thing on the <font style="color:#FFFF00;background-color:#d3d3d37d">LEFT</font> is the name you want to give your object.</p>
 <p>Then the <font style="color:#ff7979">arrow</font>; first <code>&lt;</code> (less than sign), then <code>-</code> (hyphen/dash) with no space in between.</p>
 <p>The thing you want to actually store for later goes on the <font style="color:#686DE0">RIGHT</font>.</p>
@@ -63,12 +62,13 @@ shiny: true
 <li>If you get a message that’s something like “Last value is invisible”, you can ignore it</li>
 </ul>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/02-learnr-app2/" id="learnr-02-app2" %}}</p>
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-app2/" width="100%" height="800" frameborder="0" style="border-radius: 12px; border: 1px solid #ccc;" scrolling="auto">
+</iframe>
 <div id="things-to-note" class="section level4">
 <h4>Things to note:</h4>
 <ol style="list-style-type: decimal">
 <li><p>If you were to run this line of code from within RStudio, you would see the word <code>continents</code> in the Environment pane (upper right side). This is an easy way for you to glance over and see if your object is actually stored.</p></li>
-<li><p>Notice that nothing printed out when you ran the code above. That code simply says <em>“store the number <code>7</code> in an object called <code>continents</code>”</em>. No where does it say <em>"show me what is stored in the <code>continents</code> object</em>. To do that, you simply need to type it out again, like this:</p></li>
+<li><p>Notice that nothing printed out when you ran the code above. That code simply says <em>“store the number <code>7</code> in an object called <code>continents</code>”</em>. No where does it say <em>“show me what is stored in the <code>continents</code> object</em>. To do that, you simply need to type it out again, like this:</p></li>
 </ol>
 <pre class="r"><code>continents &lt;- 7
 continents</code></pre>
@@ -78,7 +78,8 @@ continents</code></pre>
 <div class="quiz">
 <p><strong>Quick Quiz</strong></p>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/02-learnr-quiz1/" id="learnr-02-quiz1" %}}</p>
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-quiz1/" width="100%" height="800" frameborder="0" style="border-radius: 12px; border: 1px solid #ccc;" scrolling="auto">
+</iframe>
 </div>
 <div id="the-whole-point-of-making-an-object-is-that-you-can-do-things-with-them" class="section level3">
 <h3>The whole point of making an object is that you can do things with them!</h3>
@@ -107,7 +108,8 @@ chickens + cows</code></pre>
 <div class="quiz">
 <p><strong>Quick Quiz</strong></p>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/02-learnr-quiz2/" id="learnr-02-quiz2" %}}</p>
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-quiz2/" width="100%" height="800" frameborder="0" style="border-radius: 12px; border: 1px solid #ccc;" scrolling="auto">
+</iframe>
 </div>
 </div>
 <div id="practice-with-vectors" class="section level2">
@@ -177,18 +179,17 @@ chickens + cows</code></pre>
 <li>Then, check the <code>class()</code> of each of your newly created vectors.</li>
 </ol>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/02-learnr-app3/" id="learnr-02-app3" %}}</p>
+<iframe src="https://shelly-cooper.shinyapps.io/02-learnr-app3/" width="100%" height="800" frameborder="0" style="border-radius: 12px; border: 1px solid #ccc;" scrolling="auto">
+</iframe>
 <div id="remember-star-wars" class="section level4">
 <h4>Remember Star Wars?</h4>
 <p>You’ve already made a factor! You turned <code>species</code> into a factor. The result is that in our graph, we have discrete categories for the different types of Star Wars characters!</p>
-<pre><code class='language-r'><code>empire <- starwars<br><br>empire <- empire[c(1:5, 10, 13, 14, 19, 21), c(1:3, 8, 10, 11)]<br><span style='background-color:yellow'>empire$species <- factor(empire$species)</span><br><br>ggplot(data = empire, aes(x = mass, y = height)) +<br>&nbsp;&nbsp;geom_point(aes(size = mass,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='background-color:#ffff7f'>color = species</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha = .5) +<br>&nbsp;&nbsp;labs(title = "Star Wars Characters",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subtitle = "by size",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = "Weight (kg)",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = "Height (cm)") +<br>&nbsp;&nbsp;scale_size(guide = "none")</code></code></pre>
-<p><img src="/practice/02-practice_files/figure-html/unnamed-chunk-11-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="you-are-a" class="section level4">
 <h4>You are a ⭐</h4>
 <p>Learning to code can be really intimidating. But you’re doing great! Keep it up!</p>
 <center>
-<p><img src="../encouragementFigs/figure-html/youre-amazing.jpg" width = "75%"></p>
+<p><img src="../encouragementFigs/figure-html/youre-amazing.jpg" width = "50%"></p>
 </center>
 </div>
 </div>
