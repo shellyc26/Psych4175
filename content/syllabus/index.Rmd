@@ -9,15 +9,20 @@ output:
 ---
 
 ## What is this class?
-- Applied Statistical Analysis with R (Psych 3175)
+- Applied Statistical Analysis with R
+- Fall 2025 L33-PSYCH 3175-01
 - Monday/Wednesday 8:30am-9:50am
-- Eads Room 115
+- Eads Room 115 (in-person instruction)
+- Prereq: Psych 300/3000 or equivalent
 
 ## Who are we?
 
 Instructor: **Shelly Cooper, PhD (she/her)** [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
 
 Assistant to the Instructor: **Derek Simon (he/they)** [d.a.simon@wustl.edu](mailto:d.a.simon@wustl.edu).
+
+## Course Description from Workday
+This course is designed to introduce `R` as both a means of applied statistical analysis as well as a window into data organization and programming. The goal of the course is to teach the tools needed to take a raw dataset and not only perform a statistical test in `R`, but also to learn how to arrange the dataset to perform a variety of tests, to choose the appropriate test, and to visualize the results. Students will gain practical knowledge of how to use statistics in research. Please note that this is an introductory course and knowledge of `R` prior to enrollment is not expected. PREREQ: Psych 300/ 3000
 
 ## What's the course philosophy?
 Programming & statistics are in demand skills across a wide variety of fields, including psychology, neuroscience, and other related disciplines. The goal of this course is for you to feel comfortable with the programmatic skills needed to take a data analysis project from start to finish including data wrangling, executing appropriate statistical tests, interpreting the results, and communicating your findings. Although we will use `R` software, the core concepts should carry with you to other programming languages (Python, MATLAB etc.).
@@ -51,6 +56,8 @@ You'll need 4 things:
   2. You need this website -- most of the content will take place on this website.
   3. While not required, I **very strongly** suggest being apart of our Slack workspace. You can quickly and easily ask the instructors questions privately or publicly so your peers can learn too. You can interact with your peers, and enjoy remarkably silly memes. 
   4. Our Canvas page will contain your grades, datasets, and will be where you complete your peer code reviews.
+  
+There are no required textbooks or solid materials -- only the software mentioned above
   
 ## How do I get a good grade?
 There are no exams! Hooray! To get a good grade in this class, you need to do the following:
