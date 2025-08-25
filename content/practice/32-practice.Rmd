@@ -1,6 +1,6 @@
 ---
 title: "Practice Set: Tidyverse"
-linktitle: "Tidyverse"
+linktitle: "Dplyr and Tidyr"
 output:
   blogdown::html_page:
     toc: true
@@ -153,7 +153,7 @@ This is definitely quicker, and both options created a data frame with 168 obser
 
 #### Personality variables
 
-One of the standard ways of assessing Big Five personality traits is by using the BFI-2 inventory (John & Soto, 2017), which contains 12 items per personality trait (12 items times 5 traits = 60 total items), with each item measured on a scale from 1 to 5 (1 = strongly disagree and 5 = strongly agree).
+One of the standard ways of assessing the Big Five personality traits is by using the BFI-2 inventory (John & Soto, 2017), which contains 12 items per personality trait (12 items times 5 traits = 60 total items), with each item measured on a scale from 1 to 5 (1 = strongly disagree and 5 = strongly agree).
 
 In case you are not familiar, the Big Five contains these traits:
 
@@ -165,7 +165,7 @@ In case you are not familiar, the Big Five contains these traits:
 
 Looking back at our data frame, we see that participants' scores on each item corresponds to the columns labeled with a letter, representing the trait, a number, and another letter. Just looking at individual items won't tell us, for example, how extraverted a participant is; instead, we need some variable that gives us a combined score of the relevant items to get a personality trait score.
 
-A simple metric is to take the sum of numerican responce from each item, so participants will have a combined score of how extraverted they are (e.g., 52 out of 60 possible).
+A simple metric is to take the sum of numeric response from each item, so participants will have a combined score of how extraverted they are (e.g., 52 out of 60 possible).
 
 So, let us make 5 new variables that will give us the sum of participant's trait scores along each of the 5 personality traits.
 
@@ -183,12 +183,12 @@ china_sum_1 <- steam_china_3 |>
     Open_sum = sum(across(starts_with("O_")), na.rm = TRUE)
   )
 
-print(china_sum_1[c(1:10), c(73:77)])
+kable(china_sum_1[c(1:10), c(73:77)])
 ```
 
 In this new data frame, we successfully summed across the proper items, but the sum we get is MUCH larger than we would expect, and it is the same for *every* participant. We want to get the sum for *each* participant, not the total across *all* participants.
 
-To do this, we need to make use of the **group_by()** function:
+To do this, we need to make use of the `group_by()` function:
 
 ```{r}
 china_sum_2 <- steam_china_3 |>
@@ -201,10 +201,10 @@ china_sum_2 <- steam_china_3 |>
     Open_sum = sum(across(starts_with("O_")), na.rm = TRUE)
   ) |> ungroup()
 
-print(china_sum_2[c(1:10), c(73:77)])
+kable(china_sum_2[c(1:10), c(73:77)])
 ```
 
-By using group_by(), we are specifying that the mutate() command will occur for each participant, separately. The result is 5 different columns with sums that correspond with each participant's item data.
+By using `group_by()`, we are specifying that the `mutate()` command will occur for each participant, separately. The result is 5 different columns with sums that correspond with each participant's item data.
 
 #### Group comparison
 
@@ -212,7 +212,7 @@ Now that we have some metric of participants' personality scores, we can do some
 
 Since we have a gender variable, I might be interested in looking at, potentially, personality differences that emerge between gender groups.
 
-We can take a quick glance at such differences using group_by() and **summarise()**:
+We can take a quick glance at such differences using group_by() and `summarise()`:
 
 ```{r}
 china_sum_2 |>
@@ -226,30 +226,21 @@ china_sum_2 |>
   )
 ```
 
-Using summarise() across each of the personality trait sum columns we just made, after grouping by our gender variable, we get a 2x6 data frame of the average sum for each personality trait between male and female participants.
+Using `summarise()` across each of the personality trait sum columns we just made, after grouping by our gender variable, we get a 2x6 data frame of the average sum for each personality trait between male and female participants.
 
-Notice, as well, that the shape of the data frame changed dramatically using summarise().
+Notice, as well, that the shape of the data frame changed dramatically using `summarise()`.
 
 :::quiz
 **Quick Quiz**
 :::
 
-```{r, echo=FALSE}
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-quiz1/"
+        width="100%" height="400" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
 
-blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/10-learnr-quiz1/",
-                    id = "learnr-10-quiz1")
-#For the quiz:
-#What is the difference between mutate() and summarise()?
-
-#a: Mutate allows you to do operations across columns, while summarise can only work with rows.
-
-#b: Mutate allows you to make a new column, or change a current column, while keeping all other columns in the data frame; summarise will only keep the ones specified in the operation.
-
-#c: You are able to do the same operations with both mutate and summarise; so, the only difference comes with preference.
-
-#d: Mutate will almost always create a data frame with fewer rows, while summarise will maintain the same number of observations after the operation is specified.
-```
+# LOOK AT TIMING AND CUT SECTION IF NEEDED
 
 There seems to be relatively no differences between the groups for most of the personality sums, but Openness seems to be large.
 
@@ -258,14 +249,14 @@ We can test formally test this using the statistical functions from the previous
 ```{r}
 fit_Open <- lm(Open_sum ~ factor(gender), data = china_sum_2)
 
-(summ_Open <- summary(fit_Open)) #if you put paratheses around the whole expression it will print it out below
+(summ_Open <- summary(fit_Open)) #if you put parentheses around the whole expression it will print it out below
 ```
 
 From the summary, we do, indeed, find that there is a significant difference in average Openness between males and females.
 
 And, for better visualization, we can plot this difference!
 
-First, we use the predict() function with interval = "confidence". This will return fitted values, and values to be used to make our confidence intervals. We can make this predict() object into a data frame, and then make a "gender" column in this new data frame that will be populated with the gender values from our previous data frame.
+First, we use the `predict()` function with `interval = "confidence"`. This will return fitted values, and values to be used to make our confidence intervals. We can make this predict() object into a data frame, and then make a "gender" column in this new data frame that will be populated with the gender values from our previous data frame.
 
 ```{r}
 china_plot <- as.data.frame(predict(fit_Open, interval = "confidence"))
@@ -282,15 +273,12 @@ Then, we plot!
 
 For this exercise, make a simple bar chart displaying the average Openness sum for females and the average Openness sum for males.
 
-*Hint: We want to use the fitted values instead of the raw data for this plot, so treat the fit column as the outcome variable.*
 :::
 
 :::fyi
 This exercise is a little harder than it looks, so don't worry if you run into some hurdles! We will talk a lot more about making plots (and making pretty plots!) when we get to the **Data Viz** section, but you can reference the basics in the [Stats & Plot](/lectures/09-lecture) section.
 
-For some help, the mean is not explicitly in the data frame, so you will either have to create an Openness mean score for females and males in the data frame, or use geom_bar(aes(), stat = "summary", fun = "mean").
-
-Also, if you want to create error bars using the output from the predict() function above, you can use geom_errorbar(). It may seem confusing at the beginning, but it is quite intuitive when you know what is going on. 
+For some help, the mean is not explicitly in the data frame, so you will either have to create an Openness mean score for females and males in the data frame.
 
 You can refer to my code below for help once you try it yourself!
 :::
@@ -358,53 +346,77 @@ In addition, the 12 items that correspond to each of the 5 personality traits al
 
 Therefore, we might want to look at possible relationships between online friends and these different facets, not just overall Neuroticism.
 
-To look at all of these different constructs, we need to create composite scores for each, and we can do this using **pivot_longer()**.
+To look at all of these different constructs, we need to create composite scores for each, and we can do this using `pivot_longer()`.
 
-First, let's use pivot_longer() to make a data frame with only our Neuroticism items using select().
+First, let's use `pivot_longer()` to make a data frame with only our Neuroticism items using `select()`.
 
 ```{r}
 #remember to also include our grouping variable "id"
-(neuro_long <- china_sum_2 |>
+neuro_long <- china_sum_2 |>
   dplyr::select(id, starts_with("N_")) |>
   pivot_longer(
     cols = -id,
     names_to = "item",
     values_to = "score"
-  ))
+  )
+
+nrow(neuro_long)
+```
+
+```{r, echo=FALSE}
+neuro_long %>%
+  kable("html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
+  scroll_box(width = "100%", height = "300px")
 ```
 
 Now we have a data frame with 2,016 observations!
 
-To get facet scores, R needs to know which items belong to which facet of Neuroticism. We, therefore, need to separate the ending letter from each item into another column using another tidyr function, **separate()**:
+To get facet scores, `R` needs to know which items belong to which facet of Neuroticism. We, therefore, need to separate the ending letter from each item into another column using another tidyr function, `separate()`:
 
 ```{r}
-(facet_long_1 <- neuro_long |>
+facet_long_1 <- neuro_long |>
   separate(col = item,
-           into = c("item", "facet")))
+           into = c("item", "facet"))
 ```
 
-When we do separate() here, however, we lose the item number information, and R gives us a warning telling us that this happened. This is because there are two underscores in the item names that it is picking up on.
+```{r, echo=FALSE}
+facet_long_1 %>%
+  kable("html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
+  scroll_box(width = "100%", height = "300px")
+```
 
-To prevent this, we will need to use separate() to split them into three columns first, and then we can use **unite()** to join the trait and item number values back together:
+When we do `separate()` here, however, we lose the item number information, and R gives us a warning telling us that this happened. This is because there are two underscores in the item names that it is picking up on.
+
+To prevent this, we will need to use `separate()` to split them into three columns first, and then we can use `unite()` to join the trait and item number values back together:
 
 ```{r}
-(facet_long_2 <- neuro_long |>
+facet_long_2 <- neuro_long |>
   separate(col = item,
            into = c("trait", "item_number", "facet")) |>
   unite(col = "item",
         trait, item_number,
-        sep = "_"))
+        sep = "_")
 ```
 
-Now, we can explicitly tell R which items belong to which facet of Neuroticism, and we will use this variable to calculate facet-level composite scores.
+```{r, echo=FALSE}
+facet_long_2 %>%
+  kable("html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
+  scroll_box(width = "100%", height = "300px")
+```
+
+Now, we can explicitly tell `R` which items belong to which facet of Neuroticism, and we will use this variable to calculate facet-level composite scores.
 
 :::puzzle
-**You try!***
+**You try!**
+
 We want each participant to have 3 composite (average) scores, one for each facet. 
 
-- What will we need to include in group_by() to do this?
+- What will we need to include in `group_by()` to do this?
 
-- What operation within mutate() will we use to make the composites?
+- What operation within `mutate()` will we use to make the composites?
 
 *Hint: Remember when we used group_by(id) to get the correct column of personality score sums, per person.*
 :::
