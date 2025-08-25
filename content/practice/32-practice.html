@@ -1,0 +1,2774 @@
+---
+title: "Practice Set: Tidyverse"
+linktitle: "Tidyverse"
+output:
+  blogdown::html_page:
+    toc: true
+    css: "/slides/css/additionalCols.css"
+menu:
+  practice:
+    parent: Tidyverse
+    weight: 11
+type: docs
+weight: 11
+editor_options: 
+  chunk_output_type: console
+shiny: true
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#tidyverse" id="toc-tidyverse">Tidyverse</a>
+<ul>
+<li><a href="#dplyr" id="toc-dplyr">dplyr</a></li>
+<li><a href="#tidyr" id="toc-tidyr">tidyr</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="tidyverse" class="section level2">
+<h2>Tidyverse</h2>
+<p>Without data, there would be no science. Without <em>clean</em> data, there would be no analysis! So, just because researchers have data <strong>does not</strong> mean they can simply throw it into a statistical test and be done with it.</p>
+<p>In reality, researchers spend much more time cleaning and preparing their data than actually analyzing it: up to <strong>80%</strong> of the time spent on data analysis tasks dealt with simply cleaning data (Dasu &amp; Johnson, 2003)!</p>
+<p>Evidently, data cleaning is vital to research, but it is not as difficult as it may seem! Fortunately, the collection of <code>R</code> packages in <strong>Tidyverse</strong> make data cleaning incredibly less arduous and painstaking; therefore, learning how to work with Tidyverse will make your life all the more simple.</p>
+<div id="dplyr" class="section level3">
+<h3>dplyr</h3>
+<p>The first (and arguably most important) of Tidyverse’s core packages is <code>dplyr</code>. Of this package, we will focus on the five functions arguably most vital for data cleaning:</p>
+<ul>
+<li><code>filter()</code></li>
+<li><code>select()</code></li>
+<li><code>mutate()</code></li>
+<li><code>summarise()</code></li>
+<li><code>group_by()</code></li>
+</ul>
+<p>We will begin with using dplyr on the <strong>steam_hw</strong> dataset. The data comes from researcher Hao Lin at Tianjin University of Technology (Lin, 2024). Broadly, their research revolves around relationships between Big Five personality traits and online gaming behavior, primarily Steam platform activity.</p>
+<div id="loading-in-the-data" class="section level4">
+<h4>Loading in the data</h4>
+<p>When you load in the dataset, the first column (usually labeled <em>…1</em> if using <code>read_csv()</code>) contains values indexing the row number, which is redundant with the row names of the data frame that already show this.</p>
+<p>Let’s take a look at the dataset:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="0%" />
+<col width="0%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="3%" />
+<col width="2%" />
+<col width="4%" />
+<col width="2%" />
+<col width="3%" />
+<col width="3%" />
+<col width="2%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">…1</th>
+<th align="right">id</th>
+<th align="left">gender</th>
+<th align="left">age</th>
+<th align="left">country</th>
+<th align="right">E_1_s</th>
+<th align="right">A_1_c</th>
+<th align="right">C_1_o</th>
+<th align="right">N_1_a</th>
+<th align="right">O_1_i</th>
+<th align="right">E_2_a</th>
+<th align="right">A_2_r</th>
+<th align="right">C_2_p</th>
+<th align="right">N_2_d</th>
+<th align="right">O_2_a</th>
+<th align="right">E_3_e</th>
+<th align="right">A_3_t</th>
+<th align="right">C_3_r</th>
+<th align="right">N_3_e</th>
+<th align="right">O_3_c</th>
+<th align="right">E_4_s</th>
+<th align="right">A_4_c</th>
+<th align="right">C_4_o</th>
+<th align="right">N_4_a</th>
+<th align="right">O_4_i</th>
+<th align="right">E_5_a</th>
+<th align="right">A_5_r</th>
+<th align="right">C_5_p</th>
+<th align="right">N_5_d</th>
+<th align="right">O_5_a</th>
+<th align="right">E_6_e</th>
+<th align="right">A_6_t</th>
+<th align="right">C_6_r</th>
+<th align="right">N_6_e</th>
+<th align="right">O_6_c</th>
+<th align="right">E_7_s</th>
+<th align="right">A_7_c</th>
+<th align="right">C_7_o</th>
+<th align="right">N_7_a</th>
+<th align="right">O_7_i</th>
+<th align="right">E_8_a</th>
+<th align="right">A_8_r</th>
+<th align="right">C_8_p</th>
+<th align="right">N_8_d</th>
+<th align="right">O_8_a</th>
+<th align="right">E_9_e</th>
+<th align="right">A_9_t</th>
+<th align="right">C_9_r</th>
+<th align="right">N_9_e</th>
+<th align="right">O_9_c</th>
+<th align="right">E_10_s</th>
+<th align="right">A_10_c</th>
+<th align="right">C_10_o</th>
+<th align="right">N_10_a</th>
+<th align="right">O_10_i</th>
+<th align="right">E_11_a</th>
+<th align="right">A_11_r</th>
+<th align="right">C_11_p</th>
+<th align="right">N_11_d</th>
+<th align="right">O_11_a</th>
+<th align="right">E_12_e</th>
+<th align="right">A_12_t</th>
+<th align="right">C_12_r</th>
+<th align="right">N_12_e</th>
+<th align="right">O_12_c</th>
+<th align="right">platform_lvl</th>
+<th align="right">number_of_badges</th>
+<th align="right">number_of_games</th>
+<th align="right">number_of_screenshots</th>
+<th align="right">number_of_evals</th>
+<th align="right">number_of_groups</th>
+<th align="right">number_of_friends</th>
+<th align="right">banned_account</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">male</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">4</td>
+<td align="right">16</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">2</td>
+<td align="right">26</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="left">female</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="left">female</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="left">male</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">11</td>
+<td align="right">52</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">14</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">6</td>
+<td align="left">female</td>
+<td align="left">26~30</td>
+<td align="left">china</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>I like to remove this column to reduce clutter, and we can do that by using the <code>select()</code> function.</p>
+<p><strong>Hint</strong></p>
+<p>Remember from the lecture that <code>select()</code> can not only be used to choose which columns you want to keep, but also ones you want to get rid of:</p>
+<pre class="r"><code>steam_hw &lt;- read_csv(steam_hw_URL) |&gt;
+  dplyr::select(-1)
+
+kable(head(steam_hw))</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="0%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="1%" />
+<col width="2%" />
+<col width="3%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="2%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="left">gender</th>
+<th align="left">age</th>
+<th align="left">country</th>
+<th align="right">E_1_s</th>
+<th align="right">A_1_c</th>
+<th align="right">C_1_o</th>
+<th align="right">N_1_a</th>
+<th align="right">O_1_i</th>
+<th align="right">E_2_a</th>
+<th align="right">A_2_r</th>
+<th align="right">C_2_p</th>
+<th align="right">N_2_d</th>
+<th align="right">O_2_a</th>
+<th align="right">E_3_e</th>
+<th align="right">A_3_t</th>
+<th align="right">C_3_r</th>
+<th align="right">N_3_e</th>
+<th align="right">O_3_c</th>
+<th align="right">E_4_s</th>
+<th align="right">A_4_c</th>
+<th align="right">C_4_o</th>
+<th align="right">N_4_a</th>
+<th align="right">O_4_i</th>
+<th align="right">E_5_a</th>
+<th align="right">A_5_r</th>
+<th align="right">C_5_p</th>
+<th align="right">N_5_d</th>
+<th align="right">O_5_a</th>
+<th align="right">E_6_e</th>
+<th align="right">A_6_t</th>
+<th align="right">C_6_r</th>
+<th align="right">N_6_e</th>
+<th align="right">O_6_c</th>
+<th align="right">E_7_s</th>
+<th align="right">A_7_c</th>
+<th align="right">C_7_o</th>
+<th align="right">N_7_a</th>
+<th align="right">O_7_i</th>
+<th align="right">E_8_a</th>
+<th align="right">A_8_r</th>
+<th align="right">C_8_p</th>
+<th align="right">N_8_d</th>
+<th align="right">O_8_a</th>
+<th align="right">E_9_e</th>
+<th align="right">A_9_t</th>
+<th align="right">C_9_r</th>
+<th align="right">N_9_e</th>
+<th align="right">O_9_c</th>
+<th align="right">E_10_s</th>
+<th align="right">A_10_c</th>
+<th align="right">C_10_o</th>
+<th align="right">N_10_a</th>
+<th align="right">O_10_i</th>
+<th align="right">E_11_a</th>
+<th align="right">A_11_r</th>
+<th align="right">C_11_p</th>
+<th align="right">N_11_d</th>
+<th align="right">O_11_a</th>
+<th align="right">E_12_e</th>
+<th align="right">A_12_t</th>
+<th align="right">C_12_r</th>
+<th align="right">N_12_e</th>
+<th align="right">O_12_c</th>
+<th align="right">platform_lvl</th>
+<th align="right">number_of_badges</th>
+<th align="right">number_of_games</th>
+<th align="right">number_of_screenshots</th>
+<th align="right">number_of_evals</th>
+<th align="right">number_of_groups</th>
+<th align="right">number_of_friends</th>
+<th align="right">banned_account</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">male</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="right">4</td>
+<td align="right">16</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">2</td>
+<td align="right">26</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">female</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">4</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">female</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">male</td>
+<td align="left">18~25</td>
+<td align="left">china</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">11</td>
+<td align="right">52</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">14</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">female</td>
+<td align="left">26~30</td>
+<td align="left">china</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">2</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="filtering-the-data" class="section level4">
+<h4>Filtering the data</h4>
+<p>Since this data was collected from a Chinese institution, I may be interested in looking at the gaming behavior of <em>only</em> Chinese participants.</p>
+<p>To make sure I am only making inferences on Chinese participants, we would need to <code>filter()</code> participants who are only from China.</p>
+<p>We can quickly view the contents of <em>only</em> the <strong>country</strong> column by using the <code>select()</code> function.</p>
+<pre class="r"><code>steam_country &lt;- steam_hw |&gt;
+  dplyr::select(country)
+
+nrow(steam_country)</code></pre>
+<pre><code>## [1] 171</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+country
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Guatemala
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+china
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can see here that there are <strong>3</strong> participants not from China. I want to remove them from the data set, and I can do that using <code>filter()</code>.</p>
+<pre class="r"><code>steam_china_1 &lt;- steam_hw |&gt;
+  filter(country == &quot;china&quot;)
+
+nrow(steam_china_1)</code></pre>
+<pre><code>## [1] 149</code></pre>
+<p>However, if we look at this new data frame, our number of participants (i.e., rows) dropped from <strong>171</strong> to <strong>149</strong>. This is much more than just 3 participants that we are removing.</p>
+<p>What happened? Is there something wrong with the <code>filter()</code> function?</p>
+<p>Looking back at the original data set, you can see that while the majority of participants’ country values are “china”, others responded with “China”, and this difference in capitalization is causing the filtering to go wrong.</p>
+<p>There are a couple ways we can tackle this, and they involve using <em>logical operators</em>.</p>
+<p>We could, instead, filter out the other countries that are <strong>not</strong> China:</p>
+<pre class="r"><code>steam_china_2 &lt;- steam_hw |&gt;
+  filter(!(country == &quot;Afghanistan&quot; | country == &quot;Australia&quot; | country == &quot;Guatemala&quot;))</code></pre>
+<p>There are a couple of things to notice with the above code chunk.</p>
+<ol style="list-style-type: decimal">
+<li><p>I used <code>!</code> with filter: the <code>!</code> means <strong>“not”</strong>, so I am keeping the observations that are <strong>not</strong> following the subsequent filter specifications.</p></li>
+<li><p>Because there are 3 different countries in the country column that I am not interested in, I need to list these 3 in the <code>filter()</code> function. For this to work, I used <code>"|"</code> which means “or”. So I am only keeping participants who did not respond with Afghanistan or Australia or Guatemala.</p></li>
+</ol>
+<p>This won’t be the most efficient way if there are more than 3 countries you would have to specify in the <code>filter()</code> command.</p>
+<p>Something that may be more efficient is to use the same <strong>or</strong> logical operator for those who capitalized “China”:</p>
+<pre class="r"><code>steam_china_3 &lt;- steam_hw |&gt;
+  filter(country == &quot;china&quot; | country == &quot;China&quot;)</code></pre>
+<p>This is definitely quicker, and both options created a data frame with 168 observations: 3 less than the 171 we initially worked with, showing that we have now filtered the correct number of participants.</p>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<ul>
+<li><p>If I wanted to filter for participants that are both from China <em>and</em> female, how could I do this? Call the result <code>steam_china_female</code></p></li>
+<li><p>What about males who are 18-25 years old? Call the result <code>steam_young_male</code></p></li>
+</ul>
+<p><em>Hint: Remember the logical operators.</em></p>
+</div>
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app1/" width="100%" height="800" frameborder="0" style="border-radius: 12px; border: 1px solid #ccc;" scrolling="auto">
+</iframe>
+</div>
+<div id="personality-variables" class="section level4">
+<h4>Personality variables</h4>
+<p>One of the standard ways of assessing Big Five personality traits is by using the BFI-2 inventory (John &amp; Soto, 2017), which contains 12 items per personality trait (12 items times 5 traits = 60 total items), with each item measured on a scale from 1 to 5 (1 = strongly disagree and 5 = strongly agree).</p>
+<p>In case you are not familiar, the Big Five contains these traits:</p>
+<ul>
+<li>Extraversion</li>
+<li>Agreeableness</li>
+<li>Conscientiousness</li>
+<li>Neuroticism</li>
+<li>Openness</li>
+</ul>
+<p>Looking back at our data frame, we see that participants’ scores on each item corresponds to the columns labeled with a letter, representing the trait, a number, and another letter. Just looking at individual items won’t tell us, for example, how extraverted a participant is; instead, we need some variable that gives us a combined score of the relevant items to get a personality trait score.</p>
+<p>A simple metric is to take the sum of numerican responce from each item, so participants will have a combined score of how extraverted they are (e.g., 52 out of 60 possible).</p>
+<p>So, let us make 5 new variables that will give us the sum of participant’s trait scores along each of the 5 personality traits.</p>
+<p>To do so, we need to sum across the items that correspond to each trait, separately (e.g., all Extraversion items summed together, all Agreeableness items, etc.). To do this, we can use <strong>across()</strong>, which will apply a function over multiple columns, and combine that with the selecting function <strong>starts_with()</strong>, which we can use to specify which columns we want to sum across for each of the new variables we will create.</p>
+<p>These functions are all nested within the <strong>mutate()</strong> command, which will add these new columns to the data frame:</p>
+<pre class="r"><code>china_sum_1 &lt;- steam_china_3 |&gt;
+  mutate(
+    Extra_sum = sum(across(starts_with(&quot;E_&quot;)), na.rm = TRUE),
+    Agre_sum = sum(across(starts_with(&quot;A_&quot;)), na.rm = TRUE),
+    Cons_sum = sum(across(starts_with(&quot;C_&quot;)), na.rm = TRUE),
+    Neuro_sum = sum(across(starts_with(&quot;N_&quot;)), na.rm = TRUE),
+    Open_sum = sum(across(starts_with(&quot;O_&quot;)), na.rm = TRUE)
+  )
+
+print(china_sum_1[c(1:10), c(73:77)])</code></pre>
+<pre><code>## # A tibble: 10 × 5
+##    Extra_sum Agre_sum Cons_sum Neuro_sum Open_sum
+##        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+##  1      5789     7200     6614      5709     7127
+##  2      5789     7200     6614      5709     7127
+##  3      5789     7200     6614      5709     7127
+##  4      5789     7200     6614      5709     7127
+##  5      5789     7200     6614      5709     7127
+##  6      5789     7200     6614      5709     7127
+##  7      5789     7200     6614      5709     7127
+##  8      5789     7200     6614      5709     7127
+##  9      5789     7200     6614      5709     7127
+## 10      5789     7200     6614      5709     7127</code></pre>
+<p>In this new data frame, we successfully summed across the proper items, but the sum we get is MUCH larger than we would expect, and it is the same for <em>every</em> participant. We want to get the sum for <em>each</em> participant, not the total across <em>all</em> participants.</p>
+<p>To do this, we need to make use of the <strong>group_by()</strong> function:</p>
+<pre class="r"><code>china_sum_2 &lt;- steam_china_3 |&gt;
+  group_by(id) |&gt;
+  mutate(
+    Extra_sum = sum(across(starts_with(&quot;E_&quot;)), na.rm = TRUE),
+    Agre_sum = sum(across(starts_with(&quot;A_&quot;)), na.rm = TRUE),
+    Cons_sum = sum(across(starts_with(&quot;C_&quot;)), na.rm = TRUE),
+    Neuro_sum = sum(across(starts_with(&quot;N_&quot;)), na.rm = TRUE),
+    Open_sum = sum(across(starts_with(&quot;O_&quot;)), na.rm = TRUE)
+  ) |&gt; ungroup()
+
+print(china_sum_2[c(1:10), c(73:77)])</code></pre>
+<pre><code>## # A tibble: 10 × 5
+##    Extra_sum Agre_sum Cons_sum Neuro_sum Open_sum
+##        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+##  1        52       60       60        15       60
+##  2        36       38       39        33       37
+##  3        38       44       46        33       29
+##  4        36       46       41        34       38
+##  5        28       46       45        32       40
+##  6        26       32       39        36       52
+##  7        38       41       57        26       41
+##  8        42       40       38        35       38
+##  9        31       45       19        47       57
+## 10        38       41       41        42       44</code></pre>
+<p>By using group_by(), we are specifying that the mutate() command will occur for each participant, separately. The result is 5 different columns with sums that correspond with each participant’s item data.</p>
+</div>
+<div id="group-comparison" class="section level4">
+<h4>Group comparison</h4>
+<p>Now that we have some metric of participants’ personality scores, we can do some analysis!</p>
+<p>Since we have a gender variable, I might be interested in looking at, potentially, personality differences that emerge between gender groups.</p>
+<p>We can take a quick glance at such differences using group_by() and <strong>summarise()</strong>:</p>
+<pre class="r"><code>china_sum_2 |&gt;
+  group_by(gender) |&gt;
+  summarise(
+    Extra_avg = mean(Extra_sum, na.rm = TRUE),
+    Agre_avg = mean(Agre_sum, na.rm = TRUE),
+    Cons_avg = mean(Cons_sum, na.rm = TRUE),
+    Neuro_avg = mean(Neuro_sum, na.rm = TRUE),
+    Open_avg = mean(Open_sum, na.rm = TRUE)
+  )</code></pre>
+<pre><code>## # A tibble: 2 × 6
+##   gender Extra_avg Agre_avg Cons_avg Neuro_avg Open_avg
+##   &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 female      33.6     42.7     38.1      35.4     45.3
+## 2 male        34.9     43.0     40.1      33.1     40.8</code></pre>
+<p>Using summarise() across each of the personality trait sum columns we just made, after grouping by our gender variable, we get a 2x6 data frame of the average sum for each personality trait between male and female participants.</p>
+<p>Notice, as well, that the shape of the data frame changed dramatically using summarise().</p>
+<div class="quiz">
+<p><strong>Quick Quiz</strong></p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/10-learnr-quiz1/" id="learnr-10-quiz1" %}}
+<p>There seems to be relatively no differences between the groups for most of the personality sums, but Openness seems to be large.</p>
+<p>We can test formally test this using the statistical functions from the previous chapter <a href="/lectures/09-lecture">Stats &amp; Plot</a>!</p>
+<pre class="r"><code>fit_Open &lt;- lm(Open_sum ~ factor(gender), data = china_sum_2)
+
+(summ_Open &lt;- summary(fit_Open)) #if you put paratheses around the whole expression it will print it out below</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Open_sum ~ factor(gender), data = china_sum_2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -20.7944  -4.7944  -0.7944   5.7213  19.2056 
+## 
+## Coefficients:
+##                    Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         45.2787     0.9949  45.509  &lt; 2e-16 ***
+## factor(gender)male  -4.4843     1.2467  -3.597 0.000424 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 7.771 on 166 degrees of freedom
+## Multiple R-squared:  0.07231,	Adjusted R-squared:  0.06672 
+## F-statistic: 12.94 on 1 and 166 DF,  p-value: 0.0004244</code></pre>
+<p>From the summary, we do, indeed, find that there is a significant difference in average Openness between males and females.</p>
+<p>And, for better visualization, we can plot this difference!</p>
+<p>First, we use the predict() function with interval = “confidence”. This will return fitted values, and values to be used to make our confidence intervals. We can make this predict() object into a data frame, and then make a “gender” column in this new data frame that will be populated with the gender values from our previous data frame.</p>
+<pre class="r"><code>china_plot &lt;- as.data.frame(predict(fit_Open, interval = &quot;confidence&quot;))
+
+china_plot$gender &lt;- china_sum_2$gender
+
+print(china_plot)</code></pre>
+<pre><code>##          fit      lwr      upr gender
+## 1   40.79439 39.31121 42.27758   male
+## 2   45.27869 43.31433 47.24305 female
+## 3   40.79439 39.31121 42.27758   male
+## 4   45.27869 43.31433 47.24305 female
+## 5   40.79439 39.31121 42.27758   male
+## 6   45.27869 43.31433 47.24305 female
+## 7   40.79439 39.31121 42.27758   male
+## 8   40.79439 39.31121 42.27758   male
+## 9   40.79439 39.31121 42.27758   male
+## 10  45.27869 43.31433 47.24305 female
+## 11  40.79439 39.31121 42.27758   male
+## 12  40.79439 39.31121 42.27758   male
+## 13  45.27869 43.31433 47.24305 female
+## 14  40.79439 39.31121 42.27758   male
+## 15  45.27869 43.31433 47.24305 female
+## 16  45.27869 43.31433 47.24305 female
+## 17  40.79439 39.31121 42.27758   male
+## 18  40.79439 39.31121 42.27758   male
+## 19  40.79439 39.31121 42.27758   male
+## 20  45.27869 43.31433 47.24305 female
+## 21  40.79439 39.31121 42.27758   male
+## 22  45.27869 43.31433 47.24305 female
+## 23  40.79439 39.31121 42.27758   male
+## 24  45.27869 43.31433 47.24305 female
+## 25  45.27869 43.31433 47.24305 female
+## 26  40.79439 39.31121 42.27758   male
+## 27  40.79439 39.31121 42.27758   male
+## 28  45.27869 43.31433 47.24305 female
+## 29  45.27869 43.31433 47.24305 female
+## 30  45.27869 43.31433 47.24305 female
+## 31  45.27869 43.31433 47.24305 female
+## 32  40.79439 39.31121 42.27758   male
+## 33  40.79439 39.31121 42.27758   male
+## 34  40.79439 39.31121 42.27758   male
+## 35  40.79439 39.31121 42.27758   male
+## 36  40.79439 39.31121 42.27758   male
+## 37  45.27869 43.31433 47.24305 female
+## 38  40.79439 39.31121 42.27758   male
+## 39  40.79439 39.31121 42.27758   male
+## 40  40.79439 39.31121 42.27758   male
+## 41  45.27869 43.31433 47.24305 female
+## 42  40.79439 39.31121 42.27758   male
+## 43  40.79439 39.31121 42.27758   male
+## 44  45.27869 43.31433 47.24305 female
+## 45  45.27869 43.31433 47.24305 female
+## 46  40.79439 39.31121 42.27758   male
+## 47  40.79439 39.31121 42.27758   male
+## 48  40.79439 39.31121 42.27758   male
+## 49  40.79439 39.31121 42.27758   male
+## 50  40.79439 39.31121 42.27758   male
+## 51  40.79439 39.31121 42.27758   male
+## 52  40.79439 39.31121 42.27758   male
+## 53  40.79439 39.31121 42.27758   male
+## 54  45.27869 43.31433 47.24305 female
+## 55  40.79439 39.31121 42.27758   male
+## 56  40.79439 39.31121 42.27758   male
+## 57  40.79439 39.31121 42.27758   male
+## 58  40.79439 39.31121 42.27758   male
+## 59  40.79439 39.31121 42.27758   male
+## 60  40.79439 39.31121 42.27758   male
+## 61  40.79439 39.31121 42.27758   male
+## 62  40.79439 39.31121 42.27758   male
+## 63  40.79439 39.31121 42.27758   male
+## 64  45.27869 43.31433 47.24305 female
+## 65  40.79439 39.31121 42.27758   male
+## 66  45.27869 43.31433 47.24305 female
+## 67  40.79439 39.31121 42.27758   male
+## 68  45.27869 43.31433 47.24305 female
+## 69  40.79439 39.31121 42.27758   male
+## 70  45.27869 43.31433 47.24305 female
+## 71  45.27869 43.31433 47.24305 female
+## 72  40.79439 39.31121 42.27758   male
+## 73  40.79439 39.31121 42.27758   male
+## 74  40.79439 39.31121 42.27758   male
+## 75  40.79439 39.31121 42.27758   male
+## 76  45.27869 43.31433 47.24305 female
+## 77  45.27869 43.31433 47.24305 female
+## 78  45.27869 43.31433 47.24305 female
+## 79  45.27869 43.31433 47.24305 female
+## 80  45.27869 43.31433 47.24305 female
+## 81  40.79439 39.31121 42.27758   male
+## 82  40.79439 39.31121 42.27758   male
+## 83  45.27869 43.31433 47.24305 female
+## 84  45.27869 43.31433 47.24305 female
+## 85  40.79439 39.31121 42.27758   male
+## 86  40.79439 39.31121 42.27758   male
+## 87  40.79439 39.31121 42.27758   male
+## 88  45.27869 43.31433 47.24305 female
+## 89  45.27869 43.31433 47.24305 female
+## 90  40.79439 39.31121 42.27758   male
+## 91  45.27869 43.31433 47.24305 female
+## 92  45.27869 43.31433 47.24305 female
+## 93  45.27869 43.31433 47.24305 female
+## 94  45.27869 43.31433 47.24305 female
+## 95  45.27869 43.31433 47.24305 female
+## 96  45.27869 43.31433 47.24305 female
+## 97  40.79439 39.31121 42.27758   male
+## 98  45.27869 43.31433 47.24305 female
+## 99  45.27869 43.31433 47.24305 female
+## 100 40.79439 39.31121 42.27758   male
+## 101 40.79439 39.31121 42.27758   male
+## 102 40.79439 39.31121 42.27758   male
+## 103 40.79439 39.31121 42.27758   male
+## 104 45.27869 43.31433 47.24305 female
+## 105 40.79439 39.31121 42.27758   male
+## 106 40.79439 39.31121 42.27758   male
+## 107 40.79439 39.31121 42.27758   male
+## 108 45.27869 43.31433 47.24305 female
+## 109 40.79439 39.31121 42.27758   male
+## 110 45.27869 43.31433 47.24305 female
+## 111 40.79439 39.31121 42.27758   male
+## 112 40.79439 39.31121 42.27758   male
+## 113 40.79439 39.31121 42.27758   male
+## 114 40.79439 39.31121 42.27758   male
+## 115 45.27869 43.31433 47.24305 female
+## 116 45.27869 43.31433 47.24305 female
+## 117 40.79439 39.31121 42.27758   male
+## 118 40.79439 39.31121 42.27758   male
+## 119 40.79439 39.31121 42.27758   male
+## 120 40.79439 39.31121 42.27758   male
+## 121 40.79439 39.31121 42.27758   male
+## 122 40.79439 39.31121 42.27758   male
+## 123 40.79439 39.31121 42.27758   male
+## 124 40.79439 39.31121 42.27758   male
+## 125 45.27869 43.31433 47.24305 female
+## 126 45.27869 43.31433 47.24305 female
+## 127 40.79439 39.31121 42.27758   male
+## 128 40.79439 39.31121 42.27758   male
+## 129 40.79439 39.31121 42.27758   male
+## 130 40.79439 39.31121 42.27758   male
+## 131 45.27869 43.31433 47.24305 female
+## 132 40.79439 39.31121 42.27758   male
+## 133 40.79439 39.31121 42.27758   male
+## 134 40.79439 39.31121 42.27758   male
+## 135 40.79439 39.31121 42.27758   male
+## 136 45.27869 43.31433 47.24305 female
+## 137 40.79439 39.31121 42.27758   male
+## 138 40.79439 39.31121 42.27758   male
+## 139 45.27869 43.31433 47.24305 female
+## 140 45.27869 43.31433 47.24305 female
+## 141 40.79439 39.31121 42.27758   male
+## 142 40.79439 39.31121 42.27758   male
+## 143 40.79439 39.31121 42.27758   male
+## 144 40.79439 39.31121 42.27758   male
+## 145 40.79439 39.31121 42.27758   male
+## 146 40.79439 39.31121 42.27758   male
+## 147 45.27869 43.31433 47.24305 female
+## 148 40.79439 39.31121 42.27758   male
+## 149 45.27869 43.31433 47.24305 female
+## 150 45.27869 43.31433 47.24305 female
+## 151 45.27869 43.31433 47.24305 female
+## 152 40.79439 39.31121 42.27758   male
+## 153 40.79439 39.31121 42.27758   male
+## 154 40.79439 39.31121 42.27758   male
+## 155 45.27869 43.31433 47.24305 female
+## 156 45.27869 43.31433 47.24305 female
+## 157 40.79439 39.31121 42.27758   male
+## 158 40.79439 39.31121 42.27758   male
+## 159 45.27869 43.31433 47.24305 female
+## 160 40.79439 39.31121 42.27758   male
+## 161 40.79439 39.31121 42.27758   male
+## 162 40.79439 39.31121 42.27758   male
+## 163 40.79439 39.31121 42.27758   male
+## 164 40.79439 39.31121 42.27758   male
+## 165 45.27869 43.31433 47.24305 female
+## 166 40.79439 39.31121 42.27758   male
+## 167 40.79439 39.31121 42.27758   male
+## 168 40.79439 39.31121 42.27758   male</code></pre>
+<p>Then, we plot!</p>
+<div class="puzzle">
+<p><strong>You try!</strong>*</p>
+<p>For this exercise, make a simple bar chart displaying the average Openness sum for females and the average Openness sum for males.</p>
+<p><em>Hint: We want to use the fitted values instead of the raw data for this plot, so treat the fit column as the outcome variable.</em></p>
+</div>
+<div class="fyi">
+<p>This exercise is a little harder than it looks, so don’t worry if you run into some hurdles! We will talk a lot more about making plots (and making pretty plots!) when we get to the <strong>Data Viz</strong> section, but you can reference the basics in the <a href="/lectures/09-lecture">Stats &amp; Plot</a> section.</p>
+<p>For some help, the mean is not explicitly in the data frame, so you will either have to create an Openness mean score for females and males in the data frame, or use geom_bar(aes(), stat = “summary”, fun = “mean”).</p>
+<p>Also, if you want to create error bars using the output from the predict() function above, you can use geom_errorbar(). It may seem confusing at the beginning, but it is quite intuitive when you know what is going on.</p>
+<p>You can refer to my code below for help once you try it yourself!</p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/10-learnr-app2/" id="learnr-10-app2" %}}
+<p>As you learn more about ggplot, you can make plots that look like this:</p>
+<pre class="r"><code>china_plot |&gt;
+  ggplot() +
+  geom_bar(aes(x = gender, y = fit, fill = gender), 
+           #stat and fun is used to plot the means of the predicted values
+           stat = &quot;summary&quot;, fun = &quot;mean&quot;, width = 0.75, alpha = 0.5) +
+  geom_errorbar(aes(x = gender, ymin = lwr, ymax = upr), width = 0.1, size = 0.75) +
+  #geom_point() is for adding in the individual data points
+  geom_point(aes(x = factor(gender), y = fit, color = gender), 
+             position = &quot;jitter&quot;, alpha = 0.5) +
+  scale_x_discrete(labels = c(&quot;female&quot; = &quot;Female&quot;, &quot;male&quot; = &quot;Male&quot;)) +
+  ylim(0, 50) + #changing the limits of the y-axis
+  labs(
+    title = &quot;Gender Differences in Openness&quot;,
+    subtitle = &quot;(95% Confidence Intervals)&quot;,
+    x = &quot;Gender&quot;,
+    y = &quot;Predicted Openness (Sum)&quot;
+  ) +
+  theme_classic() +
+  #the below code is all for editing the size and positioning of the titles and labels
+  theme(plot.title = element_text(size = 14, hjust = 0.5, face = &quot;bold&quot;),
+        plot.subtitle = element_text(size = 14, hjust = 0.5),
+        axis.title.x = element_text(size = 12),
+        axis.title.y = element_text(size = 12, margin = margin(r = 10)),
+        legend.position = &quot;none&quot;)</code></pre>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<p><img src="/practice/32-practice_files/figure-html/unnamed-chunk-16-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tidyr" class="section level3">
+<h3>tidyr</h3>
+<p>Now, in utilizing functions from the <strong>tidyr</strong> package in Tidyverse, we can make more complex transformations to the data frame to answer more questions about our data.</p>
+<p>We are, after all, interested in looking at the associations between personality traits and online/gaming behavior, so let’s take a look!</p>
+<p>For this, let’s focus on Neuroticism, the trait revolving around the tendency to experience and regulate negative emotions. Neuroticism has been found to be positively associated with Internet addiction (Kayiş et al., 2016), and people high in Neuroticism tend to use social media to find support (Tang et al., 2016).</p>
+<p>So, we can hypothesize that Neuroticism will be positively associated with having more online, Steam friends.</p>
+<p>To do this, we can, for example, take the column that we made with personality trait sums and see if it is correlated with the number of friends one has:</p>
+<pre class="r"><code>cor.test(china_sum_2$Neuro_sum, china_sum_2$number_of_friends)</code></pre>
+<pre><code>## 
+## 	Pearson&#39;s product-moment correlation
+## 
+## data:  china_sum_2$Neuro_sum and china_sum_2$number_of_friends
+## t = 2.27, df = 117, p-value = 0.02504
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.02636873 0.37164556
+## sample estimates:
+##       cor 
+## 0.2053894</code></pre>
+<p>We find that there is a positive correlation: the higher a participant is in Neuroticism, the more Steam friends they have.</p>
+<div id="creating-composite-scores" class="section level4">
+<h4>Creating composite scores</h4>
+<p>However, while using the sum of personality items to make a trait score is a simple and intuitive metric, that is not what is typically used by personality researchers. Instead, we use <em>composite scores</em> to make trait scores, which is the <strong>average</strong> score across the item responses.</p>
+<p>In addition, the 12 items that correspond to each of the 5 personality traits also belong to different facets: sub-domains within each trait. The BFI-2 measures 3 facets per personality trait (which can be seen by the lower-case letter at the end of each item name), with 4 items for each trait tapping into each related facet. For Neuroticism, <em>Anxiety</em>, <em>Depression</em>, and <em>Emotional Volatility</em> are the different facets.</p>
+<p>Therefore, we might want to look at possible relationships between online friends and these different facets, not just overall Neuroticism.</p>
+<p>To look at all of these different constructs, we need to create composite scores for each, and we can do this using <strong>pivot_longer()</strong>.</p>
+<p>First, let’s use pivot_longer() to make a data frame with only our Neuroticism items using select().</p>
+<pre class="r"><code>#remember to also include our grouping variable &quot;id&quot;
+(neuro_long &lt;- china_sum_2 |&gt;
+  dplyr::select(id, starts_with(&quot;N_&quot;)) |&gt;
+  pivot_longer(
+    cols = -id,
+    names_to = &quot;item&quot;,
+    values_to = &quot;score&quot;
+  ))</code></pre>
+<pre><code>## # A tibble: 2,016 × 3
+##       id item   score
+##    &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+##  1     1 N_1_a      1
+##  2     1 N_2_d      1
+##  3     1 N_3_e      1
+##  4     1 N_4_a      2
+##  5     1 N_5_d      1
+##  6     1 N_6_e      1
+##  7     1 N_7_a      2
+##  8     1 N_8_d      1
+##  9     1 N_9_e      1
+## 10     1 N_10_a     2
+## # ℹ 2,006 more rows</code></pre>
+<p>Now we have a data frame with 2,016 observations!</p>
+<p>To get facet scores, R needs to know which items belong to which facet of Neuroticism. We, therefore, need to separate the ending letter from each item into another column using another tidyr function, <strong>separate()</strong>:</p>
+<pre class="r"><code>(facet_long_1 &lt;- neuro_long |&gt;
+  separate(col = item,
+           into = c(&quot;item&quot;, &quot;facet&quot;)))</code></pre>
+<pre><code>## Warning: Expected 2 pieces. Additional pieces discarded in 2016 rows [1, 2, 3, 4, 5, 6,
+## 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].</code></pre>
+<pre><code>## # A tibble: 2,016 × 4
+##       id item  facet score
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
+##  1     1 N     1         1
+##  2     1 N     2         1
+##  3     1 N     3         1
+##  4     1 N     4         2
+##  5     1 N     5         1
+##  6     1 N     6         1
+##  7     1 N     7         2
+##  8     1 N     8         1
+##  9     1 N     9         1
+## 10     1 N     10        2
+## # ℹ 2,006 more rows</code></pre>
+<p>When we do separate() here, however, we lose the item number information, and R gives us a warning telling us that this happened. This is because there are two underscores in the item names that it is picking up on.</p>
+<p>To prevent this, we will need to use separate() to split them into three columns first, and then we can use <strong>unite()</strong> to join the trait and item number values back together:</p>
+<pre class="r"><code>(facet_long_2 &lt;- neuro_long |&gt;
+  separate(col = item,
+           into = c(&quot;trait&quot;, &quot;item_number&quot;, &quot;facet&quot;)) |&gt;
+  unite(col = &quot;item&quot;,
+        trait, item_number,
+        sep = &quot;_&quot;))</code></pre>
+<pre><code>## # A tibble: 2,016 × 4
+##       id item  facet score
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
+##  1     1 N_1   a         1
+##  2     1 N_2   d         1
+##  3     1 N_3   e         1
+##  4     1 N_4   a         2
+##  5     1 N_5   d         1
+##  6     1 N_6   e         1
+##  7     1 N_7   a         2
+##  8     1 N_8   d         1
+##  9     1 N_9   e         1
+## 10     1 N_10  a         2
+## # ℹ 2,006 more rows</code></pre>
+<p>Now, we can explicitly tell R which items belong to which facet of Neuroticism, and we will use this variable to calculate facet-level composite scores.</p>
+<div class="puzzle">
+<p><strong>You try!</strong>*
+We want each participant to have 3 composite (average) scores, one for each facet.</p>
+<ul>
+<li><p>What will we need to include in group_by() to do this?</p></li>
+<li><p>What operation within mutate() will we use to make the composites?</p></li>
+</ul>
+<p><em>Hint: Remember when we used group_by(id) to get the correct column of personality score sums, per person.</em></p>
+</div>
+{{% learnr url="https://shelly-cooper.shinyapps.io/10-learnr-app3/" id="learnr-10-app3" %}}
+<p>Here, we create the facet composite scores:</p>
+<pre class="r"><code>(facet_long_3 &lt;- facet_long_2 |&gt;
+  group_by(id, facet) |&gt;
+  mutate(
+    facet_comp = mean(score, na.rm = TRUE)
+  ) |&gt; ungroup())</code></pre>
+<pre><code>## # A tibble: 2,016 × 5
+##       id item  facet score facet_comp
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;      &lt;dbl&gt;
+##  1     1 N_1   a         1       1.75
+##  2     1 N_2   d         1       1   
+##  3     1 N_3   e         1       1   
+##  4     1 N_4   a         2       1.75
+##  5     1 N_5   d         1       1   
+##  6     1 N_6   e         1       1   
+##  7     1 N_7   a         2       1.75
+##  8     1 N_8   d         1       1   
+##  9     1 N_9   e         1       1   
+## 10     1 N_10  a         2       1.75
+## # ℹ 2,006 more rows</code></pre>
+<p>By using group_by(id, facet), we group by both of these variables to get a composite score of each facet that within each participant’s own data.</p>
+<p>We are not done, however, as there is some unnecessary repetition going on in the facet_comp variable; Even though the calculations were done correctly, the facet names are repeating within each person.</p>
+<p>We can take the mean of facet_comp, grouping by id and facet, again, which will give us a single score for each facet within each participant:</p>
+<pre class="r"><code>(facet_long_4 &lt;- facet_long_3 |&gt;
+  group_by(id, facet) |&gt;
+  summarise(
+    facet_comp = mean(facet_comp, na.rm = TRUE)
+  ) |&gt; ungroup())</code></pre>
+<pre><code>## # A tibble: 504 × 3
+##       id facet facet_comp
+##    &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
+##  1     1 a           1.75
+##  2     1 d           1   
+##  3     1 e           1   
+##  4     2 a           2.5 
+##  5     2 d           3   
+##  6     2 e           2.75
+##  7     3 a           3   
+##  8     3 d           2   
+##  9     3 e           3.25
+## 10     4 a           3.25
+## # ℹ 494 more rows</code></pre>
+<p>The mean() function works here because facet mean values for each person are the same, so when we take the mean of the same numbers, we get that number!</p>
+<p>Great! Now, we need to move the facets into columns using <strong>pivot_wider()</strong>, which will widen the data frame from the long format we transformed it into.</p>
+<p>Then, we can use mutate() to get participant’s overall Neuroticism composite score by getting the mean of the 3 facet means, per person:</p>
+<pre class="r"><code>(composite_final &lt;- facet_long_4 |&gt;
+  pivot_wider(
+    id_cols = id, #specifying the id column that identifies each observation
+    names_from = facet,
+    values_from = facet_comp
+  ) |&gt; #can use pipe here to go into the next operation
+  group_by(id) |&gt;
+  mutate(
+    Neuro_comp = rowMeans(across(c(a:e)), na.rm = TRUE)
+  ) |&gt; ungroup() |&gt;
+   #we can change the names to be more informative
+   rename(
+     Anxiety = a,
+     Depression = d,
+     Volatility = e
+   ))</code></pre>
+<pre><code>## # A tibble: 168 × 5
+##       id Anxiety Depression Volatility Neuro_comp
+##    &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+##  1     1    1.75       1          1          1.25
+##  2     2    2.5        3          2.75       2.75
+##  3     3    3          2          3.25       2.75
+##  4     4    3.25       2.5        2.75       2.83
+##  5     5    3.75       2.25       2          2.67
+##  6     6    3          3.25       2.75       3   
+##  7     7    2.75       2          1.75       2.17
+##  8     8    3.75       3          2          2.92
+##  9     9    4          4.25       3.5        3.92
+## 10    10    3.5        3.25       3.75       3.5 
+## # ℹ 158 more rows</code></pre>
+<p>Now we have what we want: One row for each participant, and each of their composite scores as columns.</p>
+</div>
+<div id="correlations" class="section level4">
+<h4>Correlations</h4>
+<p>Now, we need the outcome variable “number_of_friends” to look at the relationships between Neuroticism and online friends.</p>
+<p>To get a complete and clean data frame, we can bring in the outcome variable from our previous data frame and remove the rows with NA values that will be dropped from the cor.test() operation using <strong>na.omit()</strong>:</p>
+<pre class="r"><code>(Neuro_friends &lt;- composite_final |&gt;
+  mutate(
+    number_of_friends = china_sum_2$number_of_friends
+  ) |&gt;
+  na.omit())</code></pre>
+<pre><code>## # A tibble: 119 × 6
+##       id Anxiety Depression Volatility Neuro_comp number_of_friends
+##    &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;             &lt;dbl&gt;
+##  1     1    1.75       1          1          1.25                26
+##  2     2    2.5        3          2.75       2.75                 4
+##  3     4    3.25       2.5        2.75       2.83                 3
+##  4     5    3.75       2.25       2          2.67                14
+##  5     6    3          3.25       2.75       3                    2
+##  6     7    2.75       2          1.75       2.17                 1
+##  7     8    3.75       3          2          2.92                 8
+##  8     9    4          4.25       3.5        3.92               119
+##  9    12    2.25       2.75       1.5        2.17                 6
+## 10    14    2.25       2.5        3          2.58                 2
+## # ℹ 109 more rows</code></pre>
+<p>We have a nice and clean data frame!</p>
+<p>Let’s run the correlation:</p>
+<pre class="r"><code>cor.test(Neuro_friends$Neuro_comp, Neuro_friends$number_of_friends)</code></pre>
+<pre><code>## 
+## 	Pearson&#39;s product-moment correlation
+## 
+## data:  Neuro_friends$Neuro_comp and Neuro_friends$number_of_friends
+## t = 2.27, df = 117, p-value = 0.02504
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.02636873 0.37164556
+## sample estimates:
+##       cor 
+## 0.2053894</code></pre>
+<p>Great! We found a positive correlation between Neuroticism and the number of Steam friends: The a higher a person is in Neuroticism, the more online friends they tend to have.</p>
+<p>But, to incorporate the facet scores we have made, are their specific facets of Neuroticism that are driving this prediction? In other words, is each facet of Neuroticism related to the number of Steam friends one has, or is it just Depression, for example?</p>
+<p>Let us see!</p>
+<pre class="r"><code>cor.test(Neuro_friends$Anxiety, Neuro_friends$number_of_friends)</code></pre>
+<pre><code>## 
+## 	Pearson&#39;s product-moment correlation
+## 
+## data:  Neuro_friends$Anxiety and Neuro_friends$number_of_friends
+## t = 1.0639, df = 117, p-value = 0.2896
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.08358552  0.27306720
+## sample estimates:
+##        cor 
+## 0.09788267</code></pre>
+<pre class="r"><code>cor.test(Neuro_friends$Depression, Neuro_friends$number_of_friends)</code></pre>
+<pre><code>## 
+## 	Pearson&#39;s product-moment correlation
+## 
+## data:  Neuro_friends$Depression and Neuro_friends$number_of_friends
+## t = 2.2879, df = 117, p-value = 0.02394
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.02798421 0.37303810
+## sample estimates:
+##       cor 
+## 0.2069374</code></pre>
+<pre class="r"><code>cor.test(Neuro_friends$Volatility, Neuro_friends$number_of_friends)</code></pre>
+<pre><code>## 
+## 	Pearson&#39;s product-moment correlation
+## 
+## data:  Neuro_friends$Volatility and Neuro_friends$number_of_friends
+## t = 2.4569, df = 117, p-value = 0.01548
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.04322843 0.38610249
+## sample estimates:
+##       cor 
+## 0.2215005</code></pre>
+<p>Interesting! As we can see here, Anxiety is unrelated to how many Steam friends one has, but both Depression and Emotional Volatility are positively associated with number of friends to similar degrees. Very cool.</p>
+</div>
+</div>
+</div>

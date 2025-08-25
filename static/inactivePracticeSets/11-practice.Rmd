@@ -5,12 +5,7 @@ output:
   blogdown::html_page:
     toc: true
     css: "/slides/css/additionalCols.css"
-menu:
-  practice:
-    parent: Tidyverse
-    weight: 11
 type: docs
-weight: 11
 editor_options: 
   chunk_output_type: console
 shiny: true

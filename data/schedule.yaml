@@ -81,13 +81,13 @@ lectures:
   - title: 'Using Dplyr'
     session: 11
     lectures: "11-lecture"
-    practice: "11-practice"
+    practice: "32-practice"
     assignments: "03-assignment"
     
   - title: 'Using Tidyr'
     session: 12
     lectures: "12-lecture"
-    practice: "12-practice"
+    practice: "32-practice"
     assignments: "03-assignment"
 
   - title: '**Data Visualization**'
