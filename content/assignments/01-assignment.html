@@ -1,0 +1,93 @@
+---
+title: "Assignment 1"
+linktitle: "# 1"
+date: "6/16/2020"
+due_date: "2025-09-15"
+due_time: "8:30am"
+output:
+  blogdown::html_page:
+    css: "/slides/css/additionalCols.css"
+menu:
+  assignment:
+    parent: Assignments
+    weight: 1
+type: docs
+weight: 1
+editor_options: 
+  chunk_output_type: console
+---
+
+  <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
+
+
+<div id="assignment" class="section level1">
+<h1>Assignment</h1>
+<div id="introduction-data-cleaning-management" class="section level3">
+<h3>Introduction: Data Cleaning &amp; Management</h3>
+<p>The following are important steps to take for any code you might run. You want to make sure things look the way they ought to look, and that you (and whoever is reading your code) knows what is happening.</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
+<ul>
+<li><p>Import your data. This needs to eventually be a line of code at the top of your script.</p></li>
+<li><p>In 1-2 sentences, describe your dataset. No need for a ton of detail, just generally, what’s in it.</p></li>
+<li><p><em>Using code</em>, find the object class of the first 5 column vectors of your data set. Then find the object class of the entire data set. Describe if these make sense, or are there any that were unexpected? If they were unexpected, why?</p></li>
+<li><p>Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called <em>factors</em>? If they should be treated as categorical variables, please do so using the <code>factor()</code> function.</p></li>
+</ul>
+</div>
+<p>Here’s a HINT for the last item:</p>
+<ul>
+<li><code>new_column &lt;- factor(data$column)</code> makes a completely new object outside of the dataset.</li>
+<li><code>data$new_column &lt;- factor(data$column)</code> makes a new column that lives within the existing dataset.</li>
+<li><code>data$column &lt;- factor(data$column)</code> overwrites the original column.</li>
+</ul>
+</div>
+<div id="results-summary-statistics-part-1" class="section level3">
+<h3>Results: Summary Statistics – Part 1</h3>
+<p>One of the first items in the “Results” section of an academic paper is to look at summary statistics of the variables of interest. Here’s your shot!</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
+<ul>
+<li><p>For 2 of your numeric/integer variables, get the mean, standard deviation, and range. If you don’t know the function names, Google it!</p></li>
+<li><p>For your categorical variable, get very quick counts of each level (e.g., how many observations are there in group 1 vs. group 2).</p></li>
+</ul>
+</div>
+<p>Here are some HINTS:</p>
+<ul>
+<li>In your functions, pay attention to missing data!</li>
+<li>The easiest function to use for your second to-do item was shown in the slides under “commonly used functions”.</li>
+</ul>
+</div>
+<div id="results-summary-statistics-part-2" class="section level3">
+<h3>Results: Summary Statistics – Part 2</h3>
+<p>Another thing we check in the Results section of a paper is whether our variables of interest might differ based on something we don’t want. For example, if all of our male participants were notably older than all of our female participants, it might screw up the interpretation of our results.</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
+<ul>
+<li><p>Make a smaller datasets that only contain items from each level of your categorical variable. For example, let’s say the factor “treatment_group” had 2 levels: <code>treatment</code> and <code>control</code>. Make a new data.frame that is something like <code>data_treatment</code> and another new data.frame that is <code>data_controls</code>. Do this via INDEXING and LOGICAL OPERATORS. See hints below for an example what is meant by a smaller dataset.</p></li>
+<li><p>One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame – even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls).</p></li>
+<li><p>Now repeat the same summary statistics from above (for the numeric/integers only) but on each of your new mini data.frames. Do these numbers seem dramatically different or are they similar? What does that mean for your analysis?</p></li>
+</ul>
+</div>
+<p>Here is a HINT:</p>
+<ul>
+<li><p>Logical operators result in <code>TRUE</code> or <code>FALSE</code>. You can use this within indexing so that anything that evaluates to <code>TRUE</code> will be either the rows or the columns that are kept.</p></li>
+<li><p>If this is your original dataset…</p></li>
+</ul>
+<center>
+<img src="../miscfigs/figure-html/original.png" width = "40%">
+</center>
+<ul>
+<li>Then the smaller datasets might look like these:</li>
+</ul>
+<center>
+<img src="../miscfigs/figure-html/miniA.png" width = "40%">
+</center>
+<center>
+<img src="../miscfigs/figure-html/miniB.png" width = "40%">
+</center>
+</div>
+<div id="congrats-youve-finished" class="section level3">
+<h3>Congrats, you’ve finished!</h3>
+<p>Submit both your code and your data file to Canvas.</p>
+</div>
+</div>
