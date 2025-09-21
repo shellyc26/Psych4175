@@ -21,97 +21,127 @@ library(readr)
 library(tidyverse)
 library(devtools)
 library(knitr)
-library(kableExtra)
+library(flair)
 knitr::opts_chunk$set(fig.width = 6, fig.height = 4.5, fig.align = "center")
 ```
 
 ## Tidyverse
 
-Without data, there would be no science. Without *clean* data, there would be no analysis! So, just because researchers have data **does not** mean they can simply throw it into a statistical test and be done with it.
+Without data, there would be no science. Without *clean* data, there
+would be no analysis! Just because researchers have data **does not**
+mean they can simply throw it into a regression and be done with it.
 
-In reality, researchers spend much more time cleaning and preparing their data than actually analyzing it: up to **80%** of the time spent on data analysis tasks dealt with simply cleaning data (Dasu & Johnson, 2003)!
+In reality, researchers spend much more time cleaning and preparing
+their data than actually analyzing it: up to **80%** of the time spent
+on data analysis tasks dealt with simply cleaning data (Dasu & Johnson,
+2003)!
 
-Evidently, data cleaning is vital to research, but it is not as difficult as it may seem! Fortunately, the collection of `R` packages in **Tidyverse** make data cleaning incredibly less arduous and painstaking; therefore, learning how to work with Tidyverse will make your life all the more simple.
+Evidently, data cleaning is vital to research, but it is not as
+difficult as it may seem! Fortunately, the collection of R packages in
+**Tidyverse** make data cleaning incredibly less arduous and
+painstaking; therefore, learning how to work with Tidyverse will make
+your life all the more simple.
 
 ### dplyr
 
-The first (and arguably most important) of Tidyverse's core packages is `dplyr`. Of this package, we will focus on the five functions arguably most vital for data cleaning:
+The first (and arguably most important) of Tidyverse's core packages is
+**dplyr**. Of this package, we will focus on the five functions arguably
+most vital for data cleaning:
 
--   `filter()`
--   `select()`
--   `mutate()`
--   `summarise()`
--   `group_by()`
+-   **filter()**
+-   **select()**
+-   **mutate()**
+-   **summarise()**
+-   **group_by()**
 
-We will begin with using dplyr on the **steam_hw** dataset. The data comes from researcher Hao Lin at Tianjin University of Technology (Lin, 2024). Broadly, their research revolves around relationships between Big Five personality traits and online gaming behavior, primarily Steam platform activity.
+We will begin with using dplyr on the **steam_hw** dataset. The data
+comes from researcher Hao Lin at Tianjin University of Technology (Lin,
+2024). Broadly, their research revolves around relationships between Big
+Five personality traits and online gaming behavior, primarily Steam
+platform activity.
 
 #### Loading in the data
 
-When you load in the dataset, the first column (usually labeled *...1* if using `read_csv()`) contains values indexing the row number, which is redundant with the row names of the data frame that already show this.
+When you load in the dataset, the first column (usually labeled *...1*
+if using `read_csv()`) contains values indexing the row number, which is
+redundant with the row names of the data frame that already show this.
 
-Let's take a look at the dataset:
-
-```{r, echo=FALSE, warning = FALSE, message = FALSE}
-steam_hw_URL <- "https://raw.githubusercontent.com/derekasimon/Rstats_AI/refs/heads/main/steam_hw.csv"
-
-steam_hw <- read_csv(steam_hw_URL)
-
-kable(head(steam_hw))
-```
-
-I like to remove this column to reduce clutter, and we can do that by using the `select()` function.
+I like to remove this column to reduce clutter, and we can do that by
+using the `select()` function.
 
 **Hint**
 
-Remember from the lecture that `select()` can not only be used to choose which columns you want to keep, but also ones you want to get rid of:
+Remember from the lecture that `select()` can not only be used to choose
+which columns you want to keep, but also ones you want to get rid of:
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+steam_hw_URL <- "https://raw.githubusercontent.com/derekasimon/Rstats_AI/refs/heads/main/steam_hw.csv"
+
 steam_hw <- read_csv(steam_hw_URL) |>
-  dplyr::select(-1)
-
-kable(head(steam_hw))
+  select(-1)
 ```
 
 #### Filtering the data
 
-Since this data was collected from a Chinese institution, I may be interested in looking at the gaming behavior of *only* Chinese participants.
+Since this data was collected from a Chinese institution, I may be
+interested in looking at the gaming behavior of *only* Chinese
+participants.
 
-To make sure I am only making inferences on Chinese participants, we would need to `filter()` participants who are only from China.
+To make sure I am only making inferences on Chinese participants, we
+would need to filter() participants who are only from China.
 
-We can quickly view the contents of *only* the **country** column by using the `select()` function.
+We can quickly view the contents of *only* the **country** column by
+using the `select()` function.
 
 ```{r}
-steam_country <- steam_hw |>
-  dplyr::select(country)
-
-nrow(steam_country)
+steam_hw |>
+  select(country) |>
+  print()
 ```
 
-```{r, echo=FALSE}
-steam_country %>%
-  kable("html") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
-  scroll_box(width = "100%", height = "300px")
-```
+::: puzzle
+**You try!**
 
-We can see here that there are **3** participants not from China. I want to remove them from the data set, and I can do that using `filter()`.
+What is the code for viewing the age column?
+:::
+
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app2"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
+
+We can see here that there are **3** participants not from China. I want
+to remove them from the data set, and I can do that using `filter()`.
 
 ```{r}
 steam_china_1 <- steam_hw |>
   filter(country == "china")
-
-nrow(steam_china_1)
 ```
 
-However, if we look at this new data frame, our number of participants (i.e., rows) dropped from **171** to **149**. This is much more than just 3 participants that we are removing.
+::: puzzle
+**You try!**
+
+What if I wanted to have a data frame with only people from Guatemala? Store this as an object called `steam_guatemala`.
+:::
+
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app3"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
+
+If we look at this new data frame, our number of participants (i.e.,
+rows) dropped from **171** to **149**. This is much more than just 3
+participants that we are removing.
 
 What happened? Is there something wrong with the `filter()` function?
 
-Looking back at the original data set, you can see that while the majority of participants' country values are "china", others responded with "China", and this difference in capitalization is causing the filtering to go wrong.
+There are a couple ways we can tackle this, and they involve using
+*logical operators*.
 
-There are a couple ways we can tackle this, and they involve using *logical operators*.
-
-We could, instead, filter out the other countries that are **not** China:
+We could, instead, filter out the other countries that are **not**
+China:
 
 ```{r}
 steam_china_2 <- steam_hw |>
@@ -120,20 +150,43 @@ steam_china_2 <- steam_hw |>
 
 There are a couple of things to notice with the above code chunk.
 
-1)  I used `!` with filter: the `!` means **"not"**, so I am keeping the observations that are **not** following the subsequent filter specifications.
+1)  I used **!** with filter: the ! means **"not"**, so I am keeping the
+    observations that are **not** following the subsequent filter
+    specifications.
 
-2)  Because there are 3 different countries in the country column that I am not interested in, I need to list these 3 in the `filter()` function. For this to work, I used `"|"` which means "or". So I am only keeping participants who did not respond with Afghanistan or Australia or Guatemala.
+2)  Because there are 3 different countries in the country column that I
+    am not interested in, I need to list these 3 in the `filter()`
+    function. For this to work, I used **"\|"** which means "or". So I
+    am only keeping participants who did not respond with Afghanistan or
+    Australia or Guatemala.
 
-This won't be the most efficient way if there are more than 3 countries you would have to specify in the `filter()` command.
+This won't be the most efficient way if there are more than 3 countries
+you would have to specify in the `filter()` command.
 
-Something that may be more efficient is to use the same **or** logical operator for those who capitalized "China":
+::: puzzle
+**You try!**
 
-```{r}
-steam_china_3 <- steam_hw |>
+What is another way to filter for participants from China
+that takes this spelling difference into consideration? Call the output `steam_china`. 
+
+*Hint: Remember the logical operators.*
+:::
+
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app4"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
+
+```{r, message = FALSE, warning = FALSE, echo=FALSE}
+steam_china <- steam_hw |>
   filter(country == "china" | country == "China")
 ```
 
-This is definitely quicker, and both options created a data frame with 168 observations: 3 less than the 171 we initially worked with, showing that we have now filtered the correct number of participants.
+  
+Regardless, we now have a data frame with 168 observations: 3 less than
+the 171 we initially worked with, showing that we have now filtered the
+correct number of participants.
 
 :::puzzle
 **You try!**
@@ -169,12 +222,12 @@ A simple metric is to take the sum of numeric response from each item, so partic
 
 So, let us make 5 new variables that will give us the sum of participant's trait scores along each of the 5 personality traits.
 
-To do so, we need to sum across the items that correspond to each trait, separately (e.g., all Extraversion items summed together, all Agreeableness items, etc.). To do this, we can use **across()**, which will apply a function over multiple columns, and combine that with the selecting function **starts_with()**, which we can use to specify which columns we want to sum across for each of the new variables we will create.
+To do so, we need to sum across the items that correspond to each trait, separately (e.g., all Extraversion items summed together, all Agreeableness items, etc.). To do this, we can use `across()` which will apply a function over multiple columns, and combine that with the selecting function `starts_with()`, which we can use to specify which columns we want to sum across for each of the new variables we will create.
 
-These functions are all nested within the **mutate()** command, which will add these new columns to the data frame:
+These functions are all nested within the `mutate()` command, which will add these new columns to the data frame:
 
 ```{r}
-china_sum_1 <- steam_china_3 |>
+china_sum_1 <- steam_china |>
   mutate(
     Extra_sum = sum(across(starts_with("E_")), na.rm = TRUE),
     Agre_sum = sum(across(starts_with("A_")), na.rm = TRUE),
@@ -191,7 +244,7 @@ In this new data frame, we successfully summed across the proper items, but the 
 To do this, we need to make use of the `group_by()` function:
 
 ```{r}
-china_sum_2 <- steam_china_3 |>
+china_sum_2 <- steam_china |>
   group_by(id) |>
   mutate(
     Extra_sum = sum(across(starts_with("E_")), na.rm = TRUE),
@@ -199,7 +252,8 @@ china_sum_2 <- steam_china_3 |>
     Cons_sum = sum(across(starts_with("C_")), na.rm = TRUE),
     Neuro_sum = sum(across(starts_with("N_")), na.rm = TRUE),
     Open_sum = sum(across(starts_with("O_")), na.rm = TRUE)
-  ) |> ungroup()
+  ) |>
+  ungroup()
 
 kable(china_sum_2[c(1:10), c(73:77)])
 ```
@@ -212,7 +266,7 @@ Now that we have some metric of participants' personality scores, we can do some
 
 Since we have a gender variable, I might be interested in looking at, potentially, personality differences that emerge between gender groups.
 
-We can take a quick glance at such differences using group_by() and `summarise()`:
+We can take a quick glance at such differences using `group_by()` and `summarise()`:
 
 ```{r}
 china_sum_2 |>
@@ -228,6 +282,28 @@ china_sum_2 |>
 
 Using `summarise()` across each of the personality trait sum columns we just made, after grouping by our gender variable, we get a 2x6 data frame of the average sum for each personality trait between male and female participants.
 
+::: puzzle
+**You try!**
+
+How could I get this get summary but looking across the different age
+groups? Call the new columns:
+
+  - Extra_avg
+  - Agre_avg
+  - Cons_avg
+  - Neuro_avg
+  - Open_avg
+
+*Hint: How do you deal with missing data?*
+:::
+
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app5/"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
+
+
 Notice, as well, that the shape of the data frame changed dramatically using `summarise()`.
 
 :::quiz
@@ -240,66 +316,35 @@ Notice, as well, that the shape of the data frame changed dramatically using `su
         scrolling="auto">
 </iframe>
 
-# LOOK AT TIMING AND CUT SECTION IF NEEDED
+There seems to be relatively no differences between the gender groups
+for most of the personality sums, but one seems relatively large.
 
-There seems to be relatively no differences between the groups for most of the personality sums, but Openness seems to be large.
-
-We can test formally test this using the statistical functions from the previous chapter [Stats & Plot](/lectures/09-lecture)!
+We can test formally test this using the statistical functions from the
+previous chapter [Stats & Plot](/lectures/09-lecture)!
 
 ```{r}
 fit_Open <- lm(Open_sum ~ factor(gender), data = china_sum_2)
 
-(summ_Open <- summary(fit_Open)) #if you put parentheses around the whole expression it will print it out below
+(summ_Open <- summary(fit_Open))
 ```
 
-From the summary, we do, indeed, find that there is a significant difference in average Openness between males and females.
+From the summary, we do, indeed, find that there is a significant
+difference in average Openness between males and females.
 
-And, for better visualization, we can plot this difference!
+And, for better visualization, we can plot this difference! As we learn
+about data visualization, you can get plots that look like this:
 
-First, we use the `predict()` function with `interval = "confidence"`. This will return fitted values, and values to be used to make our confidence intervals. We can make this predict() object into a data frame, and then make a "gender" column in this new data frame that will be populated with the gender values from our previous data frame.
-
-```{r}
+```{r, message=FALSE, warning=FALSE}
 china_plot <- as.data.frame(predict(fit_Open, interval = "confidence"))
 
 china_plot$gender <- china_sum_2$gender
 
-print(china_plot)
-```
-
-Then, we plot!
-
-:::puzzle
-**You try!***
-
-For this exercise, make a simple bar chart displaying the average Openness sum for females and the average Openness sum for males.
-
-:::
-
-:::fyi
-This exercise is a little harder than it looks, so don't worry if you run into some hurdles! We will talk a lot more about making plots (and making pretty plots!) when we get to the **Data Viz** section, but you can reference the basics in the [Stats & Plot](/lectures/09-lecture) section.
-
-For some help, the mean is not explicitly in the data frame, so you will either have to create an Openness mean score for females and males in the data frame.
-
-You can refer to my code below for help once you try it yourself!
-:::
-
-```{r, echo=FALSE}
-
-blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/10-learnr-app2/",
-                    id = "learnr-10-app2")
-
-```
-
-As you learn more about ggplot, you can make plots that look like this:
-
-```{r}
 china_plot |>
   ggplot() +
   geom_bar(aes(x = gender, y = fit, fill = gender), 
            #stat and fun is used to plot the means of the predicted values
            stat = "summary", fun = "mean", width = 0.75, alpha = 0.5) +
-  geom_errorbar(aes(x = gender, ymin = lwr, ymax = upr), width = 0.1, size = 0.75) +
+  geom_errorbar(aes(x = gender, ymin = lwr, ymax = upr), width = 0.1, linewidth = 0.75) +
   #geom_point() is for adding in the individual data points
   geom_point(aes(x = factor(gender), y = fit, color = gender), 
              position = "jitter", alpha = 0.5) +
@@ -322,74 +367,81 @@ china_plot |>
 
 ### tidyr
 
-Now, in utilizing functions from the **tidyr** package in Tidyverse, we can make more complex transformations to the data frame to answer more questions about our data.
+Now, in utilizing functions from the **tidyr** package in Tidyverse, we
+can make more complex transformations to the data frame to answer more
+questions about our data.
 
-We are, after all, interested in looking at the associations between personality traits and online/gaming behavior, so let's take a look!
+For this, let's focus on Neuroticism, the trait revolving around the
+tendency to experience and regulate negative emotions. Neuroticism has
+been found to be positively associated with Internet addiction (Kayiş et
+al., 2016), and people high in Neuroticism tend to use social media to
+find support (Tang et al., 2016).
 
-For this, let's focus on Neuroticism, the trait revolving around the tendency to experience and regulate negative emotions. Neuroticism has been found to be positively associated with Internet addiction (Kayiş et al., 2016), and people high in Neuroticism tend to use social media to find support (Tang et al., 2016). 
-
-So, we can hypothesize that Neuroticism will be positively associated with having more online, Steam friends.
-
-To do this, we can, for example, take the column that we made with personality trait sums and see if it is correlated with the number of friends one has:
-
-```{r}
-cor.test(china_sum_2$Neuro_sum, china_sum_2$number_of_friends)
-```
-
-We find that there is a positive correlation: the higher a participant is in Neuroticism, the more Steam friends they have.
+So, we can hypothesize that Neuroticism will be positively associated
+with having more online, Steam friends. I ran the code, and it is!
 
 #### Creating composite scores
 
-However, while using the sum of personality items to make a trait score is a simple and intuitive metric, that is not what is typically used by personality researchers. Instead, we use *composite scores* to make trait scores, which is the **average** score across the item responses.
+However, while using the sum of personality items to make a trait score
+is a simple and intuitive metric, that is not what is typically used by
+personality researchers. Instead, we use *composite scores* to make
+trait scores, which is the **average** score across the item responses.
 
-In addition, the 12 items that correspond to each of the 5 personality traits also belong to different facets: sub-domains within each trait. The BFI-2 measures 3 facets per personality trait (which can be seen by the lower-case letter at the end of each item name), with 4 items for each trait tapping into each related facet. For Neuroticism, *Anxiety*, *Depression*, and *Emotional Volatility* are the different facets.
+In addition, the 12 items that correspond to each of the 5 personality
+traits also belong to different facets: sub-domains within each trait.
+The BFI-2 measures 3 facets per personality trait (which can be seen by
+the lower-case letter at the end of each item name), with 4 items for
+each trait tapping into each related facet. For Neuroticism, *Anxiety*,
+*Depression*, and *Emotional Volatility* are the different facets.
 
-Therefore, we might want to look at possible relationships between online friends and these different facets, not just overall Neuroticism.
+To look at all of these different constructs, we need to create
+composite scores for each, and we can do this using **pivot_longer()**.
 
-To look at all of these different constructs, we need to create composite scores for each, and we can do this using `pivot_longer()`.
+First, let's look at how our *wide* data frame looks:
 
-First, let's use `pivot_longer()` to make a data frame with only our Neuroticism items using `select()`.
+```{r}
+print(china_sum_2[1:10, c(1, 8, 13, 18, 23)])
+```
+
+Now, let's see what `pivot_longer()` does, making a data frame with only
+our Neuroticism items using `select()`.
 
 ```{r}
 #remember to also include our grouping variable "id"
 neuro_long <- china_sum_2 |>
-  dplyr::select(id, starts_with("N_")) |>
+  select(id, starts_with("N_")) |>
   pivot_longer(
     cols = -id,
     names_to = "item",
     values_to = "score"
   )
 
-nrow(neuro_long)
+print(neuro_long[1:20, ])
 ```
 
-```{r, echo=FALSE}
-neuro_long %>%
-  kable("html") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
-  scroll_box(width = "100%", height = "300px")
-```
+Now we have a data frame with 2,016 observations, and the data frame
+looks A LOT different!
 
-Now we have a data frame with 2,016 observations!
-
-To get facet scores, `R` needs to know which items belong to which facet of Neuroticism. We, therefore, need to separate the ending letter from each item into another column using another tidyr function, `separate()`:
+To get facet scores, R needs to know which items belong to which facet
+of Neuroticism. We, therefore, need to separate the ending letter from
+each item into another column using another tidyr function,
+`separate()`:
 
 ```{r}
 facet_long_1 <- neuro_long |>
   separate(col = item,
            into = c("item", "facet"))
+
+print(facet_long_1[1:20, ])
 ```
 
-```{r, echo=FALSE}
-facet_long_1 %>%
-  kable("html") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
-  scroll_box(width = "100%", height = "300px")
-```
+When we do `separate()` here, however, we lose some information, and R
+gives us a warning telling us that this happened. Why is this
+happening?
 
-When we do `separate()` here, however, we lose the item number information, and R gives us a warning telling us that this happened. This is because there are two underscores in the item names that it is picking up on.
-
-To prevent this, we will need to use `separate()` to split them into three columns first, and then we can use `unite()` to join the trait and item number values back together:
+To prevent this, we will need to use `separate()` to split them into three
+columns first, and then we can use `unite()` to join the trait and
+item number values back together:
 
 ```{r}
 facet_long_2 <- neuro_long |>
@@ -398,69 +450,76 @@ facet_long_2 <- neuro_long |>
   unite(col = "item",
         trait, item_number,
         sep = "_")
+
+print(facet_long_2[1:20, ])
 ```
 
-```{r, echo=FALSE}
-facet_long_2 %>%
-  kable("html") %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), full_width = FALSE) %>%
-  scroll_box(width = "100%", height = "300px")
-```
+Now, we can explicitly tell R which items belong to which facet of
+Neuroticism, and we will use this variable to calculate facet-level
+composite scores.
 
-Now, we can explicitly tell `R` which items belong to which facet of Neuroticism, and we will use this variable to calculate facet-level composite scores.
-
-:::puzzle
+::: puzzle
 **You try!**
 
-We want each participant to have 3 composite (average) scores, one for each facet. 
+We want each participant to have 3 composite (average)
+scores, one for each facet.
 
-- What will we need to include in `group_by()` to do this?
+  - What will we need to include in `group_by()` to do this?
+  - What operation within `mutate()` will we use to make the composites?
+  - Show the first 10 rows and all of the columns
 
-- What operation within `mutate()` will we use to make the composites?
+_Hint: Remember when we used `group_by(id)` to get the correct column of
+personality score sums, per person._
 
-*Hint: Remember when we used group_by(id) to get the correct column of personality score sums, per person.*
 :::
 
-```{r, echo=FALSE}
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app6/"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
 
-blogdown::shortcode("learnr",
-                    url = "https://shelly-cooper.shinyapps.io/10-learnr-app3/",
-                    id = "learnr-10-app3")
-
-```
-
-Here, we create the facet composite scores:
-
-```{r, message = FALSE, warning = FALSE}
-(facet_long_3 <- facet_long_2 |>
+```{r, message = FALSE, warning = FALSE, echo=FALSE}
+facet_long_3 <- facet_long_2 |>
   group_by(id, facet) |>
   mutate(
     facet_comp = mean(score, na.rm = TRUE)
-  ) |> ungroup())
+  )
 ```
 
-By using group_by(id, facet), we group by both of these variables to get a composite score of each facet that within each participant's own data. 
+By using `group_by(id, facet)`, we group by both of these variables to get
+a composite score of each facet that within each participant's own data.
 
-We are not done, however, as there is some unnecessary repetition going on in the facet_comp variable; Even though the calculations were done correctly, the facet names are repeating within each person.
+We are not done, however, as there is some unnecessary repetition going
+on in the facet_comp variable. **What repetition is going on?**
 
-We can take the mean of facet_comp, grouping by id and facet, again, which will give us a single score for each facet within each participant:
+We can take the mean of facet_comp, grouping by id and facet, again,
+which will give us a single score for each facet within each
+participant:
 
 ```{r, message = FALSE, warning = FALSE}
-(facet_long_4 <- facet_long_3 |>
+facet_long_4 <- facet_long_3 |>
   group_by(id, facet) |>
   summarise(
     facet_comp = mean(facet_comp, na.rm = TRUE)
-  ) |> ungroup())
+  )
+
+print(facet_long_4[1:10, ])
 ```
 
-The mean() function works here because facet mean values for each person are the same, so when we take the mean of the same numbers, we get that number!
+Why does the `mean()` function work in this way?
 
-Great! Now, we need to move the facets into columns using **pivot_wider()**, which will widen the data frame from the long format we transformed it into.
+Great! Now, we need to move the facets into columns using
+`pivot_wider()`, which will widen the data frame from the long format
+we transformed it into.
 
-Then, we can use mutate() to get participant's overall Neuroticism composite score by getting the mean of the 3 facet means, per person:
+Then, we can use `mutate()` to get participant's overall Neuroticism
+composite score by getting the mean of the 3 facet means, per person:
+
+Change this around
 
 ```{r}
-(composite_final <- facet_long_4 |>
+composite_final <- facet_long_4 |>
   pivot_wider(
     id_cols = id, #specifying the id column that identifies each observation
     names_from = facet,
@@ -469,55 +528,29 @@ Then, we can use mutate() to get participant's overall Neuroticism composite sco
   group_by(id) |>
   mutate(
     Neuro_comp = rowMeans(across(c(a:e)), na.rm = TRUE)
-  ) |> ungroup() |>
+  ) |>
    #we can change the names to be more informative
    rename(
      Anxiety = a,
      Depression = d,
      Volatility = e
-   ))
+   )
+
+print(composite_final[1:10, ])
 ```
 
-Now we have what we want: One row for each participant, and each of their composite scores as columns.
+::: puzzle
+**You try!**
 
-#### Correlations
+How would I `pivot_longer()` this final
+data frame, with the facet columns and trait column together? Call this `long_final`.
 
-Now, we need the outcome variable "number_of_friends" to look at the relationships between Neuroticism and online friends.
+:::
 
-To get a complete and clean data frame, we can bring in the outcome variable from our previous data frame and remove the rows with NA values that will be dropped from the cor.test() operation using **na.omit()**:
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app7/"
+        width="100%" height="800" frameborder="0"
+        style="border-radius: 12px; border: 1px solid #ccc;"
+        scrolling="auto">
+</iframe>
 
-```{r}
-(Neuro_friends <- composite_final |>
-  mutate(
-    number_of_friends = china_sum_2$number_of_friends
-  ) |>
-  na.omit())
-```
-
-We have a nice and clean data frame!
-
-Let's run the correlation:
-
-```{r}
-cor.test(Neuro_friends$Neuro_comp, Neuro_friends$number_of_friends)
-```
-
-Great! We found a positive correlation between Neuroticism and the number of Steam friends: The a higher a person is in Neuroticism, the more online friends they tend to have.
-
-But, to incorporate the facet scores we have made, are their specific facets of Neuroticism that are driving this prediction? In other words, is each facet of Neuroticism related to the number of Steam friends one has, or is it just Depression, for example?
-
-Let us see!
-
-```{r}
-cor.test(Neuro_friends$Anxiety, Neuro_friends$number_of_friends)
-```
-
-```{r}
-cor.test(Neuro_friends$Depression, Neuro_friends$number_of_friends)
-```
-
-```{r}
-cor.test(Neuro_friends$Volatility, Neuro_friends$number_of_friends)
-```
-
-Interesting! As we can see here, Anxiety is unrelated to how many Steam friends one has, but both Depression and Emotional Volatility are positively associated with number of friends to similar degrees. Very cool.
+<small>Massive shout out to the Fall 2025 AI Derek Simon for creating this excellent Practice Set!</small>

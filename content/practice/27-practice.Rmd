@@ -443,4 +443,4 @@ blogdown::shortcode("learnr",
 That's it for this practice -- go forth and sample iteratively!
 
 
-<small>Massive shout out to the Sping 2021 AI Drew McLaughlin for creating this excellent Practice Set!</small>
+<small>Massive shout out to the Spring 2021 AI Drew McLaughlin for creating this excellent Practice Set!</small>

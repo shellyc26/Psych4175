@@ -16,15 +16,14 @@ editor_options:
 shiny: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
   <link rel="stylesheet" href="/slides/css/additionalCols.css" type="text/css" />
 
 <div id="TOC">
 <ul>
-<li><a href="#for-loops">For Loops</a></li>
-<li><a href="#introducing-ifelse-statements">Introducing if/else statements</a></li>
-<li><a href="#using-for-loops-for-bootstrapping">Using <em>for loops</em> for bootstrapping</a></li>
-<li><a href="#using-bootstrapping-for-confidence-intervals">Using bootstrapping for <em>confidence intervals</em></a></li>
+<li><a href="#for-loops" id="toc-for-loops">For Loops</a></li>
+<li><a href="#introducing-ifelse-statements" id="toc-introducing-ifelse-statements">Introducing if/else statements</a></li>
+<li><a href="#using-for-loops-for-bootstrapping" id="toc-using-for-loops-for-bootstrapping">Using <em>for loops</em> for bootstrapping</a></li>
+<li><a href="#using-bootstrapping-for-confidence-intervals" id="toc-using-bootstrapping-for-confidence-intervals">Using bootstrapping for <em>confidence intervals</em></a></li>
 </ul>
 </div>
 
@@ -53,7 +52,7 @@ shiny: true
 <div class="quiz">
 <p><strong>Quick Quiz</strong></p>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-quiz1/" id="learnr-27-quiz1" %}}</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-quiz1/" id="learnr-27-quiz1" %}}
 <p>Most of the time, we want to store the outcome of whatever commands occur during the body of the for loop. In order to do this, we have to <em>initialize</em> an object.</p>
 <div class="quiz">
 <p><strong>Quick Quiz</strong></p>
@@ -66,11 +65,11 @@ for (i in 1:5) {
 }
 
 print(my_object)</code></pre>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-quiz2/" id="learnr-27-quiz2" %}}</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-quiz2/" id="learnr-27-quiz2" %}}
 <div class="puzzle">
 <p><strong>You try!</strong></p>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-app1/" id="learnr-27-app1" %}}</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-app1/" id="learnr-27-app1" %}}
 <center>
 <p><img src="../encouragementFigs/figure-html/rockmeme.jpg" width = "50%"></p>
 </center>
@@ -149,7 +148,7 @@ print(animals_class)</code></pre>
 <li>Scores of 7-10 correspond to “like”</li>
 </ul>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-app2/" id="learnr-27-app2" %}}</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-app2/" id="learnr-27-app2" %}}
 <center>
 <p><img src="../encouragementFigs/figure-html/matrixmeme.jpeg" width = "50%"></p>
 </center>
@@ -267,7 +266,7 @@ ggarrange(plot1, plot2, plot3)</code></pre>
 <div class="quiz">
 <p><strong>Quick Quiz</strong></p>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-quiz3/" id="learnr-27-quiz3" %}}</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-quiz3/" id="learnr-27-quiz3" %}}
 <p>OK based on the quiz above, we need to carry out our sampling procedure a large number of times. That’s exactly what we are doing with bootstrapping! So now all we need to do is get the upper and lower 2.5% quantiles and we have our confidence intervals. The real kicker is that you need to bootstrap your statistic, and then find the quantiles to align with your confidence intervals.</p>
 <div class="puzzle">
 <p><strong>You try!</strong></p>
@@ -280,7 +279,7 @@ ggarrange(plot1, plot2, plot3)</code></pre>
 <li>Add in <code>quantile</code>s to get the upper and lower 2.5% aka our confidence intervals around the difference in means</li>
 </ul>
 </div>
-<p>{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-app3/" id="learnr-27-app3" %}}</p>
+{{% learnr url="https://shelly-cooper.shinyapps.io/27-learnr-app3/" id="learnr-27-app3" %}}
 <p>That’s it for this practice – go forth and sample iteratively!</p>
-<p><small>Massive shout out to the Sping 2021 AI Drew McLaughlin for creating this excellent Practice Set!</small></p>
+<p><small>Massive shout out to the Spring 2021 AI Drew McLaughlin for creating this excellent Practice Set!</small></p>
 </div>
