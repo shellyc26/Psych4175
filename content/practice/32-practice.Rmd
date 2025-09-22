@@ -236,7 +236,7 @@ china_sum_1 <- steam_china |>
     Open_sum = sum(across(starts_with("O_")), na.rm = TRUE)
   )
 
-kable(china_sum_1[c(1:10), c(73:77)])
+kable(china_sum_1[c(1:10), c(1, 73:77)])
 ```
 
 In this new data frame, we successfully summed across the proper items, but the sum we get is MUCH larger than we would expect, and it is the same for *every* participant. We want to get the sum for *each* participant, not the total across *all* participants.
@@ -255,7 +255,7 @@ china_sum_2 <- steam_china |>
   ) |>
   ungroup()
 
-kable(china_sum_2[c(1:10), c(73:77)])
+kable(china_sum_2[c(1:10), c(1, 73:77)])
 ```
 
 By using `group_by()`, we are specifying that the `mutate()` command will occur for each participant, separately. The result is 5 different columns with sums that correspond with each participant's item data.

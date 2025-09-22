@@ -182,10 +182,11 @@ correct number of participants.</p>
     Open_sum = sum(across(starts_with(&quot;O_&quot;)), na.rm = TRUE)
   )
 
-kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
+kable(china_sum_1[c(1:10), c(1, 73:77)])</code></pre>
 <table>
 <thead>
 <tr class="header">
+<th align="right">id</th>
 <th align="right">Extra_sum</th>
 <th align="right">Agre_sum</th>
 <th align="right">Cons_sum</th>
@@ -195,6 +196,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
+<td align="right">1</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -202,6 +204,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="even">
+<td align="right">2</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -209,6 +212,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="odd">
+<td align="right">3</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -216,6 +220,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="even">
+<td align="right">4</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -223,6 +228,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="odd">
+<td align="right">5</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -230,6 +236,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="even">
+<td align="right">6</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -237,6 +244,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="odd">
+<td align="right">7</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -244,6 +252,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="even">
+<td align="right">8</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -251,6 +260,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="odd">
+<td align="right">9</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -258,6 +268,7 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
 <td align="right">7127</td>
 </tr>
 <tr class="even">
+<td align="right">10</td>
 <td align="right">5789</td>
 <td align="right">7200</td>
 <td align="right">6614</td>
@@ -279,10 +290,11 @@ kable(china_sum_1[c(1:10), c(73:77)])</code></pre>
   ) |&gt;
   ungroup()
 
-kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
+kable(china_sum_2[c(1:10), c(1, 73:77)])</code></pre>
 <table>
 <thead>
 <tr class="header">
+<th align="right">id</th>
 <th align="right">Extra_sum</th>
 <th align="right">Agre_sum</th>
 <th align="right">Cons_sum</th>
@@ -292,6 +304,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
+<td align="right">1</td>
 <td align="right">52</td>
 <td align="right">60</td>
 <td align="right">60</td>
@@ -299,6 +312,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">60</td>
 </tr>
 <tr class="even">
+<td align="right">2</td>
 <td align="right">36</td>
 <td align="right">38</td>
 <td align="right">39</td>
@@ -306,6 +320,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">37</td>
 </tr>
 <tr class="odd">
+<td align="right">3</td>
 <td align="right">38</td>
 <td align="right">44</td>
 <td align="right">46</td>
@@ -313,6 +328,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">29</td>
 </tr>
 <tr class="even">
+<td align="right">4</td>
 <td align="right">36</td>
 <td align="right">46</td>
 <td align="right">41</td>
@@ -320,6 +336,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">38</td>
 </tr>
 <tr class="odd">
+<td align="right">5</td>
 <td align="right">28</td>
 <td align="right">46</td>
 <td align="right">45</td>
@@ -327,6 +344,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">40</td>
 </tr>
 <tr class="even">
+<td align="right">6</td>
 <td align="right">26</td>
 <td align="right">32</td>
 <td align="right">39</td>
@@ -334,6 +352,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">52</td>
 </tr>
 <tr class="odd">
+<td align="right">7</td>
 <td align="right">38</td>
 <td align="right">41</td>
 <td align="right">57</td>
@@ -341,6 +360,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">41</td>
 </tr>
 <tr class="even">
+<td align="right">8</td>
 <td align="right">42</td>
 <td align="right">40</td>
 <td align="right">38</td>
@@ -348,6 +368,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">38</td>
 </tr>
 <tr class="odd">
+<td align="right">9</td>
 <td align="right">31</td>
 <td align="right">45</td>
 <td align="right">19</td>
@@ -355,6 +376,7 @@ kable(china_sum_2[c(1:10), c(73:77)])</code></pre>
 <td align="right">57</td>
 </tr>
 <tr class="even">
+<td align="right">10</td>
 <td align="right">38</td>
 <td align="right">41</td>
 <td align="right">41</td>
