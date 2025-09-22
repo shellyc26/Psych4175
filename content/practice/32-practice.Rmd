@@ -81,24 +81,6 @@ steam_hw <- read_csv(steam_hw_URL) |>
   select(-1)
 ```
 
-#### Filtering the data
-
-Since this data was collected from a Chinese institution, I may be
-interested in looking at the gaming behavior of *only* Chinese
-participants.
-
-To make sure I am only making inferences on Chinese participants, we
-would need to filter() participants who are only from China.
-
-We can quickly view the contents of *only* the **country** column by
-using the `select()` function.
-
-```{r}
-steam_hw |>
-  select(country) |>
-  print()
-```
-
 ::: puzzle
 **You try!**
 
@@ -117,6 +99,24 @@ to remove them from the data set, and I can do that using `filter()`.
 ```{r}
 steam_china_1 <- steam_hw |>
   filter(country == "china")
+```
+
+#### Filtering the data
+
+Since this data was collected from a Chinese institution, I may be
+interested in looking at the gaming behavior of *only* Chinese
+participants.
+
+To make sure I am only making inferences on Chinese participants, we
+would need to filter() participants who are only from China.
+
+We can quickly view the contents of *only* the **country** column by
+using the `select()` function.
+
+```{r}
+steam_hw |>
+  select(country) |>
+  print()
 ```
 
 ::: puzzle

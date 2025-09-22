@@ -69,6 +69,16 @@ using the <code>select()</code> function.</p>
 <p><strong>Hint</strong></p>
 <p>Remember from the lecture that <code>select()</code> can not only be used to choose
 which columns you want to keep, but also ones you want to get rid of:</p>
+<div class="puzzle">
+<p><strong>You try!</strong></p>
+<p>What is the code for viewing the age column?</p>
+</div>
+<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app2" width="100%" height="800" frameborder="0" style="border-radius: 12px; border: 1px solid #ccc;" scrolling="auto">
+</iframe>
+<p>We can see here that there are <strong>3</strong> participants not from China. I want
+to remove them from the data set, and I can do that using <code>filter()</code>.</p>
+<pre class="r"><code>steam_china_1 &lt;- steam_hw |&gt;
+  filter(country == &quot;china&quot;)</code></pre>
 </div>
 <div id="filtering-the-data" class="section level4">
 <h4>Filtering the data</h4>
@@ -96,16 +106,6 @@ using the <code>select()</code> function.</p>
 ##  9 china  
 ## 10 china  
 ## # ℹ 161 more rows</code></pre>
-<div class="puzzle">
-<p><strong>You try!</strong></p>
-<p>What is the code for viewing the age column?</p>
-</div>
-<iframe src="https://shelly-cooper.shinyapps.io/32-learnr-app2" width="100%" height="800" frameborder="0" style="border-radius: 12px; border: 1px solid #ccc;" scrolling="auto">
-</iframe>
-<p>We can see here that there are <strong>3</strong> participants not from China. I want
-to remove them from the data set, and I can do that using <code>filter()</code>.</p>
-<pre class="r"><code>steam_china_1 &lt;- steam_hw |&gt;
-  filter(country == &quot;china&quot;)</code></pre>
 <div class="puzzle">
 <p><strong>You try!</strong></p>
 <p>What if I wanted to have a data frame with only people from Guatemala? Store this as an object called <code>steam_guatemala</code>.</p>
