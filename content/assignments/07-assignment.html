@@ -1,9 +1,9 @@
 ---
-title: "Assignment 7"
-linktitle: "# 7"
+title: "Assignment 6"
+linktitle: "# 6"
 date: "6/16/2020"
-due_date: "2024-10-28"
-due_time: "11:30am"
+due_date: "2025-10-20"
+due_time: "8:30am"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
@@ -30,17 +30,30 @@ editor_options:
 </ul>
 <p>You must use the <code>ggplot2</code> package and syntax for all plotting. No plots in <code>base R</code>.</p>
 </div>
+<div id="descriptive-statistics" class="section level2">
+<h2>Descriptive Statistics</h2>
+<p>Revisit Assignment 1, especially the <code>Results: Summary Statistics - Part 2</code> section. After reviewing that, do the following.</p>
+<div class="list">
+<p>Here’s your to-do list:</p>
+<ul>
+<li>Get the mean, median, and standard deviation of 3 numeric variables in your dataset, but get these for each level of the categorical variable you chose in Assignment 1. That is, if your categorical variable was “treatment group”, you need the mean, median, and standard deviation for those that were in the “control” group and those that were in the “treatment” group. Now that you know more about using R, complete this task in any way <em>except</em> the way you did in Assignment 1. That is, do NOT use indexing and logical vectors.</li>
+<li>Take those same 3 numeric variables and z-score them. Then make a density plot that has the distribution for all 3 variables overlaid and a figure legend telling you which variable each color represents. You do <em>not</em> need to plot each distribution per level of your categorical variable.</li>
+<li>Describe why it makes sense z-scored the 3 variables before plotting.</li>
+</ul>
+</div>
+<p><strong>Hint:</strong> For the second bullet point, think carefully about whether the data should be in the long form or wide form before plotting.</p>
+</div>
 <div id="hypothesis-testing" class="section level2">
 <h2>Hypothesis Testing</h2>
 <div class="list">
 <p>Here’s your to-do list:</p>
 <ul>
-<li>Conduct 3 hypothesis tests from your dataset. Choose any statistical tests that come from the <code>Comparing Means</code> lecture. For each of the 3 tests you need to:
+<li>Conduct 2 hypothesis tests from your dataset. Choose any statistical tests that come from the <code>Comparing Means</code> lecture. For each of the 2 tests you need to:
 <ul>
 <li>Give a rationale for why you’re looking at this (does it theoretically make sense?; one sentence is OK)</li>
 <li>State your null and alternative hypotheses</li>
 <li>Have a code chunk running the test and printing out the results</li>
-<li>Make a plot that shows the effect for each of your 3 tests</li>
+<li>Make a plot that shows the effect for each of your 2 tests</li>
 <li>For each test, you must also provide either a confidence interval or a measure of effect size</li>
 <li>Write 2-5 sentences per test interpreting the results including interpreting the <span class="math inline">\(p\)</span>-value, confidence intervals/effect sizes, graph, and how it fits in to your hypotheses.</li>
 </ul></li>
