@@ -2,8 +2,8 @@
 title: "Assignment 7"
 linktitle: "# 7"
 date: "6/16/2020"
-due_date: "2024-10-28"
-due_time: "11:30am"
+due_date: "2025-10-27"
+due_time: "8:30am"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
@@ -40,22 +40,27 @@ editor_options:
 <ul>
 <li><code>cor</code></li>
 <li><code>cor.test</code></li>
-<li><code>corr.test</code> (from <code>psych</code> package)</li>
+<li><code>corr.test</code> (from the <code>psych</code> package)</li>
 </ul></li>
 <li>Write a sentence or two about which of the above functions you like best and explain why</li>
-<li>Make 2 scatter plots of your data with a best fit line indicating the correlation. In the first scatter plot use the raw data. In the second scatter plot, use standardized variables. Write a sentence describing if the line is the same or if it’s different, and explain why this is the case.</li>
+<li>Make 2 scatter plots of your data with a best fit line indicating the correlation. In the first scatter plot use the raw data. In the second scatter plot, use the same variables but standardized (z-score) them. Write a sentence describing if the line is the same or if it’s different, and explain why this is the case.</li>
 </ul>
 </div>
 </div>
 <div id="its-all-regression" class="section level2">
 <h2>It’s All Regression</h2>
-<p>For this exercise you will need 2 continuous variables and 2 categorical variables. One of your categorical variables should have 3 or more levels. One of the continuous variables will be your OUTCOME measure (or your <span class="math inline">\(Y\)</span> variable). Please use this same variable as the outcome for all of the analyses described below.</p>
+<p>For this exercise you will need:</p>
+<ul>
+<li>2 continuous variables and 2 categorical variables</li>
+<li>One of your categorical variables should have 3 or more levels</li>
+<li>One of the continuous variables will be your OUTCOME measure (or your <span class="math inline">\(Y\)</span> variable). Please use this same variable as the outcome for all of the analyses described below.</li>
+</ul>
 <div class="list">
 <p>Here’s your to-do list:</p>
 <ul>
 <li>Get the correlation between your outcome variable and your second continuous variable. Store this as an object. Next, run a simple linear regression with these two variables. Lastly, re-run your simple linear regression with the same variables, but now standardized (z-scored). Print the output for all 3 analyses and write 2-3 sentences explaining what you find. What’s the same and what’s different?</li>
-<li>Run a oneway ANOVA with your categorical variable that has 3 or more levels and your outcome variable. Now re-run that same model but as a regression instead. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Be sure to interpret the coefficients <em>and</em> the overall model (omnibus test).</li>
-<li>Now run an ANOVA with both of your categorical variables predicting your outcome variable. Then re-run that same model as a regression. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Be sure to interpret the coefficients <em>and</em> the overall model (omnibus test).</li>
+<li>Run a oneway ANOVA with your categorical variable that has 3 or more levels and your outcome variable. Now re-run that same model but as a regression instead. Write 2-3 sentences interpreting your models and again describing what is the same and what is different. Do your best to interpret each regression coefficient <em>and</em> the overall model (omnibus test).</li>
+<li>Now run an ANOVA with both of your categorical variables predicting your outcome variable. Then re-run that same model as a regression. Write 2-3 sentences interpreting your models and again describing what is the same and what is different.</li>
 </ul>
 </div>
 <div id="boom" class="section level3">
