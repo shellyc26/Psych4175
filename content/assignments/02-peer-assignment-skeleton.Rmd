@@ -200,7 +200,7 @@ The name of the function should be `autoPlotting` for automatic plotting. There 
 
 ```
 
-In the following empty code chunk, run your `autoPlot` function for the following:
+In the following empty code chunk, run your `autoPlotting` function for the following:
 
 1. `Sepal.Length` vs. `Sepal.Width` of the `iris` data.frame
 2. `mpg` vs. `hp` of the `mtcars` data.frame
