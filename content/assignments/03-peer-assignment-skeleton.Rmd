@@ -83,7 +83,7 @@ Once you've done this, look at your dataset (no need to print it). Just get a se
 - Add random noise to every value in the last variable in your duplicated dataset.
 - Now get the correlation of this duplicated dataset. Print this out. 
 
-You should be able to show your students that if you add in random noise (which is the same as adding in measurement error), the correlation changes substantially. Thus, it's important to measure your variables as best as possible (aka no MRIs during earthquakes etc.).
+You should be able to show your students that if you add in random noise (which is the same as adding in measurement error), the correlation changes substantially. Thus, it's important to measure your variables as best as possible.
 
 
 ```{r}
