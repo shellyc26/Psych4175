@@ -2,8 +2,8 @@
 title: "Assignment 1"
 linktitle: "# 1"
 date: "6/16/2020"
-due_date: "2025-09-15"
-due_time: "8:30am"
+due_date: "2026-09-09"
+due_time: "11:30am"
 output:
   blogdown::html_page:
     css: "/slides/css/additionalCols.css"
@@ -32,7 +32,7 @@ Here's your to-do list:
   
   - In 1-2 sentences, describe your dataset. No need for a ton of detail, just generally, what's in it.
   
-  - *Using code*, find the object class of the first 5 column vectors of your data set. Then find the object class of the entire data set. Describe if these make sense, or are there any that were unexpected? If they were unexpected, why? 
+  - *Using code*, find the object class of the first 5 column vectors of your data set. Then find the object class of the entire data set (not each individual variable). Describe if these make sense, or are there any that were unexpected? If they were unexpected, why? 
   
   - Check out your variables that are text strings or characters. Do you want them to remain this way, or do you want to convert them into categorical variables, called *factors*? If they should be treated as categorical variables, please do so using the `factor()` function.
 :::
@@ -68,7 +68,7 @@ Another thing we check in the Results section of a paper is whether our variable
 :::list
 Here's your to-do list:
 
-  - Make a smaller datasets that only contain items from each level of your categorical variable. For example, let's say the factor "treatment_group" had 2 levels: `treatment` and `control`. Make a new data.frame that is something like `data_treatment` and another new data.frame that is `data_controls`. Do this via INDEXING and LOGICAL OPERATORS. See hints below for an example what is meant by a smaller dataset.
+  - Make smaller datasets that only contain items from each level of your categorical variable. For example, let's say the factor "treatment_group" had 2 levels: `treatment` and `control`. Make a new data.frame that is something like `data_treatment` and another new data.frame that is `data_controls`. Do this via INDEXING and LOGICAL OPERATORS. See hints below for an example what is meant by a smaller dataset.
   
   - One thing you might notice is that when you make your new mini data.frames, if you look at the factor variable, it still has the original number of levels from the bigger data.frame -- even though the other levels are not in there. Overwrite that variable to be a factor again (same thing as in the Data Cleaning section above). After you should have only 1 level (ex: all treatment or all controls).
   
