@@ -17,9 +17,15 @@ output:
 
 ## Who are we?
 
-Instructor: **Shelly Cooper, PhD (she/her)** [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu).
+Instructor: **Shelly Cooper, PhD (she/her)** [shelly.cooper@wustl.edu](mailto:shelly.cooper@wustl.edu)
+<br>
+Office Hours: Mondays 1-2pm
+<br>
+Schedule an appointment with me on [Calendly](https://calendly.com/shelly-cooper/30min)
 
-Assistant to the Instructor: **Jasmine Moon (she/her)** [jasmine.moon@wustl.edu](mailto:jasmine.moon@wustl.edu).
+Assistant to the Instructor: **Jasmine Moon (she/her)** [jasmine.moon@wustl.edu](mailto:jasmine.moon@wustl.edu)
+<br>
+Office Hours: By appointment
 
 ## Course Description from Workday
 This course is designed to introduce `R` as both a means of applied statistical analysis as well as a window into data organization and programming. The goal of the course is to teach the tools needed to take a raw dataset and not only perform a statistical test in `R`, but also to learn how to arrange the dataset to perform a variety of tests, to choose the appropriate test, and to visualize the results. Students will gain practical knowledge of how to use statistics in research. Please note that this is an introductory course and knowledge of `R` prior to enrollment is not expected. PREREQ: Psych 300/ 3000
